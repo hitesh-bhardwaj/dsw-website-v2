@@ -9,20 +9,20 @@ export default function Reliability() {
                         Reliable AI as a <br /> Core Enterprise System
                     </h2>
                     <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-                        Runtime governance isn't an afterthought—it's baked into the execution layer. Ensure performance, security, and compliance scale with your workload.
+                        Runtime governance isn&apos;t an afterthought—it&apos;s baked into the execution layer. Ensure performance, security, and compliance scale with your workload.
                     </p>
 
                     <ul className="space-y-4">
                         {['Real-time Compliance Checks', 'Zero-Latency Governance', 'Resource Optimization'].map((item, i) => (
                             <li key={i} className="flex items-center gap-3 text-white">
-                                <div className="w-2 h-2 rounded-full bg-[var(--accent)]" />
+                                <div className="w-2 h-2 rounded-full bg-(--accent)" />
                                 {item}
                             </li>
                         ))}
                     </ul>
                 </div>
 
-                <div className="relative h-[500px] w-full flex items-center justify-center">
+                <div className="relative h-125 w-full flex items-center justify-center">
                     <Image
                         src="/reliability.png"
                         alt="Reliability Diagram"

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Navbar() {
     return (
-        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-[70px] bg-white/[0.22]">
+        <nav className="fixed top-0 left-0 right-0 z-50 backdrop-blur-[70px] bg-white/22">
             <div className="relative flex items-center justify-between h-[5vw] px-[1.25vw]">
                 {/* Logo */}
                 <div className="absolute left-[3.91vw] flex items-center">

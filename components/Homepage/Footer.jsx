@@ -17,36 +17,36 @@ export default function Footer() {
                     <div>
                         <h4 className="font-bold text-white mb-4">Product</h4>
                         <ul className="space-y-2 text-gray-500">
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Features</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Solutions</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Pricing</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Pilot Program</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Features</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Solutions</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Pricing</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Pilot Program</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-white mb-4">Company</h4>
                         <ul className="space-y-2 text-gray-500">
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">About Us</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Careers</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Contact</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">About Us</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Careers</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Contact</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-white mb-4">Resources</h4>
                         <ul className="space-y-2 text-gray-500">
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Blog</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Documentation</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Whitepapers</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Blog</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Documentation</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Whitepapers</Link></li>
                         </ul>
                     </div>
 
                     <div>
                         <h4 className="font-bold text-white mb-4">Legal</h4>
                         <ul className="space-y-2 text-gray-500">
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="#" className="hover:text-[var(--accent)] transition-colors">Terms of Service</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Privacy Policy</Link></li>
+                            <li><Link href="#" className="hover:text-(--accent) transition-colors">Terms of Service</Link></li>
                         </ul>
                     </div>
                 </div>

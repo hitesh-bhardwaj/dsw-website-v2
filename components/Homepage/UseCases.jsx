@@ -31,8 +31,8 @@ export default function UseCases() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {cases.map((c, i) => (
-                        <div key={i} className="p-8 rounded-2xl bg-[#0F0F0F] border border-white/5 hover:border-[var(--accent)]/30 transition-colors group">
-                            <div className="text-sm font-bold text-[var(--accent)] mb-3 uppercase tracking-wider">
+                        <div key={i} className="p-8 rounded-2xl bg-[#0F0F0F] border border-white/5 hover:border-(--accent)/30 transition-colors group">
+                            <div className="text-sm font-bold text-(--accent) mb-3 uppercase tracking-wider">
                                 {c.sector}
                             </div>
                             <h3 className="text-2xl font-bold text-white mb-4">
