@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import PrimaryButton from './PrimaryButton';
+import PrimaryButton from '../Buttons/PrimaryButton';
+// import PrimaryButton from './PrimaryButton';
 
 export default function Navbar() {
     return (
