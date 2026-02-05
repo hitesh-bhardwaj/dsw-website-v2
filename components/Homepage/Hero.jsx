@@ -6,7 +6,7 @@ export default function Hero() {
             {/* Background Glows */}
 
             <div className="container px-4 mx-auto flex flex-col items-center gap-8 z-10">
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter max-w-5xl mx-auto leading-[1.1]">
+                <h1 className="text-110 font-light">
                     The Enterprise AI <br className="hidden md:block" /> Operating System
                 </h1>
 

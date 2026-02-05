@@ -3,8 +3,10 @@
 :root {
   --background: #ffffff;
   --foreground: #111111;
-  --primary: #F16B0D;
-  --secondary: #E61216;
+  --primary: #f16b0d;
+  --secondary: #e61216;
+  --text-110: 5.5vw;
+  --text-56:3.5vw;
 }
 
 @theme inline {
@@ -14,6 +16,10 @@
   --color-secondary: var(--secondary);
   --font-sans: var(--font-aspekta);
   --font-heading: var(--font-neue-montreal);
+  --text-110: var(--text-110);
+  --text-110--line-height: 1.1;
+  --text-56: var(--text-56);
+  --text-56--line-height: 1.1;
 }
 
 body {

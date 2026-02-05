@@ -23,27 +23,13 @@ export default function FeatureGrid() {
     ];
 
     return (
-        <section className="py-24 bg-black relative border-b border-white/5">
-            <div className="container mx-auto px-6">
-                <h2 className="text-3xl md:text-5xl font-bold text-white mb-16 text-center tracking-tight">
+        <section className="w-full py-[7%]" id="feature-grid">
+            <div className=" w-full flex flex-col justify-between items-center">
+                <h2 className="text-56">
                     Why AI Struggles in Production
                 </h2>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    {features.map((f) => (
-                        <div key={f.id} className="group p-8 rounded-3xl border border-white/5 bg-white/[0.02] hover:bg-white/[0.05] hover:border-white/10 transition-all duration-300">
-                            <div className="text-5xl font-bold text-white/10 mb-6 group-hover:text-[var(--accent)] transition-colors font-mono">
-                                {f.id}
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-4">
-                                {f.title}
-                            </h3>
-                            <p className="text-gray-400 leading-relaxed text-sm">
-                                {f.description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+    
             </div>
         </section>
     );
