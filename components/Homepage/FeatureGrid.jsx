@@ -29,7 +29,21 @@ export default function FeatureGrid() {
                     Why AI Struggles in Production
                 </h2>
 
-    
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    {features.map((f) => (
+                        <div key={f.id} className="group p-8 rounded-3xl border border-white/5 bg-white/2 hover:bg-white/5 hover:border-white/10 transition-all duration-300">
+                            <div className="text-5xl font-bold text-white/10 mb-6 group-hover:text-(--accent) transition-colors font-mono">
+                                {f.id}
+                            </div>
+                            <h3 className="text-xl font-bold text-white mb-4">
+                                {f.title}
+                            </h3>
+                            <p className="text-gray-400 leading-relaxed text-sm">
+                                {f.description}
+                            </p>
+                        </div>
+                    ))}
+                </div>
             </div>
         </section>
     );
