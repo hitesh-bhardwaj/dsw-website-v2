@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import HeroBg from './Homepage/HeroBg';
+// import HeroBg from './Homepage/HeroBg';
 
 export default function FooterNew() {
     const socialLinks = [
@@ -29,6 +30,7 @@ export default function FooterNew() {
 
     return (
         <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden">
+        {/* <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden"> */}
             {/* Background Gradient */}
             <div className='w-screen h-full'>
 

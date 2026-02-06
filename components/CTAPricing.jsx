@@ -1,48 +1,333 @@
-import Link from 'next/link';
+"use client"
+import PrimaryButton from './Buttons/PrimaryButton';
+import { useRef , useEffect } from 'react';
+import gsap from 'gsap';
+import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+
+gsap.registerPlugin(MotionPathPlugin);
 
 export default function CTAPricing() {
     return (
-        <section className="relative w-full bg-white py-[15.63vw] px-[3.91vw] overflow-hidden">
+        <section className="relative w-full h-screen bg-white pt-[5vw] px-[3.91vw] overflow-hidden mb-[-5vw]">
             {/* Decorative Lines Background - Simplified */}
-            <div className="absolute inset-0 opacity-20">
-                <svg className="w-full h-full" viewBox="0 0 1920 800" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    {/* Left curved lines */}
-                    <path d="M0 400 Q480 200, 860 400" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-                    <path d="M0 450 Q480 600, 860 400" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-
-                    {/* Right curved lines */}
-                    <path d="M1920 400 Q1440 200, 1060 400" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-                    <path d="M1920 450 Q1440 600, 1060 400" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-
-                    {/* Top lines */}
-                    <path d="M960 100 Q720 250, 480 200" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-                    <path d="M960 100 Q1200 250, 1440 200" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-
-                    {/* Bottom lines */}
-                    <path d="M960 700 Q720 550, 480 600" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-                    <path d="M960 700 Q1200 550, 1440 600" stroke="#0205fa" strokeWidth="1" strokeDasharray="4 4" />
-                </svg>
+            <div className="absolute inset-0">
+               <Background/>
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center">
+            <div className="relative z-10 text-center space-y-[11vw]">
                 {/* Heading */}
-                <h2 className="text-[4.31vw] font-heading leading-normal tracking-[0.086vw] text-[#1d1d1d] mb-[8.33vw]">
+                <h2 className="text-[4.5vw] font-heading leading-[1.2] tracking-[0.086vw] text-[#0A1B4B] ">
                     One Subscription,<br />
                     <span className="font-medium">Unlimited Scale.</span>
                 </h2>
+                <div>
+                    <PrimaryButton href="#" text={"Discuss Pricing"}/>
 
-                {/* CTA Button */}
-                <Link
-                    href="#pricing"
-                    className="inline-flex items-center justify-center px-[1.56vw] py-[1.04vw] rounded-full text-[#e8e8e8] text-[1.15vw] font-heading font-medium tracking-[0.023vw] leading-normal transition-all hover:opacity-90"
-                    style={{
-                        backgroundImage: "linear-gradient(116.447deg, rgb(241, 107, 13) 7.1952%, rgb(230, 18, 22) 92.805%)"
-                    }}
-                >
-                    Discuss Pricing
-                </Link>
+                </div>
             </div>
         </section>
     );
 }
+
+
+const Background = () => {
+    const svgRef = useRef(null);
+
+    // useEffect(() => {
+    //     if (!svgRef.current) return;
+
+    //     const tl = gsap.timeline({ repeat: -1 });
+
+    //     // Animate right center dollar sign along center horizontal path
+    //     tl.fromTo('#right-center-group', 
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-right-center",
+    //                 align: "#path-right-center",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 1,
+    //                 end: 0.5
+    //             },
+    //             opacity: 0
+    //         },
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-right-center",
+    //                 align: "#path-right-center",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 1,
+    //                 end: 0.5
+    //             },
+    //             opacity: 1,
+    //             duration: 3,
+    //             ease: "power2.inOut"
+    //         },
+    //         0
+    //     );
+
+    //     // Animate left top dollar sign along top curved path
+    //     tl.fromTo('#left-top-group', 
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-left-top",
+    //                 align: "#path-left-top",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 0
+    //         },
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-left-top",
+    //                 align: "#path-left-top",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 1,
+    //             duration: 3,
+    //             ease: "power2.inOut"
+    //         },
+    //         0
+    //     );
+
+    //     // Animate left bottom element along bottom curved path
+    //     tl.fromTo('#left-bottom-group', 
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-left-bottom",
+    //                 align: "#path-left-bottom",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 0
+    //         },
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-left-bottom",
+    //                 align: "#path-left-bottom",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 1,
+    //             duration: 3,
+    //             ease: "power2.inOut"
+    //         },
+    //         0
+    //     );
+
+    //     // Animate right top element along top curved path
+    //     tl.fromTo('#right-top-group', 
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-right-top",
+    //                 align: "#path-right-top",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 0
+    //         },
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-right-top",
+    //                 align: "#path-right-top",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 1,
+    //             duration: 3,
+    //             ease: "power2.inOut"
+    //         },
+    //         0
+    //     );
+
+    //     // Animate right bottom element along bottom curved path
+    //     tl.fromTo('#right-bottom-group', 
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-right-bottom",
+    //                 align: "#path-right-bottom",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 0
+    //         },
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-right-bottom",
+    //                 align: "#path-right-bottom",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 1,
+    //             duration: 3,
+    //             ease: "power2.inOut"
+    //         },
+    //         0
+    //     );
+
+    //     // Animate left center copyright along center horizontal path
+    //     tl.fromTo('#left-center-group', 
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-left-center",
+    //                 align: "#path-left-center",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 0
+    //         },
+    //         { 
+    //             motionPath: {
+    //                 path: "#path-left-center",
+    //                 align: "#path-left-center",
+    //                 alignOrigin: [0.5, 0.5],
+    //                 start: 0,
+    //                 end: 0.5
+    //             },
+    //             opacity: 1,
+    //             duration: 3,
+    //             ease: "power2.inOut"
+    //         },
+    //         0
+    //     );
+
+    //     // Fade out all groups before loop
+    //     tl.to([
+    //         '#right-center-group', 
+    //         '#left-top-group', 
+    //         '#left-bottom-group', 
+    //         '#right-top-group', 
+    //         '#right-bottom-group',
+    //         '#left-center-group'
+    //     ], {
+    //         opacity: 0,
+    //         duration: 1,
+    //         ease: "power2.in"
+    //     }, 3.5);
+
+    //     return () => {
+    //         tl.kill();
+    //     };
+    // }, []);
+
+    return (
+        <>
+            <svg 
+                ref={svgRef}
+                className='h-full w-full' 
+                width="2410" 
+                height="679" 
+                viewBox="0 0 2410 679" 
+                fill="none" 
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                {/* Gray paths with IDs for motion path */}
+                <path id="path-left-bottom" d="M1204.58 340.986H1070.4C586.776 340.986 678.553 664.046 93.66 664.046H0" stroke="#999999" strokeWidth="1.338"/>
+                <path id="path-left-top" d="M0 17.9257H93.66C693.025 17.9257 587.224 340.986 1070.4 340.986H1204.58" stroke="#999999" strokeWidth="1.338"/>
+                <path id="path-right-top" d="M2409.58 17.9257H2315.92C1716.55 17.9257 1822.35 340.986 1339.18 340.986H1205" stroke="#999999" strokeWidth="1.338"/>
+                <path id="path-right-bottom" d="M1205 340.986H1339.18C1822.8 340.986 1731.02 664.046 2315.92 664.046H2409.58" stroke="#999999" strokeWidth="1.338"/>
+                <path id="path-left-center" d="M0 340.986H1070.4H1204.58" stroke="#999999" strokeWidth="1.338"/>
+                <path id="path-right-center" d="M2409.16 340.986H1338.76H1204.58" stroke="#999999" strokeWidth="1.338"/>
+                <path d="M2409.16 502.148H2315.5C1806.3 502.148 1806.3 340.986 1338.76 340.986H1204.58" stroke="#999999" strokeWidth="1.338" strokeDasharray="1.34 6.69"/>
+                <path d="M2409.16 179.824H2315.5C1806.3 179.824 1806.3 340.986 1338.76 340.986H1204.58" stroke="#999999" strokeWidth="1.338" strokeDasharray="1.34 6.69"/>
+                <path d="M0 502.148H93.66C583.813 502.148 583.813 340.986 1070.4 340.986H1204.58" stroke="#999999" strokeWidth="1.338" strokeDasharray="1.34 6.69"/>
+                <path d="M0 179.824H93.66C583.813 179.824 583.813 340.986 1070.4 340.986H1204.58" stroke="#999999" strokeWidth="1.338" strokeDasharray="1.34 6.69"/>
+                
+                {/* Right center dollar sign group */}
+                <g id="right-center-group">
+                    <path d="M2294.14 324.486V356.192M2302.07 333.734C2302.07 330.088 2298.52 327.128 2294.14 327.128C2289.77 327.128 2286.22 330.088 2286.22 333.734C2286.22 337.38 2289.77 340.339 2294.14 340.339C2298.52 340.339 2302.07 343.299 2302.07 346.945C2302.07 350.591 2298.52 353.55 2294.14 353.55C2289.77 353.55 2286.22 350.591 2286.22 346.945" stroke="#002AFF" strokeWidth="3.96327" strokeLinecap="round"/>
+                    <path d="M2319.74 340.247C2319.74 343.63 2319.07 346.98 2317.78 350.106C2316.48 353.231 2314.59 356.071 2312.19 358.463C2309.8 360.856 2306.96 362.753 2303.84 364.048C2300.71 365.342 2297.36 366.009 2293.98 366.009C2290.6 366.009 2287.25 365.342 2284.12 364.048C2281 362.753 2278.16 360.856 2275.76 358.463C2273.37 356.071 2271.47 353.231 2270.18 350.106C2268.88 346.98 2268.22 343.63 2268.22 340.247C2268.22 333.415 2270.93 326.863 2275.76 322.032C2280.59 317.2 2287.15 314.486 2293.98 314.486C2300.81 314.486 2307.36 317.2 2312.19 322.032C2317.03 326.863 2319.74 333.415 2319.74 340.247Z" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
+                
+                {/* Left top dollar sign group */}
+                <g id="left-top-group">
+                    <path d="M259.144 11.4862V43.1924M267.071 20.7339C267.071 17.0876 263.522 14.1284 259.144 14.1284C254.766 14.1284 251.218 17.0876 251.218 20.7339C251.218 24.3801 254.766 27.3393 259.144 27.3393C263.522 27.3393 267.071 30.2985 267.071 33.9448C267.071 37.591 263.522 40.5502 259.144 40.5502C254.766 40.5502 251.218 37.591 251.218 33.9448" stroke="#002AFF" strokeWidth="3.96327" strokeLinecap="round"/>
+                    <path d="M284.74 27.2475C284.74 30.6305 284.074 33.9804 282.779 37.1059C281.485 40.2314 279.587 43.0713 277.195 45.4634C274.803 47.8556 271.963 49.7532 268.837 51.0478C265.712 52.3424 262.362 53.0087 258.979 53.0087C255.596 53.0087 252.246 52.3424 249.121 51.0478C245.995 49.7532 243.155 47.8556 240.763 45.4634C238.371 43.0713 236.473 40.2314 235.179 37.1059C233.884 33.9804 233.218 30.6305 233.218 27.2475C233.218 20.4152 235.932 13.8627 240.763 9.03152C245.594 4.20035 252.147 1.48622 258.979 1.48622C265.811 1.48622 272.364 4.20035 277.195 9.03152C282.026 13.8627 284.74 20.4152 284.74 27.2475Z" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
+                
+                {/* Left bottom group */}
+                <g id="left-bottom-group">
+                    <path d="M396.74 627.247C396.74 630.63 396.074 633.98 394.779 637.106C393.485 640.231 391.587 643.071 389.195 645.463C386.803 647.856 383.963 649.753 380.837 651.048C377.712 652.342 374.362 653.009 370.979 653.009C367.596 653.009 364.246 652.342 361.121 651.048C357.995 649.753 355.155 647.856 352.763 645.463C350.371 643.071 348.473 640.231 347.179 637.106C345.884 633.98 345.218 630.63 345.218 627.247C345.218 620.415 347.932 613.863 352.763 609.032C357.594 604.2 364.147 601.486 370.979 601.486C377.811 601.486 384.364 604.2 389.195 609.032C394.026 613.863 396.74 620.415 396.74 627.247Z" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M362.392 614.367H379.566M362.392 622.318H379.566M374.557 642.99L362.392 630.27H366.686C376.229 630.27 376.229 614.367 366.686 614.367" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
+                
+                {/* Right top group */}
+                <g id="right-top-group">
+                    <path d="M2084.74 43.2475C2084.74 46.6305 2084.07 49.9804 2082.78 53.1059C2081.48 56.2314 2079.59 59.0713 2077.19 61.4634C2074.8 63.8556 2071.96 65.7532 2068.84 67.0478C2065.71 68.3424 2062.36 69.0087 2058.98 69.0087C2055.6 69.0087 2052.25 68.3424 2049.12 67.0478C2046 65.7532 2043.16 63.8556 2040.76 61.4634C2038.37 59.0713 2036.47 56.2314 2035.18 53.1059C2033.88 49.9804 2033.22 46.6305 2033.22 43.2475C2033.22 36.4152 2035.93 29.8627 2040.76 25.0315C2045.59 20.2003 2052.15 17.4862 2058.98 17.4862C2065.81 17.4862 2072.36 20.2003 2077.19 25.0315C2082.03 29.8627 2084.74 36.4152 2084.74 43.2475Z" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M2050.39 30.3669H2067.57M2050.39 38.3185H2067.57M2062.56 58.9905L2050.39 46.2702H2054.69C2064.23 46.2702 2064.23 30.3669 2054.69 30.3669" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
+                
+                {/* Right bottom copyright group */}
+                <g id="right-bottom-group">
+                    <path d="M2141.52 667.083C2136.17 667.083 2131.85 662.724 2131.85 657.413V645.087C2131.85 639.737 2136.21 635.417 2141.52 635.417C2146.83 635.417 2151.19 639.776 2151.19 645.087C2151.19 646.197 2150.32 647.069 2149.21 647.069C2148.1 647.069 2147.23 646.197 2147.23 645.087C2147.23 641.917 2144.65 639.38 2141.52 639.38C2138.39 639.38 2135.82 641.956 2135.82 645.087V657.413C2135.82 660.584 2138.39 663.12 2141.52 663.12C2144.65 663.12 2147.23 660.544 2147.23 657.413C2147.23 656.303 2148.1 655.431 2149.21 655.431C2150.32 655.431 2151.19 656.303 2151.19 657.413C2151.19 662.763 2146.83 667.083 2141.52 667.083Z" fill="#0205FA"/>
+                    <path d="M2139.98 649.248H2130.74C2129.63 649.248 2128.76 648.376 2128.76 647.266C2128.76 646.156 2129.63 645.284 2130.74 645.284H2139.98C2141.09 645.284 2141.96 646.156 2141.96 647.266C2141.96 648.376 2141.09 649.248 2139.98 649.248ZM2139.98 657.174H2130.74C2129.63 657.174 2128.76 656.302 2128.76 655.192C2128.76 654.083 2129.63 653.211 2130.74 653.211H2139.98C2141.09 653.211 2141.96 654.083 2141.96 655.192C2141.96 656.302 2141.09 657.174 2139.98 657.174Z" fill="#0205FA"/>
+                    <path d="M2167.74 651.247C2167.74 654.63 2167.07 657.98 2165.78 661.106C2164.48 664.231 2162.59 667.071 2160.19 669.463C2157.8 671.856 2154.96 673.753 2151.84 675.048C2148.71 676.342 2145.36 677.009 2141.98 677.009C2138.6 677.009 2135.25 676.342 2132.12 675.048C2129 673.753 2126.16 671.856 2123.76 669.463C2121.37 667.071 2119.47 664.231 2118.18 661.106C2116.88 657.98 2116.22 654.63 2116.22 651.247C2116.22 644.415 2118.93 637.863 2123.76 633.032C2128.59 628.2 2135.15 625.486 2141.98 625.486C2148.81 625.486 2155.36 628.2 2160.19 633.032C2165.03 637.863 2167.74 644.415 2167.74 651.247Z" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                </g>
+                
+                {/* Left center copyright group */}
+                <g id="left-center-group">
+                    <path d="M134.74 340.247C134.74 343.63 134.074 346.98 132.779 350.106C131.485 353.231 129.587 356.071 127.195 358.463C124.803 360.856 121.963 362.753 118.837 364.048C115.712 365.342 112.362 366.009 108.979 366.009C105.596 366.009 102.246 365.342 99.1206 364.048C95.9951 362.753 93.1552 360.856 90.7631 358.463C88.3709 356.071 86.4734 353.231 85.1787 350.106C83.8841 346.98 83.2178 343.63 83.2178 340.247C83.2178 333.415 85.9319 326.863 90.7631 322.032C95.5942 317.2 102.147 314.486 108.979 314.486C115.811 314.486 122.364 317.2 127.195 322.032C132.026 326.863 134.74 333.415 134.74 340.247Z" stroke="#0205FA" strokeWidth="2.97245" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M109.524 356.083C104.173 356.083 99.8532 351.724 99.8532 346.413V334.087C99.8532 328.737 104.213 324.417 109.524 324.417C114.834 324.417 119.194 328.776 119.194 334.087C119.194 335.197 118.322 336.069 117.212 336.069C116.103 336.069 115.231 335.197 115.231 334.087C115.231 330.916 112.655 328.38 109.524 328.38C106.393 328.38 103.816 330.956 103.816 334.087V346.413C103.816 349.583 106.393 352.12 109.524 352.12C112.655 352.12 115.231 349.544 115.231 346.413C115.231 345.303 116.103 344.431 117.212 344.431C118.322 344.431 119.194 345.303 119.194 346.413C119.194 351.763 114.834 356.083 109.524 356.083Z" fill="#0205FA"/>
+                    <path d="M107.979 338.247H98.7443C97.6346 338.247 96.7627 337.376 96.7627 336.266C96.7627 335.156 97.6346 334.284 98.7443 334.284H107.979C109.088 334.284 109.96 335.156 109.96 336.266C109.96 337.376 109.088 338.247 107.979 338.247ZM107.979 346.174H98.7443C97.6346 346.174 96.7627 345.302 96.7627 344.192C96.7627 343.083 97.6346 342.211 98.7443 342.211H107.979C109.088 342.211 109.96 343.083 109.96 344.192C109.96 345.302 109.088 346.174 107.979 346.174Z" fill="#0205FA"/>
+                </g>
+                
+                {/* Gradient elements */}
+                <path d="M537.878 340.986C537.878 341.356 538.178 341.656 538.548 341.656C538.918 341.656 539.218 341.356 539.218 340.986C539.218 340.616 538.918 340.316 538.548 340.316C538.178 340.316 537.878 340.616 537.878 340.986Z" fill="url(#paint0_linear_7_2)"/>
+                <path d="M402.559 340.317C402.552 340.706 402.548 341.096 402.548 341.486C402.548 341.543 402.549 341.599 402.549 341.655H538.547C538.547 341.599 538.548 341.986 538.548 341.486C538.548 340.986 538.543 340.706 538.537 340.317H402.559Z" fill="url(#paint1_linear_7_2)"/>
+                <path d="M1868.89 340.986C1868.89 341.356 1868.59 341.656 1868.22 341.656C1867.85 341.656 1867.55 341.356 1867.55 340.986C1867.55 340.616 1867.85 340.316 1868.22 340.316C1868.59 340.316 1868.89 340.616 1868.89 340.986Z" fill="url(#paint2_linear_7_2)"/>
+                <path d="M2004.21 340.317C2004.21 340.706 2004.22 341.096 2004.22 341.486C2004.22 341.543 2004.22 341.599 2004.22 341.655H1868.22C1868.22 341.599 1868.22 341.986 1868.22 341.486C1868.22 340.986 1868.22 340.706 1868.23 340.317H2004.21Z" fill="url(#paint3_linear_7_2)"/>
+                
+                {/* Diagonal paths */}
+                <path d="M418.008 62.9872C422.548 64.5542 427.018 66.1494 431.418 67.7763C473.313 83.266 508.974 101.395 541.098 120.808C541.82 121.245 541.125 122.389 540.486 122.003C508.4 102.605 472.791 84.4995 430.954 69.0311C426.533 67.3964 422.041 65.794 417.477 64.2196C417.65 63.8067 417.827 63.3959 418.008 62.9872Z" fill="url(#paint4_linear_7_2)"/>
+                <path d="M410.226 619.486C414.766 617.919 419.236 616.324 423.636 614.697C465.531 599.207 501.192 581.078 533.315 561.665C534.037 561.229 533.343 560.084 532.704 560.471C500.617 579.868 465.009 597.974 423.172 613.442C418.75 615.077 414.258 616.679 409.694 618.254C409.867 618.667 410.045 619.077 410.226 619.486Z" fill="url(#paint5_linear_7_2)"/>
+                <path d="M1991.57 62.9872C1987.03 64.5542 1982.56 66.1494 1978.16 67.7763C1936.26 83.266 1900.6 101.395 1868.48 120.808C1867.76 121.245 1868.45 122.389 1869.09 122.003C1901.18 102.605 1936.79 84.4995 1978.62 69.0311C1983.04 67.3964 1987.54 65.794 1992.1 64.2196C1991.93 63.8067 1991.75 63.3959 1991.57 62.9872Z" fill="url(#paint6_linear_7_2)"/>
+                <path d="M1999.35 619.486C1994.81 617.919 1990.34 616.324 1985.94 614.697C1944.05 599.207 1908.39 581.078 1876.26 561.665C1875.54 561.229 1876.23 560.084 1876.87 560.471C1908.96 579.868 1944.57 597.974 1986.41 613.442C1990.83 615.077 1995.32 616.679 1999.88 618.254C1999.71 618.667 1999.53 619.077 1999.35 619.486Z" fill="url(#paint7_linear_7_2)"/>
+                
+                <defs>
+                    <linearGradient id="paint0_linear_7_2" x1="539.218" y1="341.031" x2="402.548" y2="341.031" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.51" stopColor="#1727FF"/>
+                        <stop offset="1" stopColor="white" stopOpacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint1_linear_7_2" x1="539.218" y1="341.031" x2="402.548" y2="341.031" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.51" stopColor="#1727FF"/>
+                        <stop offset="1" stopColor="white" stopOpacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint2_linear_7_2" x1="1867.55" y1="341.031" x2="2004.22" y2="341.031" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.51" stopColor="#1727FF"/>
+                        <stop offset="1" stopColor="white" stopOpacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint3_linear_7_2" x1="1867.55" y1="341.031" x2="2004.22" y2="341.031" gradientUnits="userSpaceOnUse">
+                        <stop offset="0.51" stopColor="#1727FF"/>
+                        <stop offset="1" stopColor="white" stopOpacity="0"/>
+                    </linearGradient>
+                    <linearGradient id="paint4_linear_7_2" x1="479.441" y1="62.9872" x2="479.441" y2="122.081" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="white" stopOpacity="0"/>
+                        <stop offset="0.509615" stopColor="#0205FA"/>
+                    </linearGradient>
+                    <linearGradient id="paint5_linear_7_2" x1="471.658" y1="619.486" x2="471.658" y2="560.392" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="white" stopOpacity="0"/>
+                        <stop offset="0.509615" stopColor="#0205FA"/>
+                    </linearGradient>
+                    <linearGradient id="paint6_linear_7_2" x1="1930.14" y1="62.9872" x2="1930.14" y2="122.081" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="white" stopOpacity="0"/>
+                        <stop offset="0.509615" stopColor="#0205FA"/>
+                    </linearGradient>
+                    <linearGradient id="paint7_linear_7_2" x1="1937.92" y1="619.486" x2="1937.92" y2="560.392" gradientUnits="userSpaceOnUse">
+                        <stop stopColor="white" stopOpacity="0"/>
+                        <stop offset="0.509615" stopColor="#0205FA"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </>
+    );
+};
