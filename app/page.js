@@ -6,7 +6,6 @@ import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
 import CTAPricing from "@/components/CTAPricing";
 import CTAFinal from "@/components/CTAFinal";
-import FooterNew from "@/components/FooterNew";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 
@@ -14,17 +13,47 @@ export default function Home() {
   return (
     <Layout>
     <main className="min-h-screen">
-      <HeroNew />
-      <AlwaysOnAI />
+      <HeroNew heroContent={heroContent}/>
       <WhyAIStruggles />
       <CoreEnterpriseSystem />
+      <AlwaysOnAI />
       <Clients />
       <RealWorldOutcomes />
-      <Testimonials />
       <CTAPricing />
-      <CTAFinal />
-      <FooterNew />
+      <Testimonials />
+      <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
   );
+}
+
+
+const heroContent={
+  tagline:"Governed. Explainable. Production-Ready AI at Scale.",
+  heading:"The Enterprise AI Operating System",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:"Explore the Platform"
+  },
+  secondaryButton:{
+    present:true,
+    link:"#",
+    text:"Talk to our Team"
+  },
+}
+
+const ctaContent={
+  heading:"Own How AI Runs in Your Enterprise  ",
+  para:"DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:"Explore the Platform"
+  },
+  secondaryButton:{
+    present:true,
+    link:"#",
+    text:"Talk to our Team"
+  },
 }

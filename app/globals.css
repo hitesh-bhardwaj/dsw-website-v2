@@ -8,12 +8,16 @@
   --card-bg: #EFF1FB;
   --border-cards: #E1E1E1;
   --primary-blue: #1727FF;
-  --text-110: 5.5vw;
+  --text-110: 6vw;
   --text-40:1.2vw;
   --text-56:3.1vw;
   --text-44:2.3vw;
   --text-24: 1.3vw;
-  --text-32: 1.5vw;
+  --text-32: 1.1vw;
+  --text-76:4.2vw;
+  --text-30:1.55vw;
+  --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
+
 }
 
 @theme inline {
@@ -29,17 +33,23 @@
   --text-110: var(--text-110);
   --text-110--line-height: 1.1;
   --text-56: var(--text-56);
+  --text-30:var(--text-30);
+  --text-76:var(--text-76);
   --text-56--line-height: 1.1;
   --text-44: var(--text-44);
   --text-40: var(--text-40);
   --text-24: var(--text-24);
   --text-32: var(--text-32);
+  --ease-default-ease: var(--default-ease);
+
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  font-kerning: auto;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -49,4 +59,41 @@ h4,
 h5,
 h6 {
   font-family: var(--font-heading), sans-serif;
+}
+
+.buttonTextShadow {
+  text-shadow: 0 1.5em currentColor;
+}
+.buttonSplit .single-letter {
+  transition: transform 1s var(--default-ease);
+}
+
+.buttonSplit:hover .single-letter {
+  transform: translate(0px, -1.5em);
+}
+
+
+.shimmer {
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    #ffffff70 0%,
+    rgb(255, 255, 255) 25%,
+    #ffffff70 50%
+  );
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-position: 100% 0%;
+  animation: shimmerAnimation 3s linear infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes shimmerAnimation {
+  0% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: -90% 0%;
+  }
 }

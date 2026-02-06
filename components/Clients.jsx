@@ -1,56 +1,11 @@
 import Image from 'next/image';
 
 export default function Clients() {
-    const clients = [
-        {
-            name: "CIEK",
-            logo: "/client-ciek.png",
-            width: 172,
-            height: 54,
-            opacity: 60,
-        },
-        {
-            name: "Bonprix",
-            logo: "/client-bonprix.png",
-            width: 92,
-            height: 85,
-            opacity: 80,
-        },
-        {
-            name: "Edgeverve",
-            logo: "/client-edgeverve.png",
-            width: 218,
-            height: 59,
-            opacity: 80,
-        },
-        {
-            name: "Manipal Cigna",
-            logo: "/client-manipal.png",
-            width: 234,
-            height: 123,
-            opacity: 80,
-        },
-        {
-            name: "Sodexo",
-            logo: "/client-sodexo.png",
-            width: 176,
-            height: 56,
-            opacity: 90,
-        },
-        {
-            name: "Client 6",
-            logo: "/client-6.png",
-            width: 196,
-            height: 59,
-            opacity: 80,
-        },
-    ];
-
     return (
-        <section className="relative w-full py-[5.21vw] px-[3.91vw]">
+        <section className="relative w-full py-[5.21vw] px-[3.91vw] space-y-[5vw]">
             {/* Heading */}
-            <h2 className="text-[3.96vw] font-heading leading-[5vw] tracking-[0.079vw] text-[#111] text-center mb-[8.33vw]">
-                Trusted by Enterprises<br />
+            <h2 className="text-76 text-[#0A1B4B] font-extralight leading-[1.2] w-[60%] text-center mx-auto">
+                Trusted by Enterprises
                 Operating AI at Scale
             </h2>
 
@@ -59,17 +14,14 @@ export default function Clients() {
                 {clients.map((client, index) => (
                     <div
                         key={index}
-                        className="flex-shrink-0 w-[16.67vw] h-[13.54vw] bg-white border border-[#1727ff] rounded-[0.52vw] flex items-center justify-center shadow-[0_0.52vw_1.04vw_rgba(0,0,0,0.08)]"
+                        className="shrink-0 w-[16.67vw] h-[13.54vw] bg-black/30 border border-[#1727ff] rounded-[0.52vw] flex items-center justify-center drop-shadow-xl"
                     >
-                        <div className="relative" style={{
-                            width: `${(client.width / 1920) * 100}vw`,
-                            height: `${(client.height / 1920) * 100}vw`,
-                            opacity: client.opacity / 100
-                        }}>
+                        <div className="relative">
                             <Image
                                 src={client.logo}
                                 alt={client.name}
-                                fill
+                                height={200}
+                                width={200}
                                 className="object-contain"
                             />
                         </div>
@@ -79,3 +31,59 @@ export default function Clients() {
         </section>
     );
 }
+
+
+const clients = [
+        {
+            name: "Bonprix",
+            logo: "/assets/clients/bon-prix.png",
+        },
+        {
+            name: "Canara HSBC",
+            logo: "/assets/clients/canara-hsbc.png",
+        },
+        {
+            name: "Castler",
+            logo: "/assets/clients/castler.png",
+        },
+        {
+            name: "Ciek",
+            logo: "/assets/clients/ciek.png",
+        },
+        {
+            name: "Craft Silicon",
+            logo: "/assets/clients/craft-silicon.png",
+        },
+        {
+            name: "Earc",
+            logo: "/assets/clients/earc.png",
+        },
+        {
+            name: "Tokio",
+            logo: "/assets/clients/edelweiss-tokio-life.png",
+        },
+        {
+            name: "Edgeverve",
+            logo: "/assets/clients/edge-verve.png",
+        },
+        {
+            name: "IIFL",
+            logo: "/assets/clients/iifl-capital.png",
+        },
+        {
+            name: "Kelmac",
+            logo: "/assets/clients/kelmac-grop.png",
+        },
+        {
+            name: "Manipal",
+            logo: "/assets/clients/manipal-cigna.png",
+        },
+        {
+            name: "oxsde",
+            logo: "/assets/clients/oxsde.png",
+        },
+        {
+            name: "Sodexo",
+            logo: "/assets/clients/sodexo.png",
+        },
+    ];

@@ -1,13 +1,13 @@
 import React from 'react'
 import Header from './Header'
-import Footer from './Footer'
+import FooterNew from '../FooterNew'
 
 const Layout = ({children}) => {
   return (
    <>
    <Header/>
    {children}
-   <Footer/>
+   <FooterNew/>
    </>
   )
 }

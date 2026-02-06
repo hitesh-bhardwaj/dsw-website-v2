@@ -25,7 +25,7 @@ export default function WhyAIStruggles() {
     ];
 
     return (
-        <section className="relative w-full py-[10.42vw] px-[3.91vw] bg-gradient-to-b from-[#4F6FFF] to-[#8B9FFF] rounded-tl-[1.56vw] rounded-tr-[1.56vw]">
+        <section className="relative w-full py-[10.42vw] px-[3.91vw]  rounded-tl-[1.56vw] rounded-tr-[1.56vw]">
             {/* Heading Section */}
             <div className="text-center mb-[5.21vw]">
                 <h2 className="text-[2.92vw] font-heading font-medium leading-none tracking-[0.058vw] text-[#111] mb-[2.08vw]">
