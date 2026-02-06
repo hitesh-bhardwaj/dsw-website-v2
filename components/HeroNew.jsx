@@ -3,15 +3,17 @@ import Image from 'next/image';
 import HeroBg from './Homepage/HeroBg';
 import PrimaryButton from './Buttons/PrimaryButton';
 import SecondaryButton from './Buttons/SecondaryButton';
+import { useEffect } from 'react';
 
 export default function HeroNew({heroContent}) {
-    
-    // Check if at least one button should be displayed
     const showButtons = heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
 
     return (
         <section className="relative w-full h-screen bg-white">
+
+            <div className='h-full w-full absolute'>
             <HeroBg/>
+            </div>
            
             {/* Content */}
             <div className="relative z-10 flex flex-col items-center h-full pt-[12vw]">

@@ -31,7 +31,6 @@ export default function FooterNew() {
         <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden">
             {/* Background Gradient */}
             <div className='w-screen h-full'>
-
             <HeroBg/>
             </div>
 

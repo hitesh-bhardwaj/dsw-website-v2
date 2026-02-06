@@ -5,7 +5,7 @@ export default function RealWorldOutcomes() {
         <section className="relative w-full py-[10.42vw] space-y-[8vw]">
             {/* Heading */}
             <div className="text-center spce-y-[2vw]">
-                <h2 className="text-76 text-[#0A1B4B] font-extralight">
+                <h2 className="text-76 text-[#0A1B4B]">
                     Real-World Outcomes
                 </h2>
                 <p className="text-30">
