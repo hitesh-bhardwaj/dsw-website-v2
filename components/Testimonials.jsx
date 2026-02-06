@@ -2,34 +2,34 @@ import Image from 'next/image';
 
 export default function Testimonials() {
     return (
-        <section className="relative w-full py-[10.42vw] px-[3.91vw] bg-gradient-to-b from-[#E8ECFF] to-[#F5F7FF]">
+        <section className="relative w-full py-[5vw] px-[3.91vw] space-y-[8vw]">
             {/* Heading */}
-            <div className="text-center mb-[11.46vw]">
-                <h2 className="text-[3.96vw] font-heading leading-normal tracking-[0.079vw] text-[#111] mb-[2.08vw]">
+            <div className="text-center  space-y-[2vw]">
+                <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2] font-extralight">
                     Trusted by Leaders<br />
                     in BFSI and Beyond
                 </h2>
-                <p className="text-[1.56vw] font-sans leading-[2.29vw] tracking-[0.031vw] text-[#111] max-w-[43.13vw] mx-auto">
+                <p className="text-30 max-w-[40vw] mx-auto">
                     Explore how we've helped businesses like yours achieve success with innovative technology solutions.
                 </p>
             </div>
 
             {/* Testimonials Grid */}
-            <div className="grid grid-cols-3 gap-[3.13vw] max-w-[95.83vw] mx-auto">
+            <div className="grid grid-cols-3 gap-[2vw] mx-auto">
                 {/* Card 1: Canara HSBC Stat */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-center">
-                    <p className="text-[1.56vw] font-sans leading-[2.19vw] tracking-[0.031vw] text-[#111]">
+                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
+                    <p className="text-30 ">
                         Canara HSBC achieves <span className="text-[#ff5f00]">faster deployment</span> on persistency prediction and customer retention
                     </p>
                 </div>
 
                 {/* Card 2: Token Usage Chart */}
-                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative">
+                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out">
                     <Image
-                        src="/chart-token-usage.png"
+                        src="/assets/homepage/testimonials/testimonial-1.png"
                         alt="Token Usage Over Time"
                         fill
-                        className="object-cover"
+                        className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
                     />
                 </div>
 
@@ -59,12 +59,12 @@ export default function Testimonials() {
                 </div>
 
                 {/* Card 4: Error Distribution Chart */}
-                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative">
+                 <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out">
                     <Image
-                        src="/chart-error-dist.png"
-                        alt="Error Distribution Over Time"
+                        src="/assets/homepage/testimonials/testimonial-2.png"
+                        alt="Token Usage Over Time"
                         fill
-                        className="object-cover"
+                        className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
                     />
                 </div>
 
@@ -94,8 +94,8 @@ export default function Testimonials() {
                 </div>
 
                 {/* Card 6: Customers in Production */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-center">
-                    <p className="text-[1.56vw] font-sans leading-[2.19vw] tracking-[0.031vw] text-[#111]">
+                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
+                    <p className="text-30">
                         <span className="text-[#ff5f00]">Customers In Production</span> – Canara HSBC, Manipal Cigna, Mahindra, Castler, Wealthright, FSS
                     </p>
                 </div>
@@ -126,19 +126,19 @@ export default function Testimonials() {
                 </div>
 
                 {/* Card 8: Manipal Cigna Stat */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-center">
-                    <p className="text-[1.56vw] font-sans leading-[2.19vw] tracking-[0.031vw] text-[#111]">
+                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
+                    <p className="text-30">
                         Manipal Health Cigna in production with <span className="text-[#ff5f00]">over 5 use cases</span> of AI/ML and GenAI
                     </p>
                 </div>
 
                 {/* Card 9: Latency Chart */}
-                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative">
+                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out">
                     <Image
-                        src="/chart-error-dist.png"
-                        alt="Latency Breakdown Over Time"
+                        src="/assets/homepage/testimonials/testimonial-3.png"
+                        alt="Token Usage Over Time"
                         fill
-                        className="object-cover"
+                        className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
                     />
                 </div>
             </div>

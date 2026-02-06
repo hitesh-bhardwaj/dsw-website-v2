@@ -83,3 +83,24 @@ h6 {
     background-position: -90% 0%;
   }
 }
+
+.clients-marquee {
+  display: flex;
+  white-space: nowrap;
+  width: 100vw;
+}
+
+.clients-marquee__track {
+  display: flex;
+  width: fit-content;
+  animation: clients-marquee 15s linear infinite;
+}
+
+@keyframes clients-marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-57%);
+  }
+}
