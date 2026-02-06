@@ -34,6 +34,8 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
+  font-kerning: auto;
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,

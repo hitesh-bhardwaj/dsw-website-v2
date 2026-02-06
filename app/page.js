@@ -14,9 +14,9 @@ export default function Home() {
     <Layout>
     <main className="min-h-screen">
       <HeroNew heroContent={heroContent}/>
-      <AlwaysOnAI />
       <WhyAIStruggles />
       <CoreEnterpriseSystem />
+      <AlwaysOnAI />
       <Clients />
       <RealWorldOutcomes />
       <CTAPricing />

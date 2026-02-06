@@ -28,7 +28,7 @@ export default function HeroNew({heroContent}) {
 
                     {/* Main Heading */}
                     <h1 
-                        className="text-110 leading-[1.2] font-extralight! text-foreground text-center max-w-[60vw]"
+                        className="text-110 text-[#0A1B4B] leading-[1.2] font-extralight!  text-center max-w-[60vw]"
                     >
                         {heroContent.heading}
                     </h1>
