@@ -5,8 +5,15 @@
   --foreground: #111111;
   --primary: #f16b0d;
   --secondary: #e61216;
+  --card-bg: #EFF1FB;
+  --border-cards: #E1E1E1;
+  --primary-blue: #1727FF;
   --text-110: 5.5vw;
-  --text-56:3.5vw;
+  --text-40:1.2vw;
+  --text-56:3.1vw;
+  --text-44:2.3vw;
+  --text-24: 1.3vw;
+  --text-32: 1.5vw;
 }
 
 @theme inline {
@@ -14,12 +21,19 @@
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
+  --color-primary-blue: var(--primary-blue);
+  --color-border-color: var(--border-cards);
+  --color-card-bg: var(--card-bg);
   --font-sans: var(--font-aspekta);
   --font-heading: var(--font-neue-montreal);
   --text-110: var(--text-110);
   --text-110--line-height: 1.1;
   --text-56: var(--text-56);
   --text-56--line-height: 1.1;
+  --text-44: var(--text-44);
+  --text-40: var(--text-40);
+  --text-24: var(--text-24);
+  --text-32: var(--text-32);
 }
 
 body {
