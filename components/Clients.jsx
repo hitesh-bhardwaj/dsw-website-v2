@@ -4,7 +4,7 @@ export default function Clients() {
     return (
         <section className="relative w-full py-[5.21vw] px-[3.91vw] space-y-[5vw]">
             {/* Heading */}
-            <h2 className="text-76 text-[#0A1B4B] font-extralight leading-[1.2] w-[60%] text-center mx-auto">
+            <h2 className="text-76 text-[#0A1B4B]  leading-[1.2] w-[60%] text-center mx-auto">
                 Trusted by Enterprises
                 Operating AI at Scale
             </h2>

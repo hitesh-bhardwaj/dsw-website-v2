@@ -3,19 +3,14 @@ import Image from 'next/image';
 import HeroBg from './Homepage/HeroBg';
 import PrimaryButton from './Buttons/PrimaryButton';
 import SecondaryButton from './Buttons/SecondaryButton';
-import { initSplit } from './splitTextUtils';
-import { useEffect } from 'react';
 
 export default function HeroNew({heroContent}) {
-    useEffect(() => {
-        initSplit();
-    }, []);
-
+    
     // Check if at least one button should be displayed
     const showButtons = heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
 
     return (
-        <section className="relative w-full h-screen overflow-hidden bg-white">
+        <section className="relative w-full h-screen bg-white">
             <HeroBg/>
            
             {/* Content */}
@@ -28,7 +23,7 @@ export default function HeroNew({heroContent}) {
 
                     {/* Main Heading */}
                     <h1 
-                        className="text-110 text-[#0A1B4B] leading-[1.2] font-extralight!  text-center max-w-[60vw]"
+                        className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center max-w-[60vw]"
                     >
                         {heroContent.heading}
                     </h1>

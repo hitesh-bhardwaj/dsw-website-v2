@@ -1,6 +1,6 @@
 // src/utils/splitText.js
 
-import SplitType from 'split-type';
+// import SplitType from 'split-type';
 import gsap from 'gsap';
 
 

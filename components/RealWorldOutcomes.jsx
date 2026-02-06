@@ -62,7 +62,7 @@ export default function RealWorldOutcomes() {
                         </p>
 
                         {/* Description */}
-                        <p className="absolute left-[1.38vw] top-[8.98vw] text-[1.25vw] font-sans font-light leading-[1.56vw] text-[#111] w-[20vw]">
+                        <p className="absolute left-[1.38vw] top-[8.98vw] text-[1.25vw] font-sans  leading-[1.56vw] text-[#111] w-[20vw]">
                             {outcome.description}
                         </p>
                     </div>

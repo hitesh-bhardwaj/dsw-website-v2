@@ -10,10 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <LenisSmoothScroll>
-    <html lang="en">
+    <html lang="en"  className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
 
       <body
-        className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}
+        // className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}
       >
         {children}
       </body>

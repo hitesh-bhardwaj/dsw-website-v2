@@ -8,6 +8,8 @@ import CTAPricing from "@/components/CTAPricing";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
+import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
+import Features from "@/components/Homepage/Features";
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
     <main className="min-h-screen">
       <HeroNew heroContent={heroContent}/>
       <WhyAIStruggles />
+      <UnifiedRuntime/>
+      <Features/>
       <CoreEnterpriseSystem />
       <AlwaysOnAI />
       <Clients />

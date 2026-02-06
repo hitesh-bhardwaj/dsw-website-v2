@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function CoreEnterpriseSystem() {
     return (
-        <section className="relative w-full bg-white py-[10.42vw] overflow-hidden">
+        <section className="relative w-full bg-white h-[100vw] overflow-hidden flex pt-[25%] justify-center" id='core-enterprise'>
             {/* Circular Decoration Background */}
             <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74.58vw] h-[74.58vw]">
                 <div className="relative w-full h-full">

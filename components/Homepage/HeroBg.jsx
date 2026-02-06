@@ -180,7 +180,7 @@ function InteractiveBackground() {
         top: 0,
         left: 0,
         zIndex: 0,
-        overflow: 'hidden',
+        // overflow: 'hidden',
         marginLeft: 'auto',
         marginRight: 'auto',
         height: '100vh',

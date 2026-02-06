@@ -6,11 +6,11 @@
   --primary: #f16b0d;
   --secondary: #e61216;
   --text-110: 6vw;
-  --text-56:3.1vw;
-  --text-76:4.2vw;
-  --text-30:1.55vw;
+  --text-56: 3.1vw;
+  --text-76: 4.2vw;
+  --text-30: 1.55vw;
+  --text-24: 1.18vw;
   --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
-
 }
 
 @theme inline {
@@ -23,11 +23,11 @@
   --text-110: var(--text-110);
   --text-110--line-height: 1.1;
   --text-56: var(--text-56);
-  --text-30:var(--text-30);
-  --text-76:var(--text-76);
+  --text-30: var(--text-30);
+  --text-24: var(--text-24);
+  --text-76: var(--text-76);
   --text-56--line-height: 1.1;
   --ease-default-ease: var(--default-ease);
-
 }
 
 body {
@@ -35,7 +35,7 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   font-kerning: auto;
-    -webkit-font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -44,7 +44,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-heading), sans-serif;
+  font-family: var(--font-heading, ui-sans-serif), sans-serif;
 }
 
 .buttonTextShadow {
@@ -58,6 +58,16 @@ h6 {
   transform: translate(0px, -1.5em);
 }
 
+@layer utilities {
+  .bg-radial-night {
+    background: radial-gradient(
+      circle at center,
+      #02031c 0%,
+      #02031c 35%,
+      #030558 100%
+    );
+  }
+}
 
 .shimmer {
   color: transparent;

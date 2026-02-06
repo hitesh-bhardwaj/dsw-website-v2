@@ -102,7 +102,7 @@ export default function AlwaysOnAI() {
       {/* Content */}
       <div className="relative z-10">
         <div className="text-center space-y-[2vw]">
-          <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] font-extralight">
+          <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
             Always-On AI. Built as Infrastructure.
           </h2>
           <p className="text-30 font-sans max-w-[47.92vw] mx-auto">

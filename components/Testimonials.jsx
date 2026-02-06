@@ -35,7 +35,7 @@ export default function Testimonials() {
 
                 {/* Card 3: Ritesh Rathod Testimonial */}
                 <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-[1.25vw] font-sans font-light leading-[1.67vw] tracking-[0.025vw] text-[#111]">
+                    <p className="text-[1.25vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
                         With DSW's insurance-specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
@@ -70,7 +70,7 @@ export default function Testimonials() {
 
                 {/* Card 5: Stefano Bonfa Testimonial */}
                 <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-[1.25vw] font-sans font-light leading-[1.67vw] tracking-[0.025vw] text-[#111]">
+                    <p className="text-[1.25vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
                         DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
@@ -102,7 +102,7 @@ export default function Testimonials() {
 
                 {/* Card 7: Ritesh Tiwari Testimonial */}
                 <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-[1.25vw] font-sans font-light leading-[1.67vw] tracking-[0.025vw] text-[#111]">
+                    <p className="text-[1.25vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
                         With advanced capabilities of the platform's AgenticAI, Castler's escrow services became smarter, more efficient - enabling faster, secure, scalable solutions for our BFSI clients.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
