@@ -16,6 +16,7 @@
   --text-32: 1.1vw;
   --text-76:4.2vw;
   --text-30:1.55vw;
+  --text-22:1.1vw;
   --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
 
 }
@@ -40,6 +41,7 @@
   --text-40: var(--text-40);
   --text-24: var(--text-24);
   --text-32: var(--text-32);
+  --text-22: var(--text-22);
   --ease-default-ease: var(--default-ease);
 
 }
