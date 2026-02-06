@@ -5,40 +5,39 @@ import { Insurance } from "../Svg/Insurance";
 
 const HowAgenticWorks = () => {
   return (
-    <section className="relative w-full  py-[6vw]">
+    <section className="relative w-full  py-[10%]">
       <CircleBg className="absolute inset-0 w-[60vw] h-auto m-auto" />
 
       <CircleBg className="absolute inset-0 w-[45vw] h-auto m-auto" />
 
       {/* LEFT TEXT */}
-      <div className="absolute left-[6vw] top-2 max-w-[20vw]">
-        <h3 className="text-[1.6vw] font-semibold text-primary-blue">Connect</h3>
-        <p className="text-[1vw] mt-[0.6vw]">
+      <div className="absolute left-25 top-2 max-w-[25vw] space-y-[0.6vw]">
+        <h3 className="text-[2.5vw]  ">• Connect</h3>
+        <p className="text-[1.2vw] ">
           Ingest enterprise data through managed connectors and DataOps
           pipelines.
         </p>
       </div>
 
-      <div className="absolute left-[6vw] bottom-[8vw] max-w-[20vw]">
-        <h3 className="text-[1.6vw] font-semibold">Operate</h3>
-        <p className="text-[1vw] mt-[0.6vw]">
-          Enforce runtime policies, monitor telemetry, and maintain immutable
-          audit trails.
+      <div className="absolute left-25 bottom-40 max-w-[25vw] space-y-[0.6vw]">
+        <h3 className="text-[2.5vw] "> • Operate</h3>
+        <p className="text-[1.2vw] mt-[0.6vw]">
+          Enforce runtime policies, monitor telemetry, and maintain immutable audit trails and reports.
         </p>
       </div>
 
       {/* RIGHT TEXT */}
-      <div className="absolute right-[6vw] top-[8vw] max-w-[20vw]">
-        <h3 className="text-[1.6vw] font-semibold">Build</h3>
-        <p className="text-[1vw] mt-[0.6vw]">
-          Author and test agents in AgenticAI Studio.
+      <div className="absolute right-30 top-2 max-w-[25vw] space-y-[0.6vw]">
+        <h3 className="text-[2.5vw]">• Build</h3>
+        <p className="text-[1.2vw] ">
+         Author and test agents in AgenticAI Studio (fine-tune, simulate, validate).
         </p>
       </div>
 
-      <div className="absolute right-[6vw] bottom-[8vw] max-w-[20vw]">
-        <h3 className="text-[1.6vw] font-semibold">Orchestrate</h3>
-        <p className="text-[1vw] mt-[0.6vw]">
-          Compose agents, models and enterprise logic into workflows.
+      <div className="absolute right-30 bottom-40 space-y-[0.6vw] max-w-[20vw]">
+        <h3 className="text-[2.5vw] ">• Orchestrate</h3>
+        <p className="text-[1.2vw] ">
+          Compose agents, models and enterprise logic into auditable workflows using Workflow Builder.
         </p>
       </div>
 
