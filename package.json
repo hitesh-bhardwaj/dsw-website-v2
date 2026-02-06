@@ -17,6 +17,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "shadcn": "^3.8.3",
+    "split-type": "^0.3.4",
     "three": "^0.182.0"
   },
   "devDependencies": {
