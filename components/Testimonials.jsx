@@ -2,10 +2,10 @@ import Image from 'next/image';
 
 export default function Testimonials() {
     return (
-        <section className="relative w-full py-[5vw] px-[3.91vw] space-y-[8vw]">
+        <section className="relative w-full pb-[5vw] px-[3.91vw] space-y-[8vw]">
             {/* Heading */}
             <div className="text-center  space-y-[2vw]">
-                <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2] font-extralight">
+                <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2]">
                     Trusted by Leaders<br />
                     in BFSI and Beyond
                 </h2>
