@@ -12,7 +12,7 @@ const layers = [
 export default function UnifiedRuntime() {
   return (
     <section
-      className="py-[7%] px-[5vw] text-white bg-radial-night space-y-[9vw]"
+      className="py-[7%] px-[5vw] text-white bg-[#02031c] space-y-[9vw]"
       id="unified-runtime"
     >
       <h2 className="text-76  w-[60%] text-center mx-auto leading-[1.4]">

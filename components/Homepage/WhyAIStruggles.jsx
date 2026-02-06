@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CornerDecorations from "./CornerDecorations";
+import CornerDecorations from "../CornerDecorations";
 
 export default function WhyAIStruggles() {
   const challenges = [

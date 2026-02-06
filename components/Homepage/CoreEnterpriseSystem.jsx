@@ -4,14 +4,25 @@ export default function CoreEnterpriseSystem() {
     return (
         <section className="relative w-full bg-white h-[100vw] overflow-hidden flex pt-[25%] justify-center" id='core-enterprise'>
             {/* Circular Decoration Background */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74.58vw] h-[74.58vw]">
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] h-auto outer-circle">
                 <div className="relative w-full h-full">
                     <Image
-                        src="/circle-deco.svg"
+                        src="/assets/homepage/dotted-circle.svg"
                         alt=""
-                        fill
+                        width={1080}
+                        height={1080}
                         className="object-contain"
-                        priority
+                    />
+                </div>
+            </div>
+            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] h-auto inner-circle">
+                <div className="relative w-full h-full">
+                    <Image
+                        src="/assets/homepage/dotted-circle.svg"
+                        alt=""
+                        width={1080}
+                        height={1080}
+                        className="object-contain"
                     />
                 </div>
             </div>
@@ -35,7 +46,7 @@ export default function CoreEnterpriseSystem() {
                 </p>
 
                 {/* Pagination */}
-                <p className="text-[1.67vw] font-sans leading-[2.34vw] text-[#0205fa]">
+                <p className="text-[1.67vw] font-sans leading-[2.34vw] text-[#1727FF]">
                     1 / 4
                 </p>
             </div>
