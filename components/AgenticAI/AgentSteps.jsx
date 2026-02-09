@@ -1,6 +1,8 @@
 import React from 'react';
 import { CircleBg } from '../Svg/Lines/DottedCircle';
 import { Insurance } from '@/components/Svg/Insurance';
+import { Bank } from '../Svg/Bank';
+import { Roadmap } from '../Svg/Roadmap';
 
 const AgenticSteps = () => {
   const cardsData = [
@@ -16,14 +18,14 @@ const AgenticSteps = () => {
       title: "Banks",
       number: "2",
       description: "For banks & financial institutions: lending decision support, compliance automation, fraud monitoring and risk remediation.",
-      icon: Insurance
+      icon: Bank
     },
     {
       id: 3,
       title: "Roadmap",
       number: "3",
       description: "Next: telecom, healthcare and other regulated industries where auditability and governance are critical.",
-      icon: Insurance
+      icon: Roadmap
     }
   ];
 
@@ -65,17 +67,24 @@ const AgenticSteps = () => {
   };
 
   return (
-    <div className="flex gap-[2vw] p-[4vw] py-[12%] bg-white font-sans">
+    <div className='py-[12%] bg-white  space-y-[2vw]'>
+
+      <h2 className='text-76 mx-auto w-fit'>
+        BFSI use cases & vertical accelerators  
+      </h2>
+
+    <div className="flex gap-[2vw] p-[4vw]  font-sans">
       {cardsData.map((card) => (
         <Card
-          key={card.id}
-          title={card.title}
-          number={card.number}
-          description={card.description}
-          icon={card.icon}
+        key={card.id}
+        title={card.title}
+        number={card.number}
+        description={card.description}
+        icon={card.icon}
         />
       ))}
     </div>
+      </div>
   );
 };
 

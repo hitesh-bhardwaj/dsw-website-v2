@@ -10,11 +10,12 @@
   --primary-blue: #1727FF;
   --text-110: 6vw;
   --text-40:1.2vw;
-  --text-44:2.3vw;
+  --text-44: 2.3vw;
   --text-24: 1.3vw;
-  --text-32: 1.1vw;
+  --text-32: 1.5vw;
   --text-76:4.2vw;
   --text-30:1.55vw;
+  --text-56: 3.1vw;
   --text-22:1.1vw;
   --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
 
@@ -129,4 +130,36 @@ h6 {
   100% {
     transform: translateX(-57%);
   }
+}
+
+/* spin snimation for circle */
+
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-anticlockwise {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.outer-circle {
+  animation: spin-clockwise 80s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
+}
+
+.inner-circle {
+  animation: spin-anticlockwise 60s linear infinite;
+  transform-origin: center center;
+  will-change: transform;
 }

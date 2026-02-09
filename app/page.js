@@ -1,6 +1,6 @@
 import AlwaysOnAI from "@/components/AlwaysOnAI";
-import WhyAIStruggles from "@/components/WhyAIStruggles";
-import CoreEnterpriseSystem from "@/components/CoreEnterpriseSystem";
+import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
+import CoreEnterpriseSystem from "@/components/Homepage/CoreEnterpriseSystem";
 import Clients from "@/components/Clients";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
@@ -10,6 +10,7 @@ import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
+import UseCases from "@/components/Homepage/UseCases";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
       <UnifiedRuntime/>
       <Features/>
       <CoreEnterpriseSystem />
+      <UseCases/>
       <AlwaysOnAI />
       <Clients />
       <RealWorldOutcomes />

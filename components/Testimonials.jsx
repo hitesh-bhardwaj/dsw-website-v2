@@ -15,7 +15,7 @@ export default function Testimonials() {
             </div>
 
             {/* Testimonials Grid */}
-            <div className="grid grid-cols-3 gap-[2vw] mx-auto">
+            <div className="grid grid-cols-3 gap-[2.2vw] mx-auto">
                 {/* Card 1: Canara HSBC Stat */}
                 <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
                     <p className="text-30 ">
@@ -39,15 +39,16 @@ export default function Testimonials() {
                         With DSW's insurance-specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
-                        <div className="relative w-[2.71vw] h-[2.71vw] rounded-full border border-[#14100e] overflow-hidden flex-shrink-0">
+                         <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 ">
                             <Image
                                 src="/profile-ritesh.png"
                                 alt="Ritesh Rathod"
-                                fill
+                                height={100}
+                                width={100}
                                 className="object-contain"
                             />
                         </div>
-                        <div>
+                        <div className='space-y-[0.5vw]'>
                             <p className="text-[1.25vw] font-sans font-medium text-[#14100e] leading-[1.5]">
                                 Ritesh Rathod
                             </p>
@@ -74,15 +75,16 @@ export default function Testimonials() {
                         DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
-                        <div className="relative w-[2.71vw] h-[2.71vw] rounded-full border border-[#14100e] overflow-hidden flex-shrink-0">
+                       <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 ">
                             <Image
                                 src="/profile-stefano.png"
                                 alt="Stefano Bonfa"
-                                fill
+                                height={100}
+                                width={100}
                                 className="object-contain"
                             />
                         </div>
-                        <div>
+                        <div className='space-y-[0.5vw]'>
                             <p className="text-[1.25vw] font-sans font-medium text-[#14100e] leading-[1.5]">
                                 Stefano Bonfa
                             </p>
@@ -106,15 +108,18 @@ export default function Testimonials() {
                         With advanced capabilities of the platform's AgenticAI, Castler's escrow services became smarter, more efficient - enabling faster, secure, scalable solutions for our BFSI clients.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
-                        <div className="relative w-[2.71vw] h-[2.71vw] rounded-full border border-[#14100e] overflow-hidden flex-shrink-0">
+                       <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 ">
+                           
                             <Image
                                 src="/profile-ritesh-t.png"
                                 alt="Ritesh Tiwari"
-                                fill
+                                height={100}
+                                width={100}
                                 className="object-contain"
                             />
+                               
                         </div>
-                        <div>
+                       <div className='space-y-[0.5vw]'>
                             <p className="text-[1.25vw] font-sans font-medium text-[#14100e] leading-[1.5]">
                                 Ritesh Tiwari
                             </p>

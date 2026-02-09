@@ -3,11 +3,9 @@ import Image from 'next/image';
 import HeroBg from './Homepage/HeroBg';
 import PrimaryButton from './Buttons/PrimaryButton';
 import SecondaryButton from './Buttons/SecondaryButton';
-import { useEffect } from 'react';
 
 export default function HeroNew({heroContent}) {
     const showButtons = heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
-
     return (
         <section className="relative w-full h-screen bg-white">
 

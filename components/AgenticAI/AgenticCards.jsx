@@ -1,4 +1,12 @@
+"use client";
+
 import React from "react";
+import { useRef, useEffect } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
   {
@@ -18,30 +26,74 @@ const cardsData = [
   },
 ];
 
-
-const CardItem = ({ title, description }) => {
+const CardItem = React.forwardRef(({ title, description }, ref) => {
   return (
-    <div className="relative rounded-[1.5vw] border border-primary-blue p-[2.5vw] w-[28vw] h-[37vw] flex flex-col justify-between">
+    <div
+      ref={ref}
+      className="relative rounded-[1.5vw] border border-primary-blue p-[2.5vw] w-[28vw] h-[37vw] flex flex-col justify-between"
+    >
       <h2 className="text-56 font-light">{title}</h2>
 
-      <p className="text-40  leading-[1.7]">
-        {description}
-      </p>
+      <p className="text-40 leading-[1.7]">{description}</p>
     </div>
   );
-};
-
+});
 
 const AgenticCards = () => {
+  const cardsRef = useRef([]);
+  const containerRef = useRef(null);
+
+  useGSAP(
+    () => {
+      gsap.from(cardsRef.current, {
+        yPercent: 120,
+        stagger: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: containerRef.current,
+          start: "top 70%",
+          end: "bottom bottom",
+          scrub: true,
+          markers: false,
+        },
+      });
+    }
+  );
+
+  // useEffect(() => {
+  //   gsap.from(cardsRef.current, {
+  //     yPercent: 120,
+  //     stagger: 0,
+  //     ease: "power2.out",
+  //     scrollTrigger: {
+  //       trigger: containerRef.current,
+  //       start: "top 90%",
+  //       end: "bottom bottom",
+  //       scrub: true,
+  //       markers: true,
+  //     },
+  //   });
+  // }, []);
+
   return (
-    <div className="w-full flex flex-row py-[7%] gap-[2vw] justify-center items-stretch">
-      {cardsData.map((card, index) => (
-        <CardItem
-          key={index}
-          title={card.title}
-          description={card.description}
-        />
-      ))}
+    <div ref={containerRef} className="w-full h-[150vh] relative">
+      <div className="text-center mx-auto w-[80%] ">
+        <p className=" font-normal leading-[1.25] text-56! font-heading">
+          Turn proofs of concept into auditable, production-grade automation
+          with explainable agents, deterministic governance, and
+          enterprise-grade security.
+        </p>
+      </div>
+      <div className="w-full overflow-hidden h-screen  sticky py-[3%] top-0  flex justify-center items-center gap-[2vw]">
+        {cardsData.map((card, index) => (
+          <CardItem
+            key={index}
+            title={card.title}
+            description={card.description}
+            ref={(el) => (cardsRef.current[index] = el)}
+          />
+        ))}
+      </div>
     </div>
   );
 };
