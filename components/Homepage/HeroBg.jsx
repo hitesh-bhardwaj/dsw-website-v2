@@ -12,9 +12,6 @@ const HeroBg = () => {
 }
 export default HeroBg
 
-
-
-
 function InteractiveBackground() {
   const canvasRef = useRef(null);
 

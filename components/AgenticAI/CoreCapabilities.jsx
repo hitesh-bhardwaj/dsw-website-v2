@@ -3,48 +3,53 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import { UnifiedFoundation } from "../Svg/UnifiedFoundation";
+import { Governance } from "../Svg/Governance";
+import { HumanOversight } from "../Svg/HumanOversight";
+import { Security } from "../Svg/Security";
+import { Deployment } from "../Svg/Deployment";
+import { Orchestration } from "../Svg/Orchestration";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
   {
     id: 1,
-    icon: "UnifiedFoundationIcon",
+    icon: UnifiedFoundation,
     heading: "Unified foundation",
     text: "iSingle Governance Layer Across Data, models and Agents.",
     zIndex: "z-[10]",
   },
   {
     id: 2,
-    icon: "UnifiedFoundationIcon",
+    icon: Orchestration,
     heading: "Agent orchestration & collaboration",
     text: "multi-agent planning, A2A coordination and reusable workflow patterns.",
     zIndex: "z-[9]",
   },
   {
     id: 3,
-    icon: "UnifiedFoundationIcon",
+    icon: Governance,
     heading: "Audit-first governance",
     text: "immutable audit trails, deterministic runtime controls and role-based guardrails.",
     zIndex: "z-[8]",
   },
   {
     id: 4,
-    icon: "UnifiedFoundationIcon",
+    icon: HumanOversight,
     heading: "Explainability + human oversight:",
     text: "native human-in-the-loop workflows, explainability hooks and escalation controls.",
     zIndex: "z-[7]",
   },
   {
     id: 5,
-    icon: "UnifiedFoundationIcon",
+    icon: Security,
     heading: "Security & agent identity",
     text: "RBAC, secrets management, network sandboxing and enterprise key management.",
     zIndex: "z-[6]",
   },
   {
     id: 6,
-    icon: "UnifiedFoundationIcon",
+    icon: Deployment,
     heading: "Flexible deployment",
     text: "cloud-agnostic, hybrid, on-prem or air-gapped deployments to meet data-residency and latency needs.",
     zIndex: "z-[5]",
@@ -52,10 +57,11 @@ const cardsData = [
 ];
 
 const CapabilityCard = ({ card }) => {
+  const IconComponent = card.icon;
   return (
     <div className="w-[50vw] px-[3vw] border-primary-blue max-md:pl-[4vw] max-md:py-[4vw] h-[10vw] max-md:h-[20vw] max-md:w-[90vw] border  relative rounded-[2vw] max-md:rounded-3xl flex justify-center max-md:justify-between max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[4vw] items-center backdrop-blur-sm  cap-cards">
       <div className="h-[4.5vw] max-md:h-[10vw] max-md:w-auto max-sm:h-[7vw]">
-        <UnifiedFoundation className="h-full w-full" />
+         <IconComponent className="h-full w-full" />
       </div>
       <div className="flex flex-col gap-[0.5vw] w-full ">
         <p className="text-32 font-medium">{card.heading}</p>

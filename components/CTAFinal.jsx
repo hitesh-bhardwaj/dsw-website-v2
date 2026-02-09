@@ -10,6 +10,12 @@ export default function CTAFinal({ctaContent}) {
                   {ctaContent.heading}
                 </h4>
 
+                {ctaContent.subPara && (
+  <h5 className="  text-44 text-center mt-[1vw]">
+    {ctaContent.subParaText}
+  </h5>
+)}
+
                 <p className="text-30  text-[#111] text-center max-w-[55vw] mx-auto ">
                   {ctaContent.para}
                 </p>
