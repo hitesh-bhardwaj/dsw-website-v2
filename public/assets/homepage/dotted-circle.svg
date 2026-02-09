@@ -1,8 +1,5 @@
-export const CircleBg = ({ className }) => {
-  return (
-    <>
-      <svg
-        className={className}
+<svg
+       
         width="871"
         height="871"
         viewBox="0 0 871 871"
@@ -14,6 +11,3 @@ export const CircleBg = ({ className }) => {
           fill="#0205FA"
         />
       </svg>
-    </>
-  );
-};
