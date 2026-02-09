@@ -11,7 +11,23 @@ export default function Clients() {
 
             {/* Client Logos Grid */}
             <div className='clients-marquee'>
-            <div className="flex justify-start gap-[1.88vw]  clients-marquee__track">
+            <div className="flex justify-start gap-[1.88vw]  clients-marquee__track translate-x-[-5%]">
+                {clients.map((client, index) => (
+                    <div
+                        key={index}
+                        className="shrink-0 w-[16.67vw] clients-logo h-[13.54vw] border border-[#1727ff] rounded-[0.52vw] flex items-center justify-center"
+                    >
+                        <div className="relative">
+                            <Image
+                                src={client.logo}
+                                alt={client.name}
+                                height={200}
+                                width={200}
+                                className="object-contain z-10 "
+                            />
+                        </div>
+                    </div>
+                ))}
                 {clients.map((client, index) => (
                     <div
                         key={index}

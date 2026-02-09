@@ -141,7 +141,7 @@ h6 {
 .clients-marquee__track {
   display: flex;
   width: fit-content;
-  animation: clients-marquee 15s linear infinite;
+  animation: clients-marquee 25s linear infinite;
 }
 
 @keyframes clients-marquee {
@@ -149,7 +149,7 @@ h6 {
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-57%);
+    transform: translateX(-50.21%);
   }
 }
 
