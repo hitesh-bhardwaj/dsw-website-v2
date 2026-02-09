@@ -3,6 +3,7 @@ import PrimaryButton from './Buttons/PrimaryButton';
 import { useRef , useEffect } from 'react';
 import gsap from 'gsap';
 import { MotionPathPlugin } from 'gsap/MotionPathPlugin';
+import HeadingAnim from './Animations/HeadingAnim';
 
 gsap.registerPlugin(MotionPathPlugin);
 
@@ -17,10 +18,12 @@ export default function CTAPricing() {
             {/* Content */}
             <div className="relative z-10 text-center space-y-[11vw]">
                 {/* Heading */}
+                <HeadingAnim>
                 <h2 className="text-[4.5vw] font-heading leading-[1.2] tracking-[0.086vw] text-[#0A1B4B] ">
                     One Subscription,<br />
                     <span className="font-medium">Unlimited Scale.</span>
                 </h2>
+                </HeadingAnim>
                 <div>
                     <PrimaryButton href="#" text={"Discuss Pricing"}/>
 

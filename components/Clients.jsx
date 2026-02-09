@@ -1,16 +1,19 @@
 import Image from 'next/image';
+import HeadingAnim from './Animations/HeadingAnim';
 
 export default function Clients() {
     return (
         <section className="relative w-full py-[5.21vw] px-[3.91vw] space-y-[5vw]">
             {/* Heading */}
+            <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B]  leading-[1.2] w-[60%] text-center mx-auto">
                 Trusted by Enterprises
                 Operating AI at Scale
             </h2>
+            </HeadingAnim>
 
             {/* Client Logos Grid */}
-            <div className='clients-marquee'>
+            <div className='clients-marquee fadeup'>
             <div className="flex justify-start gap-[1.88vw]  clients-marquee__track translate-x-[-5%]">
                 {clients.map((client, index) => (
                     <div

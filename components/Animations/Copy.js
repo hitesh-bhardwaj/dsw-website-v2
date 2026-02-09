@@ -83,6 +83,7 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
 
       const animationProps = {
         y: "0%",
+        opacity:1,
         duration: 1.4,
         stagger: 0.15,
         ease: "power4.out",
@@ -99,7 +100,7 @@ export default function Copy({ children, animateOnScroll = true, delay = 0 }) {
           ...animationProps,
           scrollTrigger: {
             trigger: el,
-            start: "top 85%",
+            start: "top 75%",
             once: true,
             onEnter: () => elements.forEach(forceAriaVisible),
           },

@@ -2,6 +2,8 @@
 
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import HeadingAnim from "../Animations/HeadingAnim";
+import Copy from "../Animations/Copy";
 
 export default function UseCases() {
   useGSAP(() => {
@@ -54,17 +56,23 @@ export default function UseCases() {
       {/* Header */}
 
       <div className="w-[60%] flex flex-col gap-[2vw] text-center  mx-auto">
+        <HeadingAnim>
         <h2 className="text-76">
           Unlimited Use Cases. One Operating Foundation.
         </h2>
+        </HeadingAnim>
+        <Copy>
         <h3 className="text-44">
           Your use cases. Your artifacts. Your control.
         </h3>
+        </Copy>
+        <Copy>
         <p className="text-30">
           From BFSI to telecom, retail, and healthcare, organizations build AI
           and Agentic AI use cases that evolve, scale, and remain under
           enterprise control.
         </p>
+        </Copy>
       </div>
 
       {/* Use Case Cards */}
