@@ -1,62 +1,26 @@
-import Image from 'next/image';
 import { AIAgent } from '../Svg/AIAgent';
 import { Workflow } from '../Svg/Workflow';
 import { SecurityDeployment } from '../Svg/SecurityAndDeployment';
 import { AuditGovernance } from '../Svg/AuditGovernance';
-
-
+import CornerDecorations from '../CornerDecorations';
 
 function AboutCard({ challenge }) {
     return (
         <div className="relative">
+
             <div
                 className={`
-                    relative bg-white group 
+                    relative bg-white hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
                     w-[30vw] h-[16vw] p-[2vw] border
                     border-border-color flex flex-col
                 `}
             >
-                {/* Corner Decorations */}
-                <div className="absolute top-0 group-hover:top-[-0.5vw] group-hover:right-[-0.5vw] right-0 w-[0.3vw] h-[0.3vw]">
-                    <Image
-                        src="/Icons/CardsBorder/top-right.svg"
-                        alt=""
-                        width={5}
-                        height={5}
-                        className="w-full h-full"
-                    />
-                </div>
-                <div className="absolute top-0 left-0 group-hover:top-[-0.5vw] group-hover:left-[-0.5vw] w-[0.3vw] h-[0.3vw] ">
-                    <Image
-                        src="/Icons/CardsBorder/top-left.svg"
-                        alt=""
-                        width={5}
-                        height={5}
-                        className="w-full h-full"
-                    />
-                </div>
-                <div className="absolute bottom-0 right-0 group-hover:bottom-[-0.5vw] group-hover:right-[-0.5vw] w-[0.3vw] h-[0.3vw]">
-                    <Image
-                        src="/Icons/CardsBorder/bottom-right.svg"
-                        alt=""
-                        width={5}
-                        height={5}
-                        className="w-full h-full"
-                    />
-                </div>
-                <div className="absolute bottom-0 left-0 group-hover:bottom-[-0.5vw] group-hover:left-[-0.5vw] w-[0.3vw] h-[0.3vw]">
-                    <Image
-                        src="/Icons/CardsBorder/bottom-left.svg"
-                        alt=""
-                        width={5}
-                        height={5}
-                        className="w-full h-full"
-                    />
-                </div>
+                 <CornerDecorations />
+               
 
                 {/* Icon/Image */}
                 <div className="mb-auto w-[5vw] h-[5vw]">
-                    <challenge.Icon className="w-full h-full" />
+                    <challenge.Icon className="w-full duration-300 ease-in-out h-full group-hover:text-primary-blue" />
                 </div>
 
                 {/* Text */}
@@ -74,9 +38,9 @@ function AboutCard({ challenge }) {
 export default function AgenticAbout() {
  
     return (
-        <section className="relative w-full py-[10.42vw] px-[3.91vw] space-y-[8vw]">
+        <section className="relative w-full py-[10%] space-y-[8vw]">
    
-            <div className="mx-auto text-center w-[80%] space-y-[2.5vw]">
+            <div className="mx-auto text-center w-[85%] space-y-[2.5vw]">
                
                 <p className="text-44 font-extralight ">
                     Built on the proven DSW Enterprise AI OS and UnifyAI Kernel, the AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises.  
@@ -87,21 +51,13 @@ export default function AgenticAbout() {
             </div>
 
          
-            <div className="flex flex-wrap justify-between  mx-auto w-[75%]  space-y-[6vw]">
+            <div className="flex flex-wrap justify-between my-auto mx-auto w-[75%]  space-y-[6vw]">
                 {challenges.map((challenge, index) => (
                     <AboutCard key={index} challenge={challenge} />
                 ))}
             </div>
 
-             <div className="text-center mx-auto w-[80%]">
-                <p className=" font-normal leading-[1.25] text-56 font-heading">
-                   Turn proofs of concept into auditable, production-grade
- automation with explainable
-agents, deterministic governance, 
-and enterprise-grade security.
-                </p>
-            </div>
-
+            
             
         </section>
     );
