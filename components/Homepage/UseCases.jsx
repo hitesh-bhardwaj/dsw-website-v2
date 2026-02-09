@@ -1,20 +1,52 @@
-"use client"
+"use client";
 
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 
 export default function UseCases() {
-useGSAP(()=>{
-    
-})
+  useGSAP(() => {
+    gsap.fromTo(
+      "#usecases,#coreEnterprise",
+      {
+        backgroundColor: "#ffffff",
+        color: "#111111",
+      },
+      {
+        backgroundColor: "#02031c",
+        color: "#ffffff",
+        scrollTrigger: {
+          trigger: "#usecases",
+          start: "top 70%",
+          end: "30% 70%",
+          scrub: true,
+        },
+      },
+    );
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#usecases",
+        start: "20% 70%",
+        end: "bottom bottom",
+        markers: true,
+        scrub: true,
+      },
+    });
+    tl.from(".content-container",{
+      height:"0vh",
+      stagger:0.1,
+      duration:0.5,
+      ease:"power2.out"
+    })
+  });
 
   return (
     <section
-      className="w-full bg-[#02031c] pt-[7%] px-[5vw] h-fit text-white"
+      className="w-full bg-[#02031c] pt-[7%] px-[5vw] h-[300vh] text-white"
       id="usecases"
     >
       {/* Header */}
-      
-      <div className="w-[60%] flex flex-col gap-[2vw] text-center mx-auto">
+
+      <div className="w-[60%] flex flex-col gap-[2vw] text-center  mx-auto">
         <h2 className="text-76">
           Unlimited Use Cases. One Operating Foundation.
         </h2>
@@ -29,27 +61,27 @@ useGSAP(()=>{
       </div>
 
       {/* Use Case Cards */}
-      <div className="w-full h-fit flex justify-between mt-[6vw]">
+      <div className="w-screen h-screen flex gap-[3vw] -mt-[15vh] sticky top-0 items-end">
         {USE_CASES.map((useCase) => (
           <div
             key={useCase.id}
-            className="w-[31%] h-[40vw] flex flex-col relative use-case"
+            className="w-[28vw] h-fit flex flex-col relative use-case justify-between"
           >
-            {/* Index */}
-            <div className="text-76 pl-[3vw] font-light">{useCase.id}</div>
+            <div>
+              <div className="text-76 pl-[3vw] font-light">{useCase.id}</div>
+              <div className="w-full h-[10px] bg-primary-blue" />
+            </div>
 
-            {/* Accent Bar */}
-            <div className="w-full h-[10px] bg-primary-blue" />
+            <div className="w-full h-[80vh]  bg-white content-container">
+              <div className="p-[3vw] space-y-[3vw] text-foreground">
+                <h4 className="text-32 font-medium">{useCase.title}</h4>
 
-            {/* Content */}
-            <div className="w-full h-full bg-white p-[3vw] space-y-[3vw] text-foreground">
-              <h4 className="text-32 font-medium">{useCase.title}</h4>
-
-              <ul className="list-disc pl-[1vw] space-y-[0.5vw]">
-                {useCase.items.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
+                <ul className="list-disc pl-[1vw] space-y-[0.5vw] text-[1.15vw]">
+                  {useCase.items.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         ))}

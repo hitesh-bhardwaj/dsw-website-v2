@@ -1,4 +1,9 @@
+"use client";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Image from "next/image";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const layers = [
   { src: "/assets/homepage/unified-layer-1.png", top: "0%", z: 6 },
@@ -10,9 +15,42 @@ const layers = [
 ];
 
 export default function UnifiedRuntime() {
+  useGSAP(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#unified-runtime",
+        start: "top 70%",
+        end: "30% 70%",
+        scrub: true,
+        // markers:true,
+      },
+    });
+    tl.fromTo(
+      "#unified-runtime,#struggle",
+      {
+        backgroundColor: "#ffffff",
+      },
+      {
+        backgroundColor: "#02031c",
+      },
+    );
+
+    const bl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#unified-runtime",
+        start: "bottom 70%",
+        end: "bottom 30%",
+        scrub: true,
+        // markers: true,
+      },
+    });
+    bl.to("#unified-runtime", {
+      backgroundColor: "#ffffff",
+    });
+  });
   return (
     <section
-      className="py-[7%] px-[5vw] text-white bg-[#02031c] space-y-[9vw]"
+      className="py-[7%] px-[5vw] text-white space-y-[9vw] relative"
       id="unified-runtime"
     >
       <h2 className="text-76  w-[60%] text-center mx-auto leading-[1.4]">
@@ -35,9 +73,7 @@ export default function UnifiedRuntime() {
       </div>
       <div className="w-full flex justify-between h-fit items-center">
         <div className="w-[30%] flex flex-col gap-[2vw]">
-          <h3 className="text-56 ">
-            Hardware / Cloud Infrastructure
-          </h3>
+          <h3 className="text-56 ">Hardware / Cloud Infrastructure</h3>
           <p className="flex items-center gap-2">
             <span className="w-1 h-1 bg-white rounded-full inline-block" />{" "}
             Servers, Storage, Network, Accelerators

@@ -1,5 +1,8 @@
-import Image from "next/image";
+"use client"
+import { useGSAP } from "@gsap/react";
 import CornerDecorations from "../CornerDecorations";
+import gsap from "gsap";
+
 
 export default function WhyAIStruggles() {
   const challenges = [
@@ -27,61 +30,78 @@ export default function WhyAIStruggles() {
     },
   ];
 
-  return (
-    <section className="relative w-full py-[7%] space-y-[7vw] " id="struggle">
-      {/* Heading Section */}
-      <div className="text-center space-y-[2vw]">
-        <h2 className="text-[3vw] font-medium font-heading text-[#0A1B4B]">
-          Why AI Struggles in Production
-        </h2>
-        <p className="text-[1.25vw] font-sans leading-[1.6] tracking-[0.025vw] text-[#111] max-w-[40.99vw] mx-auto">
-          Modern enterprises don't struggle with building AI models. They
-          struggle with operating AI reliably in production:
-        </p>
-      </div>
+  useGSAP(()=>{
+    gsap.from(".struggle-card",{
+      yPercent:150,
+      stagger:0.2,
+      ease:"power3.out",
+      scrollTrigger:{
+        trigger:"#struggle",
+        start:"top 50%",
+        end:"bottom bottom",
+        scrub:true,
+        // markers:true
+      }
+    })
+  })
 
-      {/* Challenge Boxes */}
-      <div className="flex justify-center gap-[2.34vw] mb-[5.21vw]">
-        {challenges.map((challenge, index) => (
-          <div key={index} className="relative">
-            {/* Box Container */}
-            <div
-              className={`
-                                relative w-[21vw] h-[28vw] group
+  return (
+    <section className="relative w-full h-[240vh] py-[7%] " id="struggle">
+      {/* Heading Section */}
+      <div className=" space-y-[5.5vw] h-fit sticky top-[7%]">
+        <div className="text-center space-y-[2vw]">
+          <h2 className="text-[3vw] font-medium font-heading text-[#0A1B4B]">
+            Why AI Struggles in Production
+          </h2>
+          <p className="text-[1.25vw] font-sans leading-[1.6] tracking-[0.025vw] text-[#111] max-w-[40.99vw] mx-auto">
+            Modern enterprises don't struggle with building AI models. They
+            struggle with operating AI reliably in production:
+          </p>
+        </div>
+
+        {/* Challenge Boxes */}
+        <div className="flex justify-center gap-[2.34vw]">
+          {challenges.map((challenge, index) => (
+            <div key={index} className="relative  struggle-card">
+              {/* Box Container */}
+              <div
+                className={`
+                                relative w-[21vw] h-[50vh] group
                                 border border-solid hover:border-[#0205fa] hover:shadow-lg hover:drop-shadow-lg border-[#c2c2c2] duration-300 ease-in-out
                                 
                             `}
-            >
-              <CornerDecorations />
+              >
+                <CornerDecorations />
 
-              {/* Number */}
-              <div
-                className={`
+                {/* Number */}
+                <div
+                  className={`
                                 absolute top-0 right-[1.04vw]
                                 text-[5vw] font-sans  leading-none
                                opacity-50 group-hover:opacity-100 duration-300 ease-in-out
                             `}
-              >
-                {challenge.number}
-              </div>
+                >
+                  {challenge.number}
+                </div>
 
-              {/* Content */}
-              <div className="absolute bottom-[2.08vw] left-[2.08vw] right-[2.08vw]">
-                <p className="text-[1.56vw] font-sans leading-[2.08vw] text-[#111]">
-                  {challenge.title}
-                </p>
+                {/* Content */}
+                <div className="absolute bottom-[2.08vw] left-[2.08vw] right-[2.08vw]">
+                  <p className="text-[1.56vw] font-sans leading-[2.08vw] text-[#111]">
+                    {challenge.title}
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* Bottom Text */}
-      <div className="text-center">
-        <p className="text-[2.4vw] w-[50%]  mx-auto font-light">
-          These gaps don't surface during pilots, but when AI becomes
-          operational.
-        </p>
+        {/* Bottom Text */}
+        <div className="text-center pt-[3vw]">
+          <p className="text-[2.4vw] w-[50%]  mx-auto font-light">
+            These gaps don't surface during pilots, but when AI becomes
+            operational.
+          </p>
+        </div>
       </div>
     </section>
   );
