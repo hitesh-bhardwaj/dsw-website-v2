@@ -55,7 +55,7 @@ fadeUp()
                 {/* CTA Buttons - Only render if at least one button is present */}
                 <div className='fadeup'>
                 {showButtons && (
-                    <div className="flex items-center gap-[2.08vw] mt-15 ">
+                    <div className="flex max-sm:flex-col items-center gap-[2.08vw] max-sm:gap-[4vw] mt-15 ">
                         {/* Primary Button */}
                         {heroContent.primaryButton?.present && (
                             <PrimaryButton 
