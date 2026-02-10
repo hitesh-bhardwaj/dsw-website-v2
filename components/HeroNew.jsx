@@ -1,24 +1,35 @@
 "use client"
 import Image from 'next/image';
-import HeroBg from './Homepage/HeroBg';
 import PrimaryButton from './Buttons/PrimaryButton';
 import SecondaryButton from './Buttons/SecondaryButton';
 import Copy from './Animations/Copy';
 import HeadingAnim from './Animations/HeadingAnim';
 import { fadeUp } from './Animations/gsapAnimations';
+import WaveGradientCanvas from './Homepage/HeroBg';
 
 export default function HeroNew({heroContent}) {
     const showButtons = heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
 fadeUp()
     return (
         <section className="relative w-full h-screen bg-white">
+           <div className="absolute inset-0 z-10 pointer-events-none h-[120vh]">
+  <div className="absolute inset-0 flex justify-between px-16">
+    {[...Array(16)].map((_, i) => (
+      <span key={i} className="w-px h-full bg-white/10" />
+    ))}
+  </div>
+  <div className="absolute inset-0 flex flex-col justify-between py-16">
+    {[...Array(11)].map((_, i) => (
+      <span key={i} className="h-px w-full bg-white/10" />
+    ))}
+  </div>
+</div>
 
-            <div className='h-full w-full absolute'>
-            <HeroBg/>
-            </div>
+            <WaveGradientCanvas/>
+           
            
             {/* Content */}
-            <div className="relative z-10 flex flex-col items-center h-full pt-[12vw]">
+            <div className="relative z-20 flex flex-col items-center h-full pt-[12vw]">
                 <div className='space-y-[1.2vw]'>
                     {/* Tagline */}
                     <Copy>

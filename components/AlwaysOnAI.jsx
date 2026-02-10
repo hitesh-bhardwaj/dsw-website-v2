@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import HeadingAnim from './Animations/HeadingAnim';
@@ -9,93 +9,143 @@ import Copy from './Animations/Copy';
 
 gsap.registerPlugin(ScrollTrigger);
 
+// --- SVG sizing (matches your viewBox) ---
+const VB_W = 1440;
+const VB_H = 700;
+const MID_Y = VB_H / 2;
+
+// ✅ Start/end far outside the screen horizontally
+const START = { x: -600, y: MID_Y };
+const END = { x: VB_W + 600, y: MID_Y };
+
+// Control points X (still inside viewBox so curves look natural)
+const C1X = VB_W * 0.30;
+const C2X = VB_W * 0.70;
+
+// ---- helpers ----
+function clamp01(v) {
+  return Math.max(0, Math.min(1, v));
+}
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+function smoothstep(t) {
+  return t * t * (3 - 2 * t);
+}
+
+// ✅ Smooth stagger: all arcs animate over the whole scroll, but delayed by index
+function staggeredProgress(p, i, count, stagger = 0.08) {
+  const delay = i * stagger;                 // later arcs start later
+  const span = 1 - delay;                    // remaining timeline for that arc
+  return clamp01((p - delay) / Math.max(1e-6, span));
+}
+
 export default function AlwaysOnAI() {
   const sectionRef = useRef(null);
-  const ringsRef = useRef([]);
+  const pathRefs = useRef([]);
 
-  const setRingRef = (el) => {
+  const setPathRef = (el) => {
     if (!el) return;
-    if (!ringsRef.current.includes(el)) ringsRef.current.push(el);
+    if (!pathRefs.current.includes(el)) pathRefs.current.push(el);
   };
+
+  const ARC_COUNT = 8;
+
+  // ✅ Reduced vertical gapping between arcs (smaller pulls)
+  const GAP_BOOST = 2.8; // try 0.85 for even tighter
+
+  const arcParams = useMemo(() => {
+    return Array.from({ length: ARC_COUNT }).map((_, i) => {
+      const t = ARC_COUNT === 1 ? 0 : i / (ARC_COUNT - 1);
+
+      // Smaller pull range = less separation (vertical gapping)
+      const upPull = (60 + t * 140) * GAP_BOOST;
+      const downPull = (70 + t * 180) * GAP_BOOST;
+
+      const opacity = 0.7 - t * 0.45;
+
+      return { upPull, downPull, opacity };
+    });
+  }, [ARC_COUNT, GAP_BOOST]);
 
   useLayoutEffect(() => {
     if (!sectionRef.current) return;
 
     const ctx = gsap.context(() => {
-      // Put perspective on an HTML element (works reliably)
-      const bg = sectionRef.current.querySelector('.rings-perspective');
-      if (bg) {
-        gsap.set(bg, { perspective: 1200, transformStyle: 'preserve-3d' });
-      }
+      const paths = pathRefs.current;
+      const params = arcParams.slice(0, paths.length);
 
-      // Ensure transform box/origin works on SVG groups
-      ringsRef.current.forEach((g) => {
-        // SVG-specific: make CSS transforms reference the shape bounds
-        (g).style.transformBox = 'fill-box';
-        (g).style.transformOrigin = '50% 50%';
-        (g).style.transformStyle = 'preserve-3d';
-        (g).style.willChange = 'transform';
-      });
+      ScrollTrigger.create({
+        trigger: sectionRef.current,
+        start: 'top 85%',
+        end: 'bottom top',
+        scrub: 1, // ✅ smoother than true; adds a little easing
+        onUpdate: (self) => {
+          const p = self.progress; // 0..1
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-          // markers: true,
+          paths.forEach((pathEl, i) => {
+            const cfg = params[i];
+            if (!cfg) return;
+
+            // ✅ smooth + staggered
+            const local = staggeredProgress(p, i, ARC_COUNT, 0.085);
+            const t = smoothstep(local);
+
+            // pull goes from up -> down
+            const pull = lerp(-cfg.upPull, cfg.downPull, t);
+
+            // keep endpoints centered vertically
+            const y0 = START.y;
+            const y1 = END.y;
+
+            const d = `M ${START.x} ${y0}
+                       C ${C1X} ${y0 + pull},
+                         ${C2X} ${y1 + pull},
+                         ${END.x} ${y1}`;
+
+            pathEl.setAttribute('d', d.replace(/\s+/g, ' ').trim());
+          });
         },
-      });
-
-      ringsRef.current.forEach((g, i) => {
-        tl.to(
-          g,
-          {
-            rotateX: 180 + i * 6,   // increase if you want stronger tilt
-            rotateY: i * 2,        // tiny twist adds depth
-            z: i * 2,              // helps some browsers “commit” to 3D
-            ease: 'none',
-          },
-          0
-        );
       });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [arcParams]);
 
   return (
     <section
       ref={sectionRef}
       className="relative w-full bg-white py-[10.42vw] px-[3.91vw] overflow-hidden"
     >
-      {/* Background Line Effect */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective">
+      {/* Background curves */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg
-          className="absolute w-[120vw] h-[120vw] max-w-none"
-          viewBox="0 0 1200 1200"
+          className="absolute inset-0 w-screen h-full"
+          viewBox={`0 0 ${VB_W} ${VB_H}`}
           fill="none"
           aria-hidden="true"
-          style={{ overflow: 'visible' }}
+          preserveAspectRatio="none"
         >
-          {Array.from({ length: 8 }).map((_, i) => {
-            const t = i / 7;              // 0..1 for 8 rings
-            const rx = 420 + t * 520;
-            const ry = 200 + t * 360;
+          {Array.from({ length: ARC_COUNT }).map((_, i) => {
+            const cfg = arcParams[i];
+            const initialPull = -cfg.upPull;
+
+            const d = `M ${START.x} ${START.y}
+                       C ${C1X} ${START.y + initialPull},
+                         ${C2X} ${END.y + initialPull},
+                         ${END.x} ${END.y}`;
 
             return (
-              <g key={i} ref={setRingRef}>
-                <ellipse
-                  cx="600"
-                  cy="600"
-                  rx={rx}
-                  ry={ry}
-                  stroke="#E6EEFF"
-                  strokeWidth="1"
-                  opacity={0.85 - t * 0.55}
-                  vectorEffect="non-scaling-stroke"
-                />
-              </g>
+              <path
+                key={i}
+                ref={setPathRef}
+                d={d.replace(/\s+/g, ' ').trim()}
+                stroke="#D9DAFE"
+                strokeWidth="1.15"
+                strokeLinecap="round"
+                vectorEffect="non-scaling-stroke"
+                opacity={cfg.opacity}
+              />
             );
           })}
         </svg>
