@@ -1,15 +1,17 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-
 import { usePathname } from "next/navigation";
 import { useLenis } from "lenis/react";
 import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { ChevronDown } from "lucide-react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { SplitText } from "gsap/SplitText";
 
-
+gsap.registerPlugin(SplitText, useGSAP);
 
 const NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about-us", drop: false },
@@ -42,12 +44,12 @@ const NAV_LINKS = [
     children: [
       { id: "res-1", label: "Case Studies", href: "/#" },
       { id: "res-2", label: "In the News", href: "/#" },
-       { id: "res-3", label: "Blogs", href: "/#" },
+      { id: "res-3", label: "Blogs", href: "/#" },
       { id: "res-4", label: "Events", href: "/#" },
-       { id: "res-5", label: "Videos", href: "/#" },
-        { id: "res-6", label: "Whitepapers", href: "/#" },
-         { id: "res-7", label: "Workshops", href: "/#" },
-          { id: "res-8", label: "Masterclass", href: "/#" },
+      { id: "res-5", label: "Videos", href: "/#" },
+      { id: "res-6", label: "Whitepapers", href: "/#" },
+      { id: "res-7", label: "Workshops", href: "/#" },
+      { id: "res-8", label: "Masterclass", href: "/#" },
     ],
   },
 ];
@@ -57,6 +59,65 @@ const isPathActive = (pathname, href) => {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(href + "/");
 };
+
+// ✅ Same file component: Animated link with SplitText hover animation
+function AnimatedNavLink({
+  href,
+  children,
+  className = "",
+  onClick,
+  ...props
+}) {
+  const elRef = useRef(null);
+  const splitRef = useRef(null);
+  const tlRef = useRef(null);
+
+  useGSAP(
+    () => {
+      if (!elRef.current) return;
+
+      // Create split ONCE for this element
+      splitRef.current = new SplitText(elRef.current, {
+        type: "chars",
+        // If you REALLY need masks, you can enable this, but it may require CSS:
+        // mask: "lines",
+      });
+
+      gsap.set(splitRef.current.chars, { yPercent: 0 });
+
+      tlRef.current = gsap
+        .timeline({ paused: true })
+        .to(splitRef.current.chars, {
+          yPercent: -100,
+          stagger: 0.008,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+
+      return () => {
+        tlRef.current?.kill();
+        splitRef.current?.revert();
+        splitRef.current = null;
+        tlRef.current = null;
+      };
+    },
+    { scope: elRef }
+  );
+
+  return (
+    <Link
+      href={href}
+      ref={elRef}
+      onMouseEnter={() => tlRef.current?.restart()}
+      onMouseLeave={() => tlRef.current?.reverse()}
+      onClick={onClick}
+      className={className}
+      {...props}
+    >
+      {children}
+    </Link>
+  );
+}
 
 export default function Header() {
   const [isHidden, setIsHidden] = useState(false);
@@ -117,193 +178,186 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, isHoveringHeader]);
 
-
-
   return (
     <>
-      <div className="w-screen overflow-hidden h-screen fixed top-0 z-[900] pointer-events-none">
-        <header
-          ref={headerWrapRef}
-          onMouseEnter={() => setIsHoveringHeader(true)}
-          onMouseLeave={() => setIsHoveringHeader(false)}
-          className="text-white w-screen fixed b top-0 left-0 z-[900] pointer-events-none "
+      <header
+        ref={headerWrapRef}
+        onMouseEnter={() => setIsHoveringHeader(true)}
+        onMouseLeave={() => setIsHoveringHeader(false)}
+        className="text-white w-screen fixed b top-0 left-0 z-900 pointer-events-none "
+      >
+        <nav
+          className={`flex items-center justify-between px-12 py-6 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-md:bg-black/20 max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
+            isHidden ? "-translate-y-full" : "translate-y-0"
+          }`}
+          ref={headerRef}
         >
-          <nav
-            className={`flex items-center justify-between px-12 py-6 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-md:bg-black/20 max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
-              isHidden ? "-translate-y-full" : "translate-y-0"
-            }`}
-            ref={headerRef}
-          >
-            {/* Logo */}
-            <div className="flex items-center gap-2 w-[12%] max-sm:w-[26%]">
-              <Link href="/" className="flex items-center">
-                <Image
-                  src="/dsw-logo.svg"
-                  alt="DSW Logo"
-                  width={150}
-                  height={50}
-                  className="h-12 max-sm:w-full w-auto  "
-                  priority
-                />
-              </Link>
-            </div>
+          {/* Logo */}
+          <div className="flex items-center gap-2 w-[12%] max-sm:w-[26%]">
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/dsw-logo.svg"
+                alt="DSW Logo"
+                width={150}
+                height={50}
+                className="h-12 max-sm:w-full w-auto  "
+                priority
+              />
+            </Link>
+          </div>
 
-            {/* Desktop Navigation */}
-            {!mob ? (
-              <div className=" rounded-full  ml-[4vw] max-md:hidden relative">
-                <div className="w-full h-full absolute top-0 left-0   " />
-                <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
-                  {NAV_LINKS.map((link) => {
-                    const hasChildren =
-                      Array.isArray(link.children) && link.children.length > 0;
-                    const isActive =
-                      isPathActive(pathname, link.href) ||
-                      (hasChildren &&
-                        link.children.some((child) =>
-                          isPathActive(pathname, child.href)
-                        ));
+          {/* Desktop Navigation */}
+          {!mob ? (
+            <div className=" rounded-full  ml-[4vw] max-md:hidden relative">
+              <div className="w-full h-full absolute top-0 left-0   " />
+              <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
+                {NAV_LINKS.map((link) => {
+                  const hasChildren =
+                    Array.isArray(link.children) && link.children.length > 0;
+                  const isActive =
+                    isPathActive(pathname, link.href) ||
+                    (hasChildren &&
+                      link.children.some((child) =>
+                        isPathActive(pathname, child.href)
+                      ));
 
-                    return (
-                      <li
-                        key={link.id}
-                        className="relative text-black dropdown-links"
-                        onMouseEnter={() => setOpenDropdown(link.id)}
-                        onMouseLeave={() => setOpenDropdown(null)}
-                      >
-                        {/* Top-level link */}
-                        <div className="flex items-center gap-[0.5vw] relative z-[10] navlinks group">
-                          <Link
-                            href={link.href}
-                            aria-current={isActive ? "page" : undefined}
-                            aria-haspopup={hasChildren ? "menu" : undefined}
-                            aria-expanded={
-                              hasChildren
-                                ? String(openDropdown === link.id)
-                                : undefined
-                            }
-                            className={`${
-                              hasChildren ? "cursor-pointer" : ""
-                            } ${isActive ? "" : ""} ${
-                              !isActive
-                                ? "group-hover:text-primary-blue! text-22  duration-300 transition-all ease-in"
-                                : ""
-                            }`}
-                            onClick={(e) => {
-                              if (hasChildren) e.preventDefault();
-                            }}
-                          >
-                            {link.label}
-                          </Link>
-                          {hasChildren && (
-                            <div className="w-fit">
-                              <div
-                                className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${
-                                  openDropdown === link.id
-                                    ? "translate-y-[25%] scale-[1.05]"
-                                    : ""
-                                }`}
-                              >
-                                <div className="w-[1.5vw] h-auto">
-                                  <ChevronDown
-                                    className={`w-full h-full ${
-                                      isActive
-                                        ? "stroke-black"
-                                        : "stroke-black"
-                                    } group-hover:stroke-black duration-300 transition-all ease-in`}
-                                  />
-                                </div>
-                              </div>
+                  return (
+                    <li
+                      key={link.id}
+                      className="relative text-black dropdown-links"
+                      onMouseEnter={() => setOpenDropdown(link.id)}
+                      onMouseLeave={() => setOpenDropdown(null)}
+                    >
+                      {/* Top-level link */}
+                      <div className="flex items-center gap-[0.5vw] relative z-[10] navlinks group overflow-clip">
+                        <AnimatedNavLink
+                          href={link.href}
+                          aria-current={isActive ? "page" : undefined}
+                          aria-haspopup={hasChildren ? "menu" : undefined}
+                          aria-expanded={
+                            hasChildren
+                              ? String(openDropdown === link.id)
+                              : undefined
+                          }
+                          className={`${
+                            hasChildren ? "cursor-pointer" : ""
+                          } ${isActive ? "" : ""} ${
+                            !isActive
+                              ? "group-hover:text-primary-blue! text-22  duration-300 transition-all ease-in"
+                              : ""
+                          } buttonTextShadow `}
+                          onClick={(e) => {
+                            if (hasChildren) e.preventDefault();
+                          }}
+                        >
+                          {link.label}
+                        </AnimatedNavLink>
 
-                              <span
-                                className={`block w-full absolute left-0 z-[-1] ${
-                                  openDropdown === link.id ? "h-[3vw]" : "h-0"
-                                }`}
-                              />
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Submenu */}
                         {hasChildren && (
-                          <div
-                            className={`absolute top-[250%] left-[-5%] w-fit h-fit bg-white/40 backdrop-blur-md rounded-[0.5vw] border border-black/10 transition-opacity duration-300 ${
-                              openDropdown === link.id
-                                ? "opacity-100"
-                                : "opacity-0 pointer-events-none"
-                            }`}
-                            onMouseEnter={() => setOpenDropdown(link.id)}
-                            onMouseLeave={() => setOpenDropdown(null)}
-                          >
-                            <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw]">
-                              {link.children.map((child) => {
-                                const childActive = isPathActive(
-                                  pathname,
-                                  child.href
-                                );
+                          <div className="w-fit">
+                            <div
+                              className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${
+                                openDropdown === link.id
+                                  ? "translate-y-[25%] scale-[1.05]"
+                                  : ""
+                              }`}
+                            >
+                              <div className="w-[1.5vw] h-auto">
+                                <ChevronDown
+                                  className={`w-full h-full ${
+                                    isActive ? "stroke-black" : "stroke-black"
+                                  } group-hover:stroke-black duration-300 transition-all ease-in`}
+                                />
+                              </div>
+                            </div>
 
-                                return (
-                                  <li key={child.id}>
-                                    <Link
-                                      href={child.href}
-                                      aria-current={
-                                        childActive ? "page" : undefined
-                                      }
-                                      className={`block py-1.5 text-22 transition-colors whitespace-nowrap ${
-                                        childActive
-                                          ? ""
-                                          : " hover:text-primary-blue!"
-                                      }`}
-                                    >
-                                      {child.label}
-                                    </Link>
-                                  </li>
-                                );
-                              })}
-                            </ul>
+                            <span
+                              className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${
+                                openDropdown === link.id ? "h-[8vw]" : "h-0"
+                              }`}
+                            />
                           </div>
                         )}
-                      </li>
-                    );
-                  })}
-                </ul>
-              </div>
-            ) : (
-              <div className="flex items-center justify-between transition-transform duration-500 pointer-events-auto">
-                {/* Hamburger */}
+                      </div>
+
+                      {/* Submenu */}
+                      {hasChildren && (
+                        <div
+                          className={`absolute top-[250%] left-[-5%] w-fit h-fit bg-white/60 backdrop-blur-md rounded-[0.5vw] border border-black/10 transition-opacity duration-300 ${
+                            openDropdown === link.id
+                              ? "opacity-100"
+                              : "opacity-0 pointer-events-none"
+                          }`}
+                          onMouseEnter={() => setOpenDropdown(link.id)}
+                          onMouseLeave={() => setOpenDropdown(null)}
+                        >
+                          <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw]">
+                            {link.children.map((child) => {
+                              const childActive = isPathActive(
+                                pathname,
+                                child.href
+                              );
+
+                              return (
+                                <li key={child.id} className="overflow-clip">
+                                  <AnimatedNavLink
+                                    href={child.href}
+                                    aria-current={
+                                      childActive ? "page" : undefined
+                                    }
+                                    className={`block py-1.5 text-22 transition-colors whitespace-nowrap buttonTextShadow  ${
+                                      childActive
+                                        ? ""
+                                        : " hover:text-primary-blue!"
+                                    }`}
+                                  >
+                                    {child.label}
+                                  </AnimatedNavLink>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          ) : (
+            <div className="flex items-center justify-between transition-transform duration-500 pointer-events-auto">
+              {/* Hamburger */}
+              <div
+                className="hidden max-sm:flex max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-[150] max-md:flex max-md:flex-col max-md:w-[4.5vw] max-md:gap-[1vw] max-sm:w-[7vw]"
+                onClick={() => setOpenMobileMenu((prev) => !prev)}
+              >
                 <div
-                  className="hidden max-sm:flex max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-[150] max-md:flex max-md:flex-col max-md:w-[4.5vw] max-md:gap-[1vw] max-sm:w-[7vw]"
-                  onClick={() => setOpenMobileMenu((prev) => !prev)}
-                >
-                  <div
-                    className={`w-full h-[2.5px] rounded-full line-1 transition-all duration-500 origin-center ham-mobile bg-black ${
-                      openMobileMenu ? "" : ""
-                    }`}
-                  />
-                  <div
-                    className={`w-full h-[2.5px]  rounded-full line-2 transition-all duration-500 ham-mobile bg-black ${
-                      openMobileMenu ? "" : ""
-                    }`}
-                  />
-                  <div
-                    className={`w-full h-[2.5px]  rounded-full line-3 transition-all duration-500 origin-center ham-mobile bg-black ${
-                      openMobileMenu ? "" : ""
-                    }`}
-                  />
-                </div>
+                  className={`w-full h-[2.5px] rounded-full line-1 transition-all duration-500 origin-center ham-mobile bg-black ${
+                    openMobileMenu ? "" : ""
+                  }`}
+                />
+                <div
+                  className={`w-full h-[2.5px]  rounded-full line-2 transition-all duration-500 ham-mobile bg-black ${
+                    openMobileMenu ? "" : ""
+                  }`}
+                />
+                <div
+                  className={`w-full h-[2.5px]  rounded-full line-3 transition-all duration-500 origin-center ham-mobile bg-black ${
+                    openMobileMenu ? "" : ""
+                  }`}
+                />
               </div>
-            )}
+            </div>
+          )}
 
-            {/* CTA */}
-            {!mob && (
-              <div className="flex items-center gap-6 max-md:hidden">
-                <PrimaryButton text="Contact Us" href="/contact-us" />
-              </div>
-            )}
-          </nav>
-        </header>
-
-        
-      </div>
+          {/* CTA */}
+          {!mob && (
+            <div className="flex items-center gap-6 max-md:hidden">
+              <PrimaryButton text="Contact Us" href="/contact-us" />
+            </div>
+          )}
+        </nav>
+      </header>
     </>
   );
 }
