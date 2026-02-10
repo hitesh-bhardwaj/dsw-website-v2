@@ -54,21 +54,21 @@ export default function UnifiedRuntime() {
   });
   return (
     <section
-      className="py-[7%] px-[5vw] text-white space-y-[9vw] relative"
+      className="py-[7%] px-[5vw] text-white space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%]"
       id="unified-runtime"
     >
       <HeadingAnim>
-      <h2 className="text-76  w-[60%] text-center mx-auto leading-[1.4]">
+      <h2 className="text-76  w-[60%] text-center mx-auto leading-[1.4] max-sm:w-full">
         From Fragmented AI to One Governed Runtime
       </h2>
       </HeadingAnim>
-      <div className="w-full flex justify-between">
-        <div className="w-[30%]">
+      <div className="w-full flex justify-between max-sm:flex-col max-sm:items-center max-sm:gap-[10vw]">
+        <div className="w-[30%] max-sm:w-full max-sm:text-center">
           <HeadingAnim>
           <h3 className="text-56 ">Build a Unified AI Ecosystem</h3>
           </HeadingAnim>
         </div>
-        <div className="w-[40%] space-y-[1vw] text-24 ">
+        <div className="w-[40%] space-y-[1vw] text-24 max-sm:w-full  max-sm:text-center max-sm:space-y-[4vw]">
           <Copy>
           <p>
             Unify models, agents, tools, and workflows under a single governed
@@ -83,24 +83,24 @@ export default function UnifiedRuntime() {
           </Copy>
         </div>
       </div>
-      <div className="w-full flex justify-between h-fit items-center">
-        <div className="w-[30%] flex flex-col gap-[2vw]">
+      <div className="w-full flex justify-between h-fit items-center max-sm:flex-col max-sm:gap-[15vw]">
+        <div className="w-[30%] flex flex-col gap-[2vw] max-sm:w-full">
           <HeadingAnim>
 
-          <h3 className="text-56 ">Hardware / Cloud Infrastructure</h3>
+          <h3 className="text-56 max-sm:w-[70%] ">Hardware / Cloud Infrastructure</h3>
           </HeadingAnim>
           <Copy>
-          <p className="flex items-center  gap-2">
-            <span className="w-1 h-1  bg-white rounded-full inline-block" />{" "}
+          <div className="flex items-center  gap-2">
+            <div className="w-1 h-1  bg-white rounded-full inline-block " />{" "}
             Servers, Storage, Network, Accelerators
-          </p>
+          </div>
           </Copy>
         </div>
-        <div className="w-[50%] h-[48vw] relative">
+        <div className="w-[50%] h-[48vw] relative max-sm:w-full max-sm:h-[100vw]">
           {layers.map((layer, index) => (
             <div
               key={index}
-              className="w-[35vw] h-auto absolute right-0 fadeup"
+              className="w-[35vw] h-auto absolute right-0 fadeup max-sm:w-full"
               style={{
                 top: layer.top,
                 zIndex: layer.z,

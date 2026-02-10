@@ -73,7 +73,7 @@ export default function AlwaysOnAI() {
       ref={sectionRef}
       id="alwaysOnAi"
       style={{perspective:"1500px"}}
-      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden"
+      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw]"
     >
       {/* Background Line Effect */}
        {/* before // top-[-60] 0deg */}
@@ -134,21 +134,21 @@ export default function AlwaysOnAI() {
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="text-center space-y-[2vw] ">
+        <div className="text-center space-y-[2vw] max-sm:space-y-[10vw] ">
           <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
               Always-On AI. Built as Infrastructure.
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans w-[55%] mx-auto ">
+            <p className="text-30 font-sans w-[55%] mx-auto max-sm:w-full ">
               AI only scales when enterprises can build it safely, trust it in
               daily workflows, and run it continuously
             </p>
           </Copy>
         </div>
 
-        <div className="relative w-[70vw] h-auto mx-auto fadeup my-[5vw] ">
+        <div className="relative w-[70vw] h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%] ">
           <Image
             src="/assets/homepage/laptop-dashboard-quality.png"
             alt="DSW UnifyAI Dashboard"
@@ -161,7 +161,7 @@ export default function AlwaysOnAI() {
 
         <div className="text-center ">
           <Copy>
-          <p className="text-44 font-heading max-w-[58.23vw] font-normal mx-auto">
+          <p className="text-44 font-heading w-[60%] max-sm:w-full font-normal mx-auto">
             The AI Operating System makes this possible by running as part of your core enterprise architecture.
           </p>
           </Copy>
