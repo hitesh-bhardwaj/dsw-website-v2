@@ -10,6 +10,37 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// --- SVG sizing (matches your viewBox) ---
+const VB_W = 1440;
+const VB_H = 700;
+const MID_Y = VB_H / 2;
+
+// ✅ Start/end far outside the screen horizontally
+const START = { x: -600, y: MID_Y };
+const END = { x: VB_W + 600, y: MID_Y };
+
+// Control points X (still inside viewBox so curves look natural)
+const C1X = VB_W * 0.30;
+const C2X = VB_W * 0.70;
+
+// ---- helpers ----
+function clamp01(v) {
+  return Math.max(0, Math.min(1, v));
+}
+function lerp(a, b, t) {
+  return a + (b - a) * t;
+}
+function smoothstep(t) {
+  return t * t * (3 - 2 * t);
+}
+
+// ✅ Smooth stagger: all arcs animate over the whole scroll, but delayed by index
+function staggeredProgress(p, i, count, stagger = 0.08) {
+  const delay = i * stagger;                 // later arcs start later
+  const span = 1 - delay;                    // remaining timeline for that arc
+  return clamp01((p - delay) / Math.max(1e-6, span));
+}
+
 export default function AlwaysOnAI() {
   const sectionRef = useRef(null);
   useGSAP(()=>{
