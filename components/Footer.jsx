@@ -94,7 +94,7 @@ export default function FooterNew() {
   ];
 
   return (
-    <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden">
+    <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]">
       {/* Background Gradient */}
       <div className="w-screen h-full">
         <WaveGradientCanvas />
@@ -103,23 +103,28 @@ export default function FooterNew() {
       {/* Content */}
       <div className="relative z-10">
         {/* Top Section */}
-        <div className="flex justify-between mb-[2vw]">
-          <div className="w-[25%]">
+        <div className="flex justify-between mb-[2vw] max-sm:flex-col">
+          <div className="w-[30%] max-sm:w-full max-sm:text-center">
             {/* Contact Us */}
-            <div className="space-y-[0.5vw]">
-              <p className="text-24">Contact Us</p>
-              <div className="space-y-[0.4vw]">
-                <p className="text-24">Contact@datasciencewizards.ai</p>
-                <p className="text-24">+91 96640 56847 | +353 894015233</p>
+            <div className="space-y-[1vw]">
+              <p className="text-24 max-sm:text-[6vw] max-sm:font-medium">Contact Us</p>
+              <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse">
+                <Link href="mailto:Contact@datasciencewizards.ai" className="block text-24 max-sm:text-[5.5vw]">Contact@datasciencewizards.ai</Link>
+                <div className="flex gap-[0.5vw] max-sm:flex-col">
+                <Link className="text-24 max-sm:text-[5.5vw]" href="tel:+91 96640 56847">+91 96640 56847</Link> 
+                <span className="inline-block max-sm:hidden">|</span>
+                <Link className="text-24 max-sm:text-[5.5vw]" href="tel:+353 894015233">+353 894015233 </Link> 
+
+                </div>
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[2vw] mt-[4vw]">
+              <div className="flex items-center gap-[2vw] mt-[4vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social,id) => (
                   <Link
                     key={social.name}
                     href={social.url}
-                    className="w-auto h-[1.5vw] relative hover:opacity-50 duration-500 transition-all hover:scale-[0.95] block"
+                    className="w-auto h-[1.5vw] relative hover:opacity-50 duration-500 transition-all hover:scale-[0.95] block max-sm:h-[7vw]"
                   >
                     <Image
                       src={social.icon}
@@ -135,10 +140,10 @@ export default function FooterNew() {
           </div>
 
           {/* Navigation + Company + Newsletter */}
-          <div className="flex justify-between w-[60%]">
+          <div className="flex justify-between w-[60%] max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center">
             {/* Navigation */}
             <div className="space-y-[1.2vw]">
-              <h3 className="text-24 font-medium">Navigation</h3>
+              <h3 className="text-24 font-medium max-sm:text-[6.5vw]">Navigation</h3>
               <ul className="space-y-[1vw]">
                 {navigationLinks.map((link) => (
                   <li key={link}>
@@ -150,7 +155,7 @@ export default function FooterNew() {
 
             {/* Company */}
             <div className="space-y-[1.2vw]">
-              <h3 className="text-24 font-medium">Company</h3>
+              <h3 className="text-24 font-medium max-sm:text-[6.5vw]">Company</h3>
               <ul className="space-y-[1vw]">
                 {companyLinks.map((link) => (
                   <li key={link}>
@@ -161,20 +166,20 @@ export default function FooterNew() {
             </div>
 
             {/* Newsletter */}
-            <div className="w-[45%] relative">
-              <div className="w-full h-[0.1px] bg-black absolute bottom-26" />
+            <div className="w-[45%] relative max-sm:w-full">
+              <div className="w-full h-[0.1px] bg-black absolute bottom-26 max-sm:bottom-16" />
               <p className="text-24 font-sans tracking-[0.025vw] mb-[3vw]">
                 Subscribe to our newsletter for the latest tech insights and
                 updates.
               </p>
-              <div className="relative flex mt-[2vw] gap-[2vw]">
+              <div className="relative flex mt-[2vw] gap-[2vw] max-sm:flex-col max-sm:gap-[10vw]">
                 <input
                   type="email"
                   placeholder="Enter Your Email"
-                  className="w-full bg-transparent text-[1vw] font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors"
+                  className="w-full bg-transparent text-[1vw] font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[4.5vw] max-sm:mx-auto"
                 />
                 <button
-                  className="px-[1.5vw] py-[0.5vw] rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90"
+                  className="px-[1.5vw] py-[0.5vw] rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto"
                   style={{
                     backgroundImage:
                       "linear-gradient(112.958deg, rgb(241, 107, 13) 7.1952%, rgb(230, 18, 22) 92.805%)",
@@ -188,8 +193,8 @@ export default function FooterNew() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex items-end justify-between pt-[5.2vw]">
-          <div className="w-[20vw] h-[11vw] relative">
+        <div className="flex items-end justify-between pt-[5.2vw] max-sm:justify-center">
+          <div className="w-[20vw] h-[11vw] relative max-sm:hidden">
             <Image
               src="/logo-footer.svg"
               alt="Data Science Wizards"

@@ -79,7 +79,7 @@ export default function HeroNew({ heroContent }) {
         </div>
 
         {/* Scroll Down Indicator */}
-        <div className="absolute bottom-10 right-5 max-sm:left-20 flex items-center gap-[1vw] max-sm:gap-[4vw]">
+        <div className="absolute bottom-10 right-5 max-sm:left-12 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full">
           <div className="size-[0.63vw] rotate-90 max-sm:size-[4vw]">
             <Image
               src="/arrow-down.svg"
