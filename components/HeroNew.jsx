@@ -12,6 +12,10 @@ export default function HeroNew({heroContent}) {
 fadeUp()
     return (
         <section className="relative w-full h-screen bg-white">
+
+            <div className='absolute inset-0 z-0 h-screen w-full'>
+                <Image src='/assets/homepage/Hero.png' height={1500} width={1500} alt='mobile-hero-bg' className='h-full w-full object-cover' />
+            </div>
            <div className="absolute inset-0 z-10 pointer-events-none h-[120vh]">
   <div className="absolute inset-0 flex justify-between px-16">
     {[...Array(16)].map((_, i) => (
@@ -29,11 +33,11 @@ fadeUp()
            
            
             {/* Content */}
-            <div className="relative z-20 flex flex-col items-center h-full pt-[12vw]">
-                <div className='space-y-[1.2vw]'>
+            <div className="relative z-20 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
+                <div className='space-y-[1.2vw] max-sm:space-y-[3vw]'>
                     {/* Tagline */}
                     <Copy>
-                    <p className="text-30 text-center tracking-wide">
+                    <p className="text-30 font-medium  text-center tracking-wide max-sm:font-light">
                         {heroContent.tagline}
                     </p>
                     </Copy>
@@ -41,7 +45,7 @@ fadeUp()
                     {/* Main Heading */}
                 <HeadingAnim>
                     <h1 
-                        className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center max-w-[60vw]"
+                        className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center max-w-[60vw] max-sm:max-w-[100%] max-sm:mx-auto"
                     >
                         {heroContent.heading}
                     </h1>
@@ -73,7 +77,7 @@ fadeUp()
                 </div>
 
                 {/* Scroll Down Indicator */}
-                <div className="absolute bottom-10 right-5 flex items-center gap-[1vw]">
+                <div className="absolute bottom-10 right-5 max-sm:left-25 flex items-center gap-[1vw]">
                     <div className="size-[0.63vw] rotate-90">
                         <Image
                             src="/arrow-down.svg"
@@ -83,7 +87,7 @@ fadeUp()
                             className="w-full h-full invert"
                         />
                     </div>
-                    <p className="text-[0.94vw] font-sans  shimmer tracking-[0.056vw]">
+                    <p className="text-20 font-sans  shimmer tracking-[0.056vw]">
                         Keep Scrolling to Discover More
                     </p>
                 </div>
