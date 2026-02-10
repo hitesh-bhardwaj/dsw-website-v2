@@ -33,7 +33,7 @@ fadeUp()
                 <div className='space-y-[1.2vw]'>
                     {/* Tagline */}
                     <Copy>
-                    <p className="text-30 font-medium text-[#333] text-center tracking-wide">
+                    <p className="text-30 text-center tracking-wide">
                         {heroContent.tagline}
                     </p>
                     </Copy>
@@ -80,7 +80,7 @@ fadeUp()
                             alt=""
                             width={12}
                             height={12}
-                            className="w-full h-full"
+                            className="w-full h-full invert"
                         />
                     </div>
                     <p className="text-[0.94vw] font-sans  shimmer tracking-[0.056vw]">

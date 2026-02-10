@@ -52,7 +52,7 @@ export default function WhyAIStruggles() {
       <div className=" space-y-[5.5vw] h-fit sticky top-[7%]">
         <div className="text-center space-y-[2vw]">
           <HeadingAnim>
-            <h2 className="text-76 font-medium font-heading text-[#0A1B4B]">
+            <h2 className="text-76 font-heading text-[#0A1B4B]">
               Why AI Struggles in Production
             </h2>
           </HeadingAnim>
@@ -80,20 +80,14 @@ export default function WhyAIStruggles() {
 
                 {/* Number */}
                 <div
-                  className={`
-                                absolute top-0 right-[1.04vw]
-                                text-[5vw] font-sans  leading-none
-                               opacity-50 group-hover:opacity-100 duration-300 ease-in-out
-                            `}
+                  className="text-80 right-[5%] absolute font-light"
                 >
                   {challenge.number}
                 </div>
 
                 {/* Content */}
                 <div className="absolute bottom-[2.08vw] left-[2.08vw] right-[2.08vw]">
-                  <p className="text-30 leading-[1.3]">
-                    {challenge.title}
-                  </p>
+                  <p className="text-30 leading-[1.3]">{challenge.title}</p>
                 </div>
               </div>
             </div>
@@ -103,10 +97,10 @@ export default function WhyAIStruggles() {
         {/* Bottom Text */}
         <div className="text-center pt-[3vw]">
           <Copy>
-          <p className="text-[2.4vw] w-[50%]  mx-auto font-light">
-            These gaps don't surface during pilots, but when AI becomes
-            operational.
-          </p>
+            <p className="text-[2.4vw] w-[50%]  mx-auto font-light">
+              These gaps don't surface during pilots, but when AI becomes
+              operational.
+            </p>
           </Copy>
         </div>
       </div>
