@@ -12,7 +12,7 @@ export default function HeroNew({ heroContent }) {
     heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
   fadeUp();
   return (
-    <section className="relative w-full h-screen bg-white">
+    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white">
       <div className="absolute inset-0 z-0 h-screen w-full">
         <Image
           src="/assets/homepage/hero-bg-mob.png"
@@ -42,7 +42,7 @@ export default function HeroNew({ heroContent }) {
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw]">
           {/* Tagline */}
           <Copy>
-            <p className="text-30 font-medium  text-center tracking-wide max-sm:font-light">
+            <p className="text-30  text-center tracking-wide ">
               {heroContent.tagline}
             </p>
           </Copy>
