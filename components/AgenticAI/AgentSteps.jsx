@@ -6,6 +6,7 @@ import { CircleBg } from '../Svg/Lines/DottedCircle';
 import { Insurance } from '@/components/Svg/Insurance';
 import { Bank } from '../Svg/Bank';
 import { Roadmap } from '../Svg/Roadmap';
+import HeadingAnim from '../Animations/HeadingAnim';
 
 const AgenticSteps = () => {
   const [isHovered1, setIsHovered1] = React.useState(false);
@@ -58,15 +59,19 @@ const AgenticSteps = () => {
   return (
     <div className='py-[12%] bg-white  space-y-[2vw]'>
 
+      <HeadingAnim>
+
+
       <h2 className='text-76 mx-auto w-fit'>
         BFSI use cases & vertical accelerators  
       </h2>
+      </HeadingAnim>
 
       <div className="flex justify-between p-[4vw] ">
         
         {/* Card 1 - Insurance */}
         <div 
-          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
+          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
           onMouseEnter={() => setIsHovered1(true)}
           onMouseLeave={() => setIsHovered1(false)}
         >
@@ -98,7 +103,7 @@ const AgenticSteps = () => {
 
         {/* Card 2 - Banks */}
         <div 
-          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
+          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
           onMouseEnter={() => setIsHovered2(true)}
           onMouseLeave={() => setIsHovered2(false)}
         >
@@ -130,7 +135,7 @@ const AgenticSteps = () => {
 
         {/* Card 3 - Roadmap */}
         <div 
-          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
+          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue fadeup flex flex-col"
           onMouseEnter={() => setIsHovered3(true)}
           onMouseLeave={() => setIsHovered3(false)}
         >

@@ -18,28 +18,28 @@ const iconData = [
     icon: Connect,
     label: 'Connect',
     text: 'Ingest enterprise data through managed connectors and DataOps pipelines.',
-    textClass: 'absolute left-25 top-2 max-w-[25vw] space-y-[0.6vw]'
+    textClass: 'absolute left-25 top-2 max-w-[25vw] space-y-[0.6vw] fadeup'
   },
   {
     key: 'build',
     icon: Build,
     label: 'Build',
     text: 'Author and test agents in AgenticAI Studio (fine-tune, simulate, validate).',
-    textClass: 'absolute right-20 top-2 max-w-[25vw] space-y-[0.6vw]'
+    textClass: 'absolute right-20 top-2 max-w-[25vw] space-y-[0.6vw] fadeup'
   },
   {
     key: 'operate',
     icon: Operate,
     label: 'Operate',
     text: 'Enforce runtime policies, monitor telemetry, and maintain immutable audit trails and reports.',
-    textClass: 'absolute left-25 bottom-25 max-w-[25vw] space-y-[0.6vw]'
+    textClass: 'absolute left-25 bottom-25 max-w-[25vw] space-y-[0.6vw] fadeup'
   },
   {
     key: 'orchestrate',
     icon: Orchestrate,
     label: 'Orchestration',
     text: 'Compose agents, models and enterprise logic into auditable workflows using Workflow Builder.',
-    textClass: 'absolute right-20 bottom-25 space-y-[0.6vw] max-w-[25vw]'
+    textClass: 'absolute right-20 bottom-25 space-y-[0.6vw] max-w-[25vw] fadeup'
   },
 ];
 
