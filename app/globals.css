@@ -18,7 +18,7 @@
   --text-56:3.1vw;
   --text-30:1.55vw;
   --text-22:1.1vw;
-  --text-20:1vw;
+  --text-20:0.9vw;
   --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
 
 }
@@ -49,6 +49,9 @@
   --text-32: var(--text-32);
   --text-22: var(--text-22);
   --ease-default-ease: var(--default-ease);
+
+   --breakpoint-md: 1025px;
+  --breakpoint-sm: 640px;
 
 }
 
@@ -194,3 +197,30 @@ h6 {
   transform-origin: center center;
   will-change: transform;
 }
+
+
+@media (max-width:1025px) {
+}
+
+@media (max-width:542px) {
+
+  :root {
+   --text-110: 11vw;
+    --text-30:5.5vw;
+    --text-22:5vw;
+      --text-20:3.5vw;
+      --text-44: 6vw;
+    --text-24:5.5vw;
+
+  --text-40:1.2vw;
+  
+  --text-32: 1.7vw;
+  --text-76:4.2vw;
+  --text-80:4.5vw;
+  --text-56:3.1vw;
+ 
+  
+
+  }
+}
+
