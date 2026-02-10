@@ -1,21 +1,27 @@
 import Image from 'next/image';
+import HeadingAnim from './Animations/HeadingAnim';
+import Copy from './Animations/Copy';
 
 export default function Testimonials() {
     return (
         <section className="relative w-full pb-[5vw] px-[3.91vw] space-y-[8vw]">
             {/* Heading */}
             <div className="text-center  space-y-[2vw]">
+                <HeadingAnim>
                 <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2]">
                     Trusted by Leaders<br />
                     in BFSI and Beyond
                 </h2>
+                </HeadingAnim>
+                <Copy>
                 <p className="text-30 max-w-[40vw] mx-auto">
                     Explore how we've helped businesses like yours achieve success with innovative technology solutions.
                 </p>
+                </Copy>
             </div>
 
             {/* Testimonials Grid */}
-            <div className="grid grid-cols-3 gap-[2.2vw] mx-auto">
+            <div className="grid grid-cols-3 gap-[2.2vw] mx-auto fadeup">
                 {/* Card 1: Canara HSBC Stat */}
                 <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
                     <p className="text-30 ">

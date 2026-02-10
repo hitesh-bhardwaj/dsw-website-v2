@@ -4,6 +4,8 @@ import Image from 'next/image';
 import { useLayoutEffect, useRef } from 'react';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import HeadingAnim from './Animations/HeadingAnim';
+import Copy from './Animations/Copy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -102,15 +104,19 @@ export default function AlwaysOnAI() {
       {/* Content */}
       <div className="relative z-10">
         <div className="text-center space-y-[2vw]">
+          <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
             Always-On AI. Built as Infrastructure.
           </h2>
+          </HeadingAnim>
+          <Copy>
           <p className="text-30 font-sans max-w-[47.92vw] mx-auto">
             AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously
           </p>
+          </Copy>
         </div>
 
-        <div className="relative w-[30vw] h-[50vw] mx-auto">
+        <div className="relative w-[30vw] h-[50vw] mx-auto fadeup">
           <Image
             src="/laptop-dashboard.png"
             alt="DSW UnifyAI Dashboard"
@@ -121,9 +127,11 @@ export default function AlwaysOnAI() {
         </div>
 
         <div className="text-center">
+          <Copy>
           <p className="text-[2.3vw] font-heading max-w-[58.23vw] font-normal mx-auto">
             The AI Operating System makes this possible by running as part of your core enterprise architecture.
           </p>
+          </Copy>
         </div>
       </div>
     </section>

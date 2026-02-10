@@ -1,8 +1,9 @@
-"use client"
+"use client";
 import { useGSAP } from "@gsap/react";
 import CornerDecorations from "../CornerDecorations";
 import gsap from "gsap";
-
+import HeadingAnim from "../Animations/HeadingAnim";
+import Copy from "../Animations/Copy";
 
 export default function WhyAIStruggles() {
   const challenges = [
@@ -30,33 +31,37 @@ export default function WhyAIStruggles() {
     },
   ];
 
-  useGSAP(()=>{
-    gsap.from(".struggle-card",{
-      yPercent:150,
-      stagger:0.2,
-      ease:"power3.out",
-      scrollTrigger:{
-        trigger:"#struggle",
-        start:"top 50%",
-        end:"bottom bottom",
-        scrub:true,
+  useGSAP(() => {
+    gsap.from(".struggle-card", {
+      yPercent: 150,
+      stagger: 0.2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: "#struggle",
+        start: "top 50%",
+        end: "bottom bottom",
+        scrub: true,
         // markers:true
-      }
-    })
-  })
+      },
+    });
+  });
 
   return (
     <section className="relative w-full h-[240vh] py-[7%] " id="struggle">
       {/* Heading Section */}
       <div className=" space-y-[5.5vw] h-fit sticky top-[7%]">
         <div className="text-center space-y-[2vw]">
-          <h2 className="text-[3vw] font-medium font-heading text-[#0A1B4B]">
-            Why AI Struggles in Production
-          </h2>
-          <p className="text-[1.25vw] font-sans leading-[1.6] tracking-[0.025vw] text-[#111] max-w-[40.99vw] mx-auto">
-            Modern enterprises don't struggle with building AI models. They
-            struggle with operating AI reliably in production:
-          </p>
+          <HeadingAnim>
+            <h2 className="text-[3vw] font-medium font-heading text-[#0A1B4B]">
+              Why AI Struggles in Production
+            </h2>
+          </HeadingAnim>
+          <Copy>
+            <p className="text-[1.25vw] font-sans leading-[1.6] tracking-[0.025vw] text-[#111] max-w-[40.99vw] mx-auto">
+              Modern enterprises don't struggle with building AI models. They
+              struggle with operating AI reliably in production:
+            </p>
+          </Copy>
         </div>
 
         {/* Challenge Boxes */}
@@ -86,7 +91,7 @@ export default function WhyAIStruggles() {
 
                 {/* Content */}
                 <div className="absolute bottom-[2.08vw] left-[2.08vw] right-[2.08vw]">
-                  <p className="text-[1.56vw] font-sans leading-[2.08vw] text-[#111]">
+                  <p className="text-[1.56vw] font-sans leading-[2.08vw]">
                     {challenge.title}
                   </p>
                 </div>
@@ -97,10 +102,12 @@ export default function WhyAIStruggles() {
 
         {/* Bottom Text */}
         <div className="text-center pt-[3vw]">
+          <Copy>
           <p className="text-[2.4vw] w-[50%]  mx-auto font-light">
             These gaps don't surface during pilots, but when AI becomes
             operational.
           </p>
+          </Copy>
         </div>
       </div>
     </section>

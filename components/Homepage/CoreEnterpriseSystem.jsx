@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -221,14 +222,16 @@ export default function CoreEnterpriseSystem() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-[3.91vw]">
-        <h2 className="text-[3.96vw] mb-[17.19vw]">Run AI as a Core Enterprise System</h2>
+      <div className="relative z-10 text-center space-y-[4vw]">
+        <HeadingAnim>
+        <h2 className="text-76 mb-[12vw]">Run AI as a Core Enterprise System</h2>
+        </HeadingAnim>
 
-        <h3 ref={titleRef} className="text-[2.29vw] mb-[2.6vw]">
+        <h3 ref={titleRef} className="text-44 font-medium">
           {SLIDES[0].title}
         </h3>
 
-        <p ref={descRef} className="text-[1.56vw] max-w-[54.43vw] mx-auto mb-[5.73vw]">
+        <p ref={descRef} className="text-30 px-[30vw] mx-auto">
           {SLIDES[0].desc}
         </p>
 

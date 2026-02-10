@@ -3,6 +3,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import ScrollTrigger from "gsap/ScrollTrigger";
+import HeadingAnim from "../Animations/HeadingAnim";
+import Copy from "../Animations/Copy";
 gsap.registerPlugin(ScrollTrigger);
 
 const layers = [
@@ -29,9 +31,11 @@ export default function UnifiedRuntime() {
       "#unified-runtime,#struggle",
       {
         backgroundColor: "#ffffff",
+        color:"#111111"
       },
       {
         backgroundColor: "#02031c",
+        color:"#ffffff"
       },
     );
 
@@ -53,37 +57,50 @@ export default function UnifiedRuntime() {
       className="py-[7%] px-[5vw] text-white space-y-[9vw] relative"
       id="unified-runtime"
     >
+      <HeadingAnim>
       <h2 className="text-76  w-[60%] text-center mx-auto leading-[1.4]">
         From Fragmented AI to One Governed Runtime
       </h2>
+      </HeadingAnim>
       <div className="w-full flex justify-between">
         <div className="w-[30%]">
+          <HeadingAnim>
           <h3 className="text-56 ">Build a Unified AI Ecosystem</h3>
+          </HeadingAnim>
         </div>
         <div className="w-[40%] space-y-[1vw] text-24 ">
+          <Copy>
           <p>
             Unify models, agents, tools, and workflows under a single governed
             runtime designed for production-ready AI.
           </p>
+          </Copy>
+          <Copy>
           <p>
             Replace fragmented platforms with one operational foundation that
             enforces control, governance, and accountability as AI runs.
           </p>
+          </Copy>
         </div>
       </div>
       <div className="w-full flex justify-between h-fit items-center">
         <div className="w-[30%] flex flex-col gap-[2vw]">
+          <HeadingAnim>
+
           <h3 className="text-56 ">Hardware / Cloud Infrastructure</h3>
+          </HeadingAnim>
+          <Copy>
           <p className="flex items-center gap-2">
             <span className="w-1 h-1 bg-white rounded-full inline-block" />{" "}
             Servers, Storage, Network, Accelerators
           </p>
+          </Copy>
         </div>
         <div className="w-[50%] h-[48vw] relative">
           {layers.map((layer, index) => (
             <div
               key={index}
-              className="w-[35vw] h-auto absolute right-0"
+              className="w-[35vw] h-auto absolute right-0 fadeup"
               style={{
                 top: layer.top,
                 zIndex: layer.z,

@@ -3,6 +3,8 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
 import React from "react";
+import HeadingAnim from "../Animations/HeadingAnim";
+import Copy from "../Animations/Copy";
 
 const Features = () => {
   useGSAP(() => {
@@ -51,12 +53,16 @@ const Features = () => {
     `}
           style={{ top: feature.stickyTop }}
         >
+          <HeadingAnim>
           <h3 className="text-56">{feature.title}</h3>
+          </HeadingAnim>
 
           <div className="w-full flex justify-between mt-[7vw]">
             {/* Left Content */}
             <div className="w-[45%] h-full flex flex-col gap-[5vw] text-30">
+              {/* <Copy> */}
               <p>{feature.description}</p>
+              {/* </Copy> */}
 
               <ul className="font-medium space-y-[0.5vw]">
                 {feature.bullets.map((item, index) => (

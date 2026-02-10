@@ -1,3 +1,6 @@
+import Copy from "./Animations/Copy";
+import HeadingAnim from "./Animations/HeadingAnim";
+
 export default function RealWorldOutcomes() {
    
 
@@ -5,16 +8,20 @@ export default function RealWorldOutcomes() {
         <section className="relative w-full py-[10.42vw] space-y-[8vw]">
             {/* Heading */}
             <div className="text-center spce-y-[2vw]">
+                <HeadingAnim>
                 <h2 className="text-76 text-[#0A1B4B]">
                     Real-World Outcomes
                 </h2>
+                </HeadingAnim>
+                <Copy>
                 <p className="text-30">
                     Enterprises use the DSW Enterprise AI Operating System to:
                 </p>
+                </Copy>
             </div>
 
             {/* Outcomes Grid */}
-            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw]">
+            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] fadeup">
                 {outcomes.map((outcome, index) => (
                     <div
                         key={index}
