@@ -25,7 +25,7 @@ export default function RealWorldOutcomes() {
                 {outcomes.map((outcome, index) => (
                     <div
                         key={index}
-                        className={`relative w-[23.3vw] h-[14vw] bg-white border-[0.078vw] border-[#0205fa] border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1vw] fadeup ${outcome.position}`}
+                        className={`relative w-[23.3.5vw] h-[14vw] bg-white border-[0.078vw] border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[0.8vw] fadeup ${outcome.position}`}
                     >
                         {/* Number Label */}
                         <p className="text-[1.04vw] font-sans leading-[1.5] text-[#c7c7c7]">
@@ -33,12 +33,12 @@ export default function RealWorldOutcomes() {
                         </p>
 
                         {/* Title */}
-                        <p className="text-[1.46vw] font-heading font-medium leading-[1.88vw] text-[#111] w-[20vw]">
+                        <p className=" text-32  font-heading font-medium leading-[1.6vw] text-[#111] w-full">
                             {outcome.title}
                         </p>
 
                         {/* Description */}
-                        <p className="text-[1.25vw] font-sans font-light leading-[1.56vw] text-[#111] w-[20vw]">
+                        <p className="text-24 font-sans font-light leading-[1.56vw] text-[#111] w-full">
                             {outcome.description}
                         </p>
                     </div>

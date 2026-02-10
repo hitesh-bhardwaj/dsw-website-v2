@@ -52,12 +52,12 @@ export default function WhyAIStruggles() {
       <div className=" space-y-[5.5vw] h-fit sticky top-[7%]">
         <div className="text-center space-y-[2vw]">
           <HeadingAnim>
-            <h2 className="text-[3vw] font-medium font-heading text-[#0A1B4B]">
+            <h2 className="text-76 font-medium font-heading text-[#0A1B4B]">
               Why AI Struggles in Production
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-[1.25vw] font-sans leading-[1.6] tracking-[0.025vw] text-[#111] max-w-[40.99vw] mx-auto">
+            <p className="text-24 font-sans leading-[1.6] tracking-[0.025vw] text-[#111] max-w-[40.99vw] mx-auto">
               Modern enterprises don't struggle with building AI models. They
               struggle with operating AI reliably in production:
             </p>
@@ -72,7 +72,7 @@ export default function WhyAIStruggles() {
               <div
                 className={`
                                 relative w-[21vw] h-[50vh] group
-                                border border-solid hover:border-[#0205fa] hover:shadow-lg hover:drop-shadow-lg border-[#c2c2c2] duration-300 ease-in-out
+                                border border-solid hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg border-[#c2c2c2] duration-300 ease-in-out
                                 
                             `}
               >
@@ -91,7 +91,7 @@ export default function WhyAIStruggles() {
 
                 {/* Content */}
                 <div className="absolute bottom-[2.08vw] left-[2.08vw] right-[2.08vw]">
-                  <p className="text-[1.56vw] font-sans leading-[2.08vw]">
+                  <p className="text-30 leading-[1.3]">
                     {challenge.title}
                   </p>
                 </div>

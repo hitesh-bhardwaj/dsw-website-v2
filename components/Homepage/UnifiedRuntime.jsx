@@ -90,8 +90,8 @@ export default function UnifiedRuntime() {
           <h3 className="text-56 ">Hardware / Cloud Infrastructure</h3>
           </HeadingAnim>
           <Copy>
-          <p className="flex items-center gap-2">
-            <span className="w-1 h-1 bg-white rounded-full inline-block" />{" "}
+          <p className="flex items-center  gap-2">
+            <span className="w-1 h-1  bg-white rounded-full inline-block" />{" "}
             Servers, Storage, Network, Accelerators
           </p>
           </Copy>

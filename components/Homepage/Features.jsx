@@ -64,7 +64,7 @@ const Features = () => {
               <p>{feature.description}</p>
               {/* </Copy> */}
 
-              <ul className="font-medium space-y-[0.5vw]">
+              <ul className="font-medium text-30 space-y-[0.5vw]">
                 {feature.bullets.map((item, index) => (
                   <li key={index}>{item}</li>
                 ))}

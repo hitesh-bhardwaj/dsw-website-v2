@@ -5,6 +5,7 @@ import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,11 +31,11 @@ const CardItem = React.forwardRef(({ title, description }, ref) => {
   return (
     <div
       ref={ref}
-      className="relative rounded-[1.5vw] border border-primary-blue p-[2.5vw] w-[28vw] h-[37vw] flex flex-col justify-between"
+      className="relative shadow-md rounded-[1.5vw] border border-primary-blue p-[2.5vw] w-[28vw] h-[37vw] flex flex-col justify-between"
     >
       <h2 className="text-56 font-light">{title}</h2>
 
-      <p className="text-40 leading-[1.7]">{description}</p>
+      <p className="text-24 leading-[1.7]">{description}</p>
     </div>
   );
 });
@@ -78,11 +79,14 @@ const AgenticCards = () => {
   return (
     <div ref={containerRef} className="w-full h-[150vh] relative">
       <div className="text-center mx-auto w-[80%] ">
-        <p className=" font-normal leading-[1.25] text-56! font-heading">
+        <HeadingAnim>
+
+        <p className=" font-normal leading-[1.2] text-56! font-heading">
           Turn proofs of concept into auditable, production-grade automation
           with explainable agents, deterministic governance, and
           enterprise-grade security.
         </p>
+        </HeadingAnim>
       </div>
       <div className="w-full overflow-hidden h-screen  sticky py-[3%] top-0  flex justify-center items-center gap-[2vw]">
         {cardsData.map((card, index) => (
