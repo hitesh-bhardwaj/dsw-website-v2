@@ -9,9 +9,9 @@ gsap.registerPlugin(MotionPathPlugin);
 
 export default function CTAPricing() {
     return (
-        <section className="relative w-full h-screen bg-white pt-[5vw] px-[3.91vw] overflow-hidden mb-[-5vw]">
+        <section className="relative w-full h-screen bg-white pt-[5vw] px-[5vw] overflow-hidden mb-[-5vw] max-sm:px-[7vw] max-sm:h-fit max-sm:py-[15%]">
             {/* Decorative Lines Background - Simplified */}
-            <div className="absolute inset-0 w-screen left-[-2%]">
+            <div className="absolute inset-0 w-screen left-[-2%] max-sm:hidden">
                 <Background />
             </div>
 
@@ -19,7 +19,7 @@ export default function CTAPricing() {
             <div className="relative z-10 text-center space-y-[11vw]">
                 {/* Heading */}
                 <HeadingAnim>
-                <h2 className="text-[4.5vw] font-heading leading-[1.2] tracking-[0.086vw] text-[#0A1B4B] ">
+                <h2 className="text-80 font-heading leading-[1.3] text-[#0A1B4B] ">
                     One Subscription,<br />
                     <span className="font-medium">Unlimited Scale.</span>
                 </h2>

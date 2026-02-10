@@ -42,11 +42,11 @@ const Features = () => {
   return (
     <section className="w-full h-fit relative space-y-[5vw] z-[2] " id="features">
       <div className="w-fit h-fit feature-card-container">
-      {FEATURES.map((feature) => (
+      {FEATURES.map((feature,id) => (
         <div
           key={feature.id}
           className={`
-      w-full h-fit sticky px-[5vw] py-[3vw] bg-[#02031c] feature-card
+      w-full h-fit sticky px-[5vw] py-[3vw] bg-[#02031c] feature-card max-sm:py-[10vw] ${id==1?"max-sm:top-[15%]!":""}
       ${feature.hasTopBorder ? "border-t border-black/30" : ""}
       ${feature.hasBottomBorder ? "border-b border-black/30" : ""}
       ${feature.extraPaddingBottom ? "pb-[10vw]" : ""}
@@ -57,9 +57,9 @@ const Features = () => {
           <h3 className="text-56">{feature.title}</h3>
           </HeadingAnim>
 
-          <div className="w-full flex justify-between mt-[7vw]">
+          <div className="w-full flex justify-between mt-[7vw] max-sm:flex-col-reverse max-sm:mt-[15vw] max-sm:gap-[20vw]">
             {/* Left Content */}
-            <div className="w-[45%] h-full flex flex-col gap-[5vw] text-30">
+            <div className="w-[45%] h-full flex flex-col gap-[5vw] text-30 max-sm:w-full">
               {/* <Copy> */}
               <p>{feature.description}</p>
               {/* </Copy> */}
@@ -72,7 +72,7 @@ const Features = () => {
             </div>
 
             {/* Right Image */}
-            <div className="w-[20vw] rounded-[2vw] h-full">
+            <div className="w-[20vw] rounded-[2vw] h-full max-sm:w-[75%] overflow-hidden">
               <Image
                 src={feature.image}
                 alt={feature.title}

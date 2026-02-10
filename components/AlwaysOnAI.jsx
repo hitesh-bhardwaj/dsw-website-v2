@@ -73,7 +73,7 @@ export default function AlwaysOnAI({content}) {
       ref={sectionRef}
       id="alwaysOnAi"
       style={{perspective:"1500px"}}
-      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden"
+      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw]"
     >
       {/* Background Line Effect */}
        {/* before // top-[-60] 0deg */}
@@ -134,7 +134,7 @@ export default function AlwaysOnAI({content}) {
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="text-center space-y-[2vw] ">
+        <div className="text-center space-y-[2vw] max-sm:space-y-[10vw] ">
           <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
              {content.heading}
@@ -147,7 +147,7 @@ export default function AlwaysOnAI({content}) {
           </Copy>
         </div>
 
-        <div className="relative w-[70vw] h-auto mx-auto fadeup my-[5vw] ">
+        <div className="relative w-[70vw] h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%] ">
           <Image
             src="/assets/homepage/laptop-dashboard-quality.png"
             alt="DSW UnifyAI Dashboard"

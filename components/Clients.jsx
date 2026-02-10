@@ -57,10 +57,10 @@ export default function Clients() {
   }, []);
 
   return (
-    <section className="relative w-screen overflow-hidden py-[7%] px-0 space-y-[5vw]">
+    <section className="relative w-screen overflow-hidden py-[7%] px-0 space-y-[5vw] max-sm:space-y-[15vw] max-sm:py-[25%] ">
       {/* Heading */}
       <HeadingAnim>
-        <h2 className="text-76 text-[#0A1B4B] leading-[1.2] w-[60%] text-center mx-auto">
+        <h2 className="text-76 text-[#0A1B4B] leading-[1.2] w-[60%] text-center mx-auto max-sm:w-[90%]">
           Trusted by Enterprises
           <br />
           Operating AI at Scale
@@ -71,12 +71,12 @@ export default function Clients() {
       <div ref={marqueeRef} className="">
         <div
           ref={trackRef}
-          className="flex justify-start gap-[1.88vw] w-fit"
+          className="flex justify-start gap-[1.88vw] w-fit max-sm:gap-[3vw]"
         >
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
-              className="shrink-0 w-[16.67vw] clients-logo h-[13.54vw] border border-[#1727ff] rounded-[0.52vw] flex items-center justify-center shadow-md drop-shadow-sm"
+              className="shrink-0 w-[16.67vw] clients-logo h-[13.54vw] border border-[#1727ff] rounded-[0.52vw] flex items-center justify-center shadow-md drop-shadow-sm max-sm:w-[40vw] max-sm:h-[30vw] max-sm:rounded-[2vw]"
             >
               <div className="relative">
                 <Image

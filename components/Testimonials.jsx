@@ -1,158 +1,162 @@
-import Image from 'next/image';
-import HeadingAnim from './Animations/HeadingAnim';
-import Copy from './Animations/Copy';
+import Image from "next/image";
+import HeadingAnim from "./Animations/HeadingAnim";
+import Copy from "./Animations/Copy";
+
+const TESTIMONIALS = [
+  {
+    type: "stat",
+    text: (
+      <>
+        Canara HSBC achieves{" "}
+        <span className="text-[#ff5f00]">faster deployment</span> on persistency
+        prediction and customer retention
+      </>
+    ),
+  },
+  {
+    type: "image",
+    src: "/assets/homepage/testimonials/testimonial-1.png",
+    alt: "Token Usage Over Time",
+  },
+  {
+    type: "testimonial",
+    quote:
+      "With DSW's insurance-specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.",
+    name: "Ritesh Rathod",
+    title: "Chief Strategy and Data Officer, Canara HSBC",
+    avatar: "/profile-ritesh.png",
+  },
+  {
+    type: "image",
+    src: "/assets/homepage/testimonials/testimonial-2.png",
+    alt: "Error Distribution",
+  },
+  {
+    type: "testimonial",
+    quote:
+      "DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.",
+    name: "Stefano Bonfa",
+    title: "Director, OxSDE, Europe",
+    avatar: "/profile-stefano.png",
+  },
+  {
+    type: "stat",
+    text: (
+      <>
+        <span className="text-[#ff5f00]">Customers In Production</span> – Canara
+        HSBC, Manipal Cigna, Mahindra, Castler, Wealthright, FSS
+      </>
+    ),
+  },
+  {
+    type: "testimonial",
+    quote:
+      "With advanced capabilities of the platform's AgenticAI, Castler's escrow services became smarter, more efficient - enabling faster, secure, scalable solutions for our BFSI clients.",
+    name: "Ritesh Tiwari",
+    title: "Chief Product Officer, Castler",
+    avatar: "/profile-ritesh-t.png",
+  },
+  {
+    type: "stat",
+    text: (
+      <>
+        Manipal Health Cigna in production with{" "}
+        <span className="text-[#ff5f00]">over 5 use cases</span> of AI/ML and
+        GenAI
+      </>
+    ),
+  },
+  {
+    type: "image",
+    src: "/assets/homepage/testimonials/testimonial-3.png",
+    alt: "Latency Chart",
+  },
+];
 
 export default function Testimonials() {
-    return (
-        <section className="relative w-full pb-[5vw] px-[3.91vw] space-y-[8vw]">
-            {/* Heading */}
-            <div className="text-center  space-y-[2vw]">
-                <HeadingAnim>
-                <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2]">
-                    Trusted by Leaders<br />
-                    in BFSI and Beyond
-                </h2>
-                </HeadingAnim>
-                <Copy>
-                <p className="text-30 max-w-[40vw] mx-auto">
-                    Explore how we've helped businesses like yours achieve success with innovative technology solutions.
-                </p>
-                </Copy>
+  return (
+    <section className="relative w-full pb-[5vw] px-[3.91vw] space-y-[8vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[15vw]">
+      {/* Heading */}
+      <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
+        <HeadingAnim>
+          <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2]">
+            Trusted by Leaders
+            <br />
+            in BFSI and Beyond
+          </h2>
+        </HeadingAnim>
+        <Copy>
+          <p className="text-30 w-[40%] max-sm:w-full mx-auto">
+            Explore how we've helped businesses like yours achieve success with
+            innovative technology solutions.
+          </p>
+        </Copy>
+      </div>
+
+      {/* Grid */}
+      <div className="grid grid-cols-3 gap-[2.2vw] mx-auto fadeup max-sm:flex max-sm:flex-col max-sm:gap-[5vw]">
+        {TESTIMONIALS.map((item, i) => {
+          // STAT CARD
+          if (item.type === "stat") {
+            return (
+              <div
+                key={i}
+                className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end max-sm:p-[5vw] max-sm:h-[60vw] max-sm:rounded-[4vw]"
+              >
+                <p className="text-30">{item.text}</p>
+              </div>
+            );
+          }
+
+          // IMAGE CARD
+          if (item.type === "image") {
+            return (
+              <div
+                key={i}
+                className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out max-sm:h-[60vw] max-sm:rounded-[4vw]"
+              >
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  fill
+                  className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
+                />
+              </div>
+            );
+          }
+
+          // TESTIMONIAL CARD
+          return (
+            <div
+              key={i}
+              className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.5vw] px-[1.5vw] h-[17.71vw] flex flex-col justify-between max-sm:p-[5vw] max-sm:h-[70vw] max-sm:rounded-[4vw]"
+            >
+              <p className="text-24 font-sans leading-[1.3] px-[0.5vw] font-light">
+                {item.quote}
+              </p>
+              <div className="flex items-center gap-[1vw] max-sm:gap-[5vw] ">
+                <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 max-sm:w-[15vw] max-sm:h-[15vw]">
+                  <Image
+                    src={item.avatar}
+                    alt={item.name}
+                    height={100}
+                    width={100}
+                    className="object-contain"
+                  />
+                </div>
+                <div className="space-y-[0.5vw] max-sm:space-y-[3vw]">
+                  <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.3]">
+                    {item.name}
+                  </p>
+                  <p className="text-20 font-sans text-[#645f5d] leading-[1.3]">
+                    {item.title}
+                  </p>
+                </div>
+              </div>
             </div>
-
-            {/* Testimonials Grid */}
-            <div className="grid grid-cols-3 gap-[2.2vw] mx-auto fadeup">
-                {/* Card 1: Canara HSBC Stat */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
-                    <p className="text-30 ">
-                        Canara HSBC achieves <span className="text-[#ff5f00]">faster deployment</span> on persistency prediction and customer retention
-                    </p>
-                </div>
-
-                {/* Card 2: Token Usage Chart */}
-                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out">
-                    <Image
-                        src="/assets/homepage/testimonials/testimonial-1.png"
-                        alt="Token Usage Over Time"
-                        fill
-                        className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
-                    />
-                </div>
-
-                {/* Card 3: Ritesh Rathod Testimonial */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.4vw] px-[0.85vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-24 font-sans  leading-[1.67vw] px-[0.5vw] tracking-[0.025vw] text-[#111]">
-                        With DSW's insurance-specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.
-                    </p>
-                    <div className="flex items-center gap-[1.04vw]">
-                         <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 ">
-                            <Image
-                                src="/profile-ritesh.png"
-                                alt="Ritesh Rathod"
-                                height={100}
-                                width={100}
-                                className="object-contain"
-                            />
-                        </div>
-                        <div className='space-y-[0.5vw]'>
-                            <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.5]">
-                                Ritesh Rathod
-                            </p>
-                            <p className="text-20 font-sans text-[#645f5d] leading-[1.5]">
-                                Chief Strategy and Data Officer, Canara HSBC
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Card 4: Error Distribution Chart */}
-                 <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out">
-                    <Image
-                        src="/assets/homepage/testimonials/testimonial-2.png"
-                        alt="Token Usage Over Time"
-                        fill
-                        className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
-                    />
-                </div>
-
-                {/* Card 5: Stefano Bonfa Testimonial */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.4vw] px-[0.85vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-24 px-[0.5vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
-                        DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.
-                    </p>
-                    <div className="flex items-center gap-[1.04vw]">
-                       <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 ">
-                            <Image
-                                src="/profile-stefano.png"
-                                alt="Stefano Bonfa"
-                                height={100}
-                                width={100}
-                                className="object-contain"
-                            />
-                        </div>
-                        <div className='space-y-[0.5vw]'>
-                            <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.5]">
-                                Stefano Bonfa
-                            </p>
-                            <p className="text-20 font-sans text-[#645f5d] leading-[1.5]">
-                                Director, OxSDE, Europe
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Card 6: Customers in Production */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
-                    <p className="text-30">
-                        <span className="text-[#ff5f00]">Customers In Production</span> – Canara HSBC, Manipal Cigna, Mahindra, Castler, Wealthright, FSS
-                    </p>
-                </div>
-
-                {/* Card 7: Ritesh Tiwari Testimonial */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.4vw] px-[0.85vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-24 px-[0.5vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
-                        With advanced capabilities of the platform's AgenticAI, Castler's escrow services became smarter, more efficient - enabling faster, secure, scalable solutions for our BFSI clients.
-                    </p>
-                    <div className="flex items-center gap-[1.04vw]">
-                       <div className="relative w-[4vw] h-[4vw] flex items-center justify-center p-1 rounded-full border border-black/30 overflow-hidden flex-shrink-0 ">
-                           
-                            <Image
-                                src="/profile-ritesh-t.png"
-                                alt="Ritesh Tiwari"
-                                height={100}
-                                width={100}
-                                className="object-contain"
-                            />
-                               
-                        </div>
-                       <div className='space-y-[0.5vw]'>
-                            <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.5]">
-                                Ritesh Tiwari
-                            </p>
-                            <p className="text-20! font-sans text-[#645f5d] leading-[1.5]">
-                                Chief Product Officer, Castler
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Card 8: Manipal Cigna Stat */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end">
-                    <p className="text-30">
-                        Manipal Health Cigna in production with <span className="text-[#ff5f00]">over 5 use cases</span> of AI/ML and GenAI
-                    </p>
-                </div>
-
-                {/* Card 9: Latency Chart */}
-                <div className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out">
-                    <Image
-                        src="/assets/homepage/testimonials/testimonial-3.png"
-                        alt="Token Usage Over Time"
-                        fill
-                        className="object-cover h-full w-full scale-[1.1] group-hover:scale-[1.05] transition-all duration-500 ease-out"
-                    />
-                </div>
-            </div>
-        </section>
-    );
+          );
+        })}
+      </div>
+    </section>
+  );
 }
