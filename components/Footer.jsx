@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import HeroBg from './Homepage/HeroBg';
+import WaveGradientCanvas from './Homepage/HeroBg';
 // import HeroBg from './Homepage/HeroBg';
 
 export default function FooterNew() {
@@ -34,7 +34,7 @@ export default function FooterNew() {
             {/* Background Gradient */}
             <div className='w-screen h-full'>
 
-            <HeroBg/>
+           <WaveGradientCanvas/>
             </div>
 
             {/* Content */}
