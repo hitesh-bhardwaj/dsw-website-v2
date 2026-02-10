@@ -51,7 +51,7 @@ export default function FooterNew() {
                             Contact Us
                         </h3>
                         <div className="space-y-[0.4vw]">
-                            <p className="text-24 f">
+                            <p className="text-24">
                                 Contact@datasciencewizards.ai
                             </p>
                             <p className="text-24 ">
@@ -91,7 +91,7 @@ export default function FooterNew() {
                                 <li key={link}>
                                     <Link
                                         href="#"
-                                        className="text-22  hover:text-[#ff5f00] transition-colors duration-300"
+                                        className="text-24  hover:text-[#ff5f00] transition-colors duration-300"
                                     >
                                         {link}
                                     </Link>
@@ -110,7 +110,7 @@ export default function FooterNew() {
                                 <li key={link}>
                                     <Link
                                         href="#"
-                                         className="text-22  hover:text-[#ff5f00] transition-colors duration-300"
+                                         className="text-24  hover:text-[#ff5f00] transition-colors duration-300"
                                     >
                                         {link}
                                     </Link>
@@ -157,7 +157,7 @@ export default function FooterNew() {
                     </div>
 
                     {/* Copyright */}
-                    <p className="text-[1.04vw] font-sans">
+                    <p className="text-20 font-sans">
                         © Copyright Data Science Wizards 2026
                     </p>
                 </div>

@@ -6,6 +6,7 @@ import { HumanOversight } from "../Svg/HumanOversight";
 import { Security } from "../Svg/Security";
 import { Deployment } from "../Svg/Deployment";
 import { Orchestration } from "../Svg/Orchestration";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 const cardsData = [
   {
@@ -154,14 +155,17 @@ const CoreCapabilities = () => {
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit pt-[10%]"
+      className="w-screen h-fit pt-[2%]"
     >
+      <HeadingAnim>
+
       <h2 className="text-center text-76">
         Core Capabilities
       </h2>
+      </HeadingAnim>
 
       <div
-        className="flex justify-center items-center min-h-screen  h-fit  flex-col w-full pt-[2vw] max-sm:hidden relative"
+        className="flex fadeup justify-center items-center min-h-screen  h-fit  flex-col w-full pt-[2vw] max-sm:hidden relative"
       >
         {cardsData.map((card, index) => (
           <CapabilityCard

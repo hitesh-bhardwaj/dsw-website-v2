@@ -18,28 +18,28 @@ const iconData = [
     icon: Connect,
     label: 'Connect',
     text: 'Ingest enterprise data through managed connectors and DataOps pipelines.',
-    textClass: 'absolute left-25 top-2 max-w-[25vw] space-y-[0.6vw]'
+    textClass: 'absolute left-25 top-2 max-w-[25vw] space-y-[0.6vw] fadeup'
   },
   {
     key: 'build',
     icon: Build,
     label: 'Build',
     text: 'Author and test agents in AgenticAI Studio (fine-tune, simulate, validate).',
-    textClass: 'absolute right-20 top-2 max-w-[25vw] space-y-[0.6vw]'
+    textClass: 'absolute right-20 top-2 max-w-[25vw] space-y-[0.6vw] fadeup'
   },
   {
     key: 'operate',
     icon: Operate,
     label: 'Operate',
     text: 'Enforce runtime policies, monitor telemetry, and maintain immutable audit trails and reports.',
-    textClass: 'absolute left-25 bottom-25 max-w-[25vw] space-y-[0.6vw]'
+    textClass: 'absolute left-25 bottom-25 max-w-[25vw] space-y-[0.6vw] fadeup'
   },
   {
     key: 'orchestrate',
     icon: Orchestrate,
     label: 'Orchestration',
     text: 'Compose agents, models and enterprise logic into auditable workflows using Workflow Builder.',
-    textClass: 'absolute right-20 bottom-25 space-y-[0.6vw] max-w-[25vw]'
+    textClass: 'absolute right-20 bottom-25 space-y-[0.6vw] max-w-[25vw] fadeup'
   },
 ];
 
@@ -139,11 +139,11 @@ const HowAgenticWorks = () => {
             <div className="flex">
               <h3 className="flex items-center gap-[0.5vw]">
                 <span className={`w-2.5 h-2.5 rounded-full mr-2 transition-colors duration-300 ${hovered === item.key ? 'bg-primary-blue' : 'bg-black'}`}></span>
-                <span className={`text-[2.2vw] font-medium transition-colors duration-300 ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}>{item.label}</span>
+                <span className={`text-44  transition-colors duration-300 ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}>{item.label}</span>
               </h3>
             </div>
             <p
-              className={`text-[1.2vw] transition-colors duration-300 mt-[0.6vw] ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}
+              className={`text-24 leading-[1.3] transition-colors duration-300 mt-[0.6vw] ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}
             >
               {item.text}
             </p>

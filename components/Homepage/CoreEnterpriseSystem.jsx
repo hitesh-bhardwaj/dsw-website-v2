@@ -236,8 +236,8 @@ export default function CoreEnterpriseSystem() {
         </p>
 
         {/* Pagination */}
-        <p className="text-[1.67vw] text-[#1727FF]">
-          <span ref={pageIndexRef} className="w-[2vw]">1</span> / {SLIDES.length}
+        <p className="text-primary-blue text-32">
+          <span ref={pageIndexRef} className="w-[2vw] text-32">1</span> / {SLIDES.length}
         </p>
       </div>
     </section>
