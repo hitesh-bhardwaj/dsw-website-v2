@@ -57,7 +57,7 @@ export default function Clients() {
   }, []);
 
   return (
-    <section className="relative w-full py-[5.21vw] px-0 space-y-[5vw]">
+    <section className="relative w-screen overflow-hidden py-[7%] px-0 space-y-[5vw]">
       {/* Heading */}
       <HeadingAnim>
         <h2 className="text-76 text-[#0A1B4B] leading-[1.2] w-[60%] text-center mx-auto">
