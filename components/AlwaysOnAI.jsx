@@ -141,7 +141,7 @@ export default function AlwaysOnAI({content}) {
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans w-[55%] mx-auto ">
+            <p className="text-30 font-sans w-[55%] mx-auto max-sm:w-full">
               {content.para}
             </p>
           </Copy>
@@ -160,7 +160,7 @@ export default function AlwaysOnAI({content}) {
 
         <div className="text-center ">
           <Copy>
-          <p className="text-44 font-heading max-w-[58.23vw] font-normal mx-auto">
+          <p className="text-44 font-heading max-w-[58.23vw] font-normal mx-auto max-sm:w-full">
             {content.tagline}
           </p>
           </Copy>
