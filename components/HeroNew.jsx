@@ -3,9 +3,13 @@ import Image from 'next/image';
 import HeroBg from './Homepage/HeroBg';
 import PrimaryButton from './Buttons/PrimaryButton';
 import SecondaryButton from './Buttons/SecondaryButton';
+import Copy from './Animations/Copy';
+import HeadingAnim from './Animations/HeadingAnim';
+import { fadeUp } from './Animations/gsapAnimations';
 
 export default function HeroNew({heroContent}) {
     const showButtons = heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
+fadeUp()
     return (
         <section className="relative w-full h-screen bg-white">
 
@@ -17,21 +21,26 @@ export default function HeroNew({heroContent}) {
             <div className="relative z-10 flex flex-col items-center h-full pt-[12vw]">
                 <div className='space-y-[1.2vw]'>
                     {/* Tagline */}
+                    <Copy>
                     <p className="text-30 font-medium text-[#333] text-center tracking-wide">
                         {heroContent.tagline}
                     </p>
+                    </Copy>
 
                     {/* Main Heading */}
+                <HeadingAnim>
                     <h1 
                         className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center max-w-[60vw]"
                     >
                         {heroContent.heading}
                     </h1>
+                </HeadingAnim>
                 </div>
 
                 {/* CTA Buttons - Only render if at least one button is present */}
+                <div className='fadeup'>
                 {showButtons && (
-                    <div className="flex items-center gap-[2.08vw] mt-15">
+                    <div className="flex items-center gap-[2.08vw] mt-15 ">
                         {/* Primary Button */}
                         {heroContent.primaryButton?.present && (
                             <PrimaryButton 
@@ -49,6 +58,8 @@ export default function HeroNew({heroContent}) {
                         )}
                     </div>
                 )}
+
+                </div>
 
                 {/* Scroll Down Indicator */}
                 <div className="absolute bottom-10 right-5 flex items-center gap-[1vw]">

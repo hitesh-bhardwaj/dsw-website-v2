@@ -15,14 +15,12 @@ const AgenticAI = () => {
     <>
      <Layout>
     <main className="min-h-screen">
-
         <HeroNew heroContent={heroContent} />
         <AgenticAbout />
         <AgenticCards />
         <CoreCapabilities />
         <AgentSteps />
         <HowAgenticWorks />
-      
          <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
