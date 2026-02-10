@@ -339,7 +339,7 @@ const WaveGradientCanvas = ({
   return (
     <canvas
       ref={canvasRef}
-      className="block w-full bg-transparent pointer-events-none"
+      className="block w-full bg-transparent pointer-events-none max-sm:hidden"
       style={{
         position: "absolute",
         left: 0,
