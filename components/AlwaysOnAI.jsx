@@ -41,7 +41,7 @@ function staggeredProgress(p, i, count, stagger = 0.08) {
   return clamp01((p - delay) / Math.max(1e-6, span));
 }
 
-export default function AlwaysOnAI() {
+export default function AlwaysOnAI({content}) {
   const sectionRef = useRef(null);
   useGSAP(()=>{
     const tl = gsap.timeline({
@@ -137,13 +137,12 @@ export default function AlwaysOnAI() {
         <div className="text-center space-y-[2vw] ">
           <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
-              Always-On AI. Built as Infrastructure.
+             {content.heading}
             </h2>
           </HeadingAnim>
           <Copy>
             <p className="text-30 font-sans w-[55%] mx-auto ">
-              AI only scales when enterprises can build it safely, trust it in
-              daily workflows, and run it continuously
+              {content.para}
             </p>
           </Copy>
         </div>
@@ -162,7 +161,7 @@ export default function AlwaysOnAI() {
         <div className="text-center ">
           <Copy>
           <p className="text-44 font-heading max-w-[58.23vw] font-normal mx-auto">
-            The AI Operating System makes this possible by running as part of your core enterprise architecture.
+            {content.tagline}
           </p>
           </Copy>
         </div>

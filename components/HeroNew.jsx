@@ -34,7 +34,6 @@ fadeUp()
            
             {/* Content */}
             <div className="relative z-20 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
-            <div className="relative z-20 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
                 <div className='space-y-[1.2vw] max-sm:space-y-[3vw]'>
                     {/* Tagline */}
                     <Copy>
@@ -46,7 +45,7 @@ fadeUp()
                     {/* Main Heading */}
                 <HeadingAnim>
                     <h1 
-                        className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center max-w-[60vw] max-sm:max-w-[100%] max-sm:mx-auto"
+                        className="text-110 text-[#0A1B4B] leading-[1.2]!  text-center max-w-[70vw] max-sm:max-w-[100%] max-sm:mx-auto"
                     >
                         {heroContent.heading}
                     </h1>
