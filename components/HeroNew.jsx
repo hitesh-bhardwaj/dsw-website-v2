@@ -34,6 +34,7 @@ fadeUp()
            
             {/* Content */}
             <div className="relative z-20 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
+            <div className="relative z-20 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
                 <div className='space-y-[1.2vw] max-sm:space-y-[3vw]'>
                     {/* Tagline */}
                     <Copy>
