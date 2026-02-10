@@ -7,45 +7,40 @@ import HeadingAnim from "./Animations/HeadingAnim";
 import { fadeUp } from "./Animations/gsapAnimations";
 import WaveGradientCanvas from "./Homepage/HeroBg";
 
-export default function HeroNew({ heroContent }) {
-  const showButtons =
-    heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
-  fadeUp();
-  return (
-    <section className="relative w-full h-screen bg-white">
-      <div className="absolute inset-0 z-0 h-screen w-full">
-        <Image
-          src="/assets/homepage/Hero.png"
-          height={1500}
-          width={1500}
-          alt="mobile-hero-bg"
-          className="h-full w-full object-cover"
-        />
-      </div>
-      <div className="absolute inset-0 z-10 pointer-events-none h-[120vh]">
-        <div className="absolute inset-0 flex justify-between px-16">
-          {[...Array(16)].map((_, i) => (
-            <span key={i} className="w-px h-full bg-white/10" />
-          ))}
-        </div>
-        <div className="absolute inset-0 flex flex-col justify-between py-16">
-          {[...Array(11)].map((_, i) => (
-            <span key={i} className="h-px w-full bg-white/10" />
-          ))}
-        </div>
-      </div>
+export default function HeroNew({heroContent}) {
+    const showButtons = heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
+fadeUp()
+    return (
+        <section className="relative w-full h-screen bg-white">
 
-      <WaveGradientCanvas />
+            <div className='absolute inset-0 z-0 h-screen w-full'>
+                <Image src='/assets/homepage/Hero.png' height={1500} width={1500} alt='mobile-hero-bg' className='h-full w-full object-cover' />
+            </div>
+           <div className="absolute inset-0 z-10 pointer-events-none h-[120vh] max-sm:hidden">
+  <div className="absolute inset-0 flex justify-between px-16">
+    {[...Array(16)].map((_, i) => (
+      <span key={i} className="w-px h-full bg-white/10" />
+    ))}
+  </div>
+  <div className="absolute inset-0 flex flex-col justify-between py-16">
+    {[...Array(11)].map((_, i) => (
+      <span key={i} className="h-px w-full bg-white/10" />
+    ))}
+  </div>
+</div>
 
-      {/* Content */}
-      <div className="relative z-20 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
-        <div className="space-y-[1.2vw] max-sm:space-y-[3vw]">
-          {/* Tagline */}
-          <Copy>
-            <p className="text-30 text-center tracking-wide max-sm:font-light">
-              {heroContent.tagline}
-            </p>
-          </Copy>
+            <WaveGradientCanvas/>
+           
+           
+            {/* Content */}
+            <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
+                <div className='space-y-[1.2vw] max-sm:space-y-[3vw]'>
+                    {/* Tagline */}
+                    <Copy>
+                    <p className="text-30 font-medium  text-center tracking-wide max-sm:font-light">
+                        {heroContent.tagline}
+                    </p>
+                    </Copy>
 
           {/* Main Heading */}
           <HeadingAnim>
