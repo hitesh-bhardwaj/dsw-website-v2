@@ -14,9 +14,11 @@
   --text-24: 1.3vw;
   --text-32: 1.7vw;
   --text-76:4.2vw;
+  --text-80:4.5vw;
   --text-56:3.1vw;
   --text-30:1.55vw;
   --text-22:1.1vw;
+  --text-20:1vw;
   --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
 
 }
@@ -32,11 +34,13 @@
   --font-sans: var(--font-aspekta);
   --font-heading: var(--font-neue-montreal);
   --text-110: var(--text-110);
+  --text-80:var(--text-80);
   --text-110--line-height: 1.1;
   --text-56: var(--text-56);
+  --text-20:var(--text-20);
   --text-30: var(--text-30);
-  --text-32: var(--text-32);
   --text-76: var(--text-76);
+  --text-32: var(--text-32);
   --text-56--line-height: 1.1;
   --ease-default-ease: var(--default-ease);
   --text-44: var(--text-44);

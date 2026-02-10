@@ -74,7 +74,7 @@ const AgenticSteps = () => {
             <h2 className="text-32 font-normal m-0 text-[#1a1a1a]">
               Insurance
             </h2>
-            <span className="text-[4.5vw] font-light text-primary-blue leading-none">
+            <span className="text-80 font-light text-primary-blue leading-none">
               1
             </span>
           </div>
@@ -106,7 +106,7 @@ const AgenticSteps = () => {
             <h2 className="text-32 font-normal m-0 text-[#1a1a1a]">
               Banks
             </h2>
-            <span className="text-[4.5vw] font-light text-primary-blue leading-none">
+            <span className="text-80 font-light text-primary-blue leading-none">
               2
             </span>
           </div>
@@ -138,7 +138,7 @@ const AgenticSteps = () => {
             <h2 className="text-32 font-normal m-0 text-[#1a1a1a]">
               Roadmap
             </h2>
-            <span className="text-[4.5vw] font-light text-primary-blue leading-none">
+            <span className="text-80 font-light text-primary-blue leading-none">
               3
             </span>
           </div>

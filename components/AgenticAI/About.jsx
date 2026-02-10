@@ -24,7 +24,7 @@ function AboutCard({ challenge }) {
                 </div>
 
                 {/* Text */}
-                <p className="text-[1.3vw] font-sans font-light mt-auto">
+                <p className="text-24 font-sans font-light mt-auto">
                     {challenge.title}
                 </p>
             </div>

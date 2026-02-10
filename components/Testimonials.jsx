@@ -40,8 +40,8 @@ export default function Testimonials() {
                 </div>
 
                 {/* Card 3: Ritesh Rathod Testimonial */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-[1.25vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
+                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.4vw] px-[0.85vw] h-[17.71vw] flex flex-col justify-between">
+                    <p className="text-24 font-sans  leading-[1.67vw] px-[0.5vw] tracking-[0.025vw] text-[#111]">
                         With DSW's insurance-specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
@@ -55,10 +55,10 @@ export default function Testimonials() {
                             />
                         </div>
                         <div className='space-y-[0.5vw]'>
-                            <p className="text-[1.25vw] font-sans font-medium text-[#14100e] leading-[1.5]">
+                            <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.5]">
                                 Ritesh Rathod
                             </p>
-                            <p className="text-[0.94vw] font-sans text-[#645f5d] leading-[1.5]">
+                            <p className="text-20 font-sans text-[#645f5d] leading-[1.5]">
                                 Chief Strategy and Data Officer, Canara HSBC
                             </p>
                         </div>
@@ -76,8 +76,8 @@ export default function Testimonials() {
                 </div>
 
                 {/* Card 5: Stefano Bonfa Testimonial */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-[1.25vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
+                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.4vw] px-[0.85vw] h-[17.71vw] flex flex-col justify-between">
+                    <p className="text-24 px-[0.5vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
                         DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
@@ -91,10 +91,10 @@ export default function Testimonials() {
                             />
                         </div>
                         <div className='space-y-[0.5vw]'>
-                            <p className="text-[1.25vw] font-sans font-medium text-[#14100e] leading-[1.5]">
+                            <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.5]">
                                 Stefano Bonfa
                             </p>
-                            <p className="text-[0.94vw] font-sans text-[#645f5d] leading-[1.5]">
+                            <p className="text-20 font-sans text-[#645f5d] leading-[1.5]">
                                 Director, OxSDE, Europe
                             </p>
                         </div>
@@ -109,8 +109,8 @@ export default function Testimonials() {
                 </div>
 
                 {/* Card 7: Ritesh Tiwari Testimonial */}
-                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex flex-col justify-between">
-                    <p className="text-[1.25vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
+                <div className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.4vw] px-[0.85vw] h-[17.71vw] flex flex-col justify-between">
+                    <p className="text-24 px-[0.5vw] font-sans  leading-[1.67vw] tracking-[0.025vw] text-[#111]">
                         With advanced capabilities of the platform's AgenticAI, Castler's escrow services became smarter, more efficient - enabling faster, secure, scalable solutions for our BFSI clients.
                     </p>
                     <div className="flex items-center gap-[1.04vw]">
@@ -126,10 +126,10 @@ export default function Testimonials() {
                                
                         </div>
                        <div className='space-y-[0.5vw]'>
-                            <p className="text-[1.25vw] font-sans font-medium text-[#14100e] leading-[1.5]">
+                            <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.5]">
                                 Ritesh Tiwari
                             </p>
-                            <p className="text-[0.94vw] font-sans text-[#645f5d] leading-[1.5]">
+                            <p className="text-20! font-sans text-[#645f5d] leading-[1.5]">
                                 Chief Product Officer, Castler
                             </p>
                         </div>

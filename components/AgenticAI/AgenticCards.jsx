@@ -34,7 +34,7 @@ const CardItem = React.forwardRef(({ title, description }, ref) => {
     >
       <h2 className="text-56 font-light">{title}</h2>
 
-      <p className="text-40 leading-[1.7]">{description}</p>
+      <p className="text-24 leading-[1.7]">{description}</p>
     </div>
   );
 });

@@ -139,11 +139,11 @@ const HowAgenticWorks = () => {
             <div className="flex">
               <h3 className="flex items-center gap-[0.5vw]">
                 <span className={`w-2.5 h-2.5 rounded-full mr-2 transition-colors duration-300 ${hovered === item.key ? 'bg-primary-blue' : 'bg-black'}`}></span>
-                <span className={`text-[2.2vw] font-medium transition-colors duration-300 ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}>{item.label}</span>
+                <span className={`text-44  transition-colors duration-300 ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}>{item.label}</span>
               </h3>
             </div>
             <p
-              className={`text-[1.2vw] transition-colors duration-300 mt-[0.6vw] ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}
+              className={`text-24 leading-[1.3] transition-colors duration-300 mt-[0.6vw] ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}
             >
               {item.text}
             </p>

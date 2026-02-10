@@ -128,7 +128,7 @@ export default function AlwaysOnAI() {
 
         <div className="text-center">
           <Copy>
-          <p className="text-[2.3vw] font-heading max-w-[58.23vw] font-normal mx-auto">
+          <p className="text-44 font-heading max-w-[58.23vw] font-normal mx-auto">
             The AI Operating System makes this possible by running as part of your core enterprise architecture.
           </p>
           </Copy>
