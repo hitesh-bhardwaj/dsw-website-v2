@@ -61,28 +61,14 @@ const AgenticCards = () => {
     }
   );
 
-  // useEffect(() => {
-  //   gsap.from(cardsRef.current, {
-  //     yPercent: 120,
-  //     stagger: 0,
-  //     ease: "power2.out",
-  //     scrollTrigger: {
-  //       trigger: containerRef.current,
-  //       start: "top 90%",
-  //       end: "bottom bottom",
-  //       scrub: true,
-  //       markers: true,
-  //     },
-  //   });
-  // }, []);
 
   return (
     <div ref={containerRef} className="w-full h-[150vh] relative">
-      <div className="text-center mx-auto w-[80%] ">
+      <div className="text-center mx-auto w-[80%] max-sm:w-[85%] ">
         <HeadingAnim>
 
-        <p className=" font-normal leading-[1.2] text-56! font-heading">
-          Turn proofs of concept into auditable, production-grade automation
+        <p className=" font-normal leading-[1.2] max-sm:leading-[1.3] text-56! font-heading">
+          Turn proofs of concept into auditable, production- grade automation
           with explainable agents, deterministic governance, and
           enterprise-grade security.
         </p>

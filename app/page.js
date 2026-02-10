@@ -24,7 +24,7 @@ export default function Home() {
       {/* <CoreEnterpriseSystem /> */}
       <CoreEnterpriseSystemSticky/>
       <UseCases/>
-      <AlwaysOnAI />
+      <AlwaysOnAI content={tourContent}/>
       <Clients />
       <RealWorldOutcomes />
       <CTAPricing />
@@ -64,4 +64,10 @@ const ctaContent={
     link:"#",
     text:"Talk to our Team"
   },
+}
+
+const tourContent={
+  heading:"Always-On AI. Built as Infrastructure.",
+  para:"AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously",
+  tagline:"The AI Operating System makes this possible by running as part of your core enterprise architecture."
 }

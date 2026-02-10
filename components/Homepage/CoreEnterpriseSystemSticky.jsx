@@ -254,13 +254,13 @@ export default function CoreEnterpriseSystemSticky() {
       ref={sectionRef}
       id="coreEnterprise"
       style={{ height: `${SLIDES.length * 100}vh` }}
-      className="relative w-full bg-white flex justify-center mt-[-20vw] py-[25%]"
+      className="relative w-full bg-white flex justify-center mt-[-20vw] py-[25%] max-sm:mt-[-50vw]"
     >
-      <div className="w-full h-screen sticky top-0">
+      <div className="w-screen h-screen sticky top-0 max-sm:overflow-hidden">
         {/* Outer circle */}
         <div
           ref={outerRef}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] max-sm:w-[150vw]"
         >
           <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
         </div>
@@ -268,15 +268,15 @@ export default function CoreEnterpriseSystemSticky() {
         {/* Inner circle */}
         <div
           ref={innerRef}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw]"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-sm:w-[100vw]"
         >
           <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
         </div>
 
         {/* Content */}
-        <div className="relative z-10 text-center space-y-[4vw] mt-[10vw]">
+        <div className="relative z-10 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-sm:space-y-[7vw] max-sm:px-[7vw]">
           <HeadingAnim>
-            <h2 className="text-76 mb-[7vw]">Run AI as a Core Enterprise System</h2>
+            <h2 className="text-76 mb-[7vw] max-sm:mb-[25vw]">Run AI as a Core Enterprise System</h2>
           </HeadingAnim>
 
           {/* Slides stack (mapped) */}
@@ -284,7 +284,7 @@ export default function CoreEnterpriseSystemSticky() {
             {SLIDES.map((slide, i) => (
               <div
                 key={i}
-                className={`w-full h-fit space-y-[4vw] ${
+                className={`w-full h-fit space-y-[4vw] max-sm:space-y-[7vw] ${
                   i === 0 ? "relative" : "absolute top-0 left-1/2 -translate-x-1/2"
                 }`}
               >
@@ -292,7 +292,7 @@ export default function CoreEnterpriseSystemSticky() {
                   {slide.title}
                 </h3>
 
-                <p ref={(el) => setDescRef(el, i)} className="text-30 px-[30vw] mx-auto">
+                <p ref={(el) => setDescRef(el, i)} className="text-30 px-[30vw] mx-auto max-sm:px-0">
                   {slide.desc}
                 </p>
               </div>
@@ -300,8 +300,8 @@ export default function CoreEnterpriseSystemSticky() {
           </div>
 
           {/* Pagination (index stacked + animated like content) */}
-          <div className="text-[1.67vw] text-[#1727FF] relative flex mx-auto w-fit">
-            <div className="relative w-[1.5vw] align-baseline">
+          <div className="text-[1.67vw] max-sm:text-[6.5vw] text-[#1727FF] relative flex mx-auto w-fit">
+            <div className="relative w-[1.5vw] align-baseline max-sm:w-[6vw]">
               {SLIDES.map((_, i) => (
                 <div
                   key={i}

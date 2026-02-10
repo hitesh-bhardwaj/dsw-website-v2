@@ -5,22 +5,21 @@
   --foreground: #111111;
   --primary: #f16b0d;
   --secondary: #e61216;
-  --card-bg: #EFF1FB;
-  --border-cards: #E1E1E1;
-  --primary-blue: #1727FF;
+  --card-bg: #eff1fb;
+  --border-cards: #e1e1e1;
+  --primary-blue: #1727ff;
   --text-110: 6vw;
-  --text-40:1.2vw;
+  --text-40: 1.2vw;
   --text-44: 2.3vw;
   --text-24: 1.3vw;
   --text-32: 1.7vw;
-  --text-76:4.2vw;
-  --text-80:4.5vw;
-  --text-56:3.1vw;
-  --text-30:1.55vw;
-  --text-22:1.1vw;
-  --text-20:0.9vw;
+  --text-76: 4.2vw;
+  --text-80: 4.5vw;
+  --text-56: 3.1vw;
+  --text-30: 1.55vw;
+  --text-22: 1.1vw;
+  --text-20: 0.9vw;
   --default-ease: cubic-bezier(0.19, 1, 0.22, 1);
-
 }
 
 @theme inline {
@@ -34,10 +33,10 @@
   --font-sans: var(--font-aspekta);
   --font-heading: var(--font-neue-montreal);
   --text-110: var(--text-110);
-  --text-80:var(--text-80);
+  --text-80: var(--text-80);
   --text-110--line-height: 1.1;
   --text-56: var(--text-56);
-  --text-20:var(--text-20);
+  --text-20: var(--text-20);
   --text-30: var(--text-30);
   --text-76: var(--text-76);
   --text-80: var(--text-80);
@@ -51,9 +50,8 @@
   --text-22: var(--text-22);
   --ease-default-ease: var(--default-ease);
 
-   --breakpoint-md: 1025px;
+  --breakpoint-md: 1025px;
   --breakpoint-sm: 640px;
-
 }
 
 body {
@@ -85,14 +83,14 @@ h6 {
 }
 
 /* @layer utilities { */
-  .bg-radial-night {
-    background: radial-gradient(
-      circle at center,
-      #02031c 0%,
-      #02031c 35%,
-      #030558 100%
-    );
-  }
+.bg-radial-night {
+  background: radial-gradient(
+    circle at center,
+    #02031c 0%,
+    #02031c 35%,
+    #030558 100%
+  );
+}
 /* } */
 
 .unifyblock {
@@ -108,8 +106,7 @@ h6 {
   background-image: radial-gradient(
     var(--rx) var(--ry) at 50% 50%,
     var(--c1) 80%,
-    /* var(--c2) 55%, */
-    var(--c3) 150%
+    /* var(--c2) 55%, */ var(--c3) 150%
   );
 
   background-color: transparent !important;
@@ -152,11 +149,14 @@ h6 {
   animation: clients-marquee 25s linear infinite;
 }
 
-.Headingline{
-    mask-size: 500% 100%;
-  mask-image: linear-gradient(150deg, #e8e8e8 33.3%, rgba(255, 255, 255, 0) 66.6%);
+.Headingline {
+  mask-size: 500% 100%;
+  mask-image: linear-gradient(
+    150deg,
+    #e8e8e8 33.3%,
+    rgba(255, 255, 255, 0) 66.6%
+  );
 }
-
 
 @keyframes clients-marquee {
   0% {
@@ -199,29 +199,23 @@ h6 {
   will-change: transform;
 }
 
-
-@media (max-width:1025px) {
+@media (max-width: 1025px) {
 }
 
-@media (max-width:542px) {
-
+@media (max-width: 542px) {
   :root {
-   --text-110: 11vw;
-    --text-30:5.5vw;
-    --text-22:5vw;
-      --text-20:3.5vw;
-      --text-44: 6vw;
-    --text-24:5.5vw;
+    --text-110: 12vw;
+    --text-80: 10vw;
+    --text-76: 9.5vw;
+    --text-30: 4.8vw;
+    --text-22: 5vw;
+    --text-20: 3.5vw;
+    --text-44: 6vw;
+    --text-24: 4.5vw;
+    --text-56: 7vw;
 
-  --text-40:1.2vw;
-  
-  --text-32: 1.7vw;
-  --text-76:4.2vw;
-  --text-80:4.5vw;
-  --text-56:3.1vw;
- 
-  
+    --text-40: 1.2vw;
 
+    --text-32: 5.5vw;
   }
 }
-
