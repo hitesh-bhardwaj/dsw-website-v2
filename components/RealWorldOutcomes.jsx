@@ -21,11 +21,11 @@ export default function RealWorldOutcomes() {
             </div>
 
             {/* Outcomes Grid */}
-            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] fadeup">
+            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] ">
                 {outcomes.map((outcome, index) => (
                     <div
                         key={index}
-                        className={`relative w-[23vw] h-[14vw] bg-white border-[0.078vw] border-[#0205fa] border-solid overflow-hidden flex flex-col itesm-start justify-evenly px-[1vw] ${outcome.position}`}
+                        className={`relative w-[23.3vw] h-[14vw] bg-white border-[0.078vw] border-[#0205fa] border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1vw] fadeup ${outcome.position}`}
                     >
                         {/* Number Label */}
                         <p className="text-[1.04vw] font-sans leading-[1.5] text-[#c7c7c7]">

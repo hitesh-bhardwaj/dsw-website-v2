@@ -1,136 +1,139 @@
-'use client';
+"use client";
 
-import Image from 'next/image';
-import { useLayoutEffect, useRef } from 'react';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap/ScrollTrigger';
-import HeadingAnim from './Animations/HeadingAnim';
-import Copy from './Animations/Copy';
+import Image from "next/image";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import HeadingAnim from "./Animations/HeadingAnim";
+import Copy from "./Animations/Copy";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export default function AlwaysOnAI() {
   const sectionRef = useRef(null);
-  const ringsRef = useRef([]);
+  useGSAP(()=>{
+    const tl = gsap.timeline({
+      scrollTrigger:{
+        trigger:"#alwaysOnAi",
+        start:"top 70%",
+        end:"85% 70%",
+        scrub:true,
+        // markers:true
 
-  const setRingRef = (el) => {
-    if (!el) return;
-    if (!ringsRef.current.includes(el)) ringsRef.current.push(el);
-  };
-
-  useLayoutEffect(() => {
-    if (!sectionRef.current) return;
-
-    const ctx = gsap.context(() => {
-      // Put perspective on an HTML element (works reliably)
-      const bg = sectionRef.current.querySelector('.rings-perspective');
-      if (bg) {
-        gsap.set(bg, { perspective: 1200, transformStyle: 'preserve-3d' });
       }
-
-      // Ensure transform box/origin works on SVG groups
-      ringsRef.current.forEach((g) => {
-        // SVG-specific: make CSS transforms reference the shape bounds
-        (g).style.transformBox = 'fill-box';
-        (g).style.transformOrigin = '50% 50%';
-        (g).style.transformStyle = 'preserve-3d';
-        (g).style.willChange = 'transform';
-      });
-
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: 'top 80%',
-          end: 'bottom top',
-          scrub: true,
-          // markers: true,
-        },
-      });
-
-      ringsRef.current.forEach((g, i) => {
-        tl.to(
-          g,
-          {
-            rotateX: 180 + i * 6,   // increase if you want stronger tilt
-            rotateY: i * 2,        // tiny twist adds depth
-            z: i * 2,              // helps some browsers “commit” to 3D
-            ease: 'none',
-          },
-          0
-        );
-      });
-    }, sectionRef);
-
-    return () => ctx.revert();
-  }, []);
+    })
+    tl.to(".upper-slinky",{
+      rotateX:-80,
+      top:"-40%"
+    })
+    .to(".mid-slinky",{
+      rotateX:0,
+      top:"0%"
+    },"<")
+    .to(".lower-slinky",{
+      rotateX:-10,
+      top:"55%"
+    },"<")
+  })
 
   return (
     <section
       ref={sectionRef}
-      className="relative w-full bg-white py-[10.42vw] px-[3.91vw] overflow-hidden"
+      id="alwaysOnAi"
+      style={{perspective:"1500px"}}
+      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden"
     >
       {/* Background Line Effect */}
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective">
+       {/* before // top-[-60] 0deg */}
+      {/* after // top-[-40] 60deg */}
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective top-[-60%] w-[120%] left-[-10%] upper-slinky rotate-x-[10deg] ">
         <svg
-          className="absolute w-[120vw] h-[120vw] max-w-none"
-          viewBox="0 0 1200 1200"
+          width="1920"
+          height="639"
+          className="w-full"
+          viewBox="0 0 1920 639"
           fill="none"
-          aria-hidden="true"
-          style={{ overflow: 'visible' }}
+          xmlns="http://www.w3.org/2000/svg"
         >
-          {Array.from({ length: 8 }).map((_, i) => {
-            const t = i / 7;              // 0..1 for 8 rings
-            const rx = 420 + t * 520;
-            const ry = 200 + t * 360;
+          <path
+            d="M-15 638.257C258.004 533.347 1024.08 386.474 1904.35 638.257M-15 503.472C233.891 320.656 970.099 60.8523 1923.81 484.167M-15 325.597C280.848 80.2714 1082.8 -263.184 1923.81 325.597"
+            stroke="#0205FA"
+            strokeOpacity="0.2"
+          />
+        </svg>
+      </div>
 
-            return (
-              <g key={i} ref={setRingRef}>
-                <ellipse
-                  cx="600"
-                  cy="600"
-                  rx={rx}
-                  ry={ry}
-                  stroke="#E6EEFF"
-                  strokeWidth="1"
-                  opacity={0.85 - t * 0.55}
-                  vectorEffect="non-scaling-stroke"
-                />
-              </g>
-            );
-          })}
+      {/* before // top-[-20] -180deg */}
+      {/* after // top-[-10] 0deg */}
+
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective top-[-20%] w-[120%] left-[-10%] rotate-x-[-180deg] mid-slinky">
+        <svg
+          width="1918"
+          height="214"
+          viewBox="0 0 1918 214"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-8.6543 130.803C350.792 192.473 1239.15 278.812 1917.04 130.803M-8.6543 0.499023C354.74 24.0548 1248.63 57.033 1917.04 0.499023"
+            stroke="#0205FA"
+            strokeOpacity="0.2"
+          />
+        </svg>
+      </div>
+      {/* before // top-[10] -60deg */}
+      {/* after // top-[35] 0deg */}
+
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective top-[10%] w-[101%] lower-slinky rotate-x-[60deg]">
+        <svg
+          width="1920"
+          height="639"
+          viewBox="0 0 1920 639"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M-3.1543 0.480469C269.85 105.39 1035.93 252.263 1916.19 0.480469M-3.1543 135.266C245.736 318.082 981.945 577.885 1935.65 154.57M-3.1543 313.141C292.694 558.466 1094.64 901.921 1935.65 313.141"
+            stroke="#0205FA"
+            strokeOpacity="0.2"
+          />
         </svg>
       </div>
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="text-center space-y-[2vw]">
+        <div className="text-center space-y-[2vw] ">
           <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
-            Always-On AI. Built as Infrastructure.
-          </h2>
+            <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
+              Always-On AI. Built as Infrastructure.
+            </h2>
           </HeadingAnim>
           <Copy>
-          <p className="text-30 font-sans max-w-[47.92vw] mx-auto">
-            AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously
-          </p>
+            <p className="text-30 font-sans w-[55%] mx-auto ">
+              AI only scales when enterprises can build it safely, trust it in
+              daily workflows, and run it continuously
+            </p>
           </Copy>
         </div>
 
-        <div className="relative w-[30vw] h-[50vw] mx-auto fadeup">
+        <div className="relative w-[70vw] h-auto mx-auto fadeup my-[5vw] ">
           <Image
-            src="/laptop-dashboard.png"
+            src="/assets/homepage/laptop-dashboard-quality.png"
             alt="DSW UnifyAI Dashboard"
-            fill
-            className="object-contain h-full w-full scale-[2.8]"
+            width={800}
+            height={700}
+            className="object-contain h-full w-full"
             priority
           />
         </div>
 
-        <div className="text-center">
+        <div className="text-center ">
           <Copy>
-          <p className="text-[2.3vw] font-heading max-w-[58.23vw] font-normal mx-auto">
-            The AI Operating System makes this possible by running as part of your core enterprise architecture.
-          </p>
+            <p className="text-[2.3vw] font-heading max-w-[58.23vw] font-normal mx-auto">
+              The AI Operating System makes this possible by running as part of
+              your core enterprise architecture.
+            </p>
           </Copy>
         </div>
       </div>

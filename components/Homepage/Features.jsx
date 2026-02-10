@@ -40,7 +40,7 @@ const Features = () => {
   });
 
   return (
-    <section className="w-full h-fit relative space-y-[5vw] " id="features">
+    <section className="w-full h-fit relative space-y-[5vw] z-[2] " id="features">
       <div className="w-fit h-fit feature-card-container">
       {FEATURES.map((feature) => (
         <div

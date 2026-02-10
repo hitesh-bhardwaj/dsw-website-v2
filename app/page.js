@@ -1,6 +1,6 @@
 import AlwaysOnAI from "@/components/AlwaysOnAI";
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
-import CoreEnterpriseSystem from "@/components/Homepage/CoreEnterpriseSystem";
+// import CoreEnterpriseSystem from "@/components/Homepage/CoreEnterpriseSystem";
 import Clients from "@/components/Clients";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
@@ -11,6 +11,7 @@ import Layout from "@/components/Layout/Layout";
 import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
+import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
       <WhyAIStruggles />
       <UnifiedRuntime/>
       <Features/>
-      <CoreEnterpriseSystem />
+      {/* <CoreEnterpriseSystem /> */}
+      <CoreEnterpriseSystemSticky/>
       <UseCases/>
       <AlwaysOnAI />
       <Clients />
