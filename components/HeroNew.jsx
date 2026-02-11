@@ -163,7 +163,7 @@ export default function HeroNew({ heroContent }) {
           </Copy>
 
           <HeadingAnim delay={0.3}>
-            <h1 className="text-110 text-[#0A1B4B] leading-[1.2]! text-center w-[70%] mx-auto max-sm:w-full opacity-0 hero-head">
+            <h1 className="text-110 text-[#0A1B4B] leading-[1.2] text-center w-[70%] mx-auto max-sm:w-full opacity-0 hero-head">
               {heroContent.heading}
             </h1>
           </HeadingAnim>

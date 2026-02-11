@@ -276,7 +276,7 @@ export default function CoreEnterpriseSystemSticky() {
         {/* Content */}
         <div className="relative z-10 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-sm:space-y-[7vw] max-sm:px-[7vw]">
           <HeadingAnim>
-            <h2 className="text-76 mb-[7vw] max-sm:mb-[25vw]">Run AI as a Core Enterprise System</h2>
+            <h2 className="text-76 mb-[7vw] max-sm:mb-[25vw] text-[#0A1B4B]">Run AI as a Core Enterprise System</h2>
           </HeadingAnim>
 
           {/* Slides stack (mapped) */}

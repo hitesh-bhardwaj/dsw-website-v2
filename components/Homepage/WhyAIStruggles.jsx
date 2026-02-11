@@ -59,7 +59,7 @@ export default function WhyAIStruggles() {
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-24 font-sans leading-[1.6] tracking-[0.025vw] text-[#111] w-[40%] max-sm:w-full mx-auto">
+            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-[#111] w-[40%] max-sm:w-full mx-auto">
               Modern enterprises don't struggle with building AI models. They
               struggle with operating AI reliably in production:
             </p>
@@ -90,7 +90,7 @@ export default function WhyAIStruggles() {
 
                 {/* Content */}
                 <div className="">
-                  <p className="text-30 leading-[1.3]">{challenge.title}</p>
+                  <p className="text-30 leading-[1.2]">{challenge.title}</p>
                 </div>
               </div>
             </div>

@@ -174,7 +174,7 @@ const HowAgenticWorks = () => {
               </h3>
             </div>
             <p
-              className={`text-24 leading-[1.3] transition-colors duration-300 mt-[0.6vw] ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}
+              className={`text-24 leading-[1.2] transition-colors duration-300 mt-[0.6vw] ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}
             >
               {item.text}
             </p>

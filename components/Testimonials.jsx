@@ -131,7 +131,7 @@ export default function Testimonials() {
               key={i}
               className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.5vw] px-[1.5vw] h-[17.71vw] flex flex-col justify-between max-sm:p-[5vw] max-sm:h-[70vw] max-sm:rounded-[4vw]"
             >
-              <p className="text-24 font-sans leading-[1.3] px-[0.5vw] font-light">
+              <p className="text-24 font-sans leading-[1.2] px-[0.5vw] font-light">
                 {item.quote}
               </p>
               <div className="flex items-center gap-[1vw] max-sm:gap-[5vw] ">
@@ -145,10 +145,10 @@ export default function Testimonials() {
                   />
                 </div>
                 <div className="space-y-[0.5vw] max-sm:space-y-[3vw]">
-                  <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.3]">
+                  <p className="text-24 font-sans font-medium text-[#14100e] leading-[1.2]">
                     {item.name}
                   </p>
-                  <p className="text-20 font-sans text-[#645f5d] leading-[1.3]">
+                  <p className="text-20 font-sans text-[#645f5d] leading-[1.2]">
                     {item.title}
                   </p>
                 </div>

@@ -61,7 +61,7 @@ const AgenticSteps = () => {
 
       <HeadingAnim>
 
-      <h2 className='text-76 mx-auto w-fit max-sm:text-center max-sm:w-[90%] max-sm:leading-[1.3]'>
+      <h2 className='text-76 mx-auto w-fit max-sm:text-center max-sm:w-[90%] max-sm:leading-[1.2]'>
         BFSI use cases & vertical accelerators  
       </h2>
       </HeadingAnim>
