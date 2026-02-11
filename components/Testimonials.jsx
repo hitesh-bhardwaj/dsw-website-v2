@@ -86,7 +86,7 @@ export default function Testimonials() {
           </h2>
         </HeadingAnim>
         <Copy>
-          <p className="text-30 w-[40%] max-sm:w-full mx-auto">
+          <p className="text-30 w-[45%] max-sm:w-full mx-auto">
             Explore how we've helped businesses like yours achieve success with
             innovative technology solutions.
           </p>

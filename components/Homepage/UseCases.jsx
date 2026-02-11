@@ -105,7 +105,7 @@ export default function UseCases() {
               <div className="w-full h-[10px] bg-primary-blue" />
             </div>
 
-            <div className="w-full h-[65vh]  bg-white content-container max-sm:h-[120vw]">
+            <div className="w-full h-[73vh]  bg-white content-container max-sm:h-[120vw]">
               <div className="p-[3vw] space-y-[3vw] text-foreground max-sm:p-[7vw]">
                 <h4 className="text-32 font-medium max-sm:font-normal">{useCase.title}</h4>
 

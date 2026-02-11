@@ -10,36 +10,6 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
 
-// --- SVG sizing (matches your viewBox) ---
-const VB_W = 1440;
-const VB_H = 700;
-const MID_Y = VB_H / 2;
-
-// ✅ Start/end far outside the screen horizontally
-const START = { x: -600, y: MID_Y };
-const END = { x: VB_W + 600, y: MID_Y };
-
-// Control points X (still inside viewBox so curves look natural)
-const C1X = VB_W * 0.30;
-const C2X = VB_W * 0.70;
-
-// ---- helpers ----
-function clamp01(v) {
-  return Math.max(0, Math.min(1, v));
-}
-function lerp(a, b, t) {
-  return a + (b - a) * t;
-}
-function smoothstep(t) {
-  return t * t * (3 - 2 * t);
-}
-
-// ✅ Smooth stagger: all arcs animate over the whole scroll, but delayed by index
-function staggeredProgress(p, i, count, stagger = 0.08) {
-  const delay = i * stagger;                 // later arcs start later
-  const span = 1 - delay;                    // remaining timeline for that arc
-  return clamp01((p - delay) / Math.max(1e-6, span));
-}
 
 export default function AlwaysOnAI({content}) {
   const sectionRef = useRef(null);
@@ -48,7 +18,7 @@ export default function AlwaysOnAI({content}) {
       scrollTrigger:{
         trigger:"#alwaysOnAi",
         start:"top 70%",
-        end:"85% 70%",
+        end:"95% 70%",
         scrub:true,
         // markers:true
 
@@ -63,7 +33,7 @@ export default function AlwaysOnAI({content}) {
       top:"0%"
     },"<")
     .to(".lower-slinky",{
-      rotateX:-10,
+      rotateX:0,
       top:"55%"
     },"<")
   })
@@ -116,7 +86,7 @@ export default function AlwaysOnAI({content}) {
       {/* before // top-[10] -60deg */}
       {/* after // top-[35] 0deg */}
 
-      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective top-[10%] w-[101%] lower-slinky rotate-x-[60deg]">
+      <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective top-[10%] w-[120%] left-[-10%] lower-slinky rotate-x-[100deg]">
         <svg
           width="1920"
           height="639"
@@ -160,7 +130,7 @@ export default function AlwaysOnAI({content}) {
 
         <div className="text-center ">
           <Copy>
-          <p className="text-44 font-heading max-w-[58.23vw] font-normal mx-auto max-sm:w-full">
+          <p className="text-44 font-heading w-[65%] font-normal mx-auto max-sm:w-full">
             {content.tagline}
           </p>
           </Copy>
