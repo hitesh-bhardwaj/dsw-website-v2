@@ -12,7 +12,7 @@ export default function HeroNew({ heroContent }) {
     heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
   fadeUp();
   return (
-    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white">
+    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden">
       <div className="absolute inset-0 z-0 h-screen w-full">
         <Image
           src="/assets/homepage/hero-bg-mob.png"
@@ -39,7 +39,7 @@ export default function HeroNew({ heroContent }) {
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
-        <div className="space-y-[1.2vw] max-sm:space-y-[3vw]">
+        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
           {/* Tagline */}
           <Copy>
             <p className="text-30  text-center tracking-wide ">
@@ -49,7 +49,7 @@ export default function HeroNew({ heroContent }) {
 
           {/* Main Heading */}
           <HeadingAnim>
-            <h1 className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center max-w-[60vw] max-sm:max-w-[100%] max-sm:mx-auto">
+            <h1 className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center w-[80%] mx-auto max-sm:w-full">
               {heroContent.heading}
             </h1>
           </HeadingAnim>
