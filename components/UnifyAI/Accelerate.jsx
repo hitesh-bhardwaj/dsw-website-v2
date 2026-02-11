@@ -10,70 +10,97 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function Accelerate() {
     const sectionRef = useRef(null);
-    const lineFillRef = useRef(null);
+    const lineRefs = useRef([]);
+    lineRefs.current = [];
+    const dotRefs = useRef([]);
+    dotRefs.current = [];
     const stepsRef = useRef([]);
+
+    const addToLineRefs = (el) => {
+        if (el && !lineRefs.current.includes(el)) lineRefs.current.push(el);
+    };
+
+    const addToDotRefs = (el) => {
+        if (el && !dotRefs.current.includes(el)) dotRefs.current.push(el);
+    };
 
     useEffect(() => {
         const ctx = gsap.context(() => {
-            // Animate the vertical line fill from top to bottom
-            gsap.fromTo(
-                lineFillRef.current,
-                {
-                    height: "0%",
-                },
-                {
-                    height: "100%",
-                    ease: "none",
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: "top center",
-                        end: "bottom center",
-                        scrub: 1,
-                    },
-                }
-            );
+            // Animate each line segment and its corresponding dot
+            lineRefs.current.forEach((line, index) => {
+                if (!line) return;
 
-            // Animate each step
+                const lineLength = line.getTotalLength?.() || 150;
+                const correspondingDot = dotRefs.current[index];
+                
+                gsap.set(line, {
+                    strokeDasharray: lineLength,
+                    strokeDashoffset: lineLength,
+                });
+
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: line,
+                        start: "top 70%",
+                        end: "bottom 30%",
+                        scrub: 1,
+                        // markers:true
+                    },
+                });
+
+            
+                if (index === 0) {
+                    // First line: fill dot at beginning
+                    tl.to(correspondingDot, {
+                        fill: "#0205FA",
+                        duration: 0.1,
+                    }, 0);
+                }
+
+                // Animate line fill
+                tl.to(line, {
+                    strokeDashoffset: 0,
+                    ease: "none",
+                }, 0);
+
+                // Animate dot moving down the line
+                if (correspondingDot) {
+                    tl.fromTo(correspondingDot, {
+                        attr: { cy: 0 }
+                    }, {
+                        attr: { cy: lineLength },
+                        ease: "none",
+                    }, 0);
+
+                    if (index > 0) {
+                        tl.to(correspondingDot, {
+                            fill: "#0205FA",
+                            duration: 0.1,
+                        }, 0.1);
+                    }
+                }
+            });
+
+            // Animate content
             stepsRef.current.forEach((step, index) => {
                 if (!step) return;
 
-                const dotFill = step.querySelector(".step-dot-fill");
                 const content = step.querySelector(".step-content");
 
-                // Dot fill animation - starts empty, fills on scroll
-                gsap.fromTo(
-                    dotFill,
-                    {
-                        scale: 0,
-                    },
-                    {
-                        scale: 1,
-                        ease: "back.out(1.7)",
-                        scrollTrigger: {
-                            trigger: step,
-                            start: "top 60%",
-                            end: "top 40%",
-                            scrub: 1,
-                        },
-                    }
-                );
-
-                // Content fade and slide in
                 gsap.fromTo(
                     content,
                     {
                         opacity: 0.3,
-                        y: 20,
                     },
                     {
                         opacity: 1,
-                        y: 0,
                         ease: "power2.out",
                         scrollTrigger: {
                             trigger: step,
-                            start: "top 60%",
-                            end: "top 40%",
+                            start: "top 65%",
+                            end: "top 45%",
                             scrub: 1,
+                            // markers:true
                         },
                     }
                 );
@@ -102,66 +129,112 @@ export default function Accelerate() {
         },
     ];
 
+    const lineHeight = 150; 
+
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-[7%] space-y-[8vw] max-sm:px-[7vw] px-[5vw]"
+            className="relative w-full py-[7%] space-y-[4vw] max-sm:px-[7vw] px-[5vw]"
         >
-            {/* Heading */}
-            <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
+            <div className="text-center max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                    <h2 className="text-76 text-[#0A1B4B]">
+                    <h2 className="text-56 ">
                         Accelerate AI/ML Into Production with Enterprise Confidence
                     </h2>
                 </HeadingAnim>
-                <Copy>
-                    <p className="text-30 w-[70%] mx-auto max-sm:w-full">
-                        The runtime gives you a complete, ready-to-run path to enterprise AI/ML.
-                    </p>
-                </Copy>
             </div>
 
-            {/* Animated Steps */}
-            <div className="relative max-w-2xl mx-auto py-16">
-                {/* Vertical Line - Background (gray) and Fill (blue) */}
-                <div className="absolute left-1/2 top-0 w-[3px] h-full -translate-x-1/2 bg-gray-300 rounded-full overflow-hidden">
-                    {/* Blue Fill */}
-                    <div
-                        ref={lineFillRef}
-                        className="absolute top-0 left-0 w-full bg-[#0A1B4B]"
-                        style={{ height: "0%" }}
-                    />
+            {/* Animated Steps with SVG Lines */}
+            <div className="relative w-full mx-auto">
+                 <p className="text-30  mb-8 capitalize text-center">
+                        The runtime gives you a complete, ready-to-run path to enterprise AI/ML.
+                    </p>
+                {/* Top connecting line from paragraph */}
+                <div className="flex justify-center mb-8">
+                    <svg width="20" height={lineHeight} className="overflow-visible">
+                        <line
+                            x1="10"
+                            y1="0"
+                            x2="10"
+                            y2={lineHeight}
+                            stroke="#D1D5DB"
+                            strokeWidth="2"
+                        />
+                        <line
+                            x1="10"
+                            y1="0"
+                            x2="10"
+                            y2={lineHeight}
+                            stroke="#0205FA"
+                            strokeWidth="2"
+                            ref={addToLineRefs}
+                        />
+                        {/* Dot that moves along the line */}
+                        <circle
+                            cx="10"
+                            cy="0"
+                            r="7"
+                            fill="#f8f8f8"
+                            stroke="#0205FA"
+                            strokeWidth="2"
+                            ref={addToDotRefs}
+                        />
+                    </svg>
                 </div>
 
-                {/* Steps */}
-                <div className="space-y-48 max-sm:space-y-32">
-                    {steps.map((step, index) => (
+                {steps.map((step, index) => (
+                    <div key={index}>
+                        {/* Content */}
                         <div
-                            key={index}
                             ref={(el) => (stepsRef.current[index] = el)}
-                            className="relative"
+                            className="text-center mb-5"
                         >
-                            {/* Dot Container - Positioned on the line */}
-                            <div className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 z-10">
-                                {/* Outer Ring (always visible - empty dot) */}
-                                <div className="w-5 h-5 rounded-full border-[3px] border-[#0A1B4B] bg-white shadow-md">
-                                    {/* Inner Fill (animates on scroll) */}
-                                    <div className="step-dot-fill absolute inset-0 m-[3px] rounded-full bg-[#0A1B4B]" />
-                                </div>
-                            </div>
-
-                            {/* Content - Positioned to not overlap with line */}
-                            <div className="step-content text-center max-w-lg mx-auto pt-8">
-                                <h3 className="text-4xl font-bold text-[#0A1B4B] mb-3 max-sm:text-3xl">
+                            <div className="step-content space-y-[1vw]">
+                                <h3 className="text-32">
                                     {step.title}
                                 </h3>
-                                <p className="text-xl text-gray-600 max-sm:text-lg">
+                                <p className="text-24 ">
                                     {step.description}
                                 </p>
                             </div>
                         </div>
-                    ))}
-                </div>
+
+                        {/* Connecting line to next step (not after last step) */}
+                        {index < steps.length - 1 && (
+                            <div className="flex justify-center mb-8">
+                                <svg width="20" height={lineHeight} className="overflow-visible">
+                                    <line
+                                        x1="10"
+                                        y1="0"
+                                        x2="10"
+                                        y2={lineHeight}
+                                        stroke="#D1D5DB"
+                                        strokeWidth="2"
+                                    />
+                                    <line
+                                        x1="10"
+                                        y1="0"
+                                        x2="10"
+                                        y2={lineHeight}
+                                        stroke="#0205FA"
+                                        strokeWidth="2"
+                                        ref={addToLineRefs}
+                                    />
+                                    {/* Dot that moves along the line */}
+                                    <circle
+                                        cx="10"
+                                        cy="0"
+                                        r="7"
+                                        fill="#f8f8f8"
+                                        stroke="#0205FA"
+                                        strokeWidth="2"
+                                        ref={addToDotRefs}
+                                    />
+                                </svg>
+                            </div>
+                        )}
+                    </div>
+                ))}
             </div>
         </section>
     );
