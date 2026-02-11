@@ -155,11 +155,11 @@ const CoreCapabilities = () => {
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit  py-[7%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-sm:py-[15%]"
     >
       <HeadingAnim>
 
-      <h2 className="text-center text-76 ">
+      <h2 className="text-center text-76 text-[#0A1B4B] ">
         Core Capabilities
       </h2>
       </HeadingAnim>

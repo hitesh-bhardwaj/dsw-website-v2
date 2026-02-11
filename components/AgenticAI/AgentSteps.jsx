@@ -1,169 +1,112 @@
-'use client'
-import React from 'react';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { CircleBg } from '../Svg/Lines/DottedCircle';
-import { Insurance } from '@/components/Svg/Insurance';
-import { Bank } from '../Svg/Bank';
-import { Roadmap } from '../Svg/Roadmap';
-import HeadingAnim from '../Animations/HeadingAnim';
+"use client";
 
-const AgenticSteps = () => {
-  const [isHovered1, setIsHovered1] = React.useState(false);
-  const [isHovered2, setIsHovered2] = React.useState(false);
-  const [isHovered3, setIsHovered3] = React.useState(false);
-  
-  const circleRef1 = React.useRef(null);
-  const circleRef2 = React.useRef(null);
-  const circleRef3 = React.useRef(null);
+import React, { useRef, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { CircleBg } from "../Svg/Lines/DottedCircle";
+import { Insurance } from "@/components/Svg/Insurance";
+import { Bank } from "../Svg/Bank";
+import { Roadmap } from "../Svg/Roadmap";
+import HeadingAnim from "../Animations/HeadingAnim";
 
-  useGSAP(() => {
-    if (isHovered1) {
-      gsap.to(circleRef1.current, {
-        rotation: '+=360',
-        duration: 4,
-        ease: 'none',
-        repeat: -1
-      });
-    } else {
-      gsap.killTweensOf(circleRef1.current);
-    }
-  }, [isHovered1]);
+const CARD_DATA = [
+  {
+    id: 1,
+    title: "Insurance",
+    Icon: Insurance,
+    description:
+      "Purpose-built for insurers: claims orchestration, fraud triage, underwriting augmentation and customer engagement automation.",
+  },
+  {
+    id: 2,
+    title: "Banks",
+    Icon: Bank,
+    description:
+      "For banks & financial institutions: lending decision support, compliance automation, fraud monitoring and risk remediation.",
+  },
+  {
+    id: 3,
+    title: "Roadmap",
+    Icon: Roadmap,
+    description:
+      "Next: telecom, healthcare and other regulated industries where auditability and governance are critical.",
+  },
+];
 
-  useGSAP(() => {
-    if (isHovered2) {
-      gsap.to(circleRef2.current, {
-        rotation: '+=360',
-        duration: 4,
-        ease: 'none',
-        repeat: -1
-      });
-    } else {
-      gsap.killTweensOf(circleRef2.current);
-    }
-  }, [isHovered2]);
+function AgenticCard({ id, title, Icon, description }) {
+  const [isHovered, setIsHovered] = useState(false);
+  const circleRef = useRef(null);
 
-  useGSAP(() => {
-    if (isHovered3) {
-      gsap.to(circleRef3.current, {
-        rotation: '+=360',
-        duration: 4,
-        ease: 'none',
-        repeat: -1
-      });
-    } else {
-      gsap.killTweensOf(circleRef3.current);
-    }
-  }, [isHovered3]);
+  useGSAP(
+    () => {
+      if (!circleRef.current) return;
+
+      if (isHovered) {
+        gsap.to(circleRef.current, {
+          rotation: "+=360",
+          duration: 4,
+          ease: "none",
+          repeat: -1,
+        });
+      } else {
+        gsap.killTweensOf(circleRef.current);
+        gsap.set(circleRef.current, { rotation: 0 });
+      }
+    },
+    { dependencies: [isHovered] }
+  );
 
   return (
-    <div className=' py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white  space-y-[2vw] max-sm:space-y-[8vw]'>
+    <div
+      className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      {/* Header */}
+      <div className="flex justify-between items-center mb-[2vw]">
+        <h2 className="text-32 text-[#1a1a1a] font-medium">
+          {title}
+        </h2>
+        <p className="text-80 font-light! text-primary-blue leading-none">
+          {id}
+        </p>
+      </div>
 
+      {/* Icon + Rotating Circle */}
+      <div className="w-full h-auto flex mb-[12vw] justify-center items-center">
+        <div
+          ref={circleRef}
+          className="w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60"
+        >
+          <CircleBg className="h-full scale-[1.4] w-full origin-center" />
+        </div>
+
+        <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
+          <Icon className="h-full w-full p-[1vw]" />
+        </div>
+      </div>
+
+      {/* Description */}
+      <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
+        {description}
+      </p>
+    </div>
+  );
+}
+
+const AgenticSteps = () => {
+  return (
+    <div className="py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white space-y-[2vw] max-sm:space-y-[8vw]">
       <HeadingAnim>
-
-      <h2 className='text-76 mx-auto w-fit max-sm:text-center max-sm:w-[90%] max-sm:leading-[1.2]'>
-        BFSI use cases & vertical accelerators  
-      </h2>
+        <h2 className="text-76 mx-auto w-fit max-sm:text-center max-sm:w-[90%] leading-[1.2] text-[#0A1B4B]">
+          BFSI use cases & vertical accelerators
+        </h2>
       </HeadingAnim>
 
-      <div className="flex max-sm:flex-col max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw] ">
-        
-        {/* Card 1 - Insurance */}
-        <div 
-          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
-          onMouseEnter={() => setIsHovered1(true)}
-          onMouseLeave={() => setIsHovered1(false)}
-        >
-          <div className="flex justify-between items-center mb-[2vw]">
-            <h2 className="text-32 font-normal m-0 text-[#1a1a1a]">
-              Insurance
-            </h2>
-            <span className="text-80 font-light text-primary-blue leading-none">
-              1
-            </span>
-          </div>
-
-          <div className=" w-full h-auto flex mb-[12vw] justify-center items-center ">
-            <div ref={circleRef1} className='w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60'>
-              <CircleBg 
-                className='h-full scale-[1.4] w-full origin-center duration-1000 ease-in-out'
-              />
-            </div>
-            
-            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
-              <Insurance className='h-full w-full p-[1vw]' />
-            </div>
-          </div>
-
-          <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
-            Purpose-built for insurers: claims orchestration, fraud triage, underwriting augmentation and customer engagement automation.
-          </p>
-        </div>
-
-        {/* Card 2 - Banks */}
-        <div 
-          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col  max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
-          onMouseEnter={() => setIsHovered2(true)}
-          onMouseLeave={() => setIsHovered2(false)}
-        >
-          <div className="flex justify-between items-center mb-[2vw]">
-            <h2 className="text-32 font-normal m-0 text-[#1a1a1a]">
-              Banks
-            </h2>
-            <span className="text-80 font-light text-primary-blue leading-none">
-              2
-            </span>
-          </div>
-
-          <div className=" w-full h-auto flex mb-[12vw] justify-center items-center ">
-            <div ref={circleRef2} className='w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60'>
-              <CircleBg 
-                className='h-full scale-[1.4] w-full origin-center duration-1000 ease-in-out'
-              />
-            </div>
-            
-            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
-              <Bank className='h-full w-full p-[1vw]' />
-            </div>
-          </div>
-
-          <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
-            For banks & financial institutions: lending decision support, compliance automation, fraud monitoring and risk remediation.
-          </p>
-        </div>
-
-        {/* Card 3 - Roadmap */}
-        <div 
-          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue fadeup flex flex-col max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
-          onMouseEnter={() => setIsHovered3(true)}
-          onMouseLeave={() => setIsHovered3(false)}
-        >
-          <div className="flex justify-between items-center mb-[2vw]">
-            <h2 className="text-32 font-normal m-0 text-[#1a1a1a]">
-              Roadmap
-            </h2>
-            <span className="text-80 font-light text-primary-blue leading-none">
-              3
-            </span>
-          </div>
-
-          <div className=" w-full h-auto flex mb-[12vw] justify-center items-center ">
-            <div ref={circleRef3} className='w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60'>
-              <CircleBg 
-                className='h-full scale-[1.4] w-full origin-center duration-1000 ease-in-out'
-              />
-            </div>
-            
-            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
-              <Roadmap className='h-full w-full p-[1vw]' />
-            </div>
-          </div>
-
-          <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
-            Next: telecom, healthcare and other regulated industries where auditability and governance are critical.
-          </p>
-        </div>
-
+      <div className="flex max-sm:flex-col max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw]">
+        {CARD_DATA.map((card) => (
+          <AgenticCard key={card.id} {...card} />
+        ))}
       </div>
     </div>
   );
