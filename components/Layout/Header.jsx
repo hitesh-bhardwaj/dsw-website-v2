@@ -182,6 +182,7 @@ export default function Header() {
     <>
       <header
         ref={headerWrapRef}
+        id="header"
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
         className="text-white w-screen fixed b top-0 left-0 z-900 pointer-events-none "
