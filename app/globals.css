@@ -123,11 +123,11 @@ h6 {
   50% {
     transform: translateY(0%);
   }
-  80%, 100% {
-    transform: translateY(0%); 
+  80%,
+  100% {
+    transform: translateY(0%);
   }
 }
-
 
 .shimmer {
   color: transparent;
@@ -223,15 +223,15 @@ h6 {
   :root {
     --text-110: 12vw;
     --text-80: 10vw;
-     --text-44: 6vw;
+    --text-44: 6vw;
     --text-76: 8vw;
 
     --text-30: 4.8vw;
     --text-22: 5vw;
-    --text-20: 3.5vw;   
-    --text-24:4vw;
+    --text-20: 3.5vw;
+    --text-24: 4vw;
     --text-56: 6.5vw;
-    --text-18:4vw;
+    --text-18: 4vw;
     --text-40: 2.3vw;
 
     --text-32: 5vw;
