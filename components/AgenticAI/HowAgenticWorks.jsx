@@ -45,12 +45,14 @@ const iconData = [
 
 const HowAgenticWorks = () => {
   const [hovered, setHovered] = useState(null);
+  const [activeItem, setActiveItem] = useState('connect'); // First item active by default
+  const [isTransitioning, setIsTransitioning] = useState(false);
   const sectionRef = useRef(null);
-    const outerRef = useRef(null);
-    const innerRef = useRef(null);
+  const outerRef = useRef(null);
+  const innerRef = useRef(null);
+  const contentRef = useRef(null);
 
-
-    useGSAP(
+  useGSAP(
     () => {
       /* =========================
          Scroll intensity spin
@@ -102,11 +104,8 @@ const HowAgenticWorks = () => {
       };
 
       window.addEventListener("scroll", onScroll, { passive: true });
-    
 
       return () => {
-        loopCall?.kill?.();
-        revertSplits();
         window.removeEventListener("scroll", onScroll);
         gsap.ticker.remove(tick);
         outerTL.kill();
@@ -115,31 +114,63 @@ const HowAgenticWorks = () => {
     },
     { scope: sectionRef }
   );
-  return (
-    <section className="py-[7%] max-sm:px-[7vw] max-sm:min-h-[80vh] max-sm:w-screen max-sm:overflow-x-hidden max-sm:hidden  max-sm:my-[40%]">
-      <div className="relative w-full h-full py-[10%]">
-         <div ref={outerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-sm:top-[90%] w-[60vw] max-sm:w-[170vw] h-auto">
-                <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
-              </div>
-        
-              {/* Inner circle */}
-              <div ref={innerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-sm:top-[90%] w-[45vw] max-sm:w-[120vw] h-auto">
-                <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
-              </div>
-        
-        {/* <CircleBg className="absolute inset-0 w-[60vw] h-auto m-auto" />
-        <CircleBg className="absolute inset-0 w-[45vw] h-auto m-auto"  /> */}
 
-        {/* TEXTS */}
+  const handleIconClick = (key) => {
+    if (key === activeItem || isTransitioning) return; 
+    
+    setIsTransitioning(true);
+    
+    // Fade out
+    gsap.to(contentRef.current, {
+      opacity: 0,
+      y: -10,
+      duration: 0.5,
+      ease: "power3.out",
+      onComplete: () => {
+        // Change content
+        setActiveItem(key);
+        
+        // Fade in
+        gsap.fromTo(contentRef.current, 
+          { opacity: 0, y: 10 },
+          { 
+            opacity: 1, 
+            y: 0,
+            duration: 0.5,
+            ease: "power3.out",
+            onComplete: () => {
+              setIsTransitioning(false);
+            }
+          }
+        );
+      }
+    });
+  };
+
+  const currentActiveItem = iconData.find(item => item.key === activeItem);
+
+  return (
+    <section ref={sectionRef} className="py-[7%] max-sm:px-[7vw] max-sm:h-[95vh] max-sm:w-full  max-sm:overflow-x-hidden max-sm:overflow-y-visible max-sm:py-[15%]">
+      <div className="relative w-full h-full py-[10%]">
+        <div ref={outerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] max-sm:w-[160vw] h-auto">
+          <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
+        </div>
+        
+        {/* Inner circle */}
+        <div ref={innerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[45vw] max-sm:w-[120vw] h-auto">
+          <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
+        </div>
+
+        {/* TEXTS - Desktop only */}
         {iconData.map((item, idx) => (
           <div
             key={item.key + '-text'}
-            className={item.textClass}
+            className={`${item.textClass} max-sm:hidden`}
           >
             <div className="flex">
               <h3 className="flex items-center gap-[0.5vw]">
-                <span className={`w-2.5 h-2.5 rounded-full mr-2 transition-colors duration-300 ${hovered === item.key ? 'bg-primary-blue' : 'bg-black'}`}></span>
-                <span className={`text-44  transition-colors duration-300 ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}>{item.label}</span>
+                <span className={`w-2 h-2  mr-2 transition-colors duration-300 ${hovered === item.key ? 'bg-primary-blue' : 'bg-black'}`}></span>
+                <span className={`text-44 transition-colors duration-300 ease-in ${hovered === item.key ? 'text-primary-blue' : 'text-black'}`}>{item.label}</span>
               </h3>
             </div>
             <p
@@ -151,10 +182,10 @@ const HowAgenticWorks = () => {
         ))}
 
         {/* CENTER DIAGRAM */}
-        <div className="relative mx-auto w-[42vw] h-[42vw]">
+        <div className="relative mx-auto w-[42vw] h-[42vw] max-sm:w-[70vw] max-sm:h-[70vh]">
           {/* center text */}
           <div className="absolute inset-0 flex items-center justify-center text-center">
-            <h2 className="text-[3.2vw] f leading-[1.1]">
+            <h2 className="text-56 leading-[1.1]">
               How AgenticAI <br /> runtime works
             </h2>
           </div>
@@ -162,29 +193,49 @@ const HowAgenticWorks = () => {
             {/* ICONS */}
             {iconData.map((item, idx) => {
               const IconComp = item.icon;
-              const iconColor = hovered === item.key ? '#2563eb' : '#000';
+              const isActive = activeItem === item.key;
+              const isHovered = hovered === item.key;
+              const iconColor = isHovered || isActive ? '#2563eb' : '#000';
               const pos = [
-                'absolute top-22 left-15',
-                'absolute top-22 right-15',
-                'absolute bottom-22 left-15',
-                'absolute bottom-22 right-15',
+                'absolute top-22 left-15 max-sm:top-[25%] max-sm:left-[-10%]',
+                'absolute top-22 right-15 max-sm:top-[25%] max-sm:right-[-10%]',
+                'absolute bottom-22 left-15 max-sm:bottom-[25%] max-sm:left-[-10%]',
+                'absolute bottom-22 right-15 max-sm:bottom-[25%] max-sm:right-[-10%]',
               ];
               return (
                 <div
                   key={item.key + '-icon'}
-                  className={`${pos[idx]} z-2 rounded-full border bg-white border-primary-blue p-[0.3vw] flex items-center justify-center cursor-pointer  transition-all duration-200 ease-in`}
+                  className={`${pos[idx]} z-2 rounded-full border bg-white border-primary-blue p-[0.3vw] flex items-center justify-center cursor-pointer transition-all duration-200 ease-in`}
                   onMouseEnter={() => setHovered(item.key)}
                   onMouseLeave={() => setHovered(null)}
+                  onClick={() => handleIconClick(item.key)}
                 >
-                  <div className={` border-primary-blue p-[1.5vw] rounded-full bg-card-bg transition-all duration-200 ease-in ${hovered === item.key ? 'text-primary-blue drop-shadow-2xl border-2 ' : 'text-[#111111] border'} `}>
-                    <IconComp className="w-[4vw] h-[4vw] transition-all duration-200 ease-in" color={iconColor} />
+                  <div className={`border-primary-blue p-[1.5vw] rounded-full bg-card-bg transition-all duration-200 ease-in ${isHovered || isActive ? 'text-primary-blue drop-shadow-2xl border-2' : 'text-[#111111] border'}`}>
+                    <IconComp className="w-[4vw] h-[4vw] transition-all duration-200 ease-in max-sm:w-[10vw] max-sm:h-[10vw]" color={iconColor} />
                   </div>
                 </div>
               );
             })}
             {/* mid circle */}
-            <Circle className="absolute inset-0 w-[35vw] h-auto m-auto z-0" />
+            <Circle className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-sm:w-[90vw] max-sm:left-[-15%]"/>
           </div>
+        </div>
+
+        {/* MOBILE CONTENT - Below diagram */}
+        <div className="hidden max-sm:block max-sm:absolute max-sm:top-[88%] px-4">
+          {currentActiveItem && (
+            <div ref={contentRef} className="space-y-4">
+              <div className="flex items-center gap-2">
+                <span className="w-2 h-2 bg-primary-blue"></span>
+                <h3 className="text-44 text-primary-blue">
+                  {currentActiveItem.label}
+                </h3>
+              </div>
+              <p className="text-24">
+                {currentActiveItem.text}
+              </p>
+            </div>
+          )}
         </div>
       </div>
     </section>
