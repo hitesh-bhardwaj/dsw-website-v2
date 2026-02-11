@@ -130,18 +130,18 @@ const getMobileTransform = () => {
       className={`
         w-[52vw] px-[3vw] border-primary-blue  
         h-[10vw] max-sm:w-full max-sm:h-[40vw] border absolute top-0 left-1/2 -translate-x-1/2
-        rounded-[1vw] max-sm:rounded-[4vw] max-sm:px-[2vw] flex justify-center max-md:justify-between 
+        rounded-[1vw] max-sm:rounded-[5vw] max-sm:px-[2vw] flex justify-center max-md:justify-between 
         max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[5vw] items-center 
         backdrop-blur-sm cap-cards cursor-pointer transition-all duration-500 ease-in-out
         ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
       `}
     >
-      <div className="h-[4.5vw] max-md:h-[12vw] max-md:w-auto max-sm:h-[12vw]">
+      <div className="h-[4.5vw] max-sm:w-[20%]  w-[4.5vw] max-sm:h-auto">
         <IconComponent className="h-full w-full" />
       </div>
       <div className="flex flex-col gap-[0.5vw] max-sm:gap-[2vw] w-full ">
         <p className="text-32 max-sm:leading-[1.2] font-medium">{card.heading}</p>
-        <p className="text-24 max-sm:leading-[1.4] max-md:w-[100%]">
+        <p className="text-24 max-sm:leading-[1.4] max-md:w-full">
           {card.text}
         </p>
       </div>
