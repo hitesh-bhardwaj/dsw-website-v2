@@ -4,22 +4,22 @@ import CornerDecorations from "../CornerDecorations";
 
 export default function Capabilities() {
     return (
-        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:px-[7vw] px-[5vw]">
+        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] ">
             {/* Heading */}
-            <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
+            <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                <h2 className="text-76 text-[#0A1B4B]">
+                <h2 className="text-56 text-[#0A1B4B]">
                    Supercharge Your AI/ML Use Cases with DSW
 UnifyAI’s Built-In Capabilities
                 </h2>
                 </HeadingAnim>
                 <Copy>
-                <p className="text-30 w-[70%] mx-auto">
+                <p className="text-30 w-[70%] max-sm:w-[90%] max-sm:leading-normal mx-auto">
                    UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start
                 </p>
                 </Copy>
             </div>
-<div className="w-full h-full">
+<div className="w-full h-full ">
             <CapabilitiesTable/>
             </div>
           
@@ -61,15 +61,22 @@ UnifyAI’s Built-In Capabilities
   ];
 
   return (
-    <div className="w-[90%] mx-auto relative group">
-        <CornerDecorations/>
-      <table className="w-full border-collapse border border-[#D9D9D9]">
+    <div className="w-[90%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto  relative group">
+       
+        <div className="max-sm:w-full max-sm:overflow-x-scroll max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0">
+
+        
+         <div className="w-[90%] max-sm:w-[290%] mx-auto max-sm:overflow-y-hidden ">
+       {/* <CornerDecorations/> */}
+      
+      <table className="border-collapse w-full h-full border border-[#D9D9D9]">
+       
         <thead>
           <tr className="bg-white">
-            <th className="border border-[#D9D9D9] px-6 py-6 text-left text-56 font-medium font-heading">
+            <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading">
               Capability
             </th>
-            <th className="border border-[#D9D9D9] px-6 py-6 text-left text-56 font-medium font-heading text-primary-blue">
+            <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading text-primary-blue">
               What it Delivers
             </th>
           </tr>
@@ -77,7 +84,7 @@ UnifyAI’s Built-In Capabilities
         <tbody>
           {capabilities.map((item, index) => (
             <tr key={index} className="bg-white">
-              <td className="border border-[#D9D9D9] px-6 py-5 text-30">
+              <td className="border border-[#D9D9D9] max-sm:pl-[8vw] px-6 py-5 text-30">
                 {item.capability}
               </td>
               <td className="border border-[#D9D9D9] px-6 py-5 text-24">
@@ -87,6 +94,8 @@ UnifyAI’s Built-In Capabilities
           ))}
         </tbody>
       </table>
+         </div>
+      </div>
     </div>
   );
 }

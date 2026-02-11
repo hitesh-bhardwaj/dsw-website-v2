@@ -216,6 +216,33 @@ h6 {
   will-change: transform;
 }
 
+/* Custom Scrollbar Styles */
+
+.max-sm\:overflow-x-scroll::-webkit-scrollbar {
+  height: 15px;
+}
+
+.max-sm\:overflow-x-scroll::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.max-sm\:overflow-x-scroll::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 10px;
+}
+
+.max-sm\:overflow-x-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Firefox */
+.max-sm\:overflow-x-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--primary) #f1f1f1;
+}
+
+
 @media (max-width: 1025px) {
 }
 
@@ -225,7 +252,6 @@ h6 {
     --text-80: 11vw;
      --text-44: 6vw;
     --text-76: 8vw;
-
     --text-30: 4.8vw;
     --text-22: 5vw;
     --text-20: 3.5vw;

@@ -26,6 +26,17 @@ export default function Accelerate() {
 
     useEffect(() => {
         const ctx = gsap.context(() => {
+            // Create a master timeline
+            const masterTL = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionRef.current,
+                    start: "10% 70%",
+                    end: "90% 70%",
+                    scrub: 0.4,
+                    // markers: true
+                },
+            });
+
             // Animate each line segment and its corresponding dot
             lineRefs.current.forEach((line, index) => {
                 if (!line) return;
@@ -38,45 +49,34 @@ export default function Accelerate() {
                     strokeDashoffset: lineLength,
                 });
 
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: line,
-                        start: "top 70%",
-                        end: "bottom 30%",
-                        scrub: 1,
-                        // markers:true
-                    },
-                });
-
-            
                 if (index === 0) {
                     // First line: fill dot at beginning
-                    tl.to(correspondingDot, {
+                    masterTL.to(correspondingDot, {
                         fill: "#0205FA",
                         duration: 0.1,
-                    }, 0);
+                    });
                 }
 
                 // Animate line fill
-                tl.to(line, {
+                masterTL.to(line, {
                     strokeDashoffset: 0,
                     ease: "none",
-                }, 0);
+                });
 
                 // Animate dot moving down the line
                 if (correspondingDot) {
-                    tl.fromTo(correspondingDot, {
+                    masterTL.fromTo(correspondingDot, {
                         attr: { cy: 0 }
                     }, {
                         attr: { cy: lineLength },
                         ease: "none",
-                    }, 0);
+                    }, "<");
 
                     if (index > 0) {
-                        tl.to(correspondingDot, {
+                        masterTL.to(correspondingDot, {
                             fill: "#0205FA",
                             duration: 0.1,
-                        }, 0.1);
+                        }, "<0.1");
                     }
                 }
             });
@@ -100,7 +100,7 @@ export default function Accelerate() {
                             start: "top 65%",
                             end: "top 45%",
                             scrub: 1,
-                            // markers:true
+                            // markers: true
                         },
                     }
                 );
@@ -134,7 +134,7 @@ export default function Accelerate() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full py-[7%] space-y-[4vw] max-sm:px-[7vw] px-[5vw]"
+            className="relative w-full py-[7%] space-y-[4vw] max-sm:space-y-[10vw] max-sm:px-[7vw] px-[5vw]"
         >
             <div className="text-center max-sm:space-y-[7vw]">
                 <HeadingAnim>
@@ -146,7 +146,7 @@ export default function Accelerate() {
 
             {/* Animated Steps with SVG Lines */}
             <div className="relative w-full mx-auto">
-                 <p className="text-30  mb-8 capitalize text-center">
+                 <p className="text-30 max-sm:text-[4vw] max-sm:w-[90%] max-sm:mx-auto  mb-8  text-center">
                         The runtime gives you a complete, ready-to-run path to enterprise AI/ML.
                     </p>
                 {/* Top connecting line from paragraph */}
@@ -193,7 +193,7 @@ export default function Accelerate() {
                                 <h3 className="text-32">
                                     {step.title}
                                 </h3>
-                                <p className="text-24 ">
+                                <p className="text-24 max-sm:w-[90%] max-sm:mx-auto max-sm:opacity-80">
                                     {step.description}
                                 </p>
                             </div>
