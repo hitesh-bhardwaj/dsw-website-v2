@@ -4,35 +4,35 @@ import React from 'react'
 
 const UseCases = () => {
     return (
-        <section className='w-full h-full px-[5vw] py-[7%]' id='usecases'>
-            <div className='flex flex-col items-center justify-center space-y-[4vw]'>
+        <section className='w-full h-full px-[5vw] py-[7%] max-sm:py-[15%]' id='usecases'>
+            <div className='flex flex-col items-center justify-center space-y-[4vw] max-sm:space-y-[12vw]'>
                 <HeadingAnim>
-                    <h2 className='text-76'>Supercharge Your AI/ML Use Cases</h2>
+                    <h2 className='text-76 text-[#0A1B4B] max-sm:text-center max-sm:w-[90%]'>Supercharge Your AI /ML Use Cases</h2>
                 </HeadingAnim>
 
                 <div className=' w-full'>
-                    <div className="relative fadeup space-y-[4vw]">
+                    <div className="relative fadeup space-y-[4vw] max-sm:space-y-[10vw]">
                         {content.map((item, index) => (
                             <div key={index} className="relative bg-white hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out w-full h-full px-[2vw] py-[2.5vw] pb-[3vw] max-sm:p-[6vw] max-sm:w-full max-sm:h-auto border border-border-color flex flex-col justify-between">
                                 <CornerDecorations />
 
 
-                                <div className='w-1/3 space-y-[2vw]'>
-                                    <h3 className='text-44 font-medium'>
+                                <div className='w-1/3 max-sm:w-full space-y-[2vw] max-sm:space-y-[6vw]'>
+                                    <h3 className='text-44  '>
                                         {item.heading}
                                     </h3>
-                                    <p className='text-30'>
+                                    <p className='text-30 text-[#333333]'>
                                         {item.para}
                                     </p>
                                 </div>
 
                                 {/* Bottom Right - Pointers */}
                                 <div className='w-full flex justify-end'>
-                                    <div className='w-[65%] flex flex-wrap gap-[3vw]'>
+                                    <div className='w-[65%] max-sm:w-full flex flex-wrap max-sm:flex-col gap-[3vw] max-sm:gap-[6vw] max-sm:mt-[6vw]'>
                                         {item.features.map((feature, index) => (
-                                            <div key={index} className='flex gap-3 w-[45%]'>
+                                            <div key={index} className='flex gap-3 w-[45%] max-sm:w-full'>
                                                 <span className='h-full w-0.5 bg-[#0205FA] block'></span>
-                                                <p className='text-24 flex-1 text-[#333333]'>{feature}</p>
+                                                <p className='text-24 flex-1 text-[#333333] max-sm:opacity-80'>{feature}</p>
                                             </div>
                                         ))}
 

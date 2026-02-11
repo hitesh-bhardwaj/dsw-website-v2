@@ -17,7 +17,7 @@ const Diagram=()=>{
   return(
     <>
     <div className="w-full flex justify-between h-fit items-center max-sm:flex-col max-sm:gap-[15vw]">
-        <div className="w-[30%] flex flex-col gap-[2vw] max-sm:w-full">
+        <div className="w-[30%] flex flex-col gap-[2vw] max-sm:gap-[6vw] max-sm:w-full">
           <HeadingAnim>
           <h3 className="text-56 max-sm:w-[70%] ">Hardware / Cloud Infrastructure</h3>
           </HeadingAnim>
