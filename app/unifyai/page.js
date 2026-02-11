@@ -21,7 +21,7 @@ const AgenticAI = () => {
         <HeroNew heroContent={heroContent} />
         <UnifyAbout/>
         <AlwaysOnAI content={tourContent}/>
-        {/* <UseCases/> */}
+        <UseCases/>
         {/* <AgenticAbout />
         <AgenticCards />
         <CoreCapabilities />
