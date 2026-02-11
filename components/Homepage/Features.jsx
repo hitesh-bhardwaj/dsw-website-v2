@@ -59,16 +59,19 @@ const Features = () => {
 
           <div className="w-full flex justify-between mt-[7vw] max-sm:flex-col-reverse max-sm:mt-[15vw] max-sm:gap-[20vw]">
             {/* Left Content */}
-            <div className="w-[45%] h-full flex flex-col gap-[5vw] text-30 max-sm:w-full">
+            <div className="w-[45%] h-full flex flex-col gap-[3vw] text-30 max-sm:w-full">
               {/* <Copy> */}
               <p>{feature.description}</p>
               {/* </Copy> */}
 
-              <ul className="font-medium text-30 space-y-[0.5vw]">
-                {feature.bullets.map((item, index) => (
-                  <li key={index}>{item}</li>
-                ))}
-              </ul>
+             {feature.bullets && feature.bullets.length > 0 && (
+  <ul className="font-medium text-30 space-y-[0.5vw]">
+    {feature.bullets.map((item, index) => (
+      <li key={index}>{item}</li>
+    ))}
+  </ul>
+)}
+<p className="">{feature.para}</p>
             </div>
 
             {/* Right Image */}
@@ -101,12 +104,8 @@ const FEATURES = [
     hasBottomBorder: false,
     title: "Create Your Own AI Native Infrastructure",
     description:
-      "Build, deploy, and operate unlimited AI and GenAI use cases without per-model, per-agent, or per-workflow pricing.",
-    bullets: [
-      "One subscription.",
-      "Predictable spend.",
-      "No compounding AI costs as usage scales.",
-    ],
+      "Deploy the Enterprise AI Operating System entirely within your environment on-prem, cloud, or hybrid.",
+    para:"Enterprise-grade security, control, and data sovereignty remain fully in your hands.",
     image: "/assets/homepage/features-img-1.png",
   },
   {
@@ -116,12 +115,14 @@ const FEATURES = [
     hasBottomBorder: false,
     title: "No Vendor Lock In",
     description:
-      "Run open-source and proprietary models side by side with full control over cost and performance.",
+      "Bring your models, LLMs, tools, and data.",
     bullets: [
-      "Any model, any cloud.",
-      "No vendor lock-in.",
-      "Full infra visibility.",
+      "Retain full ownership of source code, artifacts, and IP.",
+      "No forced ecosystems.",
+      "No outbound learning.",
+      "No exit penalties."
     ],
+    para:"Your AI stack evolves on your terms.",
     image: "/assets/homepage/features-img-1.png",
   },
   {
@@ -132,12 +133,12 @@ const FEATURES = [
     extraPaddingBottom: true,
     title: "Break the Cost Per User Case barrier",
     description:
-      "Scale inference and training workloads without runaway costs or complex billing structures.",
-    bullets: [
-      "Flat pricing.",
-      "Scale confidently.",
-      "Built for production AI.",
-    ],
+      "Build, deploy, and operate unlimited AI and GenAI use cases without per-model, per-agent, or per-workflow pricing.",
+      bullets:[
+        "One subscription.",
+        "Predictable spend.",
+        "No compounding AI costs as usage scales."
+      ],
     image: "/assets/homepage/features-img-1.png",
   },
 ];

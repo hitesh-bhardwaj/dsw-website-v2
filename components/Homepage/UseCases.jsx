@@ -41,7 +41,7 @@ export default function UseCases() {
         ease:"power1.inOut"
       })
       .to(".use-case-container",{
-        translateX:"-40%",
+        translateX:"-50%",
          ease:"power1.inOut",
         duration:1.2,
         delay:-1.2,
@@ -139,46 +139,53 @@ const USE_CASES = [
   },
   {
     id: 2,
-    title: "Telecom, Media, and Network Intelligence",
+    title: "Insurance-specific for AI, GenAI, agentic workflows",
     items: [
-      "Churn prediction & subscriber intelligence",
-      "Agentic customer support and escalation handling",
-      "Network fault prediction & proactive remediation",
-      "Revenue assurance & fraud detection",
-      "GenAI knowledge copilots for operations teams",
+      "Early claim fraud detection",
+      "Claims decisioning & straight-through processing",
+      "Underwriting triage & risk scoring",
+      "Customer service copilots (policy queries, documentation, endorsements)",
+      "Agentic workflows for FNOL, claims routing, policy servicing",
     ],
   },
   {
     id: 3,
-    title: "Retail, Healthcare, and Regulated Industries",
+    title: "Telecom for network, customer, and field-ops intelligence",
     items: [
-      "Demand forecasting & inventory optimization",
-      "Personalized recommendation systems",
-      "Clinical decision support & triage intelligence",
-      "Compliance-first GenAI workflows",
-      "Enterprise knowledge systems for frontline teams",
+      "Predictive maintenance",
+      "NOC automation with agentic workflows",
+      "Churn prediction & customer retention",
+      "Field engineer copilots"
     ],
   },
   {
     id: 4,
-    title: "Telecom, Media, and Network Intelligence",
+    title: "Retail & E-commerce for personalization, forecasting, and operational AI",
     items: [
-      "Churn prediction & subscriber intelligence",
-      "Agentic customer support and escalation handling",
-      "Network fault prediction & proactive remediation",
-      "Revenue assurance & fraud detection",
-      "GenAI knowledge copilots for operations teams",
+      "Demand forecasting",
+      "Dynamic pricing",
+      "Recommendation systems",
+      "GenAI customer support copilots"
     ],
   },
   {
     id: 5,
-    title: "Retail, Healthcare, and Regulated Industries",
+    title: "Healthcare for clinical and operational decision intelligences",
     items: [
-      "Demand forecasting & inventory optimization",
-      "Personalized recommendation systems",
-      "Clinical decision support & triage intelligence",
-      "Compliance-first GenAI workflows",
-      "Enterprise knowledge systems for frontline teams",
+      "Clinical summarization",
+      "Claims & coding optimization",
+      "Operational efficiency modelling",
+      "GenAI medical knowledge assistants"
+    ],
+  },
+  {
+    id: 6,
+    title: "Manufacturing & Industrial for predictive, preventive, and production intelligence",
+    items: [
+      "Predictive maintenance",
+      "Process optimization",
+      "Energy/throughput modelling",
+      "GenAI copilots for SOPs and troubleshooting"
     ],
   },
 ];

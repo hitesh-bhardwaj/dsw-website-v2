@@ -17,7 +17,7 @@ function AboutCard({ challenge }) {
                     border-border-color flex flex-col justify-between
                 `}
             >
-                 <CornerDecorations />   
+                <CornerDecorations />
                 <div className=" w-[5vw] h-[5vw] max-sm:h-[12vw] max-sm:w-[12vw]">
                     <challenge.icon className="w-full duration-300 ease-in-out h-full text-primary-blue" />
                 </div>
@@ -33,46 +33,49 @@ function AboutCard({ challenge }) {
 
 
 export default function UnifyAbout() {
- 
+
     return (
         <section className="relative w-full py-[10%] px-[5vw] max-sm:py-[15%] space-y-[8vw]">
-          
-<div className="mx-auto text-center w-[78%] max-sm:w-[85%] space-y-[2.5vw] max-sm:space-y-[6vw]">
-    <HeadingAnim>
-                <h2 className="text-44  max-sm:leading-normal leading-[1.4]">
-                    Fragmented AI stacks, post-deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time.  
-                </h2>
+
+            <div className="mx-auto text-center w-[78%] max-sm:w-[85%] space-y-[2.5vw] max-sm:space-y-[6vw]">
+                <HeadingAnim>
+                    <h2 className="text-44  max-sm:leading-normal leading-[1.4]">
+                        Fragmented AI stacks, post-deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time.
+                    </h2>
                 </HeadingAnim>
-    </div>
-               
-               <div className='w-full flex items-center justify-between'>
+            </div>
+
+            <div className='w-full flex items-center justify-between'>
                 <div className='w-[45%]'>
                     <HeadingAnim>
-                    <h2 className='text-56  max-sm:leading-normal leading-[1.4]'>
-                        AI is Everywhere. But Operational AI is Rare.
-                    </h2>
+                        <h2 className='text-56  max-sm:leading-normal leading-[1.4]'>
+                            AI is Everywhere. But Operational AI is Rare.
+                        </h2>
                     </HeadingAnim>
                 </div>
-                <div className='w-[45%]'>
-                <Copy>
-                    <p className='text-30'>
-                        Production-grade AgenticAI runtime is purpose-built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence.
-                    </p>
+                <div className='w-[55%]'>
+                    <Copy>
+                        <p className='text-30'>
+                            Most enterprises face the same hurdles: siloed teams, long development cycles,
+                            integration nightmares, and governance concerns. UnifyAI kernel is here to solve
+                            that – the AI/ML runtime fully equipped to help teams build, deploy, and scale faster,
+                            for real outcomes.
+                        </p>
                     </Copy>
                 </div>
 
-               </div>
+            </div>
 
-           
-         
+
+
             <div className="flex justify-between  max-sm:w-[85%] max-sm:mx-auto max-sm:flex-col  space-y-[6vw] max-sm:space-y-[10vw]">
                 {challenges.map((challenge, index) => (
                     <AboutCard key={index} challenge={challenge} />
                 ))}
             </div>
 
-            
-            
+
+
         </section>
     );
 }

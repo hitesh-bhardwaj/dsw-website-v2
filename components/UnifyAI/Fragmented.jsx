@@ -15,7 +15,9 @@ export default function Fragmented() {
     >
       <Copy>
       <p className="text-40  w-[75%] text-center mx-auto leading-[1.4] max-sm:w-full">
-        Fragmented AI stacks, post-deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time.
+       An AI/ML runtime that seamlessly unifies data, models, workflows, and intelligent
+agents into a single execution layer that is purpose-built to operationalize AI at scale
+and consistently drive measurable business outcomes.
       </p>
       </Copy>
      <Diagram/>

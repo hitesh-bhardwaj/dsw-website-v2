@@ -16,16 +16,16 @@ const SLIDES = [
     desc: "Governance is enforced in real time as AI executes, ensuring policies, validations, and approvals cannot be bypassed.",
   },
   {
-    title: "Audit Trails That Can’t Be Skipped",
-    desc: "Every decision, tool call, and approval is recorded automatically for compliance and traceability.",
+    title: "Agent-Safe by Design",
+    desc: "Agentic workflows operate within enforced execution boundaries, enabling autonomy at scale with built-in guardrails.",
   },
   {
-    title: "Policy Controls at Execution Time",
-    desc: "Define guardrails once and enforce them everywhere, across agents, models, and workflows.",
+    title: "Built-in Auditability",
+    desc: "Every AI action is automatically logged, traced, and explainable, creating a continuous audit trail without additional tooling.",
   },
   {
-    title: "Enterprise-Grade Access & Approvals",
-    desc: "Role-based controls and approval flows ensure the right people authorize the right actions.",
+    title: "Traceability and Reversibility is Native",
+    desc: "Traceability and reversibility are native, providing end-to-end lineage and safe rollback across AI decisions, models, and agent workflows.",
   },
 ];
 
