@@ -57,7 +57,7 @@ const AgenticSteps = () => {
   }, [isHovered3]);
 
   return (
-    <div className='py-[12%] bg-white  space-y-[2vw]'>
+    <div className=' py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white  space-y-[2vw]'>
 
       <HeadingAnim>
 
