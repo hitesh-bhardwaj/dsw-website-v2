@@ -104,8 +104,8 @@ useEffect(() => {
 
 
 const getMobileTransform = () => {
-  const peekGap = 6;
-  const revealGap = 6;
+  const peekGap = 32;
+  const revealGap = 13;
 
   if (index < activeIndex) {
     return `translateY(${(index * peekGap)}vw)`;
@@ -129,19 +129,19 @@ const getMobileTransform = () => {
       }}
       className={`
         w-[52vw] px-[3vw] border-primary-blue  
-        h-[10vw] max-md:h-[20vw] max-md:w-[90vw] border absolute top-0 left-1/2 -translate-x-1/2
-        rounded-[1vw] max-md:rounded-3xl flex justify-center max-md:justify-between 
-        max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[4vw] items-center 
+        h-[10vw] max-sm:w-full max-sm:h-[40vw] border absolute top-0 left-1/2 -translate-x-1/2
+        rounded-[1vw] max-sm:rounded-[4vw] max-sm:px-[2vw] flex justify-center max-md:justify-between 
+        max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[5vw] items-center 
         backdrop-blur-sm cap-cards cursor-pointer transition-all duration-500 ease-in-out
         ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
       `}
     >
-      <div className="h-[4.5vw] max-md:h-[10vw] max-md:w-auto max-sm:h-[7vw]">
+      <div className="h-[4.5vw] max-md:h-[12vw] max-md:w-auto max-sm:h-[12vw]">
         <IconComponent className="h-full w-full" />
       </div>
-      <div className="flex flex-col gap-[0.5vw] w-full ">
-        <p className="text-32 font-medium">{card.heading}</p>
-        <p className="text-24 max-md:text-[2.5vw] max-md:w-[100%]">
+      <div className="flex flex-col gap-[0.5vw] max-sm:gap-[2vw] w-full ">
+        <p className="text-32 max-sm:leading-[1.2] font-medium">{card.heading}</p>
+        <p className="text-24 max-sm:leading-[1.4] max-md:w-[100%]">
           {card.text}
         </p>
       </div>
@@ -155,17 +155,17 @@ const CoreCapabilities = () => {
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit pt-[2%]"
+      className="w-screen h-fit  py-[7%] max-sm:px-[7vw] max-sm:py-[15%]"
     >
       <HeadingAnim>
 
-      <h2 className="text-center text-76">
+      <h2 className="text-center text-76 ">
         Core Capabilities
       </h2>
       </HeadingAnim>
 
       <div
-        className="flex fadeup justify-center items-center min-h-screen  h-fit  flex-col w-full pt-[2vw] max-sm:hidden relative"
+        className="flex fadeup justify-center items-center min-h-screen  h-fit  flex-col w-full pt-[2vw]  relative"
       >
         {cardsData.map((card, index) => (
           <CapabilityCard
