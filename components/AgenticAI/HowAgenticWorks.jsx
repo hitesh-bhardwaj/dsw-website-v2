@@ -37,7 +37,7 @@ const iconData = [
   {
     key: 'orchestrate',
     icon: Orchestrate,
-    label: 'Orchestration',
+    label: 'Orchestrate',
     text: 'Compose agents, models and enterprise logic into auditable workflows using Workflow Builder.',
     textClass: 'absolute right-20 bottom-25 space-y-[0.6vw] max-w-[25vw] fadeup'
   },
