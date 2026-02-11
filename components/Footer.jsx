@@ -59,7 +59,7 @@ function AnimatedFooterLink({ href = "#", children }) {
       href={href}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className="text-24 overflow-clip hover:text-[#ff5f00] transition-colors duration-300 block"
+      className="text-24 overflow-clip hover:text-[#ff5f00] transition-colors duration-300 block max-sm:text-[5vw]"
     >
       <p ref={textRef} className="buttonTextShadow">
         {children}
@@ -106,25 +106,25 @@ export default function FooterNew() {
         <div className="flex justify-between mb-[2vw] max-sm:flex-col">
           <div className="w-[30%] max-sm:w-full max-sm:text-center">
             {/* Contact Us */}
-            <div className="space-y-[1vw]">
+            <div className="space-y-[1vw] max-sm:space-y-[2vw]">
               <p className="text-24 max-sm:text-[6vw] max-sm:font-medium">Contact Us</p>
-              <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse">
-                <Link href="mailto:Contact@datasciencewizards.ai" className="block text-24 max-sm:text-[5.5vw]">Contact@datasciencewizards.ai</Link>
-                <div className="flex gap-[0.5vw] max-sm:flex-col">
-                <Link className="text-24 max-sm:text-[5.5vw]" href="tel:+91 96640 56847">+91 96640 56847</Link> 
+              <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
+                <Link href="mailto:Contact@datasciencewizards.ai" className="block text-24 max-sm:text-[5vw]">Contact@datasciencewizards.ai</Link>
+                <div className="flex gap-[0.5vw] max-sm:flex-col max-sm:gap-[1vw]">
+                <Link className="text-24 max-sm:text-[5vw]!" href="tel:+91 96640 56847">+91 96640 56847</Link> 
                 <span className="inline-block max-sm:hidden">|</span>
-                <Link className="text-24 max-sm:text-[5.5vw]" href="tel:+353 894015233">+353 894015233 </Link> 
+                <Link className="text-24 max-sm:text-[5vw]!" href="tel:+353 894015233">+353 894015233 </Link> 
 
                 </div>
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[2vw] mt-[4vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+              <div className="flex items-center gap-[2vw] mt-[4vw] max-sm:gap-[10vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social,id) => (
                   <Link
                     key={social.name}
                     href={social.url}
-                    className="w-auto h-[1.5vw] relative hover:opacity-50 duration-500 transition-all hover:scale-[0.95] block max-sm:h-[7vw]"
+                    className="w-auto h-[1.5vw] relative hover:opacity-50 duration-500 transition-all hover:scale-[0.95] block max-sm:h-[6vw]"
                   >
                     <Image
                       src={social.icon}
@@ -142,9 +142,9 @@ export default function FooterNew() {
           {/* Navigation + Company + Newsletter */}
           <div className="flex justify-between w-[60%] max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center">
             {/* Navigation */}
-            <div className="space-y-[1.2vw]">
-              <h3 className="text-24 font-medium max-sm:text-[6.5vw]">Navigation</h3>
-              <ul className="space-y-[1vw]">
+            <div className="space-y-[1.2vw] max-sm:space-y-[2vw]">
+              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">Navigation</h3>
+              <ul className="space-y-[1vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((link) => (
                   <li key={link}>
                     <AnimatedFooterLink href="#">{link}</AnimatedFooterLink>
@@ -154,9 +154,9 @@ export default function FooterNew() {
             </div>
 
             {/* Company */}
-            <div className="space-y-[1.2vw]">
-              <h3 className="text-24 font-medium max-sm:text-[6.5vw]">Company</h3>
-              <ul className="space-y-[1vw]">
+            <div className="space-y-[1.2vw]  max-sm:space-y-[2vw]">
+              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">Company</h3>
+              <ul className="space-y-[1vw] max-sm:space-y-[2vw]">
                 {companyLinks.map((link) => (
                   <li key={link}>
                     <AnimatedFooterLink href="#">{link}</AnimatedFooterLink>
@@ -167,7 +167,7 @@ export default function FooterNew() {
 
             {/* Newsletter */}
             <div className="w-[45%] relative max-sm:w-full">
-              <div className="w-full h-[0.1px] bg-black absolute bottom-26 max-sm:bottom-16" />
+              <div className="w-full h-[0.1px] bg-black absolute bottom-26 max-sm:bottom-18" />
               <p className="text-24 font-sans tracking-[0.025vw] mb-[3vw]">
                 Subscribe to our newsletter for the latest tech insights and
                 updates.

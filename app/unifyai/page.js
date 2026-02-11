@@ -1,16 +1,13 @@
 import React from 'react'
-import AgenticAbout from '@/components/AgenticAI/About'
-import AgenticCards from '@/components/AgenticAI/AgenticCards'
-import CoreCapabilities from '@/components/AgenticAI/CoreCapabilities'
-import AgentSteps from '@/components/AgenticAI/AgentSteps'
-import HowAgenticWorks from '@/components/AgenticAI/HowAgenticWorks'
-
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
 import UnifyAbout from '@/components/UnifyAI/About'
 import AlwaysOnAI from '@/components/AlwaysOnAI'
-import UseCases from '@/components/Svg/Unify/UseCases'
+import UseCases from '@/components/UnifyAI/UseCases'
+import Fragmented from '@/components/UnifyAI/Fragmented'
+import Capabilities from '@/components/UnifyAI/Capabilities';
+import Accelerate from '@/components/UnifyAI/Accelerate';
 
 
 const AgenticAI = () => {
@@ -22,11 +19,9 @@ const AgenticAI = () => {
         <UnifyAbout/>
         <AlwaysOnAI content={tourContent}/>
         <UseCases/>
-        {/* <AgenticAbout />
-        <AgenticCards />
-        <CoreCapabilities />
-        <AgentSteps />
-        <HowAgenticWorks /> */}
+        <Fragmented/>
+        <Capabilities/>
+        <Accelerate/>
          <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>

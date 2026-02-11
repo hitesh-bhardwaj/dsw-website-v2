@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
@@ -6,11 +7,83 @@ import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
 import { fadeUp } from "./Animations/gsapAnimations";
 import WaveGradientCanvas from "./Homepage/HeroBg";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useEffect, useRef, useState } from "react";
 
 export default function HeroNew({ heroContent }) {
   const showButtons =
     heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
+
+  const scrollHintRef = useRef(null);
+  const idleTimerRef = useRef(null);
+  const [isIdle, setIsIdle] = useState(false); // ✅ true = show hint
+
   fadeUp();
+  // ✅ GSAP intro + fadeUp (NOT in render)
+  useGSAP(() => {
+
+    const tl = gsap.timeline();
+    gsap.set(".hero-overlay", { opacity: 0 });
+    gsap.set(".hero-text,.hero-head", { opacity: 1 });
+
+    tl.from(".herofadeup", {
+      yPercent: 20,
+      opacity: 0,
+      delay: 1.2,
+    }).from(
+      "#header",
+      {
+        yPercent: -20,
+        opacity: 0,
+      },
+      "<"
+    );
+  }, []);
+
+  // ✅ Scroll hint behavior:
+  // - Hidden during scrolling
+  // - Shown after 7s of inactivity
+  useEffect(() => {
+    const hintEl = scrollHintRef.current;
+    if (!hintEl) return;
+
+    // start hidden
+    gsap.set(hintEl, { autoAlpha: 0 });
+
+    const showHint = () => {
+      setIsIdle(true);
+      gsap.to(hintEl, { autoAlpha: 1, duration: 0.35, overwrite: "auto" });
+    };
+
+    const hideHint = () => {
+      setIsIdle(false);
+      gsap.to(hintEl, { autoAlpha: 0, duration: 0.15, overwrite: "auto" });
+    };
+
+    const resetIdleTimer = () => {
+      // user is scrolling (active) => hide immediately
+      hideHint();
+
+      // restart 7s idle timer
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      idleTimerRef.current = setTimeout(() => {
+        showHint();
+      }, 7000);
+    };
+
+    // initialize: if user doesn't scroll, show after 7s
+    resetIdleTimer();
+
+    // passive listener for better perf
+    window.addEventListener("scroll", resetIdleTimer, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", resetIdleTimer);
+      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+    };
+  }, []);
+
   return (
     <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden">
       <div className="absolute inset-0 z-0 h-screen w-full">
@@ -22,6 +95,7 @@ export default function HeroNew({ heroContent }) {
           className="h-full w-full object-cover"
         />
       </div>
+
       <div className="absolute inset-0 z-10 pointer-events-none h-[120vh] max-sm:hidden">
         <div className="absolute inset-0 flex justify-between px-16">
           {[...Array(16)].map((_, i) => (
@@ -40,26 +114,22 @@ export default function HeroNew({ heroContent }) {
       {/* Content */}
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
-          {/* Tagline */}
-          <Copy>
-            <p className="text-30  text-center tracking-wide ">
+          <Copy delay={1}>
+            <p className="text-30 text-center tracking-wide opacity-0 hero-text">
               {heroContent.tagline}
             </p>
           </Copy>
 
-          {/* Main Heading */}
-          <HeadingAnim>
-            <h1 className="text-110 text-[#0A1B4B] leading-[1.2] !  text-center w-[80%] mx-auto max-sm:w-full">
+          <HeadingAnim delay={0.3}>
+            <h1 className="text-110 text-[#0A1B4B] leading-[1.2]! text-center w-[70%] mx-auto max-sm:w-full opacity-0 hero-head">
               {heroContent.heading}
             </h1>
           </HeadingAnim>
         </div>
 
-        {/* CTA Buttons - Only render if at least one button is present */}
-        <div className="fadeup">
+        <div className="herofadeup">
           {showButtons && (
-            <div className="flex max-sm:flex-col items-center gap-[2.08vw] max-sm:gap-[4vw] mt-15 ">
-              {/* Primary Button */}
+            <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] mt-15">
               {heroContent.primaryButton?.present && (
                 <PrimaryButton
                   text={heroContent.primaryButton.text}
@@ -67,7 +137,6 @@ export default function HeroNew({ heroContent }) {
                 />
               )}
 
-              {/* Secondary Button */}
               {heroContent.secondaryButton?.present && (
                 <SecondaryButton
                   text={heroContent.secondaryButton.text}
@@ -79,21 +148,39 @@ export default function HeroNew({ heroContent }) {
         </div>
 
         {/* Scroll Down Indicator */}
-        <div className="absolute bottom-10 right-5 max-sm:left-12 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full">
-          <div className="size-[0.63vw] rotate-90 max-sm:size-[4vw]">
-            <Image
-              src="/arrow-down.svg"
-              alt=""
-              width={12}
-              height={12}
-              className="w-full h-full invert"
-            />
+        <div
+          ref={scrollHintRef}
+          className="fixed bottom-10 right-10 max-sm:left-12 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full scrolling pointer-events-none"
+          aria-hidden={!isIdle}
+        >
+          <div>
+            <div className="flex flex-col gap-[0.5vw] w-fit h-[1vw] arrow-container max-sm:h-[3.5vw] overflow-hidden translate-y-[15%] max-sm:translate-y-[25%] max-md:translate-y-[20%] max-md:h-[2.5vw]">
+              <div className="w-fit h-fit space-y-[0.5vw] keepScrolling-arrow max-sm:space-y-[1.5vw] max-md:space-y-[1vw]">
+                <Image
+                  src="/arrow-downward.svg"
+                  width={20}
+                  height={20}
+                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3.5vw] max-sm:w-[3.5vw] max-md:w-[2vw] max-md:h-[2vw] invert"
+                  alt="arrow-down"
+                />
+                <Image
+                  src="/arrow-downward.svg"
+                  width={20}
+                  height={20}
+                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3.5vw] max-sm:w-[3.5vw] max-md:w-[2vw] max-md:h-[2vw] invert"
+                  alt="arrow-down"
+                />
+              </div>
+            </div>
           </div>
-          <p className="text-20 font-sans  shimmer tracking-[0.056vw]">
+
+          <p className="text-20 font-sans shimmer tracking-[0.056vw] ">
             Keep Scrolling to Discover More
           </p>
         </div>
       </div>
+
+      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" />
     </section>
   );
 }

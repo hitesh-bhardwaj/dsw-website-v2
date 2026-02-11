@@ -49,9 +49,9 @@ export default function WhyAIStruggles() {
   });
 
   return (
-    <section className="relative w-full h-[240vh] py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit" id="struggle">
+    <section className="relative w-full h-[240vh] py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]" id="struggle">
       {/* Heading Section */}
-      <div className=" space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw]">
+      <div className=" space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] z-[10]">
         <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
           <HeadingAnim>
             <h2 className="text-76 font-heading text-[#0A1B4B]">
