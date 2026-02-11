@@ -21,7 +21,7 @@ const AgenticAI = () => {
         <UseCases/>
         <Fragmented/>
         <Capabilities/>
-        {/* <Accelerate/> */}
+        <Accelerate/>
          <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
