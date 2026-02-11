@@ -14,7 +14,7 @@ export default function CTAPricing() {
       <div className="relative z-20 text-center">
         {/* Heading */}
         <HeadingAnim>
-          <h2 className="text-80 font-heading leading-[1.3] text-[#0A1B4B] ">
+          <h2 className="text-80 font-heading leading-[1.2] text-[#0A1B4B] ">
             One Subscription,
             <br />
             <span className="font-medium">Unlimited Scale.</span>

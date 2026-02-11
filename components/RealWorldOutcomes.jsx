@@ -7,7 +7,7 @@ export default function RealWorldOutcomes() {
     return (
         <section className="relative w-full py-[10.42vw] space-y-[8vw] max-sm:px-[7vw]">
             {/* Heading */}
-            <div className="text-center spce-y-[2vw] max-sm:space-y-[7vw]">
+            <div className="text-center space-y-[1vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
                 <h2 className="text-76 text-[#0A1B4B]">
                     Real-World Outcomes
@@ -28,17 +28,17 @@ export default function RealWorldOutcomes() {
                         className={`relative w-[23.3.5vw] h-[15.5vw] bg-white border-[0.078vw] border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.5vw] py-[1.5vw] fadeup max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] ${outcome.position}`}
                     >
                         {/* Number Label */}
-                        <p className="text-[1.04vw] font-sans leading-[1.3] text-[#c7c7c7] max-sm:text-[5vw]">
+                        <p className="text-[1.04vw] font-sans leading-[1.2] text-[#c7c7c7] max-sm:text-[5vw]">
                             {outcome.number} /
                         </p>
 
                         {/* Title */}
-                        <p className=" text-32  font-heading font-medium leading-[1.3] w-full">
+                        <p className=" text-32  font-heading font-medium leading-[1.2] w-full">
                             {outcome.title}
                         </p>
 
                         {/* Description */}
-                        <p className="text-24 font-sans font-light leading-[1.3] w-full max-sm:font-normal">
+                        <p className="text-24 font-sans font-light leading-[1.2] w-full max-sm:font-normal">
                             {outcome.description}
                         </p>
                     </div>

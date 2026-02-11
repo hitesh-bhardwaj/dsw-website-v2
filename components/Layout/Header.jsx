@@ -11,7 +11,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(SplitText, useGSAP);
+gsap.registerPlugin(SplitText);
 
 const NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about-us", drop: false },
@@ -60,56 +60,49 @@ const isPathActive = (pathname, href) => {
   return pathname === href || pathname.startsWith(href + "/");
 };
 
-// ✅ Same file component: Animated link with SplitText hover animation
-function AnimatedNavLink({
-  href,
-  children,
-  className = "",
-  onClick,
-  ...props
-}) {
+// ✅ Animated link with SplitText hover animation
+function AnimatedNavLink({ href, children, className = "", onClick, ...props }) {
   const elRef = useRef(null);
   const splitRef = useRef(null);
-  const tlRef = useRef(null);
 
   useGSAP(
     () => {
       if (!elRef.current) return;
 
       // Create split ONCE for this element
-      splitRef.current = new SplitText(elRef.current, {
-        type: "chars",
-        // If you REALLY need masks, you can enable this, but it may require CSS:
-        // mask: "lines",
-      });
+      splitRef.current = new SplitText(elRef.current, { type: "chars" });
 
+      // Ensure baseline
       gsap.set(splitRef.current.chars, { yPercent: 0 });
 
-      tlRef.current = gsap
-        .timeline({ paused: true })
-        .to(splitRef.current.chars, {
-          yPercent: -100,
-          stagger: 0.008,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-
       return () => {
-        tlRef.current?.kill();
         splitRef.current?.revert();
         splitRef.current = null;
-        tlRef.current = null;
       };
     },
     { scope: elRef }
   );
 
+  const animateTo = (y) => {
+    const chars = splitRef.current?.chars;
+    if (!chars) return;
+
+    gsap.killTweensOf(chars);
+
+    gsap.to(chars, {
+      yPercent: y,
+      stagger: 0.008,
+      duration: 0.5,
+      ease: "power2.out", // ✅ same ease both directions
+    });
+  };
+
   return (
     <Link
       href={href}
       ref={elRef}
-      onMouseEnter={() => tlRef.current?.restart()}
-      onMouseLeave={() => tlRef.current?.reverse()}
+      onMouseEnter={() => animateTo(-100)}
+      onMouseLeave={() => animateTo(0)}
       onClick={onClick}
       className={className}
       {...props}
@@ -126,12 +119,6 @@ export default function Header() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false);
   const [isHoveringHeader, setIsHoveringHeader] = useState(false);
   const [mob, setMob] = useState(false);
-  const [hasVisited] = useState(() => {
-    if (typeof window !== "undefined") {
-      return !!sessionStorage.getItem("hasVisited");
-    }
-    return false;
-  });
 
   const headerRef = useRef(null);
   const headerWrapRef = useRef(null);
@@ -149,9 +136,7 @@ export default function Header() {
   // Reset scroll on route change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-    if (lenis) {
-      lenis.scrollTo(0, { immediate: true });
-    }
+    if (lenis) lenis.scrollTo(0, { immediate: true });
   }, [lenis, pathname]);
 
   // Show/hide header on scroll
@@ -185,7 +170,7 @@ export default function Header() {
         id="header"
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
-        className="text-white w-screen fixed b top-0 left-0 z-900 pointer-events-none "
+        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
           className={`flex items-center justify-between px-12 py-6 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
@@ -201,7 +186,7 @@ export default function Header() {
                 alt="DSW Logo"
                 width={150}
                 height={50}
-                className="h-12 max-sm:w-full w-auto  "
+                className="h-12 max-sm:w-full w-auto"
                 priority
               />
             </Link>
@@ -209,12 +194,13 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           {!mob ? (
-            <div className=" rounded-full  ml-[4vw] max-md:hidden relative">
-              <div className="w-full h-full absolute top-0 left-0   " />
+            <div className="rounded-full ml-[4vw] max-md:hidden relative">
+              <div className="w-full h-full absolute top-0 left-0" />
               <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
                 {NAV_LINKS.map((link) => {
                   const hasChildren =
                     Array.isArray(link.children) && link.children.length > 0;
+
                   const isActive =
                     isPathActive(pathname, link.href) ||
                     (hasChildren &&
@@ -240,13 +226,11 @@ export default function Header() {
                               ? String(openDropdown === link.id)
                               : undefined
                           }
-                          className={`${
-                            hasChildren ? "cursor-pointer" : ""
-                          } ${isActive ? "" : ""} ${
+                          className={`${hasChildren ? "cursor-pointer" : ""} ${
                             !isActive
-                              ? "group-hover:text-primary-blue! text-22  duration-300 transition-all ease-in"
+                              ? "group-hover:text-primary-blue! text-22 duration-500 transition-color ease-out font-medium"
                               : ""
-                          } buttonTextShadow `}
+                          } buttonTextShadow`}
                           onClick={(e) => {
                             if (hasChildren) e.preventDefault();
                           }}
@@ -263,12 +247,8 @@ export default function Header() {
                                   : ""
                               }`}
                             >
-                              <div className="w-[1.5vw] h-auto">
-                                <ChevronDown
-                                  className={`w-full h-full ${
-                                    isActive ? "stroke-black" : "stroke-black"
-                                  } group-hover:stroke-black duration-300 transition-all ease-in`}
-                                />
+                              <div className="w-[2.8vw] h-auto">
+                                <ChevronDown className="w-[1.2vw]  h-full stroke-black group-hover:stroke-primary-blue duration-300 transition-all ease-in" />
                               </div>
                             </div>
 
@@ -284,7 +264,7 @@ export default function Header() {
                       {/* Submenu */}
                       {hasChildren && (
                         <div
-                          className={`absolute top-[250%] left-[-5%] w-fit h-fit bg-white/60 backdrop-blur-md rounded-[0.5vw] border border-black/10 transition-opacity duration-300 ${
+                          className={`absolute top-[250%] left-[-5%] w-fit h-fit bg-white/60 backdrop-blur-md rounded-[0.8vw] border border-black/5 transition-opacity duration-300 ${
                             openDropdown === link.id
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"
@@ -292,7 +272,7 @@ export default function Header() {
                           onMouseEnter={() => setOpenDropdown(link.id)}
                           onMouseLeave={() => setOpenDropdown(null)}
                         >
-                          <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw]">
+                          <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw] space-y-[1vw]">
                             {link.children.map((child) => {
                               const childActive = isPathActive(
                                 pathname,
@@ -306,10 +286,10 @@ export default function Header() {
                                     aria-current={
                                       childActive ? "page" : undefined
                                     }
-                                    className={`block py-1.5 text-22 transition-colors whitespace-nowrap buttonTextShadow  ${
+                                    className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${
                                       childActive
                                         ? ""
-                                        : " hover:text-primary-blue!"
+                                        : "hover:text-primary-blue!"
                                     }`}
                                   >
                                     {child.label}
@@ -318,6 +298,8 @@ export default function Header() {
                               );
                             })}
                           </ul>
+
+                          <span className="w-full h-[60px] absolute bottom-full left-0 z-[20]" />
                         </div>
                       )}
                     </li>
@@ -332,21 +314,9 @@ export default function Header() {
                 className="hidden max-sm:flex max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-[150] max-md:flex max-md:flex-col max-md:w-[4.5vw] max-md:gap-[1vw] max-sm:w-[7vw]"
                 onClick={() => setOpenMobileMenu((prev) => !prev)}
               >
-                <div
-                  className={`w-full h-[2.5px] rounded-full line-1 transition-all duration-500 origin-center ham-mobile bg-black ${
-                    openMobileMenu ? "" : ""
-                  }`}
-                />
-                <div
-                  className={`w-full h-[2.5px]  rounded-full line-2 transition-all duration-500 ham-mobile bg-black ${
-                    openMobileMenu ? "" : ""
-                  }`}
-                />
-                <div
-                  className={`w-full h-[2.5px]  rounded-full line-3 transition-all duration-500 origin-center ham-mobile bg-black ${
-                    openMobileMenu ? "" : ""
-                  }`}
-                />
+                <div className="w-full h-[2.5px] rounded-full line-1 transition-all duration-500 origin-center ham-mobile bg-black" />
+                <div className="w-full h-[2.5px] rounded-full line-2 transition-all duration-500 ham-mobile bg-black" />
+                <div className="w-full h-[2.5px] rounded-full line-3 transition-all duration-500 origin-center ham-mobile bg-black" />
               </div>
             </div>
           )}
