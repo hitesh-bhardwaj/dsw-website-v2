@@ -130,7 +130,7 @@ const getMobileTransform = () => {
       className={`
         w-[52vw] px-[3vw] border-primary-blue  
         h-[10vw] max-sm:w-full max-sm:h-[40vw] border absolute top-0 left-1/2 -translate-x-1/2
-        rounded-[1vw] max-sm:rounded-[5vw] max-sm:px-[2vw] flex justify-center max-md:justify-between 
+        rounded-[1vw] max-sm:rounded-[5vw] max-sm:px-[5vw] flex justify-center max-md:justify-between 
         max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[5vw] items-center 
         backdrop-blur-sm cap-cards cursor-pointer transition-all duration-500 ease-in-out
         ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
@@ -155,7 +155,7 @@ const CoreCapabilities = () => {
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-sm:py-[20%]"
     >
       <HeadingAnim>
 

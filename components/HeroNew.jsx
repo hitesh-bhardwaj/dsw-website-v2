@@ -192,7 +192,7 @@ export default function HeroNew({ heroContent }) {
         {/* Scroll Down Indicator */}
         <div
           ref={scrollHintRef}
-          className="fixed bottom-10 right-10 max-sm:left-12 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full scrolling pointer-events-none"
+          className="fixed bottom-10 right-10 max-sm:left-22 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full scrolling pointer-events-none"
           aria-hidden={!isIdle || isFooterVisible}
         >
           <div>
@@ -202,14 +202,14 @@ export default function HeroNew({ heroContent }) {
                   src="/arrow-downward.svg"
                   width={20}
                   height={20}
-                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3.5vw] max-sm:w-[3.5vw] max-md:w-[2vw] max-md:h-[2vw] invert"
+                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
                   alt="arrow-down"
                 />
                 <Image
                   src="/arrow-downward.svg"
                   width={20}
                   height={20}
-                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3.5vw] max-sm:w-[3.5vw] max-md:w-[2vw] max-md:h-[2vw] invert"
+                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
                   alt="arrow-down"
                 />
               </div>
