@@ -116,14 +116,14 @@ const HowAgenticWorks = () => {
     { scope: sectionRef }
   );
   return (
-    <section className="pb-[10%] py-[4%]">
-      <div className="relative w-full py-[10%]">
-         <div ref={outerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[60vw] h-auto">
+    <section className="py-[7%] max-sm:px-[7vw] max-sm:min-h-[80vh] max-sm:w-screen max-sm:overflow-x-hidden max-sm:hidden  max-sm:my-[40%]">
+      <div className="relative w-full h-full py-[10%]">
+         <div ref={outerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-sm:top-[90%] w-[60vw] max-sm:w-[170vw] h-auto">
                 <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
               </div>
         
               {/* Inner circle */}
-              <div ref={innerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[45vw] h-auto">
+              <div ref={innerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 max-sm:top-[90%] w-[45vw] max-sm:w-[120vw] h-auto">
                 <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
               </div>
         

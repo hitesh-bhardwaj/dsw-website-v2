@@ -57,21 +57,20 @@ const AgenticSteps = () => {
   }, [isHovered3]);
 
   return (
-    <div className=' py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white  space-y-[2vw]'>
+    <div className=' py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white  space-y-[2vw] max-sm:space-y-[8vw]'>
 
       <HeadingAnim>
 
-
-      <h2 className='text-76 mx-auto w-fit'>
+      <h2 className='text-76 mx-auto w-fit max-sm:text-center max-sm:w-[90%] max-sm:leading-[1.3]'>
         BFSI use cases & vertical accelerators  
       </h2>
       </HeadingAnim>
 
-      <div className="flex justify-between p-[4vw] ">
+      <div className="flex max-sm:flex-col max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw] ">
         
         {/* Card 1 - Insurance */}
         <div 
-          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
+          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
           onMouseEnter={() => setIsHovered1(true)}
           onMouseLeave={() => setIsHovered1(false)}
         >
@@ -85,25 +84,25 @@ const AgenticSteps = () => {
           </div>
 
           <div className=" w-full h-auto flex mb-[12vw] justify-center items-center ">
-            <div ref={circleRef1} className='w-[28vw] z-10 h-auto absolute top-60'>
+            <div ref={circleRef1} className='w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60'>
               <CircleBg 
                 className='h-full scale-[1.4] w-full origin-center duration-1000 ease-in-out'
               />
             </div>
             
-            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10">
+            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
               <Insurance className='h-full w-full p-[1vw]' />
             </div>
           </div>
 
-          <p className="text-24 leading-[1.2] m-0 ">
+          <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
             Purpose-built for insurers: claims orchestration, fraud triage, underwriting augmentation and customer engagement automation.
           </p>
         </div>
 
         {/* Card 2 - Banks */}
         <div 
-          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col"
+          className="relative fadeup bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col  max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
           onMouseEnter={() => setIsHovered2(true)}
           onMouseLeave={() => setIsHovered2(false)}
         >
@@ -117,25 +116,25 @@ const AgenticSteps = () => {
           </div>
 
           <div className=" w-full h-auto flex mb-[12vw] justify-center items-center ">
-            <div ref={circleRef2} className='w-[28vw] z-10 h-auto absolute top-60'>
+            <div ref={circleRef2} className='w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60'>
               <CircleBg 
                 className='h-full scale-[1.4] w-full origin-center duration-1000 ease-in-out'
               />
             </div>
             
-            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10">
+            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
               <Bank className='h-full w-full p-[1vw]' />
             </div>
           </div>
 
-          <p className="text-24 leading-[1.2] m-0 ">
+          <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
             For banks & financial institutions: lending decision support, compliance automation, fraud monitoring and risk remediation.
           </p>
         </div>
 
         {/* Card 3 - Roadmap */}
         <div 
-          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue fadeup flex flex-col"
+          className="relative bg-card-bg px-[3vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] overflow-hidden border-t-[0.4vw] border-primary-blue fadeup flex flex-col max-sm:w-full max-sm:h-[92vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[9vw] max-sm:px-[4vw]"
           onMouseEnter={() => setIsHovered3(true)}
           onMouseLeave={() => setIsHovered3(false)}
         >
@@ -149,18 +148,18 @@ const AgenticSteps = () => {
           </div>
 
           <div className=" w-full h-auto flex mb-[12vw] justify-center items-center ">
-            <div ref={circleRef3} className='w-[28vw] z-10 h-auto absolute top-60'>
+            <div ref={circleRef3} className='w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60'>
               <CircleBg 
                 className='h-full scale-[1.4] w-full origin-center duration-1000 ease-in-out'
               />
             </div>
             
-            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10">
+            <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">
               <Roadmap className='h-full w-full p-[1vw]' />
             </div>
           </div>
 
-          <p className="text-24 leading-[1.2] m-0 ">
+          <p className="text-24 leading-[1.2] m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
             Next: telecom, healthcare and other regulated industries where auditability and governance are critical.
           </p>
         </div>

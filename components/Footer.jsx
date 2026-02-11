@@ -7,6 +7,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
+import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "./Icons";
 
 /** ✅ Isolated animated link (each item has its own ref + SplitText) */
 function AnimatedFooterLink({ href = "#", children }) {
@@ -59,7 +60,7 @@ function AnimatedFooterLink({ href = "#", children }) {
       href={href}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className="text-24 overflow-clip hover:text-[#ff5f00] transition-colors duration-300 block max-sm:text-[5vw]"
+      className="text-24 overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
     >
       <p ref={textRef} className="buttonTextShadow">
         {children}
@@ -70,11 +71,11 @@ function AnimatedFooterLink({ href = "#", children }) {
 
 export default function FooterNew() {
   const socialLinks = [
-    { name: "Facebook", icon: "/facebook.svg", url: "#" },
-    { name: "LinkedIn", icon: "/linkedin.svg", url: "#" },
-    { name: "X", icon: "/social-x.svg", url: "#" },
-    { name: "Instagram", icon: "/social-instagram.svg", url: "#" },
-    { name: "YouTube", icon: "/youtube.svg", url: "#" },
+    { name: "Facebook", icon: <Facebook/>, url: "https://www.facebook.com/datasciencewizards/" },
+    { name: "LinkedIn", icon: <LinkedIn/>, url: "https://www.linkedin.com/company/data-science-wizards/" },
+    { name: "X", icon: <Twitter/>, url: "https://x.com/dswizards" },
+    { name: "Instagram", icon: <Insta/>, url: "https://www.instagram.com/datasciencewizards/" },
+    { name: "YouTube", icon: <Youtube/>, url: "https://www.youtube.com/@DataScienceWizards" },
   ];
 
   const navigationLinks = [
@@ -107,32 +108,52 @@ export default function FooterNew() {
           <div className="w-[30%] max-sm:w-full max-sm:text-center">
             {/* Contact Us */}
             <div className="space-y-[1vw] max-sm:space-y-[2vw]">
-              <p className="text-24 max-sm:text-[6vw] max-sm:font-medium">Contact Us</p>
+              <div className="w-[40vw] h-auto hidden max-sm:block mx-auto mb-[10vw]">
+                <Image
+                  src="/logo-footer.svg"
+                  alt="Data Science Wizards"
+                  width={300}
+                  height={170}
+                  className="w-full h-full"
+                />
+              </div>
+              <p className="text-24 max-sm:text-[6vw] max-sm:font-medium">
+                Contact Us
+              </p>
               <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
-                <Link href="mailto:Contact@datasciencewizards.ai" className="block text-24 max-sm:text-[5vw]">Contact@datasciencewizards.ai</Link>
+                <Link
+                  href="mailto:Contact@datasciencewizards.ai"
+                  className="block text-24 max-sm:text-[5vw]"
+                >
+                  Contact@datasciencewizards.ai
+                </Link>
                 <div className="flex gap-[0.5vw] max-sm:flex-col max-sm:gap-[1vw]">
-                <Link className="text-24 max-sm:text-[5vw]!" href="tel:+91 96640 56847">+91 96640 56847</Link> 
-                <span className="inline-block max-sm:hidden">|</span>
-                <Link className="text-24 max-sm:text-[5vw]!" href="tel:+353 894015233">+353 894015233 </Link> 
-
+                  <Link
+                    className="text-24 max-sm:text-[5vw]!"
+                    href="tel:+91 96640 56847"
+                  >
+                    +91 96640 56847
+                  </Link>
+                  <span className="inline-block max-sm:hidden">|</span>
+                  <Link
+                    className="text-24 max-sm:text-[5vw]!"
+                    href="tel:+353 894015233"
+                  >
+                    +353 894015233{" "}
+                  </Link>
                 </div>
               </div>
 
               {/* Social Icons */}
               <div className="flex items-center gap-[2vw] mt-[4vw] max-sm:gap-[10vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
-                {socialLinks.map((social,id) => (
+                {socialLinks.map((social, id) => (
                   <Link
                     key={social.name}
                     href={social.url}
-                    className="w-auto h-[1.5vw] relative hover:opacity-50 duration-500 transition-all hover:scale-[0.95] block max-sm:h-[6vw]"
+                    target="_blank"
+                    className={`w-auto h-[1.5vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[6vw] text-[#111111] hover:text-[#1727ff] ${id==0||id==1?"scale-[1.1]":""}`}
                   >
-                    <Image
-                      src={social.icon}
-                      alt={social.name}
-                      width={50}
-                      height={50}
-                      className={`w-full h-full object-contain ${id==0||id==1||id==3?"scale-[1.15]":""}`}
-                    />
+                   {social.icon}
                   </Link>
                 ))}
               </div>
@@ -143,8 +164,10 @@ export default function FooterNew() {
           <div className="flex justify-between w-[60%] max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center">
             {/* Navigation */}
             <div className="space-y-[1.2vw] max-sm:space-y-[2vw]">
-              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">Navigation</h3>
-              <ul className="space-y-[1vw] max-sm:space-y-[2vw]">
+              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">
+                Navigation
+              </h3>
+              <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((link) => (
                   <li key={link}>
                     <AnimatedFooterLink href="#">{link}</AnimatedFooterLink>
@@ -155,8 +178,10 @@ export default function FooterNew() {
 
             {/* Company */}
             <div className="space-y-[1.2vw]  max-sm:space-y-[2vw]">
-              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">Company</h3>
-              <ul className="space-y-[1vw] max-sm:space-y-[2vw]">
+              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">
+                Company
+              </h3>
+              <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
                 {companyLinks.map((link) => (
                   <li key={link}>
                     <AnimatedFooterLink href="#">{link}</AnimatedFooterLink>
@@ -203,7 +228,9 @@ export default function FooterNew() {
             />
           </div>
 
-          <p className="text-20 font-sans">© Copyright Data Science Wizards 2026</p>
+          <p className="text-20 font-sans">
+            © Copyright Data Science Wizards 2026
+          </p>
         </div>
       </div>
     </footer>
