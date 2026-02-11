@@ -91,7 +91,7 @@ export default function Accelerate() {
                     content,
                     {
                         opacity: 0.3,
-                    },
+                    }, 
                     {
                         opacity: 1,
                         ease: "power2.out",
