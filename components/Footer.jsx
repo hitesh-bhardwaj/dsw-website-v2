@@ -7,7 +7,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
-import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "./Icons";
+import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "./Svg/Icons";
 
 /** ✅ Isolated animated link (each item has its own ref + SplitText) */
 function AnimatedFooterLink({ href = "#", children }) {
@@ -71,10 +71,10 @@ function AnimatedFooterLink({ href = "#", children }) {
 
 export default function FooterNew() {
   const socialLinks = [
-    { name: "Facebook", icon: <Facebook/>, url: "https://www.facebook.com/datasciencewizards/" },
     { name: "LinkedIn", icon: <LinkedIn/>, url: "https://www.linkedin.com/company/data-science-wizards/" },
-    { name: "X", icon: <Twitter/>, url: "https://x.com/dswizards" },
     { name: "Instagram", icon: <Insta/>, url: "https://www.instagram.com/datasciencewizards/" },
+    { name: "Facebook", icon: <Facebook/>, url: "https://www.facebook.com/datasciencewizards/" },
+    { name: "X", icon: <Twitter/>, url: "https://x.com/dswizards" },
     { name: "YouTube", icon: <Youtube/>, url: "https://www.youtube.com/@DataScienceWizards" },
   ];
 
@@ -145,13 +145,13 @@ export default function FooterNew() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[2vw] mt-[4vw] max-sm:gap-[10vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+              <div className="flex items-center gap-[1.5vw] mt-[3vw] max-sm:gap-[10vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social, id) => (
                   <Link
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[1.5vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[6vw] text-[#111111] hover:text-[#1727ff] ${id==0||id==1?"scale-[1.1]":""}`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[6vw] text-[#111111] hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>
