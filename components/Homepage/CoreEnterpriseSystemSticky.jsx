@@ -40,6 +40,7 @@ export default function CoreEnterpriseSystemSticky() {
   const sectionRef = useRef(null);
   const outerRef = useRef(null);
   const innerRef = useRef(null);
+  const coreEnterTitle = useRef(null);
 
   // refs for mapped slides
   const titleRefs = useRef([]);
@@ -120,7 +121,7 @@ export default function CoreEnterpriseSystemSticky() {
         innerTL.kill();
       };
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   // =========================
@@ -165,7 +166,7 @@ export default function CoreEnterpriseSystemSticky() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "top top",
+          start: "25% top",
           end: "94% bottom",
           scrub: true,
           // markers: true,
@@ -197,7 +198,7 @@ export default function CoreEnterpriseSystemSticky() {
               duration: 0.6,
               stagger: 0.06,
             },
-            "<"
+            "<",
           )
           .to(
             indexSplits[i].chars,
@@ -207,7 +208,7 @@ export default function CoreEnterpriseSystemSticky() {
               stagger: 0.05,
               ease: "power2.out",
             },
-            "<+0.05"
+            "<+0.05",
           );
 
         // OUT (skip last)
@@ -224,7 +225,7 @@ export default function CoreEnterpriseSystemSticky() {
                 duration: 0.6,
                 stagger: 0.06,
               },
-              "<"
+              "<",
             )
             .to(
               indexSplits[i].chars,
@@ -234,7 +235,7 @@ export default function CoreEnterpriseSystemSticky() {
                 stagger: 0.05,
                 ease: "power2.in",
               },
-              "<+0.05"
+              "<+0.05",
             );
         }
       });
@@ -246,15 +247,56 @@ export default function CoreEnterpriseSystemSticky() {
         });
       };
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
+
+  useGSAP(() => {
+    const titleEl = new SplitText(coreEnterTitle.current, {
+      type: "lines",
+      linesClass: "Headingline++",
+      lineThreshold: 0.1,
+    });
+    gsap.set(titleEl.lines, { maskPosition: "100% 100%" });
+
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "20% top",
+        // markers: true,
+      },
+    });
+    tl.from(outerRef.current, {
+      opacity: 0,
+      scale: 0.8,
+      ease: "power1.out",
+      duration: 0.7,
+      // rotate:-30,
+    });
+    tl.from(
+      innerRef.current,
+      {
+        opacity: 0,
+        scale: 0.8,
+        ease: "power1.out",
+        duration: 0.7,
+        // rotate:30,
+      },
+      "<",
+    ).to(titleEl.lines, {
+      maskPosition: "0% 100%",
+      stagger: 0.2,
+      duration: 5.5,
+      delay:-0.5,
+      ease: "power3.out",
+    });
+  });
 
   return (
     <section
       ref={sectionRef}
       id="coreEnterprise"
       style={{ height: `${SLIDES.length * 100}vh` }}
-      className="relative w-full bg-white flex justify-center mt-[-20vw] py-[25%] max-sm:mt-[-50vw]"
+      className="relative w-full bg-white flex justify-center mt-[-100vh] max-sm:mt-[-50vw]"
     >
       <div className="w-screen h-screen sticky top-0 max-sm:overflow-hidden">
         {/* Outer circle */}
@@ -262,7 +304,12 @@ export default function CoreEnterpriseSystemSticky() {
           ref={outerRef}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] max-sm:w-[150vw]"
         >
-          <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
+          <Image
+            src="/assets/homepage/dotted-circle.svg"
+            alt=""
+            width={1080}
+            height={1080}
+          />
         </div>
 
         {/* Inner circle */}
@@ -270,14 +317,24 @@ export default function CoreEnterpriseSystemSticky() {
           ref={innerRef}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-sm:w-[100vw]"
         >
-          <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
+          <Image
+            src="/assets/homepage/dotted-circle.svg"
+            alt=""
+            width={1080}
+            height={1080}
+          />
         </div>
 
         {/* Content */}
         <div className="relative z-10 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-sm:space-y-[7vw] max-sm:px-[7vw]">
-          <HeadingAnim>
-            <h2 className="text-76 mb-[7vw] max-sm:mb-[25vw] text-[#0A1B4B]">Run AI as a Core Enterprise System</h2>
-          </HeadingAnim>
+          {/* <HeadingAnim> */}
+          <h2
+            ref={coreEnterTitle}
+            className="text-76 mb-[7vw] max-sm:mb-[25vw] text-[#0A1B4B]"
+          >
+            Run AI as a Core Enterprise System
+          </h2>
+          {/* </HeadingAnim> */}
 
           {/* Slides stack (mapped) */}
           <div className="w-full h-fit relative">
@@ -285,14 +342,22 @@ export default function CoreEnterpriseSystemSticky() {
               <div
                 key={i}
                 className={`w-full h-fit space-y-[4vw] max-sm:space-y-[7vw] ${
-                  i === 0 ? "relative" : "absolute top-0 left-1/2 -translate-x-1/2"
+                  i === 0
+                    ? "relative"
+                    : "absolute top-0 left-1/2 -translate-x-1/2"
                 }`}
               >
-                <h3 ref={(el) => setTitleRef(el, i)} className="text-44 font-medium">
+                <h3
+                  ref={(el) => setTitleRef(el, i)}
+                  className="text-44 font-medium"
+                >
                   {slide.title}
                 </h3>
 
-                <p ref={(el) => setDescRef(el, i)} className="text-30 px-[30vw] mx-auto max-sm:px-0">
+                <p
+                  ref={(el) => setDescRef(el, i)}
+                  className="text-30 px-[30vw] mx-auto max-sm:px-0"
+                >
                   {slide.desc}
                 </p>
               </div>

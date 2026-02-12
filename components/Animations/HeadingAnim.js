@@ -96,7 +96,7 @@ export default function HeadingAnim({ children, animateOnScroll = true, delay = 
           ...animationProps,
           scrollTrigger: {
             trigger: el,
-            start: "top 100%",
+            start: "top 80%",
             once: true,
             onEnter: () => elements.forEach(forceAriaVisible),
           },
