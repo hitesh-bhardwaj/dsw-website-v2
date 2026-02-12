@@ -5,7 +5,7 @@ import CornerDecorations from "../CornerDecorations";
 export default function Capabilities() {
     return (
         <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] ">
-            {/* Heading */}
+       
             <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
                 <h2 className="text-56 text-[#0A1B4B]">
