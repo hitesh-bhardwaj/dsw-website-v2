@@ -1,0 +1,28 @@
+export const AgentOrchestration=()=>{
+    return(
+        <>
+        <svg className="w-full h-full" width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M50 66C58.8366 66 66 58.8366 66 50C66 41.1634 58.8366 34 50 34C41.1634 34 34 41.1634 34 50C34 58.8366 41.1634 66 50 66Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M50 50C52.2091 50 54 48.2091 54 46C54 43.7909 52.2091 42 50 42C47.7909 42 46 43.7909 46 46C46 48.2091 47.7909 50 50 50Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M42 58C47.3333 52.6667 52.6667 52.6667 58 58" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M38 38L28 28" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M62 38L70 30" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M66 50H80" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M62 62L73 73" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M40.3769 62.9151L30.0001 75.9274" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M33 52L17.9999 54.956" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M19 31C25.6274 31 31 25.6274 31 19C31 12.3726 25.6274 7 19 7C12.3726 7 7 12.3726 7 19C7 25.6274 12.3726 31 19 31Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M19 18C20.6569 18 22 16.6569 22 15C22 13.3431 20.6569 12 19 12C17.3431 12 16 13.3431 16 15C16 16.6569 17.3431 18 19 18Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M13 25C17 21 21 21 25 25" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M75 32C78.866 32 82 28.866 82 25C82 21.134 78.866 18 75 18C71.134 18 68 21.134 68 25C68 28.866 71.134 32 75 32Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M86 55C88.7614 55 91 52.7614 91 50C91 47.2386 88.7614 45 86 45C83.2386 45 81 47.2386 81 50C81 52.7614 83.2386 55 86 55Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M81 94C87.6274 94 93 88.6274 93 82C93 75.3726 87.6274 70 81 70C74.3726 70 69 75.3726 69 82C69 88.6274 74.3726 94 81 94Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M81 81C82.6569 81 84 79.6569 84 78C84 76.3431 82.6569 75 81 75C79.3431 75 78 76.3431 78 78C78 79.6569 79.3431 81 81 81Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M75 88C79 84 83 84 87 88" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+<path d="M24 92C28.9706 92 33 87.9706 33 83C33 78.0294 28.9706 74 24 74C19.0294 74 15 78.0294 15 83C15 87.9706 19.0294 92 24 92Z" stroke="currentColor" strokeWidth="2"/>
+<path d="M12 63C15.3137 63 18 60.3137 18 57C18 53.6863 15.3137 51 12 51C8.68629 51 6 53.6863 6 57C6 60.3137 8.68629 63 12 63Z" stroke="currentColor" strokeWidth="2"/>
+</svg>
+
+        </>
+    )
+}
