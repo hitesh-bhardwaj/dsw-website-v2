@@ -43,9 +43,9 @@ function AgenticCard({ id, title, Icon, description }) {
 
       if (isHovered) {
         gsap.to(circleRef.current, {
-          rotation: "+=360",
-          duration: 4,
-          ease: "none",
+          rotation: -90,
+          duration: 7,
+          ease: "linear",
           repeat: -1,
         });
       } else {
@@ -76,9 +76,9 @@ function AgenticCard({ id, title, Icon, description }) {
       <div className="w-full h-auto flex mb-[12vw] justify-center items-center">
         <div
           ref={circleRef}
-          className="w-[28vw] max-sm:w-[90vw] max-sm:top-55 z-10 h-auto absolute top-60"
+          className="w-[38vw] max-sm:w-[110vw] max-sm:top-35 z-10 h-auto absolute top-40"
         >
-          <CircleBg className="h-full scale-[1.4] w-full origin-center" />
+          <CircleBg className="h-full w-full origin-center" />
         </div>
 
         <div className="w-[6vw] h-[6vw] rounded-full bg-white flex justify-center items-center z-10 max-sm:w-[20vw] max-sm:h-[20vw] max-sm:p-[3vw]">

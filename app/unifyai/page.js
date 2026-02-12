@@ -9,7 +9,6 @@ import Fragmented from '@/components/UnifyAI/Fragmented'
 import Capabilities from '@/components/UnifyAI/Capabilities';
 import Accelerate from '@/components/UnifyAI/Accelerate';
 
-
 const AgenticAI = () => {
   return (
     <>

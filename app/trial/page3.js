@@ -9,11 +9,9 @@ import React, { useRef, useEffect } from "react";
  *  - "bottomBoth" (V-shape)
  */
 const WaveGridCanvas = ({
-  variant = "default",
+  variant = "bottomRight",
 
   // ===== Wave params =====
-  HOVER_ALPHA_BOOST = 4.1,
-
   lowerWaveFreq = 0.5,
   lowerWaveAmp = 0.12,
   lowerWaveSpeed = 0.8,
@@ -31,34 +29,26 @@ const WaveGridCanvas = ({
   upperVerticalAmp = 0.08,
 
   color = "rgba(54, 87, 255, 0.95)",
-  fps = 120,
+  fps = 60,
 
   overflowExtension = 0.5,
 
   // ===== Grid params =====
   gridSize = 60,
-  deformRadius = 150,
+  deformRadius = 260,
+  maxDeformation = 7,
   gridStroke = "rgba(255, 255, 255, 0.12)",
   gridLineWidth = 1,
 
-  // ===== Spring physics params =====
-  springStiffness = 0.09,
-  springDamping = 0.88,
-  mouseInfluence = 0.01,
-
-  mouseSmoothingBase = 0.2,
+  segmentLength = 12,
+  mouseSmoothingBase = 0.1,
 
   topOffsetPx = 0,
-    
 }) => {
   const canvasRef = useRef(null);
 
   const targetMousePos = useRef({ x: -1000, y: -1000 });
   const currentMousePos = useRef({ x: -1000, y: -1000 });
-
-  // Spring mesh vertices
-  const verticesRef = useRef(null);
-  const gridDimensionsRef = useRef({ cols: 0, rows: 0 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -71,7 +61,11 @@ const WaveGridCanvas = ({
     });
     if (!ctx) return;
 
-    // ==== helpers (inlined for perf) ====
+    // ==== helpers ====
+    const lerp = (a, b, t) => a + (b - a) * t;
+    const smootherstep01 = (t) => t * t * t * (t * (t * 6 - 15) + 10);
+    const smoothstep01 = (t) => t * t * (3 - 2 * t);
+
     const parseColor = (colorStr) => {
       const rgbaMatch = String(colorStr).match(
         /rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?\)/
@@ -99,12 +93,8 @@ const WaveGridCanvas = ({
     };
 
     const colorData = parseColor(color);
-    const r = colorData.r | 0;
-    const g = colorData.g | 0;
-    const b = colorData.b | 0;
-    const a255 = (colorData.a * 255) | 0;
 
-    // Offscreen gradient buffer (quarter-res for speed)
+    // Offscreen gradient buffer
     const gradientCanvas = document.createElement("canvas");
     const gradientCtx = gradientCanvas.getContext("2d", { alpha: true });
     if (!gradientCtx) return;
@@ -119,8 +109,8 @@ const WaveGridCanvas = ({
     // gradient buffers
     let gradWidth = 0;
     let gradHeight = 0;
-    let gradImageData = null;
-    let gradData = null;
+    let gradImageData = null; // ImageData
+    let gradData = null; // Uint8ClampedArray
 
     // precomputed phase arrays
     let xPhase = null;
@@ -133,124 +123,86 @@ const WaveGridCanvas = ({
     let invLowerRange = null;
     let invTopRange = null;
 
-    // UV lookup tables for corner variants
-    let uvLookupU = null;
-    let uvLookupV = null;
-
+    // IMPORTANT: track last variant so we rebuild buffers when variant changes
     let lastVariant = variant;
-
-    // Precomputed constants
-    const TWO_PI = Math.PI * 2;
-    const lowerFreq07 = lowerWaveFreq * 0.7;
-    const lowerFreq13 = lowerWaveFreq * 1.3;
-    const upperFreq075 = upperWaveFreq * 0.75;
-    const upperFreq125 = upperWaveFreq * 1.25;
 
     // ===== UV mapping per variant =====
     const mapUV = (logicalX, logicalY) => {
       const xInViewport = logicalX;
       const yInViewport = logicalY - extensionPixels;
 
-      const u01 = xInViewport / Math.max(1, logicalWidth);
-      const v01 = yInViewport / Math.max(1, viewportLogicalHeight);
+      const u01 = xInViewport / Math.max(1, logicalWidth); // 0..1 left->right
+      const v01 = yInViewport / Math.max(1, viewportLogicalHeight); // 0..1 top->bottom
 
       if (variant === "rightVertical") {
-        const fromRight01 = 1 - u01;
-        return { u: v01, v: 1.2 - fromRight01 };
+        // Phase along Y; V-field from RIGHT edge inward
+        const u = v01;
+        const fromRight01 = 1 - u01; // ✅ 0 at right
+        const v = 1.2 - fromRight01;
+        return { u, v };
       }
 
       if (variant === "bottomRight") {
+        // distance from bottom-right
         const fromRight = 1 - u01;
         const fromBottom = 1 - v01;
         const dist = Math.sqrt(fromRight * fromRight + fromBottom * fromBottom);
-        return { u: (u01 + v01) * 0.5, v: 1.6 - dist };
+        const v = 1.6 - dist;
+
+        const u = (u01 + v01) * 0.5;
+        return { u, v };
       }
 
       if (variant === "bottomBoth") {
+        // V-shape from both bottom corners
         const fromLeft = u01;
         const fromRight = 1 - u01;
         const fromBottom = 1 - v01;
 
         const dL = Math.sqrt(fromLeft * fromLeft + fromBottom * fromBottom);
         const dR = Math.sqrt(fromRight * fromRight + fromBottom * fromBottom);
-        const dist = dL < dR ? dL : dR;
+        const dist = Math.min(dL, dR);
 
-        const v = 1.6 - dist;
-        const u = u01 < 0.5 ? (u01 + v01) * 0.5 : (1 - u01 + v01) * 0.5;
+        // tweak for look
+        const spread = 1.0;
+        const intensity = 1.6;
+
+        const v = intensity - dist * spread;
+
+        // mirrored diagonal phase so both sides "flow" inward
+        const u =
+          u01 < 0.5 ? (u01 + v01) * 0.5 : ((1 - u01) + v01) * 0.5;
 
         return { u, v };
       }
 
+      // default: horizontal phase, vertical v-field
       return { u: u01, v: 1.2 - v01 };
     };
 
-    // ===== Build spring mesh vertices =====
-    const buildVertices = () => {
-      const cols = Math.floor(logicalWidth / gridSize) + 1;
-      const rows = Math.floor(logicalHeight / gridSize) + 1;
-
-      gridDimensionsRef.current = { cols, rows };
-
-      const vertices = [];
-      for (let row = 0; row < rows; row++) {
-        for (let col = 0; col < cols; col++) {
-          vertices.push({
-            x: col * gridSize,
-            y: row * gridSize,
-            dx: 0,
-            dy: 0,
-            vx: 0,
-            vy: 0,
-          });
-        }
+    const makeImageData = (w, h) => {
+      const arr = new Uint8ClampedArray(w * h * 4);
+      // Use ImageData constructor if available, else fallback
+      try {
+        return { imageData: new ImageData(arr, w, h), data: arr };
+      } catch {
+        const id = gradientCtx.createImageData(w, h);
+        // ensure we use its backing store
+        return { imageData: id, data: id.data };
       }
-
-      verticesRef.current = vertices;
     };
 
-    // ===== Update spring physics =====
-  // ===== Direct deformation (NO elastic / NO spring) =====
-const updateVertexPhysics = () => {
-    const vertices = verticesRef.current;
-    if (!vertices) return;
-  
-    const mouseX = currentMousePos.current.x;
-    const mouseY = currentMousePos.current.y;
-    const radiusSq = deformRadius * deformRadius;
-  
-    for (let i = 0; i < vertices.length; i++) {
-      const v = vertices[i];
-  
-      const dx = mouseX - v.x;
-      const dy = mouseY - v.y;
-      const distSq = dx * dx + dy * dy;
-  
-      if (distSq < radiusSq && distSq > 0) {
-        const dist = Math.sqrt(distSq);
-        const force = 1 - dist / deformRadius;
-  
-        // Smooth push toward mouse (no velocity / no spring)
-        v.dx = dx * force * mouseInfluence * 40;
-        v.dy = dy * force * mouseInfluence * 40;
-      } else {
-        // Immediately relax back (no elastic bounce)
-        v.dx *= 0.85;
-        v.dy *= 0.85;
-      }
-    }
-  };
-  
-
     const rebuildGradientBuffers = () => {
-      // quarter-res for speed
-      gradWidth = Math.max(1, Math.floor(canvas.width / 4));
-      gradHeight = Math.max(1, Math.floor(canvas.height / 4));
+      // half-res for speed
+      gradWidth = Math.max(1, Math.floor(canvas.width / 2));
+      gradHeight = Math.max(1, Math.floor(canvas.height / 2));
 
       if (gradientCanvas.width !== gradWidth) gradientCanvas.width = gradWidth;
       if (gradientCanvas.height !== gradHeight) gradientCanvas.height = gradHeight;
 
-      gradImageData = gradientCtx.createImageData(gradWidth, gradHeight);
-      gradData = gradImageData.data;
+      const made = makeImageData(gradWidth, gradHeight);
+      gradImageData = made.imageData;
+      gradData = made.data;
 
       xPhase = new Float32Array(gradWidth);
       yPhase = new Float32Array(gradHeight);
@@ -262,43 +214,23 @@ const updateVertexPhysics = () => {
       invLowerRange = new Float32Array(boundaryLen);
       invTopRange = new Float32Array(boundaryLen);
 
-      const fourOverDpr = 4 / dpr;
-
-      // Precompute UV lookup for corner variants
-      if (variant === "bottomRight" || variant === "bottomBoth") {
-        uvLookupU = new Float32Array(gradWidth * gradHeight);
-        uvLookupV = new Float32Array(gradWidth * gradHeight);
-
-        for (let y = 0; y < gradHeight; y++) {
-          const logicalY = y * fourOverDpr;
-          const rowOffset = y * gradWidth;
-
-          for (let x = 0; x < gradWidth; x++) {
-            const logicalX = x * fourOverDpr;
-            const { u, v } = mapUV(logicalX, logicalY);
-            uvLookupU[rowOffset + x] = u * TWO_PI;
-            uvLookupV[rowOffset + x] = v;
-          }
-        }
-      } else {
-        uvLookupU = null;
-        uvLookupV = null;
-      }
+      const twoPi = Math.PI * 2;
+      const twoOverDpr = 2 / dpr;
 
       for (let x = 0; x < gradWidth; x++) {
-        const logicalX = x * fourOverDpr;
+        const logicalX = x * twoOverDpr;
         const { u } = mapUV(logicalX, extensionPixels);
-        xPhase[x] = u * TWO_PI;
+        xPhase[x] = u * twoPi;
       }
 
       for (let y = 0; y < gradHeight; y++) {
-        const logicalY = y * fourOverDpr;
+        const logicalY = y * twoOverDpr;
         const { u } = mapUV(0, logicalY);
-        yPhase[y] = u * TWO_PI;
+        yPhase[y] = u * twoPi;
       }
 
       for (let y = 0; y < gradHeight; y++) {
-        const logicalY = y * fourOverDpr;
+        const logicalY = y * twoOverDpr;
         const { v } = mapUV(0, logicalY);
         uvY[y] = v;
       }
@@ -338,19 +270,18 @@ const updateVertexPhysics = () => {
         ctx.setTransform(1, 0, 0, 1, 0, 0);
         ctx.scale(dpr, dpr);
         ctx.imageSmoothingEnabled = true;
-
-        // Rebuild vertices when size changes
-        buildVertices();
       }
 
+      // ✅ Rebuild if size changed OR variant changed OR buffers not ready
       if (sizeChanged || variantChanged || !gradImageData || !gradData) {
         rebuildGradientBuffers();
         lastVariant = variant;
       }
     };
 
-    // ==== Wave update (optimized) ====
+    // ==== Wave update ====
     const updateGradientCanvas = (timeSeconds) => {
+      // Safety: if anything is missing, rebuild
       if (!gradImageData || !gradData) rebuildGradientBuffers();
 
       const lowerVerticalMovement =
@@ -360,63 +291,67 @@ const updateVertexPhysics = () => {
 
       const tL = timeSeconds * lowerWaveSpeed;
       const tU = timeSeconds * upperWaveSpeed;
-      const tL085 = tL * 0.85;
-      const tL06 = tL * 0.6;
-      const tU08 = tU * 0.8;
-      const tU065 = tU * 0.65;
 
-      // Corner variants: use precomputed UV lookup
+      const r = colorData.r | 0;
+      const g = colorData.g | 0;
+      const b = colorData.b | 0;
+      const a255 = colorData.a * 255;
+
+      const twoOverDpr = 2 / dpr;
+
+      // Corner variants: per-pixel (bottomRight + bottomBoth)
       if (variant === "bottomRight" || variant === "bottomBoth") {
-        const data = gradData;
-        const uLookup = uvLookupU;
-        const vLookup = uvLookupV;
-
         for (let y = 0; y < gradHeight; y++) {
-          const rowOffset = y * gradWidth;
-          let idx = rowOffset * 4;
+          const logicalY = y * twoOverDpr;
+          let idx = y * gradWidth * 4;
 
           for (let x = 0; x < gradWidth; x++) {
-            const lookupIdx = rowOffset + x;
-            const phase = uLookup[lookupIdx];
-            const v = vLookup[lookupIdx];
+            const logicalX = x * twoOverDpr;
+            const { u, v } = mapUV(logicalX, logicalY);
+            const phase = u * Math.PI * 2;
 
             const l1 = Math.sin(phase * lowerWaveFreq + tL);
-            const l2 = Math.sin(phase * lowerFreq07 + tL085);
-            const l3 = Math.sin(phase * lowerFreq13 + tL06);
-            const lowerWaveCombined = (l1 * 0.5 + l2 * 0.3 + l3 * 0.2) * lowerWaveAmp;
+            const l2 = Math.sin(phase * (lowerWaveFreq * 0.7) + tL * 0.85);
+            const l3 = Math.sin(phase * (lowerWaveFreq * 1.3) + tL * 0.6);
+            const lowerWaveCombined =
+              (l1 * 0.5 + l2 * 0.3 + l3 * 0.2) * lowerWaveAmp;
 
-            const lowerB = lowerBoundaryBase + lowerWaveCombined + lowerVerticalMovement;
+            const lowerB =
+              lowerBoundaryBase + lowerWaveCombined + lowerVerticalMovement;
 
             const u1 = Math.sin(phase * upperWaveFreq + tU);
-            const u2 = Math.sin(phase * upperFreq075 + tU08);
-            const u3 = Math.sin(phase * upperFreq125 + tU065);
-            const upperWaveCombined = (u1 * 0.5 + u2 * 0.3 + u3 * 0.2) * upperWaveAmp;
+            const u2 = Math.sin(phase * (upperWaveFreq * 0.75) + tU * 0.8);
+            const u3 = Math.sin(phase * (upperWaveFreq * 1.25) + tU * 0.65);
+            const upperWaveCombined =
+              (u1 * 0.5 + u2 * 0.3 + u3 * 0.2) * upperWaveAmp;
 
-            const topB = topBoundaryBase + upperWaveCombined + upperVerticalMovement;
+            const topB =
+              topBoundaryBase + upperWaveCombined + upperVerticalMovement;
 
-            const waveHeight = topB - lowerB > 0.1 ? topB - lowerB : 0.1;
+            const waveHeight = Math.max(0.1, topB - lowerB);
             const extendedLowerFade = lowerFadeSoftness + waveHeight * 0.05;
             const extendedTopFade = topFadeSoftness + waveHeight * 0.05;
 
             const lowerA = lowerB - extendedLowerFade;
             const lowerC = lowerB + extendedLowerFade;
+
             const topA = topB - extendedTopFade;
             const topC = topB + extendedTopFade;
 
-            let t = (v - lowerA) / (lowerC - lowerA || 1e-6);
+            let t = (v - lowerA) / Math.max(1e-6, lowerC - lowerA);
             t = t < 0 ? 0 : t > 1 ? 1 : t;
-            const fromBottom = t * t * (3 - 2 * t);
+            const fromBottom = smoothstep01(t);
 
-            let tt = (v - topA) / (topC - topA || 1e-6);
+            let tt = (v - topA) / Math.max(1e-6, topC - topA);
             tt = tt < 0 ? 0 : tt > 1 ? 1 : tt;
-            const fromTop = 1 - tt * tt * (3 - 2 * tt);
+            const fromTop = 1.0 - smoothstep01(tt);
 
             const alpha = (fromBottom * fromTop * a255) | 0;
 
-            data[idx] = r;
-            data[idx + 1] = g;
-            data[idx + 2] = b;
-            data[idx + 3] = alpha;
+            gradData[idx] = r;
+            gradData[idx + 1] = g;
+            gradData[idx + 2] = b;
+            gradData[idx + 3] = alpha;
             idx += 4;
           }
         }
@@ -425,29 +360,30 @@ const updateVertexPhysics = () => {
         return;
       }
 
-      // rightVertical: boundaries per-Y
+      // rightVertical: boundaries per-Y, v from X
       if (variant === "rightVertical") {
-        const data = gradData;
-        const fourOverDpr = 4 / dpr;
-
         for (let y = 0; y < gradHeight; y++) {
           const phase = yPhase[y];
 
           const l1 = Math.sin(phase * lowerWaveFreq + tL);
-          const l2 = Math.sin(phase * lowerFreq07 + tL085);
-          const l3 = Math.sin(phase * lowerFreq13 + tL06);
-          const lowerWaveCombined = (l1 * 0.5 + l2 * 0.3 + l3 * 0.2) * lowerWaveAmp;
+          const l2 = Math.sin(phase * (lowerWaveFreq * 0.7) + tL * 0.85);
+          const l3 = Math.sin(phase * (lowerWaveFreq * 1.3) + tL * 0.6);
+          const lowerWaveCombined =
+            (l1 * 0.5 + l2 * 0.3 + l3 * 0.2) * lowerWaveAmp;
 
-          const lowerB = lowerBoundaryBase + lowerWaveCombined + lowerVerticalMovement;
+          const lowerB =
+            lowerBoundaryBase + lowerWaveCombined + lowerVerticalMovement;
 
           const u1 = Math.sin(phase * upperWaveFreq + tU);
-          const u2 = Math.sin(phase * upperFreq075 + tU08);
-          const u3 = Math.sin(phase * upperFreq125 + tU065);
-          const upperWaveCombined = (u1 * 0.5 + u2 * 0.3 + u3 * 0.2) * upperWaveAmp;
+          const u2 = Math.sin(phase * (upperWaveFreq * 0.75) + tU * 0.8);
+          const u3 = Math.sin(phase * (upperWaveFreq * 1.25) + tU * 0.65);
+          const upperWaveCombined =
+            (u1 * 0.5 + u2 * 0.3 + u3 * 0.2) * upperWaveAmp;
 
-          const topB = topBoundaryBase + upperWaveCombined + upperVerticalMovement;
+          const topB =
+            topBoundaryBase + upperWaveCombined + upperVerticalMovement;
 
-          const waveHeight = topB - lowerB > 0.1 ? topB - lowerB : 0.1;
+          const waveHeight = Math.max(0.1, topB - lowerB);
           const extendedLowerFade = lowerFadeSoftness + waveHeight * 0.05;
           const extendedTopFade = topFadeSoftness + waveHeight * 0.05;
 
@@ -468,29 +404,25 @@ const updateVertexPhysics = () => {
 
         for (let y = 0; y < gradHeight; y++) {
           let idx = y * gradWidth * 4;
-          const lE0 = lowerE0[y];
-          const invLR = invLowerRange[y];
-          const tE0 = topE0[y];
-          const invTR = invTopRange[y];
 
           for (let x = 0; x < gradWidth; x++) {
-            const logicalX = x * fourOverDpr;
+            const logicalX = x * twoOverDpr;
             const { v } = mapUV(logicalX, extensionPixels);
 
-            let t = (v - lE0) * invLR;
+            let t = (v - lowerE0[y]) * invLowerRange[y];
             t = t < 0 ? 0 : t > 1 ? 1 : t;
-            const fromBottom = t * t * (3 - 2 * t);
+            const fromBottom = smoothstep01(t);
 
-            let tt = (v - tE0) * invTR;
+            let tt = (v - topE0[y]) * invTopRange[y];
             tt = tt < 0 ? 0 : tt > 1 ? 1 : tt;
-            const fromTop = 1 - tt * tt * (3 - 2 * tt);
+            const fromTop = 1.0 - smoothstep01(tt);
 
             const alpha = (fromBottom * fromTop * a255) | 0;
 
-            data[idx] = r;
-            data[idx + 1] = g;
-            data[idx + 2] = b;
-            data[idx + 3] = alpha;
+            gradData[idx] = r;
+            gradData[idx + 1] = g;
+            gradData[idx + 2] = b;
+            gradData[idx + 3] = alpha;
             idx += 4;
           }
         }
@@ -499,27 +431,29 @@ const updateVertexPhysics = () => {
         return;
       }
 
-      // default: boundaries per-X
-      const data = gradData;
-
+      // default: boundaries per-X, v per row
       for (let x = 0; x < gradWidth; x++) {
         const phase = xPhase[x];
 
         const l1 = Math.sin(phase * lowerWaveFreq + tL);
-        const l2 = Math.sin(phase * lowerFreq07 + tL085);
-        const l3 = Math.sin(phase * lowerFreq13 + tL06);
-        const lowerWaveCombined = (l1 * 0.5 + l2 * 0.3 + l3 * 0.2) * lowerWaveAmp;
+        const l2 = Math.sin(phase * (lowerWaveFreq * 0.7) + tL * 0.85);
+        const l3 = Math.sin(phase * (lowerWaveFreq * 1.3) + tL * 0.6);
+        const lowerWaveCombined =
+          (l1 * 0.5 + l2 * 0.3 + l3 * 0.2) * lowerWaveAmp;
 
-        const lowerB = lowerBoundaryBase + lowerWaveCombined + lowerVerticalMovement;
+        const lowerB =
+          lowerBoundaryBase + lowerWaveCombined + lowerVerticalMovement;
 
         const u1 = Math.sin(phase * upperWaveFreq + tU);
-        const u2 = Math.sin(phase * upperFreq075 + tU08);
-        const u3 = Math.sin(phase * upperFreq125 + tU065);
-        const upperWaveCombined = (u1 * 0.5 + u2 * 0.3 + u3 * 0.2) * upperWaveAmp;
+        const u2 = Math.sin(phase * (upperWaveFreq * 0.75) + tU * 0.8);
+        const u3 = Math.sin(phase * (upperWaveFreq * 1.25) + tU * 0.65);
+        const upperWaveCombined =
+          (u1 * 0.5 + u2 * 0.3 + u3 * 0.2) * upperWaveAmp;
 
-        const topB = topBoundaryBase + upperWaveCombined + upperVerticalMovement;
+        const topB =
+          topBoundaryBase + upperWaveCombined + upperVerticalMovement;
 
-        const waveHeight = topB - lowerB > 0.1 ? topB - lowerB : 0.1;
+        const waveHeight = Math.max(0.1, topB - lowerB);
         const extendedLowerFade = lowerFadeSoftness + waveHeight * 0.05;
         const extendedTopFade = topFadeSoftness + waveHeight * 0.05;
 
@@ -545,18 +479,18 @@ const updateVertexPhysics = () => {
         for (let x = 0; x < gradWidth; x++) {
           let t = (v - lowerE0[x]) * invLowerRange[x];
           t = t < 0 ? 0 : t > 1 ? 1 : t;
-          const fromBottom = t * t * (3 - 2 * t);
+          const fromBottom = smoothstep01(t);
 
           let tt = (v - topE0[x]) * invTopRange[x];
           tt = tt < 0 ? 0 : tt > 1 ? 1 : tt;
-          const fromTop = 1 - tt * tt * (3 - 2 * tt);
+          const fromTop = 1.0 - smoothstep01(tt);
 
           const alpha = (fromBottom * fromTop * a255) | 0;
 
-          data[idx] = r;
-          data[idx + 1] = g;
-          data[idx + 2] = b;
-          data[idx + 3] = alpha;
+          gradData[idx] = r;
+          gradData[idx + 1] = g;
+          gradData[idx + 2] = b;
+          gradData[idx + 3] = alpha;
           idx += 4;
         }
       }
@@ -564,129 +498,145 @@ const updateVertexPhysics = () => {
       gradientCtx.putImageData(gradImageData, 0, 0);
     };
 
-    // Extract stroke RGB once
+    // ==== Grid deformation ====
+    const getDeformationOffset = (x, y, maxDistance, maxDef) => {
+      const dx = x - currentMousePos.current.x;
+      const dy = y - currentMousePos.current.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      if (distance > maxDistance) return { offsetX: 0, offsetY: 0 };
+
+      const influence = 1 - distance / maxDistance;
+      const eased = smootherstep01(influence);
+
+      const angle = Math.atan2(dy, dx);
+      const displacement = eased * maxDef;
+
+      return {
+        offsetX: -Math.cos(angle) * displacement,
+        offsetY: -Math.sin(angle) * displacement,
+      };
+    };
+
+    const getGridAlpha = (x, y, maxDistance, baseAlpha, boostAlpha) => {
+      const dx = x - currentMousePos.current.x;
+      const dy = y - currentMousePos.current.y;
+      const d = Math.sqrt(dx * dx + dy * dy);
+
+      if (d >= maxDistance) return baseAlpha;
+
+      const t = 1 - d / maxDistance;
+      const eased = smootherstep01(t);
+
+      return baseAlpha + eased * boostAlpha;
+    };
+
+    // Extract stroke RGB
     let strokeR = 255,
       strokeG = 255,
-      strokeB = 255,
-      baseAlpha = 0.12;
+      strokeB = 255;
 
     const rgbMatch = String(gridStroke).match(
-      /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*(?:,\s*([\d.]+)\s*)?\)/i
+      /rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i
     );
     if (rgbMatch) {
       strokeR = parseInt(rgbMatch[1], 10);
       strokeG = parseInt(rgbMatch[2], 10);
       strokeB = parseInt(rgbMatch[3], 10);
-      baseAlpha = rgbMatch[4] !== undefined ? parseFloat(rgbMatch[4]) : 1;
     }
 
-    // ==== Draw grid using spring mesh vertices ====
-    // ==== Draw grid using spring mesh vertices ====
-const drawGrid = () => {
-  const vertices = verticesRef.current;
-  if (!vertices) return;
+    const drawGrid = () => {
+      ctx.lineWidth = gridLineWidth;
 
-  const { cols, rows } = gridDimensionsRef.current;
-  if (cols === 0 || rows === 0) return;
+      let baseAlpha = 0.12;
+      const aMatch = String(gridStroke).match(
+        /rgba?\(\s*\d+\s*,\s*\d+\s*,\s*\d+\s*(?:,\s*([\d.]+)\s*)?\)/i
+      );
+      if (aMatch) baseAlpha = aMatch[1] !== undefined ? parseFloat(aMatch[1]) : 1;
 
-  ctx.lineWidth = gridLineWidth;
+      const boostAlpha = 0.5;
 
-  const mx = currentMousePos.current.x;
-  const my = currentMousePos.current.y;
+      const vSegments = Math.ceil(logicalHeight / segmentLength);
+      const hSegments = Math.ceil(logicalWidth / segmentLength);
 
-  const radius = deformRadius;
-  const invRadius = radius > 0 ? 1 / radius : 0;
+      for (let x = 0; x <= logicalWidth; x += gridSize) {
+        let prevX = null;
+        let prevY = null;
 
-  // Smoothstep (0..1 -> 0..1)
-  const smoothstep01 = (t) => t * t * (3 - 2 * t);
+        for (let i = 0; i <= vSegments; i++) {
+          const y = (logicalHeight / vSegments) * i;
 
-  // Distance falloff -> alpha
-  const alphaAt = (x, y) => {
-    // when mouse is "off screen"
-    if (mx < -999 || my < -999) return baseAlpha;
+          const { offsetX, offsetY } = getDeformationOffset(
+            x,
+            y,
+            deformRadius,
+            maxDeformation
+          );
 
-    const dx = mx - x;
-    const dy = my - y;
-    const dist = Math.sqrt(dx * dx + dy * dy);
+          const dx = x + offsetX;
+          const dy = y + offsetY;
 
-    if (dist >= radius) return baseAlpha;
+          if (i === 0) {
+            prevX = dx;
+            prevY = dy;
+            continue;
+          }
 
-    // 1 at center -> 0 at edge
-    let t = 1 - dist * invRadius;
-    t = t < 0 ? 0 : t > 1 ? 1 : t;
+          const mx = (prevX + dx) * 0.5;
+          const my = (prevY + dy) * 0.5;
 
-    const eased = smoothstep01(t);
+          const a = getGridAlpha(mx, my, deformRadius, baseAlpha, boostAlpha);
+          ctx.strokeStyle = `rgba(${strokeR}, ${strokeG}, ${strokeB}, ${a})`;
 
-    // boost opacity at center, fade to baseAlpha at edge
-    const boosted = baseAlpha * (1 + (HOVER_ALPHA_BOOST - 1) * eased);
+          ctx.beginPath();
+          ctx.moveTo(prevX, prevY);
+          ctx.lineTo(dx, dy);
+          ctx.stroke();
 
-    // clamp
-    return boosted > 1 ? 1 : boosted;
-  };
-
-  const getVertex = (col, row) => {
-    if (col < 0 || col >= cols || row < 0 || row >= rows) return null;
-    return vertices[row * cols + col];
-  };
-
-  // ---- Vertical lines (draw as segments) ----
-  for (let col = 0; col < cols; col++) {
-    let prev = null;
-
-    for (let row = 0; row < rows; row++) {
-      const v = getVertex(col, row);
-      if (!v) continue;
-
-      const px = v.x + v.dx;
-      const py = v.y + v.dy;
-
-      if (prev) {
-        // midpoint of the segment for falloff
-        const midX = (prev.x + px) * 0.5;
-        const midY = (prev.y + py) * 0.5;
-
-        const aSeg = alphaAt(midX, midY);
-        ctx.strokeStyle = `rgba(${strokeR},${strokeG},${strokeB},${aSeg})`;
-
-        ctx.beginPath();
-        ctx.moveTo(prev.x, prev.y);
-        ctx.lineTo(px, py);
-        ctx.stroke();
+          prevX = dx;
+          prevY = dy;
+        }
       }
 
-      prev = { x: px, y: py };
-    }
-  }
+      for (let y = 0; y <= logicalHeight; y += gridSize) {
+        let prevX = null;
+        let prevY = null;
 
-  // ---- Horizontal lines (draw as segments) ----
-  for (let row = 0; row < rows; row++) {
-    let prev = null;
+        for (let i = 0; i <= hSegments; i++) {
+          const x = (logicalWidth / hSegments) * i;
 
-    for (let col = 0; col < cols; col++) {
-      const v = getVertex(col, row);
-      if (!v) continue;
+          const { offsetX, offsetY } = getDeformationOffset(
+            x,
+            y,
+            deformRadius,
+            maxDeformation
+          );
 
-      const px = v.x + v.dx;
-      const py = v.y + v.dy;
+          const dx = x + offsetX;
+          const dy = y + offsetY;
 
-      if (prev) {
-        const midX = (prev.x + px) * 0.5;
-        const midY = (prev.y + py) * 0.5;
+          if (i === 0) {
+            prevX = dx;
+            prevY = dy;
+            continue;
+          }
 
-        const aSeg = alphaAt(midX, midY);
-        ctx.strokeStyle = `rgba(${strokeR},${strokeG},${strokeB},${aSeg})`;
+          const mx = (prevX + dx) * 0.5;
+          const my = (prevY + dy) * 0.5;
 
-        ctx.beginPath();
-        ctx.moveTo(prev.x, prev.y);
-        ctx.lineTo(px, py);
-        ctx.stroke();
+          const a = getGridAlpha(mx, my, deformRadius, baseAlpha, boostAlpha);
+          ctx.strokeStyle = `rgba(${strokeR}, ${strokeG}, ${strokeB}, ${a})`;
+
+          ctx.beginPath();
+          ctx.moveTo(prevX, prevY);
+          ctx.lineTo(dx, dy);
+          ctx.stroke();
+
+          prevX = dx;
+          prevY = dy;
+        }
       }
-
-      prev = { x: px, y: py };
-    }
-  }
-};
-
+    };
 
     // ==== animation ====
     let rafId = 0;
@@ -697,21 +647,28 @@ const drawGrid = () => {
     const animate = (now) => {
       rafId = requestAnimationFrame(animate);
 
+      // fps cap
       const deltaMs = now - lastFrameTime;
       if (deltaMs < targetFrameTime - 1) return;
       lastFrameTime = now;
 
+      // keep buffers fresh if variant changed without resize
       resizeCanvas();
 
-      const dt = now - lastTime;
+      const dt = Math.min(0.05, (now - lastTime) / 1000);
       lastTime = now;
 
-      const lerpFactor = 1 - Math.pow(1 - mouseSmoothingBase, dt * 0.06);
-      currentMousePos.current.x += (targetMousePos.current.x - currentMousePos.current.x) * lerpFactor;
-      currentMousePos.current.y += (targetMousePos.current.y - currentMousePos.current.y) * lerpFactor;
-
-      // Update spring physics for all vertices
-      updateVertexPhysics();
+      const lerpFactor = 1 - Math.pow(1 - mouseSmoothingBase, dt * 60);
+      currentMousePos.current.x = lerp(
+        currentMousePos.current.x,
+        targetMousePos.current.x,
+        lerpFactor
+      );
+      currentMousePos.current.y = lerp(
+        currentMousePos.current.y,
+        targetMousePos.current.y,
+        lerpFactor
+      );
 
       const t = now * 0.001;
 
@@ -726,13 +683,14 @@ const drawGrid = () => {
     // ==== events ====
     const handleMouseMove = (e) => {
       const rect = canvas.getBoundingClientRect();
-      targetMousePos.current.x = e.clientX - rect.left;
-      targetMousePos.current.y = e.clientY - rect.top;
+      targetMousePos.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      };
     };
 
     const handleMouseLeave = () => {
-      targetMousePos.current.x = -1000;
-      targetMousePos.current.y = -1000;
+      targetMousePos.current = { x: -1000, y: -1000 };
     };
 
     // init
@@ -778,11 +736,10 @@ const drawGrid = () => {
     overflowExtension,
     gridSize,
     deformRadius,
+    maxDeformation,
     gridStroke,
     gridLineWidth,
-    springStiffness,
-    springDamping,
-    mouseInfluence,
+    segmentLength,
     mouseSmoothingBase,
     topOffsetPx,
   ]);

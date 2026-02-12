@@ -54,93 +54,72 @@ const cardsData = [
 ];
 
 const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
-  
-  // Calculate z-index based on distance from active card
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const getZIndex = () => {
-    if (isActive) {
-      return 50; // Active card always on top
-    }
-    
-    // Calculate distance from active card
+    if (!isDesktop) return 1; // no stacking logic on mobile
+
+    if (isActive) return 50;
+
     const distance = Math.abs(index - activeIndex);
-    
-    // Closer cards have higher z-index
     return 40 - distance;
   };
-  
-  // Calculate position - ensuring all cards are always visible
+
   const getTransform = () => {
-  const peekGap = 7.5;   // stacked spacing
-  const revealGap = 4;   // extra margin around active (increase this)
+    if (!isDesktop) return "none"; // 🚀 disable animation on mobile
 
-  if (index < activeIndex) {
-    // shift upward slightly to create gap above active card
-    return `translateY(${(index * peekGap)}vw)`;
-  }
+    const peekGap = 7.5;
+    const revealGap = 4;
 
-  if (index === activeIndex) {
-    // active card pushed down a bit to create space above
-    return `translateY(${(activeIndex * peekGap) + revealGap}vw)`;
-  }
+    if (index < activeIndex) {
+      return `translateY(${index * peekGap}vw)`;
+    }
 
-  // cards after active pushed further down
-  return `translateY(${(index * peekGap) + (2 * revealGap)}vw)`;
-};
+    if (index === activeIndex) {
+      return `translateY(${(activeIndex * peekGap) + revealGap}vw)`;
+    }
 
-    const [isDesktop, setIsDesktop] = useState(false);
-
-useEffect(() => {
-  const handleResize = () => {
-    setIsDesktop(window.innerWidth >= 768);
+    return `translateY(${(index * peekGap) + (2 * revealGap)}vw)`;
   };
-
-  handleResize(); // initial
-  window.addEventListener("resize", handleResize);
-
-  return () => window.removeEventListener("resize", handleResize);
-}, []);
-
-
-
-const getMobileTransform = () => {
-  const peekGap = 32;
-  const revealGap = 13;
-
-  if (index < activeIndex) {
-    return `translateY(${(index * peekGap)}vw)`;
-  }
-
-  if (index === activeIndex) {
-    return `translateY(${(activeIndex * peekGap) + revealGap}vw)`;
-  }
-
-  return `translateY(${(index * peekGap) + (2 * revealGap)}vw)`;
-};
-
 
   return (
     <div
-    onMouseEnter={onClick}
-      // onClick={onClick}
+      onMouseEnter={isDesktop ? onClick : undefined} // only trigger on desktop
+      onClick={!isDesktop ? onClick : undefined}     // click works on mobile
       style={{
-        transform: isDesktop ? getTransform() : getMobileTransform(),
-
+        transform: getTransform(),
         zIndex: getZIndex(),
       }}
       className={`
-        w-[52vw] px-[3vw] border-primary-blue  
-        h-[10vw] max-sm:w-full max-sm:h-[40vw] border absolute top-0 left-1/2 -translate-x-1/2
-        rounded-[1vw] max-sm:rounded-[5vw] max-sm:px-[5vw] flex justify-center max-md:justify-between 
-        max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[5vw] items-center 
-        backdrop-blur-sm cap-cards cursor-pointer transition-all duration-500 ease-in-out
-        ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
-      `}
+  max-sm:w-full w-[52vw] px-[3vw] border-primary-blue  
+  max-sm:h-[40vw] h-[10vw] border 
+  relative md:absolute md:top-0 md:left-1/2 md:-translate-x-1/2
+  max-sm:rounded-[5vw] rounded-[1vw] max-sm:px-[5vw] max-sm:mb-[5vw]
+  flex justify-center max-md:justify-between 
+  max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[5vw] items-center 
+  backdrop-blur-sm cap-cards cursor-pointer transition-all duration-500 ease-in-out
+  ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
+`}
+
     >
-      <div className="h-[4.5vw] max-sm:w-[20%]  w-[4.5vw] max-sm:h-auto text-primary-blue">
+      <div className="h-[4.5vw] max-sm:w-[20%] w-[4.5vw] max-sm:h-auto text-primary-blue">
         {card.icon}
       </div>
-      <div className="flex flex-col gap-[0.5vw] max-sm:gap-[2vw] w-full ">
-        <p className="text-32 max-sm:leading-[1.2] font-medium">{card.heading}</p>
+
+      <div className="flex flex-col gap-[0.5vw] max-sm:gap-[2vw] w-full">
+        <p className="text-32 max-sm:leading-[1.2] font-medium">
+          {card.heading}
+        </p>
         <p className="text-24 max-sm:leading-[1.4] max-md:w-full">
           {card.text}
         </p>
@@ -149,13 +128,14 @@ const getMobileTransform = () => {
   );
 };
 
+
 const CoreCapabilities = () => {
   const [activeCard, setActiveCard] = useState(0);
 
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-sm:py-[20%]"
+      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[4vw]"
     >
       <HeadingAnim>
 
