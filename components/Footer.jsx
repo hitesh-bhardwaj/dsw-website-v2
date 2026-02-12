@@ -192,7 +192,7 @@ export default function FooterNew() {
 
             {/* Newsletter */}
             <div className="w-[45%] relative max-sm:w-full">
-              <div className="w-full h-[0.1px] bg-black absolute bottom-26 max-sm:bottom-18" />
+              <div className="w-full h-[0.1px] bg-black absolute bottom-24 max-sm:bottom-18" />
               <p className="text-24 font-sans tracking-[0.025vw] mb-[3vw]">
                 Subscribe to our newsletter for the latest tech insights and
                 updates.

@@ -43,7 +43,7 @@ export default function AlwaysOnAI({content}) {
       ref={sectionRef}
       id="alwaysOnAi"
       style={{perspective:"1500px"}}
-      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw]"
+      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw] z-[10]"
     >
       {/* Background Line Effect */}
        {/* before // top-[-60] 0deg */}
