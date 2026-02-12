@@ -1,52 +1,52 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { UnifiedFoundation } from "../Svg/UnifiedFoundation";
-import { Governance } from "../Svg/Governance";
-import { HumanOversight } from "../Svg/HumanOversight";
-import { Security } from "../Svg/Security";
-import { Deployment } from "../Svg/Deployment";
-import { Orchestration } from "../Svg/Orchestration";
 import HeadingAnim from "../Animations/HeadingAnim";
+import { UnifiedFoundation } from "../Svg/Agentic/UnifiedFoundation";
+import { AgentOrchestration } from "../Svg/Agentic/AgentOrchestration";
+import { Governance } from "../Svg/Agentic/Governance";
+import { Explainability } from "../Svg/Agentic/Explainability";
+import { Security } from "../Svg/Agentic/Security";
+import { Deployment } from "../Svg/Agentic/Deployment";
 
 const cardsData = [
   {
     id: 1,
-    icon: UnifiedFoundation,
+    icon: <UnifiedFoundation/>,
     heading: "Unified foundation",
     text: "Single Governance Layer Across Data, models and Agents.",
     zIndex: "z-[10]",
   },
   {
     id: 2,
-    icon: Orchestration,
+    icon: <AgentOrchestration/>,
     heading: "Agent orchestration & collaboration",
     text: "Multi-agent planning, A2A coordination and reusable workflow patterns.",
     zIndex: "z-[9]",
   },
   {
     id: 3,
-    icon: Governance,
+    icon: <Governance/>,
     heading: "Audit-first governance",
     text: "Immutable audit trails, deterministic runtime controls and role-based guardrails.",
     zIndex: "z-[8]",
   },
   {
     id: 4,
-    icon: HumanOversight,
+    icon: <Explainability/>,
     heading: "Explainability + human oversight",
     text: "Native human-in-the-loop workflows, explainability hooks and escalation controls.",
     zIndex: "z-[7]",
   },
   {
     id: 5,
-    icon: Security,
+    icon: <Security/>,
     heading: "Security & agent identity",
     text: "RBAC, secrets management, network sandboxing and enterprise key management.",
     zIndex: "z-[6]",
   },
   {
     id: 6,
-    icon: Deployment,
+    icon: <Deployment/>,
     heading: "Flexible deployment",
     text: "Cloud-agnostic, hybrid, on-prem or air-gapped deployments to meet data-residency and latency needs.",
     zIndex: "z-[5]",
@@ -54,7 +54,6 @@ const cardsData = [
 ];
 
 const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
-  const IconComponent = card.icon;
   
   // Calculate z-index based on distance from active card
   const getZIndex = () => {
@@ -121,7 +120,8 @@ const getMobileTransform = () => {
 
   return (
     <div
-      onClick={onClick}
+    onMouseEnter={onClick}
+      // onClick={onClick}
       style={{
         transform: isDesktop ? getTransform() : getMobileTransform(),
 
@@ -136,8 +136,8 @@ const getMobileTransform = () => {
         ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
       `}
     >
-      <div className="h-[4.5vw] max-sm:w-[20%]  w-[4.5vw] max-sm:h-auto">
-        <IconComponent className="h-full w-full" />
+      <div className="h-[4.5vw] max-sm:w-[20%]  w-[4.5vw] max-sm:h-auto text-primary-blue">
+        {card.icon}
       </div>
       <div className="flex flex-col gap-[0.5vw] max-sm:gap-[2vw] w-full ">
         <p className="text-32 max-sm:leading-[1.2] font-medium">{card.heading}</p>

@@ -1,0 +1,209 @@
+"use client"
+import React, { useEffect, useRef } from 'react';
+
+const GridCanvas = () => {
+  const canvasRef = useRef(null);
+  const targetMousePos = useRef({ x: -1000, y: -1000 });
+  const currentMousePos = useRef({ x: -1000, y: -1000 });
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    let animationFrameId;
+    
+    // Lerp function for smooth interpolation
+    const lerp = (start, end, factor) => {
+      return start + (end - start) * factor;
+    };
+    
+    // Set canvas size to full viewport
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+
+    // Calculate deformation offset based on distance from mouse
+    const getDeformationOffset = (x, y, maxDistance, maxDeformation) => {
+      const dx = x - currentMousePos.current.x;
+      const dy = y - currentMousePos.current.y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+      
+      if (distance > maxDistance) {
+        return { offsetX: 0, offsetY: 0 };
+      }
+      
+      // Calculate influence (1 at center, 0 at maxDistance)
+      const influence = 1 - (distance / maxDistance);
+      // Use easing for smoother deformation
+      const easedInfluence = influence * influence * (3 - 2 * influence); // smoothstep
+      
+      // Calculate displacement direction (TOWARD mouse - negative direction)
+      const angle = Math.atan2(dy, dx);
+      const displacement = easedInfluence * maxDeformation;
+      
+      return {
+        offsetX: -Math.cos(angle) * displacement, // Negative for inward curve
+        offsetY: -Math.sin(angle) * displacement  // Negative for inward curve
+      };
+    };
+
+    // Get color based on distance from mouse - BRIGHTER VERSION
+    const getColorForDistance = (distance, maxDistance) => {
+      if (distance > maxDistance) {
+        return {
+          line: 'rgba(255, 255, 255, 0.12)' // Brighter base color
+        };
+      }
+      
+      // Calculate intensity based on distance (inverse relationship)
+      const influence = 1 - (distance / maxDistance);
+      
+      // Create smoother gradient with brighter colors
+      const easedInfluence = Math.pow(influence, 1.5);
+      
+      // Brighter color transitions: vibrant blue (center) -> cyan -> bright white (edges)
+      const r = 100 ; // Goes from 100 to 255
+      const g = 180 + (1 - easedInfluence) * 75; // Goes from 180 to 255
+      const b = 255; // Keep blue channel at max
+      const alpha = 0.3 + (easedInfluence * 0.7); // Higher base opacity for brightness
+      
+      return {
+        line: `rgba(${r}, ${g}, ${b}, ${alpha * 0.6})` // Increased opacity multiplier
+      };
+    };
+
+    const drawGrid = () => {
+      const gridSize = 60;
+      const deformRadius = 250; // INCREASED radius of deformation effect
+      const maxDeformation = 5; // REDUCED to decrease curve amount
+      const colorRadius = 200; // INCREASED radius for color effect
+      
+      // Apply lerp to smooth mouse movement
+      const lerpFactor = 0.15;
+      currentMousePos.current.x = lerp(currentMousePos.current.x, targetMousePos.current.x, lerpFactor);
+      currentMousePos.current.y = lerp(currentMousePos.current.y, targetMousePos.current.y, lerpFactor);
+      
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      
+      ctx.lineWidth = 1;
+      
+      // Draw vertical lines with deformation and color gradient
+      for (let x = 0; x <= canvas.width; x += gridSize) {
+        const segments = Math.ceil(canvas.height / 5);
+        
+        for (let i = 0; i < segments; i++) {
+          const y1 = (canvas.height / segments) * i;
+          const y2 = (canvas.height / segments) * (i + 1);
+          const midY = (y1 + y2) / 2;
+          
+          // Get deformation for both points
+          const offset1 = getDeformationOffset(x, y1, deformRadius, maxDeformation);
+          const offset2 = getDeformationOffset(x, y2, deformRadius, maxDeformation);
+          
+          const deformedX1 = x + offset1.offsetX;
+          const deformedY1 = y1 + offset1.offsetY;
+          const deformedX2 = x + offset2.offsetX;
+          const deformedY2 = y2 + offset2.offsetY;
+          
+          // Get color based on distance from mouse at segment midpoint
+          const deformedMidX = x + getDeformationOffset(x, midY, deformRadius, maxDeformation).offsetX;
+          const deformedMidY = midY + getDeformationOffset(x, midY, deformRadius, maxDeformation).offsetY;
+          const distanceToMouse = Math.sqrt(
+            (currentMousePos.current.x - deformedMidX) ** 2 + 
+            (currentMousePos.current.y - deformedMidY) ** 2
+          );
+          
+          const colors = getColorForDistance(distanceToMouse, colorRadius);
+          ctx.strokeStyle = colors.line;
+          
+          ctx.beginPath();
+          ctx.moveTo(deformedX1, deformedY1);
+          ctx.lineTo(deformedX2, deformedY2);
+          ctx.stroke();
+        }
+      }
+      
+      // Draw horizontal lines with deformation and color gradient
+      for (let y = 0; y <= canvas.height; y += gridSize) {
+        const segments = Math.ceil(canvas.width / 5);
+        
+        for (let i = 0; i < segments; i++) {
+          const x1 = (canvas.width / segments) * i;
+          const x2 = (canvas.width / segments) * (i + 1);
+          const midX = (x1 + x2) / 2;
+          
+          const offset1 = getDeformationOffset(x1, y, deformRadius, maxDeformation);
+          const offset2 = getDeformationOffset(x2, y, deformRadius, maxDeformation);
+          
+          const deformedX1 = x1 + offset1.offsetX;
+          const deformedY1 = y + offset1.offsetY;
+          const deformedX2 = x2 + offset2.offsetX;
+          const deformedY2 = y + offset2.offsetY;
+          
+          // Get color based on distance from mouse at segment midpoint
+          const deformedMidX = midX + getDeformationOffset(midX, y, deformRadius, maxDeformation).offsetX;
+          const deformedMidY = y + getDeformationOffset(midX, y, deformRadius, maxDeformation).offsetY;
+          const distanceToMouse = Math.sqrt(
+            (currentMousePos.current.x - deformedMidX) ** 2 + 
+            (currentMousePos.current.y - deformedMidY) ** 2
+          );
+          
+          const colors = getColorForDistance(distanceToMouse, colorRadius);
+          ctx.strokeStyle = colors.line;
+          
+          ctx.beginPath();
+          ctx.moveTo(deformedX1, deformedY1);
+          ctx.lineTo(deformedX2, deformedY2);
+          ctx.stroke();
+        }
+      }
+      
+      // DOTS REMOVED - no longer drawing intersection dots
+    };
+
+    const animate = () => {
+      drawGrid();
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    const handleMouseMove = (e) => {
+      const rect = canvas.getBoundingClientRect();
+      targetMousePos.current = {
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top
+      };
+    };
+
+    const handleMouseLeave = () => {
+      targetMousePos.current = { x: -1000, y: -1000 };
+    };
+
+    resizeCanvas();
+    animate();
+    
+    canvas.addEventListener('mousemove', handleMouseMove);
+    canvas.addEventListener('mouseleave', handleMouseLeave);
+    window.addEventListener('resize', resizeCanvas);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      canvas.removeEventListener('mousemove', handleMouseMove);
+      canvas.removeEventListener('mouseleave', handleMouseLeave);
+      window.removeEventListener('resize', resizeCanvas);
+    };
+  }, []);
+
+  return (
+    <section className="h-screen w-screen bg-[#111111] overflow-hidden">
+      <canvas
+        ref={canvasRef}
+        className="block"
+      />
+    </section>
+  );
+};
+
+export default GridCanvas;
