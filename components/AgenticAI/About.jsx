@@ -4,6 +4,7 @@ import { SecurityDeployment } from "../Svg/SecurityAndDeployment";
 import { AuditGovernance } from "../Svg/AuditGovernance";
 import CornerDecorations from "../CornerDecorations";
 import HeadingAnim from "../Animations/HeadingAnim";
+import SectionBreak from "../SectionBreak";
 
 function AboutCard({ challenge }) {
   return (
@@ -36,22 +37,8 @@ export default function AgenticAbout() {
     <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] z-[2]">
       {/* <Copy>  */}
       <div className="mx-auto text-center w-[78%] max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw]">
-        <HeadingAnim>
-          <p className="text-44 font-extralight max-sm:leading-normal leading-[1.4]">
-            Built on the proven DSW Enterprise AI OS and UnifyAI Kernel, the
-            AgenticAI runtime brings agent orchestration, audit-first
-            governance, and human-in-the-loop controls for regulated
-            enterprises.
-          </p>
-        </HeadingAnim>
-        <HeadingAnim>
-          <p className="text-44 font-extralight leading-[1.4] max-sm:leading-normal">
-            Production-grade AgenticAI runtime is purpose-built for enterprises.
-            It unifies data pipelines and agents into a single governed runtime,
-            so regulated enterprises can deploy autonomous workflows with
-            confidence.
-          </p>
-        </HeadingAnim>
+        <SectionBreak content={" Built on the proven DSW Enterprise AI OS and UnifyAI Kernel, the AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises."}/>
+        <SectionBreak content={" Production-grade AgenticAI runtime is purpose-built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence."}/>
       </div>
       {/* </Copy> */}
 

@@ -37,7 +37,7 @@ const heroContent={
   primaryButton:{
     present:false,
     link:"#",
-    text:"Book a demo"
+    text:"Book a Demo"
   },
   secondaryButton:{
     present:false,
@@ -53,7 +53,7 @@ const ctaContent={
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a demo"
+    text:"Book a Demo"
   },
   secondaryButton:{
     present:true,
@@ -65,6 +65,6 @@ const ctaContent={
 
 const tourContent={
   heading:"Take a Lightning Tour of DSW UnifyAI",
-  para:"Your AI foundation — not just for today’s use cases, but for tomorrow’s vision.",
+  para:"Your AI foundation - not just for today’s use cases, but for tomorrow’s vision.",
   tagline:""
 }

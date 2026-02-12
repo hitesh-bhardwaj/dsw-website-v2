@@ -58,25 +58,25 @@ export default function RealWorldOutcomes() {
         {
             number: "02",
             title: "Eliminate unpredictable per-use-case AI costs",
-            description: "single-subscription model replacing per-model and per-agent pricing",
+            description: "Single-subscription model replacing per-model and per-agent pricing",
             position: "col-start-3"
         },
         {
             number: "03",
             title: "Operate audit-ready AI systems by default",
-            description: "continuous execution logs, traces, and approvals enforced at runtime",
+            description: "Continuous execution logs, traces, and approvals enforced at runtime",
             position: "col-start-2 row-start-2"
         },
         {
             number: "04",
             title: "Reduce operational, regulatory, and execution risk",
-            description: "runtime policy enforcement and reversible execution",
+            description: "Runtime policy enforcement and reversible execution",
             position: "col-start-4 row-start-2"
         },
         {
             number: "05",
             title: "Retain full ownership of AI systems and IP",
-            description: "no outbound learning, no vendor lock-in",
+            description: "No outbound learning, no vendor lock-in",
             position: "col-start-3 row-start-3"
         }
     ];

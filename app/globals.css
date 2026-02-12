@@ -154,6 +154,30 @@ h6 {
   }
 }
 
+/* New Section Break Animation */
+.split__wrapper .split-chars {
+  transition: color 0.4s;
+  color: #dddddd;
+}
+
+.split__wrapper .split-chars.show {
+  animation: color-transition 0.5s;
+  color: #111111;
+}
+
+@keyframes color-transition {
+  0% {
+    color: #dddddd;
+  }
+  30% {
+    color: #0205FA;
+  }
+  100% {
+    color: #111111;
+  }
+}
+
+
 .clients-marquee {
   display: flex;
   white-space: nowrap;

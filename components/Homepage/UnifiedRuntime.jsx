@@ -48,7 +48,7 @@ export default function UnifiedRuntime() {
   });
   return (
     <section
-      className="py-[7%] px-[5vw] text-white space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%]"
+      className="py-[7%] px-[5vw] text-white space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%] dark"
       id="unified-runtime"
     >
       <HeadingAnim>

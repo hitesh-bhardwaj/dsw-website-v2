@@ -10,8 +10,9 @@ import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(SplitText);
+gsap.registerPlugin(SplitText, ScrollTrigger);
 
 const NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about-us", drop: false },
@@ -124,6 +125,8 @@ export default function Header() {
   const headerWrapRef = useRef(null);
   const lenis = useLenis();
   const pathname = usePathname();
+  const [isInverted, setIsInverted] = useState(false);
+
 
   // Detect mobile
   useEffect(() => {
@@ -163,6 +166,39 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY, isHoveringHeader]);
 
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      setIsScrolled(scrollTop > 150);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const triggers = [];
+
+    document.querySelectorAll(".dark").forEach((section) => {
+      const trigger = ScrollTrigger.create({
+        trigger: section,
+        start: "top top",
+        end: "bottom top",
+        onEnter: () => setIsInverted(true),
+        onEnterBack: () => setIsInverted(true),
+        onLeave: () => setIsInverted(false),
+        onLeaveBack: () => setIsInverted(false),
+      });
+      triggers.push(trigger);
+    });
+
+    return () => {
+      triggers.forEach((trigger) => trigger.kill());
+    };
+  }, []);
+
   return (
     <>
       <header
@@ -173,20 +209,23 @@ export default function Header() {
         className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
-          className={`flex items-center justify-between px-12 py-6 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
+          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
             isHidden ? "-translate-y-full" : "translate-y-0"
-          }`}
+          } ${isScrolled ? "bg-white/10 shadow-sm" : ""}`}
           ref={headerRef}
         >
+         <span className={`h-full w-full block absolute top-0 left-0 z-[1] ${isScrolled ? " backdrop-blur-md shadow-md" : ""}`}/>
+
+         
           {/* Logo */}
-          <div className="flex items-center gap-2 w-[12%] max-sm:w-[36%]">
+          <div className="flex items-center gap-2 w-[12%] max-sm:w-[36%] z-[10] relative">
             <Link href="/" className="flex items-center">
               <Image
                 src="/dsw-logo.svg"
                 alt="DSW Logo"
                 width={150}
                 height={50}
-                className="h-12 max-sm:w-full w-auto"
+                className={`h-12 max-sm:w-full w-auto ${isInverted ? "brightness-[70]" : ""}`}
                 priority
               />
             </Link>
@@ -194,7 +233,7 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           {!mob ? (
-            <div className="rounded-full ml-[4vw] max-md:hidden relative">
+            <div className="rounded-full ml-[4vw] max-md:hidden relative z-[10]">
               <div className="w-full h-full absolute top-0 left-0" />
               <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
                 {NAV_LINKS.map((link) => {
@@ -228,9 +267,11 @@ export default function Header() {
                           }
                           className={`${hasChildren ? "cursor-pointer" : ""} ${
                             !isActive
-                              ? "group-hover:text-primary-blue! text-22 duration-500 transition-color ease-out font-medium"
+                              ? " text-22 duration-500 transition-color ease-out font-medium"
                               : ""
-                          } buttonTextShadow`}
+                          } buttonTextShadow ${
+                isInverted ? "text-white group-hover:text-primary-white!" : "text-[#111111] group-hover:text-primary-blue!"
+              }`}
                           onClick={(e) => {
                             if (hasChildren) e.preventDefault();
                           }}
@@ -248,7 +289,9 @@ export default function Header() {
                               }`}
                             >
                               <div className="w-[2.8vw] h-auto">
-                                <ChevronDown className="w-[1.2vw]  h-full stroke-black group-hover:stroke-primary-blue duration-300 transition-all ease-in" />
+                                <ChevronDown className={`w-[1.2vw]  h-full  duration-300 transition-all ease-in ${
+                isInverted ? "stroke-white group-hover:stroke-white" : "stroke-[#111111] group-hover:stroke-primary-blue"
+              }`} />
                               </div>
                             </div>
 
@@ -264,7 +307,7 @@ export default function Header() {
                       {/* Submenu */}
                       {hasChildren && (
                         <div
-                          className={`absolute top-[250%] left-[-5%] w-fit h-fit bg-white/60 backdrop-blur-md rounded-[0.8vw] border border-black/5 transition-opacity duration-300 ${
+                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/10  shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md  ${
                             openDropdown === link.id
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"
@@ -287,10 +330,8 @@ export default function Header() {
                                       childActive ? "page" : undefined
                                     }
                                     className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${
-                                      childActive
-                                        ? ""
-                                        : "hover:text-primary-blue!"
-                                    }`}
+                isInverted ? "text-white group-hover:text-primary-white!" : "text-[#111111] group-hover:text-primary-blue!"
+              }`}
                                   >
                                     {child.label}
                                   </AnimatedNavLink>
@@ -323,7 +364,7 @@ export default function Header() {
 
           {/* CTA */}
           {!mob && (
-            <div className="flex items-center gap-6 max-md:hidden">
+            <div className="flex items-center gap-6 max-md:hidden relative z-[10]">
               <PrimaryButton text="Contact Us" href="/contact-us" />
             </div>
           )}
