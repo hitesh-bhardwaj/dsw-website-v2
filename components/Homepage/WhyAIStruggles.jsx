@@ -33,23 +33,21 @@ export default function WhyAIStruggles() {
 
   useGSAP(() => {
     if(globalThis.innerWidth>1024){
-      gsap.from(".struggle-card", {
-        yPercent: 150,
-        stagger: 0.2,
-        ease: "power3.out",
+      gsap.to(".struggle-card", {
+        translateX: 0,
+        stagger: 0.05,
+        ease: "power2.inOut",
+        duration:1,
         scrollTrigger: {
           trigger: "#struggle",
-          start: "top 50%",
-          end: "bottom bottom",
-          scrub: true,
-          // markers:true
+          start: "10% 60%",
         },
       });
     }
   });
 
   return (
-    <section className="relative w-full h-[240vh] py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]" id="struggle">
+    <section className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]" id="struggle">
       {/* Heading Section */}
       <div className=" space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] z-[10]">
         <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
@@ -69,7 +67,7 @@ export default function WhyAIStruggles() {
         {/* Challenge Boxes */}
         <div className="flex justify-center gap-[2.34vw] max-sm:flex-col max-sm:gap-[7vw]">
           {challenges.map((challenge, index) => (
-            <div key={index} className="relative  struggle-card">
+            <div key={index} className={`relative  struggle-card bg-white ${index==0&&"z-[5]"} ${index==1?"-translate-x-[111%] z-[4]":""} ${index==2?"-translate-x-[222%] z-[3]":""} ${index==3?"-translate-x-[333.5%] z-[2]":""}`}>
               {/* Box Container */}
               <div
                 className={`
