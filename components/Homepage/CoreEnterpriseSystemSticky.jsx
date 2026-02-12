@@ -335,7 +335,7 @@ export default function CoreEnterpriseSystemSticky() {
       ref={sectionRef}
       id="coreEnterprise"
       style={{ height: `${SLIDES.length * 150}vh` }}
-      className="relative w-full bg-white flex justify-center mt-[-100vh] max-sm:mt-[-50vw] z-[2]"
+      className="relative w-screen bg-white flex justify-center mt-[-100vh] max-sm:mt-[-50vw] z-[2]"
     >
       <div className="w-screen h-screen sticky top-0 overflow-hidden circle-container">
         {/* Outer circle */}

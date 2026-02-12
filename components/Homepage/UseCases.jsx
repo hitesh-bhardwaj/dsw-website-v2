@@ -10,8 +10,8 @@ export default function UseCases() {
     const cl = gsap.timeline({
       scrollTrigger: {
         trigger: "#usecases",
-        start: "top 70%",
-        end: "20% 70%",
+        start: "top 90%",
+        end: "20% 90%",
         // markers: true,
         onEnter: () => {
           gsap.fromTo(
@@ -70,7 +70,7 @@ export default function UseCases() {
 
   return (
     <section
-      className="dark w-full pt-[7%] px-[5vw] h-[400vh] text-white max-sm:px-[7vw] max-sm:overflow-hidden max-sm:h-fit max-sm:py-[25%] mt-[-100vh] relative"
+      className="dark w-full pt-[7%] px-[5vw] h-[400vh] text-white max-sm:px-[7vw] max-sm:overflow-hidden max-sm:h-fit max-sm:py-[25%] mt-[-105vh] relative z-[20]"
       id="usecases"
     >
       {/* Header */}
@@ -96,7 +96,7 @@ export default function UseCases() {
       </div>
 
       {/* Use Case Cards */}
-      <div className="w-screen h-screen  -mt-[65vh] sticky top-0  overflow-hidden ml-[-5vw] pl-[5vw] max-sm:h-fit max-sm:mt-[15vw] max-sm:static max-sm:mt-0 max-sm:overflow-x-scroll max-sm:pr-[7vw] z-[10] ">
+      <div className="w-screen h-screen  -mt-[65vh] sticky top-0  overflow-hidden ml-[-5vw] pl-[5vw] max-sm:h-fit max-sm:mt-[15vw] max-sm:static max-sm:mt-0 max-sm:overflow-x-scroll max-sm:pr-[7vw] z-[15] ">
         <div className="w-fit h-full flex gap-[3vw] items-end use-case-container ">
           {USE_CASES.map((useCase) => (
             <div
@@ -108,7 +108,7 @@ export default function UseCases() {
                 <div className="w-full h-[10px] bg-primary-blue" />
               </div>
 
-              <div className="w-full h-[37vw]  bg-white content-container max-sm:h-[120vw]">
+              <div className="w-full h-[37vw]  bg-white content-container max-sm:h-[100vw]">
                 <div className="p-[3vw] space-y-[3vw] text-foreground max-sm:p-[7vw]">
                   <h4 className="text-32 font-medium max-sm:font-normal">
                     {useCase.title}

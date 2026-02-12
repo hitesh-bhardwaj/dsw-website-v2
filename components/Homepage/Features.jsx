@@ -8,54 +8,40 @@ import Copy from "../Animations/Copy";
 
 const Features = () => {
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger:{
-        trigger:"#features",
-        start:"21% top",
-        end:"37% top",
-        scrub:true,
-        // markers:true
+    if(globalThis.innerWidth>1024){
+      const tl = gsap.timeline({
+        scrollTrigger:{
+          trigger:"#features",
+          start:"21% top",
+          end:"37% top",
+          scrub:true,
+          // markers:true
+        },
+        defaults:{
+          ease:"none",
+        }
+      })
+      tl.to(".feature-1",{
+        yPercent:-35,
+      })
+      .to(".feature-2",{
+        yPercent:-35
+      },"<")
+    }
+    else{
+      gsap.to(".feature-card-container", {
+      yPercent: -20,
+      ease: "none",
+      scrollTrigger: {
+        trigger: "#features",
+        start: "40% 50%",
+        end: "70% top",
+        scrub: true,
+        // markers:true,
       },
-      defaults:{
-        ease:"none",
-      }
-    })
-    tl.to(".feature-1",{
-      yPercent:-35,
-    })
-    .to(".feature-2",{
-      yPercent:-35
-    },"<")
+    });
+    }
     
-    // gsap.fromTo(
-    //   ".feature-card",
-    //   {
-    //     backgroundColor: "#02031c",
-    //     color: "#ffffff",
-    //   },
-    //   {
-    //     backgroundColor: "#ffffff",
-    //     color: "#111111",
-    //     scrollTrigger: {
-    //       trigger: "#features",
-    //       start: "top 70%",
-    //       end: "20% 70%",
-    //       // markers:true,
-    //       scrub: true,
-    //     },
-    //   },
-    // );
-    // gsap.to(".feature-card-container", {
-    //   yPercent: -20,
-    //   ease: "none",
-    //   scrollTrigger: {
-    //     trigger: "#features",
-    //     start: "49% 50%",
-    //     end: "80% top",
-    //     scrub: true,
-    //     // markers:true,
-    //   },
-    // });
   });
 
   return (
@@ -68,7 +54,7 @@ const Features = () => {
           <div
             key={feature.id}
             className={`
-      w-full h-fit sticky px-[5vw] py-[6vw] bg-[#ffffff] feature-card max-sm:py-[10vw] ${id==0&&" feature-1 "} ${id == 1 ? "max-sm:top-[30%]! feature-2" : ""}
+      w-full h-fit sticky px-[5vw] py-[6vw] bg-[#ffffff] feature-card max-sm:py-[10vw] ${id==0&&" feature-1 "} ${id == 1 ? "max-sm:top-[15%]! feature-2" : ""}
       ${feature.hasTopBorder ? "border-t border-black/30" : ""}
       ${feature.hasBottomBorder ? "border-b border-black/30" : ""}
       ${feature.extraPaddingBottom ? "pb-[10vw]" : ""}
@@ -87,7 +73,7 @@ const Features = () => {
                 {/* </Copy> */}
 
                 {feature.bullets && feature.bullets.length > 0 && (
-                  <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw]">
+                  <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw] max-sm:pl-[5vw]">
                     {feature.bullets.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}

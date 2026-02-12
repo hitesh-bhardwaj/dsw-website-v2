@@ -73,7 +73,7 @@ export default function WhyAIStruggles() {
           {challenges.map((challenge, index) => (
             <div
               key={index}
-              className={`relative  struggle-card bg-white ${index == 0 && "z-[5]"} ${index == 1 ? "-translate-x-[111%] z-[4]" : ""} ${index == 2 ? "-translate-x-[222%] z-[3]" : ""} ${index == 3 ? "-translate-x-[333.5%] z-[2]" : ""}`}
+              className={`relative  struggle-card bg-white  max-sm:translate-x-0 ${index == 0 && "z-[5]"} ${index == 1 ? "-translate-x-[111%] z-[4]" : ""} ${index == 2 ? "-translate-x-[222%] z-[3]" : ""} ${index == 3 ? "-translate-x-[333.5%] z-[2]" : ""}`}
             >
               {/* Box Container */}
               <div
@@ -99,7 +99,7 @@ export default function WhyAIStruggles() {
             </div>
           ))}
         </div>
-        <div className="w-[50%] mx-auto text-center">
+        <div className="w-[50%] mx-auto text-center max-sm:w-full">
           <SectionBreak
             content={
               "These gaps don't surface during pilots, but when AI becomes operational."
