@@ -4,6 +4,7 @@ import CornerDecorations from "../CornerDecorations";
 import gsap from "gsap";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
+import SectionBreak from "../SectionBreak";
 
 export default function WhyAIStruggles() {
   const challenges = [
@@ -94,16 +95,10 @@ export default function WhyAIStruggles() {
             </div>
           ))}
         </div>
-
-        {/* Bottom Text */}
-        <div className="text-center pt-[3vw] max-sm:pt-0">
-          <Copy>
-            <p className="text-44 w-[40%] max-sm:w-full  mx-auto font-light">
-              These gaps don't surface during pilots, but when AI becomes
-              operational.
-            </p>
-          </Copy>
-        </div>
+<div className="w-[50%] mx-auto text-center">
+<SectionBreak content={"These gaps don't surface during pilots, but when AI becomes operational."}  big={false}/>
+</div>
+       
       </div>
     </section>
   );

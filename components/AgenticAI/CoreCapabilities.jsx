@@ -20,21 +20,21 @@ const cardsData = [
     id: 2,
     icon: Orchestration,
     heading: "Agent orchestration & collaboration",
-    text: "multi-agent planning, A2A coordination and reusable workflow patterns.",
+    text: "Multi-agent planning, A2A coordination and reusable workflow patterns.",
     zIndex: "z-[9]",
   },
   {
     id: 3,
     icon: Governance,
     heading: "Audit-first governance",
-    text: "immutable audit trails, deterministic runtime controls and role-based guardrails.",
+    text: "Immutable audit trails, deterministic runtime controls and role-based guardrails.",
     zIndex: "z-[8]",
   },
   {
     id: 4,
     icon: HumanOversight,
     heading: "Explainability + human oversight",
-    text: "native human-in-the-loop workflows, explainability hooks and escalation controls.",
+    text: "Native human-in-the-loop workflows, explainability hooks and escalation controls.",
     zIndex: "z-[7]",
   },
   {
@@ -48,7 +48,7 @@ const cardsData = [
     id: 6,
     icon: Deployment,
     heading: "Flexible deployment",
-    text: "cloud-agnostic, hybrid, on-prem or air-gapped deployments to meet data-residency and latency needs.",
+    text: "Cloud-agnostic, hybrid, on-prem or air-gapped deployments to meet data-residency and latency needs.",
     zIndex: "z-[5]",
   },
 ];

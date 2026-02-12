@@ -8,9 +8,8 @@ export default function Capabilities() {
        
             <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                <h2 className="text-56 text-[#0A1B4B]">
-                   Supercharge Your AI/ML Use Cases with DSW
-UnifyAI’s Built-In Capabilities
+                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto">
+                   Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built-In Capabilities
                 </h2>
                 </HeadingAnim>
                 <Copy>

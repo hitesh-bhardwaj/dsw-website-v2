@@ -67,7 +67,7 @@ export default function UseCases() {
 
   return (
     <section
-      className="w-full bg-[#02031c] pt-[7%] px-[5vw] h-[400vh] text-white max-sm:px-[7vw] max-sm:overflow-hidden max-sm:h-fit max-sm:py-[25%]"
+      className="dark w-full bg-[#02031c] pt-[7%] px-[5vw] h-[400vh] text-white max-sm:px-[7vw] max-sm:overflow-hidden max-sm:h-fit max-sm:py-[25%]"
       id="usecases"
     >
       {/* Header */}

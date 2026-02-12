@@ -20,7 +20,7 @@ const AgenticAI = () => {
         <AgenticCards />
         <CoreCapabilities />
         <AgentSteps />
-        <HowAgenticWworks />
+        <HowAgenticWorks />
          <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
@@ -36,7 +36,7 @@ const heroContent={
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a demo"
+    text:"Book a Demo"
   },
   secondaryButton:{
     present:false,
@@ -53,7 +53,7 @@ const ctaContent={
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a demo"
+    text:"Book a Demo"
   },
   secondaryButton:{
     present:false,

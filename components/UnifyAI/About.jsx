@@ -5,6 +5,7 @@ import { GoLive } from '../Svg/Unify/GoLive';
 import { CostCutting } from '../Svg/Unify/CostCutting';
 import { EnterprisePrivacy } from '../Svg/Unify/EnterprisePrivacy';
 import { Deploy } from '../Svg/Unify/Deploy';
+import SectionBreak from '../SectionBreak';
 
 
 function AboutCard({ challenge }) {
@@ -37,14 +38,16 @@ export default function UnifyAbout() {
 
     return (
         <section className="relative w-full py-[10%] px-[5vw] max-sm:py-[15%] space-y-[12vw]">
+            <SectionBreak content={"Fragmented AI stacks, post-deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time."}/>
 
-            <div className="mx-auto text-center w-[78%] max-sm:w-[90%] space-y-[2.5vw]">
-                <HeadingAnim>
+            {/* <div className="mx-auto text-center w-[78%] max-sm:w-[90%] space-y-[2.5vw]"> */}
+                
+                {/* <HeadingAnim>
                     <h2 className="text-44  max-sm:leading-[1.3]  leading-[1.4]">
-                        Fragmented AI stacks, post-deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time.
+                        
                     </h2>
-                </HeadingAnim>
-            </div>
+                </HeadingAnim> */}
+            {/* </div> */}
 
             <div className='w-full flex max-sm:flex-col max-sm:gap-[6vw] items-center justify-between'>
                 <div className='w-[45%] max-sm:w-[75%] max-sm:mx-auto'>
