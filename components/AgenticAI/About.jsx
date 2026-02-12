@@ -18,12 +18,12 @@ function AboutCard({ challenge }) {
         <CornerDecorations />
 
         {/* Icon/Image */}
-        <div className="mb-auto w-[5vw] h-[5vw] max-sm:h-[12vw] max-sm:w-[12vw]">
+        <div className="mb-auto w-[5vw] h-[5vw] max-sm:h-[14vw] max-sm:w-[14vw]">
           <challenge.Icon className="w-full duration-300 ease-in-out h-full group-hover:text-primary-blue" />
         </div>
 
         {/* Text */}
-        <p className="text-24 font-sans max-sm:leading-[1.2] font-light mt-auto">
+        <p className="text-24 mt-auto max-sm:text-[5.5vw]">
           {challenge.title}
         </p>
       </div>
@@ -33,7 +33,7 @@ function AboutCard({ challenge }) {
 
 export default function AgenticAbout() {
   return (
-    <section className="relative w-full py-[7%] max-sm:px-[7vw] max-sm:py-[15%] space-y-[8vw] max-sm:space-y-[24vw]">
+    <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] z-[2]">
       {/* <Copy>  */}
       <div className="mx-auto text-center w-[78%] max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw]">
         <HeadingAnim>
@@ -55,7 +55,7 @@ export default function AgenticAbout() {
       </div>
       {/* </Copy> */}
 
-      <div className="flex flex-wrap justify-between my-auto mx-auto w-[75%] max-sm:w-full max-sm:mx-auto max-sm:flex-col  space-y-[6vw] max-sm:space-y-[10vw]">
+      <div className="flex flex-wrap justify-between my-auto mx-auto w-[72%] max-sm:w-full max-sm:mx-auto max-sm:flex-col  space-y-[6vw] max-sm:space-y-[10vw]">
         {challenges.map((challenge, index) => (
           <AboutCard key={index} challenge={challenge} />
         ))}

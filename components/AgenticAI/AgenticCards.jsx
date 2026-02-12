@@ -32,11 +32,11 @@ const CardItem = React.forwardRef(({ title, description }, ref) => {
   return (
     <div
       ref={ref}
-      className="relative shadow-md rounded-[1.5vw] border border-primary-blue p-[2.5vw] w-[28vw] h-[37vw]  flex flex-col justify-between max-sm:w-[83vw] max-sm:h-[110vw] max-sm:rounded-[3vw] max-sm:py-[8vw] max-sm:px-[5vw]"
+      className="relative shadow-md drop-shadow-md rounded-[1.5vw] border border-primary-blue p-[2vw] w-[28vw] h-[37vw]  flex flex-col justify-between max-sm:w-[83vw] max-sm:h-[110vw] max-sm:rounded-[4vw] max-sm:p-[8vw]"
     >
-      <h2 className="text-56 font-light max-sm:font-normal">{title}</h2>
+      <h2 className="text-56 ">{title}</h2>
 
-      <p className="text-24  leading-[1.7] max-sm:leading-normal max-sm:font-light">{description}</p>
+      <p className="text-24  leading-[1.5] max-sm:text-[4.5vw] max-sm:font-light">{description}</p>
     </div>
   );
 });
@@ -50,13 +50,13 @@ const AgenticCards = () => {
 
   useGSAP(() => {
     gsap.from(cardsRef.current, {
-      yPercent: 120,
-      stagger: 0.3,
+      yPercent: 150,
+      stagger: 0.2,
       ease: "power2.out",
       scrollTrigger: {
         trigger: containerRef.current,
         start: "top 70%",
-        end: "bottom bottom",
+        end: "110% bottom",
         scrub: true,
         markers: false,
       },
@@ -85,11 +85,11 @@ const AgenticCards = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-[150vh]  max-sm:h-auto max-sm:w-screen max-sm:overflow-x-hidden relative"
+      className="w-full h-[200vh]  max-sm:h-auto max-sm:w-screen max-sm:overflow-x-hidden relative"
     >
       <div className="text-center mx-auto w-[80%] max-sm:w-full ">
         <HeadingAnim>
-          <p className=" font-normal max-sm:px-[7vw] pt-[7%] leading-[1.2] max-sm:pb-[5vw] max-sm:leading-[1.2] text-56! font-heading">
+          <p className=" font-normal max-sm:px-[7vw] leading-[1.2] max-sm:pb-[5vw] max-sm:leading-[1.2] text-56! font-heading">
             Turn proofs of concept into auditable, production- grade automation
             with explainable agents, deterministic governance, and
             enterprise-grade security.
@@ -98,7 +98,7 @@ const AgenticCards = () => {
       </div>
 
       {/* Desktop View */}
-      <div className="w-full py-[7%] max-sm:px-[7vw] max-sm:py-[15%] overflow-hidden h-screen sticky  top-0 flex justify-center items-center gap-[2vw] max-sm:hidden">
+      <div className="w-full max-sm:px-[7vw] max-sm:py-[15%] overflow-hidden h-screen sticky  top-0 flex justify-center items-center gap-[2vw] max-sm:hidden">
         {cardsData.map((card, index) => (
           <CardItem
             key={index}
