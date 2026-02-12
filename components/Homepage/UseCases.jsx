@@ -7,118 +7,122 @@ import Copy from "../Animations/Copy";
 
 export default function UseCases() {
   useGSAP(() => {
-    gsap.fromTo(
-      "#usecases,#coreEnterprise",
-      {
-        backgroundColor: "#ffffff",
-        color: "#111111",
-      },
-      {
-        backgroundColor: "#02031c",
-        color: "#ffffff",
-        scrollTrigger: {
-          trigger: "#usecases",
-          start: "top 70%",
-          end: "20% 70%",
-          scrub: true,
+    const cl = gsap.timeline({
+      scrollTrigger: {
+        trigger: "#usecases",
+        start: "top 70%",
+        end: "20% 70%",
+        // markers: true,
+        onEnter: () => {
+          gsap.fromTo(
+            "#usecases,#coreEnterprise",
+            {
+              backgroundColor: "#ffffff",
+              color: "#111111",
+            },
+            {
+              backgroundColor: "#02031c",
+              color: "#ffffff",
+            },
+          );
+        },
+        onLeaveBack: () => {
+          gsap.fromTo(
+            "#usecases,#coreEnterprise",
+            {
+              backgroundColor: "#02031c",
+              color: "#ffffff",
+            },
+            {
+              backgroundColor: "#ffffff",
+              color: "#111111",
+            },
+          );
         },
       },
-    );
+    });
+    
     const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#usecases",
         start: "20% 90%",
         end: "102% bottom",
-        // markers: true, 
+        // markers: true,
         scrub: true,
       },
     });
-    if(globalThis.innerWidth>1024){
-      tl.from(".content-container",{
-        height:"0vh",
-        stagger:0.25,
-        duration:0.4,
-        ease:"power1.inOut"
-      })
-      .to(".use-case-container",{
-        translateX:"-50%",
-         ease:"power1.inOut",
-        duration:1.2,
-        delay:-1.2,
-        ease:"power1.inOut"
-      })
+    if (globalThis.innerWidth > 1024) {
+      tl.from(".content-container", {
+        height: "0vh",
+        stagger: 0.25,
+        duration: 0.4,
+        ease: "power1.out",
+      }).to(".use-case-container", {
+        translateX: "-50%",
+        ease: "power1.inOut",
+        duration: 1.2,
+        delay: -1.2,
+        ease: "power1.inOut",
+      });
     }
-    // else{
-    //   tl.from(".content-container",{
-    //     height:"0vh",
-    //     stagger:0.25,
-    //     duration:0.4,
-    //     ease:"power1.inOut"
-    //   })
-    //   .to(".use-case-container",{
-    //     translateX:"-80%",
-    //      ease:"none",
-    //     duration:1.2,
-    //     delay:-1.2,
-    //     ease:"power1.inOut"
-    //   })
-    // }
+    
   });
 
   return (
     <section
-      className="dark w-full bg-[#02031c] pt-[7%] px-[5vw] h-[400vh] text-white max-sm:px-[7vw] max-sm:overflow-hidden max-sm:h-fit max-sm:py-[25%]"
+      className="dark w-full pt-[7%] px-[5vw] h-[400vh] text-white max-sm:px-[7vw] max-sm:overflow-hidden max-sm:h-fit max-sm:py-[25%] mt-[-100vh] relative"
       id="usecases"
     >
       {/* Header */}
 
-      <div className="w-[60%] flex flex-col gap-[2vw] text-center  mx-auto max-sm:w-full max-sm:gap-[7vw]">
+      <div className="w-[60%] flex flex-col gap-[2vw] text-center  mx-auto max-sm:w-full max-sm:gap-[7vw] relative z-[10]">
         <HeadingAnim>
-        <h2 className="text-76">
-          Unlimited Use Cases. One Operating Foundation.
-        </h2>
+          <h2 className="text-76">
+            Unlimited Use Cases. One Operating Foundation.
+          </h2>
         </HeadingAnim>
         <Copy>
-        <h3 className="text-44">
-          Your use cases. Your artifacts. Your control.
-        </h3>
+          <h3 className="text-44">
+            Your use cases. Your artifacts. Your control.
+          </h3>
         </Copy>
         <Copy>
-        <p className="text-30">
-          From BFSI to telecom, retail, and healthcare, organizations build AI
-          and Agentic AI use cases that evolve, scale, and remain under
-          enterprise control.
-        </p>
+          <p className="text-30">
+            From BFSI to telecom, retail, and healthcare, organizations build AI
+            and Agentic AI use cases that evolve, scale, and remain under
+            enterprise control.
+          </p>
         </Copy>
       </div>
 
       {/* Use Case Cards */}
-      <div className="w-screen h-screen  -mt-[45vh] sticky top-0  overflow-hidden ml-[-5vw] pl-[5vw] max-sm:h-fit max-sm:mt-[15vw] max-sm:static max-sm:mt-0 max-sm:overflow-x-scroll max-sm:pr-[7vw] ">
+      <div className="w-screen h-screen  -mt-[65vh] sticky top-0  overflow-hidden ml-[-5vw] pl-[5vw] max-sm:h-fit max-sm:mt-[15vw] max-sm:static max-sm:mt-0 max-sm:overflow-x-scroll max-sm:pr-[7vw] z-[10] ">
         <div className="w-fit h-full flex gap-[3vw] items-end use-case-container ">
-        {USE_CASES.map((useCase) => (
-          <div
-            key={useCase.id}
-            className="w-[28vw] h-fit flex flex-col relative use-case justify-between max-sm:w-[80vw]"
-          >
-            <div>
-              <div className="text-76 pl-[3vw] font-light">{useCase.id}</div>
-              <div className="w-full h-[10px] bg-primary-blue" />
-            </div>
+          {USE_CASES.map((useCase) => (
+            <div
+              key={useCase.id}
+              className="w-[28vw] h-fit flex flex-col relative use-case justify-between max-sm:w-[80vw]"
+            >
+              <div>
+                <div className="text-76 pl-[3vw] font-light">{useCase.id}</div>
+                <div className="w-full h-[10px] bg-primary-blue" />
+              </div>
 
-            <div className="w-full h-[73vh]  bg-white content-container max-sm:h-[120vw]">
-              <div className="p-[3vw] space-y-[3vw] text-foreground max-sm:p-[7vw]">
-                <h4 className="text-32 font-medium max-sm:font-normal">{useCase.title}</h4>
+              <div className="w-full h-[37vw]  bg-white content-container max-sm:h-[120vw]">
+                <div className="p-[3vw] space-y-[3vw] text-foreground max-sm:p-[7vw]">
+                  <h4 className="text-32 font-medium max-sm:font-normal">
+                    {useCase.title}
+                  </h4>
 
-                <ul className="list-disc text-24 pl-[1vw] space-y-[0.5vw] max-sm:pl-[5vw]">
-                  {useCase.items.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+                  <ul className="list-disc text-24 pl-[1vw] space-y-[0.5vw] max-sm:pl-[5vw]">
+                    {useCase.items.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-
+          ))}
         </div>
       </div>
     </section>
@@ -155,17 +159,18 @@ const USE_CASES = [
       "Predictive maintenance",
       "NOC automation with agentic workflows",
       "Churn prediction & customer retention",
-      "Field engineer copilots"
+      "Field engineer copilots",
     ],
   },
   {
     id: 4,
-    title: "Retail & E-commerce for personalization, forecasting, and operational AI",
+    title:
+      "Retail & E-commerce for personalization, forecasting, and operational AI",
     items: [
       "Demand forecasting",
       "Dynamic pricing",
       "Recommendation systems",
-      "GenAI customer support copilots"
+      "GenAI customer support copilots",
     ],
   },
   {
@@ -175,17 +180,18 @@ const USE_CASES = [
       "Clinical summarization",
       "Claims & coding optimization",
       "Operational efficiency modelling",
-      "GenAI medical knowledge assistants"
+      "GenAI medical knowledge assistants",
     ],
   },
   {
     id: 6,
-    title: "Manufacturing & Industrial for predictive, preventive, and production intelligence",
+    title:
+      "Manufacturing & Industrial for predictive, preventive, and production intelligence",
     items: [
       "Predictive maintenance",
       "Process optimization",
       "Energy/throughput modelling",
-      "GenAI copilots for SOPs and troubleshooting"
+      "GenAI copilots for SOPs and troubleshooting",
     ],
   },
 ];

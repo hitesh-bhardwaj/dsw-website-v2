@@ -26,10 +26,10 @@ export default function Home() {
       <UseCases/>
       <AlwaysOnAI content={tourContent}/>
       <Clients />
-      <RealWorldOutcomes />
+      {/* <RealWorldOutcomes />
       <CTAPricing />
       <Testimonials />
-      <CTAFinal ctaContent={ctaContent}/>
+      <CTAFinal ctaContent={ctaContent}/> */}
     </main>
     </Layout>
   );
