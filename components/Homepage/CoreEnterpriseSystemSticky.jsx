@@ -4,9 +4,8 @@ import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
-import HeadingAnim from "../Animations/HeadingAnim";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,9 +29,7 @@ const SLIDES = [
 ];
 
 /**
- * ✅ CUSTOM SNAP POINTS (0..1, ascending)
- * This only controls snapping behavior.
- * The index animation is scrubbed in the SAME timeline as content (so it feels identical).
+ * Only used for pagination "commit" detection (no snap).
  */
 const SNAP_POINTS = [0.18, 0.4, 0.7, 0.99];
 
@@ -41,31 +38,38 @@ export default function CoreEnterpriseSystemSticky() {
   const outerRef = useRef(null);
   const innerRef = useRef(null);
   const coreEnterTitle = useRef(null);
+  const wholeContent = useRef(null);
 
-  // refs for mapped slides
   const titleRefs = useRef([]);
   const descRefs = useRef([]);
 
-  // refs for mapped indices (1,2,3,... stacked like slides)
-  const indexRefs = useRef([]);
+  const currRef = useRef(null);
+  const slashRef = useRef(null);
+  const totalRef = useRef(null);
 
   const setTitleRef = (el, i) => {
     if (el) titleRefs.current[i] = el;
   };
-
   const setDescRef = (el, i) => {
     if (el) descRefs.current[i] = el;
   };
 
-  const setIndexRef = (el, i) => {
-    if (el) indexRefs.current[i] = el;
+  // Helper: split safely (prevents nested SplitText wrappers)
+  const safeSplit = (el, options) => {
+    if (!el) return null;
+    if (el._splitInstance?.revert) el._splitInstance.revert();
+    const s = new SplitText(el, options);
+    el._splitInstance = s;
+    return s;
   };
 
   // =========================
-  // Scroll intensity spin (circles)
+  // Scroll intensity spin (circles) - ROBUST
   // =========================
   useGSAP(
     () => {
+      if (!outerRef.current || !innerRef.current) return;
+
       gsap.set([outerRef.current, innerRef.current], {
         transformOrigin: "50% 50%",
         willChange: "transform",
@@ -114,199 +118,235 @@ export default function CoreEnterpriseSystemSticky() {
 
       window.addEventListener("scroll", onScroll, { passive: true });
 
-      return () => {
-        window.removeEventListener("scroll", onScroll);
-        gsap.ticker.remove(tick);
-        outerTL.kill();
-        innerTL.kill();
-      };
+    
     },
-    { scope: sectionRef },
   );
 
   // =========================
-  // Content + Index animation (scrubbed together)
+  // Content animation (scrubbed) - ROBUST
+  // ✅ Titles + Descs = yPercent lines
+  // ✅ NO snap
   // =========================
   useGSAP(
     () => {
-      const titles = titleRefs.current;
-      const descs = descRefs.current;
-      const indices = indexRefs.current;
+      const titles = titleRefs.current.filter(Boolean);
+      const descs = descRefs.current.filter(Boolean);
 
-      if (!titles.length || !descs.length || !indices.length) return;
+      if (!titles.length || !descs.length) return;
 
       const splits = [];
 
-      // Split all indices once (no dynamic swapping, so it's stable & scrub-friendly)
-      const indexSplits = indices.map((el) => {
-        const s = new SplitText(el, { type: "chars", mask: "chars" });
-        splits.push(s);
-        return s;
-      });
-
-      // Split all titles/descs once
       const titleSplits = titles.map((el) => {
-        const s = new SplitText(el, { type: "lines", mask: "lines" });
-        splits.push(s);
+        const s = safeSplit(el, { type: "lines", mask: "lines" });
+        if (s) splits.push(s);
         return s;
       });
 
       const descSplits = descs.map((el) => {
-        const s = new SplitText(el, { type: "lines", mask: "lines" });
-        splits.push(s);
+        const s = safeSplit(el, { type: "lines", mask: "lines" });
+        if (s) splits.push(s);
         return s;
       });
 
-      // Set initial positions so everything is ready for "from" animations.
-      // (We keep them all visible; movement controls what you see, like your content stack.)
-      indexSplits.forEach((s) => gsap.set(s.chars, { yPercent: 100 }));
-      titleSplits.forEach((s) => gsap.set(s.lines, { yPercent: 100 }));
-      descSplits.forEach((s) => gsap.set(s.lines, { yPercent: 100 }));
+      // Initial states
+      titleSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
+      descSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
 
       const tl = gsap.timeline({
+        defaults: { ease: "power1.inOut" },
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "25% top",
-          end: "94% bottom",
+          start: "15% top",
+          end: "75% bottom",
           scrub: true,
+          invalidateOnRefresh: true,
           // markers: true,
-
-          snap: {
-            snapTo: SNAP_POINTS,
-            duration: { min: 0.15, max: 0.45 },
-            ease: "power2.out",
-            delay: 0.05,
-          },
         },
-        defaults: { ease: "power1.inOut" },
       });
 
-      // Build steps per slide:
-      // IN: title + desc + index come from below (yPercent 100 -> 0)
-      // OUT: title + desc + index go up (0 -> -100) except last slide
       SLIDES.forEach((_, i) => {
-        // IN
-        tl.to(titleSplits[i].lines, {
-          yPercent: 0,
-          duration: 0.6,
-          stagger: 0.08,
-        })
-          .to(
-            descSplits[i].lines,
-            {
-              yPercent: 0,
-              duration: 0.6,
-              stagger: 0.06,
-            },
-            "<",
-          )
-          .to(
-            indexSplits[i].chars,
-            {
-              yPercent: 0,
-              duration: 0.35,
-              stagger: 0.05,
-              ease: "power2.out",
-            },
-            "<+0.05",
-          );
+        const tS = titleSplits[i];
+        const dS = descSplits[i];
+        if (!tS?.lines || !dS?.lines) return;
 
-        // OUT (skip last)
+        tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
+          dS.lines,
+          { yPercent: 0, duration: 0.6, stagger: 0.06 },
+          "<"
+        );
+
         if (i !== SLIDES.length - 1) {
-          tl.to(titleSplits[i].lines, {
-            yPercent: -100,
-            duration: 0.6,
-            stagger: 0.08,
-          })
-            .to(
-              descSplits[i].lines,
-              {
-                yPercent: -100,
-                duration: 0.6,
-                stagger: 0.06,
-              },
-              "<",
-            )
-            .to(
-              indexSplits[i].chars,
-              {
-                yPercent: -100,
-                duration: 0.35,
-                stagger: 0.05,
-                ease: "power2.in",
-              },
-              "<+0.05",
-            );
+          tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
+            dS.lines,
+            { yPercent: -100, duration: 0.6, stagger: 0.06 },
+            "<"
+          );
         }
       });
 
-      return () => {
-        splits.forEach((s) => s?.revert?.());
-        ScrollTrigger.getAll().forEach((st) => {
-          if (st?.vars?.trigger === sectionRef.current) st.kill();
-        });
-      };
     },
-    { scope: sectionRef },
   );
 
-  useGSAP(() => {
-    const titleEl = new SplitText(coreEnterTitle.current, {
-      type: "lines",
-      linesClass: "Headingline++",
-      lineThreshold: 0.1,
-    });
-    gsap.set(titleEl.lines, { maskPosition: "100% 100%" });
+  // =========================
+  // Pagination: fade commit near key points - ROBUST
+  // =========================
+  useGSAP(
+    () => {
+      if (!currRef.current || !slashRef.current || !totalRef.current) return;
 
-    const tl = gsap.timeline({
-      scrollTrigger: {
+      const group = [currRef.current, slashRef.current, totalRef.current];
+
+      gsap.set(group, { autoAlpha: 1, willChange: "opacity" });
+
+      currRef.current.textContent = "1";
+      totalRef.current.textContent = String(SLIDES.length);
+
+      let activeIndex = 0;
+
+      const COMMIT_THRESHOLD = 0.06;
+      const FADE_OUT = 0.18;
+      const FADE_IN = 0.22;
+
+      const st = ScrollTrigger.create({
         trigger: sectionRef.current,
-        start: "20% top",
-        // markers: true,
-      },
-    });
-    tl.from(outerRef.current, {
-      opacity: 0,
-      scale: 0.8,
-      ease: "power1.out",
-      duration: 0.7,
-      // rotate:-30,
-    });
-    tl.from(
-      innerRef.current,
-      {
-        opacity: 0,
-        scale: 0.8,
-        ease: "power1.out",
-        duration: 0.7,
-        // rotate:30,
-      },
-      "<",
-    ).to(titleEl.lines, {
-      maskPosition: "0% 100%",
-      stagger: 0.2,
-      duration: 5.5,
-      delay:-0.5,
-      ease: "power3.out",
-    });
-  });
+        start: "15% top",
+        end: "75% bottom",
+        invalidateOnRefresh: true,
+        onUpdate(self) {
+          const p = self.progress;
+
+          let nearest = 0;
+          let best = Infinity;
+
+          for (let i = 0; i < SNAP_POINTS.length; i++) {
+            const d = Math.abs(p - SNAP_POINTS[i]);
+            if (d < best) {
+              best = d;
+              nearest = i;
+            }
+          }
+
+          if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
+            activeIndex = nearest;
+
+            gsap
+              .timeline({ overwrite: true })
+              .to(group, { autoAlpha: 0, duration: FADE_OUT, ease: "power2.out" })
+              .add(() => {
+                currRef.current.textContent = String(activeIndex + 1);
+                totalRef.current.textContent = String(SLIDES.length);
+              })
+              .to(group, { autoAlpha: 1, duration: FADE_IN, ease: "power2.out" });
+          }
+        },
+      });
+
+    },
+  );
+
+  // =========================
+  // Title + circles intro anim + end fade/scale - ROBUST
+  // =========================
+  useGSAP(
+    () => {
+
+      gsap.set(".pagination", { opacity: 0 });
+
+      const titleSplit = safeSplit(coreEnterTitle.current, {
+        type: "lines",
+        linesClass: "Headingline++",
+        lineThreshold: 0.1,
+      });
+
+      if (titleSplit?.lines) {
+        gsap.set(titleSplit.lines, { maskPosition: "100% 100%" });
+      }
+
+      const intro = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "5% top",
+          end: "40% top",
+          scrub: true,
+          // markers: true,
+        },
+      });
+
+      intro
+        .from(outerRef.current, {
+          opacity: 0,
+          scale: 0.9,
+          ease: "power1.out",
+          duration: 1.2,
+        })
+        .from(
+          innerRef.current,
+          {
+            opacity: 0,
+            scale: 0.9,
+            ease: "power1.out",
+            duration: 1.2,
+          },
+          "<"
+        )
+        .to(titleSplit?.lines || [], {
+          maskPosition: "0% 100%",
+          stagger: 0.2,
+          delay: 0.1,
+          duration: 3,
+          ease: "power3.out",
+        })
+        .to(
+          ".pagination",
+          {
+            opacity: 1,
+            duration: 1,
+          },
+          "<"
+        );
+
+      const outro = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "58% top",
+          end: "80% top",
+          scrub: true,
+        },
+      });
+
+      outro
+        .to(wholeContent.current, { opacity: 0, duration: 0.4 })
+        .to(
+          ".circle-container",
+          { scale: 10, duration: 2, ease: "power1.in",delay:-0.2 },
+          
+        )
+        // .to(
+        //   innerRef.current,
+        //   { scale: 5, duration: 2, ease: "power1.in" },
+        //   "<"
+        // );
+
+    },
+  );
 
   return (
     <section
       ref={sectionRef}
       id="coreEnterprise"
-      style={{ height: `${SLIDES.length * 100}vh` }}
-      className="relative w-full bg-white flex justify-center mt-[-100vh] max-sm:mt-[-50vw]"
+      style={{ height: `${SLIDES.length * 150}vh` }}
+      className="relative w-full bg-white flex justify-center mt-[-100vh] max-sm:mt-[-50vw] z-[2]"
     >
-      <div className="w-screen h-screen sticky top-0 max-sm:overflow-hidden">
+      <div className="w-screen h-screen sticky top-0 overflow-hidden circle-container">
         {/* Outer circle */}
+        <div className="w-screen h-screen absolute overflow-hidden">
         <div
           ref={outerRef}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] max-sm:w-[150vw]"
         >
           <Image
             src="/assets/homepage/dotted-circle.svg"
-            alt=""
+            alt="circle-img"
             width={1080}
             height={1080}
           />
@@ -319,24 +359,27 @@ export default function CoreEnterpriseSystemSticky() {
         >
           <Image
             src="/assets/homepage/dotted-circle.svg"
-            alt=""
+            alt="circle-img"
             width={1080}
             height={1080}
           />
         </div>
 
+        </div>
+
         {/* Content */}
-        <div className="relative z-10 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-sm:space-y-[7vw] max-sm:px-[7vw]">
-          {/* <HeadingAnim> */}
+        <div
+          ref={wholeContent}
+          className="relative z-15 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-sm:space-y-[7vw] max-sm:px-[7vw]"
+        >
           <h2
             ref={coreEnterTitle}
             className="text-76 mb-[7vw] max-sm:mb-[25vw] text-[#0A1B4B]"
           >
             Run AI as a Core Enterprise System
           </h2>
-          {/* </HeadingAnim> */}
 
-          {/* Slides stack (mapped) */}
+          {/* Slides stack */}
           <div className="w-full h-fit relative">
             {SLIDES.map((slide, i) => (
               <div
@@ -364,20 +407,22 @@ export default function CoreEnterpriseSystemSticky() {
             ))}
           </div>
 
-          {/* Pagination (index stacked + animated like content) */}
-          <div className="text-[1.67vw] max-sm:text-[6.5vw] text-[#1727FF] relative flex mx-auto w-fit">
-            <div className="relative w-[1.5vw] align-baseline max-sm:w-[6vw]">
-              {SLIDES.map((_, i) => (
-                <div
-                  key={i}
-                  ref={(el) => setIndexRef(el, i)}
-                  className={`absolute ${i === 0 ? "" : ""}`}
-                >
-                  {i + 1}
-                </div>
-              ))}
-            </div>{" "}
-            / {SLIDES.length}
+          {/* Pagination (fade only) */}
+          <div className="pagination mx-auto w-fit">
+            <div className="text-[1.67vw] max-sm:text-[6.5vw] text-[#1727FF] relative flex mx-auto w-fit items-baseline">
+              <span ref={currRef} className="inline-block">
+                1
+              </span>
+              <span
+                ref={slashRef}
+                className="inline-block mx-[0.4vw] max-sm:mx-[1.2vw]"
+              >
+                /
+              </span>
+              <span ref={totalRef} className="inline-block">
+                {SLIDES.length}
+              </span>
+            </div>
           </div>
         </div>
       </div>

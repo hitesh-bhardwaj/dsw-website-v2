@@ -60,7 +60,7 @@ const Features = () => {
 
   return (
     <section
-      className="w-full  relative space-y-[5vw] z-[2]"
+      className="w-full  relative space-y-[5vw] z-[4]"
       id="features"
     >
       <div className="w-fit h-fit feature-card-container">
@@ -87,7 +87,7 @@ const Features = () => {
                 {/* </Copy> */}
 
                 {feature.bullets && feature.bullets.length > 0 && (
-                  <ul className="font-medium text-30 space-y-[0.5vw]">
+                  <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw]">
                     {feature.bullets.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}

@@ -77,7 +77,7 @@ const Background = () => {
         path,
         start,
         end,
-        min = 2.5,
+        min = 6.5,
         maxExtra = 2.5,
         maxDelay = 2.5,
       }) => {
@@ -97,7 +97,7 @@ const Background = () => {
             end,
           },
           duration,
-          ease: "linear",
+          ease: "power1.in",
           immediateRender: false,
         });
       };

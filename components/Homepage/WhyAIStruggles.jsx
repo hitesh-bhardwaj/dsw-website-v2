@@ -33,12 +33,12 @@ export default function WhyAIStruggles() {
   ];
 
   useGSAP(() => {
-    if(globalThis.innerWidth>1024){
+    if (globalThis.innerWidth > 1024) {
       gsap.to(".struggle-card", {
         translateX: 0,
         stagger: 0.05,
         ease: "power2.inOut",
-        duration:1,
+        duration: 1,
         scrollTrigger: {
           trigger: "#struggle",
           start: "10% 60%",
@@ -48,7 +48,10 @@ export default function WhyAIStruggles() {
   });
 
   return (
-    <section className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]" id="struggle">
+    <section
+      className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]"
+      id="struggle"
+    >
       {/* Heading Section */}
       <div className=" space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] z-[10]">
         <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
@@ -68,7 +71,10 @@ export default function WhyAIStruggles() {
         {/* Challenge Boxes */}
         <div className="flex justify-center gap-[2.34vw] max-sm:flex-col max-sm:gap-[7vw]">
           {challenges.map((challenge, index) => (
-            <div key={index} className={`relative  struggle-card bg-white ${index==0&&"z-[5]"} ${index==1?"-translate-x-[111%] z-[4]":""} ${index==2?"-translate-x-[222%] z-[3]":""} ${index==3?"-translate-x-[333.5%] z-[2]":""}`}>
+            <div
+              key={index}
+              className={`relative  struggle-card bg-white ${index == 0 && "z-[5]"} ${index == 1 ? "-translate-x-[111%] z-[4]" : ""} ${index == 2 ? "-translate-x-[222%] z-[3]" : ""} ${index == 3 ? "-translate-x-[333.5%] z-[2]" : ""}`}
+            >
               {/* Box Container */}
               <div
                 className={`
@@ -81,9 +87,7 @@ export default function WhyAIStruggles() {
                 <CornerDecorations />
 
                 {/* Number */}
-                <div
-                  className="text-80 font-light max-sm:text-[15vw]"
-                >
+                <div className="text-80 font-light max-sm:text-[15vw]">
                   {challenge.number}
                 </div>
 
@@ -95,10 +99,14 @@ export default function WhyAIStruggles() {
             </div>
           ))}
         </div>
-<div className="w-[50%] mx-auto text-center">
-<SectionBreak content={"These gaps don't surface during pilots, but when AI becomes operational."}  big={false}/>
-</div>
-       
+        <div className="w-[50%] mx-auto text-center">
+          <SectionBreak
+            content={
+              "These gaps don't surface during pilots, but when AI becomes operational."
+            }
+            big={false}
+          />
+        </div>
       </div>
     </section>
   );
