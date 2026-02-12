@@ -18,6 +18,7 @@ function AboutCard({ challenge }) {
                 `}
             >
                 <CornerDecorations />
+                <CornerDecorations />
                 <div className=" w-[5vw] h-[5vw] max-sm:h-[15vw] max-sm:w-[15vw]">
                     <challenge.icon className="w-full duration-300 ease-in-out h-full text-primary-blue" />
                 </div>

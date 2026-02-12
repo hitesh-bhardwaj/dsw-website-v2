@@ -20,7 +20,7 @@ const AgenticAI = () => {
         <AgenticCards />
         <CoreCapabilities />
         <AgentSteps />
-        <HowAgenticWorks />
+        <HowAgenticWworks />
          <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
