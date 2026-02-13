@@ -9,7 +9,7 @@ import React, { useRef, useEffect } from "react";
  *  - "bottomBoth" (V-shape)
  */
 const WaveGridCanvas = ({
-  variant = "default",
+  variant = "bottomBoth",
 
   // ===== Wave params =====
   HOVER_ALPHA_BOOST = 4.1,
@@ -175,7 +175,7 @@ const WaveGridCanvas = ({
         const dR = Math.sqrt(fromRight * fromRight + fromBottom * fromBottom);
         const dist = dL < dR ? dL : dR;
 
-        const v = 1.6 - dist;
+        const v = 1.2 - dist;
         const u = u01 < 0.5 ? (u01 + v01) * 0.5 : (1 - u01 + v01) * 0.5;
 
         return { u, v };
