@@ -4,11 +4,11 @@ import CornerDecorations from "../CornerDecorations";
 
 export default function Capabilities() {
     return (
-        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] ">
+        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] ">
        
             <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full">
+                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full max-sm:text-[8.5vw]">
                    Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built-In Capabilities
                 </h2>
                 </HeadingAnim>

@@ -65,12 +65,12 @@ export default function SectionBreak({ content, width, big }) {
   return (
     <section
       ref={sectionRef}
-      className="relative h-full w-full px-[5vw] overflow-hidden"
+      className="relative h-full w-full overflow-hidden"
     >
       <div className={`split__wrapper h-full flex items-center justify-center relative text-center mx-auto max-sm:w-full max-md:w-[90%] ${width}`}>
         <h2
           ref={textRef}
-          className={`max-sm:leading-[1.3]  leading-[1.4] text-break text-[#111111]  ${big ?"text-56":"text-44"}`}
+          className={`max-sm:leading-[1.3]  leading-[1.4] text-break text-[#111111] max-sm:text-[6.5vw] ${big ?"text-56":"text-44"}`}
         >
           {content}
         </h2>

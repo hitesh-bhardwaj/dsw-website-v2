@@ -12,7 +12,7 @@ import SectionBreak from "./SectionBreak";
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function AlwaysOnAI({content}) {
+export default function AlwaysOnAI({content,imgWidth}) {
   const sectionRef = useRef(null);
   useGSAP(()=>{
     const tl = gsap.timeline({
@@ -118,7 +118,7 @@ export default function AlwaysOnAI({content}) {
           </Copy>
         </div>
 
-        <div className="relative w-[70vw] h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%] ">
+        <div className={`relative h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%]  ${imgWidth?imgWidth:"w-[70vw]"}`}>
           <Image
             src="/assets/homepage/laptop-dashboard-quality.png"
             alt="DSW UnifyAI Dashboard"
