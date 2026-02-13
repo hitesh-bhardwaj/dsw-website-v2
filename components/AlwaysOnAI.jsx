@@ -7,6 +7,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import HeadingAnim from "./Animations/HeadingAnim";
 import Copy from "./Animations/Copy";
 import { useGSAP } from "@gsap/react";
+import SectionBreak from "./SectionBreak";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -43,7 +44,7 @@ export default function AlwaysOnAI({content}) {
       ref={sectionRef}
       id="alwaysOnAi"
       style={{perspective:"1500px"}}
-      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw] z-[10]"
+      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw] z-[22]"
     >
       {/* Background Line Effect */}
        {/* before // top-[-60] 0deg */}
@@ -128,12 +129,14 @@ export default function AlwaysOnAI({content}) {
           />
         </div>
 
-        <div className="text-center ">
-          <Copy>
-          <p className="text-44 font-heading w-[65%] font-normal mx-auto max-sm:w-full">
-            {content.tagline}
-          </p>
-          </Copy>
+        <div className="text-center w-[73%] mx-auto ">
+          
+           <SectionBreak
+                      content={
+                        content.tagline
+                      }
+                      big={false}
+                    />
         </div>
       </div>
     </section>

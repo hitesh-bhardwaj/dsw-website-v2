@@ -76,7 +76,7 @@ export default function Clients() {
           {[...clients, ...clients].map((client, index) => (
             <div
               key={index}
-              className="shrink-0 w-[16.67vw] clients-logo h-[13.54vw] border border-[#1727ff] rounded-[0.52vw] flex items-center justify-center shadow-md drop-shadow-sm max-sm:w-[40vw] max-sm:h-[30vw] max-sm:rounded-[2vw]"
+              className="shrink-0 w-[16.67vw] clients-logo h-[13.54vw] flex items-center justify-center max-sm:w-[40vw] max-sm:h-[30vw] max-sm:rounded-[2vw]"
             >
               <div className="relative">
                 <Image

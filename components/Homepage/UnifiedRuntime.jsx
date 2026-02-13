@@ -10,84 +10,83 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function UnifiedRuntime() {
   useGSAP(() => {
-    const tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: "#unified-runtime",
-        start: "30% 70%",
-        end: "bottom 70%",
-        // markers:true,
-        onEnter: () => {
-          gsap.fromTo(
-            "#unified-runtime,#struggle",
-            {
-              backgroundColor: "#ffffff",
-              color: "#111111",
-            },
-            { 
-              duration:0.3,
-              backgroundColor: "#02031c",
-              color: "#ffffff",
-            },
-          );
+    if(globalThis.innerWidth>1024){
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#unified-runtime",
+          start: "30% 70%",
+          end: "bottom 70%",
+          // markers:true,
+          onEnter: () => {
+            gsap.fromTo(
+              "#unified-runtime,#struggle",
+              {
+                backgroundColor: "#ffffff",
+                color: "#111111",
+              },
+              { 
+                duration:0.3,
+                backgroundColor: "#02031c",
+                color: "#ffffff",
+              },
+            );
+          },
+          onLeaveBack: () => {
+            gsap.fromTo(
+              "#unified-runtime,#struggle",
+              {
+                backgroundColor: "#02031c",
+                color: "#ffffff",
+              },
+              {
+                duration:0.3,
+                backgroundColor: "#ffffff",
+                color: "#111111",
+              },
+            );
+          },
         },
-        // onEnterBack: () => {
-        //   gsap.fromTo(
-        //     "#unified-runtime,#struggle,.feature-card",
-        //     {
-        //       backgroundColor: "#ffffff",
-        //       color: "#111111",
-        //     },
-        //     {
-        //       duration:0.3,
-        //       backgroundColor: "#02031c",
-        //       color: "#ffffff",
-        //     },
-        //   );
-        // },
-        onLeaveBack: () => {
-          gsap.fromTo(
-            "#unified-runtime,#struggle",
-            {
-              backgroundColor: "#02031c",
-              color: "#ffffff",
-            },
-            {
-              duration:0.3,
-              backgroundColor: "#ffffff",
-              color: "#111111",
-            },
-          );
+      });
+    }
+    else{
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#unified-runtime",
+          start: "10% 20%",
+          end: "bottom 20%",
+          // markers:true,
+          onEnter: () => {
+            gsap.fromTo(
+              "#unified-runtime,#struggle",
+              {
+                backgroundColor: "#ffffff",
+                color: "#111111",
+              },
+              { 
+                duration:0.3,
+                backgroundColor: "#02031c",
+                color: "#ffffff",
+              },
+            );
+          },
+          onLeaveBack: () => {
+            gsap.fromTo(
+              "#unified-runtime,#struggle",
+              {
+                backgroundColor: "#02031c",
+                color: "#ffffff",
+              },
+              {
+                duration:0.3,
+                backgroundColor: "#ffffff",
+                color: "#111111",
+              },
+            );
+          },
         },
-        // onLeave: () => {
-        //   gsap.fromTo(
-        //     "#unified-runtime,#struggle,.feature-card",
-        //     {
-        //       backgroundColor: "#02031c",
-        //       color: "#ffffff",
-        //     },
-        //     {
-        //       duration:0.3,
-        //       backgroundColor: "#ffffff",
-        //       color: "#111111",
-        //     },
-        //   );
-        // },
-      },
-    });
-  
+      });
+    }
 
-    // const bl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: "#unified-runtime",
-    //     start: "bottom 70%",
-    //     end: "bottom 30%",
-    //     scrub: true,
-    //     // markers: true,
-    //   },
-    // });
-    // bl.to("#unified-runtime", {
-    //   backgroundColor: "#ffffff",
-    // });
   });
   return (
     <section

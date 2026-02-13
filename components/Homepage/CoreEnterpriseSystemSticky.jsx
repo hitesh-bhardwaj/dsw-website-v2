@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -39,7 +39,7 @@ export default function CoreEnterpriseSystemSticky() {
   const innerRef = useRef(null);
   const coreEnterTitle = useRef(null);
   const wholeContent = useRef(null);
-
+  const [mob,setMob] = useState(false)
   const titleRefs = useRef([]);
   const descRefs = useRef([]);
 
@@ -62,6 +62,8 @@ export default function CoreEnterpriseSystemSticky() {
     el._splitInstance = s;
     return s;
   };
+
+
 
   // =========================
   // Scroll intensity spin (circles) - ROBUST
@@ -151,39 +153,70 @@ export default function CoreEnterpriseSystemSticky() {
       // Initial states
       titleSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
       descSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
-
-      const tl = gsap.timeline({
-        defaults: { ease: "power1.inOut" },
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "15% top",
-          end: "75% bottom",
-          scrub: true,
-          invalidateOnRefresh: true,
-          // markers: true,
-        },
-      });
-
-      SLIDES.forEach((_, i) => {
-        const tS = titleSplits[i];
-        const dS = descSplits[i];
-        if (!tS?.lines || !dS?.lines) return;
-
-        tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
-          dS.lines,
-          { yPercent: 0, duration: 0.6, stagger: 0.06 },
-          "<"
-        );
-
-        if (i !== SLIDES.length - 1) {
-          tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
+      if(globalThis.innerWidth>1024){
+        const tl = gsap.timeline({
+          defaults: { ease: "power1.inOut" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "15% top",
+            end: "75% bottom",
+            scrub: true,
+            invalidateOnRefresh: true,
+            // markers: true,
+          },
+        });
+        SLIDES.forEach((_, i) => {
+          const tS = titleSplits[i];
+          const dS = descSplits[i];
+          if (!tS?.lines || !dS?.lines) return;
+  
+          tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
             dS.lines,
-            { yPercent: -100, duration: 0.6, stagger: 0.06 },
+            { yPercent: 0, duration: 0.6, stagger: 0.06 },
             "<"
           );
-        }
-      });
-
+  
+          if (i !== SLIDES.length - 1) {
+            tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
+              dS.lines,
+              { yPercent: -100, duration: 0.6, stagger: 0.06 },
+              "<"
+            );
+          }
+        });
+      }
+      else{
+          const tl = gsap.timeline({
+          defaults: { ease: "power1.inOut" },
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "10% top",
+            end: "75% bottom",
+            scrub: true,
+            invalidateOnRefresh: true,
+            // markers: true,
+          },
+        });
+        SLIDES.forEach((_, i) => {
+          const tS = titleSplits[i];
+          const dS = descSplits[i];
+          if (!tS?.lines || !dS?.lines) return;
+  
+          tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
+            dS.lines,
+            { yPercent: 0, duration: 0.6, stagger: 0.06 },
+            "<"
+          );
+  
+          if (i !== SLIDES.length - 1) {
+            tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
+              dS.lines,
+              { yPercent: -100, duration: 0.6, stagger: 0.06 },
+              "<"
+            );
+          }
+        });
+      }
     },
   );
 
@@ -206,40 +239,76 @@ export default function CoreEnterpriseSystemSticky() {
       const COMMIT_THRESHOLD = 0.06;
       const FADE_OUT = 0.18;
       const FADE_IN = 0.22;
-
-      const st = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "15% top",
-        end: "75% bottom",
-        invalidateOnRefresh: true,
-        onUpdate(self) {
-          const p = self.progress;
-
-          let nearest = 0;
-          let best = Infinity;
-
-          for (let i = 0; i < SNAP_POINTS.length; i++) {
-            const d = Math.abs(p - SNAP_POINTS[i]);
-            if (d < best) {
-              best = d;
-              nearest = i;
+      if(globalThis.innerWidth>1024){
+        const st = ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "15% top",
+          end: "75% bottom",
+          invalidateOnRefresh: true,
+          onUpdate(self) {
+            const p = self.progress;
+  
+            let nearest = 0;
+            let best = Infinity;
+  
+            for (let i = 0; i < SNAP_POINTS.length; i++) {
+              const d = Math.abs(p - SNAP_POINTS[i]);
+              if (d < best) {
+                best = d;
+                nearest = i;
+              }
             }
-          }
-
-          if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
-            activeIndex = nearest;
-
-            gsap
-              .timeline({ overwrite: true })
-              .to(group, { autoAlpha: 0, duration: FADE_OUT, ease: "power2.out" })
-              .add(() => {
-                currRef.current.textContent = String(activeIndex + 1);
-                totalRef.current.textContent = String(SLIDES.length);
-              })
-              .to(group, { autoAlpha: 1, duration: FADE_IN, ease: "power2.out" });
-          }
-        },
-      });
+  
+            if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
+              activeIndex = nearest;
+  
+              gsap
+                .timeline({ overwrite: true })
+                .to(group, { autoAlpha: 0, duration: FADE_OUT, ease: "power2.out" })
+                .add(() => {
+                  currRef.current.textContent = String(activeIndex + 1);
+                  totalRef.current.textContent = String(SLIDES.length);
+                })
+                .to(group, { autoAlpha: 1, duration: FADE_IN, ease: "power2.out" });
+            }
+          },
+        });
+      }
+      else{
+         const st = ScrollTrigger.create({
+          trigger: sectionRef.current,
+          start: "10% top",
+          end: "75% bottom",
+          invalidateOnRefresh: true,
+          onUpdate(self) {
+            const p = self.progress;
+  
+            let nearest = 0;
+            let best = Infinity;
+  
+            for (let i = 0; i < SNAP_POINTS.length; i++) {
+              const d = Math.abs(p - SNAP_POINTS[i]);
+              if (d < best) {
+                best = d;
+                nearest = i;
+              }
+            }
+  
+            if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
+              activeIndex = nearest;
+  
+              gsap
+                .timeline({ overwrite: true })
+                .to(group, { autoAlpha: 0, duration: FADE_OUT, ease: "power2.out" })
+                .add(() => {
+                  currRef.current.textContent = String(activeIndex + 1);
+                  totalRef.current.textContent = String(SLIDES.length);
+                })
+                .to(group, { autoAlpha: 1, duration: FADE_IN, ease: "power2.out" });
+            }
+          },
+        });
+      }
 
     },
   );
@@ -261,7 +330,7 @@ export default function CoreEnterpriseSystemSticky() {
       if (titleSplit?.lines) {
         gsap.set(titleSplit.lines, { maskPosition: "100% 100%" });
       }
-
+if(globalThis.innerWidth>1024){
       const intro = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -304,28 +373,88 @@ export default function CoreEnterpriseSystemSticky() {
           },
           "<"
         );
+     
 
-      const outro = gsap.timeline({
+       const outro = gsap.timeline({
+         scrollTrigger: {
+           trigger: sectionRef.current,
+           start: "58% top",
+           end: "80% top",
+           scrub: true,
+         },
+       });
+ 
+       outro
+         .to(wholeContent.current, { opacity: 0, duration: 0.4 })
+         .to(
+           ".circle-container",
+           { scale: 10, duration: 2, ease: "power1.in",delay:-0.2 },
+           
+         )
+     }
+     else{
+       const intro = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: "58% top",
-          end: "80% top",
+          start: "top top",
+          end: "30% top",
           scrub: true,
+          // markers: true,
         },
       });
 
-      outro
-        .to(wholeContent.current, { opacity: 0, duration: 0.4 })
-        .to(
-          ".circle-container",
-          { scale: 10, duration: 2, ease: "power1.in",delay:-0.2 },
-          
+      intro
+        .from(outerRef.current, {
+          opacity: 0,
+          scale: 0.9,
+          ease: "power1.out",
+          duration: 1.2,
+        })
+        .from(
+          innerRef.current,
+          {
+            opacity: 0,
+            scale: 0.9,
+            ease: "power1.out",
+            duration: 1.2,
+          },
+          "<"
         )
-        // .to(
-        //   innerRef.current,
-        //   { scale: 5, duration: 2, ease: "power1.in" },
-        //   "<"
-        // );
+        .to(titleSplit?.lines || [], {
+          maskPosition: "0% 100%",
+          stagger: 0.2,
+          delay: 0.1,
+          duration: 3,
+          ease: "power3.out",
+        })
+        .to(
+          ".pagination",
+          {
+            opacity: 1,
+            duration: 1,
+          },
+          "<"
+        );
+     
+      const outro = gsap.timeline({
+         scrollTrigger: {
+           trigger: sectionRef.current,
+           start: "58% top",
+           end: "70% top",
+           scrub: true,
+          //  markers:true,
+         },
+       });
+ 
+       outro
+         .to(wholeContent.current, { opacity: 0, duration: 1 })
+         .to(
+           ".circle-container",
+           {opacity:0, duration: 1, ease: "power1.in",delay:-0.2 },
+           
+         )
+     }
+        
 
     },
   );
@@ -335,11 +464,11 @@ export default function CoreEnterpriseSystemSticky() {
       ref={sectionRef}
       id="coreEnterprise"
       style={{ height: `${SLIDES.length * 150}vh` }}
-      className="relative w-full bg-white flex justify-center mt-[-100vh] max-sm:mt-[-50vw] z-[2]"
+      className="relative w-screen bg-white flex justify-center mt-[-100vh] z-[2]"
     >
       <div className="w-screen h-screen sticky top-0 overflow-hidden circle-container">
         {/* Outer circle */}
-        <div className="w-screen h-screen absolute overflow-hidden">
+        <div className="w-screen h-screen absolute overflow-hidden ">
         <div
           ref={outerRef}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] max-sm:w-[150vw]"
@@ -347,6 +476,7 @@ export default function CoreEnterpriseSystemSticky() {
           <Image
             src="/assets/homepage/dotted-circle.svg"
             alt="circle-img"
+             className="w-full h-full"
             width={1080}
             height={1080}
           />
@@ -358,8 +488,9 @@ export default function CoreEnterpriseSystemSticky() {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-sm:w-[100vw]"
         >
           <Image
-            src="/assets/homepage/dotted-circle.svg"
+            src="/assets/homepage/inner-circle.svg"
             alt="circle-img"
+            className="w-full h-full"
             width={1080}
             height={1080}
           />
@@ -392,7 +523,7 @@ export default function CoreEnterpriseSystemSticky() {
               >
                 <h3
                   ref={(el) => setTitleRef(el, i)}
-                  className="text-44 font-medium"
+                  className="text-44 font-medium text-[#0A1B4B]"
                 >
                   {slide.title}
                 </h3>

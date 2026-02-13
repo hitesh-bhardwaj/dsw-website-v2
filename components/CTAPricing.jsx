@@ -9,7 +9,7 @@ gsap.registerPlugin(MotionPathPlugin);
 
 export default function CTAPricing() {
   return (
-    <section className="relative w-full h-fit bg-white pt-[5vw] px-[5vw] overflow-hidden mb-[-5vw] max-sm:px-[7vw] max-sm:h-fit max-sm:py-[15%]">
+    <section className="relative w-full h-fit bg-white pt-[7%] px-[5vw] overflow-hidden mb-[-5vw] max-sm:px-[7vw] max-sm:h-fit max-sm:py-[15%]">
       {/* Content */}
       <div className="relative z-20 text-center">
         {/* Heading */}
@@ -77,7 +77,7 @@ const Background = () => {
         path,
         start,
         end,
-        min = 6.5,
+        min = 3.5,
         maxExtra = 2.5,
         maxDelay = 2.5,
       }) => {
@@ -97,7 +97,7 @@ const Background = () => {
             end,
           },
           duration,
-          ease: "power1.in",
+          ease: "power3.out",
           immediateRender: false,
         });
       };
@@ -238,7 +238,7 @@ const Background = () => {
 
       const fadeIn = 0.25;
       const fadeOut = 0.25;
-      const minTravel = 2.2;
+      const minTravel = 3;
       const maxTravelExtra = 1.2;
       const overlapLead = 2;
       const busy = new Map(currencyGroups.map((g) => [g.sel, false]));
@@ -292,7 +292,7 @@ const Background = () => {
         });
         activeCurrencyTls.add(tl);
 
-        tl.to(g.sel, { opacity: 1, duration: fadeIn, ease: "power3.out" })
+        tl.to(g.sel, { opacity: 1, duration: fadeIn, ease: "power3.inOut" })
           .to(g.sel, {
             motionPath: {
               path: g.path,
@@ -305,7 +305,7 @@ const Background = () => {
             duration,
             ease: "power2.out",
           })
-          .to(g.sel, { opacity: 0, duration: fadeOut, ease: "power3.out" });
+          .to(g.sel, { opacity: 0, duration: fadeOut, ease: "power3.inOut" });
 
         if (nextCall) nextCall.kill();
         nextCall = gsap.delayedCall(

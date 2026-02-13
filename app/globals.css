@@ -59,6 +59,8 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   font-kerning: auto;
+  width: 100vw;
+  overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -274,7 +276,7 @@ h6 {
   :root {
     --text-110: 12vw;
     --text-80: 11vw;
-     --text-44: 6vw;
+    --text-44: 6vw;
     --text-76: 8vw;
     --text-30: 4.8vw;
     --text-22: 5vw;

@@ -143,28 +143,28 @@ export default function Header() {
   }, [lenis, pathname]);
 
   // Show/hide header on scroll
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
 
-      if (isHoveringHeader) {
-        setIsHidden(false);
-        setLastScrollY(currentScrollY);
-        return;
-      }
+  //     if (isHoveringHeader) {
+  //       setIsHidden(false);
+  //       setLastScrollY(currentScrollY);
+  //       return;
+  //     }
 
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
+  //     if (currentScrollY > lastScrollY && currentScrollY > 50) {
+  //       setIsHidden(true);
+  //     } else {
+  //       setIsHidden(false);
+  //     }
 
-      setLastScrollY(currentScrollY);
-    };
+  //     setLastScrollY(currentScrollY);
+  //   };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isHoveringHeader]);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [lastScrollY, isHoveringHeader]);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
