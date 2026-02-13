@@ -7,6 +7,7 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import HeadingAnim from "./Animations/HeadingAnim";
 import Copy from "./Animations/Copy";
 import { useGSAP } from "@gsap/react";
+import SectionBreak from "./SectionBreak";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -128,12 +129,14 @@ export default function AlwaysOnAI({content}) {
           />
         </div>
 
-        <div className="text-center ">
-          <Copy>
-          <p className="text-44 font-heading w-[65%] font-normal mx-auto max-sm:w-full">
-            {content.tagline}
-          </p>
-          </Copy>
+        <div className="text-center w-[73%] mx-auto ">
+          
+           <SectionBreak
+                      content={
+                        content.tagline
+                      }
+                      big={false}
+                    />
         </div>
       </div>
     </section>

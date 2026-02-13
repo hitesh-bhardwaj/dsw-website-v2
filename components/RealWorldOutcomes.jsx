@@ -5,7 +5,7 @@ export default function RealWorldOutcomes() {
    
 
     return (
-        <section className="relative w-full py-[10.42vw] space-y-[8vw] max-sm:px-[7vw]">
+        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:px-[7vw]">
             {/* Heading */}
             <div className="text-center space-y-[1vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>

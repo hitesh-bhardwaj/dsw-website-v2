@@ -75,7 +75,7 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full pb-[5vw] px-[3.91vw] space-y-[8vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[15vw]">
+    <section className="relative w-full pb-[7%] px-[3.91vw] space-y-[8vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[15vw]">
       {/* Heading */}
       <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
         <HeadingAnim>
