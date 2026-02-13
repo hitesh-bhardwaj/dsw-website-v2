@@ -1,0 +1,28 @@
+import React from 'react'
+import Image from 'next/image'
+import Copy from '../Animations/Copy'
+
+const Recognized = () => {
+  return (
+   <section className='h-full w-screen py-[7%] px-[5vw] max-sm:py-[15%] max-sm:px-[7vw]' id='careers'>
+    <div className='h-full w-full flex items-start justify-between max-sm:flex-col max-sm:gap-[10vw]'>
+       
+        <div className='w-[50%]  max-sm:w-full max-sm:space-y-[5vw] max-md:items-start max-sm:text-center'>
+          <Copy>
+        <h2 className='text-56 leading-[1.25] text-[#0A1B4B]'>Recognized Excellence: Infosys Finacle Open-Source Services Partner 2025</h2>
+        </Copy>
+        </div>
+       
+
+        <div className='h-[35%] w-[38%] max-md:w-full rounded-[2.5vw] max-md:rounded-[5vw] max-sm:rounded-[7vw] overflow-hidden max-sm:h-[45vh]   max-md:h-[50vw]  fadeup'>
+        <Image src={"/assets/infosys-finacle/recognized.png"} quality={50} height={501} width={543} alt='Careers' className='h-full w-full '/>
+        </div>
+        
+
+    </div>
+
+   </section>
+  )
+}
+
+export default Recognized

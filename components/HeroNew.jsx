@@ -195,7 +195,7 @@ export default function HeroNew({ heroContent }) {
           </Copy>
 
           <HeadingAnim delay={0.3}>
-            <h1 className="text-110 text-[#0A1B4B] leading-[1.2] text-center w-[70%] mx-auto max-sm:w-full opacity-0 hero-head">
+            <h1 className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full opacity-0 hero-head ${heroContent.headingWidth || "w-[70%]"}`}>
               {heroContent.heading}
             </h1>
           </HeadingAnim>
@@ -218,6 +218,31 @@ export default function HeroNew({ heroContent }) {
                 />
               )}
             </div>
+          )}
+        </div>
+
+        <div className="herofadeup">
+          {heroContent.images && (
+            <div
+            className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15"
+          >
+            <Image
+              src="/assets/infosys-finacle/infosys-finacle.png"
+              alt="infosys-finacle"
+              className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
+              width={297}
+              height={46}
+              priority
+            />
+            <Image
+              src="/assets/infosys-finacle/dsw.png"
+              alt="dsw"
+              className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
+              width={297}
+              height={46}
+              priority
+            />
+          </div>
           )}
         </div>
 
