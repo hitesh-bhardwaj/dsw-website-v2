@@ -23,7 +23,7 @@ export default function CTAFinal({ ctaContent }) {
           </Copy>
         )}
         <Copy>
-          <p className="text-30 text-center w-[75%] text-[#111111] max-sm:w-full mx-auto max-sm:font-light ">
+          <p className="text-30 text-center w-[70%] text-[#111111] max-sm:w-full mx-auto max-sm:font-light ">
             {ctaContent.para}
           </p>
         </Copy>
