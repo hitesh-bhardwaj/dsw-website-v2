@@ -138,7 +138,7 @@ export default function Accelerate() {
         >
             <div className="text-center max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                    <h2 className="text-56 ">
+                    <h2 className="text-56 text-[#0A1B4B]">
                         Accelerate AI/ML Into Production with Enterprise Confidence
                     </h2>
                 </HeadingAnim>
@@ -146,7 +146,7 @@ export default function Accelerate() {
 
             {/* Animated Steps with SVG Lines */}
             <div className="relative w-full mx-auto">
-                 <p className="text-30 max-sm:text-[4vw] max-sm:w-[90%] max-sm:mx-auto  mb-8  text-center">
+                 <p className="text-30 max-sm:text-[4vw] max-sm:w-[90%] max-sm:mx-auto  mb-8  text-center text-[#333333]">
                         The runtime gives you a complete, ready-to-run path to enterprise AI/ML.
                     </p>
                 {/* Top connecting line from paragraph */}
@@ -190,10 +190,10 @@ export default function Accelerate() {
                             className="text-center mb-5"
                         >
                             <div className="step-content space-y-[1vw]">
-                                <h3 className="text-32">
+                                <h3 className="text-32 text-[#0A1B4B] font-heading">
                                     {step.title}
                                 </h3>
-                                <p className="text-24 max-sm:w-[90%] max-sm:mx-auto max-sm:opacity-80">
+                                <p className="text-24 max-sm:w-[90%] max-sm:mx-auto max-sm:opacity-80 text-[#333333]">
                                     {step.description}
                                 </p>
                             </div>

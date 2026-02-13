@@ -13,12 +13,10 @@ const UseCases = () => {
                 <div className=' w-full'>
                     <div className="relative fadeup space-y-[4vw] max-sm:space-y-[10vw]">
                         {content.map((item, index) => (
-                            <div key={index} className="relative bg-white hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out w-full h-full px-[2vw] py-[2.5vw] pb-[3vw] max-sm:p-[6vw] max-sm:w-full max-sm:h-auto border border-border-color flex flex-col justify-between">
+                            <div key={index} className="relative bg-white hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out w-full h-full px-[2vw] py-[2.5vw] pb-[3vw] max-sm:p-[6vw] max-sm:w-full max-sm:h-auto border border-[#CCCCCC] flex flex-col justify-between">
                                 <CornerDecorations />
-
-
                                 <div className='w-1/3 max-sm:w-full space-y-[2vw] max-sm:space-y-[6vw]'>
-                                    <h3 className='text-44  '>
+                                    <h3 className='text-44  text-[#0A1B4B]'>
                                         {item.heading}
                                     </h3>
                                     <p className='text-30 text-[#333333]'>

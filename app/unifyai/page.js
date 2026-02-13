@@ -63,7 +63,7 @@ const ctaContent={
 }
 
 const tourContent={
-  heading:"Take a Lightning Tour of DSW UnifyAI",
-  para:"Your AI foundation - not just for today’s use cases, but for tomorrow’s vision.",
+  heading:"Take a lightning tour of the DSW AI/ML Runtime",
+  para:"Your AI foundation not just for today’s use cases, but for tomorrow’s vision.",
   tagline:""
 }

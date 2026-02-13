@@ -117,10 +117,10 @@ const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
       </div>
 
       <div className="flex flex-col gap-[0.5vw] max-sm:gap-[2vw] w-full">
-        <p className="text-32 max-sm:leading-[1.2] font-medium">
+        <p className="text-32 max-sm:leading-[1.2] font-medium text-[#0A1B4B] font-heading">
           {card.heading}
         </p>
-        <p className="text-24 max-sm:leading-[1.4] max-md:w-full">
+        <p className="text-24 max-sm:leading-[1.4] max-md:w-full text-[#111111]">
           {card.text}
         </p>
       </div>

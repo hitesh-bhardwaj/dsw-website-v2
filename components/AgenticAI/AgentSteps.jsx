@@ -87,7 +87,7 @@ function AgenticCard({ id, title, Icon, description }) {
       </div>
 
       {/* Description */}
-      <p className="text-24 m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%]">
+      <p className="text-24 m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%] text-[#111111]">
         {description}
       </p>
     </div>

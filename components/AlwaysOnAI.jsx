@@ -111,7 +111,7 @@ export default function AlwaysOnAI({content}) {
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans w-[55%] mx-auto max-sm:w-full">
+            <p className="text-30 font-sans w-[50%] mx-auto max-sm:w-full">
               {content.para}
             </p>
           </Copy>

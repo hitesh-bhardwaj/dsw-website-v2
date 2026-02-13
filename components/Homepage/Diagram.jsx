@@ -16,15 +16,17 @@ const layers = [
 const Diagram=()=>{
   return(
     <>
-    <div className="w-full flex justify-between h-fit items-center max-sm:flex-col max-sm:gap-[15vw]">
+    <div className="w-full flex justify-between h-fit items-center max-sm:flex-col max-sm:gap-[15vw] ">
         <div className="w-[30%] flex flex-col gap-[2vw] max-sm:gap-[6vw] max-sm:w-full">
           <HeadingAnim>
           <h3 className="text-56 max-sm:w-[70%] ">Hardware / Cloud Infrastructure</h3>
           </HeadingAnim>
           <Copy>
-          <div className="flex items-center  gap-2">
-            <div className="w-1 h-1  bg-white rounded-full inline-block " />{" "}
+          <div className="flex items-center justify-between  gap-2">
+            {/* <span className="w-1 h-1  bg-white rounded-full inline-block " /> */}
+            <p className='text-24'>
             Servers, Storage, Network, Accelerators
+            </p>
           </div>
           </Copy>
         </div>

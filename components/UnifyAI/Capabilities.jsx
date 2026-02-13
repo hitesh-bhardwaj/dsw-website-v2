@@ -8,17 +8,17 @@ export default function Capabilities() {
        
             <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto">
+                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full">
                    Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built-In Capabilities
                 </h2>
                 </HeadingAnim>
                 <Copy>
-                <p className="text-30 w-[70%] max-sm:w-[90%] max-sm:leading-normal mx-auto">
+                <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto text-[#333333]">
                    UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start
                 </p>
                 </Copy>
             </div>
-<div className="w-full h-full ">
+<div className="w-full h-full fadeup">
             <CapabilitiesTable/>
             </div>
           
@@ -66,13 +66,13 @@ export default function Capabilities() {
 
         
          <div className="w-[90%] max-sm:w-[290%] mx-auto max-sm:overflow-y-hidden ">
-       {/* <CornerDecorations/> */}
+       <CornerDecorations/>
       
       <table className="border-collapse w-full h-full border border-[#D9D9D9]">
        
         <thead>
           <tr className="bg-white">
-            <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading">
+            <th className="border border-[#D9D9D9] text-[#111111] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading">
               Capability
             </th>
             <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading text-primary-blue">
@@ -83,10 +83,10 @@ export default function Capabilities() {
         <tbody>
           {capabilities.map((item, index) => (
             <tr key={index} className="bg-white">
-              <td className="border border-[#D9D9D9] max-sm:pl-[8vw] px-6 py-5 text-30">
+              <td className="border border-[#D9D9D9] max-sm:pl-[8vw] px-6 py-5 text-30 text-[#111111]">
                 {item.capability}
               </td>
-              <td className="border border-[#D9D9D9] px-6 py-5 text-24">
+              <td className="border border-[#D9D9D9] px-6 py-5 text-24 text-[#333333]">
                 {item.delivers}
               </td>
             </tr>

@@ -18,11 +18,11 @@ export default function HeroNew({ heroContent }) {
   const scrollHintRef = useRef(null);
   const idleTimerRef = useRef(null);
 
-  const [isIdle, setIsIdle] = useState(false); // true = show hint
+  const [isIdle, setIsIdle] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   fadeUp();
 
-  // ✅ GSAP intro + fadeUp (NOT in render)
+  // ✅ GSAP intro + fadeUp
   useGSAP(() => {
     const tl = gsap.timeline();
     gsap.set(".hero-overlay", { opacity: 0 });
@@ -42,46 +42,72 @@ export default function HeroNew({ heroContent }) {
     );
   }, []);
 
-  // ✅ Footer visibility watcher (hide hint while footer-cta is visible)
+  // ✅ Footer visibility watcher with improved detection
   useEffect(() => {
     const checkFooter = () => {
       const footerCta = document.getElementById("footer-cta");
-      if (!footerCta) {
+      const footer = document.getElementById("footer");
+      
+      // Check both elements
+      const elements = [footerCta, footer].filter(Boolean);
+      
+      if (elements.length === 0) {
         setIsFooterVisible(false);
         return;
       }
 
-      const rect = footerCta.getBoundingClientRect();
       const vh = window.innerHeight;
+      
+      // Check if ANY footer element is visible
+      const anyVisible = elements.some(el => {
+        const rect = el.getBoundingClientRect();
+        // Consider visible if top edge is within viewport or close to it
+        // Adding buffer for mobile (50px) to trigger earlier
+        return rect.top < vh + 50 && rect.bottom > -50;
+      });
 
-      // visible if intersects viewport
-      const visible = rect.top < vh && rect.bottom > 0;
-      setIsFooterVisible(visible);
+      setIsFooterVisible(anyVisible);
     };
 
-    window.addEventListener("scroll", checkFooter, { passive: true });
-    window.addEventListener("resize", checkFooter);
+    // Check immediately on mount
     checkFooter();
+    
+    // Throttle for better mobile performance
+    let ticking = false;
+    const throttledCheck = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          checkFooter();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", throttledCheck, { passive: true });
+    window.addEventListener("resize", checkFooter);
+    
+    // Extra check after a short delay (for content that loads async)
+    const delayedCheck = setTimeout(checkFooter, 500);
 
     return () => {
-      window.removeEventListener("scroll", checkFooter);
+      window.removeEventListener("scroll", throttledCheck);
       window.removeEventListener("resize", checkFooter);
+      clearTimeout(delayedCheck);
     };
   }, []);
 
-  // ✅ Scroll hint behavior:
-  // - Hidden during scrolling
-  // - Shown after 7s of inactivity
-  // - BUT force hidden while footer-cta is visible
+  // ✅ Scroll hint behavior with improved mobile handling
   useEffect(() => {
     const hintEl = scrollHintRef.current;
     if (!hintEl) return;
 
-    // start hidden
+    // Start hidden
     gsap.set(hintEl, { autoAlpha: 0 });
 
     const showHint = () => {
-      if (isFooterVisible) return; // ✅ don't show while footer is visible
+      // Double check footer visibility before showing
+      if (isFooterVisible) return;
       setIsIdle(true);
       gsap.to(hintEl, { autoAlpha: 1, duration: 0.35, overwrite: "auto" });
     };
@@ -92,17 +118,22 @@ export default function HeroNew({ heroContent }) {
     };
 
     const resetIdleTimer = () => {
-      // active scrolling => hide immediately
+      // Active scrolling => hide immediately
       hideHint();
 
-      // restart 7s idle timer
+      // Clear existing timer
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      
+      // Don't start timer if footer is visible
+      if (isFooterVisible) return;
+
+      // Restart 7s idle timer
       idleTimerRef.current = setTimeout(() => {
         showHint();
       }, 7000);
     };
 
-    // initialize: if no scroll happens, show after 7s (unless footer visible)
+    // Initialize: if no scroll happens, show after 7s (unless footer visible)
     resetIdleTimer();
 
     window.addEventListener("scroll", resetIdleTimer, { passive: true });
@@ -113,7 +144,7 @@ export default function HeroNew({ heroContent }) {
     };
   }, [isFooterVisible]);
 
-  // ✅ If footer becomes visible, force-hide immediately and cancel any pending show
+  // ✅ Force-hide when footer becomes visible
   useEffect(() => {
     const hintEl = scrollHintRef.current;
     if (!hintEl) return;
@@ -121,10 +152,11 @@ export default function HeroNew({ heroContent }) {
     if (isFooterVisible) {
       setIsIdle(false);
       gsap.to(hintEl, { autoAlpha: 0, duration: 0.15, overwrite: "auto" });
-      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
+      if (idleTimerRef.current) {
+        clearTimeout(idleTimerRef.current);
+        idleTimerRef.current = null;
+      }
     }
-    // when footer becomes not visible again, the idle-timer effect
-    // (above) will handle showing after 7s of inactivity.
   }, [isFooterVisible]);
 
   return (
@@ -157,7 +189,7 @@ export default function HeroNew({ heroContent }) {
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
           <Copy delay={1}>
-            <p className="text-30 text-center tracking-wide opacity-0 hero-text">
+            <p className="text-30 text-center text-[#333333] tracking-wide opacity-0 hero-text">
               {heroContent.tagline}
             </p>
           </Copy>
@@ -189,37 +221,39 @@ export default function HeroNew({ heroContent }) {
           )}
         </div>
 
-        {/* Scroll Down Indicator */}
-        <div
-          ref={scrollHintRef}
-          className="fixed bottom-10 right-10 max-sm:left-22 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full scrolling pointer-events-none"
-          aria-hidden={!isIdle || isFooterVisible}
-        >
-          <div>
-            <div className="flex flex-col gap-[0.5vw] w-fit h-[1vw] arrow-container max-sm:h-[3.5vw] overflow-hidden translate-y-[15%] max-sm:translate-y-[25%] max-md:translate-y-[20%] max-md:h-[2.5vw]">
-              <div className="w-fit h-fit space-y-[0.5vw] keepScrolling-arrow max-sm:space-y-[1.5vw] max-md:space-y-[1vw]">
-                <Image
-                  src="/arrow-downward.svg"
-                  width={20}
-                  height={20}
-                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
-                  alt="arrow-down"
-                />
-                <Image
-                  src="/arrow-downward.svg"
-                  width={20}
-                  height={20}
-                  className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
-                  alt="arrow-down"
-                />
+        {/* Scroll Down Indicator - conditionally render to prevent any display issues */}
+        {!isFooterVisible && (
+          <div
+            ref={scrollHintRef}
+            className="fixed bottom-10 right-10 max-sm:left-22 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full scrolling pointer-events-none"
+            aria-hidden={!isIdle}
+          >
+            <div>
+              <div className="flex flex-col gap-[0.5vw] w-fit h-[1vw] arrow-container max-sm:h-[3.5vw] overflow-hidden translate-y-[15%] max-sm:translate-y-[25%] max-md:translate-y-[20%] max-md:h-[2.5vw]">
+                <div className="w-fit h-fit space-y-[0.5vw] keepScrolling-arrow max-sm:space-y-[1.5vw] max-md:space-y-[1vw]">
+                  <Image
+                    src="/arrow-downward.svg"
+                    width={20}
+                    height={20}
+                    className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
+                    alt="arrow-down"
+                  />
+                  <Image
+                    src="/arrow-downward.svg"
+                    width={20}
+                    height={20}
+                    className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
+                    alt="arrow-down"
+                  />
+                </div>
               </div>
             </div>
-          </div>
 
-          <p className="text-20 font-sans shimmer tracking-[0.056vw]">
-            Keep Scrolling to Discover More
-          </p>
-        </div>
+            <p className="text-20 font-sans shimmer tracking-[0.056vw]">
+              Keep Scrolling to Discover More
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" />

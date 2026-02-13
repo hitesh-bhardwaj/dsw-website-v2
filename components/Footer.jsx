@@ -95,7 +95,7 @@ export default function FooterNew() {
   ];
 
   return (
-    <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]">
+    <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]" id="footer">
       {/* Background Gradient */}
       <div className="w-screen h-full">
         <WaveGradientCanvas />
@@ -145,13 +145,13 @@ export default function FooterNew() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[1.5vw] mt-[3vw] max-sm:gap-[10vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+              <div className="flex items-center gap-[1.5vw] mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social, id) => (
                   <Link
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[6vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>
@@ -201,10 +201,10 @@ export default function FooterNew() {
                 <input
                   type="email"
                   placeholder="Enter Your Email"
-                  className="w-full bg-transparent text-[1vw] font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[4.5vw] max-sm:mx-auto"
+                  className="w-full bg-transparent text-20 font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
                 />
                 <button
-                  className="px-[1.5vw] py-[0.5vw] rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto"
+                  className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto"
                   style={{
                     backgroundImage:
                       "linear-gradient(112.958deg, rgb(241, 107, 13) 7.1952%, rgb(230, 18, 22) 92.805%)",

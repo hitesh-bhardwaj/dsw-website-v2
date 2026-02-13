@@ -10,7 +10,7 @@ function AboutCard({ challenge }) {
     <div className="relative fadeup">
       <div
         className={`
-                    relative bg-white  hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
+                    relative bg-white  hover:border-primary-blue group hover:shadow-md hover:drop-shadow-md duration-300 ease-in-out group 
                     w-[30vw] h-[16vw] p-[2vw] max-sm:p-[7vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[55vw] border
                     border-border-color flex flex-col
                 `}
@@ -23,7 +23,7 @@ function AboutCard({ challenge }) {
         </div>
 
         {/* Text */}
-        <p className="text-24 mt-auto max-sm:text-[5.5vw]">
+        <p className="text-30 mt-auto max-sm:text-[5.5vw] text-[#111111]">
           {challenge.title}
         </p>
       </div>

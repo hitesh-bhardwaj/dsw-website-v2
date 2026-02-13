@@ -177,6 +177,7 @@ const HowAgenticWorks = () => {
             alt=""
             width={1080}
             height={1080}
+            className="h-full w-full opacity-35"
           />
         </div>
 
@@ -186,7 +187,7 @@ const HowAgenticWorks = () => {
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[45vw] max-sm:w-[120vw] h-auto"
         >
           <Image
-            src="/assets/homepage/dotted-circle.svg"
+            src="/assets/homepage/inner-circle.svg"
             alt=""
             width={1080}
             height={1080}
