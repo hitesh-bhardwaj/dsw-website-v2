@@ -176,7 +176,7 @@ const SystemStructure = () => {
               <h3 className="text-24 text-white font-medium font-heading tracking-[0.02em] mb-[1vw] max-sm:mb-[3vw]">
                 Base Infrastructure Layer
               </h3>
-              <p className="text-20 text-white leading-[1.5] tracking-[0.02em]">
+              <p className="text-20 text-white leading-normal tracking-[0.02em]">
                 Linux, Windows, Unix, or container runtimes manage compute, memory, and networking.
                 <br className="max-sm:hidden" />
                 <span className="max-sm:inline"> </span>

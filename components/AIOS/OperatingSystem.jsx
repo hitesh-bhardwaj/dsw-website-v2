@@ -25,7 +25,7 @@ const OperatingSystem = () => {
                             <div className="size-[14vw] border border-primary-blue rounded-full flex items-center justify-center text-center">
                                 <p className="text-30 leading-[1.4]">It Runs Across</p>
                             </div>
-                            <Image className="!left-1/4" src={"/assets/icons/run-across-half.svg"} alt="half circle image" fill="true" objectFit="contain" />
+                            <Image className="left-1/4!" src={"/assets/icons/run-across-half.svg"} alt="half circle image" fill="true" objectFit="contain" />
                         </div>
                         <div className="space-y-[1.8vw]">
                             {data.map((item) => (
