@@ -138,7 +138,7 @@ export default function Accelerate() {
         >
             <div className="text-center max-sm:space-y-[7vw]">
                 <HeadingAnim>
-                    <h2 className="text-56 text-[#0A1B4B]">
+                    <h2 className="text-56 text-[#0A1B4B] max-sm:text-[8.5vw]">
                         Accelerate AI/ML Into Production with Enterprise Confidence
                     </h2>
                 </HeadingAnim>
@@ -158,7 +158,7 @@ export default function Accelerate() {
                             x2="10"
                             y2={lineHeight}
                             stroke="#D1D5DB"
-                            strokeWidth="2"
+                            strokeWidth="1"
                         />
                         <line
                             x1="10"
@@ -166,17 +166,17 @@ export default function Accelerate() {
                             x2="10"
                             y2={lineHeight}
                             stroke="#0205FA"
-                            strokeWidth="2"
+                            strokeWidth="1"
                             ref={addToLineRefs}
                         />
                         {/* Dot that moves along the line */}
                         <circle
                             cx="10"
                             cy="0"
-                            r="7"
+                            r="6"
                             fill="#f8f8f8"
                             stroke="#0205FA"
-                            strokeWidth="2"
+                            strokeWidth="1"
                             ref={addToDotRefs}
                         />
                     </svg>
@@ -190,7 +190,7 @@ export default function Accelerate() {
                             className="text-center mb-5"
                         >
                             <div className="step-content space-y-[1vw]">
-                                <h3 className="text-32 text-[#0A1B4B] font-heading">
+                                <h3 className="text-32 text-[#0A1B4B] font-heading max-sm:text-[6vw]">
                                     {step.title}
                                 </h3>
                                 <p className="text-24 max-sm:w-[90%] max-sm:mx-auto max-sm:opacity-80 text-[#333333]">
@@ -209,7 +209,7 @@ export default function Accelerate() {
                                         x2="10"
                                         y2={lineHeight}
                                         stroke="#D1D5DB"
-                                        strokeWidth="2"
+                                        strokeWidth="1"
                                     />
                                     <line
                                         x1="10"
@@ -217,17 +217,17 @@ export default function Accelerate() {
                                         x2="10"
                                         y2={lineHeight}
                                         stroke="#0205FA"
-                                        strokeWidth="2"
+                                        strokeWidth="1"
                                         ref={addToLineRefs}
                                     />
                                     {/* Dot that moves along the line */}
                                     <circle
                                         cx="10"
                                         cy="0"
-                                        r="7"
+                                        r="6"
                                         fill="#f8f8f8"
                                         stroke="#0205FA"
-                                        strokeWidth="2"
+                                        strokeWidth="1"
                                         ref={addToDotRefs}
                                     />
                                 </svg>
