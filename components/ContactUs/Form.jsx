@@ -1,9 +1,9 @@
 import React from "react";
-// import ContactForm from "./ContactForm";
 import Copy from "../Animations/Copy";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import Link from "next/link";
 import HeadingAnim from "../Animations/HeadingAnim";
+import ContactForm from "./ContactForm";
 
 
 const socialLinks = [
@@ -87,7 +87,7 @@ const Form = () => {
           </div>
         </div>
         <div className="w-[50%] mt-[11vw] max-md:w-[100%] max-sm:w-full max-md:mt-0">
-          {/* <ContactForm /> */}
+          <ContactForm/>
         </div>
 
                 <div className="hidden max-md:block">
