@@ -1,6 +1,5 @@
 import AlwaysOnAI from "@/components/AlwaysOnAI";
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
-// import CoreEnterpriseSystem from "@/components/Homepage/CoreEnterpriseSystem";
 import Clients from "@/components/Clients";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
@@ -17,7 +16,7 @@ export default function Home() {
   return (
     <Layout>
     <main className="min-h-screen">
-      <HeroNew heroContent={heroContent}/>
+      <HeroNew heroContent={heroContent} variant="default"/>
       <WhyAIStruggles />
       <UnifiedRuntime/>
       <Features/>

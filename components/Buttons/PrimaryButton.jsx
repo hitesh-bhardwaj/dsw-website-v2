@@ -39,7 +39,7 @@ const PrimaryButton = ({ text, background = "", className = "", ...props }) => {
       <div className="overflow-clip leading-[1.2] max-sm:mx-auto -mt-0.5 max-sm:mt-0 z-1">
         <p ref={upperText} className={`text-22 text-gray-200 leading-[1.4] buttonTextShadow `}>{text}</p>
       </div>
-      <span className={`absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full bg-linear-to-r from-primary to-secondary ${background}`} />
+      <span className={`absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full bg-[#F16B0D] ${background}`} />
     </Link>
   );
 };

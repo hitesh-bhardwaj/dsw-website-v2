@@ -14,7 +14,7 @@ const AgenticAI = () => {
     <>
      <Layout>
     <main className="min-h-screen">
-        <HeroNew heroContent={heroContent}  />
+        <HeroNew heroContent={heroContent} variant={"rightVertical"} />
         <UnifyAbout/>
         <AlwaysOnAI content={tourContent}  imgWidth={"w-[80vw]"}/>
         <UseCases/>

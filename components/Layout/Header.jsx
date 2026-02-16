@@ -143,28 +143,28 @@ export default function Header() {
   }, [lenis, pathname]);
 
   // Show/hide header on scroll
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const currentScrollY = window.scrollY;
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
 
-  //     if (isHoveringHeader) {
-  //       setIsHidden(false);
-  //       setLastScrollY(currentScrollY);
-  //       return;
-  //     }
+      if (isHoveringHeader) {
+        setIsHidden(false);
+        setLastScrollY(currentScrollY);
+        return;
+      }
 
-  //     if (currentScrollY > lastScrollY && currentScrollY > 50) {
-  //       setIsHidden(true);
-  //     } else {
-  //       setIsHidden(false);
-  //     }
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsHidden(true);
+      } else {
+        setIsHidden(false);
+      }
 
-  //     setLastScrollY(currentScrollY);
-  //   };
+      setLastScrollY(currentScrollY);
+    };
 
-  //   window.addEventListener("scroll", handleScroll, { passive: true });
-  //   return () => window.removeEventListener("scroll", handleScroll);
-  // }, [lastScrollY, isHoveringHeader]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY, isHoveringHeader]);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -178,26 +178,7 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    const triggers = [];
 
-    document.querySelectorAll(".dark").forEach((section) => {
-      const trigger = ScrollTrigger.create({
-        trigger: section,
-        start: "top top",
-        end: "bottom top",
-        onEnter: () => setIsInverted(true),
-        onEnterBack: () => setIsInverted(true),
-        onLeave: () => setIsInverted(false),
-        onLeaveBack: () => setIsInverted(false),
-      });
-      triggers.push(trigger);
-    });
-
-    return () => {
-      triggers.forEach((trigger) => trigger.kill());
-    };
-  }, []);
 
   return (
     <>
@@ -209,23 +190,23 @@ export default function Header() {
         className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
-          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
+          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${
             isHidden ? "-translate-y-full" : "translate-y-0"
-          } ${isScrolled ? "bg-white/10 shadow-sm" : ""}`}
+          } ${isScrolled ? "bg-white/75 " : ""}`}
           ref={headerRef}
         >
-         <span className={`h-full w-full block absolute top-0 left-0 z-[1] ${isScrolled ? " backdrop-blur-md shadow-md" : ""}`}/>
+         <span className={`h-full w-full block absolute top-0 left-0 z-[1] ${isScrolled ? " backdrop-blur-md" : ""}`}/>
 
          
           {/* Logo */}
           <div className="flex items-center gap-2 w-[12%] max-sm:w-[36%] z-[10] relative">
             <Link href="/" className="flex items-center">
               <Image
-                src="/dsw-logo.svg"
+                src="/assets/dsw-logo.svg"
                 alt="DSW Logo"
                 width={150}
                 height={50}
-                className={`h-12 max-sm:w-full w-auto ${isInverted ? "brightness-[70]" : ""}`}
+                className={`h-7 max-sm:w-full w-auto`}
                 priority
               />
             </Link>
@@ -307,7 +288,7 @@ export default function Header() {
                       {/* Submenu */}
                       {hasChildren && (
                         <div
-                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/10  shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md  ${
+                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75  shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md  ${
                             openDropdown === link.id
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"

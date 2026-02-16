@@ -15,7 +15,7 @@ const AgenticAI = () => {
     <>
      <Layout>
     <main className="min-h-screen">
-        <HeroNew heroContent={heroContent} />
+        <HeroNew heroContent={heroContent} variant={"bottomRight"} />
         <AgenticAbout />
         <AgenticCards />
         <CoreCapabilities />
