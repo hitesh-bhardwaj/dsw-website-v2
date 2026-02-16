@@ -1,7 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useEffect, useRef } from "react";
-
+import React, {useRef } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -81,7 +80,7 @@ const Expertise = () => {
 
   return (
     <section
-      className="min-h-screen max-sm:min-h-full max-sm:py-[15%]  w-screen overflow-hidden h-fit flex flex-col items-center justify-center relative container  !py-[7%]"
+      className="min-h-screen max-sm:min-h-full max-sm:py-[15%]  w-screen overflow-x-hidden h-fit flex flex-col items-center justify-center relative container  !py-[7%]"
     >
       <div className="w-full h-full flex flex-col items-center justify-center gap-32 relative z-[2] max-sm:gap-20">
         <div className=" w-fit px-[5vw] max-sm:px-[7vw]">
@@ -93,7 +92,7 @@ const Expertise = () => {
         </div>
 
         <div className="space-y-28 max-sm:!space-y-15">
-          <div className=" fadeup max-md:my-[7vw] w-fit">
+          <div className=" fadeup max-md:my-[7vw] ">
             <div
               ref={marqueeRef1}
               className="flex  space-x-1  max-md:space-x-[7vw] max-sm:space-x-[5vw]"
@@ -110,7 +109,7 @@ const Expertise = () => {
             </div>
           </div>
 
-          <div className="fadeup max-md:my-[7vw] max-sm:space-x-[5vw] w-fit">
+          <div className="fadeup max-md:my-[7vw] max-sm:space-x-[5vw] ">
             <div
               ref={marqueeRef2}
               className="flex opens-source max-md:space-x-[7vw] max-sm:space-x-[10vw]"

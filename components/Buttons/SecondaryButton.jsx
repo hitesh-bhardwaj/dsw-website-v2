@@ -39,7 +39,7 @@ const SecondaryButton = ({ text, background = "", className = "", ...props }) =>
       <div className="overflow-clip leading-[1.4] max-sm:mx-auto -mt-0.5 max-sm:mt-0 z-1">
         <p ref={upperText} className={`text-22 text-foreground leading-[1.4] buttonTextShadow  group-hover:text-white transition-all duration-500 `}>{text}</p>
       </div>
-      <span className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-full bg-linear-to-r from-primary to-secondary ${background}`} />
+      <span className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-full bg-[#F16B0D] ${background}`} />
     </Link>
   );
 };

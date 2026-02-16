@@ -14,7 +14,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-import { PhoneInput } from "../ui/phone-input";
+// import { PhoneInput } from "../ui/phone-input";
 import { Button } from "../ui/button";
 // import { useModal } from "../Common/ModalProvider";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
@@ -225,8 +225,8 @@ export default function WalkthroughForm() {
 
                 <FormField name="number" control={control}  render={({ field }) => (
                   <FormItem><FormControl>
-                    <PhoneInput placeholder="Phone Number*" autoComplete="off" defaultCountry="IN" international {...field}
-                      className="placeholder:text-[1.05vw] placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone" />
+                    {/* <PhoneInput placeholder="Phone Number*" autoComplete="off" defaultCountry="IN" international {...field}
+                      className="placeholder:text-[1.05vw] placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone" /> */}
                   </FormControl><FormMessage /></FormItem>
                 )} />
                 </div>

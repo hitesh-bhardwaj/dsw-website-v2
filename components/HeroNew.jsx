@@ -10,8 +10,9 @@ import WaveGradientCanvas from "./Homepage/HeroBg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
+import WaveGridCanvas from "./Homepage/HeroBg";
 
-export default function HeroNew({ heroContent }) {
+export default function HeroNew({ heroContent, variant }) {
   const showButtons =
     heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
 
@@ -160,7 +161,7 @@ export default function HeroNew({ heroContent }) {
   }, [isFooterVisible]);
 
   return (
-    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden">
+    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10">
       <div className="absolute inset-0 z-0 h-screen w-full">
         <Image
           src="/assets/homepage/hero-bg-mob.png"
@@ -171,22 +172,11 @@ export default function HeroNew({ heroContent }) {
         />
       </div>
 
-      <div className="absolute inset-0 z-10 pointer-events-none h-[120vh] max-sm:hidden">
-        <div className="absolute inset-0 flex justify-between px-16">
-          {[...Array(16)].map((_, i) => (
-            <span key={i} className="w-px h-full bg-white/10" />
-          ))}
-        </div>
-        <div className="absolute inset-0 flex flex-col justify-between py-16">
-          {[...Array(11)].map((_, i) => (
-            <span key={i} className="h-px w-full bg-white/10" />
-          ))}
-        </div>
-      </div>
 
-      <WaveGradientCanvas />
+      <WaveGridCanvas variant={variant}/>
+      
 
-      <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw]">
+      <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
           <Copy delay={1}>
             <p className="text-30 text-center text-[#333333] tracking-wide opacity-0 hero-text">
@@ -203,7 +193,7 @@ export default function HeroNew({ heroContent }) {
 
         <div className="herofadeup">
           {showButtons && (
-            <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] mt-15">
+            <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] mt-15 pointer-events-auto">
               {heroContent.primaryButton?.present && (
                 <PrimaryButton
                   text={heroContent.primaryButton.text}
@@ -220,6 +210,12 @@ export default function HeroNew({ heroContent }) {
             </div>
           )}
         </div>
+        {heroContent.para&&(
+
+        <div className="herofadeup py-[1.5vw] ">
+<p className="text-30  w-[80%] text-center  mx-auto text-[#333333]">{heroContent.para}​</p>
+        </div>
+         )}
 
         <div className="herofadeup">
           {heroContent.images && (

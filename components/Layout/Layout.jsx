@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Header'
-import FooterNew from '../Footer'
+import FooterNew from './Footer'
 import { ModalProvider } from '../ModalProvider'
 import WalkthroughPopup from '../Modals/WalkthroughPopup'
 

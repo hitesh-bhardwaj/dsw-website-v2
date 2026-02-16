@@ -9,12 +9,11 @@ import Layout from "@/components/Layout/Layout";
 import Testimonials from "@/components/Testimonials";
 
 
-
 export default async function InfosysFinacle() {
   return (
     <>
     <Layout>
-        <HeroNew heroContent={heroContent}/>
+        <HeroNew heroContent={heroContent} variant={"topLeft"}/>
         <Deployments/>
         <Recognized/>
         <Outcomes/>

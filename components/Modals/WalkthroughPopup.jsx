@@ -4,8 +4,9 @@ import { useLenis } from "lenis/react";
 import { SplitText } from "gsap/SplitText";
 // import gsap from "gsap";
 // import gsap from "gsap/src";
-import { useModal } from "./ModalProvider";
+// import { useModal } from "./ModalProvider";
 import WalkthroughForm from "./WalkthroughForm";
+import { useModal } from "../ModalProvider";
 
 const WalkthroughPopup = ({ modalOpen, setModalOpen }) => {
   const lenis = useLenis();
