@@ -213,7 +213,7 @@ export default function HeroNew({ heroContent, variant }) {
         {heroContent.para&&(
 
         <div className="herofadeup py-[1.5vw] ">
-<p className="text-30  w-[80%] text-center  mx-auto text-[#333333]">{heroContent.para}​</p>
+<p className="text-30  w-[80%] max-sm:w-full text-center  mx-auto text-[#333333]">{heroContent.para}​</p>
         </div>
          )}
 
