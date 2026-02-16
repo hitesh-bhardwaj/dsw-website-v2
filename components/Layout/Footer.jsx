@@ -2,12 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import WaveGradientCanvas from "./Homepage/HeroBg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
-import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "./Svg/Icons";
+import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
+import FooterWave from "./FooterWave";
 
 /** ✅ Isolated animated link (each item has its own ref + SplitText) */
 function AnimatedFooterLink({ href = "#", children }) {
@@ -98,7 +98,7 @@ export default function FooterNew() {
     <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]" id="footer">
       {/* Background Gradient */}
       <div className="w-screen h-full">
-        <WaveGradientCanvas />
+       <FooterWave/>
       </div>
 
       {/* Content */}
@@ -117,30 +117,39 @@ export default function FooterNew() {
                   className="w-full h-full"
                 />
               </div>
-              <p className="text-24 max-sm:text-[6vw] max-sm:font-medium">
+              <h5 className="text-24 font-medium max-sm:text-[5.5vw]">
                 Contact Us
-              </p>
+              </h5>
               <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
+                <div className="under-multi-parent w-fit h-fit">
                 <Link
                   href="mailto:Contact@datasciencewizards.ai"
-                  className="block text-24 max-sm:text-[5vw]"
+                  className="block text-24 max-sm:text-[5vw] under-multi"
                 >
-                  Contact@datasciencewizards.ai
+                
+                  contact@datasciencewizards.ai
+                  
                 </Link>
+                </div>
+                
                 <div className="flex gap-[0.5vw] max-sm:flex-col max-sm:gap-[1vw]">
+                  <div className="under-multi-parent">
                   <Link
-                    className="text-24 max-sm:text-[5vw]!"
+                    className="text-24 max-sm:text-[5vw]! under-multi"
                     href="tel:+91 96640 56847"
                   >
                     +91 96640 56847
                   </Link>
+                  </div>
                   <span className="inline-block max-sm:hidden">|</span>
+                  <div className="under-multi-parent">
                   <Link
-                    className="text-24 max-sm:text-[5vw]!"
+                    className="text-24 max-sm:text-[5vw]! under-multi"
                     href="tel:+353 894015233"
                   >
                     +353 894015233{" "}
                   </Link>
+                  </div>
                 </div>
               </div>
 
@@ -164,9 +173,9 @@ export default function FooterNew() {
           <div className="flex justify-between w-[60%] max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center">
             {/* Navigation */}
             <div className="space-y-[1.2vw] max-sm:space-y-[2vw]">
-              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">
+              <h5 className="text-24 font-medium max-sm:text-[5.5vw]">
                 Navigation
-              </h3>
+              </h5>
               <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((link) => (
                   <li key={link}>
@@ -178,9 +187,9 @@ export default function FooterNew() {
 
             {/* Company */}
             <div className="space-y-[1.2vw]  max-sm:space-y-[2vw]">
-              <h3 className="text-24 font-medium max-sm:text-[5.5vw]">
+              <h5 className="text-24 font-medium max-sm:text-[5.5vw]">
                 Company
-              </h3>
+              </h5>
               <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
                 {companyLinks.map((link) => (
                   <li key={link}>
@@ -221,7 +230,7 @@ export default function FooterNew() {
         <div className="flex items-end justify-between pt-[5.2vw] max-sm:justify-center">
           <div className="w-[20vw] h-[11vw] relative max-sm:hidden">
             <Image
-              src="/logo-footer.svg"
+              src="/assets/dsw-logo.svg"
               alt="Data Science Wizards"
               fill
               className="object-contain object-left"

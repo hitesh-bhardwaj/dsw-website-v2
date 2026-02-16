@@ -180,6 +180,27 @@ h6 {
 }
 
 
+.under-multi {
+  text-decoration: none;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0), rgb(0, 0, 0, 0)),
+    linear-gradient(#111111, #111111);
+  background-size:
+    100% 0px,
+    0% 2px;
+  background-position:
+    100% 100%,
+    0 100%;
+  background-repeat: no-repeat, no-repeat;
+  transition: all 0.5s ease-out;
+}
+
+.under-multi-parent:hover .under-multi {
+  background-size:
+    100% 0px,
+    100% 1px;
+}
+
 .clients-marquee {
   display: flex;
   white-space: nowrap;

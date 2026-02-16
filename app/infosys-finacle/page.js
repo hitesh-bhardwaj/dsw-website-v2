@@ -14,7 +14,7 @@ export default async function InfosysFinacle() {
   return (
     <>
     <Layout>
-        <HeroNew heroContent={heroContent}/>
+        <HeroNew heroContent={heroContent} variant={"topLeft"}/>
         <Deployments/>
         <Recognized/>
         <Outcomes/>
