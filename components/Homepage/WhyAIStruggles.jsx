@@ -53,7 +53,7 @@ export default function WhyAIStruggles() {
       id="struggle"
     >
       {/* Heading Section */}
-      <div className=" space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] z-[10]">
+      <div className="space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] z-10">
         <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
           <HeadingAnim>
             <h2 className="text-76 font-heading text-[#0A1B4B]">
@@ -62,7 +62,7 @@ export default function WhyAIStruggles() {
           </HeadingAnim>
           <Copy>
             <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-[#111] w-[40%] max-sm:w-full mx-auto">
-              Modern enterprises don't struggle with building AI models. They
+              Modern enterprises don&apos;t struggle with building AI models. They
               struggle with operating AI reliably in production:
             </p>
           </Copy>
@@ -73,7 +73,7 @@ export default function WhyAIStruggles() {
           {challenges.map((challenge, index) => (
             <div
               key={index}
-              className={`relative  struggle-card bg-white  max-sm:translate-x-0 ${index == 0 && "z-[5]"} ${index == 1 ? "-translate-x-[111%] z-[4]" : ""} ${index == 2 ? "-translate-x-[222%] z-[3]" : ""} ${index == 3 ? "-translate-x-[333.5%] z-[2]" : ""}`}
+              className={`relative  struggle-card bg-white  max-sm:translate-x-0 ${index == 0 && "z-5"} ${index == 1 ? "-translate-x-[111%] z-4" : ""} ${index == 2 ? "-translate-x-[222%] z-3" : ""} ${index == 3 ? "-translate-x-[333.5%] z-2" : ""}`}
             >
               {/* Box Container */}
               <div

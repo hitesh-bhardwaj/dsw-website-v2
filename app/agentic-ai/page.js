@@ -61,5 +61,4 @@ const ctaContent={
     link:"#",
     text:"Talk to our Team"
   },
-
 }
