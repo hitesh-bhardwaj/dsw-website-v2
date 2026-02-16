@@ -172,18 +172,6 @@ export default function HeroNew({ heroContent, variant }) {
         />
       </div>
 
-      {/* <div className="absolute inset-0 z-10 pointer-events-none h-[120vh] max-sm:hidden">
-        <div className="absolute inset-0 flex justify-between px-16">
-          {[...Array(16)].map((_, i) => (
-            <span key={i} className="w-px h-full bg-white/10" />
-          ))}
-        </div>
-        <div className="absolute inset-0 flex flex-col justify-between py-16">
-          {[...Array(11)].map((_, i) => (
-            <span key={i} className="h-px w-full bg-white/10" />
-          ))}
-        </div>
-      </div> */}
 
       <WaveGridCanvas variant={variant}/>
       
@@ -222,6 +210,12 @@ export default function HeroNew({ heroContent, variant }) {
             </div>
           )}
         </div>
+        {heroContent.para&&(
+
+        <div className="herofadeup py-[1.5vw] ">
+<p className="text-30  w-[80%] text-center  mx-auto text-[#333333]">{heroContent.para}​</p>
+        </div>
+         )}
 
         <div className="herofadeup">
           {heroContent.images && (
