@@ -10,6 +10,7 @@ import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 import Image from "next/image";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -19,28 +20,28 @@ const iconData = [
     icon: Connect,
     label: "Connect",
     text: "Ingest enterprise data through managed connectors and DataOps pipelines.",
-    textClass: "absolute left-25 top-30 max-w-[25vw] space-y-[0.6vw]",
+    textClass: "absolute left-25 top-30  space-y-[0.6vw]",
   },
   {
     key: "build",
     icon: Build,
     label: "Build",
     text: "Author and test agents in AgenticAI Studio (fine-tune, simulate, validate).",
-    textClass: "absolute right-20 top-30 max-w-[25vw] space-y-[0.6vw]",
+    textClass: "absolute right-20 top-30  space-y-[0.6vw]",
   },
   {
     key: "operate",
     icon: Operate,
     label: "Operate",
     text: "Enforce runtime policies, monitor telemetry, and maintain immutable audit trails and reports.",
-    textClass: "absolute right-20 bottom-25 space-y-[0.6vw] max-w-[25vw]",
+    textClass: "absolute right-20 bottom-25 space-y-[0.6vw] ",
   },
   {
     key: "orchestrate",
     icon: Orchestrate,
     label: "Orchestrate",
     text: "Compose agents, models and enterprise logic into auditable workflows using Workflow Builder.",
-    textClass: "absolute left-25 bottom-25 max-w-[25vw] space-y-[0.6vw]",
+    textClass: "absolute left-25 bottom-25  space-y-[0.6vw]",
   },
 ];
 
@@ -140,132 +141,122 @@ const HowAgenticWorks = () => {
          - last TEXT stays blue always
          - card BG animates normally (NO permanent last card bg)
       ========================= */
-      const mm = gsap.matchMedia();
-      mm.add("(min-width: 640px)", () => {
-        const PRIMARY_BLUE = "#1727ff";
-        const INACTIVE = "#111111";
+      const PRIMARY_BLUE = "#1727ff";
+      const INACTIVE = "#111111";
 
-        const splits = textBlockRefs.current.map((el) => {
-          if (!el) return null;
-          return new SplitText(el, { type: "lines", mask: "lines" });
-        });
+      const splits = textBlockRefs.current.map((el) => {
+        if (!el) return null;
+        return new SplitText(el, { type: "lines", mask: "lines" });
+      });
 
-        splits.forEach((split) => {
-          if (!split) return;
-          gsap.set(split.lines, { yPercent: 100, opacity: 1 });
-          gsap.set(split.lines, { color: INACTIVE });
-        });
+      splits.forEach((split) => {
+        if (!split) return;
+        gsap.set(split.lines, { yPercent: 100, opacity: 1 });
+        gsap.set(split.lines, { color: INACTIVE });
+      });
 
-        // baseline card bg (so we can return to it)
-        const baseCardBg = cardRefs.current[0]
-          ? window.getComputedStyle(cardRefs.current[0]).backgroundColor
-          : null;
+      // baseline card bg (so we can return to it)
+      const baseCardBg = cardRefs.current[0]
+        ? window.getComputedStyle(cardRefs.current[0]).backgroundColor
+        : null;
 
-        if (baseCardBg) {
-          cardRefs.current.forEach(
-            (c) => c && gsap.set(c, { backgroundColor: baseCardBg })
-          );
-        }
+      if (baseCardBg) {
+        cardRefs.current.forEach(
+          (c) => c && gsap.set(c, { backgroundColor: baseCardBg }),
+        );
+      }
 
-        const lastIdx = splits.length - 1;
+      const lastIdx = splits.length - 1;
 
-        // last TEXT should be blue always (but we won't force last card bg)
-        if (splits[lastIdx]) gsap.set(splits[lastIdx].lines, { color: PRIMARY_BLUE });
+      // last TEXT should be blue always (but we won't force last card bg)
+      if (splits[lastIdx] && globalThis.innerWidth > 1024)
+        gsap.set(splits[lastIdx].lines, { color: PRIMARY_BLUE });
 
-        const revealTL = gsap.timeline({
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 20%",
-            end: "bottom bottom",
-            scrub: true,
-            // markers: true,
-          },
-        });
+      const revealTL = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 20%",
+          end: "bottom bottom",
+          scrub: true,
+          // markers: true,
+        },
+      });
 
-        textBlockRefs.current.forEach((_, i) => {
-          const split = splits[i];
-          const card = cardRefs.current[i];
-          if (!split) return;
+      textBlockRefs.current.forEach((_, i) => {
+        const split = splits[i];
+        const card = cardRefs.current[i];
+        if (!split) return;
 
-          const at = i;
+        const at = i;
 
-          // deactivate previous at the moment this step starts
-          if (i > 0) {
-            const prevSplit = splits[i - 1];
-            const prevCard = cardRefs.current[i - 1];
+        // deactivate previous at the moment this step starts
+        if (i > 0) {
+          const prevSplit = splits[i - 1];
+          const prevCard = cardRefs.current[i - 1];
 
-            // 🔻 do NOT deactivate the last TEXT (it must always be blue)
-            if (i - 1 !== lastIdx && prevSplit) {
+          // 🔻 do NOT deactivate the last TEXT (it must always be blue)
+          if (i - 1 !== lastIdx && prevSplit) {
+            if (globalThis.innerWidth > 1024) {
               revealTL.to(
                 prevSplit.lines,
                 { color: INACTIVE, duration: 0.2, ease: "none" },
-                at
+                at,
+              );
+            } else {
+              revealTL.to(
+                prevSplit.lines,
+                { opacity: 0, duration: 0.2, ease: "none" },
+                at,
               );
             }
-
-            // // ✅ cards behave normally for ALL indices (including last)
-            // if (baseCardBg && prevCard) {
-            //   revealTL.to(
-            //     prevCard,
-            //     { color: baseCardBg, duration: 0.2, ease: "none" },
-            //     at
-            //   );
-            // }
           }
+        }
 
-          // activate current text (if current is last, it’s already blue but ok)
+        // activate current text (if current is last, it’s already blue but ok)
+        if (globalThis.innerWidth > 1024) {
           revealTL.to(
             split.lines,
             { color: PRIMARY_BLUE, duration: 0.2, ease: "none" },
-            at
+            at,
           );
+        }
 
-          // card bg active (normal behavior, last card is NOT permanent)
-          if (baseCardBg && card) {
-            revealTL.to(
-              card,
-              { color: PRIMARY_BLUE, duration: 0.2, ease: "none" },
-              at
-            );
-          }
-
-          // reveal motion (UNCHANGED)
+        // card bg active (normal behavior, last card is NOT permanent)
+        if (baseCardBg && card) {
           revealTL.to(
-            split.lines,
-            {
-              yPercent: 0,
-              stagger: 0.03,
-              ease: "power2.out",
-              duration: 1,
-            },
-            at
+            card,
+            { color: PRIMARY_BLUE, duration: 0.2, ease: "none" },
+            at,
           );
-        });
+        }
 
-        return () => {
-          revealTL.kill();
-          splits.forEach((s) => s?.revert());
-        };
+        // reveal motion (UNCHANGED)
+        revealTL.to(
+          split.lines,
+          {
+            yPercent: 0,
+            stagger: 0.03,
+            ease: "power2.out",
+            duration: 1,
+          },
+          at,
+        );
       });
 
       return () => {
-        window.removeEventListener("scroll", onScroll);
-        gsap.ticker.remove(tick);
-        outerTL.kill();
-        innerTL.kill();
-        if (drawTween) drawTween.kill();
-        mm.kill();
+        revealTL.kill();
+        splits.forEach((s) => s?.revert());
       };
     },
-    { scope: sectionRef }
+    { scope: sectionRef },
   );
 
   return (
     <section
       ref={sectionRef}
-      className="py-[7%] max-sm:px-[7vw] max-sm:h-[95vh] h-[400vh] max-sm:w-full max-sm:overflow-x-hidden max-sm:overflow-y-visible max-sm:py-[15%] max-sm:hidden"
+      className="py-[7%] h-[400vh] max-sm:w-full max-sm:py-[15%]"
     >
-      <div className="w-screen h-screen py-[10%] sticky top-0">
+      <div className="w-screen h-screen py-[10%] sticky top-0 max-sm:overflow-hidden max-sm:top-[-5%]">
         <div
           ref={outerRef}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-sm:w-[160vw] h-auto"
@@ -295,25 +286,27 @@ const HowAgenticWorks = () => {
         {iconData.map((item, idx) => (
           <div
             key={item.key + "-text"}
-            className={`${item.textClass} max-sm:hidden text-primary-blue`}
+            className={`${item.textClass} max-sm:top-[80%] w-[25%] max-sm:w-[75%] max-sm:left-[12%] text-primary-blue`}
             ref={(el) => (textBlockRefs.current[idx] = el)}
           >
-            <div className="flex">
-              <h3 className="flex items-center gap-[0.5vw]">
+            <div className="flex max-sm:mb-[5vw]">
+              <h3 className="flex items-center gap-[0.5vw] max-sm:text-primary-blue">
                 <span className="w-2 h-2 mr-2 bg-current" />
                 <span className="text-44">{item.label}</span>
               </h3>
             </div>
-            <p className="text-24 leading-[1.2] mt-[0.6vw]">{item.text}</p>
+            <p className="text-24 mt-[0.6vw]">{item.text}</p>
           </div>
         ))}
 
         {/* CENTER DIAGRAM */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto w-[42vw] h-[42vw] max-sm:w-[70vw] max-sm:h-[70vh]">
           <div className="absolute inset-0 flex items-center justify-center text-center">
-            <h2 className="text-56 leading-[1.1]">
-              How AgenticAI <br /> runtime works
-            </h2>
+            <HeadingAnim>
+              <h2 className="text-56 ">
+                How AgenticAI <br /> runtime works
+              </h2>
+            </HeadingAnim>
           </div>
 
           <div className="w-full h-full relative">
@@ -334,7 +327,7 @@ const HowAgenticWorks = () => {
               return (
                 <div
                   key={item.key + "-icon"}
-                  className={`${pos[idx]} z-2 rounded-full border bg-white border-primary-blue p-[0.3vw] flex items-center justify-center cursor-pointer`}
+                  className={`${pos[idx]} z-2 rounded-full border bg-white border-primary-blue p-[0.3vw] flex items-center justify-center cursor-pointer max-sm:p-[1vw]`}
                   onMouseEnter={() => setHovered(item.key)}
                   onMouseLeave={() => setHovered(null)}
                 >
@@ -343,7 +336,7 @@ const HowAgenticWorks = () => {
                     className="border-primary-blue p-[1.5vw] rounded-full bg-card-bg border"
                   >
                     <IconComp
-                      className="w-[4vw] h-[4vw] transition-all duration-200 ease-in max-sm:w-[10vw] max-sm:h-[10vw]"
+                      className="w-[4vw] h-[4vw] transition-all duration-200 ease-in max-sm:w-[15vw] max-sm:h-[15vw] max-sm:p-[2.5vw]"
                       color={iconColor}
                     />
                   </div>
@@ -355,7 +348,7 @@ const HowAgenticWorks = () => {
 
             <div
               ref={blueCircleWrapRef}
-              className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-sm:w-[90vw] max-sm:left-[-15%] text-primary-blue blue-fill-circle rotate-[210deg]"
+              className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-sm:w-[90vw] max-sm:left-[-15%] text-primary-blue blue-fill-circle rotate-[220deg]"
             >
               <svg
                 className="w-full h-full"

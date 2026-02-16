@@ -76,7 +76,7 @@ function AgenticCard({ id, title, Icon, description }) {
       <div className="w-full h-auto flex mb-[12vw] justify-center items-center">
         <div
           ref={circleRef}
-          className="w-[38vw] max-sm:w-[110vw] max-sm:top-35 z-10 h-auto absolute top-40"
+          className="w-[38vw] max-sm:w-[110vw] max-sm:top-38 z-10 h-auto absolute top-40"
         >
           <CircleBg className="h-full w-full origin-center" />
         </div>
