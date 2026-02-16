@@ -811,7 +811,7 @@ const WaveGridCanvas = ({
   return (
     <canvas
       ref={canvasRef}
-      className="h-full w-full pointer-events-auto absolute inset-0"
+      className="h-full w-full pointer-events-auto absolute inset-0 max-sm:hidden"
     />
   );
 };
