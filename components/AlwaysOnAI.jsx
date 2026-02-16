@@ -129,7 +129,7 @@ export default function AlwaysOnAI({content,imgWidth}) {
           />
         </div>
 
-        <div className="text-center w-[73%] mx-auto ">
+        <div className="text-center w-[73%] mx-auto max-sm:w-full ">
           
            <SectionBreak
                       content={

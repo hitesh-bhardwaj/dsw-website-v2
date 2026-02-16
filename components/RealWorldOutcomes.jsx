@@ -1,11 +1,28 @@
+"use client"
+import { useGSAP } from "@gsap/react";
 import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
+import gsap from "gsap";
 
 export default function RealWorldOutcomes() {
-   
+   useGSAP(()=>{
+    gsap.from(".outcomes-block",{
+        opacity:0,
+        scale:0.98,
+        stagger:0.5,
+        ease:"power2.out",
+        scrollTrigger:{
+            trigger:"#realworld-outcomes",
+            start:"top 10%",
+            end:"bottom bottom",
+            // markers:true,
+            scrub:true
+        }
+    })
+   })
 
     return (
-        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:px-[7vw]">
+        <section className="relative w-full h-[240vh] py-[7%] space-y-[8vw] max-sm:px-[7vw]" id="realworld-outcomes">
             {/* Heading */}
             <div className="text-center space-y-[1vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
@@ -21,11 +38,11 @@ export default function RealWorldOutcomes() {
             </div>
 
             {/* Outcomes Grid */}
-            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] max-sm:flex max-sm:flex-col max-sm:px-0 max-sm:gap-[7vw] ">
+            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] max-sm:flex max-sm:flex-col max-sm:px-0 max-sm:gap-[7vw] sticky top-[14%] ">
                 {outcomes.map((outcome, index) => (
                     <div
                         key={index}
-                        className={`relative w-[23.3.5vw] h-[15.5vw] bg-white border-[0.078vw] border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.5vw] py-[1.5vw] fadeup max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] ${outcome.position}`}
+                        className={`relative w-[23.3.5vw] h-[15.5vw] bg-white border-[0.078vw] border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.5vw] py-[1.5vw] max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] outcomes-block ${outcome.position}`}
                     >
                         {/* Number Label */}
                         <p className="text-[1.04vw] font-sans leading-[1.2] text-[#c7c7c7] max-sm:text-[5vw]">

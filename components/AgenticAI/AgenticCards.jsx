@@ -88,7 +88,7 @@ const AgenticCards = () => {
       ref={containerRef}
       className="w-full h-[200vh]  max-sm:h-auto max-sm:w-screen max-sm:overflow-x-hidden relative"
     >
-      <div className="text-center mx-auto w-[80%] max-sm:w-full ">
+      <div className="text-center mx-auto w-[80%] max-sm:w-[90%] ">
         <SectionBreak content={"Turn proofs of concept into auditable, production- grade automation with explainable agents, deterministic governance, and enterprise-grade security."} big={true}/>
         <HeadingAnim>
           <p className=" font-normal max-sm:px-[7vw] leading-[1.2] max-sm:pb-[5vw] max-sm:leading-[1.2] text-56! font-heading">

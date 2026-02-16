@@ -14,8 +14,8 @@ export default function UnifiedRuntime() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#unified-runtime",
-          start: "30% 70%",
-          end: "bottom 70%",
+          start: "10% 70%",
+          end: "30% 70%",
           // markers:true,
           onEnter: () => {
             gsap.fromTo(
@@ -90,7 +90,7 @@ export default function UnifiedRuntime() {
   });
   return (
     <section
-      className=" py-[15%] px-[5vw] space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%]"
+      className=" pt-[15%] px-[5vw] space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%]"
       id="unified-runtime"
     >
       <HeadingAnim>

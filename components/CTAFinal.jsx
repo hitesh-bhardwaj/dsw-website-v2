@@ -10,7 +10,7 @@ export default function CTAFinal({ ctaContent }) {
     <section className="relative w-full bg-linear-to-b from-[#fcfcfc] to-[#eff1fb] py-[7vw] px-[5vw] max-sm:py-[10%]" id="footer-cta">
       <div className="relative  mx-auto bg-white rounded-[1.5vw] p-[5.25vw] overflow-hidden space-y-[1.5vw] fadeup max-sm:py-[35%] max-sm:space-y-[7vw] max-sm:rounded-[4vw]">
         <HeadingAnim>
-          <h4 className="text-76 font-heading leading-[1.2] text-[#0A1B4B] text-center ">
+          <h4 className="text-76 font-heading leading-[1.2] text-[#0A1B4B] text-center max-sm:text-[9vw] ">
             {ctaContent.heading}
           </h4>
         </HeadingAnim>

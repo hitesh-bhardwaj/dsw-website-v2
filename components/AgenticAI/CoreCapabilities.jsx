@@ -112,7 +112,7 @@ const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
 `}
 
     >
-      <div className="h-[4.5vw] max-sm:w-[20%] w-[4.5vw] max-sm:h-auto text-primary-blue">
+      <div className="h-[5.5vw] max-sm:w-[20%] w-[5.5vw] max-sm:h-auto text-primary-blue">
         {card.icon}
       </div>
 
