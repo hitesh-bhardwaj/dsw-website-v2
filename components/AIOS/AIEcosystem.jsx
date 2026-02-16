@@ -55,8 +55,8 @@ const AIEcosystem = () => {
         start: "top top",
         end: "+=200%",
         scrub: 1,
-        pin: true,
-        anticipatePin: 1,
+        // pin: true,
+        // anticipatePin: 1,
       },
     });
 
@@ -142,10 +142,11 @@ const AIEcosystem = () => {
       <section
         ref={sliderRef}
         id="ai-ecosystem-slider"
-        className="relative w-full h-screen bg-white max-sm:h-auto max-sm:py-[10vw]"
+        className="relative w-full h-[300vh] bg-white max-sm:h-auto max-sm:py-[10vw] pb-[7%]"
       >
-        {/* Rings Container */}
-        <div className="absolute left-[-20vw] top-1/2 -translate-y-1/2 w-[65vw] h-[65vw] max-sm:hidden">
+        <div className="w-screen h-screen sticky top-0">
+
+        <div className="absolute left-[-20vw] top-1/2 -translate-y-1/2 w-[55vw] h-[55vw] max-sm:hidden">
           {/* Blue/Outer Ring - rotates clockwise */}
           <div
             ref={blueRingRef}
@@ -162,7 +163,7 @@ const AIEcosystem = () => {
           {/* Orange/Inner Ring - rotates counter-clockwise */}
           <div
             ref={orangeRingRef}
-            className="absolute inset-[10%]"
+            className="absolute inset-[15%]"
           >
             <Image
               src="/assets/homepage/inner-circle.svg"
@@ -176,7 +177,7 @@ const AIEcosystem = () => {
         {/* Fan Container - centered on the rings */}
         <div
           ref={fanRef}
-          className="absolute left-[-20vw] top-1/2 -translate-y-1/2 w-[65vw] h-[65vw] max-sm:relative max-sm:left-0 max-sm:top-0 max-sm:translate-y-0 max-sm:w-full max-sm:h-auto max-sm:px-[5vw]"
+          className="absolute left-[-25vw] top-1/2 -translate-y-1/2 w-[55vw] h-[55vw] max-sm:relative max-sm:left-0 max-sm:top-0 max-sm:translate-y-0 max-sm:w-full max-sm:h-auto max-sm:px-[5vw]"
           style={{ transformOrigin: "center center" }}
         >
           {/* Blades positioned at fixed angles, extending from rings edge */}
@@ -211,6 +212,8 @@ const AIEcosystem = () => {
             );
           })}
         </div>
+        </div>
+        {/* Rings Container */}
       </section>
     </>
   );

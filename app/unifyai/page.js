@@ -1,69 +1,69 @@
-import React from 'react'
+import React from "react";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
-import UnifyAbout from '@/components/UnifyAI/About'
-import AlwaysOnAI from '@/components/AlwaysOnAI'
-import UseCases from '@/components/UnifyAI/UseCases'
-import Fragmented from '@/components/UnifyAI/Fragmented'
-import Capabilities from '@/components/UnifyAI/Capabilities';
-import Accelerate from '@/components/UnifyAI/Accelerate';
+import UnifyAbout from "@/components/UnifyAI/About";
+import AlwaysOnAI from "@/components/AlwaysOnAI";
+import UseCases from "@/components/UnifyAI/UseCases";
+import Fragmented from "@/components/UnifyAI/Fragmented";
+import Capabilities from "@/components/UnifyAI/Capabilities";
+import Accelerate from "@/components/UnifyAI/Accelerate";
 
 const AgenticAI = () => {
   return (
     <>
-     <Layout>
-    <main className="min-h-screen">
-        <HeroNew heroContent={heroContent} variant={"rightVertical"} />
-        <UnifyAbout/>
-        <AlwaysOnAI content={tourContent}  imgWidth={"w-[80vw]"}/>
-        <UseCases/>
-        <Fragmented/>
-        <Capabilities/>
-        <Accelerate/>
-         <CTAFinal ctaContent={ctaContent}/>
-    </main>
-    </Layout>
+      <Layout>
+        <main className="min-h-screen">
+          <HeroNew heroContent={heroContent} variant={"rightVertical"} />
+          <UnifyAbout />
+          <AlwaysOnAI content={tourContent} imgWidth={"w-[80vw]"} walkthrough={true} />
+          <UseCases />
+          <Fragmented />
+          <Capabilities />
+          <Accelerate />
+          <CTAFinal ctaContent={ctaContent} />
+        </main>
+      </Layout>
     </>
-  )
-}
+  );
+};
 
-export default AgenticAI
+export default AgenticAI;
 
-const heroContent={
-  tagline:"No more delays. No more stalled pilots. Just production-ready AI/ML in weeks.",
-  heading:"Enterprise AI/ML Runtime Built for Real-World Use Case Deployment",
-  primaryButton:{
-    present:false,
-    link:"#",
-    text:"Book a Demo"
+const heroContent = {
+  tagline:
+    "No more delays. No more stalled pilots. Just production-ready AI/ML in weeks.",
+  heading: "Enterprise AI/ML Runtime Built for Real-World Use Case Deployment",
+  primaryButton: {
+    present: false,
+    link: "#",
+    text: "Book a Demo",
   },
-  secondaryButton:{
-    present:false,
-    link:"#",
-    text:"Talk to our Team"
+  secondaryButton: {
+    present: false,
+    link: "#",
+    text: "Talk to our Team",
   },
-}
+};
 
-const ctaContent={
-  heading:"Ready to run enterprise AI safely, continuously, and at scale ? ",
-  para:"Launch smarter, faster, scalable AI / ML runtime.",
+const ctaContent = {
+  heading: "Ready to run enterprise AI safely, continuously, and at scale ? ",
+  para: "Launch smarter, faster, scalable AI / ML runtime.",
   subPara: false,
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo"
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
   },
-  secondaryButton:{
-    present:true,
-    link:"#",
-    text:"Contact Sales"
+  secondaryButton: {
+    present: true,
+    link: "#",
+    text: "Contact Sales",
   },
+};
 
-}
-
-const tourContent={
-  heading:"Take a lightning tour of the DSW AI/ML Runtime",
-  para:"Your AI foundation not just for today’s use cases, but for tomorrow’s vision.",
-  tagline:""
-}
+const tourContent = {
+  heading: "Take a lightning tour of the DSW AI/ML Runtime",
+  para: "Your AI foundation not just for today’s use cases, but for tomorrow’s vision.",
+  tagline: "",
+};

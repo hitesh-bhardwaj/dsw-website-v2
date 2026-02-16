@@ -42,6 +42,7 @@ export default function WhyAIStruggles() {
         scrollTrigger: {
           trigger: "#struggle",
           start: "10% 60%",
+          // markers:true
         },
       });
     }

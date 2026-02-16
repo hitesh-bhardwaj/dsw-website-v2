@@ -11,6 +11,7 @@ import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
 import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
+import ClientsBlur from "@/components/Homepage/ClientsBlur";
 
 export default function Home() {
   return (
@@ -24,7 +25,8 @@ export default function Home() {
       <CoreEnterpriseSystemSticky/>
       <UseCases/>
       <AlwaysOnAI content={tourContent}/>
-      <Clients />
+      {/* <Clients /> */}
+      <ClientsBlur/>
       <RealWorldOutcomes />
       <CTAPricing />
       <Testimonials />

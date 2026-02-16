@@ -1,4 +1,5 @@
 "use client";
+import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Image from "next/image";
 
@@ -38,7 +39,7 @@ const WhoBuiltFor = () => {
       </div>
 
       {/* Desktop Layout */}
-      <div className="relative w-full max-w-[75vw] mx-auto h-[25vw] max-sm:hidden">
+      <div className="relative w-full max-w-[75vw] mx-auto h-[25vw] max-sm:hidden fadeup">
         {/* Center Circle */}
         <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[11vw] h-[11vw] rounded-full border border-primary-blue bg-background flex items-center justify-center z-10">
           <span className="text-30 text-foreground font-heading">Built For</span>
@@ -147,12 +148,14 @@ const WhoBuiltFor = () => {
 
       {/* Footer Text */}
       <div className="text-center px-[5vw] mt-[5vw] max-sm:mt-[10vw]">
+        <Copy>
         <p className="text-30 text-foreground leading-[1.4]">
           For organizations where AI must be trusted, governed, continuously operational,
           <br className="max-sm:hidden" />
           <span className="max-sm:inline"> </span>
           and aligned with enterprise risk frameworks.
         </p>
+        </Copy>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 "use client";
+import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
 import CornerDecorations from "../CornerDecorations";
 
@@ -43,7 +44,7 @@ const GovernanceBuiltIn = () => {
         {/* Top Row - 2 cards */}
         <div className="flex justify-between gap-[2vw] mb-[2vw] max-sm:flex-col max-sm:gap-[5vw] max-sm:mb-[5vw]">
           {/* Card 1 - Audit is native (highlighted) */}
-          <div className="w-[23vw] max-sm:w-full">
+          <div className="w-[23vw] max-sm:w-full fadeup">
             <div
               className={`
                 relative h-[15vw] group
@@ -65,7 +66,7 @@ const GovernanceBuiltIn = () => {
           </div>
 
           {/* Card 2 - Reversibility is native */}
-          <div className="w-[23vw] max-sm:w-full">
+          <div className="w-[23vw] max-sm:w-full fadeup">
             <div
               className={`
                 relative h-[15vw] group
@@ -89,7 +90,7 @@ const GovernanceBuiltIn = () => {
 
         {/* Bottom Row - 1 centered card */}
         <div className="flex justify-center">
-          <div className="w-[23vw] max-sm:w-full">
+          <div className="w-[23vw] max-sm:w-full fadeup">
             <div
               className={`
                 relative h-[15vw] group
@@ -114,9 +115,12 @@ const GovernanceBuiltIn = () => {
 
       {/* Footer Text */}
       <div className="text-center px-[5vw] mt-[5vw] max-sm:mt-[10vw]">
-        <p className="text-30 text-[#111] tracking-[0.01em]">
+        <Copy>
+        <p className="text-30 text-[#111]">
           These capabilities are part of the operating system itself — not plugins, dashboards, or reporting layers.
         </p>
+
+        </Copy>
       </div>
     </section>
   );

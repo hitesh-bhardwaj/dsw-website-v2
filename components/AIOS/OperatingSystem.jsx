@@ -1,14 +1,36 @@
+"use client"
 import Image from "next/image";
 import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 
 const OperatingSystem = () => {
+    useGSAP(()=>{
+        const tl = gsap.timeline({
+            scrollTrigger:{
+                trigger:"#operatingSystem",
+                start:"top top",
+                // markers:true
+            }
+        })
+        tl.from(".os-content",{
+            xPercent:20,
+           opacity:0,
+        ease:"power2.inOut",
+        stagger:0.1
+        })
+        .from(".run-across",{
+            opacity:0,
+        },"<")
+    })
     return (
         <>
-            <section className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]">
-                <div className="text-center w-4/6 mx-auto space-y-[2vw]">
+            <section className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[15%] z-[10]" id="operatingSystem">
+                <div className="text-center w-4/6 mx-auto space-y-[2vw] max-sm:w-full max-sm:space-y-[7vw]">
                     <HeadingAnim>
-                        <h2 className="text-76 text-center leading-20 font-heading text-[#0A1B4B]">
+                        <h2 className="text-76 text-center font-heading text-[#0A1B4B]">
                             Why Enterprises Need an AI Operating System
                         </h2>
                     </HeadingAnim>
@@ -19,9 +41,9 @@ const OperatingSystem = () => {
                     </Copy>
                 </div>
 
-                <div className="py-[5vw] w-[54%] mx-auto">
+                <div className="py-[5vw] w-[54%] mx-auto max-sm:hidden">
                     <div className="flex justify-between items-center">
-                        <div className="size-[20vw] relative flex items-center justify-center">
+                        <div className="size-[20vw] relative flex items-center justify-center run-across">
                             <div className="size-[14vw] border border-primary-blue rounded-full flex items-center justify-center text-center">
                                 <p className="text-30 leading-[1.4]">It Runs Across</p>
                             </div>
@@ -32,14 +54,20 @@ const OperatingSystem = () => {
                                 <div 
                                     key={item.id} 
                                     style={{ transform: `translateX(${item.left})` }}
-                                    className="p-2 border border-primary-blue rounded-full pr-[2.5vw] flex items-center justify-start gap-[2vw]"
+                                    className="p-2 border border-primary-blue rounded-full pr-[2.5vw] flex items-center justify-start gap-[2vw] os-content"
                                 >
-                                    <Image className="size-[3vw]" src={item.imgSrc} alt="icon" width={20} height={20} />
+                                    <Image className="size-[4vw]" src={item.imgSrc} alt="icon" width={20} height={20} />
                                     <p className="text-24">{item.text}</p>
                                 </div>
                             ))}
                         </div>
                     </div>
+                </div>
+                <div className="w-full h-fit">
+                    <div>
+                        
+                    </div>
+
                 </div>
 
                 <div className="text-center w-4/5 mx-auto space-y-[2vw]">

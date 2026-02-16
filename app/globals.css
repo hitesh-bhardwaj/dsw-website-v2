@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
 :root {
   --background: #ffffff;
@@ -49,14 +51,9 @@
   --text-32: var(--text-32);
   --text-22: var(--text-22);
   --ease-default-ease: var(--default-ease);
-
-  --breakpoint-md: 1025px;
-  --breakpoint-sm: 640px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
   font-kerning: auto;
   width: 100vw;
@@ -89,7 +86,7 @@ h6 {
   background: radial-gradient(
     circle at center,
     #02031c 0%,
-    #02031c 35%,
+    #02031c 85%,
     #030558 100%
   );
 }
@@ -288,7 +285,6 @@ h6 {
   scrollbar-width: thin;
   scrollbar-color: var(--primary) #f1f1f1;
 }
-
 
 @media (max-width: 1025px) {
 }

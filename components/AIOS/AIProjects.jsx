@@ -5,7 +5,7 @@ import Copy from "../Animations/Copy";
 
 const AIProjects = () => {
   return (
-    <section className="w-full py-[7%] px-[4vw] space-y-[4vw] max-sm:px-[5vw] max-sm:py-[15%] max-sm:space-y-[10vw]">
+    <section className="w-full py-[7%] px-[5vw] space-y-[7vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[10vw]">
       {/* Header */}
       <div className="text-center space-y-[1vw] max-sm:space-y-[5vw]">
         <HeadingAnim>
@@ -43,7 +43,7 @@ const AIProjects = () => {
       </div>
 
       {/* Bottom Text */}
-      <div className="text-center pt-[3vw] max-sm:pt-[5vw]">
+      <div className="text-center max-sm:pt-[5vw]">
         <HeadingAnim>
           <p className="text-44 font-heading max-w-[50vw] mx-auto leading-[1.4] max-sm:max-w-full max-sm:text-left">
             This is how AI becomes durable, governable, and enterprise ready.

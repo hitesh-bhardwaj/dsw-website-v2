@@ -8,12 +8,15 @@ import HeadingAnim from "./Animations/HeadingAnim";
 import Copy from "./Animations/Copy";
 import { useGSAP } from "@gsap/react";
 import SectionBreak from "./SectionBreak";
+import PrimaryButton from "./Buttons/PrimaryButton";
+import { useModal } from "./ModalProvider";
 
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function AlwaysOnAI({content,imgWidth}) {
+export default function AlwaysOnAI({content,imgWidth,walkthrough}) {
   const sectionRef = useRef(null);
+  const { openWalkthroughSmart } = useModal();
   useGSAP(()=>{
     const tl = gsap.timeline({
       scrollTrigger:{
@@ -127,9 +130,15 @@ export default function AlwaysOnAI({content,imgWidth}) {
             className="object-contain h-full w-full"
             priority
           />
+          <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-sm:left-[15%] ${walkthrough?"":"hidden"}`}>
+            <PrimaryButton  text={"Start Walkthrough"} href={"#"} onClick={(e) => {
+                e.preventDefault();
+                openWalkthroughSmart();
+              }}/>
+          </div>
         </div>
 
-        <div className="text-center w-[73%] mx-auto ">
+        <div className="text-center w-[73%] mx-auto max-sm:w-full ">
           
            <SectionBreak
                       content={

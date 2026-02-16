@@ -9,6 +9,7 @@ import WhoBuiltFor from "@/components/AIOS/WhoBuiltFor"
 import CTAFinal from "@/components/CTAFinal"
 import HeroNew from "@/components/HeroNew"
 import Layout from "@/components/Layout/Layout"
+import Fragmented from "@/components/AIOS/Structure"
 
 const Page = () => {
     return (
@@ -18,6 +19,7 @@ const Page = () => {
                 <OperatingSystem />
                 <AIProjects />
                 <AIEcosystem />
+                <Fragmented/>
                 <ArchitecturalPrinciples />
                 <FiveAnchors />
                 <SystemStructure />
