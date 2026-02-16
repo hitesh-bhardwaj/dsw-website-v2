@@ -96,7 +96,7 @@ const FiveAnchors = ({
       scrollTrigger:{
         trigger:sectionRef.current,
         start:"top 20%",
-        markers:true
+        // markers:true
       }
     })
   })

@@ -9,6 +9,8 @@ import CTAFinal from "@/components/CTAFinal"
 import HeroNew from "@/components/HeroNew"
 import Layout from "@/components/Layout/Layout"
 import Fragmented from "@/components/AIOS/Structure"
+import Outcomes from "@/components/AIOS/Outcomes"
+import Choose from "@/components/AIOS/Choose"
 
 const Page = () => {
     return (
@@ -22,6 +24,8 @@ const Page = () => {
                 <ArchitecturalPrinciples />
                 <FiveAnchors />
                 <GovernanceBuiltIn />
+                <Outcomes/>
+                <Choose/>
                 <WhoBuiltFor />
                 <CTAFinal ctaContent={ctaContent} />
             </Layout>
