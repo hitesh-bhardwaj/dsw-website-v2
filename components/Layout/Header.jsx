@@ -251,7 +251,7 @@ export default function Header() {
                               ? " text-22 duration-500 transition-color ease-out font-medium"
                               : ""
                           } buttonTextShadow ${
-                isInverted ? "text-white group-hover:text-primary-white!" : "text-[#111111] group-hover:text-primary-blue!"
+                isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
               }`}
                           onClick={(e) => {
                             if (hasChildren) e.preventDefault();
@@ -311,7 +311,7 @@ export default function Header() {
                                       childActive ? "page" : undefined
                                     }
                                     className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${
-                isInverted ? "text-white group-hover:text-primary-white!" : "text-[#111111] group-hover:text-primary-blue!"
+                isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
               }`}
                                   >
                                     {child.label}

@@ -94,7 +94,7 @@ export default function Outcomes({ outcomesData, showDescription = true , margin
                 </div>
               </div>
               <div className="space-y-[1.2vw] max-md:space-y-[3vw]">
-                <p className="text-44 text-[#111111] max-sm:font-medium font-heading">
+                <p className="text-44 text-foreground max-sm:font-medium font-heading">
                   {title}
                 </p>
 

@@ -202,7 +202,7 @@ export default function TeamForm() {
                           htmlFor="name"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Name*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Name*</span>
                         </label>
                         <Input {...field} autoComplete="off" id="name" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border  h-15 !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] ' />
                       </div>
@@ -223,7 +223,7 @@ export default function TeamForm() {
                           htmlFor="email"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Business Email*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Business Email*</span>
                         </label>
                         <Input
                           {...field}
@@ -238,7 +238,7 @@ export default function TeamForm() {
                           className='dark:bg-transparent border-[#B0B0B080] border h-15  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] '
                         />
                         {emailVerifying && (
-                          <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#111111] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
+                          <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-foreground text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
                             Verifying...
                           </span>
                         )}
@@ -259,7 +259,7 @@ export default function TeamForm() {
                           htmlFor="designation"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Designation*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Designation*</span>
                         </label>
                         <Input {...field} autoComplete="off" id="designation" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border  h-15 !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] ' />
                       </div>
@@ -280,7 +280,7 @@ export default function TeamForm() {
                           htmlFor="company"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Company Name*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Company Name*</span>
                         </label>
                         <Input {...field} autoComplete="off" id="company" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border h-15 !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] ' />
                       </div>
@@ -302,7 +302,7 @@ export default function TeamForm() {
                         defaultCountry="IN"
                         international
                         {...field}
-                        className="placeholder:text-[1.05vw] placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] allForm !bg-background"
+                        className="placeholder:text-[1.05vw] placeholder:text-foreground max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] allForm !bg-background"
                       />
                     </FormControl>
                     <FormMessage />
@@ -320,7 +320,7 @@ export default function TeamForm() {
                          <Checkbox id="checkbox-teamform"  aria-label="checkbox"
                           checked={field.value}
                           onCheckedChange={field.onChange}  className="data-[state=checked]:bg-[#f16b0d] mt-[0.5vw]    max-md:scale-[1.5] max-sm:scale-[1] max-md:mt-[2vw] cursor-pointer max-md:rounded-[0.5vw] border-black/60" />
-                        <label className="text-[1.15vw] mt-2   text-[#111111] max-sm:text-[3.5vw] max-md:text-[2.7vw] max-md:mt-5">
+                        <label className="text-[1.15vw] mt-2   text-foreground max-sm:text-[3.5vw] max-md:text-[2.7vw] max-md:mt-5">
                           I agree to{" "}
                           <a href="/privacy-policy" className="border-b border-black/40 hover:border-primary-2 duration-300 ease-in transition-all">
                             Privacy Policy{" "}
@@ -362,7 +362,7 @@ export default function TeamForm() {
               </Button>
               </div>
               {submitted && (
-                <p className="text-[#111111] text-sm mt-2">
+                <p className="text-foreground text-sm mt-2">
                   ✅ Form submitted successfully!
                 </p>
               )}

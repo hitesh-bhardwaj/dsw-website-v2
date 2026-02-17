@@ -59,7 +59,7 @@ const GovernanceBuiltIn = () => {
               <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[0].title}
               </h3>
-              <p className="text-24 text-[#111] leading-[1.4]">
+              <p className="text-24 text-foreground leading-[1.4]">
                 {cards[0].description}
               </p>
             </div>
@@ -81,7 +81,7 @@ const GovernanceBuiltIn = () => {
               <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[1].title}
               </h3>
-              <p className="text-24 text-[#111] leading-[1.4]">
+              <p className="text-24 text-foreground leading-[1.4]">
                 {cards[1].description}
               </p>
             </div>
@@ -105,7 +105,7 @@ const GovernanceBuiltIn = () => {
               <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[2].title}
               </h3>
-              <p className="text-24 text-[#111] leading-[1.4]">
+              <p className="text-24 text-foreground leading-[1.4]">
                 {cards[2].description}
               </p>
             </div>
@@ -116,7 +116,7 @@ const GovernanceBuiltIn = () => {
       {/* Footer Text */}
       <div className="text-center px-[5vw] mt-[5vw] max-sm:mt-[10vw]">
         <Copy>
-        <p className="text-30 text-[#111]">
+        <p className="text-30 text-foreground">
           These capabilities are part of the operating system itself — not plugins, dashboards, or reporting layers.
         </p>
 

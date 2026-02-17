@@ -18,12 +18,12 @@ function AboutCard({ challenge }) {
         <CornerDecorations />
 
         {/* Icon/Image */}
-        <div className="mb-auto w-[5vw] h-[5vw] max-sm:h-[14vw] max-sm:w-[14vw] text-[#111111] group-hover:text-primary-blue">
+        <div className="mb-auto w-[5vw] h-[5vw] max-sm:h-[14vw] max-sm:w-[14vw] text-foreground group-hover:text-primary-blue">
           {challenge.icon}
         </div>
 
         {/* Text */}
-        <p className="text-30 mt-auto max-sm:text-[5.5vw] text-[#111111]">
+        <p className="text-30 mt-auto max-sm:text-[5.5vw] text-foreground">
           {challenge.title}
         </p>
       </div>
@@ -33,7 +33,7 @@ function AboutCard({ challenge }) {
 
 export default function AgenticAbout() {
   return (
-    <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] z-[2]">
+    <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] z-2">
       {/* <Copy>  */}
       <div className="mx-auto text-center w-[78%] max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw]">
         <SectionBreak content={" Built on the proven DSW Enterprise AI OS and UnifyAI Kernel, the AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises."} />

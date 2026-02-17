@@ -17,7 +17,7 @@ const Empower= ({heading,para,width}) => {
 
             <div className="w-[65%] max-sm:w-fit max-sm:mx-auto max-md:w-[85%]">
               <Copy>
-                <p className="text-30 max-sm:text-center  text-[#11111]">
+                <p className="text-30 max-sm:text-center  text-foreground">
                  {para}
                 </p>
               </Copy>

@@ -35,7 +35,7 @@ const KeyLearnings = () => {
               <div key={index} className="relative max-md:pb-[8vw] pb-[1.5vw] max-sm:w-[90%] fadeup">
                 <div className="relative">
                   <span className="absolute top-0 left-0 w-1 max-sm:w-0.5 bg-[#5662FF] h-full "/>
-                   <p className="text-30 text-[#111111]  max-md:w-full pl-[2vw] max-sm:pl-[4vw]">
+                   <p className="text-30 text-foreground  max-md:w-full pl-[2vw] max-sm:pl-[4vw]">
                       {cap.text}
                     </p>
                     

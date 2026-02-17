@@ -106,10 +106,10 @@ const VideoListing = () => {
                 </div>
               </div>
               <Copy>
-                <h3 className="text-32 text-[#111111] mt-[1vw] max-sm:pl-[1vw] max-sm:font-medium max-sm:leading-[1.4]">{video.title}</h3>
+                <h3 className="text-32 text-foreground mt-[1vw] max-sm:pl-[1vw] max-sm:font-medium max-sm:leading-[1.4]">{video.title}</h3>
               </Copy>
               <Copy>
-                <p className="max-sm:pl-[1vw] text-24 text-[#111111]">{video.description}</p>
+                <p className="max-sm:pl-[1vw] text-24 text-foreground">{video.description}</p>
               </Copy>
             </div>
           ))}

@@ -1,10 +1,11 @@
 "use client";
 
-import React, { useLayoutEffect, useRef } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -72,11 +73,10 @@ export default function Diagram() {
   const listItemRefs = useRef([]); // 2D: [stepIndex][liIndex]
   const splitsRef = useRef([]);
 
-  useLayoutEffect(() => {
+  useGSAP(() => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
 
-    const ctx = gsap.context(() => {
       // ✅ hot reload safety
       // ScrollTrigger.getAll().forEach((t) => t.kill());
 
@@ -223,14 +223,7 @@ export default function Diagram() {
         scrub: true,
         // markers: true,
         animation: tl,
-      });
-
-      requestAnimationFrame(() => ScrollTrigger.refresh());
-      setTimeout(() => ScrollTrigger.refresh(), 250);
-      setTimeout(() => ScrollTrigger.refresh(), 800);
-    }, sectionEl);
-
-    return () => ctx.revert();
+      });    
   }, []);
 
   return (

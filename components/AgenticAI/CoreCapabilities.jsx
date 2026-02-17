@@ -120,7 +120,7 @@ const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
         <p className="text-32 max-sm:leading-[1.2] font-medium text-[#0A1B4B] font-heading">
           {card.heading}
         </p>
-        <p className="text-24 max-sm:leading-[1.4] max-md:w-full text-[#111111]">
+        <p className="text-24 max-sm:leading-[1.4] max-md:w-full text-foreground">
           {card.text}
         </p>
       </div>

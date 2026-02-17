@@ -97,7 +97,7 @@ export default function Outcomes() {
                 </HeadingAnim>
                 </div>
                 <Copy>
-                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-[#111111]">
+                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground">
                         As a strategic open-source consulting partner to Infosys Finacle, DSW helps
                         global banks modernize, optimize, and scale Finacle deployments through
                         enterprise-grade open-source adoption.
