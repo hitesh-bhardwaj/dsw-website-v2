@@ -273,7 +273,7 @@
 @media screen and (max-width: 1025px) {
   .blogContent {
     width: 100%;
-    padding-left: 0%;
+    padding-left: 2%;
   }
   .blogContent p {
     font-size: 2.5vw;
@@ -384,4 +384,7 @@
   .blogContent table {
     border-radius: 10px;
   }
+  .blogContent hr {
+  margin:8vw 0vw;
+}
 }
