@@ -18,10 +18,10 @@ const OfficeLocations = () => {
 
       <div className="absolute max-md:static max-md:px-[3vw] left-[5%] bottom-[25%] w-[20%] space-y-[0.5vw] max-md:w-[80%]  max-md:space-y-[3vw] text-right max-sm:text-left">
         <Copy>
-          <p className="text-30 text-[#111111]"> USA </p>
+          <p className="text-30 text-foreground"> USA </p>
         </Copy>
         <Copy>
-          <p className="text-24 text-[#111111]">
+          <p className="text-24 text-foreground">
             Data Science Wizards Limited
           </p>
         </Copy>
@@ -29,10 +29,10 @@ const OfficeLocations = () => {
 
       <div className="absolute max-md:static max-md:px-[3vw] left-[50%] top-[25%] w-[30%] space-y-[0.5vw] max-md:w-[80%]  max-md:space-y-[3vw]">
         <Copy>
-          <p className="text-30 text-[#111111]"> Ireland </p>
+          <p className="text-30 text-foreground"> Ireland </p>
         </Copy>
         <Copy>
-          <p className="text-24 text-[#111111]">
+          <p className="text-24 text-foreground">
             Data Science Wizards Limited, Business Centre, NCI, Mayor Street,
             IFSC, Dublin 1, D01 K6W2
           </p>
@@ -41,10 +41,10 @@ const OfficeLocations = () => {
 
       <div className="absolute max-md:static max-md:px-[3vw] right-[10%] top-[72%] w-[28%] space-y-[0.5vw] max-md:w-[90%]  max-md:space-y-[3vw]">
         <Copy>
-          <p className="text-30 text-[#111111]"> India</p>
+          <p className="text-30 text-foreground"> India</p>
         </Copy>
         <Copy>
-          <p className="text-24 text-[#111111]">
+          <p className="text-24 text-foreground">
             604-605, 6th Floor, B Wing, Lodha Supremus II,Road No. 22, Wagle
             Industrial Estate, Thane West - 400604
           </p>

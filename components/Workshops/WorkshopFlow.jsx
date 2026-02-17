@@ -116,20 +116,20 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
           }`}
         />
         <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center h-[4vw] w-[4vw] max-sm:h-[18vw] max-sm:top-[7%] max-sm:w-[18vw] max-md:w-[12vw] max-md:h-[12vw] border border-[#111111]">
-          <p className="text-[#111111] max-sm:text-[4vw] max-md:text-[3vw] text-[1vw]">
+          <p className="text-foreground max-sm:text-[4vw] max-md:text-[3vw] text-[1vw]">
             {duration}
           </p>
         </div>
         <div className="h-full flex flex-col justify-between relative z-[10]">
           <div className=" max-w-[80%]">
-            <h3 className="text-32 font-medium text-[#111111]">{title}</h3>
+            <h3 className="text-32 font-medium text-foreground">{title}</h3>
           </div>
           <div className="w-full  max-md:space-y-[3vw] py-[1vw] max-sm:mt-[8vw] mt-[5vw]">
             <ul className={`list-disc text-white-200 pl-[2vw] ${space}`}>
               {list.map((item, index) => (
                 <li
                   key={index}
-                  className="text-24 text-[#111111] max-md:text-[2.5vw] max-sm:text-[4vw]"
+                  className="text-24 text-foreground max-md:text-[2.5vw] max-sm:text-[4vw]"
                 >
                   <span className=" max-md:w-full text-white-200">
                     {item.heading}{" "}

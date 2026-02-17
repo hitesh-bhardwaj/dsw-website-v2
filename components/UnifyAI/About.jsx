@@ -23,7 +23,7 @@ function AboutCard({ challenge }) {
                 <div className=" w-[5vw] h-[5vw] max-sm:h-[15vw] max-sm:w-[15vw]  text-primary-blue">
                     <challenge.icon className="w-full duration-300 ease-in-out h-full" />
                 </div>
-                <p className="text-[#111111] text-30 max-sm:text-[5vw] max-sm:font-light leading-[1.4]">
+                <p className="text-foreground text-30 max-sm:text-[5vw] max-sm:font-light leading-[1.4]">
                     {challenge.title}
                 </p>
             </div>
