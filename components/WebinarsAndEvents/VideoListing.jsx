@@ -64,10 +64,15 @@ const VideoListing = ({margin}) => {
         className={`container relative z-[20]  max-sm:mt-0 max-md:mt-0 ${margin ? "mt-[-20vh]":"mt-[5vw]"}`}
         id="video-listing"
       >
-        <div className="w-full h-full flex flex-wrap fadeupDelay justify-between gap-y-[7vw] max-sm:gap-y-[20vw] max-md:gap-y-[15vw]">
+        <div className="w-full h-full flex flex-wrap fadeupDelay justify-between gap-y-[7vw] max-sm:gap-y-[5vw] max-md:gap-y-[15vw]">
           {videos.map((video, index) => (
-            <div key={index} className="w-[47.5%] flex flex-col gap-[1vw] max-sm:w-full max-sm:gap-[7vw] max-md:w-full max-md:gap-[4vw]">
-                 <span className="w-full h-[1px] hidden max-sm:block bg-black opacity-60 lineDraw" />
+            <div key={index} className="w-[47.5%] max-sm:pt-[7vw] flex flex-col gap-[1vw] max-sm:w-full max-sm:gap-[7vw] max-md:w-full max-md:gap-[4vw]">
+                <span
+  className={`w-full h-px hidden max-sm:block bg-black opacity-60 lineDraw ${
+    index === 0 ? "max-sm:hidden" : ""
+  }`}
+/>
+
               <div
                 className="w-full h-[25vw] rounded-[1.8vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none  fadeup  group max-sm:h-[27vh] max-md:h-[40vh] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[4vw]"
                 role="button"

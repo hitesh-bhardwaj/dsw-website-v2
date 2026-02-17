@@ -15,17 +15,17 @@ const socialLinks = [
   ];
 const Form = () => {
   return (
-    <section className="w-screen h-full overflow-hidden relative z-[10]  max-md:mt-0 px-[5vw] py-[7%]" id="contact-form">
-      <div className="h-full w-full flex items-start justify-between  container max-sm:flex-col max-md:flex-col max-sm:gap-[8vw] max-md:gap-[10vw] max-sm:px-[5.5vw] max-md:px-[4vw]">
+    <section className="w-screen h-full overflow-hidden relative z-[10]  max-md:mt-0 px-[5vw] max-sm:py-[15%] py-[7%]" id="contact-form">
+      <div className="h-full w-full flex items-start justify-between  container max-sm:flex-col max-md:flex-col max-sm:gap-[8vw] max-md:gap-[10vw] max-sm:px-[5vw] max-md:px-[4vw]">
         <div className="w-[52%] h-full  max-sm:w-full max-md:w-[100%] space-y-[1.5vw] max-md:space-y-[3vw] max-sm:space-y-[4.5vw] flex flex-col justify-between gap-[6.5vw]">
-          <div className="h-[35%]  space-y-[1.5vw] max-md:space-y-[5vw]">
+          <div className="h-[35%]  space-y-[1.5vw] max-md:space-y-[10vw]">
             <HeadingAnim>
-            <h2 className="w-[90%] text-76  font-head text-[#0A1B4B] leading-[1.2]">
+            <h2 className="w-[90%] text-76 max-sm:text-center max-sm:mx-auto font-head text-[#0A1B4B] leading-[1.2]">
              Have a specific request or question?
             </h2>
             </HeadingAnim>
 
-            <div className="w-[60%] max-sm:w-[85%] max-md:w-[85%]">
+            <div className="w-[60%] max-sm:w-full max-sm:mx-auto max-md:w-[85%]">
               <Copy>
                 <p className="text-30 font-normal">
                   Fill out the form below and our team will get back to you
