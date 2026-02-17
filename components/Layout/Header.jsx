@@ -190,9 +190,9 @@ export default function Header() {
         className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
-          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${
+          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${
             isHidden ? "-translate-y-full" : "translate-y-0"
-          } ${isScrolled ? "bg-white/75 " : ""}`}
+          }`}
           ref={headerRef}
         >
          <span className={`h-full w-full block absolute top-0 left-0 z-[1] ${isScrolled ? " backdrop-blur-md" : ""}`}/>

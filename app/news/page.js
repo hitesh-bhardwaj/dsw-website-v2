@@ -38,7 +38,7 @@ export default async function Page() {
       {/* <WebpageJsonLd metadata={metadata} /> */}
       {/* <BreadcrumbsJSONLD pathname={metadata.url} /> */}
       <Layout>
-        <HeroNew heroContent={heroContent} />
+        <HeroNew heroContent={heroContent} breadcrumbs={true}/>
         <Listing news={news} />
         <CTAFinal ctaContent={ctaContent} />
       </Layout>

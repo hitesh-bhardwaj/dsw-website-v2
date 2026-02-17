@@ -1,4 +1,5 @@
 import Image from "next/image";
+import BreadCrumbs from "../BreadCrumbs";
 
 export default function Hero({ post }) {
 
@@ -21,6 +22,7 @@ export default function Hero({ post }) {
         <h1 className="text-76 relative z-10 text-white text-center hero-head w-[85%] max-md:text-background max-md:text-left max-md:w-full">
           {post?.title}
         </h1>
+        <BreadCrumbs/>
       </section>
     </>
   );
