@@ -4,10 +4,14 @@ import ArchitecturalPrinciples from "@/components/AIOS/ArchitecturalPrinciples"
 import FiveAnchors from "@/components/AIOS/FiveAnchors"
 import GovernanceBuiltIn from "@/components/AIOS/GovernanceBuiltIn"
 import OperatingSystem from "@/components/AIOS/OperatingSystem"
+import SystemStructure from "@/components/AIOS/SystemStructure"
 import WhoBuiltFor from "@/components/AIOS/WhoBuiltFor"
 import CTAFinal from "@/components/CTAFinal"
 import HeroNew from "@/components/HeroNew"
 import Layout from "@/components/Layout/Layout"
+import Fragmented from "@/components/AIOS/Structure"
+import Outcomes from "@/components/AIOS/Outcomes"
+import Choose from "@/components/AIOS/Choose"
 
 const Page = () => {
     return (
@@ -17,9 +21,13 @@ const Page = () => {
                 <OperatingSystem />
                 <AIProjects />
                 <AIEcosystem />
+                <Fragmented/>
                 <ArchitecturalPrinciples />
                 <FiveAnchors />
+                <SystemStructure />
                 <GovernanceBuiltIn />
+                <Outcomes/>
+                <Choose/>
                 <WhoBuiltFor />
                 <CTAFinal ctaContent={ctaContent} />
             </Layout>

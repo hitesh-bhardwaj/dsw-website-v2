@@ -15,7 +15,7 @@ const STEPS = [
       "Business applications, workflows, and decision systems",
       "AI behaves as long-running production systems",
     ],
-    layerSrc: "/assets/homepage/layer-1-4x.png",
+    layerSrc: "/assets/homepage/glass-layer-1.png",
     layerTop: "0%",
     z: 7,
   },
@@ -26,7 +26,7 @@ const STEPS = [
       "Agentic Runtime - multi-agent orchestration",
       "No execution bypasses kernel policies",
     ],
-    layerSrc: "/assets/homepage/layer2.png",
+    layerSrc: "/assets/homepage/glass-layer-2.png",
     layerTop: "13%",
     z: 6,
   },
@@ -38,7 +38,7 @@ const STEPS = [
       "AI lifecycle, versioning, execution contracts",
       "Defines allowed interactions with runtimes & fabric",
     ],
-    layerSrc: "/assets/homepage/layer3.png",
+    layerSrc: "/assets/homepage/glass-layer-3.png",
     layerTop: "26%",
     z: 5,
   },
@@ -49,7 +49,7 @@ const STEPS = [
       "Accessed only via kernel-defined interfaces",
       "No direct execution without kernel mediation",
     ],
-    layerSrc: "/assets/homepage/layer4.png",
+    layerSrc: "/assets/homepage/glass-layer-4.png",
     layerTop: "39%",
     z: 4,
   },
@@ -57,7 +57,7 @@ const STEPS = [
   {
     title: "Hardware / Cloud Infrastructure",
     bullets: ["Servers, storage, network, accelerators"],
-    layerSrc: "/assets/homepage/layer5.png",
+    layerSrc: "/assets/homepage/glass-layer-5.png",
     layerTop: "52%",
     z: 2,
   },
@@ -236,10 +236,10 @@ export default function Diagram() {
   return (
     <section ref={sectionRef} className="w-full h-fit">
       <div className="h-[500vh] max-sm:h-[520vh]">
-        <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-[15vw] h-screen sticky top-[10%]">
+        <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-[0vw] h-screen sticky top-[7%] max-sm:overflow-hidden max-sm:top-[3%]">
           {/* LEFT */}
           <div className="w-[40%] max-sm:w-full pt-[10vw] relative">
-            <div className="relative w-full min-h-[32vw] max-sm:min-h-[60vw]">
+            <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw]">
               {STEPS.map((step, i) => (
                 <div
                   key={i}
@@ -277,12 +277,12 @@ export default function Diagram() {
           </div>
 
           {/* RIGHT */}
-          <div className="w-[50%] h-[48vw] relative max-sm:w-full max-sm:h-[100vw] mr-[5vw]">
+          <div className="w-[50%] h-[48vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw]">
             {STEPS.map((step, i) => (
               <div
                 key={i}
                 ref={(el) => (layerRefs.current[i] = el)}
-                className="w-[26vw] h-auto absolute right-0 max-sm:w-full"
+                className="w-[45vw] h-auto absolute right-0 max-sm:w-full"
                 style={{ top: step.layerTop, zIndex: step.z }}
               >
                 <Image

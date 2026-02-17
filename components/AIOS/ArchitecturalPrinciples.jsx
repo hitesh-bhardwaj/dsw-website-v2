@@ -55,18 +55,18 @@ const ArchitecturalPrinciples = () => {
       <div className="text-center space-y-[1.5vw] px-[5vw] mb-[5vw] max-sm:space-y-[5vw] max-sm:mb-[10vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B]">
-            DSW Enterprise AI OS Kernel First Architecture
+            A Kernel-Centric Enterprise AI Architecture 
           </h2>
         </HeadingAnim>
         <Copy>
-          <p className="text-30 max-w-[70vw] mx-auto">
+          <p className="text-30 w-[65%] mx-auto max-sm:w-full">
             The DSW Enterprise AI Operating System is designed to operationalize
             AI and agentic systems with long-running enterprise capabilities,
             not isolated applications.
           </p>
         </Copy>
         <Copy>
-          <p className="text-30 max-w-[70vw] mx-auto">
+          <p className="text-30 w-[65%] mx-auto max-sm:w-full">
             Optimized for regulated and hybrid environments, governance and
             control are embedded at the system level — not added as compliance
             afterthoughts.
@@ -109,7 +109,7 @@ const ArchitecturalPrinciples = () => {
               } max-sm:justify-start`}
             >
               <div
-                className={`w-[45%] p-[2vw] bg-white transition-all duration-300 max-sm:w-full max-sm:p-[5vw] ${
+                className={`w-[45%] p-[2vw] bg-white transition-all duration-700 max-sm:w-full max-sm:p-[5vw] ${
                   principle.side === "right"
                     ? "border-l-4 border-[#c1c1c1] ml-[5%] [.active>&]:border-[#0205FA]"
                     : "border-r-4 border-[#c1c1c1] mr-[5%] text-right [.active>&]:border-[#0205FA] max-sm:border-r-0 max-sm:border-l-4 max-sm:text-left max-sm:mr-0"

@@ -48,19 +48,19 @@ export default function HeroNew({ heroContent, variant }) {
     const checkFooter = () => {
       const footerCta = document.getElementById("footer-cta");
       const footer = document.getElementById("footer");
-      
+
       // Check both elements
       const elements = [footerCta, footer].filter(Boolean);
-      
+
       if (elements.length === 0) {
         setIsFooterVisible(false);
         return;
       }
 
       const vh = window.innerHeight;
-      
+
       // Check if ANY footer element is visible
-      const anyVisible = elements.some(el => {
+      const anyVisible = elements.some((el) => {
         const rect = el.getBoundingClientRect();
         // Consider visible if top edge is within viewport or close to it
         // Adding buffer for mobile (50px) to trigger earlier
@@ -72,7 +72,7 @@ export default function HeroNew({ heroContent, variant }) {
 
     // Check immediately on mount
     checkFooter();
-    
+
     // Throttle for better mobile performance
     let ticking = false;
     const throttledCheck = () => {
@@ -87,7 +87,7 @@ export default function HeroNew({ heroContent, variant }) {
 
     window.addEventListener("scroll", throttledCheck, { passive: true });
     window.addEventListener("resize", checkFooter);
-    
+
     // Extra check after a short delay (for content that loads async)
     const delayedCheck = setTimeout(checkFooter, 500);
 
@@ -124,7 +124,7 @@ export default function HeroNew({ heroContent, variant }) {
 
       // Clear existing timer
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-      
+
       // Don't start timer if footer is visible
       if (isFooterVisible) return;
 
@@ -172,9 +172,7 @@ export default function HeroNew({ heroContent, variant }) {
         />
       </div>
 
-
-      <WaveGridCanvas variant={variant}/>
-      
+      <WaveGridCanvas variant={variant} />
 
       <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
@@ -185,7 +183,9 @@ export default function HeroNew({ heroContent, variant }) {
           </Copy>
 
           <HeadingAnim delay={0.3}>
-            <h1 className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full opacity-0 hero-head ${heroContent.headingWidth || "w-[70%]"}`}>
+            <h1
+              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full opacity-0 hero-head ${heroContent.headingWidth || "w-[70%]"}`}
+            >
               {heroContent.heading}
             </h1>
           </HeadingAnim>
@@ -210,35 +210,36 @@ export default function HeroNew({ heroContent, variant }) {
             </div>
           )}
         </div>
-        {heroContent.para&&(
-
-        <div className="herofadeup py-[1.5vw] ">
-<p className="text-30  w-[80%] max-sm:w-full text-center  mx-auto text-[#333333]">{heroContent.para}​</p>
-        </div>
-         )}
+        {heroContent.para && (
+          <div className=" py-[1.5vw] w-[80%] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ">
+            <Copy delay={1}>
+              <p className="text-30 text-[#333333]">
+                {heroContent.para}​
+              </p>
+            </Copy>
+          </div>
+        )}
 
         <div className="herofadeup">
           {heroContent.images && (
-            <div
-            className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15"
-          >
-            <Image
-              src="/assets/infosys-finacle/infosys-finacle.png"
-              alt="infosys-finacle"
-              className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
-              width={297}
-              height={46}
-              priority
-            />
-            <Image
-              src="/assets/infosys-finacle/dsw.png"
-              alt="dsw"
-              className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
-              width={297}
-              height={46}
-              priority
-            />
-          </div>
+            <div className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15">
+              <Image
+                src="/assets/infosys-finacle/infosys-finacle.png"
+                alt="infosys-finacle"
+                className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
+                width={297}
+                height={46}
+                priority
+              />
+              <Image
+                src="/assets/infosys-finacle/dsw.png"
+                alt="dsw"
+                className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
+                width={297}
+                height={46}
+                priority
+              />
+            </div>
           )}
         </div>
 
