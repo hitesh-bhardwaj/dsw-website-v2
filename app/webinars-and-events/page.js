@@ -13,7 +13,7 @@ const AgenticAI = () => {
     <>
       <Layout>
         <main className="min-h-screen">
-          <HeroNew heroContent={heroContent} variant={"default"} />
+          <HeroNew heroContent={heroContent} variant={"default"} breadcrumbs={true} />
             <Expect />
             <UpcomingWebinars />
             <Workshops />

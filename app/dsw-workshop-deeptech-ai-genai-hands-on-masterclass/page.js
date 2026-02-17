@@ -17,7 +17,7 @@ const page = () => {
   return (
     <>
     <Layout>
-        <HeroNew heroContent={heroContent} variant={"rightVertical"}/>
+        <HeroNew heroContent={heroContent} variant={"topLeft"} breadcrumbs={true}/>
         <Features featuresData={featuresData}/>
         <KeyLearnings/>
          <WorkshopFlow sessionsData={sessionsData} space={"space-y-[2vw]"} />
