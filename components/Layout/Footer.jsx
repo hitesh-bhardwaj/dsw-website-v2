@@ -213,11 +213,7 @@ export default function FooterNew() {
                   className="w-full bg-transparent text-20 font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
                 />
                 <button
-                  className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(112.958deg, rgb(241, 107, 13) 7.1952%, rgb(230, 18, 22) 92.805%)",
-                  }}
+                  className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto bg-[#F16B0D]"
                 >
                   Subscribe
                 </button>

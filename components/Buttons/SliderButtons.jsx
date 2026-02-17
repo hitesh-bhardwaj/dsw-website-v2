@@ -5,7 +5,7 @@ export function PreviousButton({ onClick, isDisabled }) {
     <button
       aria-label="previous slide"
       disabled={isDisabled} onClick={onClick}
-      className={`h-[4vw] w-[4vw] px-[1.2vw] group rounded-full border border-[#0205FA] hover:bg-black/10 transition-all duration-300 ease-in-out relative cursor-pointer max-sm:h-[16vw] max-sm:w-[16vw] max-md:h-[10vw] max-md:w-[10vw] max-sm:px-[5.4vw] max-md:px-[3vw] ${isDisabled ? "opacity-50 pointer-events-none hover:scale-100 hover:border-stone-700" : ""}`}
+      className={`h-[4vw] w-[4vw] px-[1.2vw] group rounded-full border border-[#0205FA] hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out relative cursor-pointer max-sm:h-[16vw] max-sm:w-[16vw] max-md:h-[10vw] max-md:w-[10vw] max-sm:px-[5.4vw] max-md:px-[3vw] ${isDisabled ? "opacity-50 pointer-events-none hover:scale-100 hover:border-stone-700" : ""}`}
     >   
       <Image
         src="/assets/icons/arrow-left.svg"
@@ -24,7 +24,7 @@ export function NextButton({ onClick, isDisabled }) {
       aria-label="next slide"
       disabled={isDisabled}
       onClick={onClick}
-      className={`h-[4vw] w-[4vw] px-[1.2vw] group border border-[#0205FA] hover:bg-black/10 transition-all duration-300 ease-in-out rounded-full relative cursor-pointer max-sm:h-[16vw] max-sm:w-[16vw] max-md:h-[10vw] max-md:w-[10vw] max-sm:px-[5.4vw] max-md:px-[3vw]  ${isDisabled ? "opacity-50 pointer-events-none hover:scale-100 hover:border-stone-700" : ""}`}
+      className={`h-[4vw] w-[4vw] px-[1.2vw] group border border-[#0205FA] hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out rounded-full relative cursor-pointer max-sm:h-[16vw] max-sm:w-[16vw] max-md:h-[10vw] max-md:w-[10vw] max-sm:px-[5.4vw] max-md:px-[3vw]  ${isDisabled ? "opacity-50 pointer-events-none hover:scale-100 hover:border-stone-700" : ""}`}
     >
       
       <Image

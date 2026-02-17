@@ -16,7 +16,7 @@ const page = () => {
   return (
     <>
     <Layout>
-        <HeroNew heroContent={heroContent} variant={"rightVertical"}/>
+        <HeroNew heroContent={heroContent} variant={"default"} breadcrumbs={true}/>
         <Features featuresData={featuresData}/>
          <WorkshopFlow sessionsData={sessionsData} space={"space-y-[2vw]"} />
          <Outcomes outcomesData={outcomesData}/>

@@ -6,13 +6,13 @@ import SecondaryButton from "./Buttons/SecondaryButton";
 import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
 import { fadeUp } from "./Animations/gsapAnimations";
-import WaveGradientCanvas from "./Homepage/HeroBg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import WaveGridCanvas from "./Homepage/HeroBg";
+import BreadCrumbs from "./BreadCrumbs";
 
-export default function HeroNew({ heroContent, variant }) {
+export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   const showButtons =
     heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
 
@@ -242,6 +242,8 @@ export default function HeroNew({ heroContent, variant }) {
             </div>
           )}
         </div>
+      {breadcrumbs && <BreadCrumbs />}
+
 
         {/* Scroll Down Indicator - conditionally render to prevent any display issues */}
         {!isFooterVisible && (
@@ -270,6 +272,8 @@ export default function HeroNew({ heroContent, variant }) {
                 </div>
               </div>
             </div>
+
+
 
             <p className="text-20 font-sans shimmer tracking-[0.056vw]">
               Keep Scrolling to Discover More
