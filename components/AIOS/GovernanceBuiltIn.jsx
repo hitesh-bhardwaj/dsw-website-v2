@@ -31,9 +31,9 @@ const GovernanceBuiltIn = () => {
   return (
     <section className="relative w-full py-[7%] bg-background max-sm:py-[15%] max-sm:px-[5vw]">
       {/* Heading */}
-      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
+      <div className="text-center px-[5vw] mb-[7vw] max-sm:mb-[10vw]">
         <HeadingAnim>
-          <h2 className="text-76 text-foreground leading-[1.1]">
+          <h2 className="text-76 text-[#0A1B4B]">
             Governance Built In, Not Bolted On
           </h2>
         </HeadingAnim>
@@ -56,7 +56,7 @@ const GovernanceBuiltIn = () => {
               `}
             >
               <CornerDecorations />
-              <h3 className="text-32 text-foreground font-heading mb-[1vw] max-sm:mb-[3vw]">
+              <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[0].title}
               </h3>
               <p className="text-24 text-[#111] leading-[1.4]">
@@ -78,7 +78,7 @@ const GovernanceBuiltIn = () => {
               `}
             >
               <CornerDecorations />
-              <h3 className="text-32 text-foreground font-heading mb-[1vw] max-sm:mb-[3vw]">
+              <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[1].title}
               </h3>
               <p className="text-24 text-[#111] leading-[1.4]">
@@ -102,7 +102,7 @@ const GovernanceBuiltIn = () => {
               `}
             >
               <CornerDecorations />
-              <h3 className="text-32 text-foreground font-heading mb-[1vw] max-sm:mb-[3vw]">
+              <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[2].title}
               </h3>
               <p className="text-24 text-[#111] leading-[1.4]">

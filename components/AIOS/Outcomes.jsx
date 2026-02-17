@@ -113,7 +113,7 @@ export default function Outcomes() {
                             </div>
 
                             {/* <Copy> */} 
-                            <p className={`text-44 w-full font-light`}>{text}</p>
+                            <p className={`text-44 w-full font-light text-[#0A1B4B] `}>{text}</p>
                             {/* </Copy> */}
                         </div>
                     ))}

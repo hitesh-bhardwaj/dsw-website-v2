@@ -9,7 +9,7 @@ import React, { useRef, useEffect } from "react";
  *  - "leftVertical" - vertical wave from left side
  *  - "topLeft" - diagonal wave from top-left corner
  */
-const WaveGridCanvas = ({
+const  WaveGridCanvas = ({
   variant = "default",
 
   // ===== Wave params =====

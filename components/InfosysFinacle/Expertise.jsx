@@ -80,7 +80,7 @@ const Expertise = () => {
 
   return (
     <section
-      className="min-h-screen max-sm:min-h-full max-sm:py-[15%]  w-screen overflow-x-hidden h-fit flex flex-col items-center justify-center relative container  !py-[7%]"
+      className="min-h-screen max-sm:min-h-full max-sm:py-[15%]  w-screen overflow-x-hidden h-fit flex flex-col items-center justify-center relative !py-[7%]"
     >
       <div className="w-full h-full flex flex-col items-center justify-center gap-32 relative z-[2] max-sm:gap-20">
         <div className=" w-fit px-[5vw] max-sm:px-[7vw]">

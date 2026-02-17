@@ -4,6 +4,7 @@ import ArchitecturalPrinciples from "@/components/AIOS/ArchitecturalPrinciples"
 import FiveAnchors from "@/components/AIOS/FiveAnchors"
 import GovernanceBuiltIn from "@/components/AIOS/GovernanceBuiltIn"
 import OperatingSystem from "@/components/AIOS/OperatingSystem"
+import SystemStructure from "@/components/AIOS/SystemStructure"
 import WhoBuiltFor from "@/components/AIOS/WhoBuiltFor"
 import CTAFinal from "@/components/CTAFinal"
 import HeroNew from "@/components/HeroNew"
@@ -23,6 +24,7 @@ const Page = () => {
                 <Fragmented/>
                 <ArchitecturalPrinciples />
                 <FiveAnchors />
+                <SystemStructure />
                 <GovernanceBuiltIn />
                 <Outcomes/>
                 <Choose/>

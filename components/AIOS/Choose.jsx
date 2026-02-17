@@ -14,7 +14,7 @@ const Choose = () => {
         start: "top 70%",
         end: "bottom bottom",
         scrub: true,
-        markers: true,
+        // markers: true,
       },
       defaults: { ease: "power1.inOut" },
     });
@@ -125,7 +125,7 @@ const Choose = () => {
 
   return (
     <section className="w-full h-[300vh]" id="choose">
-      <div className="w-full h-screen sticky top-0 flex items-center justify-center flex-nowrap">
+      <div className="w-full h-screen sticky top-0 flex items-center justify-center flex-nowrap text-[#0A1B4B] ">
         <h3 className="text-110 w-[50%] text-center absolute top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content1">
           You choose the environment.
         </h3>
