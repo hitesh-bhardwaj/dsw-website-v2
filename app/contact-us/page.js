@@ -23,7 +23,7 @@ export default Page
 
 const heroContent = {
     tagline: "",
-    heading: "Let’s Build the Future of AI Together",
+    heading: "Let’s Build the Future of AI Together",
     headingWidth: "w-[60%]",
     para: " Whether you're ready to launch your next AI initiative or just exploring possibilities - let’s talk​",
     primaryButton: {
