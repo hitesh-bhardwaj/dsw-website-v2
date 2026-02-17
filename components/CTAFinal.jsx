@@ -34,6 +34,7 @@ export default function CTAFinal({ ctaContent }) {
             {/* Primary Button */}
             {ctaContent.primaryButton?.present && (
               <PrimaryButton
+                target={`${ctaContent.primaryButton.targetPrimary ? "_blank" : ""}`}
                 text={ctaContent.primaryButton.text}
                 href={ctaContent.primaryButton.link}
               />
