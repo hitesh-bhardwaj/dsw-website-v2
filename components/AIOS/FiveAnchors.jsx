@@ -103,7 +103,7 @@ const FiveAnchors = ({
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-[7%] bg-background max-sm:py-[15%]"
+      className="relative w-full py-[7%] bg-background max-sm:py-[15%] overflow-hidden"
     >
       {/* Heading */}
       <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
@@ -115,7 +115,7 @@ const FiveAnchors = ({
       </div>
 
       {/* Infographic Container */}
-      <div className="relative w-full max-w-[45vw] mx-auto aspect-square max-sm:max-w-[90vw] fiveAnchorsCircle">
+      <div className="relative w-[45vw] mx-auto aspect-square max-sm:w-[100vw] fiveAnchorsCircle">
         {/* Rotating Circle Ring */}
         <div ref={ringRef} className="absolute inset-[10%] z-0">
           <Image
@@ -139,13 +139,13 @@ const FiveAnchors = ({
               />
             </div>
           </div>
-          <p className="text-24 text-foreground capitalize tracking-[0.02em]">
+          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
             Continuous Adaption
           </p>
         </div>
 
         {/* Right - Data Sovereignty */}
-        <div className="absolute top-[35%] right-0 flex flex-col items-center gap-[0.8vw] z-10">
+        <div className="absolute top-[35%] right-0 flex flex-col items-center gap-[0.8vw] z-10 max-sm:right-[-3%]">
           <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
@@ -156,13 +156,13 @@ const FiveAnchors = ({
               />
             </div>
           </div>
-          <p className="text-24 text-foreground capitalize tracking-[0.02em]">
+          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
             Data Sovereignty
           </p>
         </div>
 
         {/* Bottom Right - Human Centric */}
-        <div className="absolute bottom-[5%] right-[15%] flex flex-col items-center gap-[0.8vw] z-10">
+        <div className="absolute bottom-[5%] right-[15%] flex flex-col items-center gap-[0.8vw] z-10 max-sm:bottom-[-2%]">
           <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
@@ -173,13 +173,13 @@ const FiveAnchors = ({
               />
             </div>
           </div>
-          <p className="text-24 text-foreground capitalize tracking-[0.02em]">
+          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
             Human Centric
           </p>
         </div>
 
         {/* Bottom Left - Strategic Flexibility */}
-        <div className="absolute bottom-[5%] left-[15%] flex flex-col items-center gap-[0.8vw] z-10">
+        <div className="absolute bottom-[5%] left-[15%] flex flex-col items-center gap-[0.8vw] z-10 max-sm:bottom-[-3%]">
           <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
@@ -190,13 +190,13 @@ const FiveAnchors = ({
               />
             </div>
           </div>
-          <p className="text-24 text-foreground capitalize tracking-[0.02em]">
+          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
             Strategic Flexibility
           </p>
         </div>
 
         {/* Left - Adaption Reality */}
-        <div className="absolute top-[35%] left-0 flex flex-col items-center gap-[0.8vw] z-10">
+        <div className="absolute top-[35%] left-0 flex flex-col items-center gap-[0.8vw] z-10 max-sm:left-[-2%]">
           <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
@@ -207,7 +207,7 @@ const FiveAnchors = ({
               />
             </div>
           </div>
-          <p className="text-24 text-foreground capitalize tracking-[0.02em]">
+          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
             Adaption Reality
           </p>
         </div>

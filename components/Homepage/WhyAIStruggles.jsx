@@ -45,6 +45,19 @@ export default function WhyAIStruggles() {
           // markers:true
         },
       });
+    }else{
+       gsap.from(".struggle-card", {
+        opacity: 0,
+        stagger: 0.1,
+        ease: "power2.inOut",
+        duration: 1,
+        scrollTrigger: {
+          trigger: "#struggle",
+          start: "top 30%",
+
+          // markers:true
+        },
+      });
     }
   });
 

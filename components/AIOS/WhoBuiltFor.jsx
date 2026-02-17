@@ -30,7 +30,7 @@ const WhoBuiltFor = () => {
   return (
     <section className="relative w-full py-[7%] bg-background max-sm:py-[15%] overflow-hidden">
       {/* Heading */}
-      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
+      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[20vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B] ">
             Who This Is Built For
@@ -127,27 +127,12 @@ const WhoBuiltFor = () => {
       </div>
 
       {/* Mobile Layout */}
-      <div className="hidden max-sm:flex flex-col items-center gap-[5vw] px-[5vw]">
-        {/* Center Circle */}
-        <div className="w-[35vw] h-[35vw] rounded-full border border-primary-blue bg-background flex items-center justify-center">
-          <span className="text-24 text-foreground font-heading">Built For</span>
-        </div>
-
-        {/* Cards */}
-        <div className="flex flex-col gap-[4vw] w-full">
-          {audiences.map((audience) => (
-            <div
-              key={audience.id}
-              className="flex items-center border border-primary-blue bg-background p-[4vw]"
-            >
-              <p className="text-18 text-foreground">{audience.text}</p>
-            </div>
-          ))}
-        </div>
+      <div className="hidden max-sm:flex flex-col items-center px-[7vw]">
+        <Image src={"/assets/aios/bult-for-img-mob.png"} alt="built-for-mob" className="w-full h-full" width={400} height={700}/>
       </div>
 
       {/* Footer Text */}
-      <div className="text-center px-[5vw] mt-[5vw] max-sm:mt-[10vw]">
+      <div className="text-center px-[5vw] mt-[5vw] max-sm:mt-[20vw]">
         <Copy>
         <p className="text-30 text-foreground leading-[1.4]">
           For organizations where AI must be trusted, governed, continuously operational,

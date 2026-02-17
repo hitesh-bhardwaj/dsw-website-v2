@@ -1,6 +1,6 @@
 import AlwaysOnAI from "@/components/AlwaysOnAI";
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
-import Clients from "@/components/Clients";
+// import Clients from "@/components/Clients";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
 import CTAPricing from "@/components/CTAPricing";
