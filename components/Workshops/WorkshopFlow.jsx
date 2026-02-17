@@ -40,10 +40,10 @@ export default function WorkshopFlow({ sessionsData, space }) {
   };
 
   return (
-    <section className="relative w-full h-fit space-y-[6vw] px-[5vw] max-md:h-full overflow-hidden py-[7%]">
+    <section className="relative w-full h-fit space-y-[6vw] px-[5vw] max-md:h-full overflow-hidden py-[7%] max-sm:py-[15%]">
      <div className="w-full flex flex-col h-full  gap-[1vw] max-md:flex-col max-md:items-start">
   <HeadingAnim>
-    <h2 className="text-76 text-[#0A1B4B] text-center">
+    <h2 className="text-76 text-[#0A1B4B] text-center max-sm:mx-auto">
       Workshop Flow & Key Sessions
     </h2>
   </HeadingAnim>
