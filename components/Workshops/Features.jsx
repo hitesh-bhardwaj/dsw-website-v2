@@ -1,14 +1,12 @@
-import Image from "next/image";
 import React from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
-import CornerDecorations from "../CornerDecorations";
 
 const FeaturesCard = ({ icon, title, para }) => {
   return (
     <>
-      <div className=" relative group  max-md:space-y-[10vw] max-md:w-full w-[49%] hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out ">
+      <div className=" relative group max-md:space-y-[10vw] h-fit max-md:w-full w-[49%] hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out ">
         <CornerDecorations/>
-        <div className=" py-[3vw] px-[3vw] max-sm:p-[5vw] max-sm:py-[6vw] space-y-[1.5vw] max-md:flex max-md:flex-col max-md:items-start max-sm:justify-start max-sm:space-y-[15vw]  fadeup  w-full border border-[#C2C2C2]">
+        <div className=" py-[3vw] px-[3vw] max-sm:p-[5vw] max-sm:py-[6vw] space-y-[5vw] max-md:flex max-md:flex-col max-md:items-start max-sm:justify-start max-sm:space-y-[15vw] w-full border border-[#C2C2C2]">
           <div className="w-[4vw] h-[4vw] max-md:w-[15vw] max-sm:w-[12vw] max-sm:h-[12vw] max-md:h-[15vw] text-primary-blue">
             {icon}
           </div>
@@ -38,7 +36,7 @@ const Features = ({ featuresData }) => {
         </h2>
         </HeadingAnim>
 
-        <div className=" w-full flex  flex-wrap gap-y-[3vw] max-sm:gap-y-[6vw] justify-between">
+        <div className=" w-full flex  flex-wrap gap-y-[3vw] max-sm:gap-y-[6vw] justify-between  fadeup">
           {featuresData.map((card, index) => (
             <FeaturesCard
               key={index}
@@ -55,3 +53,47 @@ const Features = ({ featuresData }) => {
 };
 
 export default Features;
+
+
+function CornerDecorations() {
+  const line = `
+    w-[5px] h-[1px]
+    duration-300 ease-in-out
+  `;
+
+  return (
+    <>
+      {/* Top Left */}
+      <div className="absolute -top-[0.5%] -left-[0.2%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out">
+        <div className={`${line} bg-black`} />
+        <div
+          className={`${line} bg-black rotate-90 absolute top-[2.2px] -left-1/2`}
+        />
+      </div>
+
+      {/* Top Right */}
+      <div className="absolute top-[0.2%] -right-[0.5%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out">
+        <div className={`${line} bg-black`} />
+        <div
+          className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
+        />
+      </div>
+
+      {/* Bottom Left */}
+      <div className="absolute bottom-[0.2%] -left-[0.5%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:bottom-[-13%]">
+        <div className={`${line} bg-black`} />
+        <div
+          className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
+        />
+      </div>
+
+      {/* Bottom Right */}
+      <div className="absolute -bottom-[0.3%] -right-[0.1%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:bottom-[-13%]">
+        <div className={`${line} bg-black`} />
+        <div
+          className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
+        />
+      </div>
+    </>
+  );
+}
