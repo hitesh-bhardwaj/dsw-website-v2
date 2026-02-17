@@ -5,13 +5,13 @@ import HeadingAnim from "../Animations/HeadingAnim";
 
 const WatchOnDemand = () => {
   return (
-    <section className=" w-screen py-[3%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] px-[5vw]  max-sm:mt-0 overflow-hidden" id="workshops">
+    <section className=" w-screen py-[3%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[15%] px-[5vw]  max-sm:mt-0 overflow-hidden" id="workshops">
       <div className=" max-sm:space-y-[5vw] w-full flex flex-col items-center justify-center">
         <div className="w-full space-y-[1.5vw] max-md:space-y-[5vw] max-sm:space-y-[7vw]  text-center max-md:w-full max-md:px-[7vw]">
           <HeadingAnim>
 
           <h2 className="text-76 text-[#0A1B4B] headingAnim  max-sm:w-full ">
-            Missed a Session? Watch On - Demand
+            Missed a Session? Watch On - Demandx
           </h2>
           </HeadingAnim>
           <Copy>

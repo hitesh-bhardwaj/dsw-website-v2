@@ -121,7 +121,7 @@ export default function FooterNew() {
                 Contact Us
               </h5>
               <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
-                <div className="under-multi-parent w-fit h-fit">
+                <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
                 <Link
                   href="mailto:Contact@datasciencewizards.ai"
                   className="block text-24 max-sm:text-[5vw] under-multi"

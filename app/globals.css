@@ -87,7 +87,7 @@ h6 {
   background: radial-gradient(
     circle at center,
     #02031c 0%,
-    #02031c 35%,
+    #02031c 85%,
     #030558 100%
   );
 }
@@ -306,4 +306,3 @@ h6 {
     --text-32: 5vw;
   }
 }
-

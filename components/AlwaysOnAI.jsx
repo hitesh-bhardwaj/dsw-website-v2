@@ -130,7 +130,7 @@ export default function AlwaysOnAI({content,imgWidth,walkthrough}) {
             className="object-contain h-full w-full"
             priority
           />
-          <div className={`w-fit h-fit absolute top-[45%] left-[43%] ${walkthrough?"":"hidden"}`}>
+          <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-sm:left-[15%] ${walkthrough?"":"hidden"}`}>
             <PrimaryButton  text={"Start Walkthrough"} href={"#"} onClick={(e) => {
                 e.preventDefault();
                 openWalkthroughSmart();

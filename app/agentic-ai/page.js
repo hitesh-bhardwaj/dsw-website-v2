@@ -7,7 +7,6 @@ import HowAgenticWorks from '@/components/AgenticAI/HowAgenticWorks'
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
-import HowAgenticWorksWheel from '@/components/AgenticAI/HowAgenticWorksWheel'
 
 
 const AgenticAI = () => {
@@ -61,5 +60,4 @@ const ctaContent={
     link:"#",
     text:"Talk to our Team"
   },
-
 }

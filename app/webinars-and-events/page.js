@@ -7,13 +7,12 @@ import UpcomingWebinars from "@/components/WebinarsAndEvents/UpcomingWebinars";
 import Workshops from "@/components/WebinarsAndEvents/Workshops";
 import WatchOnDemand from "@/components/WebinarsAndEvents/WatchOnDemand";
 
-
 const AgenticAI = () => {
   return (
     <>
       <Layout>
         <main className="min-h-screen">
-          <HeroNew heroContent={heroContent} variant={"default"} />
+          <HeroNew heroContent={heroContent} variant={"leftVertical"} />
             <Expect />
             <UpcomingWebinars />
             <Workshops />
