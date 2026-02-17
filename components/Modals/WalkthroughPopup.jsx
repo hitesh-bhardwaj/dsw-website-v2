@@ -1,56 +1,47 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
-import { SplitText } from "gsap/SplitText";
-// import gsap from "gsap";
-// import gsap from "gsap/src";
-// import { useModal } from "./ModalProvider";
 import WalkthroughForm from "./WalkthroughForm";
 import { useModal } from "../ModalProvider";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
-const WalkthroughPopup = ({ modalOpen, setModalOpen }) => {
+const WalkthroughPopup = () => {
   const lenis = useLenis();
-  const { payload, setPayload } = useModal();
+  const { openWalkThrough: modalOpen, setOpenWalkThrough: setModalOpen, payload, setPayload } = useModal();
   const clearPayloadTimeoutRef = useRef(null);
-  //  console.log(lenis)
+  const popupRef = useRef(null);
+
   // Animations + Lenis control
   useEffect(() => {
     if (!modalOpen) {
       lenis?.start();
       return;
     }
-
     lenis?.stop();
-
-    // const formHead = document.querySelector(".formhead");
-    // const formPara = document.querySelector(".formpara");
-    // if (!formHead || !formPara) return;
-
-    // const headEl = new SplitText(formHead, { type: "lines", mask: "lines" });
-    // const paraEl = new SplitText(formPara, { type: "lines", mask: "lines" });
-
-    // const tl = gsap.timeline({ defaults: { ease: "power2.out", duration: 1 } });
-    // tl.from(headEl.lines, { yPercent: 100, stagger: 0.1, delay: 0.3 })
-    //   .from(paraEl.lines, { yPercent: 100, stagger: 0.1 }, "-=0.7")
-    //   .from(
-    //     ".formfade",
-    //     { yPercent: 30, opacity: 0, duration: 0.7, stagger: 0.1 },
-    //     "-=1"
-    //   );
-
-    // return () => tl.kill();
   }, [modalOpen, lenis]);
 
-  // When modal closes => clear payload after 1s
+  // GSAP animation for popup
+  useGSAP(() => {
+    if (!popupRef.current) return;
+
+    if (modalOpen) {
+      gsap.fromTo(
+        popupRef.current,
+        { opacity: 0, scale: 0.95, y: 20 },
+        { opacity: 1, scale: 1, y: 0, duration: 0.5, ease: "power2.out" }
+      );
+    }
+  }, [modalOpen]);
+
+  // When modal closes => clear payload after delay
   useEffect(() => {
     if (!modalOpen) {
-      // schedule clear
       clearTimeout(clearPayloadTimeoutRef.current);
       clearPayloadTimeoutRef.current = setTimeout(() => {
         setPayload(null);
       }, 400);
     } else {
-      // modal reopened -> cancel pending clear
       clearTimeout(clearPayloadTimeoutRef.current);
     }
 
@@ -59,51 +50,40 @@ const WalkthroughPopup = ({ modalOpen, setModalOpen }) => {
 
   const handleClose = () => {
     setModalOpen(false);
-    // don't clear payload here; the effect above will handle it after 1s
   };
 
   return (
     <section
-      id="popup"
-      className={`w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/30 ${
-        modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-      }`}
+      id="walkthrough-popup"
+      className={`w-full h-full fixed inset-0 z-999 flex justify-center items-center duration-500 ${modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        }`}
     >
-      <div data-lenis-prevent className="relative  w-[78%] h-[80%] overflow-y-auto pr-2 rounded-[2vw] border border-white/20 bg-black/40 max-sm:rounded-[6vw] max-md:w-[90%]  max-md:h-[80%] max-sm:h-[75%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] pt-[4vw] max-md:pt-[6vw] max-md:rounded-[4vw]">
-      
-      <div className="h-full w-full !overflow-y-auto pr-2 flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
-        <div className="w-[30%] h-full space-y-[2vw] max-md:w-full max-md:space-y-[2vw]">
-            <h2 className="text-90 formhead">Get a Walkthrough</h2>
-          <p className="text-white-200 formpara max-md:pl-[1vw]">
-            Fill out the form
-          </p>
-        </div>
+      {/* Popup Card */}
+      <div
+        data-lenis-prevent
+        ref={popupRef}
+        className="relative w-[78%] h-auto max-h-[90vh] overflow-y-auto rounded-[2vw] border border-[#d4d4d4] bg-white/50 backdrop-blur-2xl max-sm:rounded-[6vw] max-md:w-[92%] max-md:rounded-[4vw]"
+      >
+        {/* Content */}
+        <div className="relative z-10 flex justify-between p-[4vw] max-md:flex-col max-md:p-[6vw] max-sm:p-[7vw] max-sm:gap-[8vw] max-md:gap-[5vw]">
+          {/* Left Side - Heading */}
+          <div className="w-[35%] space-y-[1.5vw] max-md:w-full max-md:space-y-[2vw] max-sm:space-y-[4vw]">
+            <h2 className="text-76 text-[#0a1b4b] font-heading leading-[1.15] max-md:text-center">
+              Get a Full<br />Demo
+            </h2>
+            <p className="text-24 text-[#333] font-sans tracking-wide max-md:text-center">
+              Fill out the form
+            </p>
+          </div>
 
-        <div className="w-[60%] max-md:w-full">
-          {modalOpen ? <WalkthroughForm /> : null}
-        </div>
-      </div>
-       </div>
-      <div className="formfade absolute top-[3%] right-[3%] max-md:top-[2.5%] max-sm:right-[4%] max-md:right-[2.5%] opacity-100">
-        <div
-          onClick={handleClose}
-          className={` h-auto group  max-sm:w-[12vw] rounded-full   p-[2vw]  transition-all  ease-out max-sm:p-[6vw]  bg-gradient-to-br from-[#F16B0D] to-[#E61216] cursor-pointer max-md:p-[4vw] `}
-        >
-          <div
-            style={{
-              transitionTimingFunction: "cubic-bezier(0.625, 0.05, 0, 1)",
-            }}
-            className="rotate-45 group-hover:rotate-[225deg] duration-700"
-          >
-            <span
-              className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] rotate-90 max-md:w-[3vw]`}
-            ></span>
-
-            <span
-              className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] max-md:w-[3vw]`}
-            ></span>
+          {/* Right Side - Form */}
+          <div className="w-[55%] max-md:w-full">
+            {modalOpen ? <WalkthroughForm /> : null}
           </div>
         </div>
+
+        {/* Close Button */}
+
       </div>
 
       {/* Background click closes modal */}
@@ -111,8 +91,25 @@ const WalkthroughPopup = ({ modalOpen, setModalOpen }) => {
         className="w-screen h-screen fixed inset-0 z-[-1]"
         onClick={handleClose}
       />
+
+      <div className="absolute top-[5vw] right-[6vw] z-20 max-md:top-[3vw] max-md:right-[3vw] max-sm:top-[4vw] max-sm:right-[4vw]">
+        <div
+          onClick={handleClose}
+          className="h-auto group rounded-full p-[1vw] transition-all ease-out max-sm:p-[4vw] max-md:p-[2.5vw] bg-primary cursor-pointer hover:scale-95 duration-300"
+        >
+          <div
+            style={{
+              transitionTimingFunction: "cubic-bezier(0.625, 0.05, 0, 1)",
+            }}
+            className="relative w-[1.2vw] h-[1.2vw] max-sm:w-[4vw] max-sm:h-[4vw] max-md:w-[2.5vw] max-md:h-[2.5vw] rotate-45 group-hover:rotate-225deg duration-700"
+          >
+            <span className="w-full rounded-full h-[2px] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90" />
+            <span className="w-full rounded-full h-[2px] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+          </div>
+        </div>
+      </div>
     </section>
   );
 };
 
-export default WalkthroughPopup ;
+export default WalkthroughPopup;

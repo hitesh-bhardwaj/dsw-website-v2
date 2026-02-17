@@ -10,9 +10,9 @@ import { ChevronDown } from "lucide-react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+import MobileNav from "./MobileNav";
 
-gsap.registerPlugin(SplitText, ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 const NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about-us", drop: false },
@@ -22,8 +22,9 @@ const NAV_LINKS = [
     href: "/#",
     drop: true,
     children: [
-      { id: "tech-1", label: "AI Solutions", href: "/#" },
-      { id: "tech-2", label: "Data Analytics", href: "/#" },
+      { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
+      { id: "tech-2", label: "AI/ML Runtime", href: "/#" },
+      { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
     ],
   },
   {
@@ -37,6 +38,7 @@ const NAV_LINKS = [
     ],
   },
   { id: "pilot", label: "Pilot Program", href: "/#", drop: false },
+  { id: "opensource", label: "Open Source", href: "/#", drop: false },
   {
     id: "resources",
     label: "Resources",
@@ -45,7 +47,7 @@ const NAV_LINKS = [
     children: [
       { id: "res-1", label: "Case Studies", href: "/#" },
       { id: "res-2", label: "In the News", href: "/#" },
-      { id: "res-3", label: "Blogs", href: "/#" },
+      { id: "res-3", label: "Blogs", href: "/blogs" },
       { id: "res-4", label: "Events", href: "/#" },
       { id: "res-5", label: "Videos", href: "/#" },
       { id: "res-6", label: "Whitepapers", href: "/#" },
@@ -53,6 +55,7 @@ const NAV_LINKS = [
       { id: "res-8", label: "Masterclass", href: "/#" },
     ],
   },
+  { id: "contact", label: "Contact Us", href: "/contact-us", drop: false },
 ];
 
 const isPathActive = (pathname, href) => {
@@ -61,7 +64,7 @@ const isPathActive = (pathname, href) => {
   return pathname === href || pathname.startsWith(href + "/");
 };
 
-// ✅ Animated link with SplitText hover animation
+// Animated link with SplitText hover animation
 function AnimatedNavLink({ href, children, className = "", onClick, ...props }) {
   const elRef = useRef(null);
   const splitRef = useRef(null);
@@ -69,11 +72,7 @@ function AnimatedNavLink({ href, children, className = "", onClick, ...props }) 
   useGSAP(
     () => {
       if (!elRef.current) return;
-
-      // Create split ONCE for this element
       splitRef.current = new SplitText(elRef.current, { type: "chars" });
-
-      // Ensure baseline
       gsap.set(splitRef.current.chars, { yPercent: 0 });
 
       return () => {
@@ -87,14 +86,12 @@ function AnimatedNavLink({ href, children, className = "", onClick, ...props }) 
   const animateTo = (y) => {
     const chars = splitRef.current?.chars;
     if (!chars) return;
-
     gsap.killTweensOf(chars);
-
     gsap.to(chars, {
       yPercent: y,
       stagger: 0.008,
       duration: 0.5,
-      ease: "power2.out", // ✅ same ease both directions
+      ease: "power2.out",
     });
   };
 
@@ -127,7 +124,6 @@ export default function Header() {
   const pathname = usePathname();
   const [isInverted, setIsInverted] = useState(false);
 
-
   // Detect mobile
   useEffect(() => {
     const check = () => setMob(globalThis.innerWidth <= 1024);
@@ -135,6 +131,11 @@ export default function Header() {
     globalThis.addEventListener("resize", check, { passive: true });
     return () => globalThis.removeEventListener("resize", check);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setOpenMobileMenu(false);
+  }, [pathname]);
 
   // Reset scroll on route change
   useEffect(() => {
@@ -147,7 +148,7 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      if (isHoveringHeader) {
+      if (isHoveringHeader || openMobileMenu) {
         setIsHidden(false);
         setLastScrollY(currentScrollY);
         return;
@@ -164,7 +165,7 @@ export default function Header() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isHoveringHeader]);
+  }, [lastScrollY, isHoveringHeader, openMobileMenu]);
 
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -177,8 +178,6 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-
 
   return (
     <>
@@ -195,11 +194,10 @@ export default function Header() {
           }`}
           ref={headerRef}
         >
-         <span className={`h-full w-full block absolute top-0 left-0 z-[1] ${isScrolled ? " backdrop-blur-md" : ""}`}/>
+          <span className={`h-full w-full block absolute top-0 left-0 z-1 ${isScrolled ? " backdrop-blur-md" : ""}`}/>
 
-         
           {/* Logo */}
-          <div className="flex items-center gap-2 w-[12%] max-sm:w-[36%] z-[10] relative">
+          <div className="flex items-center gap-2 w-[12%] max-sm:w-[36%] z-10 relative">
             <Link href="/" className="flex items-center">
               <Image
                 src="/assets/dsw-logo.svg"
@@ -214,10 +212,10 @@ export default function Header() {
 
           {/* Desktop Navigation */}
           {!mob ? (
-            <div className="rounded-full ml-[4vw] max-md:hidden relative z-[10]">
+            <div className="rounded-full max-md:hidden relative z-10">
               <div className="w-full h-full absolute top-0 left-0" />
               <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
-                {NAV_LINKS.map((link) => {
+                {NAV_LINKS.filter(link => link.id !== "contact" && link.id !== "opensource").map((link) => {
                   const hasChildren =
                     Array.isArray(link.children) && link.children.length > 0;
 
@@ -251,8 +249,8 @@ export default function Header() {
                               ? " text-22 duration-500 transition-color ease-out font-medium"
                               : ""
                           } buttonTextShadow ${
-                isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-              }`}
+                            isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
+                          }`}
                           onClick={(e) => {
                             if (hasChildren) e.preventDefault();
                           }}
@@ -270,9 +268,9 @@ export default function Header() {
                               }`}
                             >
                               <div className="w-[2.8vw] h-auto">
-                                <ChevronDown className={`w-[1.2vw]  h-full  duration-300 transition-all ease-in ${
-                isInverted ? "stroke-white group-hover:stroke-white" : "stroke-[#111111] group-hover:stroke-primary-blue"
-              }`} />
+                                <ChevronDown className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${
+                                  isInverted ? "stroke-white group-hover:stroke-white" : "stroke-[#111111] group-hover:stroke-primary-blue"
+                                }`} />
                               </div>
                             </div>
 
@@ -288,7 +286,7 @@ export default function Header() {
                       {/* Submenu */}
                       {hasChildren && (
                         <div
-                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75  shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md  ${
+                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${
                             openDropdown === link.id
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"
@@ -311,8 +309,8 @@ export default function Header() {
                                       childActive ? "page" : undefined
                                     }
                                     className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${
-                isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-              }`}
+                                      isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
+                                    }`}
                                   >
                                     {child.label}
                                   </AnimatedNavLink>
@@ -332,14 +330,16 @@ export default function Header() {
           ) : (
             <div className="flex items-center justify-between transition-transform duration-500 pointer-events-auto">
               {/* Hamburger */}
-              <div
+              <button
                 className="hidden max-sm:flex max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-[150] max-md:flex max-md:flex-col max-md:w-[4.5vw] max-md:gap-[1vw] max-sm:w-[7vw]"
                 onClick={() => setOpenMobileMenu((prev) => !prev)}
+                aria-label="Toggle menu"
+                aria-expanded={openMobileMenu}
               >
-                <div className="w-full h-[2.5px] rounded-full line-1 transition-all duration-500 origin-center ham-mobile bg-black" />
-                <div className="w-full h-[2.5px] rounded-full line-2 transition-all duration-500 ham-mobile bg-black" />
-                <div className="w-full h-[2.5px] rounded-full line-3 transition-all duration-500 origin-center ham-mobile bg-black" />
-              </div>
+                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "rotate-45 translate-y-[2vw]" : ""}`} />
+                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 bg-black ${openMobileMenu ? "opacity-0" : ""}`} />
+                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "-rotate-45 -translate-y-[2vw]" : ""}`} />
+              </button>
             </div>
           )}
 
@@ -351,6 +351,12 @@ export default function Header() {
           )}
         </nav>
       </header>
+
+      {/* Mobile Navigation */}
+      <MobileNav
+        isOpen={openMobileMenu}
+        onClose={() => setOpenMobileMenu(false)}
+      />
     </>
   );
 }
