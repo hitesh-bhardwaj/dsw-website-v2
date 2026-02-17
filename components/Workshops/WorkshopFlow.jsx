@@ -40,10 +40,10 @@ export default function WorkshopFlow({ sessionsData, space }) {
   };
 
   return (
-    <section className="relative w-full h-fit space-y-[6vw] px-[5vw] max-md:h-full overflow-hidden py-[7%] max-sm:py-[15%]">
+    <section className="relative w-full h-fit space-y-[6vw] px-[5vw] max-md:h-full overflow-hidden py-[7%] max-sm:py-[10%]">
      <div className="w-full flex flex-col h-full  gap-[1vw] max-md:flex-col max-md:items-start">
   <HeadingAnim>
-    <h2 className="text-76 text-[#0A1B4B] text-center max-sm:mx-auto">
+    <h2 className="text-76 text-[#0A1B4B] max-sm:leading-[1.4] text-center max-sm:mx-auto">
       Workshop Flow & Key Sessions
     </h2>
   </HeadingAnim>
@@ -70,7 +70,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
           onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
           className="w-full !overflow-visible"
             breakpoints={{
-            640: { slidesPerView: 1, spaceBetween: 20 },
+            640: { slidesPerView: 1.2, spaceBetween: 20 },
             768: { slidesPerView: 1, spaceBetween: 40 },
             1025: { slidesPerView: 2.4, spaceBetween: 10 },
           }}
@@ -107,7 +107,7 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
   return (
     <>
       <div
-        className="relative py-[3vw] !min-h-[60vh] h-full max-md:py-[8vw] max-md:px-[8vw] rounded-[1.5vw] overflow-hidden w-[36vw] px-[2.5vw] max-md:min-h-[60vh] max-sm:min-h-[70vh] max-md:h-fit max-md:w-full max-md:rounded-[6vw] border border-[#0205FA] group cursor-grab hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out "
+        className="relative py-[3vw] !min-h-[60vh] h-full max-md:py-[8vw] max-md:px-[8vw] rounded-[1.5vw] overflow-hidden w-[36vw] px-[2.5vw] max-md:min-h-[60vh] max-sm:min-h-[70vh] max-md:h-fit max-md:w-full max-sm:w-[95%] max-sm:mx-auto max-md:rounded-[6vw] border border-[#0205FA] group cursor-grab hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out "
         onMouseEnter={onHover}
       >
         <div
@@ -115,23 +115,23 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
             isActive ? "opacity-100" : "opacity-0"
           }`}
         />
-        <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center h-[4vw] w-[4vw] max-sm:h-[18vw] max-sm:top-[7%] max-sm:w-[18vw] max-md:w-[12vw] max-md:h-[12vw] border border-[#111111]">
-          <p className="text-foreground max-sm:text-[4vw] max-md:text-[3vw] text-[1vw]">
+        <div className="absolute right-[4%] max-sm:top-[5%] max-sm:right-[5%] top-[4%] z-[5] rounded-full flex items-center justify-center h-[4vw] w-[4vw] max-sm:h-[15vw]  max-sm:w-[15vw] max-md:w-[12vw] max-md:h-[12vw] border border-[#111111]">
+          <p className="text-foreground max-sm:text-[4.5vw] max-sm:font-medium max-md:text-[3vw] text-[1vw]">
             {duration}
           </p>
         </div>
         <div className="h-full flex flex-col justify-between relative z-[10]">
-          <div className=" max-w-[80%]">
+          <div className=" max-w-[80%] max-sm:w-[70%] max-sm:leading-[1.4]">
             <h3 className="text-32 font-medium text-foreground">{title}</h3>
           </div>
-          <div className="w-full  max-md:space-y-[3vw] py-[1vw] max-sm:mt-[8vw] mt-[5vw]">
-            <ul className={`list-disc text-white-200 pl-[2vw] ${space}`}>
+          <div className="w-full  max-md:space-y-[3vw]  py-[1vw] max-sm:mt-[8vw] mt-[5vw]">
+            <ul className={`list-disc  pl-[2vw] max-sm:pl-[5vw] max-sm:space-y-[6vw] ${space}`}>
               {list.map((item, index) => (
                 <li
                   key={index}
-                  className="text-24 text-foreground max-md:text-[2.5vw] max-sm:text-[4vw]"
+                  className="text-24 text-foreground "
                 >
-                  <span className=" max-md:w-full text-white-200">
+                  <span className=" max-md:w-full ">
                     {item.heading}{" "}
                   </span>{" "}
                   {item.para}

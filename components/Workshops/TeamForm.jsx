@@ -338,16 +338,18 @@ export default function TeamForm() {
                 />
               </div>
 
+               <div className="flex items-center max-sm:mt-[10vw] justify-start max-sm:justify-center">
+
               <Button
                 type="submit"
                 aria-label="submit form"
-                className="cursor-pointer mt-[3vw] pb-[3vw] max-sm:mt-[10vw] max-sm:pb-[8vw] max-md:mt-[4vw] px-0 rounded-full "
+                className="cursor-pointer mt-[3vw]  bg-primary pb-[3vw] px-0 rounded-full  max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw] "
               >
                 <div
-                  className={` relative inline-flex items-center justify-center h-[4vw] min-w-[10vw] px-[2vw] gap-3 rounded-full overflow-hidden text-white-200 group max-sm:h-fit max-sm:py-[4vw] max-sm:px-[6vw] max-sm:min-w-[30vw] max-md:px-[4.5vw] max-md:py-[3vw] max-md:h-fit max-sm:gap-[4vw] text-white `}
+                  className={` relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto  max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw] text-white `}
                 >
                  
-                  <div className="overflow-clip leading-[1.4] mt-[2vw] max-sm:mt-0 z-[1]">
+                  <div className="overflow-clip leading-[1.4] mt-[2vw]  max-sm:mt-0 z-[1]">
                     <p
                       className={`text-[1.145vw] leading-[1.4] buttonTextShadow max-sm:text-[4vw] max-md:text-[2.7vw] `}
                     >
@@ -358,6 +360,7 @@ export default function TeamForm() {
                  
                 </div>
               </Button>
+              </div>
               {submitted && (
                 <p className="text-foreground text-sm mt-2">
                   ✅ Form submitted successfully!

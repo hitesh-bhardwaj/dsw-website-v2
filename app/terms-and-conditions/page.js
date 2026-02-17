@@ -11,10 +11,6 @@ const page = () => {
       <HeroNew heroContent={heroContent}/>
        <ContentTerms/>
     </Layout>
-    
-    
-   
-   
    </>
   )
 }
