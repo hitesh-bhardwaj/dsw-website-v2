@@ -32,9 +32,11 @@ const page = () => {
 
 export default page;
 
+
+
 const heroContent={
   tagline:"",
-  heading:"Equip Your Team With Real-World AI & GenAI Skills for Insurance",
+  heading:"DeepTech AI + GenAI Hands-On Masterclass",
   primaryButton:{
     present:false,
     link:"#",
@@ -45,7 +47,7 @@ const heroContent={
     link:"#",
     text:"Talk to our Team"
   },
-  para:"The insurance industry is evolving—and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation—all tailored for insurance workflows."
+  para:"Led by AI architects and industry experts from Data Science Wizards (DSW), this session covers strategy, architecture, compliance, and practical implementation using our enterprise platform, UnifyAI. This intensive hands-on masterclass is designed for enterprises, innovation leaders, and technical teams who want to go beyond theory and bring AI and Generative AI into real-world production."
 }
 
 const ctaContent={
@@ -62,27 +64,30 @@ const ctaContent={
     text:"Schedule a Call"
   },
 }
-const featuresData = [
+const featuresData=[
   {
     icon: <Business/>,
-    title: "Business & Operations Leaders",
-    para: "Discover how AI can improve efficiency, reduce risk, and unlock new revenue opportunities across the insurance value chain.",
+    title: "CTOs, CIOs, and Heads of Innovation",
+    para: "Learn how to align your organization’s AI roadmap with business goals, assess technology readiness, and accelerate adoption with governance-first deployment strategies. ",
   },
   {
-        icon: <DataScience/>,
-    title: "Data Science & Analytics Teams",
-    para: "Explore hands-on methods to train, fine-tune, and deploy models tailored for fraud detection, claims automation, and more. ",
+    
+    icon: <DataScience/>,
+    title: "Product, Risk & Compliance Leaders",
+    para: "Gain critical knowledge of AI explainability, bias mitigation, and regulatory compliance (SOC 2, GDPR, HIPAA, ISO 27001). Discover how to bring secure and trustworthy AI solutions to market while staying aligned with internal policies.",
   },
   {
+   
     icon: <RiskCompliance/>,
-    title: "Risk, Compliance & IT Professionals",
-    para: "Understand governance frameworks, model explainability, and security protocols that align with industry regulations like SOC 2, ISO 27001, HIPAA, and GDPR.",
+    title: "Data Science, Engineering & ML Ops Teams",
+    para: "Get hands-on experience with building, deploying, and managing GenAI and ML models in production. Learn to scale infrastructure, operationalize models faster, and integrate securely with enterprise systems—all within days.",
   },
   {
-    icon: <Innovation/>,
-    title: "Innovation, Product & Strategy Leaders",
-    para: "Identify high-impact AI use cases and learn how to bring GenAI projects from concept to production in days—not months.",
+    icon: <Business/>,
+    title: "AI Strategy & Transformation Consultants",
+    para: "Understand how to scope, prioritize, and scale GenAI initiatives for enterprise clients. Gain access to frameworks, best practices, and deployment blueprints trusted by Fortune 500 firms and leading insurers.",
   },
+  
 ];
 const sessionsData = [
   {

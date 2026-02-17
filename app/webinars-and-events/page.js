@@ -1,0 +1,66 @@
+import React from "react";
+import HeroNew from "@/components/HeroNew";
+import Layout from "@/components/Layout/Layout";
+import CTAFinal from "@/components/CTAFinal";
+import Expect from "@/components/WebinarsAndEvents/Expect";
+import UpcomingWebinars from "@/components/WebinarsAndEvents/UpcomingWebinars";
+import Workshops from "@/components/WebinarsAndEvents/Workshops";
+import WatchOnDemand from "@/components/WebinarsAndEvents/WatchOnDemand";
+
+
+const AgenticAI = () => {
+  return (
+    <>
+      <Layout>
+        <main className="min-h-screen">
+          <HeroNew heroContent={heroContent} variant={"default"} />
+            <Expect />
+            <UpcomingWebinars />
+            <Workshops />
+            <WatchOnDemand />
+          <CTAFinal ctaContent={ctaContent} />
+        </main>
+      </Layout>
+    </>
+  );
+};
+
+export default AgenticAI;
+
+const heroContent = {
+  
+  heading: "Stay Ahead with Live Insights, Expert Panels & Hands-On Learning",
+  para:"At Data Science Wizards, we don’t just talk about AI—we show you how to build it, deploy it, and scale it securely in the enterprise. Our webinars, virtual sessions, and live events are designed to help decision-makers, technologists, and innovators stay ahead in the fast-moving world of AI and GenAI.​",
+  primaryButton: {
+    present: false,
+    link: "#",
+    text: "Book a Demo",
+  },
+  secondaryButton: {
+    present: false,
+    link: "#",
+    text: "Talk to our Team",
+  },
+};
+
+const ctaContent = {
+  heading: "Looking to write about us or request an interview? ",
+  para: "Download our press kit or reach out directly to our media team.",
+  subPara: false,
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+  },
+  secondaryButton: {
+    present: true,
+    link: "#",
+    text: "Contact",
+  },
+};
+
+const tourContent = {
+  heading: "Take a lightning tour of the DSW AI/ML Runtime",
+  para: "Your AI foundation not just for today’s use cases, but for tomorrow’s vision.",
+  tagline: "",
+};

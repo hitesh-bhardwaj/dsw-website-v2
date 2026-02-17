@@ -247,6 +247,16 @@ h6 {
     transform: rotate(0deg);
   }
 }
+.workshop-scrollbar {
+  height: 8px;
+  border-radius: 999px;
+  background: #dfdfdf;
+}
+
+.workshop-scrollbar .swiper-scrollbar-drag {
+  background: #0205FA; /* orange */
+  border-radius: 999px;
+}
 
 .outer-circle {
   animation: spin-clockwise 80s linear infinite;
