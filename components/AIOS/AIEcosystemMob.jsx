@@ -12,7 +12,6 @@ const AIEcosystemMob = () => {
   const blueRingRef = useRef(null);
   const orangeRingRef = useRef(null);
   const contentWrapRef = useRef(null);
-
   const [active, setActive] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
