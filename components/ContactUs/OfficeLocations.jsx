@@ -16,7 +16,7 @@ const OfficeLocations = () => {
 <WorldMap/>
       </div>
 
-      <div className="absolute max-md:static max-md:px-[3vw] left-[5%] bottom-[25%] w-[20%] space-y-[0.5vw] max-md:w-[80%]  max-md:space-y-[3vw] text-right">
+      <div className="absolute max-md:static max-md:px-[3vw] left-[5%] bottom-[25%] w-[20%] space-y-[0.5vw] max-md:w-[80%]  max-md:space-y-[3vw] text-right max-sm:text-left">
         <Copy>
           <p className="text-30 text-[#111111]"> USA </p>
         </Copy>

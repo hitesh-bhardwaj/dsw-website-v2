@@ -1,0 +1,275 @@
+import HeroNew from "@/components/HeroNew";
+import Layout from "@/components/Layout/Layout";
+import React from "react";
+
+const page = () => {
+  return (
+    <>
+    <Layout>
+        <HeroNew heroContent={heroContent} variant={"rightVertical"}/>
+    </Layout>
+     
+      {/* <Layout>
+        <Hero breadcrumbs={true} heroData={heroData} />
+        <Features featuresData={featuresData} />
+        <WorkshopFlow sessionsData={sessionsData} space={"space-y-[2vw]"} />
+        <Outcomes outcomesData={outcomesData} />
+        <Empower
+          heading="Ready to Empower Your Team with Practical AI Skills?"
+          para="Fill out the form"
+          width={"w-[90%]"}
+        />
+        <Faqs data={faqData} />
+        <FooterCTA footerCTAData={footerCTAData} width={"w-[95%]"} />
+      </Layout> */}
+    </>
+  );
+};
+
+export default page;
+
+const heroContent={
+  tagline:"",
+  heading:"Equip Your Team With Real-World AI & GenAI Skills for Insurance",
+  primaryButton:{
+    present:false,
+    link:"#",
+    text:"Explore the Platform"
+  },
+  secondaryButton:{
+    present:false,
+    link:"#",
+    text:"Talk to our Team"
+  },
+  para:"The insurance industry is evolving—and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation—all tailored for insurance workflows."
+}
+
+const ctaContent={
+  heading:"Own How AI Runs in Your Enterprise  ",
+  para:"DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:"Explore the Platform"
+  },
+  secondaryButton:{
+    present:true,
+    link:"#",
+    text:"Talk to our Team"
+  },
+}
+const featuresData = [
+  {
+    icon: "/assets/icons/workshops/business-icon.svg",
+    title: "Business & Operations Leaders",
+    para: "Discover how AI can improve efficiency, reduce risk, and unlock new revenue opportunities across the insurance value chain.",
+  },
+  {
+    icon: "/assets/icons/workshops/data-science-and-analytics.svg",
+    title: "Data Science & Analytics Teams",
+    para: "Explore hands-on methods to train, fine-tune, and deploy models tailored for fraud detection, claims automation, and more. ",
+  },
+  {
+    icon: "/assets/icons/workshops/risk-compliance.svg",
+    title: "Risk, Compliance & IT Professionals",
+    para: "Understand governance frameworks, model explainability, and security protocols that align with industry regulations like SOC 2, ISO 27001, HIPAA, and GDPR.",
+  },
+  {
+    icon: "/assets/icons/workshops/innovation-icon.svg",
+    title: "Innovation, Product & Strategy Leaders",
+    para: "Identify high-impact AI use cases and learn how to bring GenAI projects from concept to production in days—not months.",
+  },
+];
+const sessionsData = [
+  {
+    title: "AI Use Cases in Insurance",
+    duration: "1 hr.",
+    list: [
+      {
+        heading: "AI in Insurance – The Big Picture:",
+        para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
+      },
+      {
+        heading: "High-Impact Use Cases:",
+        para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
+      },
+      {
+        heading: "Value Across the Value Chain:",
+        para: "Join an interactive session on how AI drives measurable ROI across every stage of the insurance lifecycle.",
+      },
+    ],
+  },
+  {
+    title: "AI Use Cases in Insurance",
+    duration: "1 hr.",
+    list: [
+      {
+        heading: "AI in Insurance – The Big Picture:",
+        para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
+      },
+      {
+        heading: "High-Impact Use Cases:",
+        para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
+      },
+      {
+        heading: "Value Across the Value Chain:",
+        para: "Join an interactive session on how AI drives measurable ROI across every stage of the insurance lifecycle.",
+      },
+    ],
+  },
+  {
+    title: "AI Use Cases in Insurance",
+    duration: "1 hr.",
+    list: [
+      {
+        heading: "AI in Insurance – The Big Picture:",
+        para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
+      },
+      {
+        heading: "High-Impact Use Cases:",
+        para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
+      },
+      {
+        heading: "Value Across the Value Chain:",
+        para: "Join an interactive session on how AI drives measurable ROI across every stage of the insurance lifecycle.",
+      },
+    ],
+  },
+  {
+    title: "AI Use Cases in Insurance",
+    duration: "1 hr.",
+    list: [
+      {
+        heading: "AI in Insurance – The Big Picture:",
+        para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
+      },
+      {
+        heading: "High-Impact Use Cases:",
+        para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
+      },
+      {
+        heading: "Value Across the Value Chain:",
+        para: "Join an interactive session on how AI drives measurable ROI across every stage of the insurance lifecycle.",
+      },
+    ],
+  },
+  {
+    title: "AI Use Cases in Insurance",
+    duration: "1 hr.",
+    list: [
+      {
+        heading: "AI in Insurance – The Big Picture:",
+        para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
+      },
+      {
+        heading: "High-Impact Use Cases:",
+        para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
+      },
+      {
+        heading: "Value Across the Value Chain:",
+        para: "Join an interactive session on how AI drives measurable ROI across every stage of the insurance lifecycle.",
+      },
+    ],
+  },
+  {
+    title: "AI Use Cases in Insurance",
+    duration: "1 hr.",
+    list: [
+      {
+        heading: "AI in Insurance – The Big Picture:",
+        para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
+      },
+      {
+        heading: "High-Impact Use Cases:",
+        para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
+      },
+      {
+        heading: "Value Across the Value Chain:",
+        para: "Join an interactive session on how AI drives measurable ROI across every stage of the insurance lifecycle.",
+      },
+    ],
+  },
+];
+const outcomesData = {
+  heading: "Walk Away With Real-World Skills, Strategy & Clarity",
+  para: "By the end of this hands-on workshop, your team will be equipped to move AI projects from concept to execution with confidence. Expect tangible outcomes, not just theory.",
+  para2: "What You'll Gain:",
+  points: [
+    {
+      id: "01",
+      title: "Clear AI Roadmap",
+      text: "Identify high-impact use cases tailored to your insurance workflows—from underwriting to claims automation.",
+      width: "w-[30%]",
+    },
+    {
+      id: "02",
+      title: "Hands-On GenAI Experience",
+      text: "Build and deploy a working AI/GenAI prototype using your own or sample data—no-code to full-code options available.",
+      width: "w-full",
+    },
+    {
+      id: "03",
+      title: "Compliance-First AI Knowledge",
+      text: "Understand how to align AI solutions with SOC 2, ISO 27001, HIPAA, and GDPR standards.",
+      width: "w-full",
+    },
+    {
+      id: "04",
+      title: "Cross-Functional Alignment",
+      text: "Align business, data, and tech teams on a shared AI vision and execution path.",
+      width: "w-[60%] max-sm:w-full",
+    },
+    {
+      id: "05",
+      title: "Access to Expert Frameworks & Templates",
+      text: "Take home checklists, governance templates, and deployment blueprints used by top insurers.",
+      width: "w-[60%] max-sm:w-full",
+    },
+  ],
+};
+
+const footerCTAData = {
+  heading: "Take a lightning tour of the Enterprise AI Platform ",
+  para: "Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
+  btnText1: "Book a Demo",
+  btnLink1: "/#",
+  btnText2: "Schedule a Call",
+  btnLink2: "https://calendly.com/",
+  book: true,
+  target: true,
+  img1: "/assets/images/footer/cta-6.png",
+  img2: "/assets/images/footer/cta-1.png",
+};
+
+const faqData = [
+  {
+    question: "What is UnifyAI?",
+    answer: [
+      "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability.",
+    ],
+  },
+  {
+    question: "Who can use UnifyAI?",
+    answer: [
+      "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability.",
+    ],
+  },
+  {
+    question: "How does UnifyAI integrate with existing systems?",
+    answer: [
+      "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability.",
+    ],
+  },
+  {
+    question: "Is UnifyAI secure?",
+    answer: [
+      "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability.",
+    ],
+  },
+  {
+    question: "What types of AI models does UnifyAI support?",
+    answer: [
+      "UnifyAI is an enterprise AI platform that enables businesses to develop, deploy, and manage AI models seamlessly. It supports machine learning, Generative AI, and large language models (LLMs) while ensuring security, compliance, and scalability.",
+    ],
+  },
+];
