@@ -211,9 +211,9 @@ export default function HeroNew({ heroContent, variant }) {
           )}
         </div>
         {heroContent.para && (
-          <div className=" py-[1.5vw] w-[80%] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ">
+          <div className=" py-[1.5vw] w-[60%] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ">
             <Copy delay={1}>
-              <p className="text-30 text-[#333333]">
+              <p className="text-24 text-[#333333]">
                 {heroContent.para}​
               </p>
             </Copy>

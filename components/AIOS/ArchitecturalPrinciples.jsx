@@ -14,7 +14,6 @@ const ArchitecturalPrinciples = () => {
   const timelineRef = useRef(null);
 
   useGSAP(() => {
-    if (globalThis.innerWidth < 1024) return;
 
     const section = sectionRef.current;
     const progress = progressRef.current;
@@ -86,15 +85,15 @@ const ArchitecturalPrinciples = () => {
       {/* Timeline Container */}
       <div
         ref={timelineRef}
-        className="relative w-full max-w-[1200px] mx-auto px-[5vw] max-sm:px-[5vw]"
+        className="relative w-full h-full max-w-[1200px] mx-auto px-[5vw] max-sm:px-[5vw]"
       >
         {/* Center Line */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] bg-[#e0e0e0] rounded-full max-sm:hidden" />
+        <div className="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-[1px] h-full max-sm:h-full bg-[#e0e0e0] rounded-full max-sm:left-[5%]" />
 
         {/* Progress Indicator */}
         <div
           ref={progressRef}
-          className="absolute left-1/2 -translate-x-1/2 top-0 w-[4px] h-[50px] bg-[#002AFF] rounded-full z-10 max-sm:hidden"
+          className="absolute left-1/2 -translate-x-1/2 top-0 w-[4px] h-[50px] bg-[#002AFF] rounded-full z-10 max-sm:left-[5%]"
         />
 
         {/* Principle Cards */}
@@ -102,20 +101,20 @@ const ArchitecturalPrinciples = () => {
           {PRINCIPLES.map((principle, index) => (
             <div
               key={index}
-              className={`principle-card flex ${
+              className={`principle-card flex  ${
                 principle.side === "right"
                   ? "justify-end"
                   : "justify-start"
               } max-sm:justify-start`}
             >
               <div
-                className={`w-[45%] p-[2vw] bg-white transition-all duration-700 max-sm:w-full max-sm:p-[5vw] ${
+                className={`w-[45%] p-[2vw] bg-white transition-all duration-700 max-sm:w-full max-sm:p-[5vw] max-sm:m-0 max-sm:ml-[5%] ${
                   principle.side === "right"
                     ? "border-l-4 border-[#c1c1c1] ml-[5%] [.active>&]:border-[#0205FA]"
                     : "border-r-4 border-[#c1c1c1] mr-[5%] text-right [.active>&]:border-[#0205FA] max-sm:border-r-0 max-sm:border-l-4 max-sm:text-left max-sm:mr-0"
                 }`}
               >
-                <h4 className="text-32 font-heading font-medium text-[#0A1B4B] mb-[1vw] max-sm:mb-[3vw]">
+                <h4 className="text-32 font-heading font-medium text-[#0A1B4B] mb-[1vw] max-sm:mb-[3vw] max-sm:text-40">
                   {principle.title}
                 </h4>
                 <p className="text-24 leading-[1.6] text-[#111]">

@@ -12,7 +12,7 @@ const Features = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#features",
-          start: "21% top",
+          start: "25% top",
           end: "37% top",
           scrub: true,
           // markers:true
@@ -22,48 +22,35 @@ const Features = () => {
         },
       });
       tl.to(".feature-1", {
-        yPercent: -35,
+        translateY: "-26%",
       }).to(
         ".feature-2",
         {
-          yPercent: -35,
+          translateY: "-26%",
         },
         "<",
       );
-    } else {
-      gsap.to(".feature-card-container", {
-        yPercent: -20,
-        ease: "none",
-        scrollTrigger: {
-          trigger: "#features",
-          start: "40% 50%",
-          end: "70% top",
-          scrub: true,
-          // markers:true,
-        },
-      });
-    }
+    } 
   });
 
   return (
     <section className="w-full  relative space-y-[5vw] z-[4]" id="features">
-      <div className="w-fit h-fit feature-card-container">
+      <div className="w-fit h-[240vh] flex flex-col justify-between feature-card-container">
         {FEATURES.map((feature, id) => (
           <div
             key={feature.id}
             className={`
-      w-screen h-fit sticky px-[5vw] py-[6vw] bg-[#ffffff] feature-card max-sm:py-[10vw] ${id == 0 && " feature-1 "} ${id == 1 ? "max-sm:top-[15%]! feature-2" : ""}
+      w-screen h-fit px-[5vw] py-[4vw] pb-[10vw] bg-[#ffffff] feature-card max-sm:py-[10vw] sticky ${id == 0 && " feature-1 top-0"} ${id == 2 && "top-[19%]"} ${id == 1 ? "max-sm:top-[15%]! feature-2 top-[20%]" : ""}
       ${feature.hasTopBorder ? "border-t border-black/30" : ""}
       ${feature.hasBottomBorder ? "border-b border-black/30" : ""}
       ${feature.extraPaddingBottom ? "pb-[10vw]" : ""}
     `}
-            style={{ top: feature.stickyTop }}
           >
             <HeadingAnim>
               <h3 className="text-56">{feature.title}</h3>
             </HeadingAnim>
 
-            <div className="w-full flex justify-between mt-[7vw] max-sm:flex-col-reverse max-sm:mt-[15vw] max-sm:gap-[20vw]">
+            <div className="w-full flex justify-between mt-[5.5vw] max-sm:flex-col-reverse max-sm:mt-[15vw] max-sm:gap-[20vw]">
               {/* Left Content */}
               <div className="w-[45%] h-full flex flex-col gap-[3vw] text-30 max-sm:w-full">
                 {/* <Copy> */}
@@ -73,18 +60,16 @@ const Features = () => {
                 {/* </Copy> */}
 
                 {feature.bullets && feature.bullets.length > 0 && (
-                  <Copy >
-                  <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw] max-sm:pl-[5vw]">
-                    {feature.bullets.map((item, index) => (
-                      
+                  <Copy>
+                    <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw] max-sm:pl-[5vw]">
+                      {feature.bullets.map((item, index) => (
                         <li key={index}>{item}</li>
-                     
-                    ))}
-                  </ul>
-                   </Copy>
+                      ))}
+                    </ul>
+                  </Copy>
                 )}
                 <Copy>
-                <p className="">{feature.para}</p>
+                  <p className="">{feature.para}</p>
                 </Copy>
               </div>
 
@@ -123,7 +108,7 @@ const FEATURES = [
   },
   {
     id: 2,
-    stickyTop: "25%",
+    stickyTop: "20%",
     hasTopBorder: true,
     hasBottomBorder: false,
     title: "No Vendor Lock In",
