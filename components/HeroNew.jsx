@@ -175,9 +175,9 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <WaveGridCanvas variant={variant} />
 
       <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
-        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
+        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">
           <Copy delay={1}>
-            <p className="text-30 text-center text-[#333333] tracking-wide opacity-0 hero-text">
+            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text">
               {heroContent.tagline}
             </p>
           </Copy>

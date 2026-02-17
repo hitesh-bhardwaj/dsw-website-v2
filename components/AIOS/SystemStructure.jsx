@@ -107,7 +107,7 @@ const SystemStructure = () => {
                     {box.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className="text-22 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
+                        className="text-22 text-foreground leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
                       >
                         <span className="text-primary-blue">•</span>
                         <span>{item}</span>
@@ -135,7 +135,7 @@ const SystemStructure = () => {
               </div>
               <div className="grid grid-cols-3 gap-[2vw] max-sm:grid-cols-1 max-sm:gap-[4vw]">
                 {/* Column 1 - Description */}
-                <p className="text-22 text-[#111] leading-1.2 tracking-[0.02em]">
+                <p className="text-22 text-foreground leading-1.2 tracking-[0.02em]">
                   The authoritative control plane for all AI execution, responsible for:
                 </p>
                 {/* Column 2 - Items */}
@@ -143,7 +143,7 @@ const SystemStructure = () => {
                   {kernelItems[1].items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-22 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
+                      className="text-22 text-foreground leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
                     >
                       <span className="text-primary-blue">•</span>
                       <span>{item}</span>
@@ -155,7 +155,7 @@ const SystemStructure = () => {
                   {kernelItems[2].items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-22 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
+                      className="text-22 text-foreground leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
                     >
                       <span className="text-primary-blue">•</span>
                       <span>{item}</span>
@@ -187,7 +187,7 @@ const SystemStructure = () => {
 
           {/* Footer Text */}
           <div className="pb-[1.5vw] max-sm:pb-[5vw]">
-            <p className="text-22 text-[#111] text-center tracking-[0.02em]">
+            <p className="text-22 text-foreground text-center tracking-[0.02em]">
               Operates above existing infrastructure without modification
             </p>
           </div>

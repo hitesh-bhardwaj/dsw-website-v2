@@ -93,7 +93,7 @@ export default function Outcomes() {
                 </HeadingAnim>
                 </div>
                 <Copy>
-                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-[#111111]">
+                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground">
                         Deploy the DSW Enterprise AI Operating System in:
                     </p>
                 </Copy>
@@ -119,7 +119,7 @@ export default function Outcomes() {
                     ))}
                 </div>
                 <Copy>
-                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-[#111111]">
+                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground">
                         There is no mandatory SaaS dependency, no forced hyperscaler coupling, and no external data egress.
                     </p>
                 </Copy>

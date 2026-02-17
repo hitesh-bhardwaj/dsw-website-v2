@@ -20,7 +20,7 @@ function DeployementCard({ deployment }) {
                 <div className=" w-[5vw] h-[5vw] max-sm:h-[15vw] max-sm:w-[15vw] text-primary-blue">
                     {deployment.icon}
                 </div>
-                <p className="text-[#111111] max-sm:leading-[1.2] text-30 max-sm:text-[5vw] max-sm:font-light leading-[1.2]">
+                <p className="text-foreground max-sm:leading-[1.2] text-30 max-sm:text-[5vw] max-sm:font-light leading-[1.2]">
                     {deployment.title}
                 </p>
             </div>

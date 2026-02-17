@@ -72,7 +72,7 @@ export default function Capabilities() {
        
         <thead>
           <tr className="bg-white">
-            <th className="border border-[#D9D9D9] text-[#111111] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading">
+            <th className="border border-[#D9D9D9] text-foreground max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading">
               Capability
             </th>
             <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-56! font-medium font-heading text-primary-blue">
@@ -83,7 +83,7 @@ export default function Capabilities() {
         <tbody>
           {capabilities.map((item, index) => (
             <tr key={index} className="bg-white">
-              <td className="border border-[#D9D9D9] max-sm:pl-[8vw] px-6 py-5 text-30 text-[#111111]">
+              <td className="border border-[#D9D9D9] max-sm:pl-[8vw] px-6 py-5 text-30 text-foreground">
                 {item.capability}
               </td>
               <td className="border border-[#D9D9D9] px-6 py-5 text-24 text-[#333333]">

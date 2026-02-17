@@ -38,7 +38,7 @@ function AgenticCard({ id, title, description }) {
             {/* Header */}
             <div className="flex justify-end items-end mb-[2vw] max-sm:pr-[3vw]">
                
-                <p className="text-80 font-light! text-[#111111] leading-none max-sm:text-[15vw]">
+                <p className="text-80 font-light! text-foreground leading-none max-sm:text-[15vw]">
                     {id}
                 </p>
             </div>
@@ -47,7 +47,7 @@ function AgenticCard({ id, title, description }) {
         {title}
     </h2>
     {/* Description */}
-    <p className="text-24 m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%] text-[#111111]">
+    <p className="text-24 m-0 max-sm:flex max-sm:items-end max-sm:min-h-[30%] text-foreground">
         {description}
     </p>
 </div>

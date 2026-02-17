@@ -52,8 +52,8 @@ const Help = () => {
           >
             <CornerDecorations />
             <div className="w-full h-full space-y-[2.5vw] relative z-[2] max-md:space-y-[7vw]">
-              <h3 className="text-44 text-[#111111]">{card.title}</h3>
-              <p className="text-24 text-[#111111]">{card.description}</p>
+              <h3 className="text-44 text-foreground">{card.title}</h3>
+              <p className="text-24 text-foreground">{card.description}</p>
               <PrimaryButton
                 href={card.href}
                 text={card.buttonText}

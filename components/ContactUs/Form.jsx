@@ -38,11 +38,11 @@ const Form = () => {
 
           <div className="h-[40%] max-md:hidden flex flex-col justify-between  gap-[3vw]">
             <div className="space-y-[0.3vw] text-head text-white-300 font-normal fadeup">
-              <p className="text-30 text-[#111111]">Phone:</p>
+              <p className="text-30 text-foreground">Phone:</p>
                 <div  className="under-multi-parent w-fit">
             <a 
               href={`tel:+353894015233`} 
-              className="under-multi text-30 text-[#111111] "
+              className="under-multi text-30 text-foreground "
             >
               +353 89401 5233
             </a>
@@ -50,7 +50,7 @@ const Form = () => {
           <div  className="under-multi-parent w-fit">
             <a 
               href={`tel:+919664056847`} 
-              className="under-multi text-30 text-[#111111] "
+              className="under-multi text-30 text-foreground "
             >
               +91 96640 56847
             </a>
@@ -58,8 +58,8 @@ const Form = () => {
             </div>
 
             <div className="text-white-300 space-y-[0.3vw] fadeup">
-              <p className="text-30 text-[#111111]">E-mail:</p>
-              <div className="under-multi-parent w-fit text-30 text-[#111111]">
+              <p className="text-30 text-foreground">E-mail:</p>
+              <div className="under-multi-parent w-fit text-30 text-foreground">
             <a 
               href={`mailto:contact@datasciencewizards.ai`} 
               className="under-multi "
@@ -70,14 +70,14 @@ const Form = () => {
             </div>
 
             <div className="text-white-300 space-y-[0.8vw] fadeup">
-                <p className="text-30 text-[#111111]">Socials:</p>
+                <p className="text-30 text-foreground">Socials:</p>
               <div className="flex items-center gap-[1.5vw] mt-[1vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                   {socialLinks.map((social, id) => (
                   <Link
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>
@@ -115,7 +115,7 @@ const Form = () => {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>

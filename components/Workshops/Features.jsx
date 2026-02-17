@@ -11,10 +11,10 @@ const FeaturesCard = ({ icon, title, para }) => {
             {icon}
           </div>
           <div className="space-y-[1vw] max-sm:space-y-[5vw]">
-          <h4 className="text-32 text-[#111111] max-sm:font-medium max-md:w-[95%]  max-md:h-fit">
+          <h4 className="text-32 text-foreground max-sm:font-medium max-md:w-[95%]  max-md:h-fit">
             {title}
           </h4>
-          <p className="text-24 text-[#111111] h-30 w-[95%] max-md:w-[95%]  max-sm:leading-[1.4] max-md:h-auto">
+          <p className="text-24 text-foreground h-30 w-[95%] max-md:w-[95%]  max-sm:leading-[1.4] max-md:h-auto">
             {para}
           </p>
           </div>

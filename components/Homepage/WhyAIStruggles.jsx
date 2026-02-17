@@ -62,7 +62,7 @@ export default function WhyAIStruggles() {
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-[#111] w-[40%] max-sm:w-full mx-auto">
+            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[40%] max-sm:w-full mx-auto">
               Modern enterprises don&apos;t struggle with building AI models. They
               struggle with operating AI reliably in production:
             </p>

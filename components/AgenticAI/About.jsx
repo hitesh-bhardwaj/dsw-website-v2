@@ -18,12 +18,12 @@ function AboutCard({ challenge }) {
         <CornerDecorations />
 
         {/* Icon/Image */}
-        <div className="mb-auto w-[5vw] h-[5vw] max-sm:h-[14vw] max-sm:w-[14vw] text-[#111111] group-hover:text-primary-blue">
+        <div className="mb-auto w-[5vw] h-[5vw] max-sm:h-[14vw] max-sm:w-[14vw] text-foreground group-hover:text-primary-blue">
           {challenge.icon}
         </div>
 
         {/* Text */}
-        <p className="text-30 mt-auto max-sm:text-[5.5vw] text-[#111111]">
+        <p className="text-30 mt-auto max-sm:text-[5.5vw] text-foreground">
           {challenge.title}
         </p>
       </div>

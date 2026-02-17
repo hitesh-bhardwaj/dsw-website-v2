@@ -202,7 +202,7 @@ const AIEcosystem = () => {
                   <h3 className="text-44 font-heading font-medium tracking-[0.02em] text-[#0A1B4B]">
                     {item.title}
                   </h3>
-                  <ul className="space-y-[0.3vw] list-disc pl-[1.5vw] text-24 leading-normal text-[#111] max-sm:space-y-[2vw] max-sm:pl-[5vw]">
+                  <ul className="space-y-[0.3vw] list-disc pl-[1.5vw] text-24 leading-normal text-foreground max-sm:space-y-[2vw] max-sm:pl-[5vw]">
                     {item.points.map((point, pointIndex) => (
                       <li key={pointIndex}>{point}</li>
                     ))}

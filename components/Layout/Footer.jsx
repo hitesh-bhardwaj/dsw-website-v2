@@ -160,7 +160,7 @@ export default function FooterNew() {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>
