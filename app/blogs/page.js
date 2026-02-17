@@ -35,7 +35,7 @@ export default async function BlogsPage() {
 
   return (
       <Layout>
-        <HeroNew heroContent={heroContent} />
+        <HeroNew heroContent={heroContent} breadcrumbs={true}/>
         <FeaturedBlog featuredPost={featuredPost} />
         {remainingPosts.length > 0 && <BlogGrid posts={remainingPosts} />}
         <CTAFinal ctaContent={ctaContent} />
