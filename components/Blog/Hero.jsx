@@ -19,7 +19,7 @@ export default function Hero({ post }) {
           />
         </div>
 
-        <h1 className="text-76 relative z-10 text-white max-sm:text-black! text-center hero-head w-[85%] max-md:text-background max-md:text-left max-md:w-[70%] max-sm:mx-auto max-sm:text-center max-sm:pb-[10vw]">
+        <h1 className="text-76 relative z-10  max-sm:text-black! text-white text-center hero-head w-[85%] max-md:text-background max-md:text-left max-md:w-[70%] max-sm:mx-auto max-sm:text-center max-sm:pb-[10vw]">
           {post?.title}
         </h1>
 
