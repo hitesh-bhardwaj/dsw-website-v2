@@ -116,12 +116,12 @@ const NewsContentWp = ({ news }) => {
   return (
     <section
       id="content"
-      className="h-fit max-sm:w-screen max-sm:overflow-x-hidden relative max-sm:py-[5%] max-md:flex-col bg-white px-[5vw] flex w-full py-[5%]"
+      className="h-fit max-sm:w-screen max-sm:overflow-x-hidden relative max-sm:py-[5%] max-md:flex-col bg-white px-[5vw] max-sm:px-[7vw] flex w-full py-[5%]"
     >
       {/* Info strip */}
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
-        <div className="flex flex-wrap items-center max-md:items-start max-md:justify-center  gap-y-[2.5vw] max-md:gap-y-[5vw]">
-          <div className="text-[1.05vw] max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-full max-md:w-[40%]">
+        <div className="flex flex-wrap items-center max-md:items-start max-md:justify-start  gap-y-[2.5vw] max-md:gap-y-[5vw]">
+          <div className="text-[1.05vw] max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-full max-md:w-full">
             <Copy>
               <p className="text-foreground text-24">
                 Publication Date
@@ -135,7 +135,7 @@ const NewsContentWp = ({ news }) => {
       </div>
 
       {/* TOC */}
-      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full">
+      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full max-sm:mt-[5vw]">
         {toc[0] && (
           <>
             <Copy>
