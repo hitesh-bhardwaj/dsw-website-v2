@@ -19,7 +19,7 @@ export default function WhatWeBelieve() {
             icon: <Governed />,
             title: "Governed while it runs",
             isHighlighted: true,
-        },
+        }, 
         {
             icon: <Auditable />,
             title: "Auditable by design",
