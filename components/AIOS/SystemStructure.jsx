@@ -63,7 +63,7 @@ const SystemStructure = () => {
   return (
     <section className="relative w-full py-[7%] bg-background max-sm:py-[15%]">
       {/* Heading */}
-      <div className="text-center px-[5vw] mb-[3vw] max-sm:mb-[10vw]">
+      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
         <HeadingAnim>
           <h2 className="text-76 text-foreground leading-[1.1]">
             How the System is Structured
@@ -76,8 +76,8 @@ const SystemStructure = () => {
         <div className="relative w-full bg-[#eff1fb] border border-primary-blue rounded-[1.5vw] overflow-hidden">
           {/* Header Bar */}
           <div className="bg-background border-b border-primary-blue py-[1.5vw] rounded-t-[1.5vw]">
-            <p className="text-24 text-foreground font-medium text-center font-heading tracking-[0.02em]">
-              The UnifyAI Operating System
+            <p className="text-24 text-primary-blue font-medium text-center font-heading tracking-[0.02em]">
+              DSW Enterprise AI Operating System
             </p>
           </div>
 
@@ -88,13 +88,13 @@ const SystemStructure = () => {
               {runtimeBoxes.map((box) => (
                 <div
                   key={box.id}
-                  className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] flex flex-col justify-between"
+                  className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] flex flex-col justify-between hover:border-primary-blue border border-white/0 transition-all duration-500 ease-in-out hover:drop-shadow-md hover:shadow-md"
                 >
                   <div className="flex items-start justify-between mb-[1.5vw] max-sm:mb-[4vw]">
                     <h3 className="text-24 text-foreground font-medium font-heading tracking-[0.02em]">
                       {box.title}
                     </h3>
-                    <div className="relative w-[3.5vw] h-[3.5vw] max-sm:w-[12vw] max-sm:h-[12vw]">
+                    <div className="relative w-[4.5vw] h-[4.5vw] max-sm:w-[12vw] max-sm:h-[12vw]">
                       <Image
                         src={box.icon}
                         alt={box.title}
@@ -107,7 +107,7 @@ const SystemStructure = () => {
                     {box.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className="text-20 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
+                        className="text-22 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
                       >
                         <span className="text-primary-blue">•</span>
                         <span>{item}</span>
@@ -119,12 +119,12 @@ const SystemStructure = () => {
             </div>
 
             {/* AI OS Kernel */}
-            <div className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw]">
+            <div className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] hover:border-primary-blue border border-white/0 transition-all duration-500 ease-in-out hover:drop-shadow-md hover:shadow-md">
               <div className="flex items-start justify-between mb-[1.5vw] max-sm:mb-[4vw]">
                 <h3 className="text-24 text-foreground font-heading font-medium tracking-[0.02em]">
                   AI OS Kernel (UnifyAI Core)
                 </h3>
-                <div className="relative w-[3.5vw] h-[3.5vw] max-sm:w-[12vw] max-sm:h-[12vw]">
+                <div className="relative w-[4.5vw] h-[4.5vw] max-sm:w-[12vw] max-sm:h-[12vw]">
                   <Image
                     src="/assets/icons/aios/ai-os-kernel.svg"
                     alt="AI OS Kernel"
@@ -135,7 +135,7 @@ const SystemStructure = () => {
               </div>
               <div className="grid grid-cols-3 gap-[2vw] max-sm:grid-cols-1 max-sm:gap-[4vw]">
                 {/* Column 1 - Description */}
-                <p className="text-20 text-[#111] leading-1.2 tracking-[0.02em]">
+                <p className="text-22 text-[#111] leading-1.2 tracking-[0.02em]">
                   The authoritative control plane for all AI execution, responsible for:
                 </p>
                 {/* Column 2 - Items */}
@@ -143,7 +143,7 @@ const SystemStructure = () => {
                   {kernelItems[1].items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-20 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
+                      className="text-22 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
                     >
                       <span className="text-primary-blue">•</span>
                       <span>{item}</span>
@@ -155,7 +155,7 @@ const SystemStructure = () => {
                   {kernelItems[2].items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-20 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
+                      className="text-22 text-[#111] leading-none tracking-[0.02em] flex items-start gap-[0.5vw]"
                     >
                       <span className="text-primary-blue">•</span>
                       <span>{item}</span>
@@ -176,7 +176,7 @@ const SystemStructure = () => {
               <h3 className="text-24 text-white font-medium font-heading tracking-[0.02em] mb-[1vw] max-sm:mb-[3vw]">
                 Base Infrastructure Layer
               </h3>
-              <p className="text-20 text-white leading-normal tracking-[0.02em]">
+              <p className="text-22 text-white leading-normal tracking-[0.02em]">
                 Linux, Windows, Unix, or container runtimes manage compute, memory, and networking.
                 <br className="max-sm:hidden" />
                 <span className="max-sm:inline"> </span>
@@ -187,7 +187,7 @@ const SystemStructure = () => {
 
           {/* Footer Text */}
           <div className="pb-[1.5vw] max-sm:pb-[5vw]">
-            <p className="text-20 text-[#111] text-center tracking-[0.02em]">
+            <p className="text-22 text-[#111] text-center tracking-[0.02em]">
               Operates above existing infrastructure without modification
             </p>
           </div>

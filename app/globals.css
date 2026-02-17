@@ -2,7 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-
 :root {
   --background: #ffffff;
   --foreground: #111111;
@@ -247,6 +246,16 @@ h6 {
   to {
     transform: rotate(0deg);
   }
+}
+.workshop-scrollbar {
+  height: 8px;
+  border-radius: 999px;
+  background: #dfdfdf;
+}
+
+.workshop-scrollbar .swiper-scrollbar-drag {
+  background: #0205FA; /* orange */
+  border-radius: 999px;
 }
 
 .outer-circle {

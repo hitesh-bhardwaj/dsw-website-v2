@@ -29,6 +29,7 @@
     "react-phone-number-input": "^3.4.14",
     "resend": "^6.9.2",
     "smooothy": "^0.0.35",
+    "swiper": "^12.1.1",
     "tailwind-merge": "^3.4.1",
     "three": "^0.182.0",
     "zod": "^4.3.6"
