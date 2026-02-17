@@ -38,17 +38,16 @@ PhoneInput.displayName = "PhoneInput";
 
 const InputComponent = React.forwardRef(({ className, ...props }, ref) => (
   <>
-    <div  className="relative w-full h-full overflow-hidden ">
+    <div className="relative w-full h-full overflow-hidden">
       <input
         ref={ref}
         data-slot="input"
         className={cn(
-          "file:text-foreground placeholder:text-muted-foreground selection:bg-primary !text-[1.1vw] max-md:!text-[2.7vw] max-sm:!text-[3.5vw] max-md:px-[4vw]  selection:text-primary-foreground dark:bg-input/30 border-input flex h-[4vw] max-sm:h-[12vw] max-md:h-[10vw] w-full min-w-0   px-3 py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border border-black/20 rounded-full bg-background inputBlock ",
-          "",
-          "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 ",
+          "file:text-foreground placeholder:text-muted-foreground selection:bg-primary !text-[1.1vw] max-md:!text-[2.7vw] max-sm:!text-[3.5vw] max-md:px-[4vw] selection:text-primary-foreground flex h-[4.5vw] max-sm:h-[14vw] max-md:h-[9vw] w-full min-w-0 px-[2vw] max-sm:px-[4vw] py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border border-[#111] rounded-full bg-white/80 text-[#111] placeholder:text-[#111] inputBlock focus:border-primary-blue",
+          "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40",
           className
         )}
-        {...props} 
+        {...props}
       />
     </div>
   </>
@@ -81,7 +80,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
         <Button
           type="button"
           variant="outline"
-          className="flex justify-center gap-[1.5vw] h-[4vw] border  shadow-none px-[2vw] pb-2  focus:z-900  max-md:h-[10vw] max-sm:h-[12vw] max-sm:w-[35%] max-sm:gap-[4vw] w-[20%] mr-[0.8vw] max-sm:mr-[2.5vw]  bg-white flagblock  border-black/20 rounded-full cursor-pointer"
+          className="flex justify-center gap-[1.5vw] h-[4.5vw] border shadow-none px-[2vw] pb-2 focus:z-900 max-md:h-[9vw] max-sm:h-[14vw] max-sm:w-[35%] max-sm:gap-[4vw] w-[20%] mr-[0.8vw] max-sm:mr-[2.5vw] bg-white/80 flagblock border-[#111] rounded-full cursor-pointer hover:bg-white/90"
           disabled={disabled}
         >
           <FlagComponent country={selectedCountry} countryName={selectedCountry} />
@@ -93,7 +92,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0 bg-white/10  backdrop-blur-md border border-white/30 rounded-[1.2vw] overflow-hidden">
+      <PopoverContent className="w-[300px] p-0 bg-white/90 backdrop-blur-md border border-[#111]/20 rounded-[1.2vw] overflow-hidden">
         <Command>
           <CommandInput
             value={searchValue}
@@ -109,7 +108,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
             placeholder="Search country..."
           />
           <CommandList>
-            <ScrollArea data-lenis-prevent ref={scrollAreaRef} className="h-72 bg-black/10 pl-[1vw] backdrop-blur-md">
+            <ScrollArea data-lenis-prevent ref={scrollAreaRef} className="h-72 bg-white/80 pl-[1vw] backdrop-blur-md">
               <CommandEmpty>No country found.</CommandEmpty>
               <CommandGroup>
                 {countryList?.map((entry) => {
