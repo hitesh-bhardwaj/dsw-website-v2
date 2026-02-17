@@ -11,16 +11,16 @@ import { FreeMode, Scrollbar } from "swiper/modules";
 import HeadingAnim from "../Animations/HeadingAnim";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
 
-export default function Team({ heading , cardsData}) {
+export default function Team({ heading , cardsData, teamId = "team"}) {
   useGSAP(() => {
-    gsap.from(".experts-cards", {
+    gsap.from(`.experts-cards-${teamId}`, {
       yPercent: 40,
       opacity: 0,
       stagger: 0.1,
       duration: 2,
       ease: "power3.out",
       scrollTrigger: {
-        trigger: ".experts-cards",
+        trigger: `.experts-cards-${teamId}`,
         start: "top 80%",
       },
     });
@@ -63,7 +63,7 @@ export default function Team({ heading , cardsData}) {
         modules={[ FreeMode, Scrollbar]}
         // spaceBetween={20}
          scrollbar={{
-            el: ".workshop-scrollbar",
+            el: `.workshop-scrollbar-${teamId}`,
             draggable: true,
             hide: false, // ✅ keep thumb visible
           }}
@@ -90,7 +90,7 @@ export default function Team({ heading , cardsData}) {
         {cardsData.map((card, index) => (
           <SwiperSlide
             key={index}
-            className="!w-[20vw] max-md:!w-[50vw]  max-sm:!w-[60vw]  experts-cards "
+            className={`!w-[20vw] max-md:!w-[50vw]  max-sm:!w-[60vw]  experts-cards-${teamId} `}
           >
             <Link href={card.link} key={index} target="_blank" className="w-full flex-shrink-0 ">
               <div className="relative rounded-[1.5vw] max-sm:w-full max-sm:mx-auto overflow-hidden w-[95%] h-[22vw] max-md:mx-auto max-sm:h-[32vh] max-md:h-[38vh] max-md:w-auto max-sm:rounded-[6vw] max-md:rounded-[3vw] border border-dashed border-primary-blue p-3">
@@ -119,9 +119,20 @@ export default function Team({ heading , cardsData}) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="w-full flex justify-end">
-        <div className="workshop-scrollbar mt-10 w-[75%] cursor-grab max-md:w-full max-md:hidden" />
-
+      <div className="w-full space-y-3">
+        <div className="w-full flex justify-end">
+          <div className="w-[75%] max-md:w-full h-1 bg-gray-300 rounded-full overflow-hidden">
+            <div 
+              className="h-full w-12 bg-primary-blue rounded-full transition-all duration-300"
+              style={{
+                marginLeft: totalSlides > 0 ? `${((activeIndex) / (totalSlides - 1)) * 100}%` : "0%"
+              }}
+            />
+          </div>
+        </div>
+        <div className="w-full flex justify-end">
+          <div className={`workshop-scrollbar-${teamId} w-[75%] cursor-grab max-md:w-full max-md:hidden`} />
+        </div>
       </div>
 
 
