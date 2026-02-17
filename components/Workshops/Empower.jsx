@@ -5,19 +5,19 @@ import HeadingAnim from "../Animations/HeadingAnim";
 
 const Empower= ({heading,para,width}) => {
   return (
-    <section className="w-screen h-full overflow-hidden relative z-[10]">
+    <section className="w-screen h-full max-sm:py-[7%] overflow-hidden relative z-[10]">
       <div className="h-full w-full flex items-start justify-between px-[5vw] py-[7%] max-md:flex-col max-sm:flex-col max-sm:gap-[8vw] max-md:gap-[10vw] max-sm:px-[5.5vw] max-md:px-[4vw]">
-        <div className="w-[52%] h-full   max-sm:w-full max-md:w-[100%] space-y-[1.5vw] max-md:space-y-[3vw] max-sm:space-y-[4.5vw] flex flex-col justify-between gap-[6.5vw]">
-          <div className="space-y-[1.5vw] max-sm:space-y-[5vw] max-md:space-y-[2.5vw]">
+        <div className="w-[52%] h-full   max-sm:w-[95%] max-sm:mx-auto  space-y-[1.5vw] max-md:space-y-[3vw] max-sm:space-y-[4.5vw] flex flex-col justify-between gap-[6.5vw]">
+          <div className="space-y-[1.5vw] max-sm:space-y-[10vw] max-md:space-y-[2.5vw]">
             <HeadingAnim>
-            <h2 className={` text-76 text-[#0A1B4B] max-sm:!text-[11.5vw] leading-[1.2] ${width}`}>
+            <h2 className={` text-76 text-[#0A1B4B] max-sm:text-center!  leading-[1.2] ${width}`}>
               {heading}
             </h2>
             </HeadingAnim>
 
-            <div className="w-[65%] max-sm:w-[85%] max-md:w-[85%]">
+            <div className="w-[65%] max-sm:w-fit max-sm:mx-auto max-md:w-[85%]">
               <Copy>
-                <p className="text-30 text-[#11111]">
+                <p className="text-30 max-sm:text-center  text-[#11111]">
                  {para}
                 </p>
               </Copy>

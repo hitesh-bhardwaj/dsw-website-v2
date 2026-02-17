@@ -219,7 +219,7 @@ const sessionsData=[
  
 ];
 const outcomesData={
-heading:"Walk Away With Real-World Skills, Strategy & Clarity",
+heading:"Walk Away With Real -World Skills, Strategy & Clarity",
 para:"By the end of this hands-on workshop, your team will be equipped to move AI projects from concept to execution with confidence. Expect tangible outcomes, not just theory.",
 para2:"What You'll Gain:",
 points:[
