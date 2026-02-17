@@ -61,12 +61,17 @@ const VideoListing = () => {
   return (
     <>
       <section
-        className={` px-[5vw] py-[7%] relative  w-screen h-full`}
+        className={` px-[5vw] py-[7%] max-sm:py-[15%]  relative  w-screen h-full`}
         id="video-listing"
       >
-        <div className="w-full h-full flex flex-wrap fadeup justify-between gap-y-[7vw] max-sm:gap-y-[20vw] max-md:gap-y-[15vw]">
+        <div className="w-full h-full flex flex-wrap fadeup justify-between gap-y-[7vw] max-sm:gap-y-[10vw] max-md:gap-y-[15vw]">
           {videos.map((video, index) => (
             <div key={index} className="w-[47.5%] flex flex-col gap-[1vw] max-sm:w-full max-sm:gap-[7vw] max-md:w-full max-md:gap-[4vw]">
+               <span
+  className={`w-full h-px hidden max-sm:block bg-black opacity-60 lineDraw ${
+    index === 0 ? "max-sm:hidden" : ""
+  }`}
+/>
               <div
                 className="w-full h-[25vw] rounded-[1.8vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none  fadeup  group max-sm:h-[27vh] max-md:h-[40vh] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[4vw]"
                 role="button"
@@ -88,7 +93,7 @@ const VideoListing = () => {
                   height={400}
                 />
                 <div className="w-full h-full absolute bg-gradient-to-t from-black/80 via-transparent to-transparent z-[2] inset-0 flex justify-between items-end p-[2vw] max-sm:p-[5vw]">
-                  <div className="w-[3.5vw] h-auto max-sm:w-[12vw] max-md:w-[10vw]">
+                  <div className="w-[3.5vw] h-auto max-sm:w-[8vw] max-md:w-[10vw]">
                     <Image
                       alt="play-icon"
                       className="group-hover:scale-[0.9] duration-700 ease-in-out w-full h-full"
@@ -101,7 +106,7 @@ const VideoListing = () => {
                 </div>
               </div>
               <Copy>
-                <h3 className="text-32 text-[#111111] mt-[1vw] max-sm:pl-[1vw] text-white-200 max-sm:text-[5.5vw]">{video.title}</h3>
+                <h3 className="text-32 text-[#111111] mt-[1vw] max-sm:pl-[1vw] max-sm:font-medium max-sm:leading-[1.4]">{video.title}</h3>
               </Copy>
               <Copy>
                 <p className="max-sm:pl-[1vw] text-24 text-[#111111]">{video.description}</p>
