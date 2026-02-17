@@ -82,7 +82,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
     <section
       id="relatedArticles"
       ref={relatedArticlesRef}
-      className={`h-full w-screen p-[5vw] relative flex-col flex `}
+      className={`h-full w-screen  max-sm:overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
     >
       <div className="h-full w-full  gap-y-[4vw] flex flex-col items-start justify-between  max-sm:flex-col ">
         <div className="w-full text-center">
@@ -90,7 +90,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
             Related Articles
           </h2>
 
-          <div className="flex gap-6 w-fit ml-auto">
+          <div className="flex gap-6 w-fit ml-auto max-sm:absolute max-sm:bottom-0 max-sm:left-1/2 max-sm:-translate-x-1/2">
             <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
             <NextButton onClick={handleNext} isDisabled={relatedNews.length <= 3 || activeIndex + 3 >= relatedNews.length} />
           </div>

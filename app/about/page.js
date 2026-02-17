@@ -5,6 +5,8 @@ import CTAFinal from "@/components/CTAFinal";
 import Intro from '@/components/AboutUs/Intro'
 import DSWArrival from '@/components/AboutUs/DSWArrival'
 import WhatWeBelieve from '@/components/AboutUs/WhatWeBelieve';
+import TeamWrapper from '@/components/AboutUs/TeamWrapper';
+import JoinUs from '@/components/AboutUs/JoinUs';
 
 const AgenticAI = () => {
   return (
@@ -15,6 +17,8 @@ const AgenticAI = () => {
         <Intro/>
         <DSWArrival/>
         <WhatWeBelieve/>
+       <TeamWrapper/>
+       <JoinUs/>
         {/* <AgenticAbout />
         <AgenticCards />
         <CoreCapabilities />
@@ -46,14 +50,13 @@ const heroContent={
 }
 
 const ctaContent={
-  heading:"DSW AgenticAI runtime for BFSI ",
-  para:"Unify data, models and agent orchestration with pre-built BFSI playbooks, audit-first governance and human-in-the-loop controls - built for regulated financial services. ",
-  subPara: true,
-  subParaText: 'Turn AI pilots into auditable, production-grade agents',
+  heading:"Ready to operate AI like a unified, governed system? ",
+  para:"Whether you’re exploring enterprise AI at scale or looking to build the foundation with us  - we’d love to connect.",
+  subPara: false,
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a Demo"
+    text:"Talk to Us"
   },
   secondaryButton:{
     present:false,

@@ -14,6 +14,7 @@ const NewsContentWp = ({ news }) => {
   const [activeSection, setActiveSection] = useState("Introduction");
   const [modifiedHtml, setModifiedHtml] = useState(news?.content || "");
   const [toc, setToc] = useState([]); // [{ id, title }]
+  const [isMobile, setIsMobile] = useState(false);
   const contentRef = useRef(null);
   // console.log(news, "NEWS.....")
 
@@ -33,6 +34,13 @@ const NewsContentWp = ({ news }) => {
   // NEW: simple truncate helper
   const truncate = (str, max = 40) =>
     typeof str === "string" && str.length > max ? `${str.slice(0, 50)}...` : str;
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!news?.content || typeof window === "undefined") return;
@@ -108,11 +116,11 @@ const NewsContentWp = ({ news }) => {
   return (
     <section
       id="content"
-      className="h-fit relative max-md:flex-col bg-white px-[5vw] flex w-full py-[5%]"
+      className="h-fit max-sm:w-screen max-sm:overflow-x-hidden relative max-sm:py-[5%] max-md:flex-col bg-white px-[5vw] flex w-full py-[5%]"
     >
       {/* Info strip */}
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
-        <div className="flex flex-wrap items-center  max-md:items-start max-md:justify-between max-md:flex-row gap-y-[2.5vw] max-md:gap-y-[5vw]">
+        <div className="flex flex-wrap items-center max-md:items-start max-md:justify-center  gap-y-[2.5vw] max-md:gap-y-[5vw]">
           <div className="text-[1.05vw] max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-full max-md:w-[40%]">
             <Copy>
               <p className="text-foreground text-24">
@@ -123,36 +131,38 @@ const NewsContentWp = ({ news }) => {
               <p className="text-foreground text-24 font-light">{formatDate(news.newsDate.newsDate)}</p>
             </Copy>
           </div>
-          
         </div>
       </div>
 
       {/* TOC */}
-      <div className="space-y-[2vw] sticky top-[15%] mt-[10vw] max-md:hidden h-full w-[50%] pr-[5vw]">
+      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full">
         {toc[0] && (
           <>
             <Copy>
-              <p className="text-24 text-foreground max-sm:text-[4vw] max-md:text-[3vw]">
+              <p className="text-24 max-sm:text-[7vw] max-md:text-[5vw] text-foreground">
                 Table of Contents
               </p>
             </Copy>
             <div
               data-lenis-prevent
-              className="w-fit overflow-y-scroll h-fit max-h-[55vh] max-md:hidden fadeup"
+              className="w-fit overflow-y-scroll h-fit max-h-[55vh] fadeup"
             >
-              <ul className="flex flex-col items-start h-full gap-[1.5vw] list-disc pl-[2vw]">
+              <ul className="flex flex-col items-start h-full list-none p-0 m-0">
                 {toc.map((item) => (
                   <li
                     key={item.id}
                     onClick={() => handleScrollTo(item.id)}
-                    className={`text-24 max-sm:text-[4vw] max-md:text-[3vw] cursor-pointer transition-all duration-300 hover:text-primary-2 ${
+                    className={`flex items-center gap-[2vw] max-sm:gap-[3vw] w-full py-[1.2vw] max-md:py-[3vw] cursor-pointer transition-all duration-300 hover:text-primary-2 ${
                       activeSection === item.title
                         ? "text-primary-blue"
                         : "text-foreground"
                     }`}
                     title={item.title}
                   >
-                    {truncate(item.title, 20)}
+                    <span className="shrink-0 w-1 h-1 bg-black rounded-full"/>
+                    <span className="text-24 max-sm:text-[4vw] font-light leading-snug">
+                      {truncate(item.title, isMobile ? 50 : 20)}
+                    </span>
                   </li>
                 ))}
               </ul>
