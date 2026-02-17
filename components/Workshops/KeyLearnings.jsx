@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 const capabilities = [
   {
@@ -18,26 +19,27 @@ const capabilities = [
 
 const KeyLearnings = () => {
   return (
-    <section className="h-full container ">
-      <div className="flex justify-between max-md:flex-col pt-[4vw] max-md:pt-[10vw]">
-        <div className="w-[45%] max-md:w-[100%]">
-          <h3 className="text-white-200 text-60 headingAnim max-md:text-left  font-head">
+    <section className="h-full px-[5vw] py-[7%]">
+      <div className="flex flex-col justify-between items-center space-y-[5vw] max-md:flex-col pt-[4vw] max-md:pt-[10vw]">
+        <div className="w-full text-center">
+          <HeadingAnim>
+          <h3 className="text-76  max-md:text-left  font-head">
             Key Learning Objectives
           </h3>
+          </HeadingAnim>
         </div>
 
         <div className="w-[40%] max-md:w-full max-md:mt-[10vw]">
           <div className="space-y-[2vw] max-md:space-y-[8vw] w-full">
             {capabilities.map((cap, index) => (
-              <div key={index} className="relative max-md:pb-[8vw] pb-[2vw]">
-                <ul className="list-disc space-y-[2vw] ml-[2vw] max-md:ml-[4vw]">
-                  <li className="relative fadeup">
-                    <p className="text-white-200 w-[85%] max-md:w-full">
+              <div key={index} className="relative max-md:pb-[8vw] pb-[1.5vw] fadeup">
+                <div className="relative">
+                  <span className="absolute top-0 left-0 w-1 bg-[#5662FF] h-full "/>
+                   <p className="text-30 text-[#111111]  max-md:w-full pl-[2vw]">
                       {cap.text}
                     </p>
-                  </li>
-                </ul>
-                <span className="w-full h-[1px] bg-[#59595980] absolute left-0 bottom-0 lineDraw" />
+                    
+                  </div>
               </div>
             ))}
           </div>

@@ -107,7 +107,7 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
   return (
     <>
       <div
-        className="relative py-[3vw] !min-h-[60vh] h-full max-md:py-[8vw] max-md:px-[8vw] rounded-[1.5vw] overflow-hidden w-[36vw] px-[2.5vw] max-md:min-h-[60vh] max-sm:min-h-[70vh] max-md:h-fit max-md:w-full max-md:rounded-[6vw] border border-[#0205FA] group cursor-grab "
+        className="relative py-[3vw] !min-h-[60vh] h-full max-md:py-[8vw] max-md:px-[8vw] rounded-[1.5vw] overflow-hidden w-[36vw] px-[2.5vw] max-md:min-h-[60vh] max-sm:min-h-[70vh] max-md:h-fit max-md:w-full max-md:rounded-[6vw] border border-[#0205FA] group cursor-grab hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out "
         onMouseEnter={onHover}
       >
         <div
@@ -121,7 +121,7 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
           </p>
         </div>
         <div className="h-full flex flex-col justify-between relative z-[10]">
-          <div className="">
+          <div className=" max-w-[80%]">
             <h3 className="text-32 font-medium text-[#111111]">{title}</h3>
           </div>
           <div className="w-full  max-md:space-y-[3vw] py-[1vw] max-sm:mt-[8vw] mt-[5vw]">
