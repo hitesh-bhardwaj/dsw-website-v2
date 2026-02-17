@@ -15,6 +15,7 @@ const BlogContentWp = ({ post }) => {
   const [modifiedHtml, setModifiedHtml] = useState(post?.content || "");
   const [toc, setToc] = useState([]); // [{ id, title }]
   const [readingTime, setReadingTime] = useState("1 min");
+  const [isMobile, setIsMobile] = useState(false);
   const contentRef = useRef(null);
 // console.log(post,"AUTHOR.....");
   const getHeaderOffset = () => 100;
@@ -59,6 +60,13 @@ const BlogContentWp = ({ post }) => {
     // Return at least 1 minute
     return `${Math.max(1, minutes)} min`;
   };
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   useEffect(() => {
     if (!post?.content || typeof window === "undefined") return;
@@ -137,7 +145,7 @@ const BlogContentWp = ({ post }) => {
   return (
     <section
       id="content"
-      className="h-fit relative py-[5%] max-md:flex-col bg-background flex w-full px-[5vw]"
+      className="h-fit relative py-[5%] max-sm:py-[20%] max-md:flex-col bg-background flex w-full px-[5vw]"
     >
       {/* Info strip */}
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
@@ -190,31 +198,34 @@ const BlogContentWp = ({ post }) => {
       </div>
 
       {/* TOC */}
-      <div className="space-y-[2vw] sticky top-[15%] mt-[15vw] max-md:hidden h-full w-[50%]">
+      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full">
         {toc[0] && (
           <>
             <Copy>
-              <p className="text-30 max-sm:text-[4vw] max-md:text-[3vw] text-foreground">
+              <p className="text-30 max-sm:text-[7vw] max-md:text-[5vw] text-foreground">
                 Table of Contents
               </p>
             </Copy>
             <div
               data-lenis-prevent
-              className="w-fit overflow-y-scroll h-fit max-h=[55vh] max-md:hidden fadeup"
+              className="w-full overflow-y-scroll h-fit max-h=[55vh] fadeup"
             >
-              <ul className="flex flex-col items-start h-full gap-[1.5vw] list-disc pl-[1.5vw]">
+              <ul className="flex flex-col items-start h-full list-none p-0 m-0">
                 {toc.map((item) => (
                   <li
                     key={item.id}
                     onClick={() => handleScrollTo(item.id)}
-                    className={`text-24 max-sm:text-[4vw] font-light max-md:text-[3vw] cursor-pointer transition-all duration-300 hover:text-primary-2 ${
+                    className={`flex items-center gap-[2vw] max-sm:gap-[3vw] w-full py-[1.2vw] max-md:py-[3vw] cursor-pointer transition-all duration-300 hover:text-primary-2 ${
                       activeSection === item.title
                         ? "text-primary-blue"
                         : "text-foreground"
                     }`}
                     title={item.title}
                   >
-                    {truncate(item.title, 20)}
+                    <span className="text-24 max-sm:text-[4vw] shrink-0 w-1 h-1 bg-black rounded-full"/>
+                    <span className="text-24 max-sm:text-[4vw] font-light leading-snug">
+                      {truncate(item.title, isMobile ? 50 : 20)}
+                    </span>
                   </li>
                 ))}
               </ul>

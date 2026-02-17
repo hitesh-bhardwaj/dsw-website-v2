@@ -62,7 +62,7 @@ const FeaturedBlog = ({ featuredPost }) => {
 
             {/* Metadata */}
             <div className="flex gap-[4vw] pt-[1vw] max-sm:flex-wrap max-sm:gap-[8vw] max-sm:pt-[2vw]">
-              <div className="space-y-[0.3vw] max-sm:space-y-[1vw]">
+              <div className="space-y-[0.3vw] max-sm:space-y-[1vw] max-sm:w-[40%]">
                 <p className="text-24 text-[#919191] tracking-[0.02em]">
                   Format
                 </p>
@@ -91,12 +91,15 @@ const FeaturedBlog = ({ featuredPost }) => {
             </div>
 
             {/* Read More Button */}
-            <div className="pt-[1vw] max-sm:pt-[4vw]">
+            <div className="max-sm:flex max-sm:justify-center">
+
+            <div className="pt-[1vw] max-sm:pt-[4vw] max-sm:mx-auto">
               <PrimaryButton
                 href={`/${featuredPost.slug}`}
                 text="Read More"
-              />
+                />
             </div>
+                </div>
           </div>
         </div>
       </div>
