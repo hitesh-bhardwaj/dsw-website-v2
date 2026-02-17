@@ -15,17 +15,17 @@ const socialLinks = [
   ];
 const Form = () => {
   return (
-    <section className="w-screen h-full overflow-hidden relative z-[10]  max-md:mt-0 px-[5vw] py-[7%]" id="contact-form">
-      <div className="h-full w-full flex items-start justify-between  container max-sm:flex-col max-md:flex-col max-sm:gap-[8vw] max-md:gap-[10vw] max-sm:px-[5.5vw] max-md:px-[4vw]">
+    <section className="w-screen h-full overflow-hidden relative z-[10]  max-md:mt-0 px-[5vw] max-sm:py-[15%] py-[7%]" id="contact-form">
+      <div className="h-full w-full flex items-start justify-between  container max-sm:flex-col max-md:flex-col max-sm:gap-[8vw] max-md:gap-[10vw] max-sm:px-[5vw] max-md:px-[4vw]">
         <div className="w-[52%] h-full  max-sm:w-full max-md:w-[100%] space-y-[1.5vw] max-md:space-y-[3vw] max-sm:space-y-[4.5vw] flex flex-col justify-between gap-[6.5vw]">
-          <div className="h-[35%]  space-y-[1.5vw] max-md:space-y-[5vw]">
+          <div className="h-[35%]  space-y-[1.5vw] max-md:space-y-[10vw]">
             <HeadingAnim>
-            <h2 className="w-[90%] text-76  font-head text-[#0A1B4B] leading-[1.2]">
+            <h2 className="w-[90%] text-76 max-sm:text-center max-sm:mx-auto font-head text-[#0A1B4B] leading-[1.2]">
              Have a specific request or question?
             </h2>
             </HeadingAnim>
 
-            <div className="w-[60%] max-sm:w-[85%] max-md:w-[85%]">
+            <div className="w-[60%] max-sm:w-full max-sm:mx-auto max-md:w-[85%]">
               <Copy>
                 <p className="text-30 font-normal">
                   Fill out the form below and our team will get back to you
@@ -38,11 +38,11 @@ const Form = () => {
 
           <div className="h-[40%] max-md:hidden flex flex-col justify-between  gap-[3vw]">
             <div className="space-y-[0.3vw] text-head text-white-300 font-normal fadeup">
-              <p className="text-30 text-[#111111]">Phone:</p>
+              <p className="text-30 text-foreground">Phone:</p>
                 <div  className="under-multi-parent w-fit">
             <a 
               href={`tel:+353894015233`} 
-              className="under-multi text-30 text-[#111111] "
+              className="under-multi text-30 text-foreground "
             >
               +353 89401 5233
             </a>
@@ -50,7 +50,7 @@ const Form = () => {
           <div  className="under-multi-parent w-fit">
             <a 
               href={`tel:+919664056847`} 
-              className="under-multi text-30 text-[#111111] "
+              className="under-multi text-30 text-foreground "
             >
               +91 96640 56847
             </a>
@@ -58,8 +58,8 @@ const Form = () => {
             </div>
 
             <div className="text-white-300 space-y-[0.3vw] fadeup">
-              <p className="text-30 text-[#111111]">E-mail:</p>
-              <div className="under-multi-parent w-fit text-30 text-[#111111]">
+              <p className="text-30 text-foreground">E-mail:</p>
+              <div className="under-multi-parent w-fit text-30 text-foreground">
             <a 
               href={`mailto:contact@datasciencewizards.ai`} 
               className="under-multi "
@@ -70,14 +70,14 @@ const Form = () => {
             </div>
 
             <div className="text-white-300 space-y-[0.8vw] fadeup">
-                <p className="text-30 text-[#111111]">Socials:</p>
+                <p className="text-30 text-foreground">Socials:</p>
               <div className="flex items-center gap-[1.5vw] mt-[1vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                   {socialLinks.map((social, id) => (
                   <Link
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>
@@ -115,7 +115,7 @@ const Form = () => {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>

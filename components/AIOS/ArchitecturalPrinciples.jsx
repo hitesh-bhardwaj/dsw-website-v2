@@ -117,7 +117,7 @@ const ArchitecturalPrinciples = () => {
                 <h4 className="text-32 font-heading font-medium text-[#0A1B4B] mb-[1vw] max-sm:mb-[3vw] max-sm:text-40">
                   {principle.title}
                 </h4>
-                <p className="text-24 leading-[1.6] text-[#111]">
+                <p className="text-24 leading-[1.6] text-foreground">
                   {principle.description}
                 </p>
               </div>

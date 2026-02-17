@@ -17,13 +17,13 @@ export default function CTAFinal({ ctaContent }) {
 
         {ctaContent.subPara && (
           <Copy>
-            <h5 className="  text-44 text-center mt-[1vw] text-[#111111] font-heading">
+            <h5 className="  text-44 text-center mt-[1vw] text-foreground font-heading">
               {ctaContent.subParaText}
             </h5>
           </Copy>
         )}
         <Copy>
-          <p className="text-30 text-center w-[70%] max-sm:w- text-[#111111] max-sm:w-full mx-auto max-sm:font-light ">
+          <p className="text-30 text-center w-[70%] max-sm:w- text-foreground max-sm:w-full mx-auto max-sm:font-light ">
             {ctaContent.para}
           </p>
         </Copy>
@@ -34,6 +34,7 @@ export default function CTAFinal({ ctaContent }) {
             {/* Primary Button */}
             {ctaContent.primaryButton?.present && (
               <PrimaryButton
+                target={`${ctaContent.primaryButton.targetPrimary ? "_blank" : ""}`}
                 text={ctaContent.primaryButton.text}
                 href={ctaContent.primaryButton.link}
               />

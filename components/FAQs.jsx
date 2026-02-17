@@ -26,7 +26,7 @@ export default function Faqs({ allowMultiple = false, data }) {
 
   return (
     <section
-      className=" w-full  relative  max-sm:min-h-screen max-md:min-h-screen dark z-[40]  !text-[#111111] px-[5vw] py-[7%]"
+      className=" w-full  relative  max-sm:min-h-screen max-md:min-h-screen dark z-[40]  !text-foreground px-[5vw] py-[7%]"
       id="faqs"
     >
       <div className="flex flex-col items-center gap-[5vw] max-sm:gap-[10vw] max-md:justify-center max-sm:items-start">
@@ -102,7 +102,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }) {
                   transition={{ duration: 0.3, ease: "easeOut" }}
                   className="overflow-hidden"
                 >
-                  <div className="pb-[3.5vw] text-[#111111] text-24 w-[90%] max-sm:pb-[8vw] max-sm:w-[95%] max-sm:text-[3.5vw] space-y-[1vw]">
+                  <div className="pb-[3.5vw] text-foreground text-24 w-[90%] max-sm:pb-[8vw] max-sm:w-[95%] max-sm:text-[3.5vw] space-y-[1vw]">
                     {answer.map((item,index)=>(
                        <p key={index} dangerouslySetInnerHTML={{__html:item}}/>
                     ))}

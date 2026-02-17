@@ -193,7 +193,7 @@ export default function ContactForm() {
   return (
     <section className=" h-full w-full " id="formoem">
       <div className="w-full h-full  ">
-        <div className="w-full flex flex-col gap-[2vw] max-md:px-[2vw] fadeup">
+        <div className="w-full flex flex-col gap-[2vw]  fadeup">
           <Form {...form}>
             <form
               autoComplete="off"
@@ -211,9 +211,9 @@ export default function ContactForm() {
                           htmlFor="name"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw] '
                         >
-                          <span className='bg-white text-[#111111] inline-flex px-1 text-24  max-md:text-[2.7vw] max-sm:text-[3.5vw]'>Name*</span>
+                          <span className='bg-white text-foreground inline-flex px-1 text-24  max-md:text-[2.7vw] max-sm:text-[3.5vw]'>Name*</span>
                         </label>
-                        <Input {...field} autoComplete="off" id="name" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border  !bg-white h-15 !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] ' />
+                        <Input {...field} autoComplete="off" id="name" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border  !bg-white h-15  max-sm:h-13 !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] ' />
                       </div>
                     </FormControl>
                     <FormMessage />
@@ -232,7 +232,7 @@ export default function ContactForm() {
                           htmlFor="email"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Business Email*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Business Email*</span>
                         </label>
                         <Input
                           {...field}
@@ -244,7 +244,7 @@ export default function ContactForm() {
                             field.onBlur();
                             handleEmailBlur(e.target.value);
                           }}
-                          className='dark:bg-transparent border-[#B0B0B080] border  !bg-white h-15  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] '
+                          className='dark:bg-transparent border-[#B0B0B080] border  !bg-white h-15 max-sm:h-13  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] '
                         />
                         {emailVerifying && (
                           <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#CACACA] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
@@ -268,7 +268,7 @@ export default function ContactForm() {
                           htmlFor="designation"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Designation*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Designation*</span>
                         </label>
                         <Input {...field} autoComplete="off" id="designation" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border h-15  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] ' />
                       </div>
@@ -289,7 +289,7 @@ export default function ContactForm() {
                           htmlFor="company"
                           className='origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Company Name*</span>
+                          <span className='bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Company Name*</span>
                         </label>
                         <Input {...field} autoComplete="off" id="company" type='text' placeholder=' ' className='dark:bg-transparent border-[#B0B0B080] border  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] h-15' />
                       </div>
@@ -327,12 +327,12 @@ export default function ContactForm() {
                     <FormControl>
                       <Select onValueChange={field.onChange} defaultValue={field.value}>
                         <SelectTrigger
-                          className="w-full  px-[2vw]  !h-15  bg-background border !border-[#B0B0B080] rounded-full text-[#111111]  text-24 max-md:pl-[5vw] max-md:pr-[4vw]"
+                          className="w-full  px-[2vw]  h-15! max-sm:h-14!  bg-background border !border-[#B0B0B080] rounded-full text-foreground  text-24 max-md:pl-[5vw] max-md:pr-[4vw]"
                         >
 
                           <SelectValue placeholder="Reason*" className='placeholder:!text-[3.5vw]' />
                         </SelectTrigger>
-                        <SelectContent className=" bg-white/20 backdrop-blur-md max-md:placeholder:!24 text-[#111111] border !border-[#B0B0B080]rounded-[1.5vw] p-[1vw] max-sm:rounded-[3vw] max-sm:p-[3vw] max-md:rounded-[2.5vw] max-md:p-[1.5vw]">
+                        <SelectContent className=" bg-white/20 backdrop-blur-md max-md:placeholder:!24 text-foreground border !border-[#B0B0B080]rounded-[1.5vw] p-[1vw] max-sm:rounded-[3vw] max-sm:p-[3vw] max-md:rounded-[2.5vw] max-md:p-[1.5vw]">
                           <SelectItem value="support">Support</SelectItem>
                           <SelectItem value="sales">Sales Inquiry</SelectItem>
                           <SelectItem value="partnership">Partnership</SelectItem>
@@ -358,7 +358,7 @@ export default function ContactForm() {
                           htmlFor={"message"}
                           className='origin-start text-muted-foreground/70 group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive absolute top-0 block translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium z-[5] ml-[1vw] max-md:ml-[3vw] max-md:mt-[1vw]'
                         >
-                          <span className='bg-white inline-flex px-1 text-24 max-md:text-[2.7vw] max-sm:text-[3.5vw] text-[#111111]'>Message</span>
+                          <span className='bg-white inline-flex px-1 text-24 max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground'>Message</span>
                         </label>
                         <Textarea autoComplete="off"
                           {...field} id="messsage" placeholder=' ' className=' py-4 h-35 dark:bg-transparent border-[#B0B0B080] border  !bg-white  !rounded-[2vw]  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] max-md:!rounded-[5vw] max-sm:text-[3.5vw] max-md:text-[2.7vw] ' />
@@ -399,20 +399,30 @@ export default function ContactForm() {
               </div>
 
 
-              <Button
-                type="submit"
-                aria-label="submit form"
-                className="cursor-pointer mt-[3vw] pb-[3vw]  max-md:pb-[8vw] max-md:mt-[8vw] px-0 rounded-full"
-              >
-                <div className="relative flex items-center justify-center h-fit min-w-[10vw] px-[2vw] rounded-full overflow-hidden text-white-200 group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-md:min-w-[20vw] max-sm:px-[7vw] max-sm:py-[4vw]">
-                  <span className="text-24 text-white block z-[1] mt-[2vw]">
-                    {isLoading ? "Sending..." : "Submit"}
-                  </span>
-                  <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />
-                </div>
-              </Button>
+                    <div className="flex items-center justify-start max-sm:justify-center">
+
+                    
+           <Button
+  type="submit"
+  aria-label="submit form"
+  className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw]"
+>
+  <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden text-white-200 group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+    <span className="text-24 text-white block z-[1] mt-[2vw] max-md:mt-0">
+      {isLoading ? "Sending..." : "Submit"}
+    </span>
+    <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />
+  </div>
+
+
+
+
+ 
+</Button>
+</div>
+
               {submitted && (
-                <p className="text-[#111111] text-md mt-2">
+                <p className="text-foreground text-md mt-2">
                   ✅ Form submitted successfully!
                 </p>
               )}

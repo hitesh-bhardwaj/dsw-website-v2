@@ -6,13 +6,13 @@ import SecondaryButton from "./Buttons/SecondaryButton";
 import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
 import { fadeUp } from "./Animations/gsapAnimations";
-import WaveGradientCanvas from "./Homepage/HeroBg";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import WaveGridCanvas from "./Homepage/HeroBg";
+import BreadCrumbs from "./BreadCrumbs";
 
-export default function HeroNew({ heroContent, variant }) {
+export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   const showButtons =
     heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
 
@@ -175,9 +175,9 @@ export default function HeroNew({ heroContent, variant }) {
       <WaveGridCanvas variant={variant} />
 
       <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
-        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full">
+        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">
           <Copy delay={1}>
-            <p className="text-30 text-center text-[#333333] tracking-wide opacity-0 hero-text">
+            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text">
               {heroContent.tagline}
             </p>
           </Copy>
@@ -242,6 +242,8 @@ export default function HeroNew({ heroContent, variant }) {
             </div>
           )}
         </div>
+      {breadcrumbs && <BreadCrumbs />}
+
 
         {/* Scroll Down Indicator - conditionally render to prevent any display issues */}
         {!isFooterVisible && (
@@ -270,6 +272,8 @@ export default function HeroNew({ heroContent, variant }) {
                 </div>
               </div>
             </div>
+
+
 
             <p className="text-20 font-sans shimmer tracking-[0.056vw]">
               Keep Scrolling to Discover More

@@ -98,7 +98,7 @@ const UpcomingWebinars = () => {
                   </div>
                 </div>
 
-                <div className="w-fit fadeup max-md:my-[10vw]">
+                <div className="w-fit fadeup max-md:my-[5vw] max-sm:my-[6vw]">
                   <PrimaryButton
                     
                     text="Register Now"
@@ -108,12 +108,12 @@ const UpcomingWebinars = () => {
                 </div>
               </div>
             </div>
-            <span className="w-full h-[1px] block bg-black opacity-60 lineDraw" />
+            <span className="w-full h-[1px] block bg-[#C5C5C5] lineDraw" />
           </div>
 
           {/* Secondary Announcements */}
           <div className="">
-            <div className="w-full flex justify-between fadeup pt-[3vw] max-md:flex-col max-md:gap-[10vw] max-md:pb-[10vw]">
+            <div className="w-full flex justify-between fadeup pt-[3vw] max-sm:pt-[6vw] max-md:flex-col max-md:gap-[10vw] max-md:pb-[10vw]">
               {secondaryAnnouncements.map((item, index) => (
                 <div
                   key={index}

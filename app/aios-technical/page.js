@@ -17,7 +17,7 @@ const Page = () => {
     return (
         <>
             <Layout>
-                <HeroNew heroContent={heroContent} variant={"default"} />
+                <HeroNew heroContent={heroContent} variant={"bottomRight"} />
                 <OperatingSystem />
                 <AIProjects />
                 <AIEcosystem />

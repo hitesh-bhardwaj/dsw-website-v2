@@ -48,12 +48,12 @@ const Help = () => {
         {helpCards.map((card) => (
           <div
             key={card.id}
-            className=" w-[48%] p-[3vw] py-[3.5vw] bg-white max-md:h-full max-md:!w-full  max-md:justify-between max-md:px-[7vw] max-md:py-[8vw] border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300"
+            className=" w-[48%] p-[3vw] py-[3.5vw] bg-white max-md:h-full max-md:!w-full  max-md:justify-between max-md:px-[7vw] max-md:py-[8vw] relative border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300"
           >
             <CornerDecorations />
             <div className="w-full h-full space-y-[2.5vw] relative z-[2] max-md:space-y-[7vw]">
-              <h3 className="text-44 text-[#111111]">{card.title}</h3>
-              <p className="text-24 text-[#111111]">{card.description}</p>
+              <h3 className="text-44 text-foreground">{card.title}</h3>
+              <p className="text-24 text-foreground">{card.description}</p>
               <PrimaryButton
                 href={card.href}
                 text={card.buttonText}

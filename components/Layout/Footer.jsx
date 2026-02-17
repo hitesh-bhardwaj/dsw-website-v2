@@ -121,7 +121,7 @@ export default function FooterNew() {
                 Contact Us
               </h5>
               <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
-                <div className="under-multi-parent w-fit h-fit">
+                <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
                 <Link
                   href="mailto:Contact@datasciencewizards.ai"
                   className="block text-24 max-sm:text-[5vw] under-multi"
@@ -160,7 +160,7 @@ export default function FooterNew() {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-[#111111] hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
                    {social.icon}
                   </Link>
@@ -213,11 +213,7 @@ export default function FooterNew() {
                   className="w-full bg-transparent text-20 font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
                 />
                 <button
-                  className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(112.958deg, rgb(241, 107, 13) 7.1952%, rgb(230, 18, 22) 92.805%)",
-                  }}
+                  className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto bg-[#F16B0D]"
                 >
                   Subscribe
                 </button>
