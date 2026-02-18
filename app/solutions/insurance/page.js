@@ -6,7 +6,6 @@ import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
 import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
 import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
