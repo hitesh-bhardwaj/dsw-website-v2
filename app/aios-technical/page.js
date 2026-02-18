@@ -15,6 +15,7 @@ import Choose from "@/components/AIOS/Choose"
 import { WebpageJsonLd } from "@/lib/json-ld"
 import { getPageMetadata } from "@/components/config/metadata"
 import { homepage } from "@/lib/util"
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards"
 
 export const metadata = getPageMetadata({
   title: "Enterprise AI Operating System | DSW AIOS Technical",
@@ -57,6 +58,7 @@ const Page = () => {
                 <Outcomes/>
                 <Choose/>
                 <WhoBuiltFor />
+                <CertificationsAndAwards certificationsContent={certificationsContent}/>
                 <CTAFinal ctaContent={ctaContent} />
             </Layout>
 
@@ -101,3 +103,11 @@ const ctaContent={
     text:"Talk to our Team"
   },
 }
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};

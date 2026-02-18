@@ -10,6 +10,7 @@ import CTAFinal from "@/components/CTAFinal";
 import { WebpageJsonLd } from '@/lib/json-ld'
 import { getPageMetadata } from '@/components/config/metadata'
 import { homepage } from '@/lib/util'
+import CertificationsAndAwards from '@/components/Homepage/CertificationsAndAwards'
 
 export const metadata = getPageMetadata({
   title: "DSW AgenticAI – Governed Enterprise AI Agents for BFSI",
@@ -48,6 +49,7 @@ const AgenticAI = () => {
         <CoreCapabilities />
         <AgentSteps />
         <HowAgenticWorks />
+        <CertificationsAndAwards certificationsContent={certificationsContent}/>
         {/* <HowAgenticWorksWheel/> */}
          <CTAFinal ctaContent={ctaContent}/>
     </main>
@@ -89,3 +91,11 @@ const ctaContent={
     text:"Talk to our Team"
   },
 }
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};

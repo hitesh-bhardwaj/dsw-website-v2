@@ -13,6 +13,7 @@ import UseCases from "@/components/Homepage/UseCases";
 import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
 import ClientsBlur from "@/components/Homepage/ClientsBlur";
 import { WebpageJsonLd } from "@/lib/json-ld";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 
 
 
@@ -42,6 +43,7 @@ export default function Home() {
       <ClientsBlur/>
       <RealWorldOutcomes />
       <CTAPricing />
+      <CertificationsAndAwards certificationsContent={certificationsContent}/>
       <Testimonials />
       <CTAFinal ctaContent={ctaContent}/>
     </main>
@@ -86,3 +88,12 @@ const tourContent={
   para:"AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously",
   tagline:"The AI Operating System makes this possible by running as part of your core enterprise architecture."
 }
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};
+
