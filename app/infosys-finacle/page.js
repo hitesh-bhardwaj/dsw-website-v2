@@ -1,3 +1,5 @@
+import { getPageMetadata } from "@/components/config/metadata";
+import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Deployments from "@/components/InfosysFinacle/Deployments";
 import EngagementModels from "@/components/InfosysFinacle/EngagementModels";
@@ -7,11 +9,38 @@ import Recognized from "@/components/InfosysFinacle/Recognized";
 import Values from "@/components/InfosysFinacle/Values";
 import Layout from "@/components/Layout/Layout";
 import Testimonials from "@/components/Testimonials";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
+
+export const metadata = getPageMetadata({
+  title: "Infosys Finacle Open Source Partner – DSW",
+  description: "DSW is a strategic open-source consulting partner for Infosys Finacle, helping global banks modernize, deploy, and operate Finacle at scale with enterprise-grade governance.",
+  url: "infosys-finacle",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/infosys-finacle",
+    languages: {
+      "en-US": "/infosys-finacle",
+    },
+  },
+  openGraph: {
+    url: "infosys-finacle",
+    images: [
+      {
+        url: `${homepage}seo/infosys-finacle.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 
 
 export default async function InfosysFinacle() {
   return (
     <>
+    <WebpageJsonLd metadata={metadata} />
     <Layout>
         <HeroNew heroContent={heroContent} variant={"topLeft"}/>
         <Deployments/>
@@ -21,7 +50,7 @@ export default async function InfosysFinacle() {
         <EngagementModels/>
         <Values/>
         <Testimonials/>
-        {/* <CTAFinal ctaContent={ctaContent}/> */}
+        <CTAFinal ctaContent={ctaContent}/>
     </Layout>
     </>
   );
@@ -42,4 +71,17 @@ const heroContent={
     text:"Talk to our Team"
   },
   images:true
+}
+
+const ctaContent={
+  heading:"Together aligned to build Global Banking Success.",
+  subParaText:"62+ Years of Collective Open Source Experience & Exposure with Deep-Tech Expertise.",
+  subPara:true,
+  para:"With a strong background in operating systems, middleware,  and the core enterprise technology ecosystem, we have been active contributors and trusted practitioners in the global open source community.  As Infosys Finacle’s strategic open-source consulting and services partner, we bring this collective depth of experience to jointly deliver skills, expertise, and predictable success for Finacle customers and global banks. ",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:" Talk to the team"
+  },
+  
 }

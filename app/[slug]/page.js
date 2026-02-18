@@ -6,6 +6,8 @@ import RelatedArticles from '@/components/Blog/RelatedArticles'
 import { getPostBySlug, getAllPosts } from '@/lib/posts'
 import { homepage, stripHtml } from '@/lib/util'
 import { notFound } from 'next/navigation'
+import { BreadcrumbsJSONLD, WebpageJsonLd } from '@/lib/json-ld'
+import { getPageMetadata } from '@/components/config/metadata'
 
 export async function generateMetadata({ params }) {
   const { slug } = await params
@@ -18,23 +20,23 @@ export async function generateMetadata({ params }) {
     }
   }
 
-  // return getPageMetadata({
-  //   title: post.metaTitle || post.title,
-  //   description: stripHtml(post.metaDescription || post.excerpt),
-  //   url: `/${slug}`,
-  //   date_published: post.date,
-  //   date_modified: post.modified || post.date,
-  //   alternates: {
-  //     canonical: `/${slug}`,
-  //     languages: { 'en-US': `/${slug}`},
-  //   },
-  //   openGraph: {
-  //     url: `/${slug}`,
-  //     images: post.metaImage
-  //       ? [{ url: post.metaImage.url, width: 1200, height: 630 }]
-  //       : [{ url: `${homepage}seo/blog-detail.png`, width: 1200, height: 630 }],
-  //   },
-  // })
+  return getPageMetadata({
+    title: post.metaTitle || post.title,
+    description: stripHtml(post.metaDescription || post.excerpt),
+    url: `/${slug}`,
+    date_published: post.date,
+    date_modified: post.modified || post.date,
+    alternates: {
+      canonical: `/${slug}`,
+      languages: { 'en-US': `/${slug}`},
+    },
+    openGraph: {
+      url: `/${slug}`,
+      images: post.metaImage
+        ? [{ url: post.metaImage.url, width: 1200, height: 630 }]
+        : [{ url: `${homepage}seo/blog-detail.png`, width: 1200, height: 630 }],
+    },
+  })
 }
 
 export default async function Page({ params }) {
@@ -64,28 +66,28 @@ export default async function Page({ params }) {
       },
     }))
 
-  // const pageMeta = getPageMetadata({
-  //   title: post.metaTitle || post.title,
-  //   description: post.metaDescription || post.excerpt,
-  //   url: `/${slug}`,
-  //   date_published: post.date,
-  //   date_modified: post.modified || post.date,
-  //   alternates: {
-  //     canonical: `/${slug}`,
-  //     languages: { 'en-US': `/${slug}`},
-  //   },
-  //   openGraph: {
-  //     url: `/${slug}`,
-  //     images: post.metaImage
-  //       ? [{ url: post.metaImage.url, width: 1200, height: 630 }]
-  //       : [{ url: `${homepage}seo/blog-detail.png`, width: 1200, height: 630 }],
-  //   },
-  // })
+  const pageMeta = getPageMetadata({
+    title: post.metaTitle || post.title,
+    description: post.metaDescription || post.excerpt,
+    url: `/${slug}`,
+    date_published: post.date,
+    date_modified: post.modified || post.date,
+    alternates: {
+      canonical: `/${slug}`,
+      languages: { 'en-US': `/${slug}`},
+    },
+    openGraph: {
+      url: `/${slug}`,
+      images: post.metaImage
+        ? [{ url: post.metaImage.url, width: 1200, height: 630 }]
+        : [{ url: `${homepage}seo/blog-detail.png`, width: 1200, height: 630 }],
+    },
+  })
 
   return (
     <>
-      {/* <WebpageJsonLd metadata={pageMeta} /> */}
-      {/* <BreadcrumbsJSONLD pathname={`/${slug}`} /> */}
+      <WebpageJsonLd metadata={pageMeta} />
+      <BreadcrumbsJSONLD pathname={`/${slug}`} />
       <Layout>
         <Hero breadcrumbs post={post}/>
         <BlogContentWp post={post}/>

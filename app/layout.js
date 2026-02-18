@@ -10,17 +10,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-     <html lang="en" className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
+    <html lang="en" className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
       <body >
-    <LenisSmoothScroll>
-<LayoutTransition>
-     <main data-lenis-root id="main-content">
-        {children}
-      </main>
-      </LayoutTransition>
-   
-    </LenisSmoothScroll>
-    </body>
-     </html>
+        <LenisSmoothScroll>
+          <LayoutTransition>
+            <main data-lenis-root id="main-content">
+              {children}
+            </main>
+          </LayoutTransition>
+
+        </LenisSmoothScroll>
+      </body>
+    </html>
   );
 }

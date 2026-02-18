@@ -15,7 +15,7 @@ import MobileNav from "./MobileNav";
 gsap.registerPlugin(SplitText);
 
 const NAV_LINKS = [
-  { id: "about", label: "About Us", href: "/about-us", drop: false },
+  { id: "about", label: "About Us", href: "/about", drop: false },
   {
     id: "technology",
     label: "Technology",
@@ -23,7 +23,7 @@ const NAV_LINKS = [
     drop: true,
     children: [
       { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
-      { id: "tech-2", label: "AI/ML Runtime", href: "/#" },
+      { id: "tech-2", label: "AI/ML Runtime", href: "/unifyai" },
       { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
     ],
   },
@@ -33,26 +33,33 @@ const NAV_LINKS = [
     href: "/#",
     drop: true,
     children: [
-      { id: "sol-1", label: "Enterprise", href: "/#" },
-      { id: "sol-2", label: "SMB", href: "/#" },
+      { id: "sol-1", label: "Insurance", href: "/solutions/insurance" },
+      { id: "sol-2", label: "Banking", href: "/solutions/banking" },
+       { id: "sol-3", label: "Retail", href: "/solutions/retail" },
+      { id: "sol-4", label: "Healthcare", href: "/solutions/healthcare" },
+       { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
+      { id: "sol-6", label: "Telecom", href: "/solutions/telecom" },
+      {id:"sol-7", label:"Financial Services", href:"/solutions/financial-services"}
+
     ],
   },
-  { id: "pilot", label: "Pilot Program", href: "/#", drop: false },
-  { id: "opensource", label: "Open Source", href: "/#", drop: false },
+  // { id: "opensource", label: "Open Source", href: "/infosys-finacle", drop:false},
+
+  { id: "opensource", label: "Open source", href: "/infosys-finacle", drop: false },
   {
     id: "resources",
     label: "Resources",
     href: "/#",
     drop: true,
     children: [
-      { id: "res-1", label: "Case Studies", href: "/#" },
-      { id: "res-2", label: "In the News", href: "/#" },
+      { id: "res-1", label: "Case Studies", href: "#" },
+      { id: "res-2", label: "In the News", href: "/news" },
       { id: "res-3", label: "Blogs", href: "/blogs" },
-      { id: "res-4", label: "Events", href: "/#" },
-      { id: "res-5", label: "Videos", href: "/#" },
-      { id: "res-6", label: "Whitepapers", href: "/#" },
-      { id: "res-7", label: "Workshops", href: "/#" },
-      { id: "res-8", label: "Masterclass", href: "/#" },
+      { id: "res-4", label: "Events", href: "/webinars-and-events" },
+      { id: "res-5", label: "Videos", href: "/product-videos" },
+      { id: "res-6", label: "Whitepapers", href: "#" },
+      { id: "res-7", label: "Workshops", href: "/ai-insurance-workshops" },
+      { id: "res-8", label: "Masterclass", href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass" },
     ],
   },
   { id: "contact", label: "Contact Us", href: "/contact-us", drop: false },
@@ -215,7 +222,7 @@ export default function Header() {
             <div className="rounded-full max-md:hidden relative z-10">
               <div className="w-full h-full absolute top-0 left-0" />
               <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
-                {NAV_LINKS.filter(link => link.id !== "contact" && link.id !== "opensource").map((link) => {
+                {NAV_LINKS.filter(link => link.id !== "contact").map((link) => {
                   const hasChildren =
                     Array.isArray(link.children) && link.children.length > 0;
 
@@ -247,7 +254,7 @@ export default function Header() {
                           className={`${hasChildren ? "cursor-pointer" : ""} ${
                             !isActive
                               ? " text-22 duration-500 transition-color ease-out font-medium"
-                              : ""
+                              : " text-22 font-medium text-primary-blue"
                           } buttonTextShadow ${
                             isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
                           }`}

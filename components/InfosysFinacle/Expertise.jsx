@@ -10,7 +10,7 @@ import HeadingAnim from "../Animations/HeadingAnim";
 const AwardItem = ({ img }) => {
   return (
     <>
-      <div className="flex-shrink-0 flex items-center justify-center gap-[1vw] w-[15vw] max-md:!w-[25vw] max-sm:!w-[30vw]  max-md:gap-[2vw]">
+      <div className="flex-shrink-0 flex items-center justify-center gap-[1vw] w-[15vw] max-md:!w-[25vw] max-sm:!w-[30vw]  max-md:gap-[2vw] border border-primary-blue/50 rounded-lg bg-white py-[2vw] shadow-sm drop-shadow-lg">
         <div className="w-[12vw] h-auto max-md:w-[18vw] max-sm:!w-[30vw]">
           <Image
             src={img}
@@ -91,11 +91,11 @@ const Expertise = () => {
           </HeadingAnim>
         </div>
 
-        <div className="space-y-28 max-sm:!space-y-15">
+        <div className="space-y-12 max-sm:!space-y-15">
           <div className=" fadeup max-md:my-[7vw] ">
             <div
               ref={marqueeRef1}
-              className="flex  space-x-1  max-md:space-x-[7vw] max-sm:space-x-[5vw]"
+              className="flex  space-x-4  max-md:space-x-[7vw] max-sm:space-x-[5vw]"
             >
               {firstHalfAwards.map((item, index) => (
                 <AwardItem key={index} img={item.img} />
@@ -112,7 +112,7 @@ const Expertise = () => {
           <div className="fadeup max-md:my-[7vw] max-sm:space-x-[5vw] ">
             <div
               ref={marqueeRef2}
-              className="flex opens-source max-md:space-x-[7vw] max-sm:space-x-[10vw]"
+              className="flex space-x-4 opens-source max-md:space-x-[7vw] max-sm:space-x-[10vw]"
             >
               {secondHalfAwards.map((item, index) => (
                 <AwardItem key={index} img={item.img} />

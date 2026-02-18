@@ -12,10 +12,38 @@ import Layout from "@/components/Layout/Layout"
 import Fragmented from "@/components/AIOS/Structure"
 import Outcomes from "@/components/AIOS/Outcomes"
 import Choose from "@/components/AIOS/Choose"
+import { WebpageJsonLd } from "@/lib/json-ld"
+import { getPageMetadata } from "@/components/config/metadata"
+import { homepage } from "@/lib/util"
 
+export const metadata = getPageMetadata({
+  title: "Enterprise AI Operating System | DSW AIOS Technical",
+  description:
+    "Discover the architecture of the DSW Enterprise AI Operating System — built to run AI safely, continuously, and at scale with governance, control, and production-grade execution.",
+  url: "/aios-technical",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/aios-technical",
+    languages: {
+      "en-US": "/aios-technical",
+    },
+  },
+  openGraph: {
+    url: "/aios-technical",
+    images: [
+      {
+        url: `${homepage}seo/aios-technical.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 const Page = () => {
     return (
         <>
+        <WebpageJsonLd metadata={metadata} />
             <Layout>
                 <HeroNew heroContent={heroContent} variant={"bottomRight"} />
                 <OperatingSystem />

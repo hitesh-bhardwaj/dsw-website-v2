@@ -10,7 +10,7 @@ import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import FooterWave from "./FooterWave";
 
 /** ✅ Isolated animated link (each item has its own ref + SplitText) */
-function AnimatedFooterLink({ href = "#", children }) {
+function AnimatedFooterLink({ href = "#", children, ...props }) {
   const textRef = useRef(null);
   const splitRef = useRef(null);
 
@@ -60,6 +60,7 @@ function AnimatedFooterLink({ href = "#", children }) {
       href={href}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
+      {...props}
       className="text-24 overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
     >
       <p ref={textRef} className="buttonTextShadow">
@@ -71,34 +72,69 @@ function AnimatedFooterLink({ href = "#", children }) {
 
 export default function FooterNew() {
   const socialLinks = [
-    { name: "LinkedIn", icon: <LinkedIn/>, url: "https://www.linkedin.com/company/data-science-wizards/" },
-    { name: "Instagram", icon: <Insta/>, url: "https://www.instagram.com/datasciencewizards/" },
-    { name: "Facebook", icon: <Facebook/>, url: "https://www.facebook.com/datasciencewizards/" },
-    { name: "X", icon: <Twitter/>, url: "https://x.com/dswizards" },
-    { name: "YouTube", icon: <Youtube/>, url: "https://www.youtube.com/@DataScienceWizards" },
+    { name: "LinkedIn", icon: <LinkedIn />, url: "https://www.linkedin.com/company/data-science-wizards/" },
+    { name: "Instagram", icon: <Insta />, url: "https://www.instagram.com/datasciencewizards/" },
+    { name: "Facebook", icon: <Facebook />, url: "https://www.facebook.com/datasciencewizards/" },
+    { name: "X", icon: <Twitter />, url: "https://x.com/dswizards" },
+    { name: "YouTube", icon: <Youtube />, url: "https://www.youtube.com/@DataScienceWizards" },
   ];
 
   const navigationLinks = [
-    "Technology",
-    "Solutions",
-    "Pilot Program",
-    "Case Studies",
-    "Resources",
+    {
+      title: "Technology",
+      link: "/aios-technical",
+      id: "technology"
+    },
+    {
+      title: "Solutions",
+      link: "/solutions/insurance",
+      id: "solutions"
+    },
+    {
+      title: "Case Studies",
+      link: "#",
+      id: "case-studies"
+    },
+    {
+      title: "Resources",
+      link: "/blogs",
+      id: "resources"
+    }
   ];
 
   const companyLinks = [
-    "About Us",
-    "Contact Us",
-    "Privacy Policy",
-    "Terms & Condition",
-    "Join Community",
+    {
+      title: "About Us",
+      link: "/about",
+      id: "about"
+    },
+    {
+      title: "Contact Us",
+      link: "/contact-us",
+      id: "contact"
+    },
+    {
+      title: "Privacy Policy",
+      link: "/privacy-policy",
+      id: "privacy-policy"
+    },
+    {
+      title: "Terms & Conditions",
+      link: "/terms-and-conditions",
+      id: "terms-and-conditions"
+    },
+    {
+      title: "Join Community",
+      link: "https://chat.whatsapp.com/4UJBjd1ZjV3JcXWCgYqqRH",
+      id: "join-community"
+    }
   ];
 
   return (
     <footer className="relative w-full bg-white pt-[8.2vw] pb-[4vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]" id="footer">
       {/* Background Gradient */}
       <div className="w-screen h-full">
-       <FooterWave/>
+        <FooterWave />
       </div>
 
       {/* Content */}
@@ -122,33 +158,33 @@ export default function FooterNew() {
               </h5>
               <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
                 <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
-                <Link
-                  href="mailto:Contact@datasciencewizards.ai"
-                  className="block text-24 max-sm:text-[5vw] under-multi"
-                >
-                
-                  contact@datasciencewizards.ai
-                  
-                </Link>
+                  <Link
+                    href="mailto:Contact@datasciencewizards.ai"
+                    className="block text-24 max-sm:text-[5vw] under-multi"
+                  >
+
+                    contact@datasciencewizards.ai
+
+                  </Link>
                 </div>
-                
+
                 <div className="flex gap-[0.5vw] max-sm:flex-col max-sm:gap-[1vw]">
                   <div className="under-multi-parent">
-                  <Link
-                    className="text-24 max-sm:text-[5vw]! under-multi"
-                    href="tel:+91 96640 56847"
-                  >
-                    +91 96640 56847
-                  </Link>
+                    <Link
+                      className="text-24 max-sm:text-[5vw]! under-multi"
+                      href="tel:+91 96640 56847"
+                    >
+                      +91 96640 56847
+                    </Link>
                   </div>
                   <span className="inline-block max-sm:hidden">|</span>
                   <div className="under-multi-parent">
-                  <Link
-                    className="text-24 max-sm:text-[5vw]! under-multi"
-                    href="tel:+353 894015233"
-                  >
-                    +353 894015233{" "}
-                  </Link>
+                    <Link
+                      className="text-24 max-sm:text-[5vw]! under-multi"
+                      href="tel:+353 894015233"
+                    >
+                      +353 894015233{" "}
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -162,7 +198,7 @@ export default function FooterNew() {
                     target="_blank"
                     className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
                   >
-                   {social.icon}
+                    {social.icon}
                   </Link>
                 ))}
               </div>
@@ -177,9 +213,9 @@ export default function FooterNew() {
                 Navigation
               </h5>
               <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
-                {navigationLinks.map((link) => (
-                  <li key={link}>
-                    <AnimatedFooterLink href="#">{link}</AnimatedFooterLink>
+                {navigationLinks.map((item, id) => (
+                  <li key={id}>
+                    <AnimatedFooterLink href={item.link}>{item.title}</AnimatedFooterLink>
                   </li>
                 ))}
               </ul>
@@ -191,9 +227,15 @@ export default function FooterNew() {
                 Company
               </h5>
               <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
-                {companyLinks.map((link) => (
-                  <li key={link}>
-                    <AnimatedFooterLink href="#">{link}</AnimatedFooterLink>
+                {companyLinks.map((item, id) => (
+                  <li key={id}>
+                    <AnimatedFooterLink
+                      href={item.link}
+                      {...(item.id === "join-community" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                    >
+                      {item.title}
+                    </AnimatedFooterLink>
+
                   </li>
                 ))}
               </ul>

@@ -1,3 +1,5 @@
+import { getPageMetadata } from "@/components/config/metadata";
+import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
@@ -12,10 +14,37 @@ import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
 import React from "react";
 
+export const metadata = getPageMetadata({
+  title: "Enterprise AI for Insurance - insurAInce by DSW",
+  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
+  url: "insuraince",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/solutions/insurance",
+    languages: {
+      "en-US": "/solutions/insurance",
+    },
+  },
+  openGraph: {
+    url: "insuraince",
+    images: [
+      {
+        url: `${homepage}seo/solutions.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 const Page = () => {
   return (
+    <>
+    <WebpageJsonLd metadata={metadata} />
     <Layout>
       <HeroNew
         heroContent={heroContent}
@@ -28,10 +57,12 @@ const Page = () => {
       <Features featuresContent={featuresContent} />
       <WorkFlows workflowsContent={workflowsContent}/>
       <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations/>
+      <Operations operationsContent={operationsContent} />
       <Compliance complianceContent={complianceContent}/>
       <Benefits benefitsContent={benefitsContent}/>
+       <CTAFinal ctaContent={ctaContent}/>
     </Layout>
+    </>
   );
 };
 
@@ -207,4 +238,61 @@ const complianceContent = {
   ],
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};
+
+const ctaContent={
+  heading:"Operate insurance AI as enterprise infrastructure  ",
+  para:"See how the DSW Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:"Book a Demo"
+  },
+  secondaryButton:{
+    present:true,
+    link:"#",
+    text:"Schedule a Call"
+  },
+}
+
+const operationsContent = {
+  heading: "Kernel-governed execution across underwriting, claims, and operations",
+  tabs: [
+    {
+      label: "Governance enforced where AI runs",
+      intro: "Policies execute inside workflows, not outside them.",
+      bullets: [
+        "Governance-as-code at runtime",
+        "Policy enforcement across models, agents, and workflows",
+        "Auditability, traceability, and reversibility embedded into execution",
+      ],
+    },
+    {
+      label: "Unified runtimes for models and agentic systems",
+      intro: "Operate ML and agentic execution within one controlled environment.",
+      bullets: [
+        "Model lifecycle governance",
+        "Real-time and batch inference control",
+        "Human-in-the-loop boundaries",
+      ],
+    },
+    {
+      label: "Integration without replacing core insurance platforms",
+      intro: "Connect policy, claims, and data ecosystems through governed interfaces.",
+      bullets: [
+        "Works with core systems and decision engines",
+        "Enables modernization without disruption",
+        "Expands ecosystem without vendor lock-in",
+      ],
+    },
+    {
+      label: "Full enterprise custody of AI infrastructure and assets",
+      intro: "Operate entirely within your environment with ownership intact.",
+      bullets: [
+        "On-prem, cloud, or hybrid",
+        "Full custody of data, models, and IP",
+        "No outbound learning or forced SaaS dependency",
+      ],
+    },
+  ],
 };
