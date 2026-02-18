@@ -177,7 +177,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">
           <Copy delay={1}>
-            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text">
+            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text max-sm:max-w-[90%]">
               {heroContent.tagline}
             </p>
           </Copy>
@@ -232,9 +232,9 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
                 priority
               />
               <Image
-                src="/assets/infosys-finacle/dsw.png"
+                src="/dsw-logo.svg"
                 alt="dsw"
-                className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
+                className="w-[13vw] mt-[2vw] max-sm:w-[35vw] max-sm:mt-[5vw] h-auto max-md:w-[18vw]"
                 width={297}
                 height={46}
                 priority
