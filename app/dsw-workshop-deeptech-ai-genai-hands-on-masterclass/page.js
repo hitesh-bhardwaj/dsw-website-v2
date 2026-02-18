@@ -25,7 +25,7 @@ const page = () => {
           <Empower  heading="First Come First Basis - Limited Seats!"
           para="Fill out the form"
           width={"w-[90%]"}/>
-          <Faqs data={faqData}/>
+          {/* <Faqs data={faqData}/> */}
         <CTAFinal ctaContent={ctaContent}/>
     </Layout>
     </>

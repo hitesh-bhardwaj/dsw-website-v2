@@ -23,7 +23,7 @@ const page = () => {
           <Empower  heading="Ready to Empower Your Team with Practical AI Skills?"
           para="Fill out the form"
           width={"w-[90%]"}/>
-          <Faqs data={faqData}/>
+          {/* <Faqs data={faqData}/> */}
         <CTAFinal ctaContent={ctaContent}/>
     </Layout>
     </>
