@@ -95,7 +95,7 @@ export default function FooterNew() {
   ];
 
   return (
-    <footer className="relative w-full bg-white pt-[8.2vw] pb-[2vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]" id="footer">
+    <footer className="relative w-full bg-white pt-[8.2vw] pb-[4vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]" id="footer">
       {/* Background Gradient */}
       <div className="w-screen h-full">
        <FooterWave/>
@@ -223,7 +223,7 @@ export default function FooterNew() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex items-end justify-between pt-[5.2vw] max-sm:justify-center">
+        <div className="flex items-end justify-between pt-[4.5vw] max-sm:justify-center">
           <div className="w-[20vw] h-[11vw] relative max-sm:hidden">
             <Image
               src="/assets/dsw-logo.svg"
