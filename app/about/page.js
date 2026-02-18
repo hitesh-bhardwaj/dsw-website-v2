@@ -21,12 +21,6 @@ const AgenticAI = () => {
         <WhatWeStandFor />
        <TeamWrapper/>
        <JoinUs/>
-        {/* <AgenticAbout />
-        <AgenticCards />
-        <CoreCapabilities />
-        <AgentSteps />
-        <HowAgenticWorks /> */}
-        {/* <HowAgenticWorksWheel/> */}
          <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>

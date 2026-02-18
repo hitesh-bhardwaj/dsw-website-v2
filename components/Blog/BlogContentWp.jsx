@@ -145,7 +145,7 @@ const BlogContentWp = ({ post }) => {
   return (
     <section
       id="content"
-      className="h-fit relative py-[5%] max-sm:py-[20%] max-md:flex-col bg-background flex w-full px-[5vw]"
+      className="h-fit relative  py-[5%] max-sm:pt-[3%] max-sm:py-[20%] max-md:flex-col bg-background flex w-full px-[5vw]"
     >
       {/* Info strip */}
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
@@ -198,7 +198,7 @@ const BlogContentWp = ({ post }) => {
       </div>
 
       {/* TOC */}
-      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full">
+      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full max-sm:mt-[5vw]">
         {toc[0] && (
           <>
             <Copy>
@@ -210,7 +210,7 @@ const BlogContentWp = ({ post }) => {
               data-lenis-prevent
               className="w-full overflow-y-scroll h-fit max-h=[55vh] fadeup"
             >
-              <ul className="flex flex-col items-start h-full list-none p-0 m-0">
+              <ul className="flex flex-col items-start h-full list-none p-0 m-0 max-sm:ml-[3vw]">
                 {toc.map((item) => (
                   <li
                     key={item.id}

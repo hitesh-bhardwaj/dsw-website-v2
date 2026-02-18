@@ -54,7 +54,6 @@ const STEPS = [
     layerTop: "39%",
     z: 4,
   },
-  
   {
     title: "Hardware / Cloud Infrastructure",
     bullets: ["Servers, storage, network, accelerators"],
@@ -77,154 +76,133 @@ export default function Diagram() {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
 
-      // ✅ hot reload safety
-      // ScrollTrigger.getAll().forEach((t) => t.kill());
+    // ✅ DESCENDING: start from last
+    const DESC_STEPS = [...STEPS].slice().reverse();
 
-      // ✅ revert old SplitText
-      splitsRef.current.forEach((s) => {
-        try {
-          s?.revert?.();
-        } catch (_) {}
+    // ✅ revert old SplitText
+    splitsRef.current.forEach((s) => {
+      try {
+        s?.revert?.();
+      } catch (_) {}
+    });
+    splitsRef.current = [];
+
+    // ✅ Split headings
+    headingRefs.current.forEach((h, i) => {
+      if (!h) return;
+
+      const split = new SplitText(h, {
+        type: "lines",
+        linesClass: "split-line",
       });
-      splitsRef.current = [];
+      splitsRef.current[i] = split;
 
-      // ✅ Split headings
-      headingRefs.current.forEach((h, i) => {
-        if (!h) return;
+      gsap.set(split.lines, {
+        yPercent: 110,
+        autoAlpha: 0,
+        display: "block",
+        willChange: "transform,opacity",
+      });
+    });
 
-        const split = new SplitText(h, {
-          type: "lines",
-          linesClass: "split-line",
+    // ✅ Initial states (only first visible = DESC first = original LAST)
+    layerRefs.current.forEach((el, i) => {
+      if (!el) return;
+      gsap.set(el, { autoAlpha: i === 0 ? 0 : 0, y: i === 0 ? 0 : 24 });
+    });
+
+    blockRefs.current.forEach((el, i) => {
+      if (!el) return;
+      gsap.set(el, { autoAlpha: i === 0 ? 0 : 0 });
+    });
+
+    listItemRefs.current.forEach((items, stepIdx) => {
+      items?.forEach((li) => {
+        if (!li) return;
+        gsap.set(li, {
+          autoAlpha: stepIdx === 0 ? 1 : 0,
+          y: stepIdx === 0 ? 0 : 12,
         });
-        splitsRef.current[i] = split;
-
-        gsap.set(split.lines, {
-          yPercent: 110,
-          autoAlpha: 0,
-          display: "block",
-          willChange: "transform,opacity",
-        });
       });
+    });
 
-      // ✅ Initial states (only first visible)
-      layerRefs.current.forEach((el, i) => {
-        if (!el) return;
-        gsap.set(el, { autoAlpha: i === 0 ? 0 : 0, y: i === 0 ? 0 : 24 });
-      });
+    const stepsCount = DESC_STEPS.length;
+    const tl = gsap.timeline({ defaults: { ease: "none" } });
 
-      blockRefs.current.forEach((el, i) => {
-        if (!el) return;
-        gsap.set(el, { autoAlpha: i === 0 ? 0 : 0 });
-      });
+    const gap = 0.25;
 
-      listItemRefs.current.forEach((items, stepIdx) => {
-        items?.forEach((li) => {
-          if (!li) return;
-          gsap.set(li, {
-            autoAlpha: stepIdx === 0 ? 1 : 0,
-            y: stepIdx === 0 ? 0 : 12,
-          });
-        });
-      });
+    for (let i = 0; i < stepsCount; i++) {
+      const exitTime = i;
+      const enterTime = i + gap;
 
-      const stepsCount = STEPS.length;
-      const tl = gsap.timeline({ defaults: { ease: "none" } });
+      // OUT previous
+      if (i > 0) {
+        const prevBlock = blockRefs.current[i - 1];
+        if (prevBlock) tl.to(prevBlock, { autoAlpha: 0, duration: 0.25 }, exitTime);
 
-      // ✅ Controls the breathing room between old OUT and new IN
-      const gap = 0.25;
-
-      for (let i = 0; i < stepsCount; i++) {
-        const t = i; // step start
-        const exitTime = t;
-        const enterTime = t + gap;
-
-        // 1) Fade OUT previous content (after step 0)
-        if (i > 0) {
-          const prevBlock = blockRefs.current[i - 1];
-          if (prevBlock) {
-            tl.to(prevBlock, { autoAlpha: 0, duration: 0.25 }, exitTime);
-          }
-
-          const prevSplit = splitsRef.current[i - 1];
-          if (prevSplit?.lines?.length) {
-            tl.to(
-              prevSplit.lines,
-              { yPercent: -20, autoAlpha: 0, duration: 0.2, stagger: 0.008 },
-              exitTime
-            );
-          }
-
-          const prevLis = listItemRefs.current[i - 1] || [];
-          if (prevLis.length) {
-            tl.to(
-              prevLis,
-              { autoAlpha: 0, y: -8, duration: 0.2, stagger: 0.02 },
-              exitTime
-            );
-          }
-        }
-
-        // 2) Fade IN current block (after the gap)
-        const currentBlock = blockRefs.current[i];
-        if (currentBlock) {
-          tl.to(currentBlock, { autoAlpha: 1, duration: 0.25 }, enterTime);
-        }
-
-        // 3) Layer: ONLY fade/slide IN the new layer (never fade out older layers)
-        const layer = layerRefs.current[i];
-        if (layer) {
-          tl.set(layer, { autoAlpha: 0, y: 24 }, enterTime);
+        const prevSplit = splitsRef.current[i - 1];
+        if (prevSplit?.lines?.length) {
           tl.to(
-            layer,
-            { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" },
-            enterTime
+            prevSplit.lines,
+            { yPercent: -20, autoAlpha: 0, duration: 0.2, stagger: 0.008 },
+            exitTime
           );
         }
 
-        // 4) Heading SplitText IN
-        const split = splitsRef.current[i];
-        if (split?.lines?.length) {
-          tl.set(split.lines, { yPercent: 110, autoAlpha: 0 }, enterTime);
-          tl.to(
-            split.lines,
-            {
-              yPercent: 0,
-              autoAlpha: 1,
-              duration: 0.6,
-              stagger: 0.06,
-              ease: "power3.out",
-            },
-            enterTime + 0.05
-          );
-        }
-
-        // 5) List IN
-        const lis = listItemRefs.current[i] || [];
-        if (lis.length) {
-          tl.set(lis, { autoAlpha: 0, y: 12 }, enterTime);
-          tl.to(
-            lis,
-            {
-              autoAlpha: 1,
-              y: 0,
-              duration: 0.45,
-              stagger: 0.06,
-              ease: "power3.out",
-            },
-            enterTime + 0.12
-          );
+        const prevLis = listItemRefs.current[i - 1] || [];
+        if (prevLis.length) {
+          tl.to(prevLis, { autoAlpha: 0, y: -8, duration: 0.2, stagger: 0.02 }, exitTime);
         }
       }
 
-      ScrollTrigger.create({
-        trigger: sectionEl,
-        start: "top 80%",
-        end: "bottom bottom",
-        scrub: true,
-        // markers: true,
-        animation: tl,
-      });    
+      // IN current
+      const currentBlock = blockRefs.current[i];
+      if (currentBlock) tl.to(currentBlock, { autoAlpha: 1, duration: 0.25 }, enterTime);
+
+      const layer = layerRefs.current[i];
+      if (layer) {
+        tl.set(layer, { autoAlpha: 0, y: 24 }, enterTime);
+        tl.to(layer, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }, enterTime);
+      }
+
+      const split = splitsRef.current[i];
+      if (split?.lines?.length) {
+        tl.set(split.lines, { yPercent: 110, autoAlpha: 0 }, enterTime);
+        tl.to(
+          split.lines,
+          {
+            yPercent: 0,
+            autoAlpha: 1,
+            duration: 0.6,
+            stagger: 0.06,
+            ease: "power3.out",
+          },
+          enterTime + 0.05
+        );
+      }
+
+      const lis = listItemRefs.current[i] || [];
+      if (lis.length) {
+        tl.set(lis, { autoAlpha: 0, y: 12 }, enterTime);
+        tl.to(
+          lis,
+          { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.06, ease: "power3.out" },
+          enterTime + 0.12
+        );
+      }
+    }
+
+    ScrollTrigger.create({
+      trigger: sectionEl,
+      start: "top 80%",
+      end: "bottom bottom",
+      scrub: true,
+      animation: tl,
+    });
   }, []);
+
+  // ✅ DESCENDING: use reversed steps for rendering too (refs must align)
+  const DESC_STEPS = [...STEPS].slice().reverse();
 
   return (
     <section ref={sectionRef} className="w-full h-fit">
@@ -233,7 +211,7 @@ export default function Diagram() {
           {/* LEFT */}
           <div className="w-[40%] max-sm:w-full pt-[10vw] relative">
             <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw]">
-              {STEPS.map((step, i) => (
+              {DESC_STEPS.map((step, i) => (
                 <div
                   key={i}
                   ref={(el) => (blockRefs.current[i] = el)}
@@ -254,8 +232,7 @@ export default function Diagram() {
                         <li
                           key={liIdx}
                           ref={(el) => {
-                            if (!listItemRefs.current[i])
-                              listItemRefs.current[i] = [];
+                            if (!listItemRefs.current[i]) listItemRefs.current[i] = [];
                             listItemRefs.current[i][liIdx] = el;
                           }}
                         >
@@ -271,7 +248,7 @@ export default function Diagram() {
 
           {/* RIGHT */}
           <div className="w-[50%] h-[48vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw]">
-            {STEPS.map((step, i) => (
+            {DESC_STEPS.map((step, i) => (
               <div
                 key={i}
                 ref={(el) => (layerRefs.current[i] = el)}

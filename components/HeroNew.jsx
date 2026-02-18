@@ -211,7 +211,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
           )}
         </div>
         {heroContent.para && (
-          <div className=" py-[1.5vw] w-[60%] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ">
+          <div className={` py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${heroContent.paraWidth?heroContent.paraWidth:"w-[60%]"}`}>
             <Copy delay={1}>
               <p className="text-24 text-[#333333]">
                 {heroContent.para}​
