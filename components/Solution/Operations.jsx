@@ -1,11 +1,54 @@
 "use client";
 
-import React, { useMemo, useRef, useState } from "react";
+import React, { useMemo, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
 import HeadingAnim from "../Animations/HeadingAnim";
 
 gsap.registerPlugin(SplitText);
+
+const MobileAccordionContent = ({ tabContent, isActive }) => {
+  const containerRef = useRef(null);
+  const innerRef = useRef(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (!innerRef.current) return;
+    const measured = innerRef.current.scrollHeight;
+    setHeight(isActive ? measured : 0);
+  }, [isActive, tabContent]);
+
+  return (
+    <div
+      ref={containerRef}
+      style={{
+        height: `${height}px`,
+        overflow: "hidden",
+        transition: "height 0.45s cubic-bezier(0.4, 0, 0.2, 1)",
+      }}
+    >
+      <div
+        ref={innerRef}
+        className="w-full text-30 pt-[3vw] h- pb-[2vw]"
+        style={{
+          opacity: isActive ? 1 : 0,
+          transform: isActive ? "translateY(0)" : "translateY(-8px)",
+          transition:
+            "opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s",
+        }}
+      >
+        <div className="w-full space-y-[4vw]">
+          <p>{tabContent.intro}</p>
+          <ul className="list-disc pl-[7vw] space-y-[2vw]">
+            {tabContent.bullets?.map((b, i) => (
+              <li key={i}>{b}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Operations = ({ operationsContent }) => {
   const sectionRef = useRef(null);
@@ -78,7 +121,7 @@ const Operations = ({ operationsContent }) => {
       stagger: 0.04,
     });
 
-    // hide wrapper so next content can’t flash
+    // hide wrapper so next content can't flash
     tl.set(wrap, { autoAlpha: 0 });
     tl.to({}, { duration: 0.12 });
 
@@ -147,6 +190,11 @@ const Operations = ({ operationsContent }) => {
     });
   };
 
+  const animateToMobile = (nextIndex) => {
+    if (nextIndex === active) return;
+    setActive(nextIndex);
+  };
+
   // Guard if tabs are missing
   const current = data.tabs?.[active] ?? { intro: "", bullets: [] };
 
@@ -164,9 +212,9 @@ const Operations = ({ operationsContent }) => {
         </HeadingAnim>
       </div>
 
-      <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-[8vw]">
-        {/* LEFT: tabs */}
-        <div className="w-[50%] max-sm:w-full space-y-[3vw] font-light">
+      <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-0">
+        {/* LEFT: tabs — desktop only */}
+        <div className="w-[50%] max-sm:hidden space-y-[3vw] font-light">
           {data.tabs.map((tab, idx) => {
             const isActive = idx === active;
 
@@ -177,7 +225,7 @@ const Operations = ({ operationsContent }) => {
                 onClick={() => animateTo(idx)}
                 disabled={isAnimating}
                 className={[
-                  "w-full text-left p-[1vw] max-sm:p-[3vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer",
+                  "w-full text-left p-[1vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer",
                   isActive
                     ? "border-l-[4px] border border-primary-blue text-primary-blue"
                     : "border border-transparent text-[#0A1B4B]",
@@ -189,10 +237,40 @@ const Operations = ({ operationsContent }) => {
           })}
         </div>
 
-        {/* RIGHT: content */}
+        {/* MOBILE: accordion tabs with content below each */}
+        <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-[3vw] w-full max-sm:pt-[7vw] font-light">
+          {data.tabs.map((tab, idx) => {
+            const isActive = idx === active;
+            const tabContent = data.tabs[idx] ?? { intro: "", bullets: [] };
+
+            return (
+              <div key={idx} className="w-full">
+                <button
+                  type="button"
+                  onClick={() => animateToMobile(idx)}
+                  className={[
+                    "w-full text-left p-[3vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer",
+                    isActive
+                      ? "border-l-[4px] border border-primary-blue text-primary-blue"
+                      : "border border-transparent text-[#0A1B4B]",
+                  ].join(" ")}
+                >
+                  {tab.label}
+                </button>
+
+                <MobileAccordionContent
+                  tabContent={tabContent}
+                  isActive={isActive}
+                />
+              </div>
+            );
+          })}
+        </div>
+
+        {/* RIGHT: content — desktop only */}
         <div
           ref={contentWrapRef}
-          className="w-[45%] max-sm:w-full relative text-30"
+          className="w-[45%] max-sm:hidden relative text-30"
         >
           <div className="w-full space-y-[2vw]">
             <p data-intro>{current.intro}</p>
