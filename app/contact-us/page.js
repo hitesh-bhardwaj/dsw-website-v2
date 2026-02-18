@@ -39,17 +39,17 @@ const heroContent = {
     images: false
 }
 
-const ctaContent = {
-    heading: "Take a lightning tour of the  Enterprise AI Platform",
-    para: "Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
-    primaryButton: {
-        present: true,
-        link: "#",
-        text: "Book a Demo"
-    },
-    secondaryButton: {
-        present: true,
-        link: "#",
-        text: "Schedule a Call"
-    },
+const ctaContent={
+  heading:"Own How AI Runs in Your Enterprise  ",
+  para:"DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:"Explore the Platform"
+  },
+  secondaryButton:{
+    present:true,
+    link:"#",
+    text:"Talk to our Team"
+  },
 }

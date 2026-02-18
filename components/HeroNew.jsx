@@ -21,35 +21,55 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   const [isIdle, setIsIdle] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
+
+  // ✅ one source of truth for delaying hero intro
+  const [baseDelay, setBaseDelay] = useState(0);
+
   fadeUp();
 
-  // ✅ GSAP intro + fadeUp
-  useGSAP(() => {
-    const tl = gsap.timeline();
-    gsap.set(".hero-overlay", { opacity: 0 });
-    gsap.set(".hero-text,.hero-head", { opacity: 1 });
+  // ✅ read loader state once (client only)
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
-    tl.from(".herofadeup", {
-      yPercent: 20,
-      opacity: 0,
-      delay: 1.2,
-    }).from(
-      "#header",
-      {
-        yPercent: -20,
-        opacity: 0,
-      },
-      "<",
-    );
+    const loaderShown = sessionStorage.getItem("loaderShown");
+
+    // If loader hasn't been shown yet, it will run now -> delay hero.
+    // Tune this to your loader timeline length.
+    const delay = loaderShown ? 0 : 5.4;
+
+    setBaseDelay(delay);
   }, []);
 
-  // ✅ Footer visibility watcher with improved detection
+  // ✅ GSAP intro + fadeUp (delayed if loader is running)
+  useGSAP(
+    () => {
+      // if(!baseDelay) return
+      const tl = gsap.timeline();
+        const loaderShown = sessionStorage.getItem("loaderShown");
+
+      gsap.set(".hero-overlay", { opacity: 0 });
+      gsap.set(".hero-text,.hero-head", { opacity: 1 });
+
+      tl.from(".herofadeup", {
+        yPercent: 20,
+        opacity: 0,
+        delay: loaderShown ? 1 : 6.5 // ✅ key change
+      }).from(
+        "#header",
+        {
+          yPercent: -20,
+          opacity: 0,
+        },
+        "<"
+      );
+    }
+  );
+
+  // ✅ Footer visibility watcher (unchanged)
   useEffect(() => {
     const checkFooter = () => {
       const footerCta = document.getElementById("footer-cta");
       const footer = document.getElementById("footer");
-
-      // Check both elements
       const elements = [footerCta, footer].filter(Boolean);
 
       if (elements.length === 0) {
@@ -59,21 +79,16 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
       const vh = window.innerHeight;
 
-      // Check if ANY footer element is visible
       const anyVisible = elements.some((el) => {
         const rect = el.getBoundingClientRect();
-        // Consider visible if top edge is within viewport or close to it
-        // Adding buffer for mobile (50px) to trigger earlier
         return rect.top < vh + 50 && rect.bottom > -50;
       });
 
       setIsFooterVisible(anyVisible);
     };
 
-    // Check immediately on mount
     checkFooter();
 
-    // Throttle for better mobile performance
     let ticking = false;
     const throttledCheck = () => {
       if (!ticking) {
@@ -88,7 +103,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     window.addEventListener("scroll", throttledCheck, { passive: true });
     window.addEventListener("resize", checkFooter);
 
-    // Extra check after a short delay (for content that loads async)
     const delayedCheck = setTimeout(checkFooter, 500);
 
     return () => {
@@ -98,16 +112,14 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     };
   }, []);
 
-  // ✅ Scroll hint behavior with improved mobile handling
+  // ✅ Scroll hint behavior (unchanged)
   useEffect(() => {
     const hintEl = scrollHintRef.current;
     if (!hintEl) return;
 
-    // Start hidden
     gsap.set(hintEl, { autoAlpha: 0 });
 
     const showHint = () => {
-      // Double check footer visibility before showing
       if (isFooterVisible) return;
       setIsIdle(true);
       gsap.to(hintEl, { autoAlpha: 1, duration: 0.35, overwrite: "auto" });
@@ -119,24 +131,16 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     };
 
     const resetIdleTimer = () => {
-      // Active scrolling => hide immediately
       hideHint();
-
-      // Clear existing timer
       if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-
-      // Don't start timer if footer is visible
       if (isFooterVisible) return;
 
-      // Restart 7s idle timer
       idleTimerRef.current = setTimeout(() => {
         showHint();
       }, 7000);
     };
 
-    // Initialize: if no scroll happens, show after 7s (unless footer visible)
     resetIdleTimer();
-
     window.addEventListener("scroll", resetIdleTimer, { passive: true });
 
     return () => {
@@ -145,7 +149,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     };
   }, [isFooterVisible]);
 
-  // ✅ Force-hide when footer becomes visible
   useEffect(() => {
     const hintEl = scrollHintRef.current;
     if (!hintEl) return;
@@ -174,17 +177,21 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
       <WaveGridCanvas variant={variant} />
 
-      <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
+      <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">
-          <Copy delay={1}>
-            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text">
+          {/* ✅ delay Copy by loader delay too */}
+          <Copy delay={baseDelay + 1}>
+            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text max-sm:max-w-[90%]">
               {heroContent.tagline}
             </p>
           </Copy>
 
-          <HeadingAnim delay={0.3}>
+          {/* ✅ delay HeadingAnim by loader delay too */}
+          <HeadingAnim delay={baseDelay + 0.3}>
             <h1
-              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full opacity-0 hero-head ${heroContent.headingWidth || "w-[70%]"}`}
+              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full opacity-0 hero-head ${
+                heroContent.headingWidth || "w-[70%]"
+              }`}
             >
               {heroContent.heading}
             </h1>
@@ -210,42 +217,21 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
             </div>
           )}
         </div>
+
         {heroContent.para && (
-          <div className={` py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${heroContent.paraWidth?heroContent.paraWidth:"w-[60%]"}`}>
-            <Copy delay={1}>
-              <p className="text-24 text-[#333333]">
-                {heroContent.para}​
-              </p>
+          <div
+            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${
+              heroContent.paraWidth ? heroContent.paraWidth : "w-[60%]"
+            }`}
+          >
+            <Copy delay={baseDelay + 1}>
+              <p className="text-24 text-[#333333]">{heroContent.para}​</p>
             </Copy>
           </div>
         )}
 
-        <div className="herofadeup">
-          {heroContent.images && (
-            <div className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15">
-              <Image
-                src="/assets/infosys-finacle/infosys-finacle.png"
-                alt="infosys-finacle"
-                className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
-                width={297}
-                height={46}
-                priority
-              />
-              <Image
-                src="/assets/infosys-finacle/dsw.png"
-                alt="dsw"
-                className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
-                width={297}
-                height={46}
-                priority
-              />
-            </div>
-          )}
-        </div>
-      {breadcrumbs && <BreadCrumbs />}
+        {breadcrumbs && <BreadCrumbs />}
 
-
-        {/* Scroll Down Indicator - conditionally render to prevent any display issues */}
         {!isFooterVisible && (
           <div
             ref={scrollHintRef}
@@ -272,8 +258,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
                 </div>
               </div>
             </div>
-
-
 
             <p className="text-20 font-sans shimmer tracking-[0.056vw]">
               Keep Scrolling to Discover More
