@@ -32,17 +32,17 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   fadeUp();
 
   // ✅ read loader state once (client only)
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  // useEffect(() => {
+  //   if (typeof window === "undefined") return;
 
-    const loaderShown = sessionStorage.getItem("loaderShown");
+  //   const loaderShown = sessionStorage.getItem("loaderShown");
 
-    // If loader hasn't been shown yet, it will run now -> delay hero.
-    // Tune this to your loader timeline length.
-    const delay = loaderShown ? 0 : 5.4;
+  //   // If loader hasn't been shown yet, it will run now -> delay hero.
+  //   // Tune this to your loader timeline length.
+  //   const delay = loaderShown ? 0 : 5.4;
 
-    setBaseDelay(delay);
-  }, []);
+  //   setBaseDelay(delay);
+  // }, []);
 
   // ✅ GSAP intro + fadeUp (delayed if loader is running)
   useGSAP(
@@ -57,7 +57,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       tl.from(".herofadeup", {
         yPercent: 20,
         opacity: 0,
-        delay: loaderShown ? 1 : 6.5 // ✅ key change
+        delay: 1.2
       }).from(
         "#header",
         {

@@ -137,6 +137,10 @@ export default function FooterNew() {
         <FooterWave />
       </div>
 
+      <div className="max-sm:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
+        <Image src="/assets/footer-bg.png" width={500} loading="lazy" height={700} className="h-auto w-full" alt="footer-bg"  />
+      </div>
+
       {/* Content */}
       <div className="relative z-10">
         {/* Top Section */}

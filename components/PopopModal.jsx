@@ -63,13 +63,13 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
   return (
     <section
       id="popup"
-      className={`w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/30 ${
+      className={`w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/10 ${
         modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div data-lenis-prevent className="relative  w-[78%] h-[80%] overflow-y-auto pr-2 rounded-[2vw] border border-white bg-white/40 max-sm:rounded-[6vw] max-md:w-[90%]  max-md:h-[80%] max-sm:h-[75%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] pt-[4vw] max-md:pt-[6vw] max-md:rounded-[4vw]">
+      <div data-lenis-prevent className="relative  w-[78%] h-[80%] overflow-y-auto pr-2 rounded-[2vw] border border-[#d4d4d4] bg-white/30 max-sm:rounded-[6vw] max-md:w-[90%]  max-md:h-[80%] max-sm:h-[75%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] pt-[4vw] max-md:pt-[6vw] max-md:rounded-[4vw]">
       
-      <div className="h-full w-full !overflow-y-auto pr-2 flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
+      <div className="h-full w-full overflow-y-auto! pr-2 flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
         <div className="w-[30%] h-full space-y-[2vw] max-md:w-full max-md:space-y-[2vw]">
           {payload ? (
             <h2 className="text-90 formhead">Download Pdf</h2>
@@ -95,7 +95,7 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
             style={{
               transitionTimingFunction: "cubic-bezier(0.625, 0.05, 0, 1)",
             }}
-            className="rotate-45 group-hover:rotate-[225deg] duration-700"
+            className="rotate-45 group-hover:rotate-225 duration-700"
           >
             <span
               className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] rotate-90 max-md:w-[3vw]`}

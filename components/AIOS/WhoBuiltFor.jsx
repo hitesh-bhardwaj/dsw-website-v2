@@ -128,7 +128,7 @@ const WhoBuiltFor = () => {
 
       {/* Mobile Layout */}
       <div className="hidden max-sm:flex flex-col items-center px-[7vw]">
-        <Image src={"/assets/aios/bult-for-img-mob.png"} alt="built-for-mob" className="w-full h-full" width={400} height={700}/>
+        <Image src={"/assets/aios/bult-for-img-mob.png"} loading="lazy" alt="built-for-mob" quality={100} className="w-full h-full" width={400} height={700}/>
       </div>
 
       {/* Footer Text */}

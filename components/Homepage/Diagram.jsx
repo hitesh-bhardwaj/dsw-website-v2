@@ -247,7 +247,7 @@ export default function Diagram() {
           </div>
 
           {/* RIGHT */}
-          <div className="w-[50%] h-[48vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw]">
+          <div className="w-[50%] h-[48vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%]">
             {DESC_STEPS.map((step, i) => (
               <div
                 key={i}
