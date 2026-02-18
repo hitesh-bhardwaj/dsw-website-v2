@@ -8,6 +8,7 @@ import WhatWeBelieve from '@/components/AboutUs/WhatWeBelieve';
 import TeamWrapper from '@/components/AboutUs/TeamWrapper';
 import JoinUs from '@/components/AboutUs/JoinUs';
 import WhatWeStandFor from '@/components/AboutUs/WhatWeStandFor';
+import Infrastructure from '@/components/AboutUs/Infrastructure';
 
 const AgenticAI = () => {
   return (
@@ -15,8 +16,10 @@ const AgenticAI = () => {
      <Layout>
     <main className="min-h-screen">
         <HeroNew heroContent={heroContent} variant={"bottomRight"} />
+       
         <Intro/>
         <DSWArrival/>
+         <Infrastructure/>
         <WhatWeBelieve/>
         <WhatWeStandFor />
        <TeamWrapper/>
