@@ -97,7 +97,6 @@ const Loader = () => {
 
     const ctx = gsap.context(() => {
       gsap.to(".loader-gradient", {
-        yPercent: globalThis.innerWidth > 1024 ? -10 : -28,
         duration: 2,
         delay: 0.2,
         opacity: 1,
@@ -145,16 +144,16 @@ const Loader = () => {
         </div>
       </div>
 
-      <div className="loader-gradient opacity-0 relative z-[1] h-screen translate-y-[10%]">
+      <div className="loader-gradient opacity-0 relative z-[1] h-screen">
         {!mob ? (
-          <div className="absolute top-[-17%] left-0 h-screen w-screen max-sm:hidden">
+          <div className="absolute top-[-27%] left-0 h-screen w-screen max-sm:hidden">
             
-                <Image src={"/assets/homepage/bg-gradient.png"} alt="" className="w-full h-full" width={1920} height={1080}/>
+                <Image src={"/assets/homepage/bg-shader-img.png"} alt="" className="w-full h-full" width={1920} height={1080}/>
           </div>
         ) : (
-          <div className="w-screen h-screen absolute top-[27%] z-[10] left-0 hidden max-sm:block">
+          <div className="w-screen h-screen absolute top-[-20%] z-[10] left-0 hidden max-sm:block">
             <Image
-              src="/assets/images/homepage/gradient-mob.png"
+              src="/assets/homepage/hero-bg-mob.png"
               alt="bg-gradient"
               fetchPriority="high"
               className="w-full h-auto object-cover"
