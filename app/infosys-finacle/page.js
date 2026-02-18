@@ -1,6 +1,7 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Deployments from "@/components/InfosysFinacle/Deployments";
 import EngagementModels from "@/components/InfosysFinacle/EngagementModels";
 import Expertise from "@/components/InfosysFinacle/Expertise";
@@ -49,6 +50,7 @@ export default async function InfosysFinacle() {
         <Expertise/>
         <EngagementModels/>
         <Values/>
+        <CertificationsAndAwards certificationsContent={certificationsContent}/>
         <Testimonials/>
         <CTAFinal ctaContent={ctaContent}/>
     </Layout>
@@ -83,5 +85,12 @@ const ctaContent={
     link:"#",
     text:" Talk to the team"
   },
-  
 }
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};

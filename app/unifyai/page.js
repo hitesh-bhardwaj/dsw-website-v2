@@ -11,6 +11,7 @@ import Accelerate from "@/components/UnifyAI/Accelerate";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";
 import { homepage } from "@/lib/util";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 
 
 export const metadata = getPageMetadata({
@@ -50,6 +51,7 @@ const AgenticAI = () => {
           <Fragmented />
           <Capabilities />
           <Accelerate />
+           <CertificationsAndAwards certificationsContent={certificationsContent}/>
           <CTAFinal ctaContent={ctaContent} />
         </main>
       </Layout>
@@ -95,4 +97,12 @@ const tourContent = {
   heading: "Take a lightning tour of the DSW AI/ML Runtime",
   para: "Your AI foundation not just for today’s use cases, but for tomorrow’s vision.",
   tagline: "",
+};
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };
