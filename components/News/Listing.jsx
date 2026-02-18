@@ -1,33 +1,63 @@
 "use client";
 import Image from "next/image";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { formatDate } from "@/lib/datetime";
 import Link from "next/link";
+import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
 
-const Listing = ({news}) => {
+const Listing = ({ news = [] }) => {
+  const [page, setPage] = useState(1);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  const itemsPerPage = 5;
+  const totalPages = Math.ceil(news.length / itemsPerPage);
+
+  const handlePrev = () => setPage((p) => Math.max(1, p - 1));
+  const handleNext = () => setPage((p) => Math.min(totalPages, p + 1));
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
+
   return (
-    <section className="px-[5vw] max-sm:py-[10%] relative z-10" id="news-listing">
+    <section className="px-[5vw] max-sm:py-[10%] relative z-10 pb-[5%]" id="news-listing">
       <div className="w-full space-y-[4.5vw] max-sm:space-y-[10vw] max-md:space-y-[5vw] fadeupDelay">
-        {news.map((news,id) => (
+        {currentNews.map((newsItem, id) => (
           <div
-            key={id}
+            key={newsItem.id || id}
             className="w-full space-y-[4vw] fadeup max-md:space-y-[4vw] max-sm:space-y-[5vw]"
           >
             <div className="w-full h-fit flex gap-[2.5vw] max-md:flex-col max-md:gap-[5vw]">
               <div className="w-[30vw] h-[20vw] rounded-[2vw] overflow-hidden max-md:w-full max-sm:h-[30vh] max-md:h-[55vw] max-md:rounded-[3vw] max-sm:rounded-[5vw]">
                 <Image
-                  src={news.featuredImage.sourceUrl}
-                  alt="listing images"
+                  src={newsItem.featuredImage?.sourceUrl || "/placeholder.jpg"}
+                  alt={newsItem.title || "News image"}
                   className="w-full h-full object-cover"
                   width={400}
                   height={300}
                 />
               </div>
               <div className="w-[60%] text-foreground flex flex-col gap-[1.5vw] mt-[1vw] max-md:w-full max-md:gap-[6vw]">
-                <p className="text-24 font-light max-md:order-1">{formatDate(news.newsDate.newsDate)}</p>
-                <h3 className="text-32 max-md:order-2  max-sm:w-[90%]">{news.title}</h3>
-                <div className="text-24 font-light max-md:order-3" dangerouslySetInnerHTML={{__html:news.excerpt}}/>
-                <Link href={`/news/${news.slug}`} className="text-primary-blue pt-[1vw] text-24 group max-md:order-4">
+                <p className="text-24 font-light max-md:order-1">
+                  {formatDate(newsItem.newsDate?.newsDate)}
+                </p>
+                <h3 className="text-32 max-md:order-2 max-sm:w-[90%]">
+                  {newsItem.title}
+                </h3>
+                <div
+                  className="text-24 font-light max-md:order-3"
+                  dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
+                />
+                <Link
+                  href={`/news/${newsItem.slug}`}
+                  className="text-primary-blue pt-[1vw] text-24 group max-md:order-4"
+                >
                   <span className="before:absolute before:block relative before:w-0 before:h-px before:bottom-0 before:left-0 before:bg-primary-blue group-hover:before:w-full before:duration-300">
                     Read More
                   </span>
@@ -38,6 +68,42 @@ const Listing = ({news}) => {
           </div>
         ))}
       </div>
+
+      {/* Pagination - only show if more than one page */}
+      {totalPages > 1 && (
+        <div className="flex items-center justify-center space-x-[2vw] mt-[5vw] max-sm:mt-[12vw] max-md:w-full max-md:justify-between">
+          {/* Left arrow */}
+          <PreviousButton onClick={handlePrev} isDisabled={page === 1} />
+
+          <div className="flex max-sm:w-fit max-sm:justify-center font-head max-md:space-x-[10vw] space-x-[2vw] text-30 text-[#909090]">
+            {(() => {
+              let pagesToShow = [];
+              if (totalPages <= 3) {
+                pagesToShow = Array.from({ length: totalPages }, (_, i) => i + 1);
+              } else if (page <= 2) {
+                pagesToShow = [1, 2, 3];
+              } else if (page >= totalPages - 1) {
+                pagesToShow = [totalPages - 2, totalPages - 1, totalPages];
+              } else {
+                pagesToShow = [page - 1, page, page + 1];
+              }
+              return pagesToShow.map((p) => (
+                <button
+                  key={p}
+                  onClick={() => setPage(p)}
+                  className={`${
+                    page === p ? "text-primary-blue" : "text-[#909090]"
+                  } transition cursor-pointer`}
+                >
+                  {p}
+                </button>
+              ));
+            })()}
+          </div>
+
+          <NextButton onClick={handleNext} isDisabled={page === totalPages} />
+        </div>
+      )}
     </section>
   );
 };
