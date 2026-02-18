@@ -79,6 +79,7 @@ const ctaContent = {
     present: true,
     link: "#",
     text: "Book a Demo",
+    book:true
   },
   secondaryButton: {
     present: true,

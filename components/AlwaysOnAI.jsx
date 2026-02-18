@@ -14,43 +14,43 @@ import { useModal } from "./ModalProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function AlwaysOnAI({content,imgWidth,walkthrough, walkthroughTarget = "unify"}) {
+export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthroughTarget = "unify" }) {
   const sectionRef = useRef(null);
   const { openWalkthroughSmart } = useModal();
-  useGSAP(()=>{
+  useGSAP(() => {
     const tl = gsap.timeline({
-      scrollTrigger:{
-        trigger:"#alwaysOnAi",
-        start:"top 70%",
-        end:"95% 70%",
-        scrub:true,
+      scrollTrigger: {
+        trigger: "#alwaysOnAi",
+        start: "top 70%",
+        end: "95% 70%",
+        scrub: true,
         // markers:true
 
       }
     })
-    tl.to(".upper-slinky",{
-      rotateX:-80,
-      top:"-40%"
+    tl.to(".upper-slinky", {
+      rotateX: -80,
+      top: "-40%"
     })
-    .to(".mid-slinky",{
-      rotateX:0,
-      top:"0%"
-    },"<")
-    .to(".lower-slinky",{
-      rotateX:0,
-      top:"55%"
-    },"<")
+      .to(".mid-slinky", {
+        rotateX: 0,
+        top: "0%"
+      }, "<")
+      .to(".lower-slinky", {
+        rotateX: 0,
+        top: "55%"
+      }, "<")
   })
 
   return (
     <section
       ref={sectionRef}
       id="alwaysOnAi"
-      style={{perspective:"1500px"}}
+      style={{ perspective: "1500px" }}
       className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw] z-[22]"
     >
       {/* Background Line Effect */}
-       {/* before // top-[-60] 0deg */}
+      {/* before // top-[-60] 0deg */}
       {/* after // top-[-40] 60deg */}
       <div className="absolute inset-0 pointer-events-none flex items-center justify-center rings-perspective top-[-60%] w-[120%] left-[-10%] upper-slinky rotate-x-[10deg] ">
         <svg
@@ -111,7 +111,7 @@ export default function AlwaysOnAI({content,imgWidth,walkthrough, walkthroughTar
         <div className="text-center space-y-[2vw] max-sm:space-y-[10vw] ">
           <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
-             {content.heading}
+              {content.heading}
             </h2>
           </HeadingAnim>
           <Copy>
@@ -121,7 +121,7 @@ export default function AlwaysOnAI({content,imgWidth,walkthrough, walkthroughTar
           </Copy>
         </div>
 
-        <div className={`relative h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%]  ${imgWidth?imgWidth:"w-[70vw]"}`}>
+        <div className={`relative h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%]  ${imgWidth ? imgWidth : "w-[70vw]"}`}>
           <Image
             src="/assets/homepage/laptop-dashboard.png"
             alt="DSW UnifyAI Dashboard"
@@ -130,22 +130,22 @@ export default function AlwaysOnAI({content,imgWidth,walkthrough, walkthroughTar
             className="object-contain h-full w-full"
             priority
           />
-          <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-sm:left-[15%] ${walkthrough?"":"hidden"}`}>
-            <PrimaryButton  text={"Start Walkthrough"} href={"#"} onClick={(e) => {
-                e.preventDefault();
-                openWalkthroughSmart(walkthroughTarget);
-              }}/>
+          <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-sm:left-[15%] ${walkthrough ? "" : "hidden"}`}>
+            <PrimaryButton text={"Start Walkthrough"} href={"#"} onClick={(e) => {
+              e.preventDefault();
+              openWalkthroughSmart(walkthroughTarget);
+            }} />
           </div>
         </div>
 
         <div className="text-center w-[73%] mx-auto max-sm:w-full ">
-          
-           <SectionBreak
-                      content={
-                        content.tagline
-                      }
-                      big={false}
-                    />
+
+          <SectionBreak
+            content={
+              content.tagline
+            }
+            big={false}
+          />
         </div>
       </div>
     </section>

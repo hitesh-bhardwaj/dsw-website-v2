@@ -12,6 +12,7 @@ import { useEffect, useRef, useState } from "react";
 import WaveGridCanvas from "./Homepage/HeroBg";
 import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
+import { useModal } from "./ModalProvider";
 
 export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   const showButtons =
@@ -19,6 +20,8 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   const scrollHintRef = useRef(null);
   const idleTimerRef = useRef(null);
+  const { openModal } = useModal();
+
 
   const [isIdle, setIsIdle] = useState(false);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
@@ -199,6 +202,12 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
             <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] mt-15 pointer-events-auto">
               {heroContent.primaryButton?.present && (
                 <PrimaryButton
+                onClick={(e) => {
+                if (heroContent.primaryButton.book) {
+                  e.preventDefault();
+                  openModal()
+                }
+              }}
                   text={heroContent.primaryButton.text}
                   href={heroContent.primaryButton.link}
                 />

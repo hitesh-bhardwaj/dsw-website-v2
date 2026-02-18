@@ -66,7 +66,8 @@ const heroContent={
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a Demo"
+    text:"Book a Demo",
+    book:true
   },
   secondaryButton:{
     present:false,
@@ -83,7 +84,8 @@ const ctaContent={
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a Demo"
+    text:"Book a Demo",
+    book:true
   },
   secondaryButton:{
     present:false,

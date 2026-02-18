@@ -1,9 +1,13 @@
+"use client"
 import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
+import { useModal } from "./ModalProvider";
 
 export default function CTAFinal({ ctaContent }) {
+  const { openModal } = useModal();
+
   const showButtons =
     ctaContent.primaryButton?.present || ctaContent.secondaryButton?.present;
   return (
@@ -34,6 +38,12 @@ export default function CTAFinal({ ctaContent }) {
             {/* Primary Button */}
             {ctaContent.primaryButton?.present && (
               <PrimaryButton
+              onClick={(e) => {
+                if (ctaContent.primaryButton.book) {
+                  e.preventDefault();
+                  openModal()
+                }
+              }}
                 target={`${ctaContent.primaryButton.targetPrimary ? "_blank" : ""}`}
                 text={ctaContent.primaryButton.text}
                 href={ctaContent.primaryButton.link}
