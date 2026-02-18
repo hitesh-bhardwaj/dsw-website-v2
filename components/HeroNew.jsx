@@ -181,7 +181,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         />
       </div>
 
-      <WaveGridCanvas variant={variant}/>
+      <WaveGridCanvas key={pathname} variant={variant}/>
 
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">

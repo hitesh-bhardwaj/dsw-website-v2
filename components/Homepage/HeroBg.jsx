@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 /**
  * Variants:
@@ -51,6 +51,7 @@ const  WaveGridCanvas = ({
     
 }) => {
   const canvasRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
 
   const targetMousePos = useRef({ x: -1000, y: -1000 });
   const currentMousePos = useRef({ x: -1000, y: -1000 });
@@ -58,6 +59,15 @@ const  WaveGridCanvas = ({
   // Spring mesh vertices
   const verticesRef = useRef(null);
   const gridDimensionsRef = useRef({ cols: 0, rows: 0 });
+
+  // Wait for page transition to complete before initializing canvas
+  // LayoutTransition uses 500ms fade, so we wait a bit longer
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 550);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Variant-specific overflow extensions
   const getOverflowExtension = (variant) => {
@@ -78,6 +88,9 @@ const  WaveGridCanvas = ({
   };
 
   useEffect(() => {
+    // Wait until component is ready (after page transition)
+    if (!isReady) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
@@ -787,6 +800,7 @@ gradientCtx.putImageData(gradImageData, 0, 0);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
   }, [
+    isReady,
     variant,
     lowerWaveFreq,
     lowerWaveAmp,
