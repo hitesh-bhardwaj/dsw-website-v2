@@ -49,30 +49,30 @@ const JoinUs = () => {
                     </Copy>
                 </div>
 
-                <div className='h-[40vw] w-full rounded-[2vw] overflow-hidden'>
-                    <Image src={"/assets/about/join-us.png"} className='h-full w-full object-cover' width={1772} height={756} alt='Join Us'/>
+                <div className='h-[50vw] w-full rounded-[2vw] overflow-hidden fadeup'>
+                    <Image src={"/assets/about/team.png"} className='h-full w-full' width={1772} height={756} alt='Join Us' />
                 </div>
                 <div className='mx-auto'>
                     <Copy>
                         <p className="text-30 font-sans text-center leading-[1.4] tracking-[0.025vw] text-foreground">
-                           If you’re Excited by 
+                            If you’re Excited by
                         </p>
                     </Copy>
                 </div>
                 <div className="flex justify-between  max-sm:w-full max-sm:mx-auto max-sm:flex-col max-sm:space-y-[10vw]">
-                {values.map((deployment, index) => (
-                    <ValueCard key={index} deployment={deployment} />
-                ))}
-            </div>
-            <div className='mx-auto'>
+                    {values.map((deployment, index) => (
+                        <ValueCard key={index} deployment={deployment} />
+                    ))}
+                </div>
+                <div className='mx-auto'>
                     <Copy>
                         <p className="text-30 font-sans text-center leading-[1.4] tracking-[0.025vw] text-foreground">
-                          …you’ll feel at home at DSW.
+                            …you’ll feel at home at DSW.
                         </p>
                     </Copy>
                 </div>
                 <div className='mx-auto flex items-center justify-center'>
-                    <PrimaryButton text={"View Open Roles"} href="#"/>
+                    <PrimaryButton text={"View Open Roles"} href="#" />
 
                 </div>
             </div>
@@ -84,19 +84,19 @@ export default JoinUs
 
 const values = [
     {
-        icon: <RollOut/>,
+        icon: <RollOut />,
         title: "Production-scale AI systems ​",
     },
     {
-        icon: <ReducedCost/>,
+        icon: <ReducedCost />,
         title: "​Governed runtimes.",
     },
     {
-        icon: <EnterpriseGrade/>,
+        icon: <EnterpriseGrade />,
         title: "Enterprise integration complexity ​",
     },
     {
-        icon:<SkilledTeam/>,
-        title:"Agentic + LLM operationalization "
+        icon: <SkilledTeam />,
+        title: "Agentic + LLM operationalization "
     }
 ];

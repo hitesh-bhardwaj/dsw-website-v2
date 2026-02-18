@@ -444,7 +444,8 @@ const  WaveGridCanvas = ({
           }
         }
 
-        gradientCtx.putImageData(gradImageData, 0, 0);
+       if (!gradImageData) return;
+gradientCtx.putImageData(gradImageData, 0, 0);
         return;
       }
 
@@ -518,7 +519,8 @@ const  WaveGridCanvas = ({
           }
         }
 
-        gradientCtx.putImageData(gradImageData, 0, 0);
+        if (!gradImageData) return;
+gradientCtx.putImageData(gradImageData, 0, 0);
         return;
       }
 
@@ -584,7 +586,8 @@ const  WaveGridCanvas = ({
         }
       }
 
-      gradientCtx.putImageData(gradImageData, 0, 0);
+     if (!gradImageData) return;
+gradientCtx.putImageData(gradImageData, 0, 0);
     };
 
     // Extract stroke RGB once
@@ -756,8 +759,12 @@ const  WaveGridCanvas = ({
       targetMousePos.current.y = -1000;
     };
 
-    // init
-    resizeCanvas();
+  resizeCanvas();
+    
+    const resizeObserver = new ResizeObserver(() => {
+      resizeCanvas();
+    });
+    resizeObserver.observe(canvas);
 
     let resizeTimeout;
     const handleResize = () => {
@@ -775,6 +782,7 @@ const  WaveGridCanvas = ({
       cancelAnimationFrame(rafId);
       window.removeEventListener("resize", handleResize);
       clearTimeout(resizeTimeout);
+       resizeObserver.disconnect();
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
     };

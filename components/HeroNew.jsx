@@ -11,6 +11,7 @@ import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
 import WaveGridCanvas from "./Homepage/HeroBg";
 import BreadCrumbs from "./BreadCrumbs";
+import { usePathname } from "next/navigation";
 
 export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   const showButtons =
@@ -160,6 +161,8 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     }
   }, [isFooterVisible]);
 
+   const pathname = usePathname();
+
   return (
     <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10">
       <div className="absolute inset-0 z-0 h-screen w-full">
@@ -172,7 +175,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         />
       </div>
 
-      <WaveGridCanvas variant={variant} />
+      <WaveGridCanvas variant={variant}/>
 
       <div className="relative z-10 flex flex-col items-center  h-full pt-[12vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">
