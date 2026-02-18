@@ -267,28 +267,13 @@ const operationsContent = {
 /* ---------------------------------------------
    COMPLIANCE
 --------------------------------------------- */
-const complianceContent = {
-  sectionId: "compliance",
-  heading: "Built for regulated telecom environments",
-  subtext: "Designed for compliance-driven, reliability-sensitive operations.",
-  logos: [
-    { src: "/assets/solution/iso-42001.png", alt: "ISO/IEC 42001" },
-    { src: "/assets/solution/iso-27001.png", alt: "ISO/IEC 27001" },
-    { src: "/assets/solution/soc-2-compliant.png", alt: "SOC 2 Type II" },
-    { src: "/assets/solution/gdpr-compliant.png", alt: "GDPR alignment" },
-  ],
-  footerText:
-    "Supports governance, audit, and regulatory workflows across network, operations, and customer environments.",
-};
 
 /* ---------------------------------------------
    BENEFITS
 --------------------------------------------- */
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-
   heading: "Scale Telecom AI without governance gaps, lock-in, or operational fragmentation",
-
   points: [
     { id: "01", text: "Operate network, subscriber, and revenue intelligence as one governed system" },
     { id: "02", text: "Reduce operational friction across OSS, BSS, and service environments" },
@@ -309,11 +294,14 @@ const ctaContent = {
     present: true,
     link: "#",
     text: "Book a Demo",
+    book:true
   },
   secondaryButton: {
     present: true,
-    link: "#",
+    link: "https://calendly.com/",
     text: "Schedule a Call",
+    targetSecondary:true
+
   },
 };
 

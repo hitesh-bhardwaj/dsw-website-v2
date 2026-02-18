@@ -277,34 +277,21 @@ const benefitsContent = {
 };
 
 
-
-const complianceContent = {
-  sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
-  logos: [
-    { src: "/assets/solution/iso-42001.png", alt: "ISO 42001" },
-    { src: "/assets/solution/iso-27001.png", alt: "ISO 27001" },
-    { src: "/assets/solution/soc-2-compliant.png", alt: "SOC 2" },
-    { src: "/assets/solution/hippa-compliant.png", alt: "HIPAA" },
-    { src: "/assets/solution/gdpr-compliant.png", alt: "GDPR" },
-  ],
-  footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
-};
-
 const ctaContent={
   heading:"Operate Retail AI as infrastructure",
   para:"See how the DSW Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
   primaryButton:{
     present:true,
     link:"#",
-    text:"Book a Demo"
+    text:"Book a Demo",
+    book:true
   },
   secondaryButton:{
     present:true,
-    link:"#",
-    text:"Schedule a Call"
+    link:"https://calendly.com/",
+    text:"Schedule a Call",
+    targetSecondary:true
+
   },
 }
 

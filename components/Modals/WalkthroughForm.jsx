@@ -31,7 +31,7 @@ const formSchema = z.object({
 });
 
 /* ---------------- INPUT STYLES ---------------- */
-const inputClassName = "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border border-[#111] rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors";
+const inputClassName = "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border  rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors border-transparent";
 
 export default function WalkthroughForm() {
   const form = useForm({
@@ -157,7 +157,7 @@ export default function WalkthroughForm() {
   /* ---------------- UI ---------------- */
   return (
     <>
-      <section className="overflow-hidden h-fit" id="walkthrough-form">
+      <section className=" h-fit" id="walkthrough-form">
         <div className="w-full flex flex-col">
           <Form {...form}>
             <form

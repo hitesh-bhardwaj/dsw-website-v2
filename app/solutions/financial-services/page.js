@@ -279,20 +279,6 @@ const operationsContent = {
 /* ---------------------------------------------
    COMPLIANCE
 --------------------------------------------- */
-const complianceContent = {
-  sectionId: "compliance",
-  heading: "Built for regulated financial environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
-  logos: [
-    { src: "/assets/solution/iso-42001.png", alt: "ISO/IEC 42001" },
-    { src: "/assets/solution/iso-27001.png", alt: "ISO/IEC 27001" },
-    { src: "/assets/solution/soc-2-compliant.png", alt: "SOC 2 Type II" },
-    { src: "/assets/solution/hippa-compliant.png", alt: "HIPAA alignment" },
-    { src: "/assets/solution/gdpr-compliant.png", alt: "GDPR alignment" },
-  ],
-  footerText:
-    "Supports surveillance, governance, and regulatory workflows across lending, markets, and operations.",
-};
 
 /* ---------------------------------------------
    BENEFITS
@@ -322,11 +308,14 @@ const ctaContent = {
     present: true,
     link: "#",
     text: "Book a Demo",
+    book:true
   },
   secondaryButton: {
     present: true,
-    link: "#",
+    link: "https://calendly.com/",
     text: "Schedule a Call",
+    targetSecondary:true
+
   },
 };
 

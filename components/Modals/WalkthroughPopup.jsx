@@ -55,7 +55,7 @@ const WalkthroughPopup = () => {
   return (
     <section
       id="walkthrough-popup"
-      className={`w-full h-full fixed inset-0 z-999 flex justify-center items-center duration-500 ${modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`w-full h-full fixed inset-0 z-999 flex justify-center bg-black/50 items-center duration-500 ${modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
     >
       {/* Popup Card */}
@@ -65,7 +65,7 @@ const WalkthroughPopup = () => {
         className="relative w-[78%] h-auto max-h-[90vh] overflow-y-auto rounded-[2vw] border border-[#d4d4d4] bg-white/50 backdrop-blur-2xl max-sm:rounded-[6vw] max-md:w-[92%] max-md:rounded-[4vw]"
       >
         {/* Content */}
-        <div className="relative z-10 flex justify-between p-[4vw] max-md:flex-col max-md:p-[6vw] max-sm:p-[7vw] max-sm:gap-[8vw] max-md:gap-[5vw]">
+        <div className="relative z-10 flex justify-between p-[4vw]  max-md:flex-col max-md:p-[6vw] max-sm:p-[7vw] max-sm:gap-[8vw] max-md:gap-[5vw]">
           {/* Left Side - Heading */}
           <div className="w-[35%] space-y-[1.5vw] max-md:w-full max-md:space-y-[2vw] max-sm:space-y-[4vw]">
             <h2 className="text-76 text-[#0a1b4b] font-heading leading-[1.15] max-md:text-center">

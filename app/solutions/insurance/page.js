@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
@@ -14,17 +15,43 @@ import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
 import React from "react";
 
+export const metadata = getPageMetadata({
+  title: "Enterprise AI for Insurance - insurAInce by DSW",
+  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
+  url: "insuraince",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/solutions/insurance",
+    languages: {
+      "en-US": "/solutions/insurance",
+    },
+  },
+  openGraph: {
+    url: "insuraince",
+    images: [
+      {
+        url: `${homepage}seo/solutions.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 const Page = () => {
   return (
-    <Layout>
+    <>
+     <Layout>
+    <WebpageJsonLd metadata={metadata}/>
       <HeroNew
         heroContent={heroContent}
         variant={"topLeft"}
         breadcrumbs={true}
       />
-
       <Runtime runtimeContent={runtimeContent} />
       <Breaks breaksContent={breaksContent}/>
       <Features featuresContent={featuresContent} />
@@ -35,6 +62,7 @@ const Page = () => {
       <Benefits benefitsContent={benefitsContent}/>
        <CTAFinal ctaContent={ctaContent}/>
     </Layout>
+    </>
   );
 };
 
@@ -209,21 +237,6 @@ const benefitsContent = {
     { id: "04", text: "Strengthen audit readiness and execution accountability" },
     { id: "05", text: "Transition from fragmented adoption to enterprise AI operations" },
   ],
-};
-
-const complianceContent = {
-  sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
-  logos: [
-    { src: "/assets/solution/iso-42001.png", alt: "ISO 42001" },
-    { src: "/assets/solution/iso-27001.png", alt: "ISO 27001" },
-    { src: "/assets/solution/soc-2-compliant.png", alt: "SOC 2" },
-    { src: "/assets/solution/hippa-compliant.png", alt: "HIPAA" },
-    { src: "/assets/solution/gdpr-compliant.png", alt: "GDPR" },
-  ],
-  footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };
 
 const ctaContent={

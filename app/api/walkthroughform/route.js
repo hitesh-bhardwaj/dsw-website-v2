@@ -1,30 +1,46 @@
-import WorkshopDetails from "@/components/emailTemplate/WorkshopDetails";
-import WorkshopAutoResponse from "@/components/emailTemplate/WorkshopAutoResponse";
+// app/api/demoform/route.js
 import { Resend } from "resend";
+import WalkthroughAutoResponse from "@/components/emailTemplate/WalkthroughAutoResponse";
+import WalkthroughDetails from "@/components/emailTemplate/WalkthorughDetails";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { name, email, designation, company, number, terms, pageUrl } = body;
+    const {
+      name,
+      email,
+      designation,
+      company,
+      number,
+      downloaded,
+      downloadedPdfName,
+      downloadedPdfUrl,
+      pageUrl,
+    } = body;
 
-    if (!name || !email || !company || !terms || !designation || !number) {
+    if (!name || !email || !company || !designation || !number) {
       return new Response(JSON.stringify({ error: "Required fields missing" }), { status: 400 });
     }
+      const subject ="Demo Walkthrough"
+
+
 
     // Send notification email to your team
     const { error: teamEmailError } = await resend.emails.send({
       from:"Web Forms <no-reply@datasciencewizards.ai>",
       to: ["vidushi@weareenigma.com","contact@datasciencewizards.ai"],
-      subject: "New Workshop Form Submission",
-      react: WorkshopDetails({
+      // from:"DSW Team<contact@datasciencewizards.ai>",
+      // to:"contact@datasciencewizards.ai",
+      subject,
+      react: WalkthroughDetails({
         userName: name,
         userEmail: email,
         userDesignation: designation,
         userCompany: company,
         userNumber: number,
-        userTerms: terms,
+        downloadedPdfName: downloaded ? downloadedPdfName : undefined,
         pageUrl: pageUrl || "Not provided",
       }),
     });
@@ -34,12 +50,18 @@ export async function POST(req) {
       return new Response(JSON.stringify({ error: teamEmailError }), { status: 400 });
     }
 
-    // Send auto-response email to the user
+
+
+      const autoResponseSubject="Thank you for taking the UnifyAI Product Walkthrough!"
+
     const { error: autoResponseError } = await resend.emails.send({
       from:"DSW Team <no-reply@datasciencewizards.ai>",
       to: [email],
-      subject: "Workshop Registration - DSW",
-      react: WorkshopAutoResponse({ userName: name }),
+      subject: autoResponseSubject,
+      react: WalkthroughAutoResponse({
+        userName: name,
+        downloadedPdfName: downloaded ? downloadedPdfName : undefined,
+      }),
     });
 
     if (autoResponseError) {
