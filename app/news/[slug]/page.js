@@ -1,17 +1,13 @@
 import Hero from "@/components/Blog/Hero";
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
-import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import NewsContentWp from "@/components/News/NewsContentWp";
 import RelatedArticleNews from "@/components/News/RelatedArticleNews";
-// import { getPageMetadata } from "@/config/metadata";
-// import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
+import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
 import { getNewsBySlug, getAllNews } from "@/lib/news";
 import { homepage, stripHtml } from "@/lib/util";
 import { notFound } from "next/navigation";
-// import NewsContentWp from "@/components/NewsDetail/NewsContentWp";
-// import RelatedArticleNews from "@/components/News/RelatedArticleNews";
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -90,7 +86,7 @@ export default async function Page({ params }) {
   return (
     <>
      <WebpageJsonLd metadata={pageMeta} />
-      <BreadcrumbsJSONLD pathname={`/${slug}`} />
+     <BreadcrumbsJSONLD pathname={`/${slug}`} />
       <Layout>
         <Hero post={news}/>
         <NewsContentWp news={news} />

@@ -47,7 +47,7 @@ const BlogCard = ({ title, date, img, slug }) => {
             <h5 className="text-foreground text-24 leading-normal max-md:w-[80%] max-sm:w-full">
               {title}
             </h5>
-            <p className="text-20 text-gray-1 max-md:text-[3vw] max-sm:text-[3.5vw]">
+            <p className="text-20 mt-auto text-gray-1 max-md:text-[3vw] max-sm:text-[3.5vw]">
               {formatDate(date)}
             </p>
           </div>
