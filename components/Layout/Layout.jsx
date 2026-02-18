@@ -3,17 +3,19 @@ import Header from './Header'
 import FooterNew from './Footer'
 import { ModalProvider } from '../ModalProvider'
 import WalkthroughPopup from '../Modals/WalkthroughPopup'
+import WalkthroughIframePopup from '../Modals/WalkthroughIframePopup'
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   return (
-   <>
-   <ModalProvider>
-   <Header/>
-   {children}
-   <FooterNew/>
-   <WalkthroughPopup/>
-   </ModalProvider>
-   </>
+    <>
+      <ModalProvider>
+        <Header />
+        {children}
+        <FooterNew />
+        <WalkthroughPopup />
+        <WalkthroughIframePopup />
+      </ModalProvider>
+    </>
   )
 }
 

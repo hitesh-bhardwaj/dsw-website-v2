@@ -23,19 +23,19 @@ const KeyLearnings = () => {
       <div className="flex flex-col justify-between items-center space-y-[5vw] max-md:flex-col pt-[4vw] max-md:pt-[10vw]">
         <div className="w-full text-center">
           <HeadingAnim>
-          <h3 className="text-76  max-md:text-left  font-head">
+          <h3 className="text-76  max-sm:text-center max-sm:leading-[1.4]  font-heading max-sm:w-[60%] max-sm:mx-auto">
             Key Learning Objectives
           </h3>
           </HeadingAnim>
         </div>
 
-        <div className="w-[40%] max-md:w-full max-md:mt-[10vw]">
-          <div className="space-y-[2vw] max-md:space-y-[8vw] w-full">
+        <div className="w-[40%] max-md:w-full max-md:mt-[8vw]">
+          <div className="space-y-[2vw] max-sm:space-y-[2vw] w-full">
             {capabilities.map((cap, index) => (
-              <div key={index} className="relative max-md:pb-[8vw] pb-[1.5vw] fadeup">
+              <div key={index} className="relative max-md:pb-[8vw] pb-[1.5vw] max-sm:w-[90%] fadeup">
                 <div className="relative">
-                  <span className="absolute top-0 left-0 w-1 bg-[#5662FF] h-full "/>
-                   <p className="text-30 text-foreground  max-md:w-full pl-[2vw]">
+                  <span className="absolute top-0 left-0 w-1 max-sm:w-0.5 bg-[#5662FF] h-full "/>
+                   <p className="text-30 text-foreground  max-md:w-full pl-[2vw] max-sm:pl-[4vw]">
                       {cap.text}
                     </p>
                     

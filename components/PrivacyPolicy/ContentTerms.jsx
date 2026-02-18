@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+import HeadingAnim from "../Animations/HeadingAnim";
 
 export default function ContentTerms() {
   const [mob, setMob] = useState(false);
@@ -83,9 +84,12 @@ export default function ContentTerms() {
           )}
           <div className="w-[60%] h-fit py-[8vw] gap-[5vw] flex flex-col max-md:w-full max-md:gap-[10vw]">
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="welcome">
+              <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">
                 Welcome to datasciencewizards
               </h2>
+              </HeadingAnim>
               <p className="text-white-300 fadeup">
                 These terms and conditions outline the rules and regulations for
                 the use of DATA SCIENCE WIZARDS PVT LTD’s Website, located at
@@ -112,7 +116,10 @@ export default function ContentTerms() {
             </div>
 
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="cookies">
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">Cookies</h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 We employ the use of cookies. By accessing
                 datasciencewizards.in, you agreed to use cookies in agreement
@@ -215,9 +222,12 @@ export default function ContentTerms() {
               className="space-y-[2vw] max-md:space-y-[4vw]"
               id="hyperlinking"
             >
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">
                 Hyperlinking to our Content
               </h2>
+               </HeadingAnim>
               <div className="space-y-[1.5vw]">
                 <div className="fadeup">
                   <p className="text-white-300">
@@ -316,7 +326,10 @@ export default function ContentTerms() {
             </div>
 
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="iframes">
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">iFrames</h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 Without prior approval and written permission, you may not
                 create frames around our Webpages that alter in any way the
@@ -328,9 +341,12 @@ export default function ContentTerms() {
               className="space-y-[2vw] max-md:space-y-[4vw]"
               id="content-liability"
             >
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">
                 Content Liability
               </h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 We shall not be hold responsible for any content that appears on
                 your Website. You agree to protect and defend us against all
@@ -345,9 +361,12 @@ export default function ContentTerms() {
               className="space-y-[2vw] max-md:space-y-[4vw]"
               id="privacy-policy"
             >
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">
                 Your Privacy
               </h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 Please read Privacy Policy
               </p>
@@ -357,9 +376,12 @@ export default function ContentTerms() {
               className="space-y-[2vw] max-md:space-y-[4vw]"
               id="reservation-of-rights"
             >
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">
                 Reservation of Rights
               </h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 We reserve the right to request that you remove all links or any
                 particular link to our Website. You approve to immediately
@@ -375,9 +397,13 @@ export default function ContentTerms() {
               className="space-y-[2vw] max-md:space-y-[4vw]"
               id="removal-of-links"
             >
+
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">
                 Removal of links from our website
               </h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 If you find any link on our Website that is offensive for any
                 reason, you are free to contact and inform us any moment. We
@@ -391,7 +417,10 @@ export default function ContentTerms() {
             </div>
 
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="disclaimer">
+               <HeadingAnim>
+
               <h2 className="text-44 text-white-200 headingAnim">Disclaimer</h2>
+               </HeadingAnim>
               <p className="text-white-300 fadeup">
                 To the maximum extent permitted by applicable law, we exclude
                 all representations, warranties and conditions relating to our

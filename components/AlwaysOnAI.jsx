@@ -14,7 +14,7 @@ import { useModal } from "./ModalProvider";
 gsap.registerPlugin(ScrollTrigger);
 
 
-export default function AlwaysOnAI({content,imgWidth,walkthrough}) {
+export default function AlwaysOnAI({content,imgWidth,walkthrough, walkthroughTarget = "unify"}) {
   const sectionRef = useRef(null);
   const { openWalkthroughSmart } = useModal();
   useGSAP(()=>{
@@ -133,7 +133,7 @@ export default function AlwaysOnAI({content,imgWidth,walkthrough}) {
           <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-sm:left-[15%] ${walkthrough?"":"hidden"}`}>
             <PrimaryButton  text={"Start Walkthrough"} href={"#"} onClick={(e) => {
                 e.preventDefault();
-                openWalkthroughSmart();
+                openWalkthroughSmart(walkthroughTarget);
               }}/>
           </div>
         </div>

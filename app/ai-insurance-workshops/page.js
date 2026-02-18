@@ -34,7 +34,7 @@ export default page;
 
 const heroContent={
   tagline:"",
-  heading:"Equip Your Team With Real-World AI & GenAI Skills for Insurance",
+  heading:"Equip Your Team With Real -World AI & GenAI Skills for Insurance",
   primaryButton:{
     present:false,
     link:"#",

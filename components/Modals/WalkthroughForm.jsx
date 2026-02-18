@@ -14,9 +14,8 @@ import {
   FormMessage,
 } from "../ui/form";
 import { Input } from "../ui/input";
-// import { PhoneInput } from "../ui/phone-input";
+import { PhoneInput } from "../ui/phone-input";
 import { Button } from "../ui/button";
-// import { useModal } from "../Common/ModalProvider";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
 import { useModal } from "../ModalProvider";
 
@@ -30,6 +29,9 @@ const formSchema = z.object({
   designation: z.string().min(2, { message: "Designation is required." }),
   company: z.string().min(2, { message: "Company name is required." }),
 });
+
+/* ---------------- INPUT STYLES ---------------- */
+const inputClassName = "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border border-[#111] rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors";
 
 export default function WalkthroughForm() {
   const form = useForm({
@@ -51,12 +53,12 @@ export default function WalkthroughForm() {
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  /* 🔑 MODAL CONTROLS */
+  /* MODAL CONTROLS */
   const {
-   walkthroughTarget,
+    walkthroughTarget,
     markWalkthroughCompleted,
     setOpenWalkThrough,
-    setOpenWalkthroughIframe, // 👈 NEW (STATE ONLY)
+    setOpenWalkthroughIframe,
   } = useModal();
 
   /* ---------------- EMAIL VERIFICATION ---------------- */
@@ -133,11 +135,11 @@ export default function WalkthroughForm() {
 
       if (!res.ok) throw new Error("Failed");
 
-      /* 🔑 ONLY NEW LOGIC (NO UI CHANGE) */
+      /* Close form and open iframe */
       markWalkthroughCompleted(walkthroughTarget);
-      setOpenWalkThrough(false);         // close form
+      setOpenWalkThrough(false);
       setTimeout(() => {
-        setOpenWalkthroughIframe(true);     // open iframe
+        setOpenWalkthroughIframe(true);
       }, 300);
 
       setIsSubmitted(true);
@@ -155,110 +157,152 @@ export default function WalkthroughForm() {
   /* ---------------- UI ---------------- */
   return (
     <>
-      <section
-        className="overflow-hidden h-fit max-md:pb-[4%] max-sm:pb-0"
-        id="formoem"
-      >
-      
-        <div className="w-full flex flex-col gap-[2vw]">
-            <Form {...form}>
-              <form
-                autoComplete="off"
-                className="space-y-[1vw] max-sm:space-y-[4vw] max-md:space-y-[3vw]"
-                onSubmit={handleSubmit(onSubmit)}
-              >
-                <div className="formfade">
-                <FormField name="name" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <Input placeholder="Name*" autoComplete="off" {...field}
-                      className="placeholder:text-[1.05vw] pl-[2vw] bg-black/5 border border-white/30 rounded-full placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-
-                </div>
-                <div className="formfade">
-
-                <FormField name="email" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <div className="relative">
+      <section className="overflow-hidden h-fit" id="walkthrough-form">
+        <div className="w-full flex flex-col">
+          <Form {...form}>
+            <form
+              autoComplete="off"
+              className="space-y-[1.2vw] max-sm:space-y-[4vw] max-md:space-y-[3vw]"
+              onSubmit={handleSubmit(onSubmit)}
+            >
+              {/* Name */}
+              <FormField
+                name="name"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
                       <Input
-                        placeholder="Business Email*"
+                        placeholder="Name*"
                         autoComplete="off"
                         {...field}
-                        onBlur={(e) => {
-                          field.onBlur();
-                          // handleEmailBlur(e.target.value);
-                        }}
-                        className="placeholder:text-[1.05vw] pl-[2vw] bg-black/5 border border-white/30 rounded-full placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]"
+                        className={inputClassName}
                       />
-                      {emailVerifying && (
-                        <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#e8e8e8] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
-                          Verifying...
-                        </span>
-                      )}
-                    </div>
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-                </div>
+                    </FormControl>
+                    <FormMessage className="text-red-500 text-[0.9vw] pl-[1vw] max-sm:text-[3vw] max-md:text-[2vw]" />
+                  </FormItem>
+                )}
+              />
 
-                <div className="formfade">
+              {/* Email */}
+              <FormField
+                name="email"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <div className="relative">
+                        <Input
+                          placeholder="Business Email*"
+                          autoComplete="off"
+                          {...field}
+                          onBlur={(e) => {
+                            field.onBlur();
+                          }}
+                          className={inputClassName}
+                        />
+                        {emailVerifying && (
+                          <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#666] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
+                            Verifying...
+                          </span>
+                        )}
+                      </div>
+                    </FormControl>
+                    <FormMessage className="text-red-500 text-[0.9vw] pl-[1vw] max-sm:text-[3vw] max-md:text-[2vw]" />
+                  </FormItem>
+                )}
+              />
 
-                <FormField name="designation" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <Input placeholder="Designation*" autoComplete="off" {...field}
-                      className="placeholder:text-[1.05vw] pl-[2vw] bg-black/5 border border-white/30 rounded-full placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-                </div>
+              {/* Designation */}
+              <FormField
+                name="designation"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        placeholder="Designation*"
+                        autoComplete="off"
+                        {...field}
+                        className={inputClassName}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-500 text-[0.9vw] pl-[1vw] max-sm:text-[3vw] max-md:text-[2vw]" />
+                  </FormItem>
+                )}
+              />
 
-                <div className="formfade">
+              {/* Company Name */}
+              <FormField
+                name="company"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <Input
+                        placeholder="Company Name*"
+                        autoComplete="off"
+                        {...field}
+                        className={inputClassName}
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-500 text-[0.9vw] pl-[1vw] max-sm:text-[3vw] max-md:text-[2vw]" />
+                  </FormItem>
+                )}
+              />
 
-                <FormField name="company" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <Input placeholder="Company Name*" autoComplete="off" {...field}
-                      className="placeholder:text-[1.05vw] pl-[2vw] bg-black/5 border border-white/30 rounded-full placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-                </div>
+              {/* Phone Number */}
+              <FormField
+                name="number"
+                control={control}
+                render={({ field }) => (
+                  <FormItem>
+                    <FormControl>
+                      <PhoneInput
+                        placeholder="Phone Number*"
+                        autoComplete="off"
+                        defaultCountry="IN"
+                        international
+                        {...field}
+                        className="walkthrough-phone"
+                      />
+                    </FormControl>
+                    <FormMessage className="text-red-500 text-[0.9vw] pl-[1vw] max-sm:text-[3vw] max-md:text-[2vw]" />
+                  </FormItem>
+                )}
+              />
 
-                <div className="formfade">
-
-                <FormField name="number" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    {/* <PhoneInput placeholder="Phone Number*" autoComplete="off" defaultCountry="IN" international {...field}
-                      className="placeholder:text-[1.05vw] placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone" /> */}
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-                </div>
-               <div className="formfade">
-                <Button type="submit" aria-label="submit form" 
-                  className="cursor-pointer mt-[3vw] max-md:mt-[5vw] pb-[3vw] max-sm:mt-[10vw] max-sm:pb-[8vw] px-0 ">
-                  <div className="relative inline-flex items-center h-[4vw] min-w-[10vw] px-[2vw] gap-3 rounded-full overflow-hidden text-white-200 group max-sm:h-fit max-sm:py-[4vw] max-sm:px-[6vw] max-sm:min-w-[30vw] max-md:px-[4.5vw] max-md:py-[3vw] max-md:h-fit max-sm:gap-[4vw]">
-                    <span className="bg-foreground rounded-full h-2 w-2 max-sm:w-[2.5vw] max-sm:h-[2.5vw] z-[1] max-md:w-[1.2vw] max-md:h-[1.2vw]" />
-                    <div className="overflow-clip leading-[1.4] mt-[-4px] max-sm:mt-0 z-[1]">
-                      <p className="text-[1.145vw] leading-[1.4] buttonTextShadow max-sm:text-[4vw] max-md:text-[2.7vw]">
-                        {isLoading ? "Sending..." : "Submit"}
-                      </p>
-                    </div>
-                    <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 bg-gradient-to-r from-primary-2 to-primary-3 rounded-full" />
+              {/* Submit Button */}
+              <div className="pt-[1.5vw] max-sm:pt-[6vw] max-md:pt-[3vw]">
+                <Button
+                  type="submit"
+                  aria-label="submit form"
+                  className="cursor-pointer px-0 bg-transparent hover:bg-transparent"
+                >
+                  <div className="relative inline-flex items-center justify-center h-[4vw] min-w-[16vw] px-[2.5vw] rounded-full overflow-hidden text-white group max-sm:h-[14vw] max-sm:px-[8vw] max-sm:min-w-[40vw] max-md:h-[8vw] max-md:px-[5vw] max-md:min-w-[25vw] hover:scale-95 transition-transform duration-300">
+                    <span className="text-[1.3vw] font-heading tracking-wide z-[1] max-sm:text-[4.5vw] max-md:text-[2.8vw]">
+                      {isLoading ? "Sending..." : "Submit"}
+                    </span>
+                    <span className="absolute inset-0 bg-[#f16b0d] rounded-full" />
                   </div>
                 </Button>
-
-               </div>
-              </form>
-            </Form>
-          </div>
+              </div>
+            </form>
+          </Form>
+        </div>
       </section>
 
+      {/* Success Toast */}
       {submitted && (
-        <p className="fixed top-[20%] left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-2 rounded">
+        <p className="fixed top-[10%] left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg z-[1000] shadow-lg">
           Form submitted successfully!
         </p>
       )}
 
+      {/* Error Toast */}
       {notsubmitted && (
-        <p className="fixed top-[20%] left-1/2 -translate-x-1/2 bg-red-500 text-white px-6 py-2 rounded">
-          ❌ Error sending message. Please try again.
+        <p className="fixed top-[10%] left-1/2 -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg z-[1000] shadow-lg">
+          Error sending message. Please try again.
         </p>
       )}
     </>

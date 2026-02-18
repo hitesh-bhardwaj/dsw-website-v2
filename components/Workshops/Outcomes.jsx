@@ -57,22 +57,22 @@ export default function Outcomes({ outcomesData, showDescription = true , margin
 
   return (
     <section className={`w-screen px-[5vw] py-[7%] ${marginTop}`} id="about">
-      <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-md:gap-y-[15vw]">
-        <div className={` w-[75%] space-y-[4vw] max-md:space-y-[5vw] text-center`}>
+      <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-md:gap-y-[10vw]">
+        <div className={` w-[75%] max-sm:w-[95%] space-y-[4vw] max-md:space-y-[5vw] max-sm:space-y-[7vw] text-center`}>
           <HeadingAnim>
-          <h2 className={`text-76 text-[#0A1B4B] headingAnim text-white-200 max-md:text-center  ${outcomesData.headingCenter ? "text-center" : ""}`}>
+          <h2 className={`text-76 text-[#0A1B4B] max-sm:leading-[1.4] headingAnim  max-md:text-center  ${outcomesData.headingCenter ? "text-center" : ""}`}>
             {outcomesData.heading}
           </h2>
           </HeadingAnim>
           {showDescription && (
-            <div className="space-y-[1vw] max-sm:space-y-[7vw] w-[75%] mx-auto text-24">
+            <div className="space-y-[1vw] max-sm:space-y-[7vw] w-[75%] max-sm:w-[90%] mx-auto text-24">
               <Copy>
-                <p className="text-white-300 max-md:text-center">
+                <p className="text-30 max-md:text-center">
                   {outcomesData.para}
                 </p>
               </Copy>
               <Copy>
-                <p className="text-white-300 max-md:text-center max-md:w-full">
+                <p className="text-30 max-md:text-center max-md:w-full">
                   {outcomesData.para2}
                 </p>
               </Copy>
@@ -80,25 +80,25 @@ export default function Outcomes({ outcomesData, showDescription = true , margin
           )}
         </div>
 
-        <div className="flex flex-col items-center gap-[4vw] max-md:w-full max-md:gap-[15vw]">
+        <div className="flex flex-col items-center gap-[4vw] max-md:w-full max-md:gap-[10vw]">
           {outcomesData.points.map(({ id, text, width, title }) => (
             <div
               key={id}
-              className="w-[60%] max-md:w-[100%] flex gap-[3.2vw] max-sm:gap-[6vw] items-center about-item"
+              className="w-[60%] max-md:w-[100%] flex gap-[3.2vw] max-sm:gap-[6vw] items-center max-sm:items-start about-item"
             >
               <div className="w-[15%]  relative max-md:w-[30%]">
-                <div className="relative w-[5vw] h-[5vw] border border-primary-1 rounded-full flex items-center justify-center max-md:w-[18vw] max-md:h-[18vw]">
-                  <p className="about-id text-primary-1 text-40 font-head relative z-[1] max-md:text-[4.2vw]">
-                    {id}
-                  </p>
+                <div className="relative w-[5vw] h-[5vw] border border-primary-1 max-sm:border-primary-blue rounded-full flex items-center justify-center max-md:w-[18vw] max-md:h-[18vw] max-sm:max-sm:h-[15vw] max-sm:w-[15vw]  ">
+                 <p className="about-id max-sm:font-light text-primary-1 text-40 font-head relative z-[1]">
+  {String(id).padStart(2, "0")}
+</p>
                 </div>
               </div>
               <div className="space-y-[1.2vw] max-md:space-y-[3vw]">
-                <p className="text-44 text-foreground font-heading">
+                <p className="text-44 text-foreground max-sm:font-medium font-heading">
                   {title}
                 </p>
 
-                <p className="text-30 text-[#333333] w-[100%] max-md:w-full">{text}</p>
+                <p className="text-30 max-sm:text-[4.4vw] max-sm:leading-[1.4] text-[#333333] w-[100%] max-md:w-full">{text}</p>
               </div>
             </div>
           ))}
