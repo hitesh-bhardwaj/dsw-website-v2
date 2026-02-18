@@ -82,7 +82,7 @@ const ctaContent={
   para:"With a strong background in operating systems, middleware,  and the core enterprise technology ecosystem, we have been active contributors and trusted practitioners in the global open source community.  As Infosys Finacle’s strategic open-source consulting and services partner, we bring this collective depth of experience to jointly deliver skills, expertise, and predictable success for Finacle customers and global banks. ",
   primaryButton:{
     present:true,
-    link:"#",
+    link:"/contact-us",
     text:" Talk to the team"
   },
 }

@@ -94,12 +94,12 @@ const ctaContent={
   subParaText: 'Turn AI pilots into auditable, production-grade agents',
   primaryButton:{
     present: true,
-    link: "#",
+    link: "/unifyai",
     text:"Explore the Platform"
   },
   secondaryButton:{
     present: true,
-    link:"#",
+    link:"/contact-us",
     text:"Talk to our Team"
   },
 }

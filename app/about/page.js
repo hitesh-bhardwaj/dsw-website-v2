@@ -63,12 +63,12 @@ const heroContent={
   heading:"About Us",
   primaryButton:{
     present:true,
-    link:"#",
+    link:"/unifyai",
     text:"Explore the Platform"
   },
   secondaryButton:{
     present:true,
-    link:"#",
+    link:"/contact-us",
     text:"Talk to our Team"
   },
 }
@@ -79,7 +79,7 @@ const ctaContent={
   subPara: false,
   primaryButton:{
     present:true,
-    link:"#",
+    link:"/contact-us",
     text:"Talk to Us"
   },
   secondaryButton:{

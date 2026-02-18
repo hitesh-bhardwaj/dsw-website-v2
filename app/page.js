@@ -58,12 +58,12 @@ const heroContent={
   heading:"The Enterprise AI Operating System",
   primaryButton:{
     present:true,
-    link:"#",
+    link:"/unifyai",
     text:"Explore the Platform"
   },
   secondaryButton:{
     present:true,
-    link:"#",
+    link:"/contact-us",
     text:"Talk to our Team"
   },
 }
@@ -73,12 +73,12 @@ const ctaContent={
   para:"DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
   primaryButton:{
     present:true,
-    link:"#",
+    link:"/unifyai",
     text:"Explore the Platform"
   },
   secondaryButton:{
     present:true,
-    link:"#",
+    link:"/contact-us",
     text:"Talk to our Team"
   },
 }

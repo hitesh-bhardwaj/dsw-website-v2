@@ -43,6 +43,7 @@ export default function CTAFinal({ ctaContent }) {
             {/* Secondary Button */}
             {ctaContent.secondaryButton?.present && (
               <SecondaryButton
+                target={`${ctaContent.secondaryButton.targetSecondary ? "_blank" : ""}`}
                 text={ctaContent.secondaryButton.text}
                 href={ctaContent.secondaryButton.link}
               />

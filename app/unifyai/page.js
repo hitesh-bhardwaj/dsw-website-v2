@@ -88,7 +88,7 @@ const ctaContent = {
   },
   secondaryButton: {
     present: true,
-    link: "#",
+    link: "/contact-us",
     text: "Contact Sales",
   },
 };

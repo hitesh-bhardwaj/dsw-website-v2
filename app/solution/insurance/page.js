@@ -250,8 +250,9 @@ const ctaContent={
   },
   secondaryButton:{
     present:true,
-    link:"#",
-    text:"Schedule a Call"
+    link:"https://calendly.com/",
+    text:"Schedule a Call",
+    targetSecondary:true
   },
 }
 

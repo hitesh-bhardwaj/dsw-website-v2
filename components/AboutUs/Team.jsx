@@ -10,6 +10,7 @@ import Link from "next/link";
 import { FreeMode, Scrollbar } from "swiper/modules";
 import HeadingAnim from "../Animations/HeadingAnim";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
+import { LinkedIn } from "../Svg/Icons";
 
 export default function Team({ heading , cardsData, teamId = "team"}) {
   useGSAP(() => {
@@ -101,14 +102,15 @@ export default function Team({ heading , cardsData, teamId = "team"}) {
                   className="h-full w-full object-cover rounded-[1.5vw]"
                   alt={card.name}
                 />
-                <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center bg-[#F16B0D] h-[2.5vw] w-[2.5vw] max-md:h-[10vw] max-md:w-[10vw]">
-                  <Image
+                <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center bg-[#F16B0D] text-white h-[2.5vw] w-[2.5vw] p-1.5 max-md:h-[10vw] max-md:w-[10vw]">
+                  <LinkedIn/>
+                  {/* <Image
                     src={"/assets/icons/social/linkedin.svg"}
                     height={15}
                     width={15}
                     alt="linkedin"
                     className="h-[1vw] w-auto max-md:h-[4vw]"
-                  />
+                  /> */}
                 </div>
               </div>
               <div className="space-y-[.5vw] w-full mt-[1vw] max- max-md:mt-[5vw]  max-sm:pl-[2vw] max-sm:space-y-[2.5vw] max-sm:mt-[5vw] max-md:pl-[1vw] text-center">
