@@ -286,7 +286,8 @@ const FooterWave = ({
         }
       }
 
-      gradientCtx.putImageData(gradImageData, 0, 0);
+      if (!gradImageData) return;
+gradientCtx.putImageData(gradImageData, 0, 0);
     };
 
     const targetFrameTime = 1000 / fps;

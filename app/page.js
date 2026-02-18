@@ -12,9 +12,23 @@ import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
 import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
 import ClientsBlur from "@/components/Homepage/ClientsBlur";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 
+
+
+export const metadata = {
+  title: "DSW UnifyAI – Enterprise AI Platform for Insurance",
+  description:
+    "Launch AI use cases in days — scale fast, reduce cost, deploy GenAI in hours with DSW UnifyAI’s insurance-focused enterprise AI platform.",
+  url: "",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+};
 export default function Home() {
   return (
+    <>
+      <WebpageJsonLd metadata={metadata} />
     <Layout>
     <main className="min-h-screen">
       <HeroNew heroContent={heroContent} variant="default"/>
@@ -29,10 +43,12 @@ export default function Home() {
       <ClientsBlur/>
       <RealWorldOutcomes />
       <CTAPricing />
+      <CertificationsAndAwards certificationsContent={certificationsContent}/>
       <Testimonials />
       <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
+     </>
   );
 }
 
@@ -72,3 +88,12 @@ const tourContent={
   para:"AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously",
   tagline:"The AI Operating System makes this possible by running as part of your core enterprise architecture."
 }
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};
+

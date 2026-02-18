@@ -8,10 +8,38 @@ import WhatWeBelieve from '@/components/AboutUs/WhatWeBelieve';
 import TeamWrapper from '@/components/AboutUs/TeamWrapper';
 import JoinUs from '@/components/AboutUs/JoinUs';
 import WhatWeStandFor from '@/components/AboutUs/WhatWeStandFor';
+import { WebpageJsonLd } from '@/lib/json-ld';
+import { getPageMetadata } from '@/components/config/metadata';
+import { homepage } from '@/lib/util';
 
+
+export const metadata = getPageMetadata({
+  title: "About DSW UnifyAI - Deep-Tech AI for Enterprises",
+  description: "Learn about Data Science Wizards: mission, vision, team & enterprise AI platform UnifyAI that powers scalable, secure, real-world AI deployments.",
+  url: "about",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/about",
+    languages: {
+      "en-US": "/about",
+    },
+  },
+  openGraph: {
+    url: "about",
+    images: [
+      {
+        url: `${homepage}seo/about.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 const AgenticAI = () => {
   return (
     <>
+    <WebpageJsonLd metadata={metadata} />
      <Layout>
     <main className="min-h-screen">
         <HeroNew heroContent={heroContent} variant={"bottomRight"} />

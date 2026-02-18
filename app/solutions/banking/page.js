@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
@@ -13,10 +14,37 @@ import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
 import React from "react";
 
+export const metadata = getPageMetadata({
+  title: "Enterprise AI for Insurance - insurAInce by DSW",
+  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
+  url: "insuraince",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/solutions/insurance",
+    languages: {
+      "en-US": "/solutions/insurance",
+    },
+  },
+  openGraph: {
+    url: "insuraince",
+    images: [
+      {
+        url: `${homepage}seo/solutions.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 const Page = () => {
   return (
+    <>
+    <WebpageJsonLd metadata={metadata} />
     <Layout>
       <HeroNew
         heroContent={heroContent}
@@ -34,6 +62,7 @@ const Page = () => {
       <Benefits benefitsContent={benefitsContent}/>
        <CTAFinal ctaContent={ctaContent}/>
     </Layout>
+    </>
   );
 };
 

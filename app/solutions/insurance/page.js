@@ -147,13 +147,23 @@ const featuresContent = {
       ],
     },
     {
-      title: "Agentic operations across the enterprise",
+      title: "Agentic copilots operating within policy and compliance boundaries",
       description:
-        "Run agentic workflows safely with runtime controls and built-in guardrails.",
+        "Assist underwriters, adjusters, and operations teams with governed autonomy.",
       bullets: [
-        "Tool + action permissions",
-        "Human-in-the-loop approvals",
-        "Continuous audit trails and reversibility",
+        "Underwriter decision assist",
+        "Claims adjuster copilots",
+        "Compliance-aligned operations support",
+      ],
+    },
+    {
+      title: "Enterprise knowledge systems governed at execution",
+      description:
+        "Enable internal GenAI systems with controlled access and runtime governance.",
+      bullets: [
+        "Role-based knowledge retrieval",
+        "Traceable citations",
+        "Tool usage governed at runtime",
       ],
     },
   ],
@@ -163,25 +173,27 @@ const workflowsContent = {
   heading: "More insurance workflows on the AI Operating System",
   items: [
     { number: "01", title: "Policy servicing automation" },
-    { number: "02", title: "Claims intake and triage" },
-    { number: "03", title: "Agent-assisted customer support" },
-    { number: "04", title: "Fraud investigation workflows" },
+    { number: "02", title: "Agent productivity and distribution insights" },
+    { number: "03", title: "Renewal and retention intelligence" },
+    { number: "04", title: "Model risk management and governance workflows" },
   ],
 };
 
 const caseStudyContent = {
   heading: "Insurance AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Borosil",
+  company: "Persistency",
   description:
-    "A leading Indian glassware and consumer products manufacturer transforms logistics with AI-powered fleet analytics.",
-  imageContent: <p>Case Study Image</p>, // Replace with <Image /> later
+    "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
+  imageContent: <p>Case Study Image</p>,
   button: {
     present: true,
-    text: "Read More",
-    href: "#",
+    text: "Download Case Study",
+    href: "/assets/case-studies/persistency.pdf",
+    type: "pdf",
   },
 };
+
 
 
 const benefitsContent = {

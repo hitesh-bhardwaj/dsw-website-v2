@@ -6,10 +6,39 @@ import Expect from "@/components/WebinarsAndEvents/Expect";
 import UpcomingWebinars from "@/components/WebinarsAndEvents/UpcomingWebinars";
 import Workshops from "@/components/WebinarsAndEvents/Workshops";
 import WatchOnDemand from "@/components/WebinarsAndEvents/WatchOnDemand";
+import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
+import { getPageMetadata } from "@/components/config/metadata";
+import { homepage } from "@/lib/util";
 
+
+export const metadata = getPageMetadata({
+  title: "Webinars & Events — DSW UnifyAI Live Sessions",
+  description: "Join DSW’s webinars, virtual events & masterclasses to explore enterprise AI, GenAI strategies & AI deployments in insurance, banking, healthcare.",
+  url: "resouces/webinars-and-events",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/webinars-and-events",
+    languages: {
+      "en-US": "/webinars-and-events",
+    },
+  },
+  openGraph: {
+    url: "resources/webinars-and-events",
+    images: [
+      {
+        url: `${homepage}seo/webinars-and-events.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 const AgenticAI = () => {
   return (
     <>
+     <WebpageJsonLd metadata={metadata}/>
+      <BreadcrumbsJSONLD pathname={metadata.url}/>
       <Layout>
         <main className="min-h-screen">
           <HeroNew heroContent={heroContent} variant={"leftVertical"} breadcrumbs={true} />

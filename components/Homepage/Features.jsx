@@ -104,7 +104,7 @@ const FEATURES = [
     description:
       "Deploy the Enterprise AI Operating System entirely within your environment on-prem, cloud, or hybrid.",
     para: "Enterprise-grade security, control, and data sovereignty remain fully in your hands.",
-    image: "/assets/homepage/features-dashboard-1.png",
+    image: "/assets/homepage/featuresDashboard1.png",
   },
   {
     id: 2,
@@ -120,7 +120,7 @@ const FEATURES = [
       "No exit penalties.",
     ],
     para: "Your AI stack evolves on your terms.",
-    image: "/assets/homepage/features-dashboard-2.png",
+    image: "/assets/homepage/featuresDashboard2.png",
   },
   {
     id: 3,

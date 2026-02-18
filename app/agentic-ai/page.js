@@ -7,11 +7,40 @@ import HowAgenticWorks from '@/components/AgenticAI/HowAgenticWorks'
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
+import { WebpageJsonLd } from '@/lib/json-ld'
+import { getPageMetadata } from '@/components/config/metadata'
+import { homepage } from '@/lib/util'
+import CertificationsAndAwards from '@/components/Homepage/CertificationsAndAwards'
 
+export const metadata = getPageMetadata({
+  title: "DSW AgenticAI – Governed Enterprise AI Agents for BFSI",
+  description:
+    "Deploy governed, explainable, production-ready AI agents for banking and insurance. Turn AI pilots into auditable, compliant automation with DSW AgenticAI.",
+  url: "agentic-ai",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/agentic-ai",
+    languages: {
+      "en-US": "/agentic-ai",
+    },
+  },
+  openGraph: {
+    url: "agentic-ai",
+    images: [
+      {
+        url: `${homepage}seo/agentic-ai.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 
 const AgenticAI = () => {
   return (
     <>
+    <WebpageJsonLd metadata={metadata} />
      <Layout>
     <main className="min-h-screen">
         <HeroNew heroContent={heroContent} variant={"bottomRight"} />
@@ -20,6 +49,7 @@ const AgenticAI = () => {
         <CoreCapabilities />
         <AgentSteps />
         <HowAgenticWorks />
+        <CertificationsAndAwards certificationsContent={certificationsContent}/>
         {/* <HowAgenticWorksWheel/> */}
          <CTAFinal ctaContent={ctaContent}/>
     </main>
@@ -61,3 +91,11 @@ const ctaContent={
     text:"Talk to our Team"
   },
 }
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};

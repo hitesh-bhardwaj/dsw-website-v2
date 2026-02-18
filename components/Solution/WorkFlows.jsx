@@ -31,7 +31,7 @@ const WorkFlows = ({ workflowsContent }) => {
                 key={index}
                 className={`w-full flex ${isEven ? "justify-end" : "justify-start"}`}
               >
-                <div className="relative w-[20vw] h-[12vw] border border-black/20 p-[1.5vw] flex flex-col justify-between text-30 fadeup">
+                <div className="relative w-[20vw] h-[14vw] border border-black/20 p-[1.5vw] flex flex-col justify-between text-30 fadeup">
                   <CornerDecorations />
                   <p className="text-primary-blue">
                     {item.number ?? String(index + 1).padStart(2, "0")}

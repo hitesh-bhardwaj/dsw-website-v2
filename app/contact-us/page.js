@@ -1,13 +1,41 @@
+import { getPageMetadata } from "@/components/config/metadata"
 import Form from "@/components/ContactUs/Form"
 import Help from "@/components/ContactUs/Help"
 import OfficeLocations from "@/components/ContactUs/OfficeLocations"
 import CTAFinal from "@/components/CTAFinal"
 import HeroNew from "@/components/HeroNew"
 import Layout from "@/components/Layout/Layout"
+import { WebpageJsonLd } from "@/lib/json-ld"
+import { homepage } from "@/lib/util"
+
+export const metadata = getPageMetadata({
+  title: "Contact DSW UnifyAI - Get in Touch",
+  description: "Reach out to DSW for demos, partnerships, or queries - accelerate AI adoption with UnifyAI.",
+  url: "contact-us",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/contact-us",
+    languages: {
+      "en-US": "/contact-us",
+    },
+  },
+  openGraph: {
+    url: "contact-us",
+    images: [
+      {
+        url: `${homepage}seo/contact-us.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 
 const Page = () => {
     return (
         <>
+        <WebpageJsonLd metadata={metadata}/>
             <Layout>
                 <HeroNew heroContent={heroContent} variant={"default"} />
                 <Help />

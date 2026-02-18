@@ -5,12 +5,17 @@ import { ModalProvider } from '../ModalProvider'
 import WalkthroughPopup from '../Modals/WalkthroughPopup'
 import WalkthroughIframePopup from '../Modals/WalkthroughIframePopup'
 import Loader from '../Loader'
+import { ImageObjectJsonLd, LocalBusiness, OrganizationJsonLd, WebsiteJsonLd } from '@/lib/json-ld'
 
 const Layout = ({ children }) => {
   return (
     <>
       <ModalProvider>
         <Loader/>
+        <OrganizationJsonLd/>
+        <LocalBusiness/>
+        <ImageObjectJsonLd/>
+        <WebsiteJsonLd/>
         <Header />
         {children}
         <FooterNew />
