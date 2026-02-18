@@ -1,3 +1,4 @@
+import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import Faqs from "@/components/FAQs";
 import HeroNew from "@/components/HeroNew";
@@ -10,11 +11,40 @@ import Empower from "@/components/Workshops/Empower";
 import Features from "@/components/Workshops/Features";
 import Outcomes from "@/components/Workshops/Outcomes";
 import WorkshopFlow from "@/components/Workshops/WorkshopFlow";
+import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
 import React from "react";
+
+export const metadata = getPageMetadata({
+  title: "AI for Insurance Workshop | DSW",
+  description:
+    "Join our hands-on AI & GenAI workshop for insurers - build prototypes, learn compliance, and turn ideas into action in underwriting, claims & fraud.",
+  url: "/ai-insurance-workshops",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/ai-insurance-workshops",
+    languages: {
+      "en-US": "/ai-insurance-workshops",
+    },
+  },
+  openGraph: {
+    url: "/ai-insurance-workshops",
+    images: [
+      {
+        url: `${homepage}seo/ai-for-insurance.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 
 const page = () => {
   return (
     <>
+     <WebpageJsonLd metadata={metadata} />
+      <BreadcrumbsJSONLD pathname={metadata.url} />
     <Layout>
         <HeroNew heroContent={heroContent} variant={"default"} breadcrumbs={true}/>
         <Features featuresData={featuresData}/>

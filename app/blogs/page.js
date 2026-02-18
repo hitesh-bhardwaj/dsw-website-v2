@@ -4,6 +4,9 @@ import { getAllPosts, sortStickyPosts } from "@/lib/posts";
 import Layout from "@/components/Layout/Layout";
 import HeroNew from "@/components/HeroNew";
 import CTAFinal from "@/components/CTAFinal";
+import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
+import { getPageMetadata } from "@/components/config/metadata";
+import { homepage } from "@/lib/util";
 
 /**
  * Separates the featured post (sticky or first) from the rest of the posts
@@ -27,6 +30,31 @@ function separateFeaturedPost(posts) {
   return { featuredPost, remainingPosts };
 }
 
+export const metadata = getPageMetadata({
+  title: "DSW Blog - Insights on AI & Enterprise Innovation",
+  description:
+    "Explore DSW’s blog: deep dives on AI, GenAI, insurance innovation, enterprise deployments, use cases, and tech trends.",
+  url: "/blogs",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/blogs",
+    languages: {
+      "en-US": "/blogs",
+    },
+  },
+  openGraph: {
+    url: "/blogs",
+    images: [
+      {
+        url: `${homepage}seo/blog.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
+
 export default async function BlogsPage() {
   const { posts } = await getAllPosts();
 
@@ -34,12 +62,16 @@ export default async function BlogsPage() {
   const { featuredPost, remainingPosts } = separateFeaturedPost(posts);
 
   return (
+    <>
+     <WebpageJsonLd metadata={metadata} />
+      <BreadcrumbsJSONLD pathname={metadata.url} />
       <Layout>
         <HeroNew heroContent={heroContent} breadcrumbs={true}/>
         <FeaturedBlog featuredPost={featuredPost} />
         {remainingPosts.length > 0 && <BlogGrid posts={remainingPosts} />}
         <CTAFinal ctaContent={ctaContent} />
       </Layout>
+      </>
   );
 }
 

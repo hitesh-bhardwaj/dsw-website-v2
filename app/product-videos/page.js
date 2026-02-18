@@ -1,13 +1,41 @@
+import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import VideoListing from "@/components/ProductVideos/VideoListing";
+import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
 import React from "react";
 
+export const metadata = getPageMetadata({
+  title: "DSW Product Videos - AI Demos & Platform Insights",
+  description: "Watch product walkthroughs and demos: platform explanations, GenAI use in insurance, security features, and CTO vision in action.",
+  url: "resources/product-videos",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+  alternates: {
+    canonical: "/product-videos",
+    languages: {
+      "en-US": "/product-videos",
+    },
+  },
+  openGraph: {
+    url: "resources/product-videos",
+    images: [
+      {
+        url: `${homepage}seo/product-videos.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
+  },
+});
 
 const Page = () => {
   return (
     <>
+    <WebpageJsonLd metadata={metadata}/>
+      <BreadcrumbsJSONLD pathname={metadata.url}/>
     <Layout>
         <HeroNew heroContent={heroContent} variant={"topLeft"} breadcrumbs={true}/>
         <VideoListing/>

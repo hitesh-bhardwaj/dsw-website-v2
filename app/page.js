@@ -12,9 +12,22 @@ import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
 import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
 import ClientsBlur from "@/components/Homepage/ClientsBlur";
+import { WebpageJsonLd } from "@/lib/json-ld";
 
+
+
+export const metadata = {
+  title: "DSW UnifyAI – Enterprise AI Platform for Insurance",
+  description:
+    "Launch AI use cases in days — scale fast, reduce cost, deploy GenAI in hours with DSW UnifyAI’s insurance-focused enterprise AI platform.",
+  url: "",
+  date_published: "2026-02-18T00:00",
+  date_modified: "2026-02-18T00:00",
+};
 export default function Home() {
   return (
+    <>
+      <WebpageJsonLd metadata={metadata} />
     <Layout>
     <main className="min-h-screen">
       <HeroNew heroContent={heroContent} variant="default"/>
@@ -33,6 +46,7 @@ export default function Home() {
       <CTAFinal ctaContent={ctaContent}/>
     </main>
     </Layout>
+     </>
   );
 }
 
