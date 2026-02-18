@@ -53,13 +53,13 @@ export default function WhatWeBelieve() {
                         </h2>
                     </HeadingAnim>
                     <Copy>
-                        <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[55%] max-sm:w-full mx-auto">
+                        <p className="text-30 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[55%] max-sm:w-full mx-auto">
                             In the AI era, the advantage won't come from who experiments the most. It will come from who can{" "}
                             <span className="font-medium">operate AI the best</span> - safely, continuously, and at scale.
                         </p>
                     </Copy>
                 </div>
-                <div className="pt-[5vw]">
+                <div className="pt-[2vw]">
                     <Copy>
                         <p className="text-30 text-center font-sans leading-[1.4] tracking-[0.025vw] text-foreground mx-auto">
                             As LLMs and agentic workflows spread across regulated business processes, enterprises need AI that is:
@@ -121,7 +121,7 @@ export default function WhatWeBelieve() {
 
 const VisionMission = () => {
     return (
-        <section className="w-full h-fit bg-white pt-16  md:px-16">
+        <section className="w-full h-fit bg-white pt-[10%] max-sm:pt-16  md:px-16">
             <div className="relative  grid grid-cols-3 grid-rows-2">
                 <div
                     className="
