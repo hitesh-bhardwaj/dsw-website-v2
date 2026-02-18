@@ -22,15 +22,12 @@ building the infrastructure layer that makes AI real in the enterprise.
                         </Copy>
                     </div>
 
-                    <div>
-                        <Team heading={"Founding Team"} cardsData={foundingTeam}/>
-                </div>
-                {/* <div>
-                    <Team heading={"Growth Team"} cardsData={growthTeam}/>
-                </div>
-                <div>
-                    <Team heading={"Advisors"} cardsData={advisors}/> */}
-                {/* </div> */}
+                    <div className="space-y-[10vw] max-sm:space-y-[20vw]">
+                        <Team heading={"Founding Team"} cardsData={foundingTeam} teamId="founding"/>
+                        <Team heading={"Growth Team"} cardsData={growthTeam} teamId="growth"/>
+                        <Team heading={"Advisors"} cardsData={advisors} teamId="advisors"/>
+                    </div>
+                
                     </div>
                     </section>
   )

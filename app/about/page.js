@@ -7,6 +7,7 @@ import DSWArrival from '@/components/AboutUs/DSWArrival'
 import WhatWeBelieve from '@/components/AboutUs/WhatWeBelieve';
 import TeamWrapper from '@/components/AboutUs/TeamWrapper';
 import JoinUs from '@/components/AboutUs/JoinUs';
+import WhatWeStandFor from '@/components/AboutUs/WhatWeStandFor';
 
 const AgenticAI = () => {
   return (
@@ -17,6 +18,7 @@ const AgenticAI = () => {
         <Intro/>
         <DSWArrival/>
         <WhatWeBelieve/>
+        <WhatWeStandFor />
        <TeamWrapper/>
        <JoinUs/>
          <CTAFinal ctaContent={ctaContent}/>
