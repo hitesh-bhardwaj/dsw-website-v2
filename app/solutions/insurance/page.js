@@ -1,5 +1,6 @@
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
@@ -30,7 +31,7 @@ const Page = () => {
       <WorkFlows workflowsContent={workflowsContent}/>
       <CaseStudy caseStudyContent={caseStudyContent}/>
       <Operations operationsContent={operationsContent} />
-      <Compliance complianceContent={complianceContent}/>
+     <CertificationsAndAwards certificationsContent={certificationsContent}/>
       <Benefits benefitsContent={benefitsContent}/>
        <CTAFinal ctaContent={ctaContent}/>
     </Layout>
@@ -186,6 +187,7 @@ const caseStudyContent = {
   description:
     "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
   imageContent: <p>Case Study Image</p>,
+  imgSrc:"/assets/case-studies/case-study-insurance.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -201,10 +203,11 @@ const benefitsContent = {
   heading:
     "Scale insurance AI and Agentic AI easily – No governance gaps, vendor lock in, or cost sprawl",
   points: [
-    { id: "01", text: "On-premises environments" },
-    { id: "02", text: "Private data centers" },
-    { id: "03", text: "Private cloud" },
-    { id: "04", text: "Hybrid architectures" },
+    { id: "01", text: "Run underwriting, claims, fraud, and servicing as one governed system" },
+    { id: "02", text: "Reduce operational friction in deploying and managing models" },
+    { id: "03", text: "Scale use cases without multiplying infrastructure and vendors" },
+    { id: "04", text: "Strengthen audit readiness and execution accountability" },
+    { id: "05", text: "Transition from fragmented adoption to enterprise AI operations" },
   ],
 };
 
@@ -278,4 +281,12 @@ const operationsContent = {
       ],
     },
   ],
+};
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };

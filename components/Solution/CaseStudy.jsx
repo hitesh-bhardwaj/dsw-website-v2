@@ -1,6 +1,7 @@
 import React from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import SecondaryButton from "../Buttons/SecondaryButton";
+import Image from "next/image";
 
 const CaseStudy = ({ caseStudyContent }) => {
   const {
@@ -9,6 +10,7 @@ const CaseStudy = ({ caseStudyContent }) => {
     company,
     description,
     button,
+    imgSrc,
     imageContent,
     sectionId = "casestudy",
   } = caseStudyContent;
@@ -42,8 +44,9 @@ const CaseStudy = ({ caseStudyContent }) => {
         <div className="w-[75%] h-[30vw] rounded-[1.2vw] overflow-hidden flex border border-black/20 mt-[4vw] fadeup max-sm:flex-col max-sm:w-full max-sm:rounded-[6vw] max-sm:h-[120vw] max-sm:mt-[10vw]">
           
           {/* Image Section */}
-          <div className="w-[50%] max-sm:w-full bg-primary-blue h-full text-white text-56 flex justify-center items-center px-[5vw] font-medium max-sm:h-[45%]">
-            {imageContent}
+          <div className="w-[50%] max-sm:w-full bg-primary-blue h-full text-white text-56 flex justify-center items-center font-medium max-sm:h-[45%]">
+            {/* {imageContent} */}
+            <Image src={imgSrc} alt={'case study img'} width={400} height={400} className="w-full h-full object-cover"/>
           </div>
 
           {/* Content Section */}

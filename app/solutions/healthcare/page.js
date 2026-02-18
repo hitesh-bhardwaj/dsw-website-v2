@@ -70,8 +70,8 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Run AI across risk, compliance, operations, and customer engagement as one governed system.",
-  heading: "The Operating Layer for Production AI in Banking",
+  tagline: "Production AI across care delivery, patient operations, and payer workflows. Controlled, auditable, and operated as one system.",
+  heading: "Govern clinical, operational, and revenue intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -86,150 +86,158 @@ const heroContent = {
   paraWidth: "w-[60%]",
   images: false,
   para:
-    "Build, integrate, deploy, govern, and operate AI as a long-running enterprise system - inside your own environment, with full control, auditability, and accountability.",
+    "Operate Healthcare AI and Agentic AI across clinical support, revenue cycle, patient engagement, and operational environments within a governed execution runtime.",
 };
 
 const runtimeContent = {
   heading:
-    "Banking has moved past AI pilots. Now it must operate AI.",
+    "Healthcare AI is deployed across systems. It is not yet operating as one continuum.",
+
   description:
-    "Most banks have models in production. Few have a system to operate them continuously across lines of business.",
+    "Most health systems and payers run AI across diagnostics support, operations, and claims. Few can operate it continuously across care, administrative, and financial environments.",
+
   items: [
     {
       number: "01",
-      text: "Triggers decisions in real time",
+      text: "Supports clinical and operational decisioning in real time",
     },
     {
       number: "02",
-      text: "Operates inside regulated workflows",
+      text: "Operates across patient, provider, and payer workflows",
     },
     {
       number: "03",
-      text: "Interacts with customers, employees, and systems",
+      text: "Assists clinicians, care teams, and operations staff",
     },
     {
       number: "04",
-      text: "Must be governed as it runs - not after deployment",
+      text: "Must be governed during execution, not after deployment",
     },
   ],
-  extra:"<p>Banks are moving from AI programs to <span class='text-primary-blue'>AI operations</span> - where governance, model lifecycle, and execution accountability are built into the runtime.</p>"
 };
 
+
+
 const breaksContent = {
-  tagline:
-    "Banks are moving from isolated AI initiatives to always-on execution across onboarding, credit, fraud, collections, servicing, and regulatory workflows.",
   heading:
-    "Where AI execution breaks inside banks today",
+    "Where healthcare AI breaks without an operating layer",
+
   challenges: [
     {
       icon: <UnderWriting />,
-      title: "Models sit in silos across risk, fraud, underwriting, and operations",
+      title:
+        "Clinical, administrative, and financial AI operate in silos",
     },
     {
       icon: <Claims />,
       title:
-        "Governance exists as review processes, not execution controls",
+        "Governance sits outside care delivery and operational workflows",
     },
     {
       icon: <Focus />,
       title:
-        "Regulatory pressure increases model risk, audit exposure, and change complexity",
+        "Compliance, PHI protection, and audit requirements increase execution risk",
     },
     {
       icon: <Nodes />,
       title:
-        "Every new use case becomes a new stack, new vendor, and new cost structure",
+        "Each new use case introduces new tools and fragmented environments",
     },
   ],
-  extra:"<p>Banks don’t struggle to build AI. <br/> They struggle to<span class='text-primary-blue'> operate AI as a system across the enterprise.</span> </p>"
+
+  extra:
+    "<p>Healthcare organizations are not lacking AI capability. <br/> They are lacking a system to run it across care and operations.</p>",
 };
+
 
 const featuresContent = {
   heading:
-    "High-impact Banking Use Cases on the AI Operating System",
+    "Build Unlimited Healthcare AI and Agentic AI. One governed runtime.",
 
   cards: [
     {
-      title: "KYC / AML Intelligence and Continuous Monitoring",
+      title: "Clinical Intelligence Operating Within Care Workflows",
       description:
-        "Run onboarding and transaction monitoring as governed, real-time pipelines across customer data, behavioral signals, and alerts.",
+        "Support clinical decision environments with governed AI execution.",
       bullets: [
-        "Continuous risk scoring",
-        "Suspicious activity monitoring acceleration",
-        "Audit-ready lineage across models and decisions",
+        "Clinical documentation intelligence",
+        "Diagnostic and triage support",
+        "Care pathway insights",
       ],
     },
 
     {
-      title: "Credit Risk Modeling and Portfolio Scoring",
+      title: "Revenue Cycle Intelligence Across Financial Workflows",
       description:
-        "Deploy, monitor, and refresh models across retail, SME, and corporate portfolios.",
+        "Run AI inside billing, coding, and reimbursement operations.",
       bullets: [
-        "Challenger model rollout",
-        "Drift monitoring and performance telemetry",
-        "Controlled promotion to production environments",
+        "Coding intelligence support",
+        "Denial prediction and prevention",
+        "Claims workflow optimization",
       ],
     },
 
     {
-      title: "Collections Optimization and Delinquency Prediction",
+      title: "Patient Engagement Intelligence Across the Care Journey",
       description:
-        "Predict early delinquency, prioritize accounts, and optimize outreach strategies.",
+        "Operate outreach, engagement, and retention within controlled environments.",
       bullets: [
-        "Policy-aware automation",
-        "Traceable decision pathways",
-        "Reversible workflows across customer engagement actions",
+        "Patient segmentation intelligence",
+        "Appointment and adherence insights",
+        "Care engagement optimization",
+      ],
+    },
+
+    {
+      title: "Operational Intelligence Across Health System Environments",
+      description:
+        "Support staffing, resource allocation, and facility operations.",
+      bullets: [
+        "Capacity planning intelligence",
+        "Workforce optimization",
+        "Throughput and utilization insights",
       ],
     },
 
     {
       title:
-        "Agentic Copilots for Relationship Managers, Operations, and Compliance",
+        "Agentic Copilots for Clinicians, Care Teams, and Operations",
       description:
-        "Support frontline and operations teams with contextual insights, policy checks, and next-best actions.",
+        "Assist teams with governed decision support across clinical and operational environments.",
       bullets: [
-        "RM copilots for portfolio insights",
-        "Compliance copilots for policy adherence",
-        "Operations copilots for case workflows",
-      ],
-    },
-
-    {
-      title: "Enterprise GenAI Knowledge Systems for Banking Teams",
-      description:
-        "Enable governed enterprise knowledge across policy, product, risk, and operational content.",
-      bullets: [
-        "Controlled retrieval and citations",
-        "Role-based access enforcement",
-        "Tool usage governed at runtime",
+        "Clinical documentation copilots",
+        "Care coordination copilots",
+        "Administrative operations support",
       ],
     },
   ],
 };
 
 
+
+
 const workflowsContent = {
-  heading: "Unlimited use cases with a single subscription. No more use-case-based cost barrier.",
+  heading: "Healthcare workflows expanding without new stacks or vendor sprawl",
   items: [
-    { number: "01", title: "Fraud detection and anomaly monitoring" },
-    { number: "02", title: "Transaction monitoring triage" },
-    { number: "03", title: "Underwriting decision intelligence" },
-    { number: "04", title: "Customer churn prediction and retention" },
+    { number: "01", title: "Population health intelligence" },
+    { number: "02", title: "Value-based care analytics" },
+    { number: "03", title: "Risk stratification support" },
+    { number: "04", title: "Provider performance analytics" },
   ],
 };
 
 const caseStudyContent = {
-  heading: "Running real-time banking decisions on a unified AI runtime",
+  heading: "Healthcare AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Castler",
+  company: "Customer Unification",
   description:
-    "Revolutionizing Document Intelligence for a Leading Indian Fintech Company",
+    "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient-first principles. ",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-banking.png",
+  imgSrc:"/assets/case-studies/case-study-healthcare.png",
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/castler.pdf",
+    href: "/assets/case-studies/customer-unification.pdf",
     type: "pdf",
   },
 };
@@ -238,33 +246,33 @@ const benefitsContent = {
   sectionId: "finacle-outcomes",
 
   heading:
-    "From fragmented AI to an enterprise operating model",
+    "Scale Healthcare AI without governance gaps, lock-in, or operational fragmentation",
 
   points: [
     {
       id: "01",
       text:
-        "Operate AI across risk, fraud, compliance, and customer workflows as one governed system",
+        "Operate clinical, operational, and financial intelligence as one governed system",
     },
     {
       id: "02",
       text:
-        "Reduce model deployment friction and governance overhead",
+        "Reduce friction across care, revenue, and patient engagement workflows",
     },
     {
       id: "03",
       text:
-        "Scale AI use cases without multiplying vendors or infrastructure",
+        "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
       text:
-        "Improve audit readiness and execution accountability",
+        "Strengthen compliance, audit readiness, and execution accountability",
     },
     {
       id: "05",
       text:
-        "Move from fragmented AI adoption to enterprise-wide AI operations",
+        "Move from isolated AI deployments to enterprise healthcare AI operations",
     },
   ],
 };
@@ -286,8 +294,8 @@ const complianceContent = {
 };
 
 const ctaContent={
-  heading:"Operate AI as infrastructure inside your Bank ",
-  para:"Experience the DSW Enterprise AI Operating System ",
+  heading:"Operate Healthcare AI as Infrastructure",
+  para:"See how the DSW Enterprise AI Operating System governs execution across clinical care, patient engagement, revenue cycle, and operational environments.",
   primaryButton:{
     present:true,
     link:"#",
@@ -301,45 +309,54 @@ const ctaContent={
 }
 
 const operationsContent = {
-  heading: "How the Enterprise AI Operating System runs inside your Bank",
+  heading:
+    "Kernel-governed execution across care, operations, and revenue workflows",
 
   tabs: [
     {
-      label: "The AI OS Kernel: governance enforced where AI executes",
-      intro: "The governed control plane for AI execution.",
+      label:
+        "Governance enforced where healthcare decisions happen",
+      intro:
+        "Policies operate inside clinical and operational environments.",
       bullets: [
-        "Governance-as-code enforced at runtime",
+        "Governance-as-code at runtime",
         "Policy enforcement across models, agents, and workflows",
-        "Auditability, traceability, and reversibility built into execution",
+        "Auditability, traceability, and reversibility embedded into execution",
       ],
     },
 
     {
-      label: "Governed Runtimes: models and agents operating under policy",
-      intro: "Unified execution across ML and agentic systems.",
+      label:
+        "Unified runtimes across clinical, administrative, and financial intelligence",
+      intro:
+        "Operate ML and agentic systems within one governed execution environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time and batch inference control",
-        "Agent autonomy boundaries and human-in-the-loop oversight",
+        "Real-time inference control",
+        "Human-in-the-loop decision boundaries",
       ],
     },
 
     {
-      label: "AI Fabric: integrate the banking ecosystem without lock-in",
-      intro: "Integration layer across existing banking ecosystems.",
+      label:
+        "Integration across EHR, payer, and operational systems without disruption",
+      intro:
+        "Connect clinical, payer, and operational platforms through governed interfaces.",
       bullets: [
-        "Connect core banking, data platforms, decision engines, and enterprise systems",
-        "Avoid rip-and-replace modernization",
-        "Enable ecosystem expansion without lock-in",
+        "Works with existing healthcare systems and data environments",
+        "Enables modernization without system replacement",
+        "Expands ecosystem without vendor lock-in",
       ],
     },
 
     {
-      label: "Enterprise deployment: run entirely within your environment",
-      intro: "Operate entirely within the bank’s environment.",
+      label:
+        "Enterprise custody of healthcare AI infrastructure and PHI-sensitive assets",
+      intro:
+        "Operate entirely within healthcare environments.",
       bullets: [
         "On-prem, cloud, or hybrid deployment",
-        "Full custody of models, data, artifacts, and IP",
+        "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],
     },

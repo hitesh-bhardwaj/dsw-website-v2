@@ -32,7 +32,7 @@ function AboutCard({ challenge }) {
 }
 
 const Breaks = ({ breaksContent }) => {
-  const { tagline, heading, challenges } = breaksContent;
+  const { tagline, heading, challenges,extra } = breaksContent;
 
   return (
     <section
@@ -43,7 +43,7 @@ const Breaks = ({ breaksContent }) => {
 
         {/* Tagline */}
         <Copy>
-          <p className="text-30">
+          <p className="text-30 w-[70%]">
             {tagline}
           </p>
         </Copy>
@@ -61,6 +61,12 @@ const Breaks = ({ breaksContent }) => {
             <AboutCard key={index} challenge={challenge} />
           ))}
         </div>
+         {extra && (
+          <div
+            className="w-[60%] text-center text-30 fadeup mt-[3vw]"
+            dangerouslySetInnerHTML={{ __html: extra }}
+          />
+        )}
 
       </div>
     </section>

@@ -70,8 +70,8 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Run AI across risk, compliance, operations, and customer engagement as one governed system.",
-  heading: "The Operating Layer for Production AI in Banking",
+  tagline: "Production AI across industrial operations. Controlled, auditable, and operated as one system.",
+  heading: "Run plant, supply chain, and quality intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -86,150 +86,158 @@ const heroContent = {
   paraWidth: "w-[60%]",
   images: false,
   para:
-    "Build, integrate, deploy, govern, and operate AI as a long-running enterprise system - inside your own environment, with full control, auditability, and accountability.",
+    "Operate Manufacturing AI and Agentic AI across shop floor, supply chain, maintenance, and production planning within a governed execution runtime.",
 };
 
 const runtimeContent = {
   heading:
-    "Banking has moved past AI pilots. Now it must operate AI.",
+    "Industrial AI exists on the floor. It is not yet operationalized.",
+
   description:
-    "Most banks have models in production. Few have a system to operate them continuously across lines of business.",
+    "Most manufacturers run AI across predictive maintenance, quality, and planning. Few can operate it continuously across plants, lines, and supply networks.",
+
   items: [
     {
       number: "01",
-      text: "Triggers decisions in real time",
+      text: "Drives production and planning decisions in real time",
     },
     {
       number: "02",
-      text: "Operates inside regulated workflows",
+      text: "Operates inside plant and supply workflows",
     },
     {
       number: "03",
-      text: "Interacts with customers, employees, and systems",
+      text: "Supports engineers, operators, and operations leaders",
     },
     {
       number: "04",
-      text: "Must be governed as it runs - not after deployment",
+      text: "Must be governed during execution, not after deployment",
     },
   ],
-  extra:"<p>Banks are moving from AI programs to <span class='text-primary-blue'>AI operations</span> - where governance, model lifecycle, and execution accountability are built into the runtime.</p>"
 };
 
+
+
 const breaksContent = {
-  tagline:
-    "Banks are moving from isolated AI initiatives to always-on execution across onboarding, credit, fraud, collections, servicing, and regulatory workflows.",
   heading:
-    "Where AI execution breaks inside banks today",
+    "Where manufacturing AI breaks without an operating layer",
+
   challenges: [
     {
       icon: <UnderWriting />,
-      title: "Models sit in silos across risk, fraud, underwriting, and operations",
+      title:
+        "Plant, quality, and supply chain intelligence remain siloed",
     },
     {
       icon: <Claims />,
       title:
-        "Governance exists as review processes, not execution controls",
+        "Governance exists outside operational execution",
     },
     {
       icon: <Focus />,
       title:
-        "Regulatory pressure increases model risk, audit exposure, and change complexity",
+        "OT and IT environments remain fragmented",
     },
     {
       icon: <Nodes />,
       title:
-        "Every new use case becomes a new stack, new vendor, and new cost structure",
+        "Each new use case introduces new tooling and integration complexity",
     },
   ],
-  extra:"<p>Banks don’t struggle to build AI. <br/> They struggle to<span class='text-primary-blue'> operate AI as a system across the enterprise.</span> </p>"
+
+  extra:
+    "<p>Manufacturers are not lacking AI capability. <br/> They are lacking a system to operate it across production environments.</p>",
 };
+
+
 
 const featuresContent = {
   heading:
-    "High-impact Banking Use Cases on the AI Operating System",
+    "Unlimited Manufacturing AI and Agentic AI. One governed runtime.",
 
   cards: [
     {
-      title: "KYC / AML Intelligence and Continuous Monitoring",
+      title: "Predictive Maintenance Operating Inside Production Environments",
       description:
-        "Run onboarding and transaction monitoring as governed, real-time pipelines across customer data, behavioral signals, and alerts.",
+        "Monitor equipment health and predict failures within governed execution workflows.",
       bullets: [
-        "Continuous risk scoring",
-        "Suspicious activity monitoring acceleration",
-        "Audit-ready lineage across models and decisions",
+        "Equipment performance intelligence",
+        "Failure prediction and maintenance prioritization",
+        "Asset lifecycle monitoring",
       ],
     },
 
     {
-      title: "Credit Risk Modeling and Portfolio Scoring",
+      title: "Quality Intelligence Across Production Lines",
       description:
-        "Deploy, monitor, and refresh models across retail, SME, and corporate portfolios.",
+        "Run defect detection and process optimization in real time.",
       bullets: [
-        "Challenger model rollout",
-        "Drift monitoring and performance telemetry",
-        "Controlled promotion to production environments",
+        "Visual quality inspection intelligence",
+        "Process variation detection",
+        "Yield improvement support",
       ],
     },
 
     {
-      title: "Collections Optimization and Delinquency Prediction",
+      title: "Supply Chain Intelligence Operating Across Networks",
       description:
-        "Predict early delinquency, prioritize accounts, and optimize outreach strategies.",
+        "Optimize inventory, logistics, and demand alignment within controlled environments.",
       bullets: [
-        "Policy-aware automation",
-        "Traceable decision pathways",
-        "Reversible workflows across customer engagement actions",
+        "Demand signal intelligence",
+        "Inventory optimization",
+        "Supplier risk monitoring",
       ],
     },
 
     {
-      title:
-        "Agentic Copilots for Relationship Managers, Operations, and Compliance",
+      title: "Production Planning and Operations Optimization",
       description:
-        "Support frontline and operations teams with contextual insights, policy checks, and next-best actions.",
+        "Run AI inside scheduling, throughput, and resource allocation workflows.",
       bullets: [
-        "RM copilots for portfolio insights",
-        "Compliance copilots for policy adherence",
-        "Operations copilots for case workflows",
+        "Production scheduling intelligence",
+        "Throughput optimization",
+        "Capacity planning support",
       ],
     },
 
     {
-      title: "Enterprise GenAI Knowledge Systems for Banking Teams",
+      title: "Agentic Copilots for Plant Engineers and Operations Teams",
       description:
-        "Enable governed enterprise knowledge across policy, product, risk, and operational content.",
+        "Assist teams with governed decision support across production and maintenance.",
       bullets: [
-        "Controlled retrieval and citations",
-        "Role-based access enforcement",
-        "Tool usage governed at runtime",
+        "Plant operations copilots",
+        "Maintenance engineering assist",
+        "Production workflow support",
       ],
     },
   ],
 };
 
 
+
+
 const workflowsContent = {
-  heading: "Unlimited use cases with a single subscription. No more use-case-based cost barrier.",
+  heading: "Industrial workflows expanding without new stacks or vendor sprawl",
   items: [
-    { number: "01", title: "Fraud detection and anomaly monitoring" },
-    { number: "02", title: "Transaction monitoring triage" },
-    { number: "03", title: "Underwriting decision intelligence" },
-    { number: "04", title: "Customer churn prediction and retention" },
+    { number: "01", title: " Energy optimization across facilities" },
+    { number: "02", title: "Digital twin intelligence support" },
+    { number: "03", title: " Safety and compliance monitoring" },
+    { number: "04", title: "Workforce productivity insights" },
   ],
 };
 
 const caseStudyContent = {
-  heading: "Running real-time banking decisions on a unified AI runtime",
+  heading: "Manufacturing AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Castler",
+  company: "Borosil",
   description:
-    "Revolutionizing Document Intelligence for a Leading Indian Fintech Company",
+    "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-banking.png",
+  imgSrc:"/assets/case-studies/case-study-teleco.png",
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/castler.pdf",
+    href: "/assets/case-studies/borosil.pdf",
     type: "pdf",
   },
 };
@@ -238,36 +246,38 @@ const benefitsContent = {
   sectionId: "finacle-outcomes",
 
   heading:
-    "From fragmented AI to an enterprise operating model",
+    "Scale Manufacturing AI without governance gaps, lock-in, or operational fragmentation",
 
   points: [
     {
       id: "01",
       text:
-        "Operate AI across risk, fraud, compliance, and customer workflows as one governed system",
+        "Operate plant, supply chain, and quality intelligence as one governed system",
     },
     {
       id: "02",
       text:
-        "Reduce model deployment friction and governance overhead",
+        "Reduce operational friction across production environments",
     },
     {
       id: "03",
       text:
-        "Scale AI use cases without multiplying vendors or infrastructure",
+        "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
       text:
-        "Improve audit readiness and execution accountability",
+        "Strengthen accountability and operational visibility",
     },
     {
       id: "05",
       text:
-        "Move from fragmented AI adoption to enterprise-wide AI operations",
+        "Move from isolated AI deployments to enterprise-wide industrial AI operations",
     },
   ],
 };
+
+
 
 
 const complianceContent = {
@@ -286,8 +296,8 @@ const complianceContent = {
 };
 
 const ctaContent={
-  heading:"Operate AI as infrastructure inside your Bank ",
-  para:"Experience the DSW Enterprise AI Operating System ",
+  heading:"Operate Manufacturing AI as infrastructure",
+  para:"See how the DSW Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence. ",
   primaryButton:{
     present:true,
     link:"#",
@@ -301,45 +311,53 @@ const ctaContent={
 }
 
 const operationsContent = {
-  heading: "How the Enterprise AI Operating System runs inside your Bank",
+  heading:
+    "Kernel-governed execution across plant, supply chain, and operations",
 
   tabs: [
     {
-      label: "The AI OS Kernel: governance enforced where AI executes",
-      intro: "The governed control plane for AI execution.",
+      label: "Governance enforced where production decisions happen",
+      intro:
+        "Policies operate inside plant and operational workflows.",
       bullets: [
-        "Governance-as-code enforced at runtime",
+        "Governance-as-code at runtime",
         "Policy enforcement across models, agents, and workflows",
-        "Auditability, traceability, and reversibility built into execution",
+        "Auditability, traceability, and reversibility embedded into execution",
       ],
     },
 
     {
-      label: "Governed Runtimes: models and agents operating under policy",
-      intro: "Unified execution across ML and agentic systems.",
+      label:
+        "Unified runtimes across plant, supply, and operational intelligence",
+      intro:
+        "Operate ML and agentic systems within one governed environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time and batch inference control",
-        "Agent autonomy boundaries and human-in-the-loop oversight",
+        "Real-time inference control",
+        "Human-in-the-loop operational boundaries",
       ],
     },
 
     {
-      label: "AI Fabric: integrate the banking ecosystem without lock-in",
-      intro: "Integration layer across existing banking ecosystems.",
+      label:
+        "Integration across OT and enterprise systems without disruption",
+      intro:
+        "Connect plant systems, supply platforms, and enterprise applications through governed interfaces.",
       bullets: [
-        "Connect core banking, data platforms, decision engines, and enterprise systems",
-        "Avoid rip-and-replace modernization",
-        "Enable ecosystem expansion without lock-in",
+        "Works with existing OT and IT environments",
+        "Enables modernization without system replacement",
+        "Expands ecosystem without vendor lock-in",
       ],
     },
 
     {
-      label: "Enterprise deployment: run entirely within your environment",
-      intro: "Operate entirely within the bank’s environment.",
+      label:
+        "Enterprise custody of manufacturing AI infrastructure and assets",
+      intro:
+        "Operate entirely within industrial environments.",
       bullets: [
         "On-prem, cloud, or hybrid deployment",
-        "Full custody of models, data, artifacts, and IP",
+        "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],
     },
