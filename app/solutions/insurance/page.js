@@ -1,6 +1,6 @@
-import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
@@ -14,37 +14,10 @@ import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
-import { WebpageJsonLd } from "@/lib/json-ld";
-import { homepage } from "@/lib/util";
 import React from "react";
 
-export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
-  date_published: "2026-02-18T00:00",
-  date_modified: "2026-02-18T00:00",
-  alternates: {
-    canonical: "/solutions/insurance",
-    languages: {
-      "en-US": "/solutions/insurance",
-    },
-  },
-  openGraph: {
-    url: "insuraince",
-    images: [
-      {
-        url: `${homepage}seo/solutions.png`,
-        width: 1200,
-        height: 630,
-      },
-    ],
-  },
-});
 const Page = () => {
   return (
-    <>
-    <WebpageJsonLd metadata={metadata} />
     <Layout>
       <HeroNew
         heroContent={heroContent}
@@ -58,11 +31,10 @@ const Page = () => {
       <WorkFlows workflowsContent={workflowsContent}/>
       <CaseStudy caseStudyContent={caseStudyContent}/>
       <Operations operationsContent={operationsContent} />
-      <Compliance complianceContent={complianceContent}/>
+     <CertificationsAndAwards certificationsContent={certificationsContent}/>
       <Benefits benefitsContent={benefitsContent}/>
        <CTAFinal ctaContent={ctaContent}/>
     </Layout>
-    </>
   );
 };
 
@@ -176,13 +148,23 @@ const featuresContent = {
       ],
     },
     {
-      title: "Agentic operations across the enterprise",
+      title: "Agentic copilots operating within policy and compliance boundaries",
       description:
-        "Run agentic workflows safely with runtime controls and built-in guardrails.",
+        "Assist underwriters, adjusters, and operations teams with governed autonomy.",
       bullets: [
-        "Tool + action permissions",
-        "Human-in-the-loop approvals",
-        "Continuous audit trails and reversibility",
+        "Underwriter decision assist",
+        "Claims adjuster copilots",
+        "Compliance-aligned operations support",
+      ],
+    },
+    {
+      title: "Enterprise knowledge systems governed at execution",
+      description:
+        "Enable internal GenAI systems with controlled access and runtime governance.",
+      bullets: [
+        "Role-based knowledge retrieval",
+        "Traceable citations",
+        "Tool usage governed at runtime",
       ],
     },
   ],
@@ -192,25 +174,28 @@ const workflowsContent = {
   heading: "More insurance workflows on the AI Operating System",
   items: [
     { number: "01", title: "Policy servicing automation" },
-    { number: "02", title: "Claims intake and triage" },
-    { number: "03", title: "Agent-assisted customer support" },
-    { number: "04", title: "Fraud investigation workflows" },
+    { number: "02", title: "Agent productivity and distribution insights" },
+    { number: "03", title: "Renewal and retention intelligence" },
+    { number: "04", title: "Model risk management and governance workflows" },
   ],
 };
 
 const caseStudyContent = {
   heading: "Insurance AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Borosil",
+  company: "Persistency",
   description:
-    "A leading Indian glassware and consumer products manufacturer transforms logistics with AI-powered fleet analytics.",
-  imageContent: <p>Case Study Image</p>, // Replace with <Image /> later
+    "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
+  imageContent: <p>Case Study Image</p>,
+  imgSrc:"/assets/case-studies/case-study-insurance.png",
   button: {
     present: true,
-    text: "Read More",
-    href: "#",
+    text: "Download Case Study",
+    href: "/assets/case-studies/persistency.pdf",
+    type: "pdf",
   },
 };
+
 
 
 const benefitsContent = {
@@ -218,10 +203,11 @@ const benefitsContent = {
   heading:
     "Scale insurance AI and Agentic AI easily – No governance gaps, vendor lock in, or cost sprawl",
   points: [
-    { id: "01", text: "On-premises environments" },
-    { id: "02", text: "Private data centers" },
-    { id: "03", text: "Private cloud" },
-    { id: "04", text: "Hybrid architectures" },
+    { id: "01", text: "Run underwriting, claims, fraud, and servicing as one governed system" },
+    { id: "02", text: "Reduce operational friction in deploying and managing models" },
+    { id: "03", text: "Scale use cases without multiplying infrastructure and vendors" },
+    { id: "04", text: "Strengthen audit readiness and execution accountability" },
+    { id: "05", text: "Transition from fragmented adoption to enterprise AI operations" },
   ],
 };
 
@@ -297,4 +283,12 @@ const operationsContent = {
       ],
     },
   ],
+};
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };

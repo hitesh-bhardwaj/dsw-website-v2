@@ -12,9 +12,9 @@ const WorkFlows = ({ workflowsContent }) => {
       id="workflows"
     >
       <div className="w-full flex justify-between max-sm:flex-col">
-        <div className="space-y-[2vw] w-[52%]">
+        <div className="space-y-[2vw] w-[52%] max-sm:w-full">
           <HeadingAnim>
-            <h2 className=" text-76 text-[#0A1B4B]">{heading}</h2>
+            <h2 className=" text-76 text-[#0A1B4B] max-sm:text-center! max-sm:w-full">{heading}</h2>
           </HeadingAnim>
           {para && (
             <Copy>
@@ -23,7 +23,7 @@ const WorkFlows = ({ workflowsContent }) => {
           )}
         </div>
 
-        <div className="w-[44.5%] flex flex-col">
+        <div className="w-[44.5%] flex flex-col max-sm:hidden">
           {items.map((item, index) => {
             const isEven = index % 2 === 1; // 2nd, 4th... align right
             return (
@@ -31,7 +31,7 @@ const WorkFlows = ({ workflowsContent }) => {
                 key={index}
                 className={`w-full flex ${isEven ? "justify-end" : "justify-start"}`}
               >
-                <div className="relative w-[20vw] h-[12vw] border border-black/20 p-[1.5vw] flex flex-col justify-between text-30 fadeup">
+                <div className="relative w-[20vw] h-[14vw] border border-black/20 p-[1.5vw] flex flex-col justify-between text-30 fadeup">
                   <CornerDecorations />
                   <p className="text-primary-blue">
                     {item.number ?? String(index + 1).padStart(2, "0")}
@@ -42,6 +42,22 @@ const WorkFlows = ({ workflowsContent }) => {
             );
           })}
         </div>
+        
+
+       <div className="hidden max-sm:flex max-sm:pt-[8vw] max-sm:flex-col max-sm:w-full max-sm:gap-[5vw]">
+  {items.map((item, index) => (
+    <div
+      key={index}
+      className="relative w-full max-sm:h-[42vw] max-sm:py-[7vw] border border-black/20 p-4 flex flex-col justify-between text-30 fadeup"
+    >
+      <CornerDecorations />
+      <p className="text-primary-blue">
+        {item.number ?? String(index + 1).padStart(2, "0")}
+      </p>
+      <p>{item.title}</p>
+    </div>
+  ))}
+</div>
       </div>
     </section>
   );

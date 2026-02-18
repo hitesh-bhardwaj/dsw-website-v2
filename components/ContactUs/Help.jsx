@@ -9,7 +9,7 @@ const helpCards = [
     title: "Book a Demo",
     description:
       "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation",
-    buttonText: "Book a Demo",
+    buttonText: "Select the Slot",
     href: "#contact-form",
     target: "_self",
   },
@@ -18,7 +18,7 @@ const helpCards = [
     title: "Contact Sales",
     description:
       "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation",
-    buttonText: "Contact Sales",
+    buttonText: "Talk to our Team",
     href: "#contact-form",
     target: "_self",
   },
@@ -44,7 +44,7 @@ const Help = () => {
           How can we help you?
         </h2>
       </HeadingAnim>
-      <div className="flex flex-wrap fadeup space-y-[2vw] justify-between items-center w-full max-md:gap-[4vw] max-sm:gap-[8vw] pt-[5vw] max-md:flex-col max-md:pt-0">
+      <div className="flex flex-wrap fadeup justify-center gap-[3vw] items-center w-full max-md:gap-[4vw] max-sm:gap-[8vw] pt-[5vw] max-md:flex-col max-md:pt-0">
         {helpCards.map((card) => (
           <div
             key={card.id}

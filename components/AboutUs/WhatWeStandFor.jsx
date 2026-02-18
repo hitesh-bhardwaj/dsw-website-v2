@@ -219,7 +219,7 @@ export default function WhatWeStandFor() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full space-y-[7vw] py-[7%] px-[5vw] max-sm:px-[6vw] max-sm:py-[20%]"
+            className="relative w-full space-y-[7vw] pb-[7%] px-[5vw] max-sm:px-[6vw] max-sm:py-[20%]"
         >
             {/* Heading */}
             <div className="text-center max-sm:text-left max-sm:mb-[10vw]">

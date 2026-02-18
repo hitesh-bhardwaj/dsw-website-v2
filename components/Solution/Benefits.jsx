@@ -70,7 +70,7 @@ export default function Benefits({ benefitsContent }) {
           </HeadingAnim>
         </div>
 
-        <div className="w-[40%] flex flex-col gap-[3vw] max-md:w-full max-md:gap-[7vw] max-sm:gap-[10vw]">
+        <div className="w-[50%] flex flex-col gap-[3vw] max-md:w-full max-md:gap-[7vw] max-sm:gap-[10vw]">
           {points.map((p, idx) => (
             <div key={p.id ?? idx} className="w-full flex gap-[3.2vw] items-center about-item">
               <div className="w-[15%] relative max-md:w-[30%]">
@@ -81,7 +81,7 @@ export default function Benefits({ benefitsContent }) {
                 </div>
               </div>
 
-              <p className={`text-44 w-full font-light text-[#0A1B4B] ${p.className ?? ""}`}>
+              <p className={`text-30 w-full text-[#0A1B4B] ${p.className ?? ""}`}>
                 {p.text}
               </p>
             </div>
