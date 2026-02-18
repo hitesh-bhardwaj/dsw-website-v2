@@ -19,7 +19,7 @@ const NAV_LINKS = [
   {
     id: "technology",
     label: "Technology",
-    href: "/#",
+    href: "#",
     drop: true,
     children: [
       { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
@@ -30,7 +30,7 @@ const NAV_LINKS = [
   {
     id: "solutions",
     label: "Solutions",
-    href: "/#",
+    href: "#",
     drop: true,
     children: [
       { id: "sol-1", label: "Insurance", href: "/solutions/insurance" },
@@ -49,7 +49,7 @@ const NAV_LINKS = [
   {
     id: "resources",
     label: "Resources",
-    href: "/#",
+    href: "#",
     drop: true,
     children: [
       { id: "res-1", label: "Case Studies", href: "#" },
