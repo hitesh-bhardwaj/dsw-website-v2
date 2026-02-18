@@ -226,7 +226,6 @@ const  WaveGridCanvas = ({
 
       verticesRef.current = vertices;
     };
-
     // ===== Direct deformation (NO elastic / NO spring) =====
     const updateVertexPhysics = () => {
       const vertices = verticesRef.current;

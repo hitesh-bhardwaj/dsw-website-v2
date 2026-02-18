@@ -9,7 +9,7 @@ import React, { useRef, useEffect } from "react";
  *  - "bottomBoth" (V-shape)
  */
 const WaveGridCanvas = ({
-  variant = "bottomBoth",
+  variant = "default",
 
   // ===== Wave params =====
   HOVER_ALPHA_BOOST = 4.1,

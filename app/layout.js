@@ -1,6 +1,7 @@
 import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { neueMontreal, aspekta } from "./fonts";
 import "./globals.css";
+import LayoutTransition from "@/components/LayoutTransition";
 
 export const metadata = {
   title: "DSW - Enterprise AI Operating System",
@@ -9,15 +10,17 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
+     <html lang="en" className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
+      <body >
     <LenisSmoothScroll>
-    <html lang="en"  className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
-
-      <body
-        // className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}
-      >
+<LayoutTransition>
+     <main data-lenis-root id="main-content">
         {children}
-      </body>
-    </html>
+      </main>
+      </LayoutTransition>
+   
     </LenisSmoothScroll>
+    </body>
+     </html>
   );
 }
