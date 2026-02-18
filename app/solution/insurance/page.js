@@ -1,3 +1,4 @@
+import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
@@ -28,9 +29,10 @@ const Page = () => {
       <Features featuresContent={featuresContent} />
       <WorkFlows workflowsContent={workflowsContent}/>
       <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations/>
+      <Operations operationsContent={operationsContent} />
       <Compliance complianceContent={complianceContent}/>
       <Benefits benefitsContent={benefitsContent}/>
+       <CTAFinal ctaContent={ctaContent}/>
     </Layout>
   );
 };
@@ -207,4 +209,61 @@ const complianceContent = {
   ],
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};
+
+const ctaContent={
+  heading:"Operate insurance AI as enterprise infrastructure  ",
+  para:"See how the DSW Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
+  primaryButton:{
+    present:true,
+    link:"#",
+    text:"Book a Demo"
+  },
+  secondaryButton:{
+    present:true,
+    link:"#",
+    text:"Schedule a Call"
+  },
+}
+
+const operationsContent = {
+  heading: "Kernel-governed execution across underwriting, claims, and operations",
+  tabs: [
+    {
+      label: "Governance enforced where AI runs",
+      intro: "Policies execute inside workflows, not outside them.",
+      bullets: [
+        "Governance-as-code at runtime",
+        "Policy enforcement across models, agents, and workflows",
+        "Auditability, traceability, and reversibility embedded into execution",
+      ],
+    },
+    {
+      label: "Unified runtimes for models and agentic systems",
+      intro: "Operate ML and agentic execution within one controlled environment.",
+      bullets: [
+        "Model lifecycle governance",
+        "Real-time and batch inference control",
+        "Human-in-the-loop boundaries",
+      ],
+    },
+    {
+      label: "Integration without replacing core insurance platforms",
+      intro: "Connect policy, claims, and data ecosystems through governed interfaces.",
+      bullets: [
+        "Works with core systems and decision engines",
+        "Enables modernization without disruption",
+        "Expands ecosystem without vendor lock-in",
+      ],
+    },
+    {
+      label: "Full enterprise custody of AI infrastructure and assets",
+      intro: "Operate entirely within your environment with ownership intact.",
+      bullets: [
+        "On-prem, cloud, or hybrid",
+        "Full custody of data, models, and IP",
+        "No outbound learning or forced SaaS dependency",
+      ],
+    },
+  ],
 };
