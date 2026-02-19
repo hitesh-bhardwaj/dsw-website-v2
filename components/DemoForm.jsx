@@ -108,49 +108,49 @@ export default function DemoForm() {
   }, [verifyEmail]);
 
   const downloadPdf = async (url, fileName) => {
-  // Always normalize to an absolute same-origin URL.
-  const absoluteUrl = new URL(url, window.location.origin).href;
-  const name = fileName || absoluteUrl.split("/").pop() || "download.pdf";
+    // Always normalize to an absolute same-origin URL.
+    const absoluteUrl = new URL(url, window.location.origin).href;
+    const name = fileName || absoluteUrl.split("/").pop() || "download.pdf";
 
-  // 1) Best path: rely on browser to download static asset.
-  try {
-    const a = document.createElement("a");
-    a.style.display = "none";
-    a.href = absoluteUrl;
-    a.setAttribute("download", name); // same-origin works well
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    return; // success (or at least we asked nicely)
-  } catch (e) {
-    // continue to next fallback
-    console.warn("Direct anchor download failed, trying blob:", e);
-  }
+    // 1) Best path: rely on browser to download static asset.
+    try {
+      const a = document.createElement("a");
+      a.style.display = "none";
+      a.href = absoluteUrl;
+      a.setAttribute("download", name); // same-origin works well
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      return; // success (or at least we asked nicely)
+    } catch (e) {
+      // continue to next fallback
+      console.warn("Direct anchor download failed, trying blob:", e);
+    }
 
-  // 2) Fallback: blob download (some Safari versions don’t fully support)
-  try {
-    const res = await fetch(absoluteUrl, { credentials: "same-origin" });
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const blob = await res.blob();
-    const href = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.style.display = "none";
-    a.href = href;
-    a.setAttribute("download", name);
-    a.rel = "noopener";
-    document.body.appendChild(a);
-    a.click();
-    a.remove();
-    URL.revokeObjectURL(href);
-    return;
-  } catch (e) {
-    console.warn("Blob download failed, opening in new tab:", e);
-  }
+    // 2) Fallback: blob download (some Safari versions don’t fully support)
+    try {
+      const res = await fetch(absoluteUrl, { credentials: "same-origin" });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const blob = await res.blob();
+      const href = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.style.display = "none";
+      a.href = href;
+      a.setAttribute("download", name);
+      a.rel = "noopener";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(href);
+      return;
+    } catch (e) {
+      console.warn("Blob download failed, opening in new tab:", e);
+    }
 
-  // 3) Last resort (iOS/Safari etc.): open the PDF; user can save/share.
-  window.open(absoluteUrl, "_blank", "noopener");
-};
+    // 3) Last resort (iOS/Safari etc.): open the PDF; user can save/share.
+    window.open(absoluteUrl, "_blank", "noopener");
+  };
 
   const onSubmit = async (data) => {
     // If email hasn't been verified yet, verify it now
@@ -245,84 +245,84 @@ export default function DemoForm() {
                 onSubmit={handleSubmit(onSubmit)}
               >
                 <div className="formfade">
-                <FormField name="name" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <Input placeholder="Name*" autoComplete="off" {...field}
-                      className="placeholder:text-[1.05vw] pl-[2vw] bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
-                  </FormControl><FormMessage /></FormItem>
-                )} />
+                  <FormField name="name" control={control} render={({ field }) => (
+                    <FormItem><FormControl>
+                      <Input placeholder="Name*" autoComplete="off" {...field}
+                        className="placeholder:text-[1.05vw] pl-[2vw] bg-white/50 max-md:py-6 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
+                    </FormControl><FormMessage /></FormItem>
+                  )} />
 
                 </div>
                 <div className="formfade">
 
-                <FormField name="email" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <div className="relative">
-                      <Input
-                        placeholder="Business Email*"
-                        autoComplete="off"
-                        {...field}
-                        onBlur={(e) => {
-                          field.onBlur();
-                          handleEmailBlur(e.target.value);
-                        }}
-                        className="placeholder:text-[1.05vw] pl-[2vw] bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]"
-                      />
-                      {emailVerifying && (
-                        <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#e8e8e8] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
-                          Verifying...
-                        </span>
-                      )}
+                  <FormField name="email" control={control} render={({ field }) => (
+                    <FormItem><FormControl>
+                      <div className="relative">
+                        <Input
+                          placeholder="Business Email*"
+                          autoComplete="off"
+                          {...field}
+                          onBlur={(e) => {
+                            field.onBlur();
+                            handleEmailBlur(e.target.value);
+                          }}
+                          className="placeholder:text-[1.05vw] pl-[2vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]"
+                        />
+                        {emailVerifying && (
+                          <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#e8e8e8] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
+                            Verifying...
+                          </span>
+                        )}
+                      </div>
+                    </FormControl><FormMessage /></FormItem>
+                  )} />
+                </div>
+
+                <div className="formfade">
+
+                  <FormField name="designation" control={control} render={({ field }) => (
+                    <FormItem><FormControl>
+                      <Input placeholder="Designation*" autoComplete="off" {...field}
+                        className="placeholder:text-[1.05vw] pl-[2vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
+                    </FormControl><FormMessage /></FormItem>
+                  )} />
+                </div>
+
+                <div className="formfade">
+
+                  <FormField name="company" control={control} render={({ field }) => (
+                    <FormItem><FormControl>
+                      <Input placeholder="Company Name*" autoComplete="off" {...field}
+                        className="placeholder:text-[1.05vw] pl-[2vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
+                    </FormControl><FormMessage /></FormItem>
+                  )} />
+                </div>
+
+                <div className="formfade">
+
+                  <FormField name="number" control={control} render={({ field }) => (
+                    <FormItem><FormControl>
+                      <PhoneInput placeholder="Phone Number*" autoComplete="off" defaultCountry="IN" international {...field}
+                        className="placeholder:text-[1.05vw]  placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone" />
+                    </FormControl><FormMessage /></FormItem>
+                  )} />
+                </div>
+                <div className="formfade">
+                  <Button
+                    type="submit"
+                    aria-label="submit form"
+                    className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw]"
+                  >
+                    <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                      <span className="text-24 text-white block z-[1] mt-[2vw] max-md:mt-0">
+                        {isLoading ? "Sending..." : "Submit"}
+                      </span>
+                      <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />
                     </div>
-                  </FormControl><FormMessage /></FormItem>
-                )} />
+
+                  </Button>
+
                 </div>
-
-                <div className="formfade">
-
-                <FormField name="designation" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <Input placeholder="Designation*" autoComplete="off" {...field}
-                      className="placeholder:text-[1.05vw] pl-[2vw] bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-                </div>
-
-                <div className="formfade">
-
-                <FormField name="company" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <Input placeholder="Company Name*" autoComplete="off" {...field}
-                      className="placeholder:text-[1.05vw] pl-[2vw] bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
-                  </FormControl><FormMessage/></FormItem>
-                )} />
-                </div>
-
-                <div className="formfade">
-
-                <FormField name="number" control={control}  render={({ field }) => (
-                  <FormItem><FormControl>
-                    <PhoneInput placeholder="Phone Number*" autoComplete="off" defaultCountry="IN" international {...field}
-                      className="placeholder:text-[1.05vw] placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone" />
-                  </FormControl><FormMessage /></FormItem>
-                )} />
-                </div>
-               <div className="formfade">
-                <Button
-  type="submit"
-  aria-label="submit form"
-  className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw]"
->
-  <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw]">
-    <span className="text-24 text-white block z-[1] mt-[2vw] max-md:mt-0">
-      {isLoading ? "Sending..." : "Submit"}
-    </span>
-    <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />
-  </div>
-
-</Button>
-
-               </div>
               </form>
             </Form>
           </div>
