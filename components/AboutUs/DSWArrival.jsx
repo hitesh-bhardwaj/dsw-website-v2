@@ -22,7 +22,7 @@ const CARD_DATA = [
 function Card({ id, title}) {
     return (
         <div
-            className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw] w-[22.5vw] h-[22.5vw] overflow-hidden border-b-[0.4vw] border-primary-blue flex flex-col justify-between max-sm:w-full max-sm:h-[100vw] max-sm:border-b-[1.7vw] max-sm:justify-between max-sm:py-[7vw] max-sm:pb-[15vw] max-sm:px-[4vw]"
+            className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw]   w-[22.5vw] h-[22.5vw] overflow-hidden border-b-[0.4vw] border-primary-blue flex flex-col justify-between max-sm:w-full max-sm:h-[70vw] max-sm:border-b-[1.7vw] max-sm:justify-between max-sm:py-[7vw] max-sm:pb-[0.5vw] max-sm:px-[4vw]"
         >
             {/* Header */}
             <div className="flex justify-end items-end mb-[2vw] max-sm:pr-[3vw]">
@@ -30,8 +30,8 @@ function Card({ id, title}) {
                     {id}
                 </p>
             </div>
-            <div className="space-y-[3vw] flex flex-col items-start justify-start self-start">
-                <h2 className="text-30 max-sm:text-[6vw] h-20 ">
+            <div className="space-y-[3vw] flex flex-col items-start max-sm:items-end justify-start self-start max-sm:justify-end">
+                <h2 className="text-30  h-20 ">
                     {title}
                 </h2>
             </div>
@@ -41,20 +41,20 @@ function Card({ id, title}) {
 
 const DSWArrival = () => {
     return (
-        <div className="py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white space-y-[2vw] max-sm:space-y-[15vw]">
+        <div className="py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white space-y-[2vw] max-sm:space-y-[12vw]">
             <HeadingAnim>
-                <h2 className="text-56 mx-auto w-fit max-sm:text-center max-sm:w-[90%] leading-[1.2] text-[#0A1B4B]">
-                    How DSW arrived here
+                <h2 className="text-56 mx-auto max-sm:text-[8vw] w-fit max-sm:text-center max-sm:w-full leading-[1.2] text-[#0A1B4B]">
+                    How DSW Arrived here
                 </h2>
             </HeadingAnim>
 
             <Copy>
-                <p className="text-30 w-[70%] text-center font-sans leading-[1.4] text-foreground mx-auto">DSW started with hands-on enterprise AI work - building models, deploying use cases, and
+                <p className="text-30 w-[70%] max-sm:w-full text-center font-sans leading-[1.4] text-foreground mx-auto">DSW started with hands-on enterprise AI work - building models, deploying use cases, and
                     driving outcomes.
                     But across organizations, the same pattern kept repeating</p>
             </Copy>
 
-            <div className="flex justify-center gap-[5vw]  max-sm:flex-col max-sm:justify-center max-sm:items-center max-sm:gap-[8vw] p-[4vw] max-sm:p-0">
+            <div className="flex justify-center gap-[5vw]  max-sm:flex-col max-sm:justify-center max-sm:items-center max-sm:gap-[8vw] p-[4vw] max-sm:p-0 ">
                 {CARD_DATA.map((card) => (
                     <Card key={card.id} {...card} />
                 ))}
