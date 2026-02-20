@@ -206,8 +206,8 @@ export default function Diagram() {
 
   return (
     <section ref={sectionRef} className="w-full h-fit">
-      <div className="h-[500vh] max-sm:h-[520vh]">
-        <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-[0vw] h-screen sticky top-[7%] max-sm:overflow-hidden max-sm:top-[3%]">
+      <div className="h-[240vw] max-sm:h-[520vh]">
+        <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-[0vw] h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%]">
           {/* LEFT */}
           <div className="w-[40%] max-sm:w-full pt-[10vw] relative">
             <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw]">
@@ -247,12 +247,12 @@ export default function Diagram() {
           </div>
 
           {/* RIGHT */}
-          <div className="w-[50%] h-[48vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%]">
+          <div className="w-[50%] h-[42vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%]">
             {DESC_STEPS.map((step, i) => (
               <div
                 key={i}
                 ref={(el) => (layerRefs.current[i] = el)}
-                className="w-[45vw] h-auto absolute right-0 max-sm:w-full"
+                className="w-[42vw] h-auto absolute right-0 max-sm:w-full"
                 style={{ top: step.layerTop, zIndex: step.z }}
               >
                 <Image

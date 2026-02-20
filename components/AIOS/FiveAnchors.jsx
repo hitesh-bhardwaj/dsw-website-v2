@@ -108,7 +108,7 @@ const FiveAnchors = ({
       {/* Heading */}
       <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
         <HeadingAnim>
-          <h2 className="text-76 text-foreground">
+          <h2 className="text-76 text-[#0A1B4B]">
             The Five Timeless Anchors of the Enterprise AI Operating System
           </h2>
         </HeadingAnim>
@@ -129,13 +129,13 @@ const FiveAnchors = ({
 
         {/* Top - Continuous Adaption */}
         <div className="absolute top-[4%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-[0.8vw] z-10">
-          <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
-            <div className="absolute inset-[20%] aspect-square">
+          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
+            <div className="absolute inset-[20%]">
               <Image
-                src="/assets/icons/aios/anchors/continuous-adaption.svg"
+                src="/assets/icons/aios/anchors/continous-adaption-new.svg"
                 alt="Continuous Adaption"
                 fill
-                className="object-contain aspect-square"
+                className="object-contain"
               />
             </div>
           </div>
@@ -146,10 +146,10 @@ const FiveAnchors = ({
 
         {/* Right - Data Sovereignty */}
         <div className="absolute top-[35%] right-0 flex flex-col items-center gap-[0.8vw] z-10 max-sm:right-[-3%]">
-          <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
+          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
-                src="/assets/icons/aios/anchors/data-sovereignty.svg"
+                src="/assets/icons/aios/anchors/data-sovereignty-new.svg"
                 alt="Data Sovereignty"
                 fill
                 className="object-contain"
@@ -163,7 +163,7 @@ const FiveAnchors = ({
 
         {/* Bottom Right - Human Centric */}
         <div className="absolute bottom-[5%] right-[15%] flex flex-col items-center gap-[0.8vw] z-10 max-sm:bottom-[-2%]">
-          <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
+          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
                 src="/assets/icons/aios/anchors/human-centric.svg"
@@ -180,10 +180,10 @@ const FiveAnchors = ({
 
         {/* Bottom Left - Strategic Flexibility */}
         <div className="absolute bottom-[5%] left-[15%] flex flex-col items-center gap-[0.8vw] z-10 max-sm:bottom-[-3%]">
-          <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
+          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
-                src="/assets/icons/aios/anchors/strategic-flexibility-1.svg"
+                src="/assets/icons/aios/anchors/startegic-flexibility.svg"
                 alt="Strategic Flexibility"
                 fill
                 className="object-contain"
@@ -197,10 +197,10 @@ const FiveAnchors = ({
 
         {/* Left - Adaption Reality */}
         <div className="absolute top-[35%] left-0 flex flex-col items-center gap-[0.8vw] z-10 max-sm:left-[-2%]">
-          <div className="w-[6vw] h-[6vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
+          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
             <div className="absolute inset-[20%]">
               <Image
-                src="/assets/icons/aios/anchors/adaption-reality.svg"
+                src="/assets/icons/aios/anchors/adoption-reality-new.svg"
                 alt="Adaption Reality"
                 fill
                 className="object-contain"

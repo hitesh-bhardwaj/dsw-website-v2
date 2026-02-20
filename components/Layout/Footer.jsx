@@ -72,73 +72,99 @@ function AnimatedFooterLink({ href = "#", children, ...props }) {
 
 export default function FooterNew() {
   const socialLinks = [
-    { name: "LinkedIn", icon: <LinkedIn />, url: "https://www.linkedin.com/company/data-science-wizards/" },
-    { name: "Instagram", icon: <Insta />, url: "https://www.instagram.com/datasciencewizards/" },
-    { name: "Facebook", icon: <Facebook />, url: "https://www.facebook.com/datasciencewizards/" },
+    {
+      name: "LinkedIn",
+      icon: <LinkedIn />,
+      url: "https://www.linkedin.com/company/data-science-wizards/",
+    },
+    {
+      name: "Instagram",
+      icon: <Insta />,
+      url: "https://www.instagram.com/datasciencewizards/",
+    },
+    {
+      name: "Facebook",
+      icon: <Facebook />,
+      url: "https://www.facebook.com/datasciencewizards/",
+    },
     { name: "X", icon: <Twitter />, url: "https://x.com/dswizards" },
-    { name: "YouTube", icon: <Youtube />, url: "https://www.youtube.com/@DataScienceWizards" },
+    {
+      name: "YouTube",
+      icon: <Youtube />,
+      url: "https://www.youtube.com/@DataScienceWizards",
+    },
   ];
 
   const navigationLinks = [
     {
       title: "Technology",
       link: "/aios-technical",
-      id: "technology"
+      id: "technology",
     },
     {
       title: "Solutions",
       link: "/solutions/insurance",
-      id: "solutions"
+      id: "solutions",
     },
     {
       title: "Case Studies",
       link: "#",
-      id: "case-studies"
+      id: "case-studies",
     },
     {
       title: "Resources",
       link: "/blogs",
-      id: "resources"
-    }
+      id: "resources",
+    },
   ];
 
   const companyLinks = [
     {
       title: "About Us",
       link: "/about",
-      id: "about"
+      id: "about",
     },
     {
       title: "Contact Us",
       link: "/contact-us",
-      id: "contact"
+      id: "contact",
     },
     {
       title: "Privacy Policy",
       link: "/privacy-policy",
-      id: "privacy-policy"
+      id: "privacy-policy",
     },
     {
       title: "Terms & Conditions",
       link: "/terms-and-conditions",
-      id: "terms-and-conditions"
+      id: "terms-and-conditions",
     },
     {
       title: "Join Community",
       link: "https://chat.whatsapp.com/4UJBjd1ZjV3JcXWCgYqqRH",
-      id: "join-community"
-    }
+      id: "join-community",
+    },
   ];
 
   return (
-    <footer className="relative w-full bg-white pt-[8.2vw] pb-[4vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]" id="footer">
+    <footer
+      className="relative w-full bg-white pt-[8.2vw] pb-[4vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]"
+      id="footer"
+    >
       {/* Background Gradient */}
       <div className="w-screen h-full">
         <FooterWave />
       </div>
 
       <div className="max-sm:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
-        <Image src="/assets/footer-bg.png" width={500} loading="lazy" height={700} className="h-auto w-full" alt="footer-bg"  />
+        <Image
+          src="/assets/footer-bg.png"
+          width={500}
+          loading="lazy"
+          height={700}
+          className="h-auto w-full"
+          alt="footer-bg"
+        />
       </div>
 
       {/* Content */}
@@ -166,9 +192,7 @@ export default function FooterNew() {
                     href="mailto:Contact@datasciencewizards.ai"
                     className="block text-24 max-sm:text-[5vw] under-multi"
                   >
-
                     contact@datasciencewizards.ai
-
                   </Link>
                 </div>
 
@@ -219,7 +243,9 @@ export default function FooterNew() {
               <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((item, id) => (
                   <li key={id}>
-                    <AnimatedFooterLink href={item.link}>{item.title}</AnimatedFooterLink>
+                    <AnimatedFooterLink href={item.link}>
+                      {item.title}
+                    </AnimatedFooterLink>
                   </li>
                 ))}
               </ul>
@@ -235,11 +261,12 @@ export default function FooterNew() {
                   <li key={id}>
                     <AnimatedFooterLink
                       href={item.link}
-                      {...(item.id === "join-community" ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                      {...(item.id === "join-community"
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
                     >
                       {item.title}
                     </AnimatedFooterLink>
-
                   </li>
                 ))}
               </ul>
@@ -247,22 +274,25 @@ export default function FooterNew() {
 
             {/* Newsletter */}
             <div className="w-[45%] relative max-sm:w-full">
-              <div className="w-full h-[0.1px] bg-black absolute bottom-24 max-sm:bottom-18" />
               <p className="text-24 font-sans tracking-[0.025vw] mb-[3vw]">
                 Subscribe to our newsletter for the latest tech insights and
                 updates.
               </p>
-              <div className="relative flex mt-[2vw] gap-[2vw] max-sm:flex-col max-sm:gap-[10vw]">
-                <input
-                  type="email"
-                  placeholder="Enter Your Email"
-                  className="w-full bg-transparent text-20 font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
-                />
-                <button
-                  className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto bg-[#F16B0D]"
-                >
-                  Subscribe
-                </button>
+
+              <div className="space-y-[0.5vw]">
+                <div className="relative flex mt-[2vw] gap-[2vw] max-sm:flex-col max-sm:gap-[2vw]">
+                  <input
+                    type="email"
+                    placeholder="Enter Your Email"
+                    className="w-full bg-transparent text-20 font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
+                  />
+                  <div className="w-full h-[0.1px] bg-black hidden max-md:block max-md:mb-[2vw]" />
+
+                  <button className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto bg-[#F16B0D]">
+                    Subscribe
+                  </button>
+                </div>
+                <div className="w-full h-[0.1px] bg-black max-md:hidden" />
               </div>
             </div>
           </div>

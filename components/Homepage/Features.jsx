@@ -12,8 +12,8 @@ const Features = () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: "#features",
-          start: "25% top",
-          end: "37% top",
+          start: "28% top",
+          end: "43% top",
           scrub: true,
           // markers:true
         },
@@ -35,7 +35,7 @@ const Features = () => {
 
   return (
     <section className="w-full  relative space-y-[5vw] z-[4]" id="features">
-      <div className="w-fit h-[240vh] flex flex-col justify-between feature-card-container">
+      <div className="w-fit h-[150vw] flex flex-col justify-between feature-card-container">
         {FEATURES.map((feature, id) => (
           <div
             key={feature.id}

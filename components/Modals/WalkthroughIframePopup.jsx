@@ -56,7 +56,7 @@ const WalkthroughIframePopup = () => {
   return (
     <section
       id="walkthrough-iframe-popup"
-      className="w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/30"
+      className="w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/10"
     >
       <div
         data-lenis-prevent

@@ -9,7 +9,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
 
   return (
     <section
-      className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[5%] pb-[12%] max-sm:px-[7vw] max-sm:py-[15%]"
       id={sectionId}
     >
       <div className="w-full h-full gap-y-[2vw] flex flex-col items-center text-center">

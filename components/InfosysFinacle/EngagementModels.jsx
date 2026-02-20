@@ -33,7 +33,7 @@ const CARD_DATA = [
 function AgenticCard({ id, title, description }) {
     return (
         <div
-            className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw] w-[27.5vw] h-[30.5vw] overflow-hidden border-b-[0.4vw] border-primary-blue flex flex-col justify-between max-sm:w-full max-sm:h-[100vw] max-sm:border-b-[1.7vw] max-sm:justify-between max-sm:py-[7vw] max-sm:pb-[15vw] max-sm:px-[4vw]"
+            className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw] w-[25.5vw] h-[29.5vw] overflow-hidden border-b-[0.4vw] border-primary-blue flex flex-col gap-[4vw] max-sm:w-full max-sm:h-[100vw] max-sm:border-b-[1.7vw] max-sm:justify-between max-sm:py-[7vw] max-sm:pb-[15vw] max-sm:px-[4vw]"
         >
             {/* Header */}
             <div className="flex justify-end items-end mb-[2vw] max-sm:pr-[3vw]">
@@ -43,7 +43,7 @@ function AgenticCard({ id, title, description }) {
                 </p>
             </div>
            <div className="space-y-[3vw] flex flex-col items-start justify-start self-start">
-    <h2 className="text-32 font-medium max-sm:text-[6vw] w-1/2">
+    <h2 className="text-32 font-medium max-sm:text-[6vw] w-[80%]">
         {title}
     </h2>
     {/* Description */}
@@ -64,7 +64,7 @@ const EngagementModels = () => {
                 </h2>
             </HeadingAnim>
 
-            <div className="flex max-sm:flex-col max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw] max-sm:p-0">
+            <div className="w-[90%] mx-auto flex max-sm:flex-col max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw] max-sm:p-0 max-md:w-full">
                 {CARD_DATA.map((card) => (
                     <AgenticCard key={card.id} {...card} />
                 ))}

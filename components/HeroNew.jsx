@@ -240,6 +240,28 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
             </Copy>
           </div>
         )}
+         <div className="herofadeup">
+          {heroContent.images && (
+            <div className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15">
+              <Image
+                src="/assets/infosys-finacle/infosys-finacle.png"
+                alt="infosys-finacle"
+                className="w-[8vw] max-sm:w-[25vw] h-auto max-md:w-[18vw]"
+                width={297}
+                height={46}
+                priority
+              />
+              <Image
+                src="/dsw-logo.svg"
+                alt="dsw"
+                className="w-[13vw] mt-[2vw] max-sm:w-[42vw] max-sm:mt-[5vw] h-auto max-md:w-[18vw]"
+                width={297}
+                height={46}
+                priority
+              />
+            </div>
+          )}
+        </div>
 
         {breadcrumbs && <BreadCrumbs />}
 

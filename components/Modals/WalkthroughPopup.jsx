@@ -55,7 +55,7 @@ const WalkthroughPopup = () => {
   return (
     <section
       id="walkthrough-popup"
-      className={`w-full h-full fixed inset-0 z-999 flex justify-center bg-black/50 items-center duration-500 ${modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`w-full h-full fixed inset-0 z-999 flex justify-center bg-black/10 backdrop-blur-lg items-center duration-500 ${modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
     >
       {/* Popup Card */}
@@ -92,19 +92,24 @@ const WalkthroughPopup = () => {
         onClick={handleClose}
       />
 
-      <div className="absolute top-[5vw] right-[6vw] z-20 max-md:top-[3vw] max-md:right-[3vw] max-sm:top-[4vw] max-sm:right-[4vw]">
-        <div
+      <div className="absolute top-[3%] right-[3%] z-20 max-md:top-[3vw] max-md:right-[3vw] max-sm:top-[4vw] max-sm:right-[4vw]">
+         <div
           onClick={handleClose}
-          className="h-auto group rounded-full p-[1vw] transition-all ease-out max-sm:p-[4vw] max-md:p-[2.5vw] bg-primary cursor-pointer hover:scale-95 duration-300"
+          className={` h-auto group  max-sm:w-[12vw] rounded-full   p-[2vw]  transition-all  ease-out max-sm:p-[6vw]  bg-primary cursor-pointer max-md:p-[4vw] `}
         >
           <div
             style={{
               transitionTimingFunction: "cubic-bezier(0.625, 0.05, 0, 1)",
             }}
-            className="relative w-[1.2vw] h-[1.2vw] max-sm:w-[4vw] max-sm:h-[4vw] max-md:w-[2.5vw] max-md:h-[2.5vw] rotate-45 group-hover:rotate-225deg duration-700"
+            className="rotate-45 group-hover:rotate-225 duration-700"
           >
-            <span className="w-full rounded-full h-[2px] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90" />
-            <span className="w-full rounded-full h-[2px] bg-white absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+            <span
+              className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] rotate-90 max-md:w-[3vw]`}
+            ></span>
+
+            <span
+              className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] max-md:w-[3vw]`}
+            ></span>
           </div>
         </div>
       </div>

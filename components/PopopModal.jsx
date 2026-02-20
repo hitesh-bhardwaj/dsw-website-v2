@@ -89,7 +89,7 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
       <div className="formfade absolute top-[3%] right-[3%] max-md:top-[2.5%] max-sm:right-[4%] max-md:right-[2.5%] opacity-100">
         <div
           onClick={handleClose}
-          className={` h-auto group  max-sm:w-[12vw] rounded-full   p-[2vw]  transition-all  ease-out max-sm:p-[6vw]  bg-gradient-to-br from-[#F16B0D] to-[#E61216] cursor-pointer max-md:p-[4vw] `}
+          className={` h-auto group  max-sm:w-[12vw] rounded-full   p-[2vw]  transition-all  ease-out max-sm:p-[6vw]  bg-primary cursor-pointer max-md:p-[4vw] `}
         >
           <div
             style={{

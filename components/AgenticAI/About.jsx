@@ -35,9 +35,11 @@ export default function AgenticAbout() {
   return (
     <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] z-2">
       {/* <Copy>  */}
-      <div className="mx-auto text-center w-[78%] max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw]">
-        <SectionBreak content={" Built on the proven DSW Enterprise AI OS and UnifyAI Kernel, the AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises."} />
-        <SectionBreak content={" Production-grade AgenticAI runtime is purpose-built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence."} />
+      <div className="mx-auto text-center w-[70%] max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw]">
+        <h2 className=" text-center text-76 text-[#0A1B4B]">
+          Built on proven DSW Enterprise AI OS and UnifyAI Kernel
+        </h2>
+      <p className="text-24">The AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises. Production-grade AgenticAI runtime is purpose-built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence.</p>
       </div>
       {/* </Copy> */}
 
