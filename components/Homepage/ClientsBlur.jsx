@@ -103,7 +103,7 @@ export default function ClientsBlur() {
       >
         <div className="sticky w-full top-0 h-screen flex items-center justify-center">
           <HeadingAnim>
-          <h3 className="text-76 w-[55%] text-[#0A1B4B] max-sm:w-[90%]">
+          <h3 className="text-76 w-[55%] text-[#0A1B4B] leading-[1.2] max-sm:w-[90%]">
             Trusted by Enterprises Operating AI at Scale
           </h3>
           </HeadingAnim>

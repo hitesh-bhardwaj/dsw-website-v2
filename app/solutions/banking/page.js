@@ -11,6 +11,9 @@ import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
 import WorkFlows from "@/components/Solution/WorkFlows";
+import { Fraud } from "@/components/Svg/Solutions/Banking/Fraud";
+import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
+import { UseCase } from "@/components/Svg/Solutions/Banking/UseCase";
 import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
@@ -52,7 +55,6 @@ const Page = () => {
         variant={"topLeft"}
         breadcrumbs={true}
       />
-
       <Runtime runtimeContent={runtimeContent} />
       <Breaks breaksContent={breaksContent}/>
       <Features featuresContent={featuresContent} />
@@ -122,11 +124,11 @@ const breaksContent = {
     "Where AI execution breaks inside banks today",
   challenges: [
     {
-      icon: <UnderWriting />,
+      icon: <Fraud/>,
       title: "Models sit in silos across risk, fraud, underwriting, and operations",
     },
     {
-      icon: <Claims />,
+      icon: <Governance/>,
       title:
         "Governance exists as review processes, not execution controls",
     },
@@ -136,7 +138,7 @@ const breaksContent = {
         "Regulatory pressure increases model risk, audit exposure, and change complexity",
     },
     {
-      icon: <Nodes />,
+      icon: <UseCase/>,
       title:
         "Every new use case becomes a new stack, new vendor, and new cost structure",
     },

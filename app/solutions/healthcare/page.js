@@ -6,13 +6,12 @@ import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
 import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
 import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
 import WorkFlows from "@/components/Solution/WorkFlows";
-import Claims from "@/components/Svg/Solutions/Claims";
-import Focus from "@/components/Svg/Solutions/Focus";
+import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
+import { Compliance } from "@/components/Svg/Solutions/Compliance";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
 import { WebpageJsonLd } from "@/lib/json-ld";
@@ -129,12 +128,12 @@ const breaksContent = {
         "Clinical, administrative, and financial AI operate in silos",
     },
     {
-      icon: <Claims />,
+      icon: <Governance/>,
       title:
         "Governance sits outside care delivery and operational workflows",
     },
     {
-      icon: <Focus />,
+      icon: <Compliance/>,
       title:
         "Compliance, PHI protection, and audit requirements increase execution risk",
     },

@@ -14,7 +14,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
     >
       <div className="w-full h-full gap-y-[2vw] flex flex-col items-center text-center">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-sm:w-full">
+          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-sm:w-full leading-[1.2]">
             {heading}
           </h2>
         </HeadingAnim>

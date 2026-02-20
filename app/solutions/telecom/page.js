@@ -11,9 +11,11 @@ import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
 import WorkFlows from "@/components/Solution/WorkFlows";
+import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
+import { Omnichannel } from "@/components/Svg/Solutions/Omnichannel";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -116,8 +118,8 @@ const breaksContent = {
 
   challenges: [
     { icon: <UnderWriting />, title: "Network, customer, and operations AI operate in silos" },
-    { icon: <Claims />, title: "Governance sits outside runtime execution" },
-    { icon: <Focus />, title: "OSS and BSS environments remain fragmented" },
+    { icon: <Governance />, title: "Governance sits outside runtime execution" },
+    { icon: <Omnichannel />, title: "OSS and BSS environments remain fragmented" },
     { icon: <Nodes />, title: "Every new use case introduces new tooling, vendors, and complexity" },
   ],
 

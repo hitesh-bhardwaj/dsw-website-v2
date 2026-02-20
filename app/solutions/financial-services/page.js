@@ -11,6 +11,7 @@ import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
 import WorkFlows from "@/components/Solution/WorkFlows";
+import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
@@ -120,7 +121,7 @@ const breaksContent = {
 
   challenges: [
     { icon: <UnderWriting />, title: "Lending, markets, and compliance models operate in silos" },
-    { icon: <Claims />, title: "Governance exists as oversight instead of runtime enforcement" },
+    { icon: <Governance />, title: "Governance exists as oversight instead of runtime enforcement" },
     {
       icon: <Focus />,
       title:

@@ -67,8 +67,8 @@ const WalkthroughPopup = () => {
         {/* Content */}
         <div className="relative z-10 flex justify-between p-[4vw]  max-md:flex-col max-md:p-[6vw] max-sm:p-[7vw] max-sm:gap-[8vw] max-md:gap-[5vw]">
           {/* Left Side - Heading */}
-          <div className="w-[35%] space-y-[1.5vw] max-md:w-full max-md:space-y-[2vw] max-sm:space-y-[4vw]">
-            <h2 className="text-76 text-[#0a1b4b] font-heading leading-[1.15] max-md:text-center">
+          <div className="w-[35%] space-y-[1vw] max-md:w-full max-md:space-y-[2vw] max-sm:space-y-[4vw]">
+            <h2 className="text-76 text-[#0a1b4b] font-heading leading-[1.2] max-md:text-center">
               Get a Full<br />Demo
             </h2>
             <p className="text-24 text-[#333] font-sans tracking-wide max-md:text-center">

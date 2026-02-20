@@ -78,7 +78,7 @@ export default function WhatWeBelieve() {
                                     px-[1.5vw] pt-[1.5vw] justify-between flex flex-col pb-[3vw] items-end
                                     max-sm:px-[5vw] max-sm:pb-[10vw] max-sm:h-[60vw] max-sm:w-full
                                     border border-solid hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg
-                                    border-[#c2c2c2] duration-300 ease-in-out bg-white
+                                    border-[#c2c2c2] duration-300 ease-in-out bg-white 
                                 `}
                             >
                                 <CornerDecorations />
@@ -88,7 +88,7 @@ export default function WhatWeBelieve() {
 
                                 {/* Title */}
                                 <div>
-                                    <p className="text-24 leading-[1.2] text-start h-10">{item.title}</p>
+                                    <p className="text-24 leading-[1.2] text-left h-10">{item.title}</p>
                                 </div>
                             </div>
 
@@ -141,7 +141,7 @@ const VisionMission = () => {
                         </div>
                     </div>
                     <p className="text-30 text-foreground ">
-                        To make AI operable at scale —<br />for every enterprise.
+                        To make AI operable at scale -<br />for every enterprise.
                     </p>
                 </div>
 
@@ -170,7 +170,7 @@ const VisionMission = () => {
                         {[
                             "Build, integrate, deploy, govern, and operate AI in production",
                             "Unify models, agents, tools, and workflows under one runtime",
-                            "Enforce governance as code during execution — not after",
+                            "Enforce governance as code during execution - not after",
                         ].map((item, i) => (
                             <li key={i}>
                                 {item}

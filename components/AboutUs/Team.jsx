@@ -104,13 +104,6 @@ export default function Team({ heading , cardsData, teamId = "team"}) {
                 />
                 <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center bg-[#F16B0D] text-white h-[2.5vw] w-[2.5vw] p-1.5 max-md:h-[10vw] max-md:w-[10vw]">
                   <LinkedIn/>
-                  {/* <Image
-                    src={"/assets/icons/social/linkedin.svg"}
-                    height={15}
-                    width={15}
-                    alt="linkedin"
-                    className="h-[1vw] w-auto max-md:h-[4vw]"
-                  /> */}
                 </div>
               </div>
               <div className="space-y-[.5vw] w-full mt-[1vw] max- max-md:mt-[5vw]  max-sm:pl-[2vw] max-sm:space-y-[2.5vw] max-sm:mt-[5vw] max-md:pl-[1vw] text-center">
@@ -121,7 +114,7 @@ export default function Team({ heading , cardsData, teamId = "team"}) {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="w-full space-y-3">
+      <div className="w-full space-y-3 mt-5">
         <div className="w-full flex justify-end">
           <div className="w-[75%] max-md:w-full h-1 bg-gray-300 rounded-full overflow-hidden">
             <div 
@@ -132,8 +125,8 @@ export default function Team({ heading , cardsData, teamId = "team"}) {
             />
           </div>
         </div>
-        <div className="w-full flex justify-end">
-          <div className={`workshop-scrollbar-${teamId} w-[75%] cursor-grab max-md:w-full max-md:hidden`} />
+        <div className="w-full flex justify-end ">
+          <div className={`workshop-scrollbar-${teamId}  w-[75%] cursor-grab max-md:w-full max-md:hidden`} />
         </div>
       </div>
 

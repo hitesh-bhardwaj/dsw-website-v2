@@ -14,6 +14,7 @@ import WorkFlows from "@/components/Solution/WorkFlows";
 import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
+import { Omnichannel } from "@/components/Svg/Solutions/Omnichannel";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -135,7 +136,7 @@ const breaksContent = {
         "Governance sits outside pricing and operational decisions",
     },
     {
-      icon: <Focus />,
+      icon: <Omnichannel/>,
       title:
         "Omnichannel execution remains fragmented",
     },

@@ -35,11 +35,11 @@ const NAV_LINKS = [
     children: [
       { id: "sol-1", label: "Insurance", href: "/solutions/insurance" },
       { id: "sol-2", label: "Banking", href: "/solutions/banking" },
-       { id: "sol-3", label: "Retail", href: "/solutions/retail" },
+      { id: "sol-3", label: "Retail", href: "/solutions/retail" },
       { id: "sol-4", label: "Healthcare", href: "/solutions/healthcare" },
-       { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
+      { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
       { id: "sol-6", label: "Telecom", href: "/solutions/telecom" },
-      {id:"sol-7", label:"Financial Services", href:"/solutions/financial-services"}
+      { id: "sol-7", label: "Financial Services", href: "/solutions/financial-services" }
 
     ],
   },
@@ -196,12 +196,11 @@ export default function Header() {
         className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
-          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${
-            isHidden ? "-translate-y-full" : "translate-y-0"
-          }`}
+          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[5vw] max-md:pt-[5vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${isHidden ? "-translate-y-full" : "translate-y-0"
+            }`}
           ref={headerRef}
         >
-          <span className={`h-full w-full block absolute top-0 left-0 z-1 ${isScrolled ? " backdrop-blur-md" : ""}`}/>
+          <span className={`h-full w-full block absolute top-0 left-0 z-1 ${isScrolled ? " backdrop-blur-md" : ""}`} />
 
           {/* Logo */}
           <div className="flex items-center gap-2 w-[12%] max-sm:w-[36%] z-10 relative">
@@ -251,13 +250,11 @@ export default function Header() {
                               ? String(openDropdown === link.id)
                               : undefined
                           }
-                          className={`${hasChildren ? "cursor-pointer" : ""} ${
-                            !isActive
+                          className={`${hasChildren ? "cursor-pointer" : ""} ${!isActive
                               ? " text-22 duration-500 transition-color ease-out font-medium"
                               : " text-22 font-medium text-primary-blue"
-                          } buttonTextShadow ${
-                            isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-                          }`}
+                            } buttonTextShadow ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
+                            }`}
                           onClick={(e) => {
                             if (hasChildren) e.preventDefault();
                           }}
@@ -268,23 +265,24 @@ export default function Header() {
                         {hasChildren && (
                           <div className="w-fit">
                             <div
-                              className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${
-                                openDropdown === link.id
+                              className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${openDropdown === link.id
                                   ? "translate-y-[25%] scale-[1.05]"
                                   : ""
-                              }`}
+                                }`}
                             >
                               <div className="w-[2.8vw] h-auto">
-                                <ChevronDown className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${
-                                  isInverted ? "stroke-white group-hover:stroke-white" : "stroke-[#111111] group-hover:stroke-primary-blue"
-                                }`} />
+                                <ChevronDown className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${isInverted
+                                    ? "stroke-white group-hover:stroke-white"
+                                    : isActive
+                                      ? "stroke-primary-blue group-hover:stroke-primary-blue"
+                                      : "stroke-[#111111] group-hover:stroke-primary-blue"
+                                  }`} />
                               </div>
                             </div>
 
                             <span
-                              className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${
-                                openDropdown === link.id ? "h-[8vw]" : "h-0"
-                              }`}
+                              className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${openDropdown === link.id ? "h-[8vw]" : "h-0"
+                                }`}
                             />
                           </div>
                         )}
@@ -293,11 +291,10 @@ export default function Header() {
                       {/* Submenu */}
                       {hasChildren && (
                         <div
-                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${
-                            openDropdown === link.id
+                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${openDropdown === link.id
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"
-                          }`}
+                            }`}
                           onMouseEnter={() => setOpenDropdown(link.id)}
                           onMouseLeave={() => setOpenDropdown(null)}
                         >
@@ -315,9 +312,8 @@ export default function Header() {
                                     aria-current={
                                       childActive ? "page" : undefined
                                     }
-                                    className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${
-                                      isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-                                    }`}
+                                    className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
+                                      }`}
                                   >
                                     {child.label}
                                   </AnimatedNavLink>
