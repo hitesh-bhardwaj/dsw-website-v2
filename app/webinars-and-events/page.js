@@ -87,9 +87,3 @@ const ctaContent = {
     text: "Contact",
   },
 };
-
-const tourContent = {
-  heading: "Take a lightning tour of the DSW AI/ML Runtime",
-  para: "Your AI foundation not just for today’s use cases, but for tomorrow’s vision.",
-  tagline: "",
-};

@@ -1,7 +1,7 @@
 import React from "react";
-import VideoListing from "./VideoListing";
 import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
+import VideoListing from "../ProductVideos/VideoListing";
 
 const WatchOnDemand = () => {
   return (
@@ -21,7 +21,7 @@ const WatchOnDemand = () => {
             </p>
           </Copy>
         </div>
-        <VideoListing margin={false} />
+        <VideoListing/>
       </div>
     </section>
   );

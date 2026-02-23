@@ -218,18 +218,16 @@ h6 {
     linear-gradient(#111111, #111111);
   background-size:
     100% 0px,
-    0% 2px;
+    0% 1.5px;
   background-position:
     100% 100%,
     0 100%;
   background-repeat: no-repeat, no-repeat;
-  transition: all 0.5s ease-out;
+  transition: background-size 0.5s ease-out;
 }
 
 .under-multi-parent:hover .under-multi {
-  background-size:
-    100% 0px,
-    100% 2px;
+  background-size:100% 1.5px;
 }
 
 .clients-marquee {
