@@ -222,8 +222,15 @@ const workflowsContent = {
     { number: "02", title: "Value-based care analytics" },
     { number: "03", title: "Risk stratification support" },
     { number: "04", title: "Provider performance analytics" },
+    { number: "05", title: "Clinical quality monitoring" },
+    { number: "06", title: "Supply chain and procurement intelligence" },
+    { number: "07", title: "Clinical trial operations support" },
+    { number: "08", title: "Payer-provider collaboration intelligence" },
+    { number: "09", title: "Compliance monitoring workflows" },
+    { number: "10", title: "Model governance workflows" },
   ],
 };
+
 
 const caseStudyContent = {
   heading: "Healthcare AI in production",

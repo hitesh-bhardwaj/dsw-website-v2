@@ -50,7 +50,7 @@ const Breaks = ({ breaksContent }) => {
 
         {/* Heading */}
         <HeadingAnim>
-          <h2 className="w-[70%] leading-[1.2] max-sm:leading-[1.4] max-sm:w-full text-76 text-[#0A1B4B]">
+          <h2 className="w-[70%] leading-[1.2] max-sm:leading-[1.4] max-sm:w-full text-76 text-[#0A1B4B] capitalize">
             {heading}
           </h2>
         </HeadingAnim>

@@ -211,17 +211,25 @@ const featuresContent = {
 
 
 const workflowsContent = {
-  heading: "Unlimited use cases with a single subscription. No more use-case-based cost barrier.",
+  heading: "Unlimited Use Cases with a Single Subscription.",
+  para:"No more use-case-based cost barrier.",
   items: [
     { number: "01", title: "Fraud detection and anomaly monitoring" },
     { number: "02", title: "Transaction monitoring triage" },
     { number: "03", title: "Underwriting decision intelligence" },
     { number: "04", title: "Customer churn prediction and retention" },
+    { number: "05", title: "Next-best offer and personalization" },
+    { number: "06", title: "Contact center assist and QA analytics" },
+    { number: "07", title: "Dispute and chargeback workflow support" },
+    { number: "08", title: "Treasury and liquidity forecasting" },
+    { number: "09", title: "Regulatory reporting acceleration" },
+    { number: "10", title: "Model risk management and governance workflows" },
   ],
 };
 
+
 const caseStudyContent = {
-  heading: "Running real-time banking decisions on a unified AI runtime",
+  heading: "Running Real-Time Banking Decisions on a Unified AI Runtime",
   subheading: "Real deployment. Measurable operational impact.",
   company: "Castler",
   description:
@@ -273,7 +281,7 @@ const benefitsContent = {
 
 
 const ctaContent={
-  heading:"Operate AI as infrastructure inside your Bank ",
+  heading:"Operate AI as Infrastructure Inside your Bank ",
   para:"Experience the DSW Enterprise AI Operating System ",
   primaryButton:{
     present:true,

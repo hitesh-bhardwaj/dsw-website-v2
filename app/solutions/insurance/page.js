@@ -198,17 +198,24 @@ const featuresContent = {
 };
 
 const workflowsContent = {
-  heading: "More insurance workflows on the AI Operating System",
+  heading: "More Insurance Workflows on the AI Operating System",
   items: [
     { number: "01", title: "Policy servicing automation" },
-    { number: "02", title: "Agent productivity and distribution insights" },
-    { number: "03", title: "Renewal and retention intelligence" },
-    { number: "04", title: "Model risk management and governance workflows" },
+    { number: "02", title: "Renewal and retention intelligence" },
+    { number: "03", title: "Agent productivity and distribution insights" },
+    { number: "04", title: "Customer lifetime value modeling" },
+    { number: "05", title: "Product performance analytics" },
+    { number: "06", title: "Regulatory reporting acceleration" },
+    { number: "07", title: "Catastrophe modeling support" },
+    { number: "08", title: "Reinsurance analytics workflows" },
+    { number: "09", title: "Claims leakage detection" },
+    { number: "10", title: "Model risk management and governance workflows" },
   ],
 };
 
+
 const caseStudyContent = {
-  heading: "Insurance AI in production",
+  heading: "Insurance AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
   company: "Persistency",
   description:
@@ -239,7 +246,7 @@ const benefitsContent = {
 };
 
 const ctaContent={
-  heading:"Operate insurance AI as enterprise infrastructure  ",
+  heading:"Operate Insurance AI as Enterprise Infrastructure  ",
   para:"See how the DSW Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
   primaryButton:{
     present:true,

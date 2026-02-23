@@ -28,7 +28,7 @@ const CaseStudy = ({ caseStudyContent }) => {
         
         {/* Heading */}
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto capitalize">
             {heading}
           </h2>
         </HeadingAnim>

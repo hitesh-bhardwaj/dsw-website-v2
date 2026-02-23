@@ -191,15 +191,21 @@ const featuresContent = {
    WORKFLOWS
 --------------------------------------------- */
 const workflowsContent = {
-  heading: "Telecom workflows expanding without new stacks or vendor sprawl",
+  heading: "Telecom Workflows Expanding Without New Stacks or Vendor Sprawl",
   items: [
-    { number: "01", title: " Field service optimization" },
-    { number: "02", title: " Infrastructure planning intelligence" },
+    { number: "01", title: "Field service optimization" },
+    { number: "02", title: "Infrastructure planning intelligence" },
     { number: "03", title: "Device lifecycle intelligence" },
     { number: "04", title: "Partner ecosystem monitoring" },
-   
+    { number: "05", title: "Subscriber segmentation and lifetime value modeling" },
+    { number: "06", title: "Regulatory compliance monitoring" },
+    { number: "07", title: "SLA intelligence and reporting" },
+    { number: "08", title: "Contact center intelligence" },
+    { number: "09", title: "Network energy optimization" },
+    { number: "10", title: "Model risk and governance workflows" },
   ],
 };
+
 
 /* ---------------------------------------------
    CASE STUDY

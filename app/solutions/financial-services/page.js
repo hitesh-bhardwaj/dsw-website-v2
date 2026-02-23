@@ -202,15 +202,21 @@ const featuresContent = {
    WORKFLOWS
 --------------------------------------------- */
 const workflowsContent = {
-  heading: "More financial workflows operating on the AI Operating System",
+  heading: "More Financial Workflows Operating on the AI Operating System",
   items: [
-    { number: "01", title: " Treasury and liquidity intelligence" },
+    { number: "01", title: "Treasury and liquidity intelligence" },
     { number: "02", title: "Trade surveillance support" },
     { number: "03", title: "Regulatory reporting acceleration" },
     { number: "04", title: "Wealth and portfolio advisory intelligence" },
- 
+    { number: "05", title: "Customer lifetime value modeling" },
+    { number: "06", title: "Risk exposure monitoring" },
+    { number: "07", title: "Investment product analytics" },
+    { number: "08", title: "KYC and onboarding intelligence" },
+    { number: "09", title: "Model risk management workflows" },
+    { number: "10", title: "Compliance monitoring support" },
   ],
 };
+
 
 /* ---------------------------------------------
    CASE STUDY

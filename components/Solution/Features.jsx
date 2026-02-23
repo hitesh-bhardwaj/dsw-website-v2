@@ -75,7 +75,7 @@ const Features = ({ featuresContent }) => {
           </SmoothySlider>
 
           {/* Progress Bar */}
-          <div className="w-[95%] px-[5vw] mt-8 mx-auto hidden max-sm:block">
+          <div className="w-[95%] px-[5vw] mt-8 mx-auto ">
             <div className="relative w-full h-[8px] bg-[#E5E5E5] rounded-full">
               <div
                 className="absolute top-0 left-0 h-full bg-primary-blue rounded-full"

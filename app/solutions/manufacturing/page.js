@@ -219,14 +219,21 @@ const featuresContent = {
 
 
 const workflowsContent = {
-  heading: "Industrial workflows expanding without new stacks or vendor sprawl",
+  heading: "Industrial Workflows Expanding Without New Stacks or Vendor Sprawl",
   items: [
-    { number: "01", title: " Energy optimization across facilities" },
+    { number: "01", title: "Energy optimization across facilities" },
     { number: "02", title: "Digital twin intelligence support" },
-    { number: "03", title: " Safety and compliance monitoring" },
+    { number: "03", title: "Safety and compliance monitoring" },
     { number: "04", title: "Workforce productivity insights" },
+    { number: "05", title: "Logistics optimization" },
+    { number: "06", title: "Asset utilization intelligence" },
+    { number: "07", title: "Production cost modeling" },
+    { number: "08", title: "Equipment lifecycle intelligence" },
+    { number: "09", title: "OT system monitoring" },
+    { number: "10", title: "Model governance workflows" },
   ],
 };
+
 
 const caseStudyContent = {
   heading: "Manufacturing AI in production",
