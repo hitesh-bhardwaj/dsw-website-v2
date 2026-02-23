@@ -67,7 +67,7 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
         modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
-      <div data-lenis-prevent className="relative  w-[78%] h-[80%] overflow-y-auto pr-2 rounded-[2vw] border border-[#d4d4d4] bg-white/30 max-sm:rounded-[6vw] max-md:w-[90%]  max-md:h-[80%] max-sm:h-[80%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] pt-[4vw] max-md:pt-[6vw] max-md:rounded-[4vw]">
+      <div data-lenis-prevent className="relative  w-[78%] h-[80%] overflow-y-auto pr-2 rounded-[2vw] border border-[#d4d4d4] bg-white/30 max-sm:rounded-[6vw] max-md:w-[90%]  max-md:h-[80%] max-sm:h-[65%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] pt-[4vw] max-md:pt-[6vw] max-md:rounded-[4vw]">
       
       <div className="h-full max-sm:h-fit w-full overflow-y-auto! pr-2 flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
         <div className="w-[30%] h-full space-y-[1vw] max-md:w-full max-md:space-y-[2vw]">
