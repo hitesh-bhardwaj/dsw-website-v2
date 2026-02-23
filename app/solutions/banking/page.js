@@ -211,7 +211,8 @@ const featuresContent = {
 
 
 const workflowsContent = {
-  heading: "Unlimited use cases with a single subscription. No more use-case-based cost barrier.",
+  heading: "Unlimited use cases with a single subscription. ",
+  para:"No more use-case-based cost barrier.",
   items: [
     { number: "01", title: "Fraud detection and anomaly monitoring" },
     { number: "02", title: "Transaction monitoring triage" },

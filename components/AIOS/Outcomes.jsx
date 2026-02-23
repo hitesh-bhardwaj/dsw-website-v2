@@ -85,7 +85,7 @@ export default function Outcomes() {
     return (
         <section className="w-screen h-full px-[5vw] py-[7%] max-sm:py-[15%] max-sm:px-[7vw]" id="finacle-outcomes">
             <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-sm:gap-y-[15vw]">
-                <div className="w-[70%] text-center max-sm:w-full">
+                <div className=" text-center max-sm:w-full">
                 <HeadingAnim>
                     <h2 className="text-76  text-[#0A1B4B] ">
                         Deployment, Sovereignty, and Control

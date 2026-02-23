@@ -12,13 +12,13 @@ const WorkFlows = ({ workflowsContent }) => {
       id="workflows"
     >
       <div className="w-full flex justify-between max-sm:flex-col">
-        <div className="space-y-[2vw] w-[52%] max-sm:w-full">
+        <div className="space-y-[3vw] w-[52%] max-sm:w-full">
           <HeadingAnim>
-            <h2 className=" text-76 text-[#0A1B4B] max-sm:text-center! max-sm:w-full">{heading}</h2>
+            <h2 className=" text-76 text-[#0A1B4B] leading-[1.2] capitalize max-sm:text-center! max-sm:w-full">{heading}</h2>
           </HeadingAnim>
           {para && (
             <Copy>
-              <p className="text-44">{para}</p>
+              <p className="text-44 text-[#0A1B4B]">{para}</p>
             </Copy>
           )}
         </div>
