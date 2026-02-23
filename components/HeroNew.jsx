@@ -1,5 +1,4 @@
 "use client";
-
 import Image from "next/image";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
@@ -20,7 +19,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   const scrollHintRef = useRef(null);
   const idleTimerRef = useRef(null);
-  const { openModal } = useModal();
+  const {  openModal } = useModal();
 
 
   const [isIdle, setIsIdle] = useState(false);
