@@ -40,7 +40,7 @@ const Features = () => {
           <div
             key={feature.id}
             className={`
-      w-screen h-fit px-[5vw] py-[4vw] pb-[10vw] bg-[#ffffff] feature-card max-sm:py-[10vw] sticky ${id == 0 && " feature-1 top-0"} ${id == 2 && "top-[19%]"} ${id == 1 ? "max-sm:top-[15%]! feature-2 top-[20%]" : ""}
+      w-screen h-fit px-[5vw] py-[4vw] pb-[10vw] bg-[#ffffff] feature-card  max-sm:py-[10vw] sticky ${id == 0 && " feature-1 top-0"} ${id == 2 && "top-[19%]"} ${id == 1 ? "max-sm:top-[15%]! feature-2 top-[20%]" : ""}
       ${feature.hasTopBorder ? "border-t border-black/30" : ""}
       ${feature.hasBottomBorder ? "border-b border-black/30" : ""}
       ${feature.extraPaddingBottom ? "pb-[10vw]" : ""}

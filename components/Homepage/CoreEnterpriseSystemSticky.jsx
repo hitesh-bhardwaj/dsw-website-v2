@@ -490,11 +490,11 @@ export default function CoreEnterpriseSystemSticky() {
         {/* Content */}
         <div
           ref={wholeContent}
-          className="relative z-15 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-sm:space-y-[7vw] max-sm:px-[7vw]"
+          className="relative z-15 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-md:mt-[45vw] max-sm:space-y-[7vw] max-sm:px-[7vw] max-md:px-[6vw]"
         >
           <h2
             ref={coreEnterTitle}
-            className="text-76 mb-[7vw] max-sm:mb-[25vw] text-[#0A1B4B]"
+            className="text-76 mb-[7vw] max-md:leading-[1.2] max-sm:leading-[1.4] max-sm:mb-[25vw] text-[#0A1B4B]"
           >
             Run AI as a Core Enterprise System
           </h2>
@@ -519,7 +519,7 @@ export default function CoreEnterpriseSystemSticky() {
 
                 <p
                   ref={(el) => setDescRef(el, i)}
-                  className="text-30 px-[30vw] mx-auto max-sm:px-0"
+                  className="text-30 px-[30vw] max-md:px-[10vw] mx-auto max-sm:px-0"
                 >
                   {slide.desc}
                 </p>

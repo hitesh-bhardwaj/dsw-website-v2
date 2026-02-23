@@ -192,13 +192,26 @@ export default function Diagram() {
       }
     }
 
-    ScrollTrigger.create({
-      trigger: sectionEl,
-      start: "top 80%",
-      end: "bottom bottom",
-      scrub: true,
-      animation: tl,
-    });
+    const width = globalThis.innerWidth;
+
+// default desktop + mobile
+let startPosition = "top 80%";
+let endPosition = "bottom bottom";
+
+// ✅ tablet (>640 && <1025)
+if (width > 640 && width < 1025) {
+  startPosition = "-10% 20%";
+  endPosition = "bottom bottom";
+}
+
+ScrollTrigger.create({
+  trigger: sectionEl,
+  start: startPosition,
+  end: endPosition,
+  scrub: true,
+  animation: tl,
+  // markers: true,
+});
   }, []);
 
   // ✅ DESCENDING: use reversed steps for rendering too (refs must align)
@@ -206,10 +219,10 @@ export default function Diagram() {
 
   return (
     <section ref={sectionRef} className="w-full h-fit">
-      <div className="h-[240vw] max-sm:h-[520vh]">
-        <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-[0vw] h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%]">
+      <div className="h-[240vw] max-md:h-[250vw] max-sm:h-[520vh]">
+        <div className="w-full flex justify-between max-md:flex-col max-md:justify-center max-md:items-center max-sm:items-start  max-sm:gap-0 h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%]">
           {/* LEFT */}
-          <div className="w-[40%] max-sm:w-full pt-[10vw] relative">
+          <div className="w-[40%] max-sm:w-full max-md:w-[70%] pt-[10vw] relative">
             <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw]">
               {DESC_STEPS.map((step, i) => (
                 <div
@@ -247,12 +260,12 @@ export default function Diagram() {
           </div>
 
           {/* RIGHT */}
-          <div className="w-[50%] h-[42vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%]">
+          <div className="w-[50%] h-[42vw] max-md:w-full max-md:h-[80vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%]">
             {DESC_STEPS.map((step, i) => (
               <div
                 key={i}
                 ref={(el) => (layerRefs.current[i] = el)}
-                className="w-[42vw] h-auto absolute right-0 max-sm:w-full"
+                className="w-[42vw] max-md:w-[95vw]  h-auto absolute right-0 max-sm:w-full"
                 style={{ top: step.layerTop, zIndex: step.z }}
               >
                 <Image

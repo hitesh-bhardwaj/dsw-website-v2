@@ -832,7 +832,7 @@ gradientCtx.putImageData(gradImageData, 0, 0);
   return (
     <canvas
       ref={canvasRef}
-      className="h-full w-full pointer-events-auto absolute inset-0 max-sm:hidden"
+      className="h-full w-full pointer-events-auto absolute inset-0 max-md:hidden"
     />
   );
 };
