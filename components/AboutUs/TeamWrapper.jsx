@@ -5,22 +5,22 @@ import Team from './Team'
 
 const TeamWrapper = () => {
   return (
-    <section className="relative w-full h-fit py-[7%] px-[5vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit">
-      {/* Heading Section */}
-      <div className="space-y-[5.5vw] h-fit max-sm:static overflow-hidden max-sm:space-y-[12vw] z-10">
-        <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
-          <HeadingAnim>
-            <h2 className="text-76 font-heading text-[#0A1B4B] capitalize">
-              Meet the Team
-            </h2>
-          </HeadingAnim>
-          <Copy>
-            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[55%] max-sm:w-full mx-auto">
-              DSW is a team of engineers, data scientists, product builders, and enterprise operators -
-              building the infrastructure layer that makes AI real in the enterprise.
-            </p>
-          </Copy>
-        </div>
+    <section className="relative w-full h-fit py-0 px-[5vw] max-sm:px-0  max-sm:py-[15%] max-sm:h-fit">
+                {/* Heading Section */}
+                <div className="space-y-[5.5vw] h-fit max-sm:static overflow-hidden max-sm:space-y-[12vw] z-10">
+                    <div className="text-center max-sm:px-[7vw] space-y-[2vw] max-sm:space-y-[7vw]">
+                        <HeadingAnim>
+                            <h2 className="text-76 font-heading text-[#0A1B4B] capitalize">
+                               Meet the Team
+                            </h2>
+                        </HeadingAnim>
+                        <Copy>
+                            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[55%] max-sm:w-full mx-auto">
+                              DSW is a team of engineers, data scientists, product builders, and enterprise operators -
+building the infrastructure layer that makes AI real in the enterprise.
+                            </p>
+                        </Copy>
+                    </div>
 
         <div className="space-y-[10vw] max-sm:space-y-[20vw]">
           <Team heading={"Founding Team"} cardsData={foundingTeam} teamId="founding" />

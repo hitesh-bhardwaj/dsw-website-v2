@@ -1,5 +1,6 @@
 import { CircleBg } from "../Svg/Lines/DottedCircle";
 import { Arrow } from "../Svg/AboutUs/Arrow";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 export default function Infrastructure() {
   return (
@@ -7,12 +8,15 @@ export default function Infrastructure() {
       {/* Desktop Layout */}
       <div className="relative w-full h-[80vw] mx-auto my-0 py-[5%] flex items-start justify-start max-sm:hidden">
         <div className="w-full flex items-start justify-center">
+          <HeadingAnim>
+
           <h2 className="text-44 w-fit fadeup">
             The issue wasn't talent or intent. {` `}
             <span className="font-medium">
 It was an infrastructure.
             </span>
           </h2>
+          </HeadingAnim>
         </div>
 
         {/* Center Circle */}
@@ -74,10 +78,13 @@ It was an infrastructure.
       {/* Mobile Layout */}
       <div className="hidden max-sm:flex max-sm:flex-col w-[90%] mx-auto max-sm:items-center max-sm:w-full max-sm:px-[7vw] max-sm:py-10">
         {/* Heading */}
+        <HeadingAnim>
+
         <h2 className="text-44 font-normal text-center leading-[1.3] mb-10">
           The issue wasn't talent or intent.{` `}
           <span className="font-medium">It was an infrastructure.</span>
         </h2>
+        </HeadingAnim>
 
         {/* Center label */}
         
@@ -93,11 +100,12 @@ It was an infrastructure.
             "Brittle integrations that couldn't scale",
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center w-full">
-              <div className="bg-white  rounded-[3vw] px-5 py-4 w-[80vw] text-center text-30 leading-[1.4] text-black">
+            
+              <div className="bg-white fadeup rounded-[3vw] px-5 py-4 w-[80vw] text-center text-30 leading-[1.4] text-black">
                 {item}
               </div>
               {i < 4 && (
-                <div className="rotate-90 my-[6vw]">
+                <div className="rotate-90 my-[6vw] fadeup">
                 <Arrow  className=''/>
                     </div>
               )}

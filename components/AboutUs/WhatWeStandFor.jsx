@@ -219,11 +219,11 @@ export default function WhatWeStandFor() {
     return (
         <section
             ref={sectionRef}
-            className="relative w-full space-y-[7vw] pb-[7%] px-[5vw] max-sm:px-[6vw] max-sm:py-[20%]"
+            className="relative w-full space-y-[7vw]  px-[5vw] max-sm:px-[6vw] max-sm:py-[20%]"
         >
             {/* Heading */}
             <div className="text-center max-sm:text-left max-sm:mb-[10vw]">
-                <h2 className="text-76 max-sm:text-[8.5vw] text-[#0A1B4B]">
+                <h2 className="text-76 max-sm:text-center max-sm:text-[8.5vw] text-[#0A1B4B]">
                     What we stand for
                 </h2>
             </div>
@@ -403,17 +403,17 @@ export default function WhatWeStandFor() {
                             <div
                                 key={index}
                                 ref={(el) => (mobileStepRefs.current[index] = el)}
-                                className="absolute"
+                                className="absolute text-20 "
                                 style={{
                                     top: `${circleTop - CIRCLE_R}px`,
                                     left: `${mobileSvgWidth + 16}px`,
                                     right: "0px",
                                 }}
                             >
-                                <h3 className="text-[4.8vw] font-bold text-[#0A1B4B] leading-snug mb-[2vw]">
+                                <h3 className="text-[4.8vw]  text-[#0A1B4B]  mb-[2vw] font-medium">
                                     {step.title}
                                 </h3>
-                                <p className="text-[3.8vw] text-[#333333] leading-relaxed">
+                                <p className="text-[4.4vw] leading-[1.4] text-[#333333] ">
                                     {step.description}
                                 </p>
                             </div>
