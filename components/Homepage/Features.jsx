@@ -128,7 +128,7 @@ const FEATURES = [
     hasTopBorder: true,
     hasBottomBorder: true,
     extraPaddingBottom: true,
-    title: "Break the Cost Per User Case barrier",
+    title: "Break the Cost Per User Case Barrier",
     description:
       "Build, deploy, and operate unlimited AI and GenAI use cases without per-model, per-agent, or per-workflow pricing.",
     bullets: [

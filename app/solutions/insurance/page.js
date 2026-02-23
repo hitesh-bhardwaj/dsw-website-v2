@@ -228,7 +228,7 @@ const caseStudyContent = {
 const benefitsContent = {
   sectionId: "finacle-outcomes",
   heading:
-    "Scale insurance AI and Agentic AI easily – No governance gaps, vendor lock in, or cost sprawl",
+    "Scale insurance AI and Agentic AI easily - No governance gaps, vendor lock in, or cost sprawl",
   points: [
     { id: "01", text: "Run underwriting, claims, fraud, and servicing as one governed system" },
     { id: "02", text: "Reduce operational friction in deploying and managing models" },

@@ -10,7 +10,7 @@ import AIEcosystemMob from "./AIEcosystemMob";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const AIEcosystem = () => {
+const AIEcosystem = ({ecosystemItems}) => {
   const sliderRef = useRef(null);
   const blueRingRef = useRef(null);
   const orangeRingRef = useRef(null);
@@ -175,7 +175,7 @@ const AIEcosystem = () => {
             style={{ transformOrigin: "center center" }}
           >
             {/* Blades positioned at fixed angles, extending from rings edge */}
-            {ECOSYSTEM_ITEMS.map((item, index) => {
+            {ecosystemItems.map((item, index) => {
               const angle = index * 30;
               const translateX = 35 + index * 3; // 35vw, 40vw, 45vw
               return (

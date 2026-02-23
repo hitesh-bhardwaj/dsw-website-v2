@@ -12,6 +12,7 @@ const AIEcosystemMob = () => {
   const blueRingRef = useRef(null);
   const orangeRingRef = useRef(null);
   const contentWrapRef = useRef(null);
+
   const [active, setActive] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -65,33 +66,14 @@ const AIEcosystemMob = () => {
     { scope: sectionRef }
   );
 
-  const getTargets = (wrap) => {
-    const titleEl = wrap.querySelector("[data-slide-title]");
-    const liEls = Array.from(wrap.querySelectorAll("ul")); // ✅ li, not ul
-    return { titleEl, liEls };
-  };
-
-  const splitTargets = (titleEl, liEls) => {
-    const titleSplit = new SplitText(titleEl, { type: "lines" });
-    const bulletSplits = liEls.map((li) => new SplitText(li, { type: "lines" }));
-
-    const lines = [
-      ...titleSplit.lines,
-      ...bulletSplits.flatMap((s) => s.lines),
-    ];
-
-    const revert = () => {
-      try {
-        titleSplit.revert();
-        bulletSplits.forEach((s) => s.revert());
-      } catch (_) {}
-    };
-
-    return { lines, revert };
-  };
-
   const waitTwoRaf = (cb) => {
     requestAnimationFrame(() => requestAnimationFrame(cb));
+  };
+
+  const getTargets = (wrap) => {
+    const titleEl = wrap.querySelector("[data-slide-title]");
+    const ulEl = wrap.querySelector("[data-slide-ul]");
+    return { titleEl, ulEl };
   };
 
   const animateTo = (nextIndex) => {
@@ -102,94 +84,122 @@ const AIEcosystemMob = () => {
 
     setIsAnimating(true);
 
-    const { titleEl, liEls } = getTargets(wrap);
-    if (!titleEl || !liEls.length) {
+    // safety: kill anything running
+    gsap.killTweensOf(wrap);
+    gsap.killTweensOf(wrap.querySelectorAll("*"));
+
+    const { titleEl, ulEl } = getTargets(wrap);
+
+    // If targets missing, just swap
+    if (!titleEl || !ulEl) {
       setActive(nextIndex);
       setIsAnimating(false);
       return;
     }
 
-    // Kill anything running on wrap (extra safety)
-    gsap.killTweensOf(wrap);
+    // Split ONLY the title
+    const titleSplit = new SplitText(titleEl, { type: "lines" });
+    const titleLines = titleSplit.lines;
 
-    // Split current text and animate OUT
-    const out = splitTargets(titleEl, liEls);
+    const revertTitle = () => {
+      try {
+        titleSplit.revert();
+      } catch (_) {}
+    };
 
-    // ✅ ensure lines are visible before animating out (prevents half states)
-    gsap.set(out.lines, { autoAlpha: 1, y: 0 });
-
+    // OUT timeline
     const tl = gsap.timeline({
       defaults: { ease: "power2.inOut" },
       onInterrupt: () => {
-        out.revert();
+        revertTitle();
         gsap.set(wrap, { autoAlpha: 1 });
         setIsAnimating(false);
       },
     });
 
-    tl.to(out.lines, {
+    // Ensure visible baseline before animating out
+    gsap.set(titleLines, { autoAlpha: 1, y: 0 });
+    gsap.set(ulEl, { autoAlpha: 1, y: 0 });
+
+    // OUT: title lines + whole UL
+    tl.to(titleLines, {
       autoAlpha: 0,
       y: -14,
-      duration: 0.35,
-      stagger: 0.04,
-    });
+      duration: 0.32,
+      stagger: 0.05,
+    })
+      .to(
+        ulEl,
+        {
+          autoAlpha: 0,
+          y: -10,
+          duration: 0.25,
+        },
+        "<0.05"
+      )
+      // hard hide wrap so next content can never flash
+      .set(wrap, { autoAlpha: 0 })
+      .to({}, { duration: 0.12 })
+      .call(() => {
+        revertTitle();
+        setActive(nextIndex);
+      })
+      // IN after paint
+      .call(() => {
+        waitTwoRaf(() => {
+          const wrap2 = contentWrapRef.current;
+          if (!wrap2) return setIsAnimating(false);
 
-    // ✅ HARD HIDE WRAP so swapped React content can NEVER flash
-    tl.set(wrap, { autoAlpha: 0 });
+          const { titleEl: t2, ulEl: ul2 } = getTargets(wrap2);
+          if (!t2 || !ul2) {
+            gsap.set(wrap2, { autoAlpha: 1 });
+            return setIsAnimating(false);
+          }
 
-    // small buffer (feel free to adjust)
-    tl.to({}, { duration: 0.12 });
+          const inSplit = new SplitText(t2, { type: "lines" });
+          const inLines = inSplit.lines;
 
-    tl.call(() => {
-      // cleanup old split wrappers BEFORE React swap
-      out.revert();
-      setActive(nextIndex);
-    });
+          const cleanup = () => {
+            try {
+              inSplit.revert();
+            } catch (_) {}
+          };
 
-    // Wait for React paint, then animate IN
-    tl.call(() => {
-      waitTwoRaf(() => {
-        const wrap2 = contentWrapRef.current;
-        if (!wrap2) {
-          setIsAnimating(false);
-          return;
-        }
-
-        const { titleEl: titleEl2, liEls: liEls2 } = getTargets(wrap2);
-        if (!titleEl2 || !liEls2.length) {
+          // show wrapper and prep
           gsap.set(wrap2, { autoAlpha: 1 });
-          setIsAnimating(false);
-          return;
-        }
+          gsap.set(inLines, { autoAlpha: 0, y: 14 });
+          gsap.set(ul2, { autoAlpha: 0, y: 12 });
 
-        const inn = splitTargets(titleEl2, liEls2);
+          // IN: title lines + whole UL
+          gsap.to(inLines, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.06,
+            ease: "power2.out",
+          });
 
-        // keep wrapper hidden until we prep the lines
-        gsap.set(wrap2, { autoAlpha: 1 });
-        gsap.set(inn.lines, { autoAlpha: 0, y: 14 });
-
-        gsap.to(inn.lines, {
-          autoAlpha: 1,
-          y: 0,
-          duration: 0.5,
-          stagger: 0.06,
-          ease: "power2.out",
-          onComplete: () => {
-            inn.revert();
-            setIsAnimating(false);
-          },
-          onInterrupt: () => {
-            inn.revert();
-            setIsAnimating(false);
-          },
+          gsap.to(ul2, {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.45,
+            ease: "power2.out",
+            delay: 0.1, // slight delay after title starts
+            onComplete: () => {
+              cleanup();
+              setIsAnimating(false);
+            },
+            onInterrupt: () => {
+              cleanup();
+              setIsAnimating(false);
+            },
+          });
         });
       });
-    });
   };
 
   const onNext = () => animateTo((active + 1) % SLIDES.length);
-  const onPrev = () =>
-    animateTo((active - 1 + SLIDES.length) % SLIDES.length);
+  const onPrev = () => animateTo((active - 1 + SLIDES.length) % SLIDES.length);
 
   const current = SLIDES[active];
 
@@ -266,9 +276,9 @@ const AIEcosystemMob = () => {
             {current.title}
           </h3>
 
-          <ul className="pl-[4vw] list-disc">
+          <ul data-slide-ul className="pl-[4vw] list-disc">
             {current.bullets.map((b, i) => (
-              <li key={i}>{b}</li>
+              <li key={`${active}-${i}`}>{b}</li>
             ))}
           </ul>
         </div>

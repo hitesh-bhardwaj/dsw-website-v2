@@ -14,7 +14,7 @@ const Runtime = ({ runtimeContent }) => {
 
         {/* Heading */}
         <HeadingAnim>
-          <h2 className="text-[#0A1B4B] text-76 text-center w-[80%] capitalize">
+          <h2 className="text-[#0A1B4B] text-76 text-center w-[80%] capitalize leading-[1.2]">
             {heading}
           </h2>
         </HeadingAnim>

@@ -67,7 +67,7 @@ const ArchitecturalPrinciples = () => {
         <Copy>
           <p className="text-30 w-[65%] mx-auto max-sm:w-full">
             Optimized for regulated and hybrid environments, governance and
-            control are embedded at the system level — not added as compliance
+            control are embedded at the system level-not added as compliance
             afterthoughts.
           </p>
         </Copy>
