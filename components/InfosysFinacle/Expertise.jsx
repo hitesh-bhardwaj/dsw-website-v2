@@ -82,7 +82,7 @@ const Expertise = () => {
     <section
       className="min-h-screen max-sm:min-h-full max-sm:py-[15%]  w-screen overflow-x-hidden h-fit flex flex-col items-center justify-center relative !py-[7%]"
     >
-      <div className="w-full h-full flex flex-col items-center justify-center gap-32 relative z-[2] max-sm:gap-20">
+      <div className="w-full h-full flex flex-col items-center justify-center gap-16 relative z-[2] max-sm:gap-20">
         <div className=" w-fit px-[5vw] max-sm:px-[7vw]">
             <HeadingAnim>
           <h2 className="text-76  text-[#0A1B4B] text-center mx-auto">
@@ -91,7 +91,7 @@ const Expertise = () => {
           </HeadingAnim>
         </div>
 
-        <div className="space-y-12 max-sm:!space-y-15">
+        <div className="space-y-12 max-sm:!space-y-10">
           <div className=" fadeup max-md:my-[7vw] ">
             <div
               ref={marqueeRef1}
@@ -112,7 +112,7 @@ const Expertise = () => {
           <div className="fadeup max-md:my-[7vw] max-sm:space-x-[5vw] ">
             <div
               ref={marqueeRef2}
-              className="flex space-x-4 opens-source max-md:space-x-[7vw] max-sm:space-x-[10vw]"
+              className="flex space-x-4 max-md:space-x-[7vw] max-sm:space-x-[5vw]"
             >
               {secondHalfAwards.map((item, index) => (
                 <AwardItem key={index} img={item.img} />

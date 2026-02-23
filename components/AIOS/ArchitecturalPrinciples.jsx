@@ -111,7 +111,7 @@ const ArchitecturalPrinciples = () => {
                 className={`w-[45%] p-[2vw] bg-white transition-all duration-700 max-sm:w-full max-sm:p-[5vw] max-sm:m-0 max-sm:ml-[5%] ${
                   principle.side === "right"
                     ? "border-l-4 border-[#c1c1c1] ml-[5%] [.active>&]:border-[#0205FA]"
-                    : "border-r-4 border-[#c1c1c1] mr-[5%] text-right [.active>&]:border-[#0205FA] max-sm:border-r-0 max-sm:border-l-4 max-sm:text-left max-sm:mr-0"
+                    : "border-r-4 border-[#c1c1c1] mr-[5%] text-left [.active>&]:border-[#0205FA] max-sm:border-r-0 max-sm:border-l-4 max-sm:text-left max-sm:mr-0"
                 }`}
               >
                 <h4 className="text-32 font-heading font-medium text-[#0A1B4B] mb-[1vw] max-sm:mb-[3vw] max-sm:text-40">

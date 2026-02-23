@@ -13,7 +13,7 @@ const steps = [
     },
     {
         title: "Governance is execution, not policy",
-        description: "Governance must be enforceable logic — embedded in runtime.",
+        description: "Governance must be enforceable logic - embedded in runtime.",
     },
     {
         title: "Ownership is non-negotiable",

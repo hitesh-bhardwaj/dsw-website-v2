@@ -11,7 +11,7 @@ function DeployementCard({ deployment }) {
             <div
                 className={`
                     relative bg-white  hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
-                    w-[28vw] h-[19vw] px-[1.5vw] py-[2vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[54vw] border
+                    w-[28vw] h-[19vw] px-[1.5vw] py-[2vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[7vw] max-sm:h-[70vw] border
                     border-border-color flex flex-col justify-between
                 `}
             >

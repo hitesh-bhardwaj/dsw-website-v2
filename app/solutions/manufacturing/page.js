@@ -11,9 +11,11 @@ import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
 import WorkFlows from "@/components/Solution/WorkFlows";
+import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
+import { Omnichannel } from "@/components/Svg/Solutions/Omnichannel";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -129,12 +131,12 @@ const breaksContent = {
         "Plant, quality, and supply chain intelligence remain siloed",
     },
     {
-      icon: <Claims />,
+      icon: <Governance/>,
       title:
         "Governance exists outside operational execution",
     },
     {
-      icon: <Focus />,
+      icon: <Omnichannel/>,
       title:
         "OT and IT environments remain fragmented",
     },

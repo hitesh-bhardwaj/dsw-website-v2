@@ -15,7 +15,7 @@ function ValueCard({ deployment }) {
             <div
                 className={`
                     relative bg-white  hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
-                    w-[21.5vw] h-[27vw] px-[1vw] py-[2vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[58vw] border
+                    w-[21.5vw] h-[25vw] px-[1vw] py-[2vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[58vw] border
                     border-border-color flex flex-col justify-between
                 `}
             >
@@ -37,7 +37,7 @@ function ValueCard({ deployment }) {
 export default function Values() {
 
     return (
-        <section className="relative w-full py-[10%] px-[5vw] max-sm:py-[15%] space-y-[12vw] max-sm:px-[7vw]">
+        <section className="relative w-full py-[5%] px-[5vw] max-sm:py-[15%] space-y-[12vw] max-sm:px-[7vw]">
             <div className='w-full space-y-[6vw]'>
                <div className='w-[80%] mx-auto'>
                     <HeadingAnim>

@@ -96,7 +96,7 @@ function AgenticCard({ id, title, Icon, description }) {
 
 const AgenticSteps = () => {
   return (
-    <div className="py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white space-y-[2vw] max-sm:space-y-[15vw]">
+    <div className="py-[5%] max-sm:px-[7vw] max-sm:py-[15%] bg-white space-y-[2vw] max-sm:space-y-[15vw]">
       <HeadingAnim>
         <h2 className="text-76 mx-auto w-fit max-sm:text-center max-sm:w-[90%] leading-[1.2] text-[#0A1B4B]">
           BFSI use cases & vertical accelerators

@@ -77,7 +77,7 @@ export default function WhatWeBelieve() {
                                     relative w-[15vw] h-[28vh] group
                                     px-[1.5vw] pt-[1.5vw] justify-between flex flex-col pb-[3vw] items-end
                                     border border-solid hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg
-                                    border-[#c2c2c2] duration-300 ease-in-out bg-white
+                                    border-[#c2c2c2] duration-300 ease-in-out bg-white 
                                 `}
                             >
                                 <CornerDecorations />
@@ -87,7 +87,7 @@ export default function WhatWeBelieve() {
 
                                 {/* Title */}
                                 <div>
-                                    <p className="text-24 leading-[1.2] text-start h-10">{item.title}</p>
+                                    <p className="text-24 leading-[1.2] text-left h-10">{item.title}</p>
                                 </div>
                             </div>
 
@@ -199,7 +199,7 @@ const VisionMission = () => {
                         {[
                             "Build, integrate, deploy, govern, and operate AI in production",
                             "Unify models, agents, tools, and workflows under one runtime",
-                            "Enforce governance as code during execution — not after",
+                            "Enforce governance as code during execution - not after",
                         ].map((item, i) => (
                             <li key={i} className="max-sm:leading-[1.4]">
                                 {item}

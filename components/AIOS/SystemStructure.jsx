@@ -133,7 +133,7 @@ const SystemStructure = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-[2vw] max-sm:grid-cols-1 max-sm:gap-[4vw]">
+              <div className="grid grid-cols-3 gap-[2vw] max-sm:grid-cols-1 max-sm:gap-[4vw] ">
                 {/* Column 1 - Description */}
                 <p className="text-22 text-[#111] max-sm:text-24">
                   The authoritative control plane for all AI execution, responsible for:

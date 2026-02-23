@@ -101,7 +101,7 @@ const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
         zIndex: getZIndex(),
       }}
       className={`
-  max-sm:w-full w-[52vw] px-[3vw] border-primary-blue  
+  max-sm:w-full w-[58vw] px-[3vw] border-primary-blue pr-[7vw]  
   max-sm:h-[40vw] h-[10vw] border 
   relative md:absolute md:top-0 md:left-1/2 md:-translate-x-1/2
   max-sm:rounded-[5vw] rounded-[1vw] max-sm:px-[5vw] max-sm:mb-[5vw]

@@ -94,6 +94,26 @@ h6 {
 }
 /* } */
 
+
+::-webkit-scrollbar {
+  width: 4px;
+  padding-left: 5vw;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    #ffffff,
+    #1727ff
+  ); /* gradient from top to bottom */
+  border-radius: 8px;
+}
+
 .unifyblock {
   /* initial gradient colors */
   --c1: #02031c; /* "from" */
@@ -209,7 +229,7 @@ h6 {
 .under-multi-parent:hover .under-multi {
   background-size:
     100% 0px,
-    100% 1px;
+    100% 2px;
 }
 
 .clients-marquee {

@@ -9,7 +9,7 @@ const Recognized = () => {
        
         <div className='w-[50%]  max-sm:w-full max-sm:space-y-[5vw] max-md:items-start max-sm:text-center'>
           <Copy>
-        <h2 className='text-56 leading-[1.25] text-[#0A1B4B]'>Recognized Excellence: Infosys Finacle Open-Source Services Partner 2025</h2>
+        <h2 className='text-56 leading-[1.2] max-sm:text-76 text-[#0A1B4B]'>Recognized Excellence: Infosys Finacle Open-Source Services Partner 2025</h2>
         </Copy>
         </div>
        

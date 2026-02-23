@@ -44,7 +44,6 @@ const AgenticAI = () => {
      <Layout>
     <main className="min-h-screen">
         <HeroNew heroContent={heroContent} variant={"bottomRight"} />
-       
         <Intro/>
         <DSWArrival/>
          <Infrastructure/>
