@@ -12,9 +12,9 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
       className="w-full px-[5vw] py-[5%] pb-[12%] max-sm:px-[7vw] max-sm:py-[15%]"
       id={sectionId}
     >
-      <div className="w-full h-full gap-y-[2vw] flex flex-col items-center text-center">
+      <div className="w-full h-full gap-y-[2vw] max-sm:space-y-[6vw] flex flex-col items-center text-center">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-sm:w-full leading-[1.2]">
+          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-sm:w-full leading-[1.2] capitalize">
             {heading}
           </h2>
         </HeadingAnim>
@@ -24,7 +24,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
         </Copy>
 
         {/* Certifications Row */}
-        <div className="flex justify-between items-center w-[90%] my-[4vw] fadeup max-sm:flex-wrap max-sm:justify-center max-sm:w-full max-sm:gap-[5vw]">
+        <div className="flex justify-between items-center w-[90%] my-[4vw] max-sm:py-[6vw] fadeup max-sm:flex-wrap max-sm:justify-center max-sm:w-full max-sm:gap-[5vw]">
           {certifications.map((logo, index) => {
             const isLast = index === certifications.length - 1;
             return (

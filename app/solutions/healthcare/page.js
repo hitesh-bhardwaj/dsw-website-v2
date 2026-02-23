@@ -19,22 +19,22 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
+  title: "Healthcare AI Operating System | DSW",
+  description: "Govern AI in clinical support, patient engagement, revenue cycle, and operations with a unified, controlled execution layer for healthcare.",
+  url: "/solutions/healthcare",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/solutions/insurance",
+    canonical: "/solutions/healthcare",
     languages: {
-      "en-US": "/solutions/insurance",
+      "en-US": "/solutions/healthcare",
     },
   },
   openGraph: {
-    url: "insuraince",
+    url: "/solutions/healthcare",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-healthcare.png`,
         width: 1200,
         height: 630,
       },
@@ -222,8 +222,15 @@ const workflowsContent = {
     { number: "02", title: "Value-based care analytics" },
     { number: "03", title: "Risk stratification support" },
     { number: "04", title: "Provider performance analytics" },
+    { number: "05", title: "Clinical quality monitoring" },
+    { number: "06", title: "Supply chain and procurement intelligence" },
+    { number: "07", title: "Clinical trial operations support" },
+    { number: "08", title: "Payer-provider collaboration intelligence" },
+    { number: "09", title: "Compliance monitoring workflows" },
+    { number: "10", title: "Model governance workflows" },
   ],
 };
+
 
 const caseStudyContent = {
   heading: "Healthcare AI in production",

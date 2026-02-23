@@ -19,9 +19,9 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
+  title: "Insurance AI Operating System for Insurers | DSW",
+  description: "Enterprise AI operating layer for insurers — govern underwriting, claims, fraud, and compliance with controlled, auditable, scalable AI execution.",
+  url: "/solutions/insurance",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
@@ -31,10 +31,10 @@ export const metadata = getPageMetadata({
     },
   },
   openGraph: {
-    url: "insuraince",
+    url: "/solutions/insurance",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-insurance.png`,
         width: 1200,
         height: 630,
       },
@@ -89,7 +89,7 @@ const heroContent = {
 
 const runtimeContent = {
   heading:
-    "From disconnected models to runtime-governed insurance execution",
+    "From disconnected models to runtime- governed insurance execution",
   description:
     "Most insurers already run models in underwriting, claims, and fraud. Few can operate them continuously across the enterprise.",
   items: [
@@ -198,17 +198,24 @@ const featuresContent = {
 };
 
 const workflowsContent = {
-  heading: "More insurance workflows on the AI Operating System",
+  heading: "More Insurance Workflows on the AI Operating System",
   items: [
     { number: "01", title: "Policy servicing automation" },
-    { number: "02", title: "Agent productivity and distribution insights" },
-    { number: "03", title: "Renewal and retention intelligence" },
-    { number: "04", title: "Model risk management and governance workflows" },
+    { number: "02", title: "Renewal and retention intelligence" },
+    { number: "03", title: "Agent productivity and distribution insights" },
+    { number: "04", title: "Customer lifetime value modeling" },
+    { number: "05", title: "Product performance analytics" },
+    { number: "06", title: "Regulatory reporting acceleration" },
+    { number: "07", title: "Catastrophe modeling support" },
+    { number: "08", title: "Reinsurance analytics workflows" },
+    { number: "09", title: "Claims leakage detection" },
+    { number: "10", title: "Model risk management and governance workflows" },
   ],
 };
 
+
 const caseStudyContent = {
-  heading: "Insurance AI in production",
+  heading: "Insurance AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
   company: "Persistency",
   description:
@@ -228,7 +235,7 @@ const caseStudyContent = {
 const benefitsContent = {
   sectionId: "finacle-outcomes",
   heading:
-    "Scale insurance AI and Agentic AI easily – No governance gaps, vendor lock in, or cost sprawl",
+    "Scale insurance AI and Agentic AI easily - No governance gaps, vendor lock in, or cost sprawl",
   points: [
     { id: "01", text: "Run underwriting, claims, fraud, and servicing as one governed system" },
     { id: "02", text: "Reduce operational friction in deploying and managing models" },
@@ -239,7 +246,7 @@ const benefitsContent = {
 };
 
 const ctaContent={
-  heading:"Operate insurance AI as enterprise infrastructure  ",
+  heading:"Operate Insurance AI as Enterprise Infrastructure  ",
   para:"See how the DSW Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
   primaryButton:{
     present:true,

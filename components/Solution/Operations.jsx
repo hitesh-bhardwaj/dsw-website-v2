@@ -78,9 +78,9 @@ const Operations = ({ operationsContent }) => {
 
     const wrap = contentWrapRef.current;
 
-    // Targets for SplitText (intro + each li)
+    // Targets for SplitText (intro only) + ul fade
     const introEl = wrap.querySelector("[data-intro]");
-    const liEls = Array.from(wrap.querySelectorAll("li")); // ✅ li (not ul)
+    const ulEl = wrap.querySelector("ul"); // ✅ whole ul
 
     if (!introEl) {
       setActive(nextIndex);
@@ -90,17 +90,12 @@ const Operations = ({ operationsContent }) => {
 
     // OUT split
     const introSplit = new SplitText(introEl, { type: "lines" });
-    const liSplits = liEls.map((li) => new SplitText(li, { type: "lines" }));
 
-    const outLines = [
-      ...introSplit.lines,
-      ...liSplits.flatMap((s) => s.lines),
-    ];
+    const outLines = [...introSplit.lines];
 
     const cleanupOut = () => {
       try {
         introSplit.revert();
-        liSplits.forEach((s) => s.revert());
       } catch (_) {}
     };
 
@@ -113,13 +108,27 @@ const Operations = ({ operationsContent }) => {
       },
     });
 
-    // OUT
-    tl.to(outLines, {
-      autoAlpha: 0,
-      y: -12,
-      duration: 0.28,
-      stagger: 0.04,
-    });
+    // OUT — lines for intro, fade for ul
+    tl.to(
+      outLines,
+      {
+        autoAlpha: 0,
+        y: -12,
+        duration: 0.28,
+        stagger: 0.04,
+      },
+      0
+    );
+    if (ulEl) {
+      tl.to(
+        ulEl,
+        {
+          autoAlpha: 0,
+          duration: 0.28,
+        },
+        0
+      );
+    }
 
     // hide wrapper so next content can't flash
     tl.set(wrap, { autoAlpha: 0 });
@@ -142,7 +151,7 @@ const Operations = ({ operationsContent }) => {
           }
 
           const introEl2 = wrap2.querySelector("[data-intro]");
-          const liEls2 = Array.from(wrap2.querySelectorAll("li")); // ✅ li
+          const ulEl2 = wrap2.querySelector("ul"); //  whole ul
 
           if (!introEl2) {
             gsap.set(wrap2, { autoAlpha: 1 });
@@ -151,25 +160,20 @@ const Operations = ({ operationsContent }) => {
           }
 
           const introSplit2 = new SplitText(introEl2, { type: "lines" });
-          const liSplits2 = liEls2.map(
-            (li) => new SplitText(li, { type: "lines" })
-          );
 
-          const inLines = [
-            ...introSplit2.lines,
-            ...liSplits2.flatMap((s) => s.lines),
-          ];
+          const inLines = [...introSplit2.lines];
 
           const cleanupIn = () => {
             try {
               introSplit2.revert();
-              liSplits2.forEach((s) => s.revert());
             } catch (_) {}
           };
 
           gsap.set(wrap2, { autoAlpha: 1 });
           gsap.set(inLines, { autoAlpha: 0, y: 12 });
+          if (ulEl2) gsap.set(ulEl2, { autoAlpha: 0 });
 
+          // Animate intro lines IN
           gsap.to(inLines, {
             autoAlpha: 1,
             y: 0,
@@ -185,8 +189,18 @@ const Operations = ({ operationsContent }) => {
               setIsAnimating(false);
             },
           });
+
+          // Animate ul IN (fade only, slight delay)
+          if (ulEl2) {
+            gsap.to(ulEl2, {
+              autoAlpha: 1,
+              duration: 0.45,
+              delay: 0.15,
+              ease: "power3.out",
+            });
+          }
         });
-      });
+      }); 
     });
   };
 
@@ -206,7 +220,7 @@ const Operations = ({ operationsContent }) => {
     >
       <div className="w-full h-full gap-y-[2vw] flex flex-col items-center text-center">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[85%]">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto w-[85%] capitalize">
             {data.heading}
           </h2>
         </HeadingAnim>
@@ -225,7 +239,7 @@ const Operations = ({ operationsContent }) => {
                 onClick={() => animateTo(idx)}
                 disabled={isAnimating}
                 className={[
-                  "w-full text-left p-[1vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer",
+                  "w-full text-left p-[1vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer fadeup",
                   isActive
                     ? "border-l-[4px] border border-primary-blue text-primary-blue"
                     : "border border-transparent text-[#0A1B4B]",
@@ -238,7 +252,7 @@ const Operations = ({ operationsContent }) => {
         </div>
 
         {/* MOBILE: accordion tabs with content below each */}
-        <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-[3vw] w-full max-sm:pt-[7vw] font-light">
+        <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-[3vw] w-full max-sm:pt-[7vw] font-light fadeup">
           {data.tabs.map((tab, idx) => {
             const isActive = idx === active;
             const tabContent = data.tabs[idx] ?? { intro: "", bullets: [] };
@@ -270,7 +284,7 @@ const Operations = ({ operationsContent }) => {
         {/* RIGHT: content — desktop only */}
         <div
           ref={contentWrapRef}
-          className="w-[45%] max-sm:hidden relative text-30"
+          className="w-[45%] max-sm:hidden relative text-30 fadeup"
         >
           <div className="w-full space-y-[2vw]">
             <p data-intro>{current.intro}</p>

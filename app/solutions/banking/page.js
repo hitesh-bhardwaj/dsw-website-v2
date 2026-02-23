@@ -23,22 +23,22 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
+  title: "AI Operating System for Banking | DSW",
+  description: "Operate AI across banking risk, compliance, credit, fraud, and customer workflows with one governed system built for production enterprise use.",
+  url: "/solutions/banking",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/solutions/insurance",
+    canonical: "/solutions/banking",
     languages: {
-      "en-US": "/solutions/insurance",
+      "en-US": "/solutions/banking",
     },
   },
   openGraph: {
-    url: "insuraince",
+    url: "/solutions/banking",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-banking.png`,
         width: 1200,
         height: 630,
       },
@@ -211,18 +211,26 @@ const featuresContent = {
 
 
 const workflowsContent = {
-  heading: "Unlimited use cases with a single subscription. ",
+  heading: "Unlimited Use Cases with a Single Subscription.",
+  para:"",
   para:"No more use-case-based cost barrier.",
   items: [
     { number: "01", title: "Fraud detection and anomaly monitoring" },
     { number: "02", title: "Transaction monitoring triage" },
     { number: "03", title: "Underwriting decision intelligence" },
     { number: "04", title: "Customer churn prediction and retention" },
+    { number: "05", title: "Next-best offer and personalization" },
+    { number: "06", title: "Contact center assist and QA analytics" },
+    { number: "07", title: "Dispute and chargeback workflow support" },
+    { number: "08", title: "Treasury and liquidity forecasting" },
+    { number: "09", title: "Regulatory reporting acceleration" },
+    { number: "10", title: "Model risk management and governance workflows" },
   ],
 };
 
+
 const caseStudyContent = {
-  heading: "Running real-time banking decisions on a unified AI runtime",
+  heading: "Running Real-Time Banking Decisions on a Unified AI Runtime",
   subheading: "Real deployment. Measurable operational impact.",
   company: "Castler",
   description:
@@ -274,7 +282,7 @@ const benefitsContent = {
 
 
 const ctaContent={
-  heading:"Operate AI as infrastructure inside your Bank ",
+  heading:"Operate AI as Infrastructure Inside your Bank ",
   para:"Experience the DSW Enterprise AI Operating System ",
   primaryButton:{
     present:true,

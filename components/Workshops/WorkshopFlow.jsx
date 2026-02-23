@@ -40,15 +40,15 @@ export default function WorkshopFlow({ sessionsData, space }) {
   };
 
   return (
-    <section className="relative w-full h-fit space-y-[6vw] px-[5vw] max-md:h-full overflow-hidden py-[7%] max-sm:py-[10%]">
+    <section className="relative w-full h-fit space-y-[3vw] px-[5vw] max-md:h-full overflow-hidden py-[7%] max-sm:py-[10%]">
      <div className="w-full flex flex-col h-full  gap-[1vw] max-md:flex-col max-md:items-start">
   <HeadingAnim>
-    <h2 className="text-76 text-[#0A1B4B] max-sm:leading-[1.4] text-center max-sm:mx-auto">
+    <h2 className="text-76 text-[#0A1B4B] whitespace-nowrap max-sm:whitespace-normal leading-[1.2] max-sm:leading-[1.4] text-center max-sm:mx-auto">
       Workshop Flow & Key Sessions
     </h2>
   </HeadingAnim>
 
-  <div className="flex fadeup gap-6 mt-12 max-md:hidden items-end justify-end">
+  <div className="flex fadeup gap-6  max-md:hidden items-end justify-end">
     <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
     <NextButton
       onClick={handleNext}
@@ -115,8 +115,8 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
             isActive ? "opacity-100" : "opacity-0"
           }`}
         />
-        <div className="absolute right-[4%] max-sm:top-[5%] max-sm:right-[5%] top-[4%] z-[5] rounded-full flex items-center justify-center h-[4vw] w-[4vw] max-sm:h-[15vw]  max-sm:w-[15vw] max-md:w-[12vw] max-md:h-[12vw] border border-[#111111]">
-          <p className="text-foreground max-sm:text-[4.5vw] max-sm:font-medium max-md:text-[3vw] text-[1vw]">
+        <div className="absolute right-[5%] max-sm:top-[5%] max-sm:right-[5%] top-[5%] z-[5] rounded-full flex items-center justify-center h-[4.8vw] w-[4.8vw] max-sm:h-[15vw]  max-sm:w-[15vw] max-md:w-[12vw] max-md:h-[12vw] border border-[#111111]">
+          <p className="text-foreground max-sm:text-[4.5vw] font-light max-sm:font-medium max-md:text-[3vw] text-[1.5vw]">
             {duration}
           </p>
         </div>
