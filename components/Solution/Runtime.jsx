@@ -59,7 +59,7 @@ const Runtime = ({ runtimeContent }) => {
         {/* Extra HTML Content */}
         {extra && (
           <div
-            className="w-[60%] text-center text-30 fadeup"
+            className="w-[60%] text-center text-30 fadeup max-sm:w-full"
             dangerouslySetInnerHTML={{ __html: extra }}
           />
         )}

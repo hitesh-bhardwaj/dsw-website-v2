@@ -11,7 +11,7 @@ function AboutCard({ challenge }) {
           relative bg-white hover:border-primary-blue group hover:shadow-md hover:drop-shadow-md
           duration-300 ease-in-out
           w-[25.5vw] h-[18vw] p-[2vw]
-          max-sm:p-[7vw] max-sm:w-full max-sm:pr-[8vw] max-sm:h-[52vw]
+          max-sm:p-[7vw] max-sm:w-full max-sm:pr-[8vw] max-sm:h-[62vw]
           border border-border-color flex flex-col
         "
       >
@@ -23,7 +23,7 @@ function AboutCard({ challenge }) {
         </div>
 
         {/* Title */}
-        <p className="text-24 mt-auto text-foreground">
+        <p className="text-24 mt-auto text-foreground max-sm:text-30">
           {challenge.title}
         </p>
       </div>
@@ -63,7 +63,7 @@ const Breaks = ({ breaksContent }) => {
         </div>
          {extra && (
           <div
-            className="w-[60%] text-center text-30 fadeup mt-[3vw]"
+            className="w-[60%] text-center text-30 fadeup mt-[3vw] max-sm:w-full"
             dangerouslySetInnerHTML={{ __html: extra }}
           />
         )}
