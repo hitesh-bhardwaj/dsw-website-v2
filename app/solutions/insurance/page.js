@@ -19,9 +19,9 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
+  title: "Insurance AI Operating System for Insurers | DSW",
+  description: "Enterprise AI operating layer for insurers — govern underwriting, claims, fraud, and compliance with controlled, auditable, scalable AI execution.",
+  url: "/solutions/insurance",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
@@ -31,10 +31,10 @@ export const metadata = getPageMetadata({
     },
   },
   openGraph: {
-    url: "insuraince",
+    url: "/solutions/insurance",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-insurance.png`,
         width: 1200,
         height: 630,
       },

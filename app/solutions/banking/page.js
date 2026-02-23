@@ -23,22 +23,22 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
+  title: "AI Operating System for Banking | DSW",
+  description: "Operate AI across banking risk, compliance, credit, fraud, and customer workflows with one governed system built for production enterprise use.",
+  url: "/solutions/banking",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/solutions/insurance",
+    canonical: "/solutions/banking",
     languages: {
-      "en-US": "/solutions/insurance",
+      "en-US": "/solutions/banking",
     },
   },
   openGraph: {
-    url: "insuraince",
+    url: "/solutions/banking",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-banking.png`,
         width: 1200,
         height: 630,
       },
