@@ -186,7 +186,7 @@ const videos = [
     duration: "1.46 min",
     title: "Launch Enterprise AI in Days and GenAI in Hours!",
     description:
-      "DSW UnifyAI, our enterprise AI platform makes it happen by empowering you to move quickly and securely, with powerful end to end tools and orchestration that gets your initiatives from concept to production to cash flow. .",
+      "DSW UnifyAI, our enterprise AI platform makes it happen by empowering you to move quickly and securely, with powerful end to end tools ...",
     youtubeUrl:
       "https://www.youtube.com/watch?v=vknslJEBX1w",
   },
@@ -206,7 +206,7 @@ const videos = [
     duration: "1.40 min",
     title: "DSW UnifyAI: Welcome to the future of Enterprise AI",
     description:
-      "Discover the power of DSW UnifyAI, an enterprise-grade AI platform designed to streamline your AI adoption journey. UnifyAI enables organizations to develop, deploy, and scale AI use cases with unmatched speed and efficiency. See how UnifyAI transforms complex data into actionable insights, driving smarter decision-making and business growth..",
+      "Discover the power of DSW UnifyAI, an enterprise-grade AI platform designed to streamline your AI adoption journey.",
     youtubeUrl:
       "https://www.youtube.com/watch?v=Koch5FOWPdc",
   },
@@ -216,7 +216,7 @@ const videos = [
     duration: "44.07 mins",
     title: "AI for ALL: Power of Democratizing AI and Data Science with UnifyAI, an Enterprise-Ready AI Platform",
     description:
-      "UnifyAI is an API-driven platform that offers an end-to-end journey for organizations to build and scale their AI-enabled services. It helps businesses identify and integrate data sources, build a unified data pipeline, map features in a feature store, write use case-specific machine learning algorithms, integrate existing ML models, call ML models via APIs, visualize and orchestrate ML models.",
+      "UnifyAI is an API-driven platform that offers an end-to-end journey for organizations to build and scale their AI-enabled services.",
     youtubeUrl:
       "https://www.youtube.com/watch?v=7yMR3fkAI20",
   },
@@ -226,7 +226,7 @@ const videos = [
     duration: "5.32 mins",
     title: "DSW at Mint Annual Banking Conclave – The 14th Edition: Navigating the digital opportunity",
     description:
-      "UnifyAI  is a API driven Platform that helps organizations right from identifying and integrating data sources, to building a unified data pipeline, to mapping features in feature store, to writing use case-specific machine learning algorithm or integrating existing ML model, to calling ML models via APIs to visualize and orchestrate ML models making it as an end to end journey of building and scaling your AI-enabled  services. ",
+      "UnifyAI  is a API driven Platform that helps organizations right from identifying and integrating data sources, to building a unified data ...",
     youtubeUrl:
       "https://www.youtube.com/watch?v=wK2u5B2HLYw",
   },
@@ -236,7 +236,7 @@ const videos = [
     duration: "2.01 mins",
     title: "DSW UnifyAI by Data Science Wizards",
     description:
-      "UnifyAI is a “Platform as a Solution” that helps organizations right from identifying and integrating data sources, to building a unified data pipeline, to mapping features in feature store, to writing use case-specific machine learning algorithms or integrating existing ML models, to calling ML models via APIs to visualize and orchestrate ML models making it as an end to end journey of building and scaling your AI-enabled services.",
+      "UnifyAI is a “Platform as a Solution” that helps organizations right from identifying and integrating data sources, to building a unified data ...",
     youtubeUrl:
       "https://www.youtube.com/watch?v=9XkYKR8JPms",
   },

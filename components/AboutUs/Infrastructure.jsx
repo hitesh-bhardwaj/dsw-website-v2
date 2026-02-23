@@ -1,97 +1,276 @@
+"use client"
+import { useEffect, useRef } from "react";
 import { CircleBg } from "../Svg/Lines/DottedCircle";
 import { Arrow } from "../Svg/AboutUs/Arrow";
 import HeadingAnim from "../Animations/HeadingAnim";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
+const R     = 15; // vw  — circle radius
+const LINE  = 3;  // vw  — connector line length
+const BOX_W = 18; // vw
+const BOX_H = 9;  // vw
 
 export default function Infrastructure() {
+  const sectionRef = useRef(null); // the tall scroll-space wrapper
+  const diagramRef = useRef(null); // the element that gets pinned
+
+  const circleWrapRef       = useRef(null);
+  const circleCenterTextRef = useRef(null);
+
+  const topLineRef    = useRef(null);
+  const topBoxRef     = useRef(null);
+  const rightLineRef  = useRef(null);
+  const rightBoxRef   = useRef(null);
+  const bottomLineRef = useRef(null);
+  const bottomBoxRef  = useRef(null);
+  const leftLineRef   = useRef(null);
+  const leftBoxRef    = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // ── initial states ──────────────────────────────────────
+      gsap.set(circleWrapRef.current,       { opacity: 0, scale: 0.5 });
+      gsap.set(circleCenterTextRef.current, { opacity: 0 });
+
+      gsap.set(topLineRef.current,    { scaleY: 0, transformOrigin: "bottom center" });
+      gsap.set(bottomLineRef.current, { scaleY: 0, transformOrigin: "top center"    });
+      gsap.set(rightLineRef.current,  { scaleX: 0, transformOrigin: "left center"   });
+      gsap.set(leftLineRef.current,   { scaleX: 0, transformOrigin: "right center"  });
+
+      gsap.set(
+        [topBoxRef.current, rightBoxRef.current, bottomBoxRef.current, leftBoxRef.current],
+        { opacity: 0, scale: 0.85 }
+      );
+
+      // ── pinned timeline ─────────────────────────────────────
+      // sectionRef is the tall spacer; diagramRef is what gets pinned
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: sectionRef.current,   // scroll space
+          start:   "top top",
+          end:     "+=300%",
+          scrub:   1.2,
+          pin:     diagramRef.current,   // only the diagram pins
+          anticipatePin: 1,
+        },
+      });
+
+      // 1. Circle
+      tl.to(circleWrapRef.current, { opacity: 1, scale: 1, duration: 0.5, ease: "power2.inOut" });
+      tl.to(circleCenterTextRef.current, { opacity: 1, duration: 0.3 }, "-=0.1");
+
+      // 2. Top line → box
+      tl.to(topLineRef.current,  { scaleY: 1, duration: 0.35, ease: "power2.inOut" }, "+=0.15");
+      tl.to(topBoxRef.current,   { opacity: 1, scale: 1, duration: 0.3, ease: "power2.inOut" });
+
+      // 3. Right line → box
+      tl.to(rightLineRef.current, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, "+=0.15");
+      tl.to(rightBoxRef.current,  { opacity: 1, scale: 1, duration: 0.3, ease: "power2.inOut" });
+
+      // 4. Bottom line → box
+      tl.to(bottomLineRef.current, { scaleY: 1, duration: 0.35, ease: "power2.inOut" }, "+=0.15");
+      tl.to(bottomBoxRef.current,  { opacity: 1, scale: 1, duration: 0.3, ease: "power2.inOut" });
+
+      // 5. Left line → box
+      tl.to(leftLineRef.current, { scaleX: 1, duration: 0.35, ease: "power2.inOut" }, "+=0.15");
+      tl.to(leftBoxRef.current,  { opacity: 1, scale: 1, duration: 0.3, ease: "power2.inOut" });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
     <div>
-      {/* Desktop Layout */}
-      <div className="relative w-full h-[80vw] mx-auto my-0 py-[5%] flex items-start justify-start max-sm:hidden">
-        <div className="w-full flex items-start justify-center">
-          <HeadingAnim>
+      {/* ── Desktop ───────────────────────────────────────────── */}
+      <div className="max-sm:hidden">
 
-          <h2 className="text-44 w-fit fadeup">
-            The issue wasn't talent or intent. {` `}
-            <span className="font-medium">
-It was an infrastructure.
-            </span>
-          </h2>
-          </HeadingAnim>
-        </div>
-
-        {/* Center Circle */}
-        <div className="absolute left-1/2 top-1/2 fadeup -translate-x-1/2 -translate-y-1/2 z-10">
-          <div className="w-[23vw] h-[23vw] flex items-center justify-center">
-            <CircleBg />
-            <div className="absolute inset-0 flex items-center justify-center text-center text-30 w-[80%] mx-auto z-50 text-black">
-              Enterprises were trying
-              to run production AI using
-            </div>
-          </div>
-        </div>
-
-        {/* Top Box */}
-        <div className="absolute left-1/2 -translate-x-1/2 top-[16vw] z-20">
-          <div className="bg-white border text-30 border-primary-blue px-[2vw] w-[20vw] h-[10vw] flex items-center justify-center rounded-[1vw] leading-[1.2] text-black text-center">
-            Disconnected tools and vendors
-          </div>
-        </div>
-        {/* Top Line */}
-        <svg className="absolute left-1/2 -translate-x-1/2 top-[22.5vw] z-0" width="2vw" height="6vw" viewBox="0 0 2 120" fill="none">
-          <line x1="1" y1="0" x2="1" y2="120" stroke="#1727FF" strokeWidth="2"/>
-        </svg>
-
-        {/* Right Box */}
-        <div className="absolute right-[14vw] top-1/2 -translate-y-1/2 z-20">
-          <div className="bg-white border text-30 border-primary-blue px-[2vw] w-[20vw] h-[10vw] flex items-center justify-center rounded-[1vw] leading-[1.2] text-black text-center">
-            Governance as documentation
-          </div>
-        </div>
-        {/* Right Line */}
-        <svg className="absolute right-[32.5vw] top-1/2 -translate-y-1/2 z-0" width="6vw" height="2vw" viewBox="0 0 120 2" fill="none">
-          <line x1="0" y1="1" x2="120" y2="1" stroke="#1727FF" strokeWidth="2"/>
-        </svg>
-
-        {/* Bottom Box */}
-        <div className="absolute left-1/2 -translate-x-1/2 bottom-[15vw] z-20">
-          <div className="bg-white border text-30 border-primary-blue px-[2vw] w-[20vw] h-[10vw] flex items-center justify-center rounded-[1vw] leading-[1.2] text-black text-center">
-            Post-deployment controls
-          </div>
-        </div>
-        {/* Bottom Line */}
-        <svg className="absolute left-1/2 -translate-x-1/2 bottom-[22.5vw] z-0" width="2vw" height="6vw" viewBox="0 0 2 120" fill="none">
-          <line x1="1" y1="0" x2="1" y2="120" stroke="#1727FF" strokeWidth="2"/>
-        </svg>
-
-        {/* Left Box */}
-        <div className="absolute left-[15vw] top-1/2 -translate-y-1/2 z-20">
-          <div className="bg-white border text-30 border-primary-blue px-[2vw] w-[20vw] h-[10vw] flex items-center justify-center rounded-[1vw] leading-[1.2] text-black text-center">
-            Brittle integrations that couldn't scale
-          </div>
-        </div>
-        {/* Left Line */}
-        <svg className="absolute left-[32.5vw] top-1/2 -translate-y-1/2 z-0" width="6vw" height="2vw" viewBox="0 0 120 2" fill="none">
-          <line x1="120" y1="1" x2="0" y2="1" stroke="#1727FF" strokeWidth="2"/>
-        </svg>
-      </div>
-
-      {/* Mobile Layout */}
-      <div className="hidden max-sm:flex max-sm:flex-col w-[90%] mx-auto max-sm:items-center max-sm:w-full max-sm:px-[7vw] max-sm:py-10">
-        {/* Heading */}
+        {/* HEADING — normal flow, scrolls in before the pin */}
         <HeadingAnim>
-
-        <h2 className="text-44 font-normal text-center leading-[1.3] mb-10">
-          The issue wasn't talent or intent.{` `}
-          <span className="font-medium">It was an infrastructure.</span>
-        </h2>
+          <div className="w-full flex justify-center px-4 py-[4vw]">
+            <h2 className="text-44 w-fit text-center">
+              The issue wasn't talent or intent.{" "}
+              <span className="font-medium">It was an infrastructure.</span>
+            </h2>
+          </div>
         </HeadingAnim>
 
-        {/* Center label */}
-        
-        
+        {/* SCROLL SPACE — sectionRef — this is what triggers + holds the pin */}
+        <div ref={sectionRef}>
 
-        {/* Vertical flow */}
-        <div className="flex flex-col items-center w-full gap-0">
+          {/* DIAGRAM — diagramRef — this element gets pinned to the viewport */}
+          <div
+            ref={diagramRef}
+            className="relative w-full overflow-hidden"
+            style={{ height: "100vh" }}
+          >
+            {/* CENTER CIRCLE */}
+            <div
+              ref={circleWrapRef}
+              className="absolute z-10 flex items-center justify-center"
+              style={{
+                width:  `${R * 2}vw`,
+                height: `${R * 2}vw`,
+                left:   `calc(50% - ${R}vw)`,
+                top:    `calc(50% - ${R}vw)`,
+              }}
+            >
+              <CircleBg />
+              <div
+                ref={circleCenterTextRef}
+                className="absolute inset-0 flex items-center justify-center
+                           text-center text-30 w-[75%] mx-auto z-50 text-black leading-snug"
+              >
+                Enterprises were trying<br />to run production AI using
+              </div>
+            </div>
+
+            {/* TOP LINE */}
+            <div
+              ref={topLineRef}
+              className="absolute z-0 bg-primary-blue"
+              style={{
+                width:  "1.5px",
+                height: `${LINE}vw`,
+                left:   "calc(50% - 0.75px)",
+                top:    `calc(50% - ${R}vw - ${LINE}vw)`,
+              }}
+            />
+            {/* TOP BOX */}
+            <div
+              ref={topBoxRef}
+              className="absolute z-20"
+              style={{
+                width:  `${BOX_W}vw`,
+                height: `${BOX_H}vw`,
+                left:   `calc(50% - ${BOX_W / 2}vw)`,
+                top:    `calc(50% - ${R}vw - ${LINE}vw - ${BOX_H}vw)`,
+              }}
+            >
+              <div className="w-full h-full bg-white border border-primary-blue
+                              text-30 flex items-center justify-center
+                              rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
+                Disconnected tools and vendors
+              </div>
+            </div>
+
+            {/* BOTTOM LINE */}
+            <div
+              ref={bottomLineRef}
+              className="absolute z-0 bg-primary-blue"
+              style={{
+                width:  "1.5px",
+                height: `${LINE}vw`,
+                left:   "calc(50% - 0.75px)",
+                top:    `calc(50% + ${R}vw)`,
+              }}
+            />
+            {/* BOTTOM BOX */}
+            <div
+              ref={bottomBoxRef}
+              className="absolute z-20"
+              style={{
+                width:  `${BOX_W}vw`,
+                height: `${BOX_H}vw`,
+                left:   `calc(50% - ${BOX_W / 2}vw)`,
+                top:    `calc(50% + ${R}vw + ${LINE}vw)`,
+              }}
+            >
+              <div className="w-full h-full bg-white border border-primary-blue
+                              text-30 flex items-center justify-center
+                              rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
+                Post-deployment controls
+              </div>
+            </div>
+
+            {/* RIGHT LINE */}
+            <div
+              ref={rightLineRef}
+              className="absolute z-0 bg-primary-blue"
+              style={{
+                height: "1.5px",
+                width:  `${LINE}vw`,
+                top:    "calc(50% - 0.75px)",
+                left:   `calc(50% + ${R}vw)`,
+              }}
+            />
+            {/* RIGHT BOX */}
+            <div
+              ref={rightBoxRef}
+              className="absolute z-20"
+              style={{
+                width:  `${BOX_W}vw`,
+                height: `${BOX_H}vw`,
+                top:    `calc(50% - ${BOX_H / 2}vw)`,
+                left:   `calc(50% + ${R}vw + ${LINE}vw)`,
+              }}
+            >
+              <div className="w-full h-full bg-white border border-primary-blue
+                              text-30 flex items-center justify-center
+                              rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
+                Governance as documentation
+              </div>
+            </div>
+
+            {/* LEFT LINE */}
+            <div
+              ref={leftLineRef}
+              className="absolute z-0 bg-primary-blue"
+              style={{
+                height: "1.5px",
+                width:  `${LINE}vw`,
+                top:    "calc(50% - 0.75px)",
+                left:   `calc(50% - ${R}vw - ${LINE}vw)`,
+              }}
+            />
+            {/* LEFT BOX */}
+            <div
+              ref={leftBoxRef}
+              className="absolute z-20"
+              style={{
+                width:  `${BOX_W}vw`,
+                height: `${BOX_H}vw`,
+                top:    `calc(50% - ${BOX_H / 2}vw)`,
+                left:   `calc(50% - ${R}vw - ${LINE}vw - ${BOX_W}vw)`,
+              }}
+            >
+              <div className="w-full h-full bg-white border border-primary-blue
+                              text-30 flex items-center justify-center
+                              rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
+                Brittle integrations that couldn't scale
+              </div>
+            </div>
+          </div>
+          {/* end diagramRef */}
+
+        </div>
+        {/* end sectionRef */}
+
+        {/* PARAGRAPH — normal flow, scrolls in after pin releases */}
+        <div className="py-[4vw] px-[10%]">
+          <p className="text-30  mx-auto text-center">
+            Over time, it became clear to us that AI had crossed the threshold from "software project" to enterprise system.
+            That's when the journey shifted. We stopped thinking like a platform team.
+            We started thinking like operating system builders. And that is how DSW evolved into the <span className="font-medium"> Enterprise AI Operating System. </span> 
+          </p>
+        </div>
+
+      </div>
+      {/* end desktop */}
+
+      {/* ── Mobile ─────────────────────────────────────────────── */}
+      <div className="hidden max-sm:flex max-sm:flex-col max-sm:items-center
+                      max-sm:w-full max-sm:px-[7vw] max-sm:py-10">
+        <HeadingAnim>
+          <h2 className="text-44 font-normal text-center leading-[1.3] mb-10">
+            The issue wasn't talent or intent.{" "}
+            <span className="font-medium">It was an infrastructure.</span>
+          </h2>
+        </HeadingAnim>
+
+        <div className="flex flex-col items-center w-full">
           {[
             "Enterprises were trying to run production AI using:",
             "Disconnected tools and vendors",
@@ -100,24 +279,22 @@ It was an infrastructure.
             "Brittle integrations that couldn't scale",
           ].map((item, i) => (
             <div key={i} className="flex flex-col items-center w-full">
-            
-              <div className="bg-white fadeup rounded-[3vw] px-5 py-4 w-[80vw] text-center text-30 leading-[1.4] text-black">
+              <div className="bg-white fadeup rounded-[3vw] px-5 py-4 w-[80vw]
+                              text-center text-30 leading-[1.4] text-black">
                 {item}
               </div>
               {i < 4 && (
                 <div className="rotate-90 my-[6vw] fadeup">
-                <Arrow  className=''/>
-                    </div>
+                  <Arrow className="" />
+                </div>
               )}
             </div>
           ))}
         </div>
-      </div>
 
-      {/* Bottom paragraph — shared, visible on both */}
-      <div>
-        <p className="text-30 w-[80%] mx-auto text-center fadeup  max-sm:w-[90%] max-sm:mt-10">
-          Over time, it became clear to us that AI had crossed the threshold from "software project" to enterprise system. That's when the journey shifted. We stopped thinking like a platform team.
+        <p className="text-30 w-[90%] mx-auto text-center fadeup mt-10">
+          Over time, it became clear to us that AI had crossed the threshold from "software project" to enterprise system.
+          That's when the journey shifted. We stopped thinking like a platform team.
           We started thinking like operating system builders. And that is how DSW evolved into the Enterprise AI Operating System.
         </p>
       </div>
