@@ -89,7 +89,7 @@ const heroContent = {
 
 const runtimeContent = {
   heading:
-    "From disconnected models to runtime-governed insurance execution",
+    "From disconnected models to runtime- governed insurance execution",
   description:
     "Most insurers already run models in underwriting, claims, and fraud. Few can operate them continuously across the enterprise.",
   items: [

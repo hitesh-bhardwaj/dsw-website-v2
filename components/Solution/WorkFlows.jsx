@@ -14,7 +14,7 @@ const WorkFlows = ({ workflowsContent }) => {
       <div className="w-full flex justify-between max-sm:flex-col">
         <div className="space-y-[2vw] w-[52%] max-sm:w-full">
           <HeadingAnim>
-            <h2 className=" text-76 text-[#0A1B4B] max-sm:text-center! max-sm:w-full">{heading}</h2>
+            <h2 className=" text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] max-sm:text-center! max-sm:w-full">{heading}</h2>
           </HeadingAnim>
           {para && (
             <Copy>
@@ -44,7 +44,7 @@ const WorkFlows = ({ workflowsContent }) => {
         </div>
         
 
-       <div className="hidden max-sm:flex max-sm:pt-[8vw] max-sm:flex-col max-sm:w-full max-sm:gap-[5vw]">
+       <div className="hidden max-sm:flex max-sm:pt-[12vw] max-sm:flex-col max-sm:w-full max-sm:gap-[5vw]">
   {items.map((item, index) => (
     <div
       key={index}

@@ -6,7 +6,7 @@ const FeaturesCard = ({ icon, title, para }) => {
     <>
       <div className=" relative group max-md:space-y-[10vw] h-fit max-md:w-full w-[49%] hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out ">
         <CornerDecorations/>
-        <div className=" py-[3vw] px-[3vw] max-sm:h-[80vw] max-sm:p-[5vw] max-sm:py-[6vw] space-y-[5vw] max-md:flex max-md:flex-col max-md:items-start max-sm:justify-between max-sm:space-y-[6vw] w-full border border-[#C2C2C2]">
+        <div className=" py-[3vw] px-[3vw] max-sm:h-[80vw] max-sm:p-[6vw] max-sm:py-[7vw] space-y-[5vw] max-md:flex max-md:flex-col max-md:items-start max-sm:justify-between max-sm:space-y-[6vw] w-full border border-[#C2C2C2]">
           <div className="w-[4vw] h-[4vw] max-md:w-[15vw] max-sm:w-[12vw] max-sm:h-[12vw] max-md:h-[15vw] text-primary-blue">
             {icon}
           </div>
@@ -26,7 +26,7 @@ const FeaturesCard = ({ icon, title, para }) => {
 const Features = ({ featuresData }) => {
   return (
     <section
-      className="h-full max-md:relative  max-md:h-fit max-md:z-[20] w-screen px-[5vw] py-[10%]"
+      className="h-full max-md:relative  max-md:h-fit max-md:z-[20] w-screen px-[5vw] max-sm:px-[7vw] py-[10%] max-sm:py-[17%]"
       id="features"
     >
       <div className="h-full w-full  space-y-[3vw] max-sm:space-y-[10vw] mx-auto">

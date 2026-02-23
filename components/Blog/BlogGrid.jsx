@@ -25,7 +25,7 @@ const BlogGrid = ({ posts = [] }) => {
   const currentCards = posts.slice(startIndex, startIndex + cardsPerPage);
 
   return (
-    <section className="px-[5vw] relative pt-0! mx-auto space-y-[7vw] h-fit py-[5%]">
+    <section className="px-[5vw] max-sm:px-[7vw] relative pt-0! mx-auto space-y-[7vw] h-fit py-[5%]">
       {/* Grid */}
       <div className="grid grid-cols-3 gap-[3vw] max-sm:gap-[9vw] max-md:grid-cols-1">
         {currentCards.map((card, idx) => (
