@@ -155,8 +155,8 @@ export default function WhatWeBelieve() {
         </div>
 
         {/* Challenge Boxes — Mobile Slider */}
-        <div className="hidden max-sm:block w-full overflow-x-auto overflow-y-visible pb-6">
-          <div className="flex gap-[2.5vw] flex-nowrap px-[7vw] w-max items-center">
+<div className="hidden max-sm:block w-full overflow-x-auto mobile-scrollbar overflow-y-visible pb-6">
+            <div className="flex gap-[2.5vw] flex-nowrap px-[7vw] w-max items-center">
             {data.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="struggle-card relative flex-shrink-0 w-[75vw] max-sm:h-[50vw] h-[60vw] px-[5vw] pt-[5vw] justify-between flex flex-col pb-[8vw] items-end border border-solid border-[#c2c2c2] bg-white">
