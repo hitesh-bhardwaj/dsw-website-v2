@@ -341,7 +341,7 @@ export default function Header() {
               >
                 <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "rotate-45 translate-y-[2vw]" : ""}`} />
                 <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 bg-black ${openMobileMenu ? "opacity-0" : ""}`} />
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "-rotate-45 -translate-y-[2vw]" : ""}`} />
+                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "-rotate-45 max-sm:-translate-y-[2vw] max-md:-translate-y-[0.7vw]" : ""}`} />
               </button>
             </div>
           )}

@@ -115,19 +115,19 @@ export default function MobileNav({ isOpen, onClose }) {
       <div
         data-lenis-prevent
         ref={menuRef}
-        className="absolute top-[5vw] left-[5vw] right-[5vw] bottom-[5vw] border backdrop-blur-xl border-[#d4d4d4] rounded-[8vw] overflow-hidden flex flex-col"
+        className="absolute max-sm:top-[5vw] max-sm:left-[5vw] max-sm:right-[5vw] max-sm:bottom-[5vw] max-md:left-[17vw] max-md:bottom-[5vw] max-md:top-[4vw] max-md:right-[3vw] border backdrop-blur-xl border-[#d4d4d4] rounded-[8vw] overflow-hidden flex flex-col"
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-[4vw] right-[4vw] w-[12vw] h-[12vw] bg-primary rounded-full flex items-center justify-center z-10"
+          className="absolute max-md:top-[4vw] max-md:right-[4vw] max-sm:top-[4vw] max-sm:right-[4vw] max-md:w-[8vw] max-md:h-[8vw] max-sm:w-[12vw] max-sm:h-[12vw] bg-primary rounded-full flex items-center justify-center z-10"
           aria-label="Close menu"
         >
-          <X className="w-[6vw] h-[6vw] text-white" strokeWidth={2} />
+          <X className="max-sm:w-[6vw] max-sm:h-[6vw] max-md:h-[5vw] max-md:w-[5vw] text-white" strokeWidth={2} />
         </button>
 
         {/* Navigation Links */}
-        <nav className="flex-1 overflow-y-auto px-[6vw] pt-[18vw] pb-[4vw]">
+        <nav className="flex-1 overflow-y-auto px-[6vw] max-sm:pt-[18vw] max-md:pt-[16vw] pb-[4vw]">
           <ul className="space-y-0">
             {NAV_LINKS.map((link) => {
               const hasChildren = Array.isArray(link.children) && link.children.length > 0;
@@ -140,9 +140,9 @@ export default function MobileNav({ isOpen, onClose }) {
                       {/* Expandable Item */}
                       <button
                         onClick={() => toggleExpand(link.id)}
-                        className="w-full flex items-center justify-between py-[5vw] pr-[2vw]"
+                        className="w-full flex items-center justify-between max-sm:py-[5vw] max-md:py-[2.5vw] pr-[2vw]"
                       >
-                        <span className={`text-[4.5vw] tracking-[0.02em] transition-all duration-300 ease-in font-normal ${isExpanded ? "text-primary-blue font-normal" : "text-foreground font-light"}`}>
+                        <span className={`max-sm:text-[4.5vw] max-md:text-[3.5vw] tracking-[0.02em] transition-all duration-300 ease-in font-normal ${isExpanded ? "text-primary-blue font-normal" : "text-foreground font-light"}`}>
                           {link.label}
                         </span>
                         <ChevronDown
@@ -152,15 +152,15 @@ export default function MobileNav({ isOpen, onClose }) {
 
                       {/* Sub Items */}
                       <div
-                        className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[75vw] pb-[8vw]" : "max-h-0"}`}
+                        className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[75vw] max-md:pb-[5vw] max-sm:pb-[8vw]" : "max-h-0"}`}
                       >
-                        <ul className="space-y-[3vw] pl-[1vw]">
+                        <ul className="max-sm:space-y-[3vw] max-md:space-y-[1.5vw] pl-[1vw]">
                           {link.children.map((child) => (
                             <li key={child.id}>
                               <Link
                                 href={child.href}
                                 onClick={handleLinkClick}
-                                className="text-[4vw] text-foreground font-light tracking-[0.02em] block"
+                                className="max-sm:text-[4vw] max-md:text-[2.8vw] text-foreground font-light tracking-[0.02em] block"
                               >
                                 {child.label}
                               </Link>
@@ -174,7 +174,7 @@ export default function MobileNav({ isOpen, onClose }) {
                     <Link
                       href={link.href}
                       onClick={handleLinkClick}
-                      className="block py-[5vw] text-[4.5vw] text-foreground font-normal tracking-[0.02em]"
+                      className="block max-sm:py-[5vw] max-md:py-[2.5vw] max-sm:text-[4.5vw] max-md:text-[3.5vw] text-foreground font-normal tracking-[0.02em]"
                     >
                       {link.label}
                     </Link>
@@ -187,7 +187,7 @@ export default function MobileNav({ isOpen, onClose }) {
 
         {/* Social Links */}
         <div className="px-[6vw] pb-[8vw]">
-          <p className="text-[4vw] text-foreground font-light tracking-[0.02em] mb-[4vw]">
+          <p className="max-sm:text-[4vw] max-md:text-[3vw] text-foreground font-light tracking-[0.02em] mb-[4vw]">
             Connect With Us
           </p>
           <div className="flex items-center gap-[5vw]">
@@ -197,7 +197,7 @@ export default function MobileNav({ isOpen, onClose }) {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="h-[8vw] flex items-center justify-center text-foreground hover:text-primary-blue transition-colors"
+                className="max-sm:h-[8vw] max-md:h-[6vw] flex items-center justify-center text-foreground hover:text-primary-blue transition-colors"
                 aria-label={social.id}
               >
                 {social.icon}
