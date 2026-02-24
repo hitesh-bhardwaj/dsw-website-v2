@@ -53,6 +53,8 @@
   --text-32: var(--text-32);
   --text-22: var(--text-22);
   --ease-default-ease: var(--default-ease);
+  --breakpoint-md: 1025px;
+  --breakpoint-sm: 640px;
 }
 
 body {
@@ -324,6 +326,20 @@ h6 {
 }
 
 @media (max-width: 1025px) {
+  :root {
+    --text-110: 8.5vw;
+    --text-80: 6.8vw;
+    --text-76: 6.4vw;
+    --text-56: 4.8vw;
+    --text-44: 3.8vw;
+    --text-40: 3.6vw;
+    --text-32: 3vw;
+    --text-30: 2.8vw;
+    --text-24: 2.3vw;
+    --text-22: 2.1vw;
+    --text-20: 1.8vw;
+    --text-18: 2vw;
+  }
 }
 
 @media (max-width: 542px) {

@@ -63,19 +63,19 @@ export default function WhyAIStruggles() {
 
   return (
     <section
-      className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-sm:py-[15%] max-sm:h-fit pt-[10%]"
+      className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[10%]  max-sm:py-[15%] max-sm:h-fit pt-[10%] max-sm:pt-[10%] max-md:pt-[10%] overflow-hidden"
       id="struggle"
     >
       {/* Heading Section */}
-      <div className="space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] z-10">
-        <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
+      <div className="space-y-[5.5vw] h-fit sticky top-[7%] max-sm:static overflow-hidden max-sm:space-y-[12vw] max-md:space-y-[8vw] z-10">
+        <div className="text-center space-y-[2vw] max-md:space-y-[5vw] max-sm:space-y-[7vw]">
           <HeadingAnim>
             <h2 className="text-76 font-heading text-[#0A1B4B]">
               Why AI Struggles in Production
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[40%] max-sm:w-full mx-auto">
+            <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[40%] max-md:w-[80%] max-sm:w-full mx-auto">
               Modern enterprises don&apos;t struggle with building AI models. They
               struggle with operating AI reliably in production:
             </p>
@@ -83,20 +83,20 @@ export default function WhyAIStruggles() {
         </div>
 
         {/* Challenge Boxes */}
-        <div className="flex justify-center gap-[2.34vw] max-sm:flex-col max-sm:gap-[7vw]">
+        <div className="flex justify-center gap-[2.34vw]  max-sm:flex-col max-md:flex-wrap max-md:justify-between max-md:gap-[5vw]  max-sm:gap-[7vw]">
           {challenges.map((challenge, index) => (
             <div
               key={index}
-              className={`relative  struggle-card bg-white  max-sm:translate-x-0 ${index == 0 && "z-5"} ${index == 1 ? "-translate-x-[111%] z-4" : ""} ${index == 2 ? "-translate-x-[222%] z-3" : ""} ${index == 3 ? "-translate-x-[333.5%] z-2" : ""}`}
+              className={`relative struggle-card bg-white max-md:translate-x-0 max-md:w-[47%] max-sm:w-full ${index == 0 && "z-5"} ${index == 1 ? "-translate-x-[111%] z-4" : ""} ${index == 2 ? "-translate-x-[222%] z-3" : ""} ${index == 3 ? "-translate-x-[333.5%] z-2" : ""}`}
             >
               {/* Box Container */}
               <div
                 className={`
-                                relative w-[21vw] h-[50vh] group
-                                px-[1.5vw] justify-between flex flex-col pb-[3vw] items-end max-sm:px-[5vw] max-sm:pb-[10vw] max-sm:h-[60vw]
-                                border border-solid hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg border-[#c2c2c2] duration-300 ease-in-out
-                                max-sm:w-full
-                            `}
+                  relative w-[21vw] max-md:w-full h-[50vh] max-md:h-[35vw] group
+                  px-[1.5vw] justify-between flex flex-col pb-[3vw] items-end max-sm:px-[5vw] max-sm:pb-[10vw] max-sm:h-[60vw]
+                  border border-solid hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg border-[#c2c2c2] duration-300 ease-in-out
+                  max-sm:w-full
+                `}
               >
                 <CornerDecorations />
 
@@ -113,7 +113,7 @@ export default function WhyAIStruggles() {
             </div>
           ))}
         </div>
-        <div className="w-[50%] mx-auto text-center max-sm:w-full">
+        <div className="w-[50%] max-md:w-full mx-auto text-center max-sm:w-full">
           <SectionBreak
             content={
               "These gaps don't surface during pilots, but when AI becomes operational."
