@@ -9,21 +9,21 @@ const GovernanceBuiltIn = () => {
       id: 1,
       title: "Audit is native",
       description:
-        "Every AI action and agent decision is recorded automatically.",
+        "Every AI action and agent decision is recorded automatically",
       isHighlighted: true,
     },
     {
       id: 2,
       title: "Reversibility is native",
       description:
-        "Models, workflows, and decisions can be rolled back, overridden, or replayed.",
+        "Models, workflows, and decisions can be rolled back, overridden, or replayed",
       isHighlighted: false,
     },
     {
       id: 3,
       title: "Traceability is native",
       description:
-        "Any outcome can be traced end-to-end - from data to decision.",
+        "Any outcome can be traced end-to-end - from data to decision",
       isHighlighted: false,
     },
   ];
@@ -48,7 +48,7 @@ const GovernanceBuiltIn = () => {
             <div
               className={`
                 relative h-[15vw] group
-                px-[1.5vw] py-[2vw] flex flex-col justify-end
+                px-[1.5vw] py-[2vw] flex flex-col justify-center gap-[1vw]
                 border border-solid border-[#c1c1c1]
                 bg-background
                 hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out
@@ -70,7 +70,7 @@ const GovernanceBuiltIn = () => {
             <div
               className={`
                 relative h-[15vw] group
-                px-[1.5vw] py-[2vw] flex flex-col justify-end
+                px-[1.5vw] py-[2vw] flex flex-col justify-center gap-[1vw]
                 border border-solid border-[#c1c1c1]
                 bg-background
                 hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out
@@ -94,7 +94,7 @@ const GovernanceBuiltIn = () => {
             <div
               className={`
                 relative h-[15vw] group
-                px-[1.5vw] py-[2vw] flex flex-col justify-end
+                px-[1.5vw] py-[2vw] flex flex-col justify-center gap-[1vw]
                 border border-solid border-[#c1c1c1]
                 bg-background
                 hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out
@@ -105,7 +105,7 @@ const GovernanceBuiltIn = () => {
               <h3 className="text-32 text-[#0A1B4B] font-medium  font-heading mb-[1vw] max-sm:mb-[3vw]">
                 {cards[2].title}
               </h3>
-              <p className="text-24 text-foreground leading-[1.4]">
+              <p className="text-24 text-foreground leading-[1.4] ">
                 {cards[2].description}
               </p>
             </div>

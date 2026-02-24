@@ -14,7 +14,7 @@ export default function Capabilities() {
                 </HeadingAnim>
                 <Copy>
                 <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto text-[#333333]">
-                   UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start
+                   UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start.
                 </p>
                 </Copy>
             </div>

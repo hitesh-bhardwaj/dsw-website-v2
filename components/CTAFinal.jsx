@@ -21,7 +21,7 @@ export default function CTAFinal({ ctaContent }) {
 
         {ctaContent.subPara && (
           <Copy>
-            <h5 className="  text-44 text-center mt-[1vw] text-foreground font-heading">
+            <h5 className=" text-44 text-center text-foreground font-heading">
               {ctaContent.subParaText}
             </h5>
           </Copy>
