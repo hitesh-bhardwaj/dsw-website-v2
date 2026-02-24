@@ -73,7 +73,8 @@ const ctaContent={
   primaryButton:{
     present:true,
     link:"#",
-    text:"Explore the Platform"
+    text:"Book a Demo",
+    book:true
   },
   secondaryButton:{
     present:true,

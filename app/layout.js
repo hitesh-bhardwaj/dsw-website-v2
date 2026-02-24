@@ -6,7 +6,7 @@ import LayoutTransition from "@/components/LayoutTransition";
 export const metadata = {
   title: "DSW - Enterprise AI Operating System",
   description: "Governed. Explainable. Production-Ready AI at Scale.",
-  metadataBase: new URL("https://dsw.ai"),
+  metadataBase: new URL("https://www.datasciencewizards.ai/"),
   icons: {
     icon: [
       { url: "/favicons/favicon.ico", sizes: "any" },
@@ -26,7 +26,7 @@ export const metadata = {
   openGraph: {
     title: "DSW - Enterprise AI Operating System",
     description: "Governed. Explainable. Production-Ready AI at Scale.",
-    url: "https://dsw.ai",
+    url: "https://www.datasciencewizards.ai/",
     siteName: "DSW",
     locale: "en_US",
     type: "website",

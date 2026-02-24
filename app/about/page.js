@@ -66,8 +66,9 @@ const heroContent = {
   heading: "About Us",
   primaryButton: {
     present: true,
-    link: "/unifyai",
-    text: "Explore the Platform",
+    link: "#",
+    text: "Book a Demo",
+    book:true
   },
   secondaryButton: {
     present: true,

@@ -1,5 +1,6 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const FooterWave = ({
   // Lower wave - smoother, more visible movement
@@ -29,14 +30,30 @@ const FooterWave = ({
   // Overflow extension (how much extra space to add beyond viewport)
   overflowExtension = 0.5,
 }) => {
+  const pathname = usePathname();
+  const [isReady, setIsReady] = useState(false);
   const canvasRef = useRef(null);
   const animationRef = useRef(null);
   const timeRef = useRef(0);
   const lastFrameTimeRef = useRef(0);
 
+  // Wait for page transition to complete before initializing canvas
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsReady(true);
+    }, 550);
+    return () => clearTimeout(timer);
+  }, [pathname]);
+
+  useEffect(() => {
+    // Wait until component is ready (after page transition)
+    if (!isReady) return;
     const canvas = canvasRef.current;
     if (!canvas) return;
+
+    // Reset animation state on mount/pathname change
+    timeRef.current = 0;
+    lastFrameTimeRef.current = 0;
 
     const ctx = canvas.getContext("2d", {
       alpha: true,
@@ -335,16 +352,17 @@ gradientCtx.putImageData(gradImageData, 0, 0);
     color,
     fps,
     overflowExtension,
+    isReady,
   ]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="block w-full bg-transparent pointer-events-none max-sm:hidden"
+      className="block w-full bg-transparent pointer-events-none max-md:hidden"
       style={{
         position: "absolute",
         left: 0,
-        top: 80,
+        top: 0,
         zIndex: 1,
       }}
     />
