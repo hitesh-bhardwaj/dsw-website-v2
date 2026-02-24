@@ -23,6 +23,7 @@ export const neueMontreal = localFont({
             style: 'normal',
         },
     ],
+    preload: true,
     variable: '--font-neue-montreal',
 });
 
@@ -49,5 +50,6 @@ export const aspekta = localFont({
             style: 'normal',
         },
     ],
+    preload: true,
     variable: '--font-aspekta',
 });

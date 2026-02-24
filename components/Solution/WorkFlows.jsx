@@ -53,15 +53,15 @@ const WorkFlows = ({ workflowsContent }) => {
       id="workflows"
     >
       <div className="w-full h-fit flex justify-between max-sm:flex-col max-sm:overflow-hidden max-sm:space-y-[12vw]">
-        <div className="space-y-[2vw] w-[52%] max-sm:w-full sticky top-[10%] max-md:static h-fit">
+        <div className="space-y-[3vw] w-[52%] max-sm:w-full sticky top-[10%] max-md:static h-fit">
           <HeadingAnim>
-            <h2 className=" text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] max-sm:text-center! max-sm:w-full capitalize">
+            <h2 className=" text-76 text-[#0A1B4B] leading-[1.2] capitalize leading-[1.2] max-sm:leading-[1.4] max-sm:text-center! max-sm:w-full capitalize">
               {heading}
             </h2>
           </HeadingAnim>
           {para && (
             <Copy>
-              <p className="text-44 text-[#0A1B4B] font-light">{para}</p>
+              <p className="text-44 text-[#0A1B4B] font-light text-[#0A1B4B]">{para}</p>
             </Copy>
           )}
         </div>

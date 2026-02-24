@@ -61,7 +61,7 @@ function AnimatedFooterLink({ href = "#", children, ...props }) {
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
       {...props}
-      className="text-24 overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
+      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
     >
       <p ref={textRef} className="buttonTextShadow">
         {children}
@@ -148,7 +148,7 @@ export default function FooterNew() {
 
   return (
     <footer
-      className="relative w-full bg-white pt-[8.2vw] pb-[4vw] px-[4vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]"
+      className="relative w-full bg-white pt-[8.2vw] pb-[4vw] px-[4vw] max-md:px-[6vw] overflow-hidden max-sm:px-[7vw] max-sm:py-[15%]"
       id="footer"
     >
       {/* Background Gradient */}
@@ -156,7 +156,7 @@ export default function FooterNew() {
         <FooterWave />
       </div>
 
-      <div className="max-sm:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
+      <div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
         <Image
           src="/assets/footer-bg.png"
           width={500}
@@ -170,8 +170,8 @@ export default function FooterNew() {
       {/* Content */}
       <div className="relative z-10">
         {/* Top Section */}
-        <div className="flex justify-between mb-[2vw] max-sm:flex-col">
-          <div className="w-[30%] max-sm:w-full max-sm:text-center">
+        <div className="flex justify-between mb-[2vw] max-sm:flex-col max-md:flex-col max-md:gap-[10vw] max-sm:gap-0">
+          <div className="w-[30%] max-sm:w-full max-md:w-[60%] max-sm:text-center">
             {/* Contact Us */}
             <div className="space-y-[1vw] max-sm:space-y-[2vw]">
               <div className="w-[40vw] h-auto hidden max-sm:block mx-auto mb-[10vw]">
@@ -183,32 +183,33 @@ export default function FooterNew() {
                   className="w-full h-full"
                 />
               </div>
-              <h5 className="text-24 font-medium max-sm:text-[5.5vw]">
+              <h5 className="text-24 max-md:text-[3.5vw] font-medium max-sm:text-[5.5vw]">
                 Contact Us
               </h5>
-              <div className="space-y-[1vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
+              <div className="space-y-[1vw] max-md:space-y-[1.5vw] max-sm:space-y-[1vw] max-md:gap-[2vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
                 <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
                   <Link
                     href="mailto:Contact@datasciencewizards.ai"
-                    className="block text-24 max-sm:text-[5vw] under-multi"
+                    className="block text-24 max-md:text-[2.7vw] max-sm:text-[5vw] under-multi"
                   >
                     contact@datasciencewizards.ai
                   </Link>
                 </div>
 
-                <div className="flex gap-[0.5vw] max-sm:flex-col max-sm:gap-[1vw]">
+                <div className="flex gap-[0.5vw] max-md:gap-[2.5vw] max-sm:flex-col max-sm:gap-[1vw]">
                   <div className="under-multi-parent">
                     <Link
-                      className="text-24 max-sm:text-[5vw]! under-multi"
+                      className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+91 96640 56847"
                     >
                       +91 96640 56847
                     </Link>
                   </div>
-                  <span className="inline-block max-sm:hidden">|</span>
+                  <span className="inline-block max-md:hidden">|</span>
+                  <span className="hidden max-md:block max-sm:hidden h-[3.5vw] w-[0.03vw] bg-black"></span>
                   <div className="under-multi-parent">
                     <Link
-                      className="text-24 max-sm:text-[5vw]! under-multi"
+                      className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+353 894015233"
                     >
                       +353 894015233{" "}
@@ -218,13 +219,13 @@ export default function FooterNew() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[1.5vw] mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+              <div className="flex items-center gap-[1.5vw] max-md:justify-between  mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social, id) => (
                   <Link
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]`}
                   >
                     {social.icon}
                   </Link>
@@ -234,13 +235,13 @@ export default function FooterNew() {
           </div>
 
           {/* Navigation + Company + Newsletter */}
-          <div className="flex justify-between w-[60%] max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center">
+          <div className="flex justify-between w-[60%] max-md:w-full max-md:flex-wrap max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center max-md:justify-between">
             {/* Navigation */}
-            <div className="space-y-[1.2vw] max-sm:space-y-[2vw]">
-              <h5 className="text-24 font-medium max-sm:text-[5.5vw]">
+            <div className="space-y-[1.2vw] max-sm:space-y-[2vw] max-md:w-[55%] max-sm:w-full">
+              <h5 className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
                 Navigation
               </h5>
-              <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
+              <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((item, id) => (
                   <li key={id}>
                     <AnimatedFooterLink href={item.link}>
@@ -252,11 +253,11 @@ export default function FooterNew() {
             </div>
 
             {/* Company */}
-            <div className="space-y-[1.2vw]  max-sm:space-y-[2vw]">
-              <h5 className="text-24 font-medium max-sm:text-[5.5vw]">
+            <div className="space-y-[1.2vw]  max-sm:space-y-[2vw] max-md:w-[40%] max-sm:w-full">
+              <h5 className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
                 Company
               </h5>
-              <ul className="space-y-[0.85vw] max-sm:space-y-[2vw]">
+              <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
                 {companyLinks.map((item, id) => (
                   <li key={id}>
                     <AnimatedFooterLink
@@ -273,26 +274,26 @@ export default function FooterNew() {
             </div>
 
             {/* Newsletter */}
-            <div className="w-[45%] relative max-sm:w-full">
-              <p className="text-24 font-sans tracking-[0.025vw] mb-[3vw]">
+            <div className="w-[45%] relative max-sm:w-full max-md:mt-[8vw] max-sm:mt-0 max-md:w-[60%]">
+              <p className="text-24 max-sm:text-24 max-md:text-[2.5vw] font-sans tracking-[0.025vw] mb-[3vw]">
                 Subscribe to our newsletter for the latest tech insights and
                 updates.
               </p>
 
-              <div className="space-y-[0.5vw]">
-                <div className="relative flex mt-[2vw] gap-[2vw] max-sm:flex-col max-sm:gap-[2vw]">
+              <div className="max-sm:space-y-[0.5vw] max-md:space-y-[1vw]">
+                <div className="relative flex mt-[2vw] max-md:gap-[1vw] max-md:flex-col max-sm:gap-[2vw]">
                   <input
                     type="email"
                     placeholder="Enter Your Email"
-                    className="w-full bg-transparent text-20 font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
+                    className="w-full bg-transparent text-20 max-md:text-[2.5vw] font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
                   />
-                  <div className="w-full h-[0.1px] bg-black hidden max-md:block max-md:mb-[2vw]" />
+                  <div className="w-full h-[0.1px] bg-black hidden max-md:block max-md:mb-[1vw] " />
 
-                  <button className="px-[1.5vw] py-[0.5vw] cursor-pointer rounded-full text-white text-[1vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-sm:w-fit max-sm:mx-auto bg-[#F16B0D]">
+                  <button className="px-[1.5vw]  py-[0.5vw] max-sm:mt-2 max-md:mt-[2vw] max-md:px-[5vw] max-md:py-[1.5vw] cursor-pointer rounded-full text-white text-[1vw] max-md:text-[2.5vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-md:w-fit max-sm:mx-auto  bg-[#F16B0D]">
                     Subscribe
                   </button>
                 </div>
-                <div className="w-full h-[0.1px] bg-black max-md:hidden" />
+                <div className="w-full h-[0.1px] mt-[0.5vw] bg-black max-md:hidden" />
               </div>
             </div>
           </div>

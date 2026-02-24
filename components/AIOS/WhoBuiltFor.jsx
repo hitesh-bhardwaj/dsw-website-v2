@@ -46,7 +46,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Top Left Card */}
-        <div className="absolute top-0 -left-[1.1vw] gap-1.5 flex items-center">
+        <div className="absolute top-0 -left-[0.9vw] gap-1.5 flex items-center">
           <div className="flex items-center border border-primary-blue bg-background h-[5vw] px-[1vw]">
             <p className="text-24 text-foreground whitespace-nowrap">
               CIOs, CTOs, CDOs, and COOs
@@ -56,7 +56,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Top Left Connector */}
-        <div className="absolute top-[2.6vw] left-[19.5vw] w-[14.5vw] h-[5.5vw]">
+        <div className="absolute top-[2.6vw] left-[19.7vw] w-[14.5vw] h-[5.5vw]">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
             alt=""
@@ -66,7 +66,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Top Right Card */}
-        <div className="absolute top-0 right-[0.2vw] gap-1.5 flex items-center">
+        <div className="absolute top-0 right-[0.5vw] gap-1.5 flex items-center">
           <div className="w-[0.9vw] h-[5vw] border border-primary-blue bg-background" />
           <div className="flex items-center border border-primary-blue bg-background h-[5vw]  w-[18vw] px-[1vw]">
             <p className="text-24 text-foreground">
@@ -76,7 +76,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Top Right Connector */}
-        <div className="absolute top-[2.6vw] right-[19.5vw] w-[14.5vw] h-[5.5vw] -scale-x-100">
+        <div className="absolute top-[2.6vw] right-[19.8vw] w-[14.5vw] h-[5.5vw] -scale-x-100">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
             alt=""
@@ -86,7 +86,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Bottom Left Card */}
-        <div className="absolute bottom-0 gap-1.5 left-0 flex items-center">
+        <div className="absolute bottom-0 gap-1.5 left-[0.5vw] flex items-center">
           <div className="flex items-center border border-primary-blue bg-background h-[5vw]  w-[18vw] px-[1vw]">
             <p className="text-24 text-foreground">
               AI, data, and ML<br />engineering leaders
@@ -96,7 +96,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Bottom Left Connector */}
-        <div className="absolute bottom-[2.6vw] left-[19.3vw] w-[14.5vw] h-[5.5vw] -scale-y-100">
+        <div className="absolute bottom-[2.6vw] left-[19.8vw] w-[14.5vw] h-[5.5vw] -scale-y-100">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
             alt=""
@@ -106,7 +106,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Bottom Right Card */}
-        <div className="absolute bottom-0 gap-1.5 right-0 flex items-center">
+        <div className="absolute bottom-0 gap-1.5 right-[0.5vw] flex items-center">
           <div className="w-[0.9vw] h-[5vw] border border-primary-blue bg-background" />
           <div className="flex items-center border border-primary-blue bg-background h-[5vw] w-[18vw] px-[1vw]">
             <p className="text-24 text-foreground">
@@ -116,7 +116,7 @@ const WhoBuiltFor = () => {
         </div>
 
         {/* Bottom Right Connector */}
-        <div className="absolute bottom-[2.6vw] right-[19.5vw] w-[14.5vw] h-[5.5vw] scale-[-1]">
+        <div className="absolute bottom-[2.6vw] right-[19.8vw] w-[14.5vw] h-[5.5vw] scale-[-1]">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
             alt=""

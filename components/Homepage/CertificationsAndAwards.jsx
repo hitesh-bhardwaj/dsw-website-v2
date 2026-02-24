@@ -18,7 +18,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
             {heading}
           </h2>
         </HeadingAnim>
-
+ 
         <Copy>
           <p className="text-30">{subtext}</p>
         </Copy>
