@@ -63,7 +63,7 @@ const SystemStructure = () => {
   return (
     <section className="relative w-full py-[7%] bg-background max-sm:py-[15%]">
       {/* Heading */}
-      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
+      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw] max-md:mb-[7vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B]">
             How the System is Structured
