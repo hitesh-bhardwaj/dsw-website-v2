@@ -223,7 +223,7 @@ export default function WhatWeStandFor() {
         >
             {/* Heading */}
             <div className="text-center max-sm:text-left max-sm:mb-[10vw]">
-                <h2 className="text-76 max-sm:text-center max-sm:text-[8.5vw] text-[#0A1B4B]">
+                <h2 className="text-76 max-sm:text-center max-sm:text-[9vw] text-[#0A1B4B]">
                     What we stand for
                 </h2>
             </div>
@@ -232,7 +232,7 @@ export default function WhatWeStandFor() {
             <div className="hidden sm:block relative max-w-[80%] mx-auto">
                 {/* SVG Line — absolutely centered */}
                 <div
-                    className="absolute left-1/2 -translate-x-1/2 top-0 pointer-events-none"
+                    className="absolute left-[60%] -translate-x-1/2 top-0 pointer-events-none"
                     style={{ height: `${svgHeight}px`, width: "20px" }}
                 >
                     <svg
@@ -266,8 +266,8 @@ export default function WhatWeStandFor() {
                                     ref={addToDotRefs}
                                     cx="10"
                                     cy={cy}
-                                    r="7"
-                                    fill="#f8f8f8"
+                                    r="5"
+                                    fill="#D1D5DB"
                                     stroke="#D1D5DB"
                                     strokeWidth="1.5"
                                 />
@@ -295,9 +295,9 @@ export default function WhatWeStandFor() {
                             {/* Left: Title */}
                             <div
                                 ref={(el) => (leftRefs.current[index] = el)}
-                                className="pr-[3vw] flex items-start justify-start pt-1"
+                                className="pr-[8vw] flex items-start justify-start pt-1 w-[84%]"
                             >
-                                <h3 className="text-32 text-[#0A1B4B] font-heading text-right">
+                                <h3 className="text-32 text-[#0A1B4B] font-heading ">
                                     {step.title}
                                 </h3>
                             </div>
@@ -307,7 +307,7 @@ export default function WhatWeStandFor() {
                             {/* Right: Description */}
                             <div
                                 ref={(el) => (rightRefs.current[index] = el)}
-                                className="pl-[3vw] flex items-start pt-1"
+                                className="pl-[3vw] ml-[6vw] flex items-start pt-1 w-[85%]"
                             >
                                 <p className="text-24 text-[#333333]">
                                     {step.description}

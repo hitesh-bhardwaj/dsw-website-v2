@@ -24,11 +24,11 @@ const CaseStudy = ({ caseStudyContent }) => {
       className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-sm:py-[15%]"
       id={sectionId}
     >
-      <div className="w-full h-full gap-y-[2vw] max-sm:gap-[6vw] flex flex-col items-center text-center">
+      <div className="w-full h-full gap-y-[3vw] max-sm:gap-[6vw] flex flex-col items-center text-center">
         
         {/* Heading */}
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto capitalize leading-[1.2] w-[80%] capitalize">
             {heading}
           </h2>
         </HeadingAnim>

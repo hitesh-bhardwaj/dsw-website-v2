@@ -21,10 +21,9 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Financial Services - Financial AI by DSW",
-  description:
-    "Run Financial AI and Agentic AI across lending, capital markets, payments, and risk as one controlled, auditable execution environment.",
-  url: "financial-services",
+  title: "Financial Services AI Operating System | DSW",
+  description: "Enterprise AI layer for financial services - govern lending, markets, payments, risk, and compliance workflows with a single controlled runtime.",
+  url: "/solutions/financial-services",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
@@ -34,10 +33,10 @@ export const metadata = getPageMetadata({
     },
   },
   openGraph: {
-    url: "financial-services",
+    url: "/solutions/financial-services",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-financial-services.png`,
         width: 1200,
         height: 630,
       },
@@ -202,15 +201,21 @@ const featuresContent = {
    WORKFLOWS
 --------------------------------------------- */
 const workflowsContent = {
-  heading: "More financial workflows operating on the AI Operating System",
+  heading: "More Financial Workflows Operating on the AI Operating System",
   items: [
-    { number: "01", title: " Treasury and liquidity intelligence" },
+    { number: "01", title: "Treasury and liquidity intelligence" },
     { number: "02", title: "Trade surveillance support" },
     { number: "03", title: "Regulatory reporting acceleration" },
     { number: "04", title: "Wealth and portfolio advisory intelligence" },
- 
+    { number: "05", title: "Customer lifetime value modeling" },
+    { number: "06", title: "Risk exposure monitoring" },
+    { number: "07", title: "Investment product analytics" },
+    { number: "08", title: "KYC and onboarding intelligence" },
+    { number: "09", title: "Model risk management workflows" },
+    { number: "10", title: "Compliance monitoring support" },
   ],
 };
+
 
 /* ---------------------------------------------
    CASE STUDY

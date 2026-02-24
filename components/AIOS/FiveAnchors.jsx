@@ -108,7 +108,7 @@ const FiveAnchors = ({
       {/* Heading */}
       <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B]">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2]">
             The Five Timeless Anchors of the Enterprise AI Operating System
           </h2>
         </HeadingAnim>
@@ -140,7 +140,7 @@ const FiveAnchors = ({
             </div>
           </div>
           <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Continuous Adaption
+            Continuous adaptation
           </p>
         </div>
 
@@ -174,7 +174,7 @@ const FiveAnchors = ({
             </div>
           </div>
           <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Human Centric
+            Human Centric AI
           </p>
         </div>
 
@@ -208,7 +208,7 @@ const FiveAnchors = ({
             </div>
           </div>
           <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Adaption Reality
+            Adoption Reality
           </p>
         </div>
       </div>

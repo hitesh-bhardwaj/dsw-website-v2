@@ -106,7 +106,7 @@ const VideoListing = () => {
                 </div>
               </div>
               <Copy>
-                <h3 className="text-32 text-foreground mt-[1vw] max-sm:pl-[1vw] max-sm:font-medium max-sm:leading-[1.4]">{video.title}</h3>
+                <h3 className="text-32 text-foreground mt-[1vw] h-20 max-sm:pl-[1vw] max-sm:font-medium max-sm:leading-[1.4]">{video.title}</h3>
               </Copy>
               <Copy>
                 <p className="max-sm:pl-[1vw] text-24 text-foreground">{video.description}</p>
@@ -181,63 +181,63 @@ const VideoListing = () => {
 export default VideoListing;
 const videos = [
   {
-    image: "/assets/product-videos/inside-unify.png",
+    image: "/assets/product-videos/os-for-ai.jpg",
     alt: "inside-unify",
-    duration: "3 min",
-    title: "Inside UnifyAI: The Enterprise AI Platform Explained",
+    duration: "1.46 min",
+    title: "Launch Enterprise AI in Days and GenAI in Hours!",
     description:
-      "A product walkthrough that showcases how UnifyAI simplifies the entire AI lifecycle—from model development and training to deployment and governance—tailored for industries like insurance, banking, and healthcare.",
+      "DSW UnifyAI, our enterprise AI platform makes it happen by empowering you to move quickly and securely, with powerful end to end tools ...",
     youtubeUrl:
-      "https://www.youtube.com/watch?v=aRNLs-wStkE&list=PLaL7dSxvENO3RMkKVFhesQMGXkD_t9CKo",
+      "https://www.youtube.com/watch?v=vknslJEBX1w",
   },
   {
-    image: "/assets/product-videos/genai-production.png",
+    image: "/assets/product-videos/insurtech-insights.jpg",
     alt: "genai-production",
-    duration: "2 min",
-    title: "How Insurers Are Using GenAI in Production",
+    duration: "15.12 mins",
+    title: "Insurtech Insight New York USA Talk",
     description:
-      "Real-world examples of how leading insurance companies are using DSW’s GenAI capabilities for claims automation, fraud detection, and policy personalization—deployed in as little as 2–4 hours.",
+      "Meet insurAInce by DSW UnifyAI — the AI platform purpose-built for insurers ready to scale from pilots to production.",
     youtubeUrl:
-      "https://www.youtube.com/watch?v=7yMR3fkAI20&list=PLaL7dSxvENO3RMkKVFhesQMGXkD_t9CKo&index=2",
+      "https://www.youtube.com/watch?v=xgunsLTSCMc2",
   },
   {
-    image: "/assets/product-videos/ai-complexity.png",
+    image: "/assets/product-videos/dsw-unifyai.jpg",
     alt: "ai-complexity",
-    duration: "2.30 min",
-    title: "AI Without Complexity – A Message from Our CTO",
+    duration: "1.40 min",
+    title: "DSW UnifyAI: Welcome to the future of Enterprise AI",
     description:
-      "Hear directly from DSW’s CTO as they break down the vision behind UnifyAI and explain how the platform brings speed, security, and simplicity to enterprise AI adoption.",
+      "Discover the power of DSW UnifyAI, an enterprise-grade AI platform designed to streamline your AI adoption journey.",
     youtubeUrl:
-      "https://www.youtube.com/watch?v=5mjRjIQELns&list=PLaL7dSxvENO3RMkKVFhesQMGXkD_t9CKo&index=4",
+      "https://www.youtube.com/watch?v=Koch5FOWPdc",
   },
   {
-    image: "/assets/product-videos/securing-ai.png",
+    image: "/assets/product-videos/ai-for-all.jpg",
     alt: "securing-ai",
-    duration: "2 min",
-    title: "Securing AI: How We Achieved SOC 2 & ISO 27001",
+    duration: "44.07 mins",
+    title: "AI for ALL: Power of Democratizing AI and Data Science with UnifyAI, an Enterprise-Ready AI Platform",
     description:
-      "An animated explainer of the security and compliance features built into UnifyAI—including encryption, audit trails, model explainability, and adherence to SOC 2, ISO 27001, GDPR, and HIPAA standards.",
+      "UnifyAI is an API-driven platform that offers an end-to-end journey for organizations to build and scale their AI-enabled services.",
     youtubeUrl:
-      "https://www.youtube.com/watch?v=J30FaWTExyk&list=PLaL7dSxvENO3RMkKVFhesQMGXkD_t9CKo&index=5",
+      "https://www.youtube.com/watch?v=7yMR3fkAI20",
   },
   {
-    image: "/assets/product-videos/unify-video-5.png",
+    image: "/assets/product-videos/dsw-at-mint.png",
     alt: "unify-video-5",
-    duration: "3 min",
-    title: "AI Without Complexity – A Message from Our CTO",
+    duration: "5.32 mins",
+    title: "DSW at Mint Annual Banking Conclave – The 14th Edition: Navigating the digital opportunity",
     description:
-      "Hear directly from DSW’s CTO as they break down the vision behind UnifyAI and explain how the platform brings speed, security, and simplicity to enterprise AI adoption.",
+      "UnifyAI  is a API driven Platform that helps organizations right from identifying and integrating data sources, to building a unified data ...",
     youtubeUrl:
-      "https://www.youtube.com/watch?v=J30FaWTExyk&list=PLaL7dSxvENO3RMkKVFhesQMGXkD_t9CKo&index=5",
+      "https://www.youtube.com/watch?v=wK2u5B2HLYw",
   },
   {
-    image: "/assets/product-videos/unify-video-6.png",
+    image: "/assets/product-videos/unifyai-business-flow.jpg",
     alt: "unify-video-6",
-    duration: "2.30 min",
-    title: "AI Without Complexity – A Message from Our CTO",
+    duration: "2.01 mins",
+    title: "DSW UnifyAI by Data Science Wizards",
     description:
-      "Hear directly from DSW’s CTO as they break down the vision behind UnifyAI and explain how the platform brings speed, security, and simplicity to enterprise AI adoption.",
+      "UnifyAI is a “Platform as a Solution” that helps organizations right from identifying and integrating data sources, to building a unified data ...",
     youtubeUrl:
-      "https://www.youtube.com/watch?v=J30FaWTExyk&list=PLaL7dSxvENO3RMkKVFhesQMGXkD_t9CKo&index=5",
+      "https://www.youtube.com/watch?v=9XkYKR8JPms",
   },
 ];

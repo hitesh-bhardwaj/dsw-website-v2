@@ -14,7 +14,7 @@ const Runtime = ({ runtimeContent }) => {
 
         {/* Heading */}
         <HeadingAnim>
-          <h2 className="text-[#0A1B4B] text-76 leading-[1.2]  max-sm:leading-[1.3] text-center w-[80%] max-sm:w-full capitalize">
+          <h2 className="text-[#0A1B4B] text-76 leading-[1.2]  max-sm:leading-[1.3] text-center w-[80%] max-sm:w-full capitalize leading-[1.2]">
             {heading}
           </h2>
         </HeadingAnim>
@@ -36,7 +36,7 @@ const Runtime = ({ runtimeContent }) => {
             {items?.map((item, index) => (
               <div
                 key={index}
-                className="w-[49%] h-[15vw] max-sm:w-full max-sm:h-[42vw] rounded-[1.2vw] max-sm:rounded-[3vw] border border-primary-blue p-[1.5vw] flex flex-col justify-between max-sm:p-[3.5vw]"
+                className="w-[49%] h-[15vw] max-sm:w-full max-sm:h-[42vw] rounded-[1.2vw] max-sm:rounded-[3vw] border border-primary-blue p-[1.5vw] flex flex-col justify-between max-sm:p-[3.5vw] fadeup"
               >
                 <div className="rounded-full size-[4vw] max-sm:size-[13vw] p-[2vw] border text-32 font-heading flex items-center justify-center">
                   {item.number}
@@ -59,7 +59,7 @@ const Runtime = ({ runtimeContent }) => {
         {/* Extra HTML Content */}
         {extra && (
           <div
-            className="w-[60%] text-center text-30 fadeup"
+            className="w-[60%] text-center text-30 fadeup max-sm:w-full"
             dangerouslySetInnerHTML={{ __html: extra }}
           />
         )}

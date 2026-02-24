@@ -21,22 +21,22 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Insurance - insurAInce by DSW",
-  description: "insurAInce is a unified AI & GenAI platform built for insurers — deploy AI use cases in days, agents in hours, with compliance and scale.",
-  url: "insuraince",
+  title: "Retail AI Operating Layer | DSW",
+  description: "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
+  url: "/solutions/retail",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/solutions/insurance",
+    canonical: "/solutions/retail",
     languages: {
-      "en-US": "/solutions/insurance",
+      "en-US": "/solutions/retail",
     },
   },
   openGraph: {
-    url: "insuraince",
+    url: "/solutions/retail",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-retail.png`,
         width: 1200,
         height: 630,
       },
@@ -158,7 +158,7 @@ const featuresContent = {
 
   cards: [
     {
-      title: "Demand and Merchandising Intelligence at Execution",
+      title: "Demand and Merchandising Intelligence Operating at Execution",
       description:
         "Run forecasting, assortment, and pricing decisions within controlled execution environments.",
       bullets: [
@@ -217,17 +217,24 @@ const featuresContent = {
 
 
 const workflowsContent = {
-  heading: "Retail workflows expanding without new stacks or vendor sprawl",
+  heading: "Retail Workflows Expanding Without New Stacks or Vendor Sprawl",
   items: [
     { number: "01", title: "Promotion and campaign intelligence" },
     { number: "02", title: "Category performance analytics" },
     { number: "03", title: "Supplier and vendor performance monitoring" },
     { number: "04", title: "Returns and reverse logistics optimization" },
+    { number: "05", title: "Basket analysis and cross-sell intelligence" },
+    { number: "06", title: "Customer lifetime value modelling" },
+    { number: "07", title: "Fulfilment cost optimization" },
+    { number: "08", title: "Omnichannel experience intelligence" },
+    { number: "09", title: "Demand sensing support" },
+    { number: "10", title: "Model governance workflows" },
   ],
 };
 
+
 const caseStudyContent = {
-  heading: "Retail AI in production",
+  heading: "Retail AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
   company: "Borosil",
   description:
@@ -298,7 +305,7 @@ const ctaContent={
 
 const operationsContent = {
   heading:
-    "Kernel-governed execution across commerce, supply chain, and store operations",
+    "Kernel-Governed Execution across commerce, supply chain, and store operations",
 
   tabs: [
     {

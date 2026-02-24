@@ -142,7 +142,7 @@ export default function MobileNav({ isOpen, onClose }) {
                         onClick={() => toggleExpand(link.id)}
                         className="w-full flex items-center justify-between py-[5vw] pr-[2vw]"
                       >
-                        <span className={`text-[4.5vw] tracking-[0.02em] ${isExpanded ? "text-primary-blue font-normal" : "text-foreground font-light"}`}>
+                        <span className={`text-[4.5vw] tracking-[0.02em] transition-all duration-300 ease-in font-normal ${isExpanded ? "text-primary-blue font-normal" : "text-foreground font-light"}`}>
                           {link.label}
                         </span>
                         <ChevronDown
@@ -174,7 +174,7 @@ export default function MobileNav({ isOpen, onClose }) {
                     <Link
                       href={link.href}
                       onClick={handleLinkClick}
-                      className="block py-[5vw] text-[4.5vw] text-foreground font-light tracking-[0.02em]"
+                      className="block py-[5vw] text-[4.5vw] text-foreground font-normal tracking-[0.02em]"
                     >
                       {link.label}
                     </Link>

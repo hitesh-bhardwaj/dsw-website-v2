@@ -23,13 +23,13 @@ const data = [
   },
   {
     id: 3,
-    text: "Data Platforms And Applications",
+    text: "Data Platforms and Applications",
     imgSrc: "/assets/icons/aios/icon-3.svg",
     left: 0,
   },
   {
     id: 4,
-    text: "Regulated Environments With Real Risk",
+    text: "Regulated Environments with Real Risk",
     imgSrc: "/assets/icons/aios/icon-4.svg",
     left: "-10%",
   },
@@ -84,7 +84,7 @@ const OperatingSystem = () => {
     >
       <div className="text-center w-4/6 mx-auto space-y-[2vw] max-sm:w-full max-sm:space-y-[7vw]">
         <HeadingAnim>
-          <h2 className="text-76 text-center font-heading text-[#0A1B4B]">
+          <h2 className="text-76 text-center font-heading text-[#0A1B4B] leading-[1.2]">
             Why Enterprises Need an AI Operating System
           </h2>
         </HeadingAnim>

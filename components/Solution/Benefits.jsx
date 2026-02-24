@@ -66,7 +66,7 @@ export default function Benefits({ benefitsContent }) {
       <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-sm:gap-y-[15vw]">
         <div className="w-[85%] text-center max-sm:w-full">
           <HeadingAnim>
-            <h2 className="text-76 leading-[1.2] max-sm:leading-[1.4] text-[#0A1B4B]">{heading}</h2>
+            <h2 className="text-76 leading-[1.2] max-sm:leading-[1.4] text-[#0A1B4B] capitalize">{heading}</h2>
           </HeadingAnim>
         </div>
 
@@ -81,7 +81,7 @@ export default function Benefits({ benefitsContent }) {
                 </div>
               </div>
 
-              <p className={`text-30 w-full text-[#0A1B4B] ${p.className ?? ""}`}>
+              <p className={`text-30 w-full  ${p.className ?? ""}`}>
                 {p.text}
               </p>
             </div>

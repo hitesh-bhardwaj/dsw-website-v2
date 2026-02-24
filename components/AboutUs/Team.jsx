@@ -3,7 +3,6 @@ import React, { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-
 import Link from "next/link";
 import { FreeMode } from "swiper/modules";
 import HeadingAnim from "../Animations/HeadingAnim";
@@ -76,17 +75,17 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
           }}
           onProgress={(swiper, progress) => setProgress(progress)}
           freeMode
-          className="!overflow-visible max-md:!pt-[5vw] !pl-[27%]  max-md:pl-[5vw]! max-md:w-full max-sm:mb-[2%] max-md:mb-[10%] max-sm:pr-[20%]! "
+          className="overflow-visible! max-md:pt-[5vw]! pl-[27%]!  max-md:pl-[5vw]! max-md:w-auto max-sm:mb-[2%] max-md:mb-[10%] max-md:pr-[10%]! "
           breakpoints={{
             0: {
-              slidesPerView: 0.85,
+              slidesPerView: "auto",
               spaceBetween: 30,
-              slidesOffsetAfter: 40,
+              slidesOffsetAfter: 0,
             },
             768: {
-              slidesPerView: 0.8,
+              slidesPerView: "auto",
               spaceBetween: 30,
-              slidesOffsetAfter: 40,
+              slidesOffsetAfter: 0,
             },
             1025: {
               slidesPerView: "auto",
@@ -138,7 +137,13 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
             />
           </div>
         </div>
+        <div className="w-full flex justify-end ">
+          <div className={`workshop-scrollbar-${teamId}  w-[75%] cursor-grab max-md:w-full max-md:hidden`} />
+        </div>
       </div>
+
+
+   
     </section>
   );
 }

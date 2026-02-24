@@ -23,7 +23,7 @@ const GovernanceBuiltIn = () => {
       id: 3,
       title: "Traceability is native",
       description:
-        "Any outcome can be traced end-to-end — from data to decision.",
+        "Any outcome can be traced end-to-end - from data to decision.",
       isHighlighted: false,
     },
   ];
@@ -117,7 +117,7 @@ const GovernanceBuiltIn = () => {
       <div className="text-center px-[5vw] mt-[5vw] max-sm:mt-[10vw]">
         <Copy>
         <p className="text-30 text-foreground">
-          These capabilities are part of the operating system itself — not plugins, dashboards, or reporting layers.
+          These capabilities are part of the operating system itself - not plugins, dashboards, or reporting layers.
         </p>
 
         </Copy>

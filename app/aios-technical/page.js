@@ -49,8 +49,8 @@ const Page = () => {
                 <HeroNew heroContent={heroContent} variant={"bottomRight"} />
                 <OperatingSystem />
                 <AIProjects />
-                <AIEcosystem />
-                <Fragmented/>
+                <AIEcosystem ecosystemItems={ECOSYSTEM_ITEMS} />
+                <Fragmented />
                 <ArchitecturalPrinciples />
                 <FiveAnchors />
                 <SystemStructure />
@@ -72,7 +72,7 @@ const heroContent = {
     tagline: "Built for enterprises that don’t just build AI - but operate it.",
     heading: "The Architecture Behind The Enterprise AI Operating System",
     headingWidth: "w-[80%]",
-    para: "DSW is built for enterprises that are moving AI from experiments into long-running production systems.It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
+    para: "DSW is built for enterprises that are moving AI from experiments into long-running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
     primaryButton: {
         present: false,
         link: "#",
@@ -111,3 +111,30 @@ const certificationsContent = {
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };
+
+const ECOSYSTEM_ITEMS = [
+  {
+    title: "Kernel-level governance",
+    points: [
+      "Policies execute as code",
+      "Audit, traceability, and reversibility are native",
+      "Controls cannot be bypassed or bolted on later",
+    ],
+  },
+  {
+    title: "Governed AI and agentic execution",
+    points: [
+      "Models and agents operate inside defined constraints",
+      "Autonomy is controlled, not improvised",
+      "Lifecycles are managed like system processes",
+    ],
+  },
+  {
+    title: "AI as enterprise infrastructure",
+    points: [
+      "Long-running, production-grade execution",
+      "Independent of vendors, clouds, or tools",
+      "Fully owned and operated by your enterprise",
+    ],
+  },
+];

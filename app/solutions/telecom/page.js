@@ -22,10 +22,9 @@ import { homepage } from "@/lib/util";
 import React from "react";
 
 export const metadata = getPageMetadata({
-  title: "Enterprise AI for Telecom - Telecom by DSW",
-  description:
-    "Run network, operations, and subscriber intelligence on one AI operating layer — governed execution across OSS, BSS, and service environments.",
-  url: "telecom",
+  title: "Telecom AI Operating Layer | DSW",
+  description: "Operate AI across network, OSS/BSS, subscriber, and service intelligence within a governed runtime for real-time telecom operations.",
+  url: "/solutions/telecom",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
@@ -35,10 +34,10 @@ export const metadata = getPageMetadata({
     },
   },
   openGraph: {
-    url: "telecom",
+    url: "/solutions/telecom",
     images: [
       {
-        url: `${homepage}seo/solutions.png`,
+        url: `${homepage}seo/solutions-telecom.png`,
         width: 1200,
         height: 630,
       },
@@ -191,15 +190,21 @@ const featuresContent = {
    WORKFLOWS
 --------------------------------------------- */
 const workflowsContent = {
-  heading: "Telecom workflows expanding without new stacks or vendor sprawl",
+  heading: "Telecom Workflows Expanding Without New Stacks or Vendor Sprawl",
   items: [
-    { number: "01", title: " Field service optimization" },
-    { number: "02", title: " Infrastructure planning intelligence" },
+    { number: "01", title: "Field service optimization" },
+    { number: "02", title: "Infrastructure planning intelligence" },
     { number: "03", title: "Device lifecycle intelligence" },
     { number: "04", title: "Partner ecosystem monitoring" },
-   
+    { number: "05", title: "Subscriber segmentation and lifetime value modeling" },
+    { number: "06", title: "Regulatory compliance monitoring" },
+    { number: "07", title: "SLA intelligence and reporting" },
+    { number: "08", title: "Contact center intelligence" },
+    { number: "09", title: "Network energy optimization" },
+    { number: "10", title: "Model risk and governance workflows" },
   ],
 };
+
 
 /* ---------------------------------------------
    CASE STUDY

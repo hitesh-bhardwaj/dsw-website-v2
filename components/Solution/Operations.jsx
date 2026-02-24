@@ -200,7 +200,7 @@ const Operations = ({ operationsContent }) => {
             });
           }
         });
-      });
+      }); 
     });
   };
 
@@ -220,7 +220,7 @@ const Operations = ({ operationsContent }) => {
     >
       <div className="w-full h-full gap-y-[2vw] flex flex-col items-center text-center">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto w-[85%]">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto w-[85%] capitalize">
             {data.heading}
           </h2>
         </HeadingAnim>
@@ -239,7 +239,7 @@ const Operations = ({ operationsContent }) => {
                 onClick={() => animateTo(idx)}
                 disabled={isAnimating}
                 className={[
-                  "w-full text-left p-[1vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer",
+                  "w-full text-left p-[1vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer fadeup",
                   isActive
                     ? "border-l-[4px] border border-primary-blue text-primary-blue"
                     : "border border-transparent text-[#0A1B4B]",
@@ -252,7 +252,7 @@ const Operations = ({ operationsContent }) => {
         </div>
 
         {/* MOBILE: accordion tabs with content below each */}
-        <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-[3vw] w-full max-sm:pt-[7vw] font-light">
+        <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-[3vw] w-full max-sm:pt-[7vw] font-light fadeup">
           {data.tabs.map((tab, idx) => {
             const isActive = idx === active;
             const tabContent = data.tabs[idx] ?? { intro: "", bullets: [] };
@@ -284,7 +284,7 @@ const Operations = ({ operationsContent }) => {
         {/* RIGHT: content — desktop only */}
         <div
           ref={contentWrapRef}
-          className="w-[45%] max-sm:hidden relative text-30"
+          className="w-[45%] max-sm:hidden relative text-30 fadeup"
         >
           <div className="w-full space-y-[2vw]">
             <p data-intro>{current.intro}</p>
