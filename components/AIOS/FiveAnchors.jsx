@@ -10,6 +10,44 @@ gsap.registerPlugin(ScrollTrigger);
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
+const anchors = [
+  {
+    id: 1,
+    label: "Continuous adaptation",
+    alt: "Continuous Adaption",
+    src: "/assets/icons/aios/anchors/continous-adaption-new.svg",
+    position: "top-[4%] left-1/2 -translate-x-1/2",
+  },
+  {
+    id: 2,
+    label: "Data Sovereignty",
+    alt: "Data Sovereignty",
+    src: "/assets/icons/aios/anchors/data-sovereignty-new.svg",
+    position: "top-[35%] right-0 max-sm:right-[-3%]",
+  },
+  {
+    id: 3,
+    label: "Human Centric AI",
+    alt: "Human Centric",
+    src: "/assets/icons/aios/anchors/human-centric.svg",
+    position: "bottom-[5%] right-[15%] max-sm:bottom-[-2%]",
+  },
+  {
+    id: 4,
+    label: "Strategic Flexibility",
+    alt: "Strategic Flexibility",
+    src: "/assets/icons/aios/anchors/startegic-flexibility.svg",
+    position: "bottom-[5%] left-[15%] max-sm:bottom-[-3%]",
+  },
+  {
+    id: 5,
+    label: "Adoption Reality",
+    alt: "Adaption Reality",
+    src: "/assets/icons/aios/anchors/adoption-reality-new.svg",
+    position: "top-[35%] left-0 max-sm:left-[-2%]",
+  },
+];
+
 /**
  * ✅ Smooth scroll-reactive rotation
  *
@@ -84,21 +122,30 @@ const FiveAnchors = ({
       window.addEventListener("scroll", onScroll, { passive: true });
       gsap.ticker.add(tick);
 
-     
+      // ✅ cleanup (important in React/Next)
+      return () => {
+        window.removeEventListener("scroll", onScroll);
+        gsap.ticker.remove(tick);
+        rot.kill();
+      };
     },
     { scope: sectionRef }
   );
-  useGSAP(()=>{
-    gsap.from(".fiveAnchorsCircle",{
-      opacity:0,
-      scale:0.98,
-      duration:1,
-      scrollTrigger:{
-        trigger:sectionRef.current,
-        start:"top 20%",
-      }
-    })
-  })
+
+  useGSAP(
+    () => {
+      gsap.from(".fiveAnchorsCircle", {
+        opacity: 0,
+        scale: 0.98,
+        duration: 1,
+        scrollTrigger: {
+          trigger: sectionRef.current,
+          start: "top 20%",
+        },
+      });
+    },
+    { scope: sectionRef }
+  );
 
   return (
     <section
@@ -115,7 +162,7 @@ const FiveAnchors = ({
       </div>
 
       {/* Infographic Container */}
-      <div className="relative w-[45vw] mx-auto aspect-square max-sm:w-[100vw] fiveAnchorsCircle">
+      <div className="relative w-[45vw] mx-auto aspect-square max-sm:w-[100vw] fiveAnchorsCircle max-md:w-[80vw]">
         {/* Rotating Circle Ring */}
         <div ref={ringRef} className="absolute inset-[10%] z-0">
           <Image
@@ -127,90 +174,28 @@ const FiveAnchors = ({
           />
         </div>
 
-        {/* Top - Continuous Adaption */}
-        <div className="absolute top-[4%] left-1/2 -translate-x-1/2 flex flex-col items-center gap-[0.8vw] z-10">
-          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
-            <div className="absolute inset-[20%]">
-              <Image
-                src="/assets/icons/aios/anchors/continous-adaption-new.svg"
-                alt="Continuous Adaption"
-                fill
-                className="object-contain"
-              />
+        {/* ✅ Anchors rendered via map */}
+        {anchors.map((anchor) => (
+          <div
+            key={anchor.id}
+            className={`absolute ${anchor.position} flex flex-col items-center gap-[0.8vw] z-10`}
+          >
+            <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw] max-md:size-[12vw]">
+              <div className="absolute inset-[20%]">
+                <Image
+                  src={anchor.src}
+                  alt={anchor.alt}
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
-          </div>
-          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Continuous adaptation
-          </p>
-        </div>
 
-        {/* Right - Data Sovereignty */}
-        <div className="absolute top-[35%] right-0 flex flex-col items-center gap-[0.8vw] z-10 max-sm:right-[-3%]">
-          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
-            <div className="absolute inset-[20%]">
-              <Image
-                src="/assets/icons/aios/anchors/data-sovereignty-new.svg"
-                alt="Data Sovereignty"
-                fill
-                className="object-contain"
-              />
-            </div>
+            <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
+              {anchor.label}
+            </p>
           </div>
-          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Data Sovereignty
-          </p>
-        </div>
-
-        {/* Bottom Right - Human Centric */}
-        <div className="absolute bottom-[5%] right-[15%] flex flex-col items-center gap-[0.8vw] z-10 max-sm:bottom-[-2%]">
-          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
-            <div className="absolute inset-[20%]">
-              <Image
-                src="/assets/icons/aios/anchors/human-centric.svg"
-                alt="Human Centric"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Human Centric AI
-          </p>
-        </div>
-
-        {/* Bottom Left - Strategic Flexibility */}
-        <div className="absolute bottom-[5%] left-[15%] flex flex-col items-center gap-[0.8vw] z-10 max-sm:bottom-[-3%]">
-          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
-            <div className="absolute inset-[20%]">
-              <Image
-                src="/assets/icons/aios/anchors/startegic-flexibility.svg"
-                alt="Strategic Flexibility"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Strategic Flexibility
-          </p>
-        </div>
-
-        {/* Left - Adaption Reality */}
-        <div className="absolute top-[35%] left-0 flex flex-col items-center gap-[0.8vw] z-10 max-sm:left-[-2%]">
-          <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw]">
-            <div className="absolute inset-[20%]">
-              <Image
-                src="/assets/icons/aios/anchors/adoption-reality-new.svg"
-                alt="Adaption Reality"
-                fill
-                className="object-contain"
-              />
-            </div>
-          </div>
-          <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-            Adoption Reality
-          </p>
-        </div>
+        ))}
       </div>
     </section>
   );

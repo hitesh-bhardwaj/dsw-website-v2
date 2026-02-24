@@ -73,28 +73,28 @@ const SystemStructure = () => {
 
       {/* OS Diagram Container */}
       <div className="px-[5vw]">
-        <div className="relative w-full bg-[#eff1fb] border border-primary-blue rounded-[1.5vw] overflow-hidden max-sm:rounded-[5vw] fadeup">
+        <div className="relative w-full bg-[#eff1fb] border border-primary-blue rounded-[1.5vw] overflow-hidden max-sm:rounded-[5vw] fadeup max-md:rounded-[2.5vw]">
           {/* Header Bar */}
           <div className="bg-background border-b border-primary-blue py-[1.5vw] rounded-t-[1.5vw] max-sm:py-[5vw]">
-            <p className="text-24 text-primary-blue font-medium text-center max-sm:text-40">
+            <p className="text-24 text-primary-blue font-medium text-center max-sm:text-40 max-md:text-[3.6vw]">
               DSW Enterprise AI Operating System
             </p>
           </div>
 
           {/* Content */}
-          <div className="p-[2vw] space-y-[1.5vw] max-sm:p-[4vw] max-sm:space-y-[4vw]">
+          <div className="p-[2vw] space-y-[1.5vw] max-sm:p-[4vw] max-sm:space-y-[4vw] max-md:p-[3vw]">
             {/* Three Runtime Boxes */}
-            <div className="grid grid-cols-3 gap-[1.5vw] max-sm:grid-cols-1 max-sm:gap-[4vw]">
+            <div className="grid grid-cols-3 gap-[1.5vw] max-md:grid-cols-1 max-sm:gap-[4vw] max-md:gap-[3vw]">
               {runtimeBoxes.map((box) => (
                 <div
                   key={box.id}
-                  className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] flex flex-col justify-between hover:border-primary-blue border border-white/0 transition-all duration-500 ease-in-out hover:drop-shadow-md hover:shadow-md max-sm:rounded-[4vw] max-sm:py-[10vw]"
+                  className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] max-md:rounded-[2vw] max-md:p-[4vw] flex flex-col justify-between hover:border-primary-blue border border-white/0 transition-all duration-500 ease-in-out hover:drop-shadow-md hover:shadow-md max-sm:rounded-[4vw] max-sm:py-[10vw]"
                 >
                   <div className="flex items-start justify-between mb-[1.5vw] max-sm:mb-[4vw]">
-                    <h3 className="text-24 font-medium text-[#0A1B4B] max-sm:text-40">
+                    <h3 className="text-24 font-medium text-[#0A1B4B] max-sm:text-40 max-md:text-[3.2vw]">
                       {box.title}
                     </h3>
-                    <div className="relative w-[4.5vw] h-[4.5vw] max-sm:w-[15vw] max-sm:h-[15vw]">
+                    <div className="relative w-[4.5vw] h-[4.5vw] max-sm:w-[15vw] max-sm:h-[15vw] max-md:size-[10vw]">
                       <Image
                         src={box.icon}
                         alt={box.title}
@@ -103,11 +103,11 @@ const SystemStructure = () => {
                       />
                     </div>
                   </div>
-                  <ul className="space-y-[0.5vw] max-sm:space-y-[2vw]">
+                  <ul className="space-y-[0.5vw] max-sm:space-y-[2vw] max-md:space-y-[1vw]">
                     {box.items.map((item, idx) => (
                       <li
                         key={idx}
-                        className="text-22 text-[#111] flex items-start gap-[0.5vw] max-sm:text-24"
+                        className="text-22 text-[#111] flex items-start gap-[0.5vw] max-md:text-24"
                       >
                         <span className="text-primary-blue">•</span>
                         <span>{item}</span>
@@ -119,12 +119,12 @@ const SystemStructure = () => {
             </div>
 
             {/* AI OS Kernel */}
-            <div className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] hover:border-primary-blue border border-white/0 transition-all duration-500 ease-in-out hover:drop-shadow-md hover:shadow-md max-sm:rounded-[4vw] max-sm:py-[10vw]">
+            <div className="bg-background rounded-[0.6vw] p-[1.5vw] max-sm:p-[5vw] max-sm:rounded-[2vw] max-md:rounded-[2vw] max-md:p-[4vw] hover:border-primary-blue border border-white/0 transition-all duration-500 ease-in-out hover:drop-shadow-md hover:shadow-md max-sm:rounded-[4vw] max-sm:py-[10vw]">
               <div className="flex items-start justify-between mb-[1.5vw] max-sm:mb-[4vw]">
-                <h3 className="text-24 font-medium text-[#0A1B4B] max-sm:text-40">
+                <h3 className="text-24 font-medium text-[#0A1B4B] max-sm:text-40 max-md:text-[3.2vw]">
                   AI OS Kernel (UnifyAI Core)
                 </h3>
-                <div className="relative w-[4.5vw] h-[4.5vw] max-sm:w-[15vw] max-sm:h-[15vw]">
+                <div className="relative w-[4.5vw] h-[4.5vw] max-sm:w-[15vw] max-sm:h-[15vw] max-md:size-[10vw]">
                   <Image
                     src="/assets/icons/aios/ai-os-kernel.svg"
                     alt="AI OS Kernel"
@@ -133,17 +133,17 @@ const SystemStructure = () => {
                   />
                 </div>
               </div>
-              <div className="grid grid-cols-3 gap-[2vw] max-sm:grid-cols-1 max-sm:gap-[4vw] ">
+              <div className="grid grid-cols-3 gap-[2vw] max-md:grid-cols-1 max-sm:gap-[4vw] max-md:gap-[1vw] max-md:pt-[4vw] ">
                 {/* Column 1 - Description */}
-                <p className="text-22 text-[#111] max-sm:text-24">
+                <p className="text-22 text-[#111] max-md:text-24">
                   The authoritative control plane for all AI execution, responsible for:
                 </p>
                 {/* Column 2 - Items */}
-                <ul className="space-y-[0.5vw] max-sm:space-y-[2vw]">
+                <ul className="space-y-[0.5vw] max-sm:space-y-[2vw] max-md:space-y-[1vw]">
                   {kernelItems[1].items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-22 text-[#111] flex items-start gap-[0.5vw] max-sm:text-24"
+                      className="text-22 text-[#111] flex items-start gap-[0.5vw] max-md:text-24"
                     >
                       <span className="text-primary-blue">•</span>
                       <span>{item}</span>
@@ -151,11 +151,11 @@ const SystemStructure = () => {
                   ))}
                 </ul>
                 {/* Column 3 - Items */}
-                <ul className="space-y-[0.5vw] max-sm:space-y-[2vw]">
+                <ul className="space-y-[0.5vw] max-sm:space-y-[2vw] max-md:space-y-[1vw]">
                   {kernelItems[2].items.map((item, idx) => (
                     <li
                       key={idx}
-                      className="text-22 text-[#111] flex items-start gap-[0.5vw] max-sm:text-24"
+                      className="text-22 text-[#111] flex items-start gap-[0.5vw] max-md:text-24"
                     >
                       <span className="text-primary-blue">•</span>
                       <span>{item}</span>
@@ -167,13 +167,13 @@ const SystemStructure = () => {
 
             {/* Base Infrastructure Layer */}
             <div
-              className="rounded-[0.6vw] p-[1.5vw] text-center max-sm:p-[5vw] max-sm:rounded-[2vw] max-sm:rounded-[4vw] max-sm:py-[10vw]"
+              className="rounded-[0.6vw] p-[1.5vw] text-center max-sm:p-[5vw] max-sm:rounded-[2vw] max-sm:rounded-[4vw] max-sm:py-[10vw] max-md:rounded-[2vw] max-md:p-[4vw]"
               style={{
                 background:
                   "linear-gradient(90deg, rgba(23, 39, 255, 0.2) 9.13%, rgba(0, 0, 0, 0) 45.67%, rgba(23, 39, 255, 0.2) 89.42%), linear-gradient(90deg, #111 0%, #111 100%)",
               }}
             >
-              <h3 className="text-24 text-white font-medium font-heading tracking-[0.02em] mb-[1vw] max-sm:mb-[5vw] max-sm:text-40">
+              <h3 className="text-24 text-white font-medium font-heading mb-[1vw] max-sm:mb-[5vw] max-md:text-40 max-md:mb-[3vw]">
                 Base Infrastructure Layer
               </h3>
               <p className="text-22 text-white max-sm:text-24">
@@ -186,8 +186,8 @@ const SystemStructure = () => {
           </div>
 
           {/* Footer Text */}
-          <div className="pb-[1.5vw] max-sm:py-[15vw]">
-            <p className="text-22 text-[#111] text-center max-sm:w-[90%] max-sm:mx-auto">
+          <div className="pb-[1.5vw] max-sm:py-[10vw] max-md:py-[5vw]">
+            <p className="text-22 text-[#111] text-center max-sm:w-[90%] max-sm:mx-auto max-md:text-24">
               Operates above existing infrastructure without modification
             </p>
           </div>

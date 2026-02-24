@@ -89,7 +89,7 @@ const JoinUs = () => {
                 </div>
 
                 {/* Value Cards — Mobile Slider */}
-                <div className="hidden max-sm:block w-full overflow-x-auto overflow-y-visible pb-6  px-[7vw]">
+                <div className="hidden max-sm:block w-full overflow-x-auto overflow-y-visible mobile-scrollbar pb-6  px-[7vw]">
                     <div className="flex gap-[5vw] flex-nowrap w-max items-center">
                         {values.map((deployment, index) => (
                             <ValueCardMobile key={index} deployment={deployment} />
@@ -104,7 +104,7 @@ const JoinUs = () => {
                         </p>
                     </Copy>
                 </div>
-                <div className='mx-auto flex items-center justify-center'>
+                <div className='mx-auto flex items-center justify-center fadeup'>
                     <PrimaryButton text={"View Open Roles"} href="#" />
                 </div>
             </div>

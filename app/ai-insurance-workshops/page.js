@@ -67,7 +67,7 @@ const heroContent={
   primaryButton:{
     present:false,
     link:"#",
-    text:"Explore the Platform"
+    text:""
   },
   secondaryButton:{
     present:false,

@@ -97,7 +97,7 @@ const OperatingSystem = () => {
       </div>
 
       {/* Desktop */}
-      <div className="py-[5vw] w-[54%] mx-auto max-sm:hidden">
+      <div className="py-[5vw] w-[54%] mx-auto max-md:hidden">
         <div className="flex justify-between items-center">
           <div className="size-[20vw] relative flex items-center justify-center run-across">
             <div className="size-[14vw] border border-primary-blue rounded-full flex items-center justify-center text-center">
@@ -136,14 +136,14 @@ const OperatingSystem = () => {
       </div>
 
       {/* Mobile - ✅ mapped */}
-      <div className="w-full h-fit hidden max-sm:block space-y-[7vw] pt-[15vw] mobile-content">
+      <div className="w-full h-fit hidden max-md:block space-y-[7vw] max-sm:pt-[15vw] mobile-content max-md:pt-[7vw] max-md:space-y-[4vw]">
         {mobileSteps.map((step, idx) => {
           const isLast = idx === mobileSteps.length - 1;
 
           return (
             <div
               key={step.id}
-              className="w-full h-fit flex flex-col justify-center items-center gap-[7vw] mobile-step"
+              className="w-full h-fit flex flex-col justify-center items-center max-sm:gap-[7vw] mobile-step max-md:gap-[4vw]"
             >
               <p className={`text-30 w-[70%] text-center ${idx === 0 ? "font-medium" : ""}`}>
                 {step.text}
@@ -165,7 +165,7 @@ const OperatingSystem = () => {
         })}
       </div>
 
-      <div className="text-center w-4/5 mx-auto space-y-[2vw] max-sm:space-y-[10vw] max-sm:w-full max-sm:pt-[15vw]">
+      <div className="text-center w-4/5 mx-auto space-y-[2vw] max-sm:space-y-[10vw] max-sm:w-full max-sm:pt-[15vw] max-md:pt-[7vw]">
         <Copy>
           <p className="text-30 text-center font-sans leading-[1.4] tracking-[0.025vw] text-foreground">
             Without a system layer, AI becomes fragmented, difficult to govern, and dangerous to scale. Enterprises don’t just need more AI tools.

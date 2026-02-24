@@ -199,7 +199,7 @@ h6 {
 .workshop-scrollbar {
   height: 4px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0);
 }
 
 .workshop-scrollbar .swiper-scrollbar-drag {
@@ -329,9 +329,9 @@ h6 {
     --text-40: 3.6vw;
     --text-32: 3vw;
     --text-30: 2.8vw;
-    --text-24: 2.3vw;
-    --text-22: 2.1vw;
-    --text-20: 1.8vw;
+    --text-24: 2.5vw;
+    --text-22: 2.3vw;
+    --text-20: 2.2vw;
     --text-18: 2vw;
   }
 }

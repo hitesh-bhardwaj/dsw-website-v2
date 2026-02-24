@@ -9,10 +9,10 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
 
   return (
     <section
-      className="w-full px-[5vw] py-[5%] max-md:px-[6vw] pb-[12%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[5%] max-md:px-[6vw] pb-[12%] max-sm:px-[7vw] max-sm:py-[15%] max-md:pb-[15%]"
       id={sectionId}
     >
-      <div className="w-full h-full gap-y-[2vw] max-sm:gap-y-[4vw] flex flex-col items-center text-center">
+      <div className="w-full h-full gap-y-[2vw] max-sm:gap-y-[4vw] flex flex-col items-center text-center max-md:gap-y-[4vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-md:w-full leading-[1.2] capitalize">
             {heading}
@@ -24,13 +24,13 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
         </Copy>
 
         {/* Certifications Row */}
-        <div className="flex justify-between items-center w-[90%] my-[4vw] max-sm:py-[6vw] fadeup max-sm:flex-wrap max-sm:justify-center max-sm:w-full max-sm:gap-[5vw]">
+        <div className="flex justify-between items-center w-[90%] my-[4vw] max-sm:py-[6vw] fadeup max-sm:flex-wrap max-sm:justify-center max-sm:w-full max-sm:gap-[5vw] max-md:gap-[3vw] max-md:items-center max-md:justify-center max-md:flex-wrap">
           {certifications.map((logo, index) => {
             const isLast = index === certifications.length - 1;
             return (
               <div
                 key={index}
-                className={isLast ? `w-[25vw] h-[10vw] max-sm:h-[20vw] max-sm:w-[70vw]` : `size-[10vw] max-sm:size-[20vw]`}
+                className={isLast ? `w-[25vw] h-[10vw] max-sm:h-[20vw] max-sm:w-[70vw] max-md:w-[40vw]` : `size-[10vw] max-sm:size-[20vw] max-md:size-[15vw]`}
               >
                 <Image
                   src={logo.src}
@@ -45,14 +45,14 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
         </div>
 
         {/* Awards Row */}
-        <div className="flex justify-between items-start w-full my-[4vw] fadeup max-sm:flex-wrap max-sm:justify-center max-sm:gap-[5vw]">
+        <div className="flex justify-between items-start w-full my-[4vw] fadeup max-sm:flex-wrap max-sm:justify-center max-sm:gap-[5vw] max-md:gap-[5vw] max-md:items-center max-md:justify-center max-md:flex-wrap max-md:w-[90%]">
           {awards.map((logo, index) => {
             const isLastTwo = index >= awards.length - 2;
             return (
               <div
                 key={index}
                 className={`flex flex-col items-start gap-y-[0.8vw] ${
-                  isLastTwo ? "w-[14vw] max-sm:w-[30vw]" : "w-[10vw] max-sm:w-[25vw]"
+                  isLastTwo ? "w-[14vw] max-sm:w-[30vw] max-md:w-[25vw]" : "w-[10vw] max-sm:w-[25vw] max-md:w-[15vw]"
                 }`}
               >
                 <Image
@@ -61,7 +61,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
                   width={300}
                   height={300}
                   className={`object-contain ${
-                    isLastTwo ? "w-full h-[13vw] max-sm:h-[28vw]" : "w-full h-[10vw] max-sm:h-[25vw]"
+                    isLastTwo ? "w-full h-[13vw] max-sm:h-[28vw]" : "w-full h-[10vw] max-sm:h-[25vw] max-md:h-auto"
                   }`}
                 />
                 {isLastTwo && logo.caption && (
