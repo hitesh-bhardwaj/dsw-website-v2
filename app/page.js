@@ -1,6 +1,5 @@
 import AlwaysOnAI from "@/components/AlwaysOnAI";
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
-// import Clients from "@/components/Clients";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
 import CTAPricing from "@/components/CTAPricing";
@@ -34,11 +33,9 @@ export default function Home() {
           <WhyAIStruggles />
           <UnifiedRuntime />
           <Features />
-          {/* <CoreEnterpriseSystem /> */}
           <CoreEnterpriseSystemSticky />
           <UseCases />
           <AlwaysOnAI content={tourContent} />
-          {/* <Clients /> */}
           <ClientsBlur />
           <RealWorldOutcomes />
           <CTAPricing />
@@ -73,8 +70,9 @@ const ctaContent = {
   para: "DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
   primaryButton: {
     present: true,
-    link: "/unifyai",
-    text: "Explore the Platform"
+    link: "#",
+    text: "Book a Demo",
+    book:true
   },
   secondaryButton: {
     present: true,
