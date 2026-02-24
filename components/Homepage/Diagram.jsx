@@ -200,7 +200,7 @@ let endPosition = "bottom bottom";
 
 // ✅ tablet (>640 && <1025)
 if (width > 640 && width < 1025) {
-  startPosition = "-10% 20%";
+  startPosition = "-5% 20%";
   endPosition = "bottom bottom";
 }
 
@@ -219,11 +219,11 @@ ScrollTrigger.create({
 
   return (
     <section ref={sectionRef} className="w-full h-fit">
-      <div className="h-[240vw] max-md:h-[250vw] max-sm:h-[520vh]">
-        <div className="w-full flex justify-between max-md:flex-col max-md:justify-center max-md:items-center max-sm:items-start  max-sm:gap-0 h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%]">
+      <div className="h-[240vw] max-md:h-[450vw] max-sm:h-[520vh]">
+        <div className="w-full flex justify-between max-md:flex-col max-md:justify-center max-md:items-start  max-sm:gap-0 h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%] max-md:top-0">
           {/* LEFT */}
           <div className="w-[40%] max-sm:w-full max-md:w-[70%] pt-[10vw] relative">
-            <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw]">
+            <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw] max-md:min-h-[40vw]">
               {DESC_STEPS.map((step, i) => (
                 <div
                   key={i}
@@ -232,7 +232,7 @@ ScrollTrigger.create({
                 >
                   <h3
                     ref={(el) => (headingRefs.current[i] = el)}
-                    className="text-56 max-sm:w-[70%]"
+                    className="text-56"
                   >
                     {step.title}
                   </h3>
@@ -240,7 +240,7 @@ ScrollTrigger.create({
                   <div className="w-full h-[1px] bg-white my-[1vw]" />
 
                   <div className="flex items-center justify-between gap-2">
-                    <ul className="space-y-[0.5vw] pl-[1.5vw] list-disc">
+                    <ul className="space-y-[0.5vw] pl-[1.5vw] max-sm:pl-[5vw] list-disc max-sm:text-[3.8vw] max-md:text-24">
                       {step.bullets.map((b, liIdx) => (
                         <li
                           key={liIdx}
@@ -260,7 +260,7 @@ ScrollTrigger.create({
           </div>
 
           {/* RIGHT */}
-          <div className="w-[50%] h-[42vw] max-md:w-full max-md:h-[80vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%]">
+          <div className="w-[50%] h-[42vw] max-md:w-full max-md:h-[80vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%] max-md:-translate-y-[20%]">
             {DESC_STEPS.map((step, i) => (
               <div
                 key={i}

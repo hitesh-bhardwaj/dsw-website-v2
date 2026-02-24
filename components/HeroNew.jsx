@@ -176,7 +176,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
           height={1500}
           width={1500}
           alt="mobile-hero-bg"
-          className="h-full w-full object-cover"
+          className="h-full w-full max-sm:object-cover max-md:object-fill"
         />
       </div>
 
