@@ -81,7 +81,7 @@ export default function UseCases() {
       <div className="w-[60%] flex flex-col gap-[2vw] text-center  mx-auto max-md:w-full max-sm:gap-[7vw] max-md:gap-[3.5vw] relative z-[10]">
         <HeadingAnim>
           <h2 className="text-76 leading-[1.2] max-sm:leading-[1.4] max-md:leading-[1.3]">
-            Unlimited Use Cases. One Operating Foundation.
+            Unlimited Use Cases.<br/> One Operating Foundation.
           </h2>
         </HeadingAnim>
         <Copy>
