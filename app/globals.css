@@ -301,28 +301,22 @@ h6 {
 
 /* Custom Scrollbar Styles */
 
-.max-sm\:overflow-x-scroll::-webkit-scrollbar {
-  height: 15px;
+.mobile-scrollbar::-webkit-scrollbar {
+  height: 4px;
 }
 
-.max-sm\:overflow-x-scroll::-webkit-scrollbar-track {
+.mobile-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 10px;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 10px;
 }
 
-.max-sm\:overflow-x-scroll::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 10px;
-}
-
-.max-sm\:overflow-x-scroll::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
-}
-
-/* Firefox */
-.max-sm\:overflow-x-scroll {
+.mobile-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--primary) #f1f1f1;
+  scrollbar-color: var(--primary-blue) #f1f1f1;
 }
 
 @media (max-width: 1025px) {
