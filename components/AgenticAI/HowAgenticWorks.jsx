@@ -291,7 +291,7 @@ const HowAgenticWorks = () => {
           >
             <div className="flex max-md:mb-[5vw]">
               <h3 className="flex items-center gap-[0.5vw] max-md:text-primary-blue">
-                <span className="w-2 h-2 mr-2 bg-current" />
+                <span className="w-1.5 h-1.5 mr-2 bg-current" />
                 <span className="text-44">{item.label}</span>
               </h3>
             </div>

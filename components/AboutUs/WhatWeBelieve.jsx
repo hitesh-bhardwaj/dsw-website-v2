@@ -197,7 +197,7 @@ const VisionMission = () => {
             <div className="w-16 h-16 shrink-0 text-primary-blue"><Vision /></div>
           </div>
           <p className="text-30 max-sm:leading-[1.4] text-foreground">
-            To make AI operable at scale -<br />for every enterprise.
+            To make AI operable at scale - <br />for every enterprise.
           </p>
         </div>
 

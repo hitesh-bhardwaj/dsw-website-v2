@@ -8,7 +8,7 @@ const helpCards = [
     id: 1,
     title: "Book a Demo",
     description:
-      "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation",
+      "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation.",
     buttonText: "Select the Slot",
     href: "https://calendly.com/",
     target: "_blank",
@@ -17,7 +17,7 @@ const helpCards = [
     id: 2,
     title: "Contact Sales",
     description:
-      "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation",
+      "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation.",
     buttonText: "Talk to our Team",
     href: "#contact-form",
     target: "_self",

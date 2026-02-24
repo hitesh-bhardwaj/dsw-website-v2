@@ -37,7 +37,7 @@ const PrimaryButton = ({ text, background = "", className = "", ...props }) => {
   return (
     <Link {...props} onMouseEnter={()=>{setEnter(true)}} onMouseLeave={()=>{setEnter(false)}} className={` relative inline-flex items-center h-[3.6vw] min-w-[10vw] px-[2.5vw]  gap-3 rounded-full overflow-hidden text-white-200 group max-sm:h-fit max-sm:py-[4vw] max-sm:px-[5vw] max-sm:min-w-[65vw]  max-md:min-w-[25vw] max-md:h-[2vw]  max-sm:gap-[4vw]  max-md:gap-[2vw]  max-md:py-[4vw] max-md:px-[4vw] max-md:w-fit ${className}`}>
       <div className="overflow-clip leading-[1.2] max-md:mx-auto -mt-0.5 max-sm:mt-0 z-1">
-        <p ref={upperText} className={`text-22  text-gray-200 leading-[1.4] buttonTextShadow `}>{text}</p>
+        <p ref={upperText} className={`text-22  text-white leading-[1.4] buttonTextShadow `}>{text}</p>
       </div>
       <span className={`absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full bg-[#F16B0D] ${background}`} />
     </Link>

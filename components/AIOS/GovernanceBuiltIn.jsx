@@ -9,19 +9,19 @@ const GovernanceBuiltIn = () => {
       id: 1,
       title: "Audit is native",
       description:
-        "Every AI action and agent decision is recorded automatically.",
+        "Every AI action and agent decision is recorded automatically",
     },
     {
       id: 2,
       title: "Reversibility is native",
       description:
-        "Models, workflows, and decisions can be rolled back, overridden, or replayed.",
+        "Models, workflows, and decisions can be rolled back, overridden, or replayed",
     },
     {
       id: 3,
       title: "Traceability is native",
       description:
-        "Any outcome can be traced end-to-end - from data to decision.",
+        "Any outcome can be traced end-to-end - from data to decision",
     },
   ];
 
