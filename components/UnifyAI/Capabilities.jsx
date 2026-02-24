@@ -14,7 +14,7 @@ export default function Capabilities() {
                 </HeadingAnim>
                 <Copy>
                 <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto text-[#333333]">
-                   UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start
+                   UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start.
                 </p>
                 </Copy>
             </div>
@@ -62,10 +62,10 @@ export default function Capabilities() {
   return (
     <div className="w-[90%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto  relative group">
        
-        <div className="max-sm:w-full max-sm:overflow-x-scroll max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0">
+        <div className="max-sm:w-full max-sm:overflow-x-scroll mobile-scrollbar max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0">
 
         
-         <div className="w-[90%] max-sm:w-[290%] mx-auto max-sm:overflow-y-hidden ">
+         <div className="w-[90%] max-sm:w-[290%] mx-auto max-sm:overflow-y-hidden overflow-x-auto mobile-scrollbar overflow-y-visible">
        <CornerDecorations/>
       
       <table className="border-collapse w-full h-full border border-[#D9D9D9]">

@@ -80,7 +80,7 @@ export default function UseCases() {
 
       <div className="w-[60%] flex flex-col gap-[2vw] text-center  mx-auto max-md:w-full max-sm:gap-[7vw] max-md:gap-[3.5vw] relative z-[10]">
         <HeadingAnim>
-          <h2 className="text-76 leading-[1.2] max-sm:leading-[1.4] max-md:leading-[1.3]">
+          <h2 className="text-76 leading-[1.2] max-sm:leading-[1.4] max-md:leading-[1.3] leading-[1.2]">
             Unlimited Use Cases.<br/> One Operating Foundation.
           </h2>
         </HeadingAnim>
@@ -99,7 +99,7 @@ export default function UseCases() {
       </div>
 
       {/* Use Case Cards */}
-      <div className="w-screen h-screen sticky top-0 mt-[-50vh]  overflow-hidden ml-[-5vw] pl-[5vw] max-md:h-fit max-md:sm-[15vw] max-md:static max-md:mt-[10vw] max-md:overflow-x-scroll max-md:pr-[7vw] z-[15] ">
+      <div className="w-screen h-screen sticky top-0 mt-[-50vh]  overflow-hidden ml-[-5vw] pl-[5vw] max-md:h-fit max-md:sm-[15vw] max-md:static max-md:mt-[10vw] max-md:overflow-x-scroll mobile-scrollbar max-md:pr-[7vw] z-[15] ">
         <div className="w-fit h-full flex gap-[3vw] items-end use-case-container ">
           {USE_CASES.map((useCase) => (
             <div

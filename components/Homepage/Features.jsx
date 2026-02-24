@@ -30,17 +30,17 @@ const Features = () => {
         },
         "<",
       );
-    } 
+    }
   });
 
   return (
     <section className="w-full  relative space-y-[5vw] z-[4]" id="features">
-      <div className="w-fit h-[150vw] flex flex-col justify-between feature-card-container">
+      <div className="w-fit h-[150vw] flex flex-col justify-between feature-card-container max-sm:h-[600vw] max-md:h-[340vw]">
         {FEATURES.map((feature, id) => (
           <div
             key={feature.id}
             className={`
-      w-screen h-fit px-[5vw] py-[4vw] pb-[10vw] bg-[#ffffff] feature-card  max-sm:py-[10vw] sticky ${id == 0 && " feature-1 top-0"} ${id == 2 && "top-[19%]"} ${id == 1 ? "max-sm:top-[15%]! feature-2 top-[20%]" : ""}
+      w-screen h-fit px-[5vw] py-[4vw] pb-[10vw] bg-[#ffffff] feature-card  max-sm:py-[10vw] max-md:py-[7vw] sticky ${id == 0 && " feature-1 top-0"} ${id == 2 && "top-[19%]"} ${id == 1 ? "max-sm:top-[15%]! max-md:top-[14%] feature-2 top-[20%]" : ""}
       ${feature.hasTopBorder ? "border-t border-black/30" : ""}
       ${feature.hasBottomBorder ? "border-b border-black/30" : ""}
       ${feature.extraPaddingBottom ? "pb-[10vw]" : ""}
@@ -50,9 +50,9 @@ const Features = () => {
               <h3 className="text-56">{feature.title}</h3>
             </HeadingAnim>
 
-            <div className="w-full flex justify-between mt-[5.5vw] max-sm:flex-col-reverse max-sm:mt-[15vw] max-sm:gap-[20vw]">
+            <div className="w-full flex justify-between mt-[5.5vw] max-md:flex-col-reverse max-sm:mt-[15vw] max-md:mt-[10vw] max-md:gap-[7vw] max-sm:gap-[20vw]">
               {/* Left Content */}
-              <div className="w-[45%] h-full flex flex-col gap-[3vw] text-30 max-sm:w-full">
+              <div className="w-[45%] h-full flex flex-col gap-[3vw] text-30 max-md:w-full">
                 {/* <Copy> */}
                 <Copy>
                   <p>{feature.description}</p>
@@ -74,7 +74,7 @@ const Features = () => {
               </div>
 
               {/* Right Image */}
-              <div className="w-[37vw] rounded-[1vw] h-full max-sm:w-[85%] max-sm:rounded-[2.5vw] overflow-hidden fadeup">
+              <div className="w-[37vw] rounded-[1vw] h-full max-sm:w-[85%] max-md:w-[70%] max-sm:rounded-[2.5vw] overflow-hidden fadeup">
                 <Image
                   src={feature.image}
                   alt={feature.title}
@@ -114,10 +114,10 @@ const FEATURES = [
     title: "No Vendor Lock In",
     description: "Bring your models, LLMs, tools, and data.",
     bullets: [
-      "Retain full ownership of source code, artifacts, and IP.",
-      "No forced ecosystems.",
-      "No outbound learning.",
-      "No exit penalties.",
+      "Retain full ownership of source code, artifacts, and IP",
+      "No forced ecosystems",
+      "No outbound learning",
+      "No exit penalties",
     ],
     para: "Your AI stack evolves on your terms.",
     image: "/assets/homepage/featuresDashboard2.png",

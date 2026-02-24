@@ -23,7 +23,7 @@ function ValueCard({ deployment }) {
                 <div className=" w-[4vw] h-[4vw] text-primary-blue">
                     {deployment.icon}
                 </div>
-                <p className="text-foreground text-24 leading-[1.2]">
+                <p className="text-foreground text-24 h-8 leading-[1.2]">
                     {deployment.title}
                 </p>
             </div>
@@ -53,7 +53,7 @@ function ValueCardMobile({ deployment }) {
 
 const JoinUs = () => {
     return (
-        <section className="relative w-full h-fit py-[7%] px-[5vw] max-sm:px-0 max-sm:py-[15%] max-sm:h-fit">
+        <section className="relative w-full h-fit py-[7%] px-[5vw] pb-[3%] max-sm:px-0 max-sm:py-[15%] max-sm:pb-[15%] max-sm:h-fit">
             {/* Heading Section */}
             <div className="space-y-[5.5vw]  h-fit max-sm:static overflow-hidden max-sm:space-y-[12vw] z-10">
                 <div className="text-center max-sm:px-[7vw] space-y-[2vw] max-sm:space-y-[7vw]">
@@ -89,7 +89,7 @@ const JoinUs = () => {
                 </div>
 
                 {/* Value Cards — Mobile Slider */}
-                <div className="hidden max-sm:block w-full overflow-x-auto overflow-y-visible pb-6  px-[7vw]">
+                <div className="hidden max-sm:block w-full overflow-x-auto overflow-y-visible mobile-scrollbar pb-6  px-[7vw]">
                     <div className="flex gap-[5vw] flex-nowrap w-max items-center">
                         {values.map((deployment, index) => (
                             <ValueCardMobile key={index} deployment={deployment} />
@@ -104,7 +104,7 @@ const JoinUs = () => {
                         </p>
                     </Copy>
                 </div>
-                <div className='mx-auto flex items-center justify-center'>
+                <div className='mx-auto flex items-center justify-center fadeup'>
                     <PrimaryButton text={"View Open Roles"} href="#" />
                 </div>
             </div>
@@ -121,7 +121,7 @@ const values = [
     },
     {
         icon: <ReducedCost />,
-        title: "​Governed runtimes.",
+        title: "​Governed runtimes",
     },
     {
         icon: <EnterpriseGrade />,

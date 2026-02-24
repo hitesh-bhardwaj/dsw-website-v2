@@ -80,7 +80,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
         <Button
           type="button"
           variant="outline"
-          className="flex justify-center gap-[1.5vw] h-[4.5vw] border shadow-none px-[2vw] pb-2 focus:z-900 max-md:h-[9vw] max-sm:h-[14vw] max-sm:w-[35%] max-sm:gap-[4vw] w-[20%] mr-[0.8vw] max-sm:mr-[2.5vw] bg-white/50 flagblock border-black/10 rounded-full cursor-pointer hover:bg-white/50"
+          className="flex justify-center gap-[1.5vw] h-[4.5vw] border border-white/50 shadow-none px-[2vw] pb-2 focus:z-900 max-md:h-[9vw] max-sm:h-[14vw] max-sm:w-[35%] max-sm:gap-[4vw] w-[20%] mr-[0.8vw] max-sm:mr-[2.5vw] bg-white/50 flagblock  rounded-full cursor-pointer hover:bg-white/50"
           disabled={disabled}
         >
           <FlagComponent country={selectedCountry} countryName={selectedCountry} />
@@ -106,6 +106,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
               }, 0);
             }}
             placeholder="Search country..."
+            
           />
           <CommandList>
             <ScrollArea data-lenis-prevent ref={scrollAreaRef} className="h-72 bg-white pl-[1vw] backdrop-blur-md">

@@ -199,7 +199,7 @@ h6 {
 .workshop-scrollbar {
   height: 4px;
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0);
 }
 
 .workshop-scrollbar .swiper-scrollbar-drag {
@@ -301,28 +301,22 @@ h6 {
 
 /* Custom Scrollbar Styles */
 
-.max-sm\:overflow-x-scroll::-webkit-scrollbar {
-  height: 15px;
+.mobile-scrollbar::-webkit-scrollbar {
+  height: 4px;
 }
 
-.max-sm\:overflow-x-scroll::-webkit-scrollbar-track {
+.mobile-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--primary-blue);
+  border-radius: 10px;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-track {
   background: #f1f1f1;
-  border-radius: 10px;
 }
 
-.max-sm\:overflow-x-scroll::-webkit-scrollbar-thumb {
-  background: var(--primary);
-  border-radius: 10px;
-}
-
-.max-sm\:overflow-x-scroll::-webkit-scrollbar-thumb:hover {
-  background: var(--primary-dark);
-}
-
-/* Firefox */
-.max-sm\:overflow-x-scroll {
+.mobile-scrollbar {
   scrollbar-width: thin;
-  scrollbar-color: var(--primary) #f1f1f1;
+  scrollbar-color: var(--primary-blue) #f1f1f1;
 }
 
 @media (max-width: 1025px) {
@@ -335,9 +329,9 @@ h6 {
     --text-40: 3.6vw;
     --text-32: 3vw;
     --text-30: 2.8vw;
-    --text-24: 2.3vw;
-    --text-22: 2.1vw;
-    --text-20: 1.8vw;
+    --text-24: 2.5vw;
+    --text-22: 2.3vw;
+    --text-20: 2.2vw;
     --text-18: 2vw;
   }
 }

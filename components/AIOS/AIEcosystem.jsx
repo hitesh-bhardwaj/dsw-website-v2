@@ -117,17 +117,17 @@ const AIEcosystem = ({ecosystemItems}) => {
   return (
     <>
       {/* Header Section - scrolls normally */}
-      <section className="relative w-full py-[7%] bg-white max-sm:py-[15%] ">
-        <div className="text-center space-y-[1.5vw] px-[5vw] max-sm:space-y-[5vw]">
+      <section className="relative w-full py-[7%] bg-white max-sm:py-[15%] max-md:pt-[10%] max-md:pb-0 ">
+        <div className="text-center space-y-[1.5vw] px-[5vw] max-sm:space-y-[5vw] max-md:space-y-[3vw]">
           <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B]">
               Built as an AI ecosystem, not a Platform
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 max-w-[80vw] mx-auto">
+            <p className="text-30 max-w-[70vw] mx-auto">
               At the core of the DSW Enterprise AI Operating System is UnifyAI,
-              operating as a kernel that governs all AI and agentic execution
+              operating as a kernel that governs all AI and agentic execution.
             </p>
           </Copy>
           <Copy>
@@ -143,7 +143,7 @@ const AIEcosystem = ({ecosystemItems}) => {
       <section
         ref={sliderRef}
         id="ai-ecosystem-slider"
-        className="relative w-full h-[300vh] bg-white max-sm:h-auto max-sm:py-[10vw] pb-[7%] max-sm:hidden"
+        className="relative w-full h-[300vh] bg-white max-sm:h-auto max-sm:py-[10vw] pb-[7%] max-md:hidden"
       >
         <div className="w-screen h-screen sticky top-0">
           <div className="absolute left-[-20vw] top-1/2 -translate-y-1/2 w-[55vw] h-[55vw] max-sm:hidden">
@@ -216,29 +216,4 @@ const AIEcosystem = ({ecosystemItems}) => {
 
 export default AIEcosystem;
 
-const ECOSYSTEM_ITEMS = [
-  {
-    title: "Kernel-level governance",
-    points: [
-      "Policies execute as code",
-      "Audit, traceability, and reversibility are native",
-      "Controls cannot be bypassed or bolted on later",
-    ],
-  },
-  {
-    title: "Governed AI and agentic execution",
-    points: [
-      "Models and agents operate inside defined constraints",
-      "Autonomy is controlled, not improvised",
-      "Lifecycles are managed like system processes",
-    ],
-  },
-  {
-    title: "AI as enterprise infrastructure",
-    points: [
-      "Long-running, production-grade execution",
-      "Independent of vendors, clouds, or tools",
-      "Fully owned and operated by your enterprise",
-    ],
-  },
-];
+

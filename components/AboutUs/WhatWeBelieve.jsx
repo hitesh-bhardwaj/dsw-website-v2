@@ -38,7 +38,7 @@ export default function WhatWeBelieve() {
       if (isDesktop) {
         // Set initial state explicitly before animating
         gsap.set(".struggle-card", { x: (i) => {
-          const offsets = [0, "-118%", "-238%", "-355%", "-475%"];
+          const offsets = [0, "-118.7%", "-237.4%", "-356%", "-474.7%"];
           return offsets[i] ?? 0;
         }});
         gsap.set(".struggle-arrow", { opacity: 0 });
@@ -62,9 +62,11 @@ export default function WhatWeBelieve() {
         tl.to(".struggle-arrow", {
           opacity: 1,
           stagger: 0.3,
-          ease: "power2.inOut",
-          duration: 0.4,
-        }, "0.6"); // overlap slightly with cards landing
+          ease: "power2.out",
+          duration: 0.8,
+          delay:0.8,
+        
+        },"<"); // overlap slightly with cards landing
 
       } else {
         gsap.set(".struggle-card", { opacity: 0 });
@@ -153,8 +155,8 @@ export default function WhatWeBelieve() {
         </div>
 
         {/* Challenge Boxes — Mobile Slider */}
-        <div className="hidden max-sm:block w-full overflow-x-auto overflow-y-visible pb-6">
-          <div className="flex gap-[2.5vw] flex-nowrap px-[7vw] w-max items-center">
+<div className="hidden max-sm:block w-full overflow-x-auto mobile-scrollbar overflow-y-visible pb-6">
+            <div className="flex gap-[2.5vw] flex-nowrap px-[7vw] w-max items-center">
             {data.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="struggle-card relative flex-shrink-0 w-[75vw] max-sm:h-[50vw] h-[60vw] px-[5vw] pt-[5vw] justify-between flex flex-col pb-[8vw] items-end border border-solid border-[#c2c2c2] bg-white">
@@ -195,7 +197,7 @@ const VisionMission = () => {
             <div className="w-16 h-16 shrink-0 text-primary-blue"><Vision /></div>
           </div>
           <p className="text-30 max-sm:leading-[1.4] text-foreground">
-            To make AI operable at scale -<br />for every enterprise.
+            To make AI operable at scale - <br />for every enterprise.
           </p>
         </div>
 

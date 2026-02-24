@@ -63,8 +63,8 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
   return (
     <section
       id="popup"
-      className={`w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/10 ${
-        modalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+      className={`w-full h-full fixed inset-0 z-[999] flex justify-center items-center backdrop-blur-lg duration-500 pt-[2%] bg-black/10  ${
+        modalOpen ? "opacity-100 " : "opacity-0 pointer-events-none"
       }`}
     >
       <div data-lenis-prevent className="relative  w-[78%] h-[80%] overflow-y-auto pr-2 rounded-[2vw] border border-[#d4d4d4] bg-white/30 max-sm:rounded-[6vw] max-md:w-[90%]  max-md:h-[80%] max-sm:h-[65%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] pt-[4vw] max-md:pt-[6vw] max-md:rounded-[4vw]">

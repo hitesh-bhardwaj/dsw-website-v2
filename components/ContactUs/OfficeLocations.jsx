@@ -6,7 +6,7 @@ import { WorldMap } from "../ui/world-map";
 
 const OfficeLocations = () => {
   return (
-    <section className="relative h-full px-[5vw] py-[7%] space-y-[8vw]  max-md:px-[4vw]! max-md:space-y-[7vw]">
+    <section className="relative h-full px-[5vw] py-[7%] pb-[0%] space-y-[8vw]  max-md:px-[4vw]! max-md:space-y-[7vw]">
         <HeadingAnim>
       <h2 className="text-76 text-[#0A1B4B]  max-md:text-left max-md:px-[3vw] text-center headingAnim">
         Our Office Locations
@@ -16,7 +16,7 @@ const OfficeLocations = () => {
 <WorldMap/>
       </div>
 
-      <div className="absolute max-md:static max-md:px-[3vw] left-[5%] bottom-[25%] w-[20%] space-y-[0.5vw] max-md:w-[80%]  max-md:space-y-[3vw] text-right max-sm:text-left">
+      <div className="absolute max-md:static max-md:px-[3vw] left-[5%] bottom-[13%] w-[20%] space-y-[0.5vw] max-md:w-[80%]  max-md:space-y-[3vw] text-right max-sm:text-left">
         <Copy>
           <p className="text-30 text-foreground"> USA </p>
         </Copy>
@@ -39,7 +39,7 @@ const OfficeLocations = () => {
         </Copy>
       </div>
 
-      <div className="absolute max-md:static max-md:px-[3vw] right-[10%] top-[72%] w-[28%] space-y-[0.5vw] max-md:w-[90%]  max-md:space-y-[3vw]">
+      <div className="absolute max-md:static max-md:px-[3vw] right-[10%] top-[88%] w-[28%] space-y-[0.5vw] max-md:w-[90%]  max-md:space-y-[3vw]">
         <Copy>
           <p className="text-30 text-foreground"> India</p>
         </Copy>

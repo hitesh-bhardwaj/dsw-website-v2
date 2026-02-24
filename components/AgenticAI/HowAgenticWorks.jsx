@@ -254,12 +254,12 @@ const HowAgenticWorks = () => {
   return (
     <section
       ref={sectionRef}
-      className="py-[7%] h-[400vh] max-sm:w-full max-sm:py-[15%]"
+      className="py-[7%] h-[400vh]  max-md:w-full max-md:py-[15%]"
     >
-      <div className="w-screen h-screen py-[10%] sticky top-0 max-sm:overflow-hidden max-sm:top-[-5%]">
+      <div className="w-screen h-screen py-[10%] sticky top-0 max-sm:overflow-hidden max-md:top-[-5%]">
         <div
           ref={outerRef}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-sm:w-[160vw] h-auto"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-md:w-[120vw] max-sm:w-[160vw] h-auto"
         >
           <Image
             src="/assets/homepage/dotted-circle.svg"
@@ -272,7 +272,7 @@ const HowAgenticWorks = () => {
 
         <div
           ref={innerRef}
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-sm:w-[120vw] h-auto"
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-md:w-[100vw] max-sm:w-[120vw] h-auto"
         >
           <Image
             src="/assets/homepage/inner-circle.svg"
@@ -286,21 +286,21 @@ const HowAgenticWorks = () => {
         {iconData.map((item, idx) => (
           <div
             key={item.key + "-text"}
-            className={`${item.textClass} max-sm:top-[80%] w-[25%] max-sm:w-[75%] max-sm:left-[12%] text-primary-blue`}
+            className={`${item.textClass} max-md:top-[80%] w-[25%] max-md:w-[70%] max-sm:w-[75%] max-md:left-[12%] text-primary-blue`}
             ref={(el) => (textBlockRefs.current[idx] = el)}
           >
-            <div className="flex max-sm:mb-[5vw]">
-              <h3 className="flex items-center gap-[0.5vw] max-sm:text-primary-blue">
-                <span className="w-2 h-2 mr-2 bg-current" />
+            <div className="flex max-md:mb-[5vw]">
+              <h3 className="flex items-center gap-[0.5vw] max-md:text-primary-blue">
+                <span className="w-1.5 h-1.5 mr-2 bg-current" />
                 <span className="text-44">{item.label}</span>
               </h3>
             </div>
-            <p className="text-24 mt-[0.6vw]">{item.text}</p>
+            <p className="text-24 max-sm:text-24 max-md:text-[2.4vw] leading-[1.2] mt-[0.6vw]">{item.text}</p>
           </div>
         ))}
 
         {/* CENTER DIAGRAM */}
-        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto w-[42vw] h-[42vw] max-sm:w-[70vw] max-sm:h-[70vh]">
+        <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 mx-auto w-[42vw] h-[42vw] max-md:w-[70vw] max-sm:h-[70vh] max-md:h-[70vw]">
           <div className="absolute inset-0 flex items-center justify-center text-center">
             <HeadingAnim>
               <h2 className="text-56 ">
@@ -318,16 +318,16 @@ const HowAgenticWorks = () => {
               const iconColor = isHovered || isActive ? "#2563eb" : "#000";
 
               const pos = [
-                "absolute top-24 left-15 max-sm:top-[25%] max-sm:left-[-10%]",
-                "absolute top-22 right-15 max-sm:top-[25%] max-sm:right-[-10%]",
-                "absolute bottom-22 right-15 max-sm:bottom-[25%] max-sm:right-[-10%]",
-                "absolute bottom-22 left-15 max-sm:bottom-[25%] max-sm:left-[-10%]",
+                "absolute top-24 left-15 max-md:top-[10%] max-md:left-[-2%] max-sm:top-[25%] max-sm:left-[-10%]",
+                "absolute top-22 right-15 max-md:top-[10%] max-md:right-[-2%] max-sm:top-[25%] max-sm:right-[-10%]",
+                "absolute bottom-22 right-15 max-md:bottom-[10%] max-md:right-[-2%] max-sm:bottom-[25%] max-sm:right-[-10%]",
+                "absolute bottom-22 left-15 max-md:bottom-[10%] max-md:left-[-2%] max-sm:bottom-[25%] max-sm:left-[-10%]",
               ];
 
               return (
                 <div
                   key={item.key + "-icon"}
-                  className={`${pos[idx]} z-2 rounded-full border bg-white border-primary-blue p-[0.3vw] flex items-center justify-center cursor-pointer max-sm:p-[1vw]`}
+                  className={`${pos[idx]} z-2 rounded-full border bg-white border-primary-blue p-[0.3vw] flex items-center justify-center cursor-pointer max-md:p-[1vw]`}
                   onMouseEnter={() => setHovered(item.key)}
                   onMouseLeave={() => setHovered(null)}
                 >
@@ -336,7 +336,7 @@ const HowAgenticWorks = () => {
                     className="border-primary-blue p-[1.5vw] rounded-full bg-card-bg border"
                   >
                     <IconComp
-                      className="w-[4vw] h-[4vw] transition-all duration-200 ease-in max-sm:w-[15vw] max-sm:h-[15vw] max-sm:p-[2.5vw]"
+                      className="w-[4vw] h-[4vw] transition-all duration-200 ease-in max-md:h-[12vw] max-md:w-[12vw] max-sm:w-[15vw] max-sm:h-[15vw] max-sm:p-[2.5vw] max-md:p-[2vw]"
                       color={iconColor}
                     />
                   </div>
@@ -344,11 +344,11 @@ const HowAgenticWorks = () => {
               );
             })}
 
-            <Circle className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-sm:w-[90vw] max-sm:left-[-15%] opacity-20" />
+            <Circle className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-md:w-[70vw] max-sm:w-[90vw] max-sm:left-[-15%] opacity-20" />
 
             <div
               ref={blueCircleWrapRef}
-              className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-sm:w-[90vw] max-sm:left-[-15%] text-primary-blue blue-fill-circle rotate-[220deg]"
+              className="absolute inset-0 w-[35vw] h-auto m-auto z-0 max-md:w-[80vw] max-sm:w-[90vw] max-md:left-[-7%] max-sm:left-[-15%] text-primary-blue blue-fill-circle rotate-[220deg]"
             >
               <svg
                 className="w-full h-full"

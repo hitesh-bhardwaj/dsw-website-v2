@@ -61,7 +61,7 @@ export default function UnifiedRuntime() {
     gsap.timeline({
       scrollTrigger: {
         trigger: "#unified-runtime",
-        start: "30% 55%",     //  tablet trigger 
+        start: "10% 55%",     //  tablet trigger 
         end: "bottom 45%",
         // markers: true,
         onEnter: () => {
@@ -142,11 +142,11 @@ export default function UnifiedRuntime() {
 });
   return (
     <section
-      className=" pt-[15%] max-sm:pt-[15%] max-md:pt-[8%] px-[5vw] space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%]"
+      className=" pt-[15%] max-sm:pt-[15%] max-md:pt-[8%] px-[5vw] space-y-[9vw] max-md:space-y-[12vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%]"
       id="unified-runtime"
     >
       <HeadingAnim>
-        <h2 className="text-76  w-[60%] max-md:w-[90%] text-center mx-auto leading-[1.2] max-md:max-md:leading-[1.3] max-sm:leading-[1.4] max-sm:w-full">
+        <h2 className="text-76  w-[60%] max-md:w-[90%] text-center mx-auto leading-[1.2] max-sm:leading-[1.4] max-sm:w-full">
           From Fragmented AI to One Governed Runtime
         </h2>
       </HeadingAnim>

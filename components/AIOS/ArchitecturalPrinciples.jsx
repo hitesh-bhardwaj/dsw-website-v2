@@ -48,24 +48,24 @@ const ArchitecturalPrinciples = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full py-[7%] bg-white max-sm:py-[15%]"
+      className="relative w-full py-[7%] bg-white max-md:py-[15%]"
     >
       {/* Header */}
-      <div className="text-center space-y-[1.5vw] px-[5vw] mb-[5vw] max-sm:space-y-[5vw] max-sm:mb-[10vw]">
+      <div className="text-center space-y-[1.5vw] px-[5vw] mb-[5vw] max-sm:space-y-[5vw] max-md:mb-[10vw] max-md:space-y-[4vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B]">
             A Kernel-Centric Enterprise AI Architecture 
           </h2>
         </HeadingAnim>
         <Copy>
-          <p className="text-30 w-[65%] mx-auto max-sm:w-full">
+          <p className="text-30 w-[65%] mx-auto max-md:w-full">
             The DSW Enterprise AI Operating System is designed to operationalize
             AI and agentic systems with long-running enterprise capabilities,
             not isolated applications.
           </p>
         </Copy>
         <Copy>
-          <p className="text-30 w-[65%] mx-auto max-sm:w-full">
+          <p className="text-30 w-[65%] mx-auto max-md:w-full">
             Optimized for regulated and hybrid environments, governance and
             control are embedded at the system level-not added as compliance
             afterthoughts.
@@ -108,7 +108,7 @@ const ArchitecturalPrinciples = () => {
               } max-sm:justify-start`}
             >
               <div
-                className={`w-[45%] p-[2vw] bg-white transition-all duration-700 max-sm:w-full max-sm:p-[5vw] max-sm:m-0 max-sm:ml-[5%] ${
+                className={`w-[47%] p-[2vw] bg-white transition-all duration-700 max-sm:w-full max-sm:p-[5vw] max-sm:m-0 max-sm:ml-[5%] ${
                   principle.side === "right"
                     ? "border-l-4 border-[#c1c1c1] ml-[5%] [.active>&]:border-[#0205FA]"
                     : "border-r-4 border-[#c1c1c1] mr-[5%] text-left [.active>&]:border-[#0205FA] max-sm:border-r-0 max-sm:border-l-4 max-sm:text-left max-sm:mr-0"

@@ -369,10 +369,10 @@ export default function ContactForm() {
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
-                        <SelectTrigger className="w-full  px-[2vw]  h-15! max-sm:h-14!  bg-background border border-black/10 rounded-full text-foreground  text-24 max-md:pl-[5vw] max-md:pr-[4vw]">
+                        <SelectTrigger className="w-full  px-[2vw]  h-15! max-sm:h-14!  bg-background border border-black/10 rounded-full text-foreground cursor-pointer!  text-24 max-md:pl-[5vw] max-md:pr-[4vw]">
                           <SelectValue
                             placeholder="Reason*"
-                            className="placeholder:!text-[3.5vw]"
+                            className="placeholder:!text-[3.5vw] "
                           />
                         </SelectTrigger>
                         <SelectContent className=" bg-white/20 backdrop-blur-lg rounded-[1.2vw] max-md:placeholder:!24 text-foreground border !border-[#B0B0B080]rounded-[1.5vw] p-[1vw] max-sm:rounded-[3vw] max-sm:p-[3vw] max-md:rounded-[2.5vw] max-md:p-[1.5vw]">

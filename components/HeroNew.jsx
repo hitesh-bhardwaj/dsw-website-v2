@@ -170,13 +170,13 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   return (
     <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10">
-      <div className="absolute inset-0 z-0 h-screen w-full">
+      <div className="absolute inset-0 z-0 h-screen w-full hidden max-md:block">
         <Image
           src="/assets/homepage/hero-bg-mob.png"
           height={1500}
           width={1500}
           alt="mobile-hero-bg"
-          className="h-full w-full object-cover"
+          className="h-full w-full max-sm:object-cover max-md:object-fill"
         />
       </div>
 

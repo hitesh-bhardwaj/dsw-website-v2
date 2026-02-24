@@ -461,7 +461,7 @@ export default function CoreEnterpriseSystemSticky() {
         <div className="w-screen h-screen absolute overflow-hidden ">
           <div
             ref={outerRef}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] max-sm:w-[150vw]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw] max-sm:w-[150vw] max-md:w-[130vw]"
           >
             <Image
               src="/assets/homepage/dotted-circle.svg"
@@ -475,7 +475,7 @@ export default function CoreEnterpriseSystemSticky() {
           {/* Inner circle */}
           <div
             ref={innerRef}
-            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-sm:w-[100vw]"
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw] max-sm:w-[100vw] max-md:w-[90vw]"
           >
             <Image
               src="/assets/homepage/inner-circle.svg"
@@ -490,7 +490,7 @@ export default function CoreEnterpriseSystemSticky() {
         {/* Content */}
         <div
           ref={wholeContent}
-          className="relative z-15 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-md:mt-[45vw] max-sm:space-y-[7vw] max-sm:px-[7vw] max-md:px-[6vw]"
+          className="relative z-15 text-center space-y-[4vw] mt-[10vw] max-sm:mt-[30vw] max-md:mt-[45vw] max-sm:space-y-[7vw] max-sm:px-[7vw] max-md:px-[6vw] max-md:space-y-[7vw]"
         >
           <h2
             ref={coreEnterTitle}
@@ -504,7 +504,7 @@ export default function CoreEnterpriseSystemSticky() {
             {SLIDES.map((slide, i) => (
               <div
                 key={i}
-                className={`w-full h-fit space-y-[4vw] max-sm:space-y-[7vw] ${
+                className={`w-full h-fit space-y-[4vw] max-sm:space-y-[7vw] max-md:space-y-[6vw] ${
                   i === 0
                     ? "relative"
                     : "absolute top-0 left-1/2 -translate-x-1/2"
@@ -529,7 +529,7 @@ export default function CoreEnterpriseSystemSticky() {
 
           {/* Pagination (fade only) */}
           <div className="pagination mx-auto w-fit">
-            <div className="text-[1.67vw] max-sm:text-[6.5vw] text-[#1727FF] relative flex mx-auto w-fit items-baseline">
+            <div className="text-[1.67vw] max-sm:text-[6.5vw] text-[#1727FF] relative flex mx-auto w-fit items-baseline max-md:text-[4vw]">
               <span ref={currRef} className="inline-block">
                 1
               </span>

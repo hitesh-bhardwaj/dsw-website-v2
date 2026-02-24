@@ -9,7 +9,7 @@ gsap.registerPlugin(MotionPathPlugin);
 
 export default function CTAPricing() {
   return (
-    <section className="relative w-full h-fit bg-white pt-[7%] px-[5vw] max-md:px-[6vw] overflow-hidden mb-[-5vw] max-md:mb-0 max-sm:px-[7vw] max-sm:h-fit max-sm:py-[15%]">
+    <section className="relative w-full h-fit bg-white pt-[7%] px-[5vw] max-md:px-[6vw] overflow-hidden mb-[-5vw] max-md:mb-0 max-sm:px-[7vw] max-sm:h-fit max-sm:py-[15%] max-md:py-[15%]">
       {/* Content */}
       <div className="relative z-20 text-center">
         {/* Heading */}
@@ -24,7 +24,7 @@ export default function CTAPricing() {
 
       {/* Decorative Lines Background - Simplified */}
 
-      <div className="relative inset-0 w-screen h-screen ml-[-8vw] mt-[-17vw] max-md:mt-[3vw] max-sm:h-[70vh] max-md:h-[60vh] max-sm:pt-[33vh] fadeup">
+      <div className="relative inset-0 w-screen h-screen ml-[-8vw] mt-[-17vw] max-md:mt-[3vw] max-sm:h-[70vh] max-md:h-[30vh] max-sm:pt-[33vh] fadeup">
         <Background />
         <div className="absolute left-[46%] z-[2] top-[50%] -translate-y-1/2 max-sm:top-[100%] max-md:left-[40%] max-sm:left-[18%]">
           <PrimaryButton href="#" text={"Discuss Pricing"} />
