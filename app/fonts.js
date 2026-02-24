@@ -24,6 +24,7 @@ export const neueMontreal = localFont({
         },
     ],
     preload: true,
+    display: 'swap',
     variable: '--font-neue-montreal',
 });
 
@@ -51,5 +52,6 @@ export const aspekta = localFont({
         },
     ],
     preload: true,
+    display: 'swap',
     variable: '--font-aspekta',
 });

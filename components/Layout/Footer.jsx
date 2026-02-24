@@ -8,6 +8,7 @@ import { SplitText } from "gsap/SplitText";
 import { useRef } from "react";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import FooterWave from "./FooterWave";
+import { usePathname } from "next/navigation";
 
 /** ✅ Isolated animated link (each item has its own ref + SplitText) */
 function AnimatedFooterLink({ href = "#", children, ...props }) {
@@ -145,6 +146,8 @@ export default function FooterNew() {
       id: "join-community",
     },
   ];
+     const pathname = usePathname();
+
 
   return (
     <footer
@@ -153,7 +156,7 @@ export default function FooterNew() {
     >
       {/* Background Gradient */}
       <div className="w-screen h-full">
-        <FooterWave />
+        <FooterWave key={pathname} />
       </div>
 
       <div className="max-sm:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
