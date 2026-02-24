@@ -58,7 +58,7 @@ const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 768);
+      setIsDesktop(window.innerWidth >= 1025);
     };
 
     handleResize();
@@ -101,18 +101,18 @@ const CapabilityCard = ({ card, isActive, onClick, index, activeIndex }) => {
         zIndex: getZIndex(),
       }}
       className={`
-  max-sm:w-full w-[58vw] px-[3vw] border-primary-blue pr-[7vw]  
-  max-sm:h-[40vw] h-[10vw] border 
+  max-sm:w-full w-[58vw] px-[3vw] max-md:w-[80vw] border-primary-blue pr-[7vw]  
+  max-sm:h-[40vw] max-md:h-[20vw] h-[10vw] border 
   relative md:absolute md:top-0 md:left-1/2 md:-translate-x-1/2
-  max-sm:rounded-[5vw] rounded-[1vw] max-sm:px-[5vw] max-sm:mb-[5vw]
+  max-sm:rounded-[5vw] rounded-[1vw] max-sm:px-[5vw] max-md:mb-[3.5vw] max-md:rounded-[3vw] max-sm:mb-[5vw]
   flex justify-center max-md:justify-between 
-  max-md:px-[2vw] max-md:gap-[5vw] gap-[2.5vw] max-sm:gap-[5vw] items-center 
+  max-md:px-[5vw] max-md:gap-[5vw] gap-[2.5vw]   max-sm:gap-[5vw] items-center 
   backdrop-blur-sm cap-cards cursor-pointer transition-all duration-500 ease-in-out
   ${isActive ? 'bg-white' : 'bg-card-bg hover:brightness-110'}
 `}
 
     >
-      <div className="h-[5.5vw] max-sm:w-[20%] w-[5.5vw] max-sm:h-auto text-primary-blue">
+      <div className="h-[5.5vw] max-sm:w-[20%] max-md:w-[18%] w-[5.5vw] max-md:h-auto text-primary-blue">
         {card.icon}
       </div>
 
@@ -135,7 +135,7 @@ const CoreCapabilities = () => {
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-sm:py-[20%] space-y-[4vw]"
+      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[15%] max-sm:py-[20%] max-md:space-y-[10vw] space-y-[4vw] max-sm:space-y-[4vw]"
     >
       <HeadingAnim>
 

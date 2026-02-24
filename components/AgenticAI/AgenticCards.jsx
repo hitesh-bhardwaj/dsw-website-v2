@@ -33,7 +33,7 @@ const CardItem = React.forwardRef(({ title, description }, ref) => {
   return (
     <div
       ref={ref}
-      className="relative shadow-sm drop-shadow-lg bg-white rounded-[1.5vw] border border-primary-blue p-[2vw] w-[28vw] h-[37vw]  flex flex-col justify-between max-sm:w-[83vw] max-sm:h-[110vw] max-sm:rounded-[4vw] max-sm:p-[8vw]"
+      className="relative shadow-sm drop-shadow-lg bg-white rounded-[1.5vw] border border-primary-blue p-[2vw] w-[28vw] h-[37vw] max-md:h-[55vw] max-md:w-[50vw] flex flex-col justify-between max-sm:w-[83vw] max-sm:h-[110vw] max-sm:rounded-[4vw] max-sm:p-[8vw] max-md:p-[5vw]"
     >
       <h2 className="text-56 text-[#0A1B4B]">{title}</h2>
 
@@ -86,7 +86,7 @@ const AgenticCards = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-[200vh]  max-sm:h-auto max-sm:w-screen max-sm:overflow-x-hidden relative"
+      className="w-full h-[200vh] max-md:py-[5%] max-sm:py-0  max-md:h-auto max-sm:w-screen max-md:overflow-x-hidden relative"
     >
       <div className="text-center mx-auto w-[80%] max-sm:w-[90%] ">
         <SectionBreak content={"Turn proofs of concept into auditable, production- grade automation with explainable agents, deterministic governance, and enterprise-grade security."} big={true}/>
@@ -98,7 +98,7 @@ const AgenticCards = () => {
       </div>
 
       {/* Desktop View */}
-      <div className="w-full max-sm:px-[7vw] max-sm:py-[15%] overflow-hidden h-screen sticky  top-0 flex justify-center items-center gap-[2vw] max-sm:hidden">
+      <div className="w-full max-sm:px-[7vw] max-sm:py-[15%] max-md:py-0 overflow-hidden h-screen sticky  top-0 flex justify-center items-center gap-[2vw] max-md:hidden">
         {cardsData.map((card, index) => (
           <CardItem
             key={index}
@@ -110,7 +110,7 @@ const AgenticCards = () => {
       </div>
 
       {/* Mobile View with SmoothySlider */}
-      <div className="hidden max-sm:block mt-[10vw] w-fit">
+      <div className="hidden max-md:block mt-[10vw] w-fit">
         <SmoothySlider
           ref={sliderRef}
           className="py-4 cursor-grab active:cursor-grabbing w-screen pr-0 pl-0"
