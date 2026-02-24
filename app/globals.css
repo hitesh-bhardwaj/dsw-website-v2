@@ -302,7 +302,7 @@ h6 {
 /* Custom Scrollbar Styles */
 
 .max-sm\:overflow-x-scroll::-webkit-scrollbar {
-  height: 15px;
+  height: 5px;
 }
 
 .max-sm\:overflow-x-scroll::-webkit-scrollbar-track {

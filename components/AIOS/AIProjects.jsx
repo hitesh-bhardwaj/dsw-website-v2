@@ -5,11 +5,11 @@ import Copy from "../Animations/Copy";
 
 const AIProjects = () => {
   return (
-    <section className="w-full py-[7%] px-[5vw] space-y-[7vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[10vw]">
+    <section className="w-full py-[7%] px-[5vw] space-y-[7vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[10vw] max-md:py-[10%]">
       {/* Header */}
-      <div className="text-center space-y-[1vw] max-sm:space-y-[15vw]">
+      <div className="text-center space-y-[1vw] max-sm:space-y-[15vw] max-md:space-y-[5vw]">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B]">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2]">
             From AI Projects to Enterprise Infrastructure
           </h2>
         </HeadingAnim>
@@ -19,14 +19,14 @@ const AIProjects = () => {
       </div>
 
       {/* Cards Grid */}
-      <div className="w-full grid grid-cols-4 gap-[1.2vw] max-sm:grid-cols-1 max-sm:gap-[5vw]">
+      <div className="w-full grid grid-cols-4 gap-[1.2vw] max-sm:grid-cols-1 max-sm:gap-[5vw] max-md:grid-cols-2 max-md:gap-[3vw]">
         {CARDS.map((card, index) => (
           <div
             key={index}
-            className="bg-card-bg border-b-4 border-primary-blue p-[1.2vw] flex flex-col gap-[4vw] fadeup max-sm:p-[5vw] max-sm:gap-[8vw] max-sm:h-[70vw] max-sm:justify-between max-sm:pb-[7vw]"
+            className="bg-card-bg border-b-4 border-primary-blue p-[1.2vw] flex flex-col gap-[4vw] fadeup max-sm:p-[5vw] max-sm:gap-[8vw] max-sm:h-[70vw] max-sm:justify-between max-sm:pb-[7vw] max-md:p-[4vw] max-md:gap-[10vw]"
           >
             {/* Icon */}
-            <div className="w-[6vw] h-[6vw] max-sm:w-[17vw] max-sm:h-[17vw]">
+            <div className="w-[6vw] h-[6vw] max-sm:w-[17vw] max-sm:h-[17vw] max-md:w-[10vw] max-md:h-[10vw]">
               <Image
                 src={card.icon}
                 alt={card.alt}
@@ -37,7 +37,7 @@ const AIProjects = () => {
             </div>
 
             {/* Text */}
-            <p className="text-30 leading-[1.35]">{card.text}</p>
+            <p className="text-30">{card.text}</p>
           </div>
         ))}
       </div>
@@ -45,7 +45,7 @@ const AIProjects = () => {
       {/* Bottom Text */}
       <div className="text-center max-sm:pt-[5vw]">
         <HeadingAnim>
-          <p className="text-44 font-heading max-w-[50vw] mx-auto leading-[1.4] max-sm:max-w-full max-sm:text-left">
+          <p className="text-44 font-heading w-[50%] mx-auto leading-[1.4] max-sm:max-w-full max-sm:text-left max-md:w-[80%]">
             This is how AI becomes durable, governable, and enterprise ready.
           </p>
         </HeadingAnim>

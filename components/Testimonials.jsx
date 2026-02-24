@@ -129,7 +129,7 @@ export default function Testimonials() {
           return (
             <div
               key={i}
-              className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.5vw] max-md:p-[2.5vw] max-md:px-[2vw] max-sm:px-[1.5vw] px-[1.5vw] h-[17.71vw] flex flex-col justify-between max-md:h-[32vw] max-sm:p-[5vw] max-sm:h-[70vw] max-sm:rounded-[4vw]"
+              className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.5vw] max-md:p-[2.5vw] max-md:px-[2vw] px-[1.5vw] h-[17.71vw] flex flex-col justify-between max-md:h-[32vw] max-sm:p-[5vw] max-sm:h-[70vw] max-sm:rounded-[4vw]"
             >
               <p className="text-24 font-sans leading-[1.2] px-[0.5vw] font-light">
                 {item.quote}

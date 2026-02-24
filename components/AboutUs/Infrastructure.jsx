@@ -5,6 +5,7 @@ import { Arrow } from "../Svg/AboutUs/Arrow";
 import HeadingAnim from "../Animations/HeadingAnim";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Copy from "../Animations/Copy";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,7 +33,7 @@ export default function Infrastructure() {
   useEffect(() => {
     const ctx = gsap.context(() => {
       // ── initial states ──────────────────────────────────────
-      gsap.set(circleWrapRef.current,       { opacity: 0, scale: 0.5 });
+      gsap.set(circleWrapRef.current,       { opacity: 0, scale: 0.9 });
       gsap.set(circleCenterTextRef.current, { opacity: 0 });
 
       gsap.set(topLineRef.current,    { scaleY: 0, transformOrigin: "bottom center" });
@@ -50,11 +51,12 @@ export default function Infrastructure() {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,   // scroll space
-          start:   "top top",
+          start:   "top 70%",
           end:     "+=300%",
-          scrub:   1.2,
-          pin:     diagramRef.current,   // only the diagram pins
-          anticipatePin: 1,
+          scrub:   true,
+          // markers: true,
+          // pin:     diagramRef.current,   // only the diagram pins
+          // anticipatePin: 1,
         },
       });
 
@@ -85,7 +87,7 @@ export default function Infrastructure() {
   return (
     <div>
       {/* ── Desktop ───────────────────────────────────────────── */}
-      <div className="max-sm:hidden">
+      <div className="max-sm:hidden h-fit pb-[7%]">
 
         {/* HEADING — normal flow, scrolls in before the pin */}
         <HeadingAnim>
@@ -98,30 +100,25 @@ export default function Infrastructure() {
         </HeadingAnim>
 
         {/* SCROLL SPACE — sectionRef — this is what triggers + holds the pin */}
-        <div ref={sectionRef}>
+        <div className="w-full h-[200vw]">
+        <div ref={sectionRef} className="sticky top-0">
 
           {/* DIAGRAM — diagramRef — this element gets pinned to the viewport */}
           <div
             ref={diagramRef}
-            className="relative w-full overflow-hidden"
-            style={{ height: "100vh" }}
+            className="relative w-full h-screen "
           >
             {/* CENTER CIRCLE */}
             <div
               ref={circleWrapRef}
-              className="absolute z-10 flex items-center justify-center"
-              style={{
-                width:  `${R * 2}vw`,
-                height: `${R * 2}vw`,
-                left:   `calc(50% - ${R}vw)`,
-                top:    `calc(50% - ${R}vw)`,
-              }}
+              className=" z-10 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[22vw]"
+              
             >
-              <CircleBg />
+              <CircleBg className={"outer-circle"}/>
               <div
                 ref={circleCenterTextRef}
                 className="absolute inset-0 flex items-center justify-center
-                           text-center text-30 w-[75%] mx-auto z-50 text-black leading-snug"
+                           text-center text-30 w-[85%] mx-auto z-50 text-black leading-snug"
               >
                 Enterprises were trying<br />to run production AI using
               </div>
@@ -135,7 +132,7 @@ export default function Infrastructure() {
                 width:  "1.5px",
                 height: `${LINE}vw`,
                 left:   "calc(50% - 0.75px)",
-                top:    `calc(50% - ${R}vw - ${LINE}vw)`,
+                top:    `calc(57.2% - ${R}vw - ${LINE}vw)`,
               }}
             />
             {/* TOP BOX */}
@@ -146,7 +143,7 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 left:   `calc(50% - ${BOX_W / 2}vw)`,
-                top:    `calc(50% - ${R}vw - ${LINE}vw - ${BOX_H}vw)`,
+                top:    `calc(57.2% - ${R}vw - ${LINE}vw - ${BOX_H}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
@@ -164,7 +161,7 @@ export default function Infrastructure() {
                 width:  "1.5px",
                 height: `${LINE}vw`,
                 left:   "calc(50% - 0.75px)",
-                top:    `calc(50% + ${R}vw)`,
+                top:    `calc(43% + ${R}vw)`,
               }}
             />
             {/* BOTTOM BOX */}
@@ -175,7 +172,7 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 left:   `calc(50% - ${BOX_W / 2}vw)`,
-                top:    `calc(50% + ${R}vw + ${LINE}vw)`,
+                top:    `calc(43% + ${R}vw + ${LINE}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
@@ -193,7 +190,7 @@ export default function Infrastructure() {
                 height: "1.5px",
                 width:  `${LINE}vw`,
                 top:    "calc(50% - 0.75px)",
-                left:   `calc(50% + ${R}vw)`,
+                left:   `calc(46% + ${R}vw)`,
               }}
             />
             {/* RIGHT BOX */}
@@ -204,7 +201,7 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 top:    `calc(50% - ${BOX_H / 2}vw)`,
-                left:   `calc(50% + ${R}vw + ${LINE}vw)`,
+                left:   `calc(46% + ${R}vw + ${LINE}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
@@ -222,7 +219,7 @@ export default function Infrastructure() {
                 height: "1.5px",
                 width:  `${LINE}vw`,
                 top:    "calc(50% - 0.75px)",
-                left:   `calc(50% - ${R}vw - ${LINE}vw)`,
+                left:   `calc(54% - ${R}vw - ${LINE}vw)`,
               }}
             />
             {/* LEFT BOX */}
@@ -233,7 +230,7 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 top:    `calc(50% - ${BOX_H / 2}vw)`,
-                left:   `calc(50% - ${R}vw - ${LINE}vw - ${BOX_W}vw)`,
+                left:   `calc(54% - ${R}vw - ${LINE}vw - ${BOX_W}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
@@ -246,15 +243,19 @@ export default function Infrastructure() {
           {/* end diagramRef */}
 
         </div>
+
+        </div>
         {/* end sectionRef */}
 
         {/* PARAGRAPH — normal flow, scrolls in after pin releases */}
-        <div className="py-[4vw] px-[10%]">
+        <div className="pt-[7vw] px-[10%] ">
+          <Copy>
           <p className="text-30  mx-auto text-center">
             Over time, it became clear to us that AI had crossed the threshold from "software project" to enterprise system.
             That's when the journey shifted. We stopped thinking like a platform team.
             We started thinking like operating system builders. And that is how DSW evolved into the <span className="font-medium"> Enterprise AI Operating System. </span> 
           </p>
+          </Copy>
         </div>
 
       </div>

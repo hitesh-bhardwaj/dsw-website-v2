@@ -38,7 +38,7 @@ export default function WhatWeBelieve() {
       if (isDesktop) {
         // Set initial state explicitly before animating
         gsap.set(".struggle-card", { x: (i) => {
-          const offsets = [0, "-118%", "-238%", "-355%", "-475%"];
+          const offsets = [0, "-118.7%", "-237.4%", "-356%", "-474.7%"];
           return offsets[i] ?? 0;
         }});
         gsap.set(".struggle-arrow", { opacity: 0 });
@@ -62,9 +62,11 @@ export default function WhatWeBelieve() {
         tl.to(".struggle-arrow", {
           opacity: 1,
           stagger: 0.3,
-          ease: "power2.inOut",
-          duration: 0.4,
-        }, "0.6"); // overlap slightly with cards landing
+          ease: "power2.out",
+          duration: 0.8,
+          delay:0.8,
+        
+        },"<"); // overlap slightly with cards landing
 
       } else {
         gsap.set(".struggle-card", { opacity: 0 });

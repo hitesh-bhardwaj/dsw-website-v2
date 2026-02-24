@@ -206,9 +206,9 @@ const AIEcosystemMob = () => {
   return (
     <section
       ref={sectionRef}
-      className="w-screen h-[70vh] hidden max-sm:block relative overflow-hidden"
+      className="w-screen h-[70vh] hidden max-md:block relative overflow-hidden"
     >
-      <div className="w-[150%] absolute h-full bottom-[-42%] left-[-25%]">
+      <div className="w-[150%] absolute h-full max-sm:bottom-[-42%] left-[-25%] max-md:bottom-[-47%]">
         <div ref={blueRingRef} className="absolute inset-0">
           <Image
             src="/assets/homepage/dotted-circle.svg"
@@ -227,18 +227,18 @@ const AIEcosystemMob = () => {
           />
         </div>
 
-        <div className="w-fit h-fit flex flex-col gap-[5vw] absolute top-[23%] left-1/2 -translate-x-1/2 items-center">
+        <div className="w-fit h-fit flex flex-col gap-[5vw] absolute max-sm:top-[23%] max-md:top-[27%] left-1/2 -translate-x-1/2 items-center">
           <div className="text-40 text-primary-blue">
             {String(active + 1).padStart(2, "0")} /{" "}
             {String(SLIDES.length).padStart(2, "0")}
           </div>
 
-          <div className="w-full flex gap-[7vw]">
+          <div className="w-full flex max-sm:gap-[7vw] max-md:gap-[4vw]">
             <button
               type="button"
               onClick={onPrev}
               disabled={isAnimating}
-              className="size-[15vw] rounded-full border p-[4.5vw] disabled:opacity-40"
+              className="max-sm:size-[15vw] rounded-full border max-sm:p-[4.5vw] disabled:opacity-40 max-md:size-[10vw] max-md:p-[3vw]"
               aria-label="Previous"
             >
               <Image
@@ -254,7 +254,7 @@ const AIEcosystemMob = () => {
               type="button"
               onClick={onNext}
               disabled={isAnimating}
-              className="size-[15vw] rounded-full border p-[4.5vw] disabled:opacity-40"
+              className="max-sm:size-[15vw] rounded-full border max-sm:p-[4.5vw] disabled:opacity-40 max-md:size-[10vw] max-md:p-[3vw]"
               aria-label="Next"
             >
               <Image
@@ -270,13 +270,13 @@ const AIEcosystemMob = () => {
       </div>
 
       {/* Content */}
-      <div className="w-fit absolute top-[15%] flex left-[12%]">
+      <div className="w-fit absolute top-[15%] flex left-[7%]">
         <div ref={contentWrapRef} className="space-y-[4vw] w-screen">
           <h3 data-slide-title className="text-40 font-medium text-[#0A1B4B]">
             {current.title}
           </h3>
 
-          <ul data-slide-ul className="pl-[4vw] list-disc">
+          <ul data-slide-ul className="pl-[4vw] list-disc max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
             {current.bullets.map((b, i) => (
               <li key={`${active}-${i}`}>{b}</li>
             ))}

@@ -104,7 +104,7 @@ const JoinUs = () => {
                         </p>
                     </Copy>
                 </div>
-                <div className='mx-auto flex items-center justify-center'>
+                <div className='mx-auto flex items-center justify-center fadeup'>
                     <PrimaryButton text={"View Open Roles"} href="#" />
                 </div>
             </div>

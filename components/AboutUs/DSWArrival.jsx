@@ -44,7 +44,7 @@ const DSWArrival = () => {
         <div className="py-[7%] max-sm:px-[7vw] max-sm:py-[15%] bg-white space-y-[2vw] max-sm:space-y-[12vw]">
             <HeadingAnim>
                 <h2 className="text-56 mx-auto max-sm:text-[8vw] w-fit max-sm:text-center max-sm:w-full leading-[1.2] text-[#0A1B4B]">
-                    How DSW Arrived here
+                    How DSW Arrived Here
                 </h2>
             </HeadingAnim>
 
