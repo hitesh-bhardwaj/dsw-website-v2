@@ -22,7 +22,7 @@ export default function RealWorldOutcomes() {
    })
 
     return (
-        <section className="relative w-full h-[240vh] py-[7%] space-y-[8vw] max-sm:px-[7vw]" id="realworld-outcomes">
+        <section className="relative w-full h-[240vh] py-[7%] max-md:px-[6vw] space-y-[8vw] max-sm:px-[7vw]" id="realworld-outcomes">
             {/* Heading */}
             <div className="text-center space-y-[1vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
@@ -38,14 +38,14 @@ export default function RealWorldOutcomes() {
             </div>
 
             {/* Outcomes Grid */}
-            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] max-sm:flex max-sm:flex-col max-sm:px-0 max-sm:gap-[7vw] sticky top-[14%] ">
+            <div className="relative w-full  h-fit grid grid-cols-4 gap-x-0 gap-y-1 px-[3vw] max-md:px-0 max-md:flex max-md:flex-wrap max-sm:flex-col max-sm:px-0 max-sm:gap-[7vw] sticky top-[14%] max-md:justify-between max-md:gap-y-[6vw]">
                 {outcomes.map((outcome, index) => (
                     <div
                         key={index}
-                        className={`relative w-[23.3.5vw] h-[15.5vw] bg-white border-[0.078vw] border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.5vw] py-[1.5vw] max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] outcomes-block ${outcome.position}`}
+                        className={`relative max-md:w-[47%] max-sm:w-full max-md:h-[28vw] w-[23.3.5vw] h-[15.5vw] bg-white border-[0.078vw] border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.5vw] py-[1.5vw] max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] outcomes-block ${outcome.position}`}
                     >
                         {/* Number Label */}
-                        <p className="text-[1.04vw] font-sans leading-[1.2] text-[#c7c7c7] max-sm:text-[5vw]">
+                        <p className="text-[1.04vw] max-md:text-[2vw] font-sans leading-[1.2] text-[#c7c7c7] max-sm:text-[5vw]">
                             {outcome.number} /
                         </p>
 

@@ -9,12 +9,12 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
 
   return (
     <section
-      className="w-full px-[5vw] py-[5%] pb-[12%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[5%] max-md:px-[6vw] pb-[12%] max-sm:px-[7vw] max-sm:py-[15%]"
       id={sectionId}
     >
-      <div className="w-full h-full gap-y-[2vw] max-sm:space-y-[6vw] flex flex-col items-center text-center">
+      <div className="w-full h-full gap-y-[2vw] max-sm:gap-y-[4vw] flex flex-col items-center text-center">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-sm:w-full leading-[1.2] capitalize">
+          <h2 className="text-76 text-[#0A1B4B] mx-auto w-[65%] max-md:w-full leading-[1.2] capitalize">
             {heading}
           </h2>
         </HeadingAnim>
@@ -75,7 +75,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
         </div>
 
         <Copy>
-          <p className="text-30 w-[45%] max-sm:w-full max-sm:pt-[10vw]">{footerText}</p>
+          <p className="text-30 w-[45%] max-md:w-[90%] max-md:pt-[4vw] max-sm:w-full max-sm:pt-[10vw]">{footerText}</p>
         </Copy>
       </div>
     </section>

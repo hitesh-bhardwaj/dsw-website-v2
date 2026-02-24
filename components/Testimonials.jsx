@@ -75,18 +75,18 @@ const TESTIMONIALS = [
 
 export default function Testimonials() {
   return (
-    <section className="relative w-full pb-[7%] px-[3.91vw] space-y-[8vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[15vw]">
+    <section className="relative w-full pb-[7%] px-[3.91vw] space-y-[8vw] max-md:space-y-[10vw] max-md:px-[6vw] max-sm:px-[7vw] max-sm:py-[15%] max-sm:space-y-[15vw]">
       {/* Heading */}
-      <div className="text-center space-y-[2vw] max-sm:space-y-[7vw]">
+      <div className="text-center w-[45%] max-md:w-[80%] max-sm:w-full mx-auto space-y-[2vw] max-md:space-y-[5vw] max-sm:space-y-[7vw]">
         <HeadingAnim>
           <h2 className="text-76 font-heading text-[#0A1B4B] leading-[1.2]">
             Trusted by Leaders
-            <br />
+            
             in BFSI and Beyond
           </h2>
         </HeadingAnim>
         <Copy>
-          <p className="text-30 w-[45%] max-sm:w-full mx-auto">
+          <p className="text-30  mx-auto">
             Explore how we've helped businesses like yours achieve success with
             innovative technology solutions.
           </p>
@@ -94,14 +94,14 @@ export default function Testimonials() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-3 gap-[2.2vw] mx-auto fadeup max-sm:flex max-sm:flex-col max-sm:gap-[5vw]">
+      <div className="grid grid-cols-3 max-md:grid-cols-2 gap-[2.2vw] max-md:gap-[5vw] mx-auto fadeup max-sm:flex max-sm:flex-col max-sm:gap-[5vw]">
         {TESTIMONIALS.map((item, i) => {
           // STAT CARD
           if (item.type === "stat") {
             return (
               <div
                 key={i}
-                className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] h-[17.71vw] flex items-end max-sm:p-[5vw] max-sm:h-[60vw] max-sm:rounded-[4vw]"
+                className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] p-[1.48vw] max-md:px-[2.3vw] h-[17.71vw] max-md:h-[30vw] flex items-end max-md:items-center max-sm:p-[5vw] max-sm:h-[60vw] max-sm:rounded-[4vw]"
               >
                 <p className="text-30">{item.text}</p>
               </div>
@@ -113,7 +113,7 @@ export default function Testimonials() {
             return (
               <div
                 key={i}
-                className="bg-[#030a25] border-[0.078vw] border-[#0205fa] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out max-sm:h-[60vw] max-sm:rounded-[4vw]"
+                className="bg-[#030a25] border-[0.078vw] border-[#0205fa] max-md:h-[30vw] rounded-[1.3vw] overflow-hidden h-[17.71vw] relative group transition-all duration-500 ease-out max-sm:h-[60vw] max-sm:rounded-[4vw]"
               >
                 <Image
                   src={item.src}
@@ -129,7 +129,7 @@ export default function Testimonials() {
           return (
             <div
               key={i}
-              className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.5vw] px-[1.5vw] h-[17.71vw] flex flex-col justify-between max-sm:p-[5vw] max-sm:h-[70vw] max-sm:rounded-[4vw]"
+              className="bg-white border-[0.078vw] border-[#0205fa] rounded-[1.3vw] py-[1.5vw] max-md:p-[2.5vw] max-md:px-[2vw] max-sm:px-[1.5vw] px-[1.5vw] h-[17.71vw] flex flex-col justify-between max-md:h-[30vw] max-sm:p-[5vw] max-sm:h-[70vw] max-sm:rounded-[4vw]"
             >
               <p className="text-24 font-sans leading-[1.2] px-[0.5vw] font-light">
                 {item.quote}

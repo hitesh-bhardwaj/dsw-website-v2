@@ -12,7 +12,7 @@ export default function CTAFinal({ ctaContent }) {
     ctaContent.primaryButton?.present || ctaContent.secondaryButton?.present;
   return (
     <section className="relative w-full bg-linear-to-b from-[#fcfcfc] to-[#eff1fb] py-[7vw] px-[5vw] max-sm:py-[10%]" id="footer-cta">
-      <div className="relative  mx-auto bg-white rounded-[1.5vw] p-[5.25vw] overflow-hidden space-y-[1.5vw] fadeup max-sm:py-[35%] max-sm:space-y-[7vw] max-sm:rounded-[4vw]">
+      <div className="relative  mx-auto bg-white rounded-[1.5vw] p-[5.25vw] overflow-hidden space-y-[1.5vw] max-md:space-y-[5vw] fadeup max-sm:py-[35%] max-sm:space-y-[7vw] max-sm:rounded-[4vw] ">
         <HeadingAnim>
           <h4 className="text-76 w-[85%] mx-auto max-sm:w-full font-heading leading-[1.2] text-[#0A1B4B] text-center max-sm:text-[9vw] ">
             {ctaContent.heading}
@@ -27,14 +27,14 @@ export default function CTAFinal({ ctaContent }) {
           </Copy>
         )}
         <Copy>
-          <p className="text-30 text-center w-[70%] max-sm:w- text-foreground max-sm:w-full mx-auto max-sm:font-light ">
+          <p className="text-30 text-center w-[70%] max-md:w-[90%] text-foreground max-sm:w-full mx-auto max-sm:font-light ">
             {ctaContent.para}
           </p>
         </Copy>
 
         {/* CTA Buttons */}
         {showButtons && (
-          <div className="flex items-center justify-center gap-[1vw] mt-15 w-full fadeup max-sm:flex-col max-sm:gap-[5vw] ">
+          <div className="flex items-center justify-center gap-[1vw] max-md:gap-[3vw] mt-15 w-full fadeup max-sm:flex-col max-sm:gap-[5vw] ">
             {/* Primary Button */}
             {ctaContent.primaryButton?.present && (
               <PrimaryButton

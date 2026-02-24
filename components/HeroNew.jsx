@@ -182,8 +182,8 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
       <WaveGridCanvas key={pathname} variant={variant}/>
 
-      <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[40vw] max-sm:pt-[45vw] pointer-events-none">
-        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] w-full mx-auto">
+      <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
+        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
           {/*  delay Copy by loader delay too */}
           <Copy delay={baseDelay + 1}>
             <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text max-sm:max-w-[90%]">
@@ -204,7 +204,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
         <div className="herofadeup">
           {showButtons && (
-            <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] mt-15 pointer-events-auto">
+            <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] max-md:gap-[2vw] mt-15 pointer-events-auto">
               {heroContent.primaryButton?.present && (
                 <PrimaryButton
                 onClick={(e) => {

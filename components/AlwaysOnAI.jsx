@@ -47,7 +47,7 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
       ref={sectionRef}
       id="alwaysOnAi"
       style={{ perspective: "1500px" }}
-      className="relative w-full bg-white py-[20%] px-[5vw] overflow-hidden max-sm:px-[7vw] z-[22]"
+      className="relative w-full bg-white py-[20%] px-[5vw] max-md:px-[6vw] overflow-hidden max-sm:px-[7vw] z-[22]"
     >
       {/* Background Line Effect */}
       {/* before // top-[-60] 0deg */}
@@ -108,14 +108,14 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
 
       {/* Content */}
       <div className="relative z-10">
-        <div className="text-center space-y-[2vw] max-sm:space-y-[10vw] ">
+        <div className="text-center space-y-[2vw] max-sm:space-y-[10vw] max-md:spa ">
           <HeadingAnim>
             <h2 className="text-76 text-[#0A1B4B] font-heading leading-[1.2] ">
               {content.heading}
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans w-[50%] mx-auto max-sm:w-full">
+            <p className="text-30 font-sans w-[50%] max-md:w-full mx-auto max-sm:w-full">
               {content.para}
             </p>
           </Copy>

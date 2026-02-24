@@ -103,7 +103,7 @@ export default function ClientsBlur() {
       >
         <div className="sticky w-full top-0 h-screen flex items-center justify-center">
           <HeadingAnim>
-          <h3 className="text-76 w-[55%] text-[#0A1B4B] leading-[1.2] max-sm:w-[90%]">
+          <h3 className="text-76 w-[55%] max-md:w-[80%] text-[#0A1B4B] leading-[1.2] max-sm:w-[90%]">
             Trusted by Enterprises Operating AI at Scale
           </h3>
           </HeadingAnim>
@@ -116,7 +116,7 @@ export default function ClientsBlur() {
             {logos.map((item, index) => (
               <div key={index} className="grid__item">
                 <Image
-                  className="w-[14vw] h-auto max-sm:w-[100vw] max-sm:scale-[3] "
+                  className="w-[14vw] h-auto max-sm:w-[100vw] max-md:w-[60vw] max-md:scale-[1.8] max-sm:scale-[3] "
                   src={item}
                   alt={item}
                   width={200}
