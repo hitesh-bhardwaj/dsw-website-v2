@@ -48,7 +48,7 @@ const Help = () => {
         {helpCards.map((card) => (
           <div
             key={card.id}
-            className=" w-[48%] p-[3vw] py-[3.5vw] bg-white max-md:h-full max-md:!w-full  max-md:justify-between max-md:px-[7vw] max-md:py-[8vw] relative border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300"
+            className=" w-[48%] p-[3vw] py-[3.5vw] bg-white max-md:h-full max-md:w-full!  max-md:justify-between max-md:px-[7vw] max-md:py-[8vw] relative border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 hover:border-primary-blue ease-in-out"
           >
             <CornerDecorations />
             <div className="w-full h-full space-y-[2.5vw] relative z-[2] max-md:space-y-[7vw]">
@@ -79,33 +79,33 @@ function CornerDecorations() {
     <>
       {/* Top Left */}
       <div className="absolute -top-[0.25%] -left-[0.1%] w-fit h-fit group-hover/corner:-top-[3%] group-hover/corner:-left-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black`} />
+        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
         <div
-          className={`${line} bg-black rotate-90 absolute top-[2.2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
         />
       </div>
 
       {/* Top Right */}
       <div className="absolute top-[0.3%] -right-[0.5%] w-fit h-fit rotate-90 group-hover/corner:-top-[2.2%] group-hover/corner:-right-[4.5%] duration-300 ease-in-out">
-        <div className={`${line} bg-black`} />
+        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
         <div
-          className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
         />
       </div>
 
       {/* Bottom Left */}
       <div className="absolute bottom-[0.3%] -left-[0.5%] w-fit h-fit -rotate-90 group-hover/corner:-bottom-[2.2%] group-hover/corner:-left-[4.5%] duration-300 ease-in-out">
-        <div className={`${line} bg-black`} />
+        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
         <div
-          className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
         />
       </div>
 
       {/* Bottom Right */}
       <div className="absolute -bottom-[0.4%] -right-[0.1%] w-fit h-fit rotate-180 group-hover/corner:-bottom-[3%] group-hover/corner:-right-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black`} />
+        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
         <div
-          className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
         />
       </div>
     </>
