@@ -52,7 +52,7 @@ const Page = () => {
     <Layout>
       <HeroNew
         heroContent={heroContent}
-        variant={"topLeft"}
+        variant={"bottomLeft"}
         breadcrumbs={true}
       />
       <Runtime runtimeContent={runtimeContent} />

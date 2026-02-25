@@ -8,10 +8,14 @@ import { fadeUp } from "./Animations/gsapAnimations";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useRef, useState } from "react";
-import WaveGridCanvas from "./Homepage/HeroBg";
 import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
 import { useModal } from "./ModalProvider";
+import dynamic from "next/dynamic";
+
+const DynamicWaveGrid = dynamic(() => import("./Homepage/HeroBg"), {
+  ssr: false,
+});
 
 export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   const showButtons =
@@ -180,7 +184,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         />
       </div>
 
-      <WaveGridCanvas key={pathname} variant={variant}/>
+      <DynamicWaveGrid key={pathname} variant={variant}/>
 
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
