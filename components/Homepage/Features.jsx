@@ -60,13 +60,13 @@ const Features = () => {
                 {/* </Copy> */}
 
                 {feature.bullets && feature.bullets.length > 0 && (
-                  <Copy>
-                    <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw] max-sm:pl-[5vw]">
+                  // <Copy>
+                    <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw] max-sm:pl-[5vw] fadeup">
                       {feature.bullets.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}
                     </ul>
-                  </Copy>
+                  // </Copy>
                 )}
                 <Copy>
                   <p className="">{feature.para}</p>
@@ -112,12 +112,10 @@ const FEATURES = [
     hasTopBorder: true,
     hasBottomBorder: false,
     title: "No Vendor Lock In",
-    description: "Bring your models, LLMs, tools, and data.",
+    description: "Whatever you build on the AI Operating System -",
     bullets: [
-      "Retain full ownership of source code, artifacts, and IP",
-      "No forced ecosystems",
-      "No outbound learning",
-      "No exit penalties",
+      "Your model, your agent - source code and artifacts is in your custody.",
+      "AI fabric enables to integrate external applications, agents, models, tools.",
     ],
     para: "Your AI stack evolves on your terms.",
     image: "/assets/homepage/featuresDashboard2.png",
