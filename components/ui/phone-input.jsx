@@ -92,7 +92,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
           />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[300px] p-0 bg-white backdrop-blur-md border border-[#111]/10 rounded-[1.2vw] overflow-hidden">
+      <PopoverContent className="w-[300px] max-md:ml-[10vw] max-sm:ml-[10vw] p-0 bg-white backdrop-blur-md border border-[#111]/10 rounded-[1.2vw] overflow-hidden">
         <Command>
           <CommandInput
             value={searchValue}
@@ -109,7 +109,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
             
           />
           <CommandList>
-            <ScrollArea data-lenis-prevent ref={scrollAreaRef} className="h-72 bg-white pl-[1vw] backdrop-blur-md">
+            <ScrollArea data-lenis-prevent ref={scrollAreaRef} className="h-72 bg-white pl-[1vw]  backdrop-blur-md">
               <CommandEmpty>No country found.</CommandEmpty>
               <CommandGroup>
                 {countryList?.map((entry) => {
