@@ -51,7 +51,7 @@ const page = () => {
          <Outcomes outcomesData={outcomesData}/>
           <Empower  heading="Ready to Empower Your Team with Practical AI Skills?"
           para="Fill out the form"
-          width={"w-[90%]"}/>
+          width={"w-[90%] max-md:w-full"}/>
           {/* <Faqs data={faqData}/> */}
         <CTAFinal ctaContent={ctaContent}/>
     </Layout>

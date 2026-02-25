@@ -31,7 +31,8 @@ const formSchema = z.object({
 });
 
 /* ---------------- INPUT STYLES ---------------- */
-const inputClassName = "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border  rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors border-transparent";
+const inputClassName =
+  "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border  rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors border-transparent";
 
 export default function WalkthroughForm() {
   const form = useForm({
@@ -111,7 +112,7 @@ export default function WalkthroughForm() {
         setEmailVerifying(false);
       }
     },
-    [setError, clearErrors]
+    [setError, clearErrors],
   );
 
   /* ---------------- SUBMIT ---------------- */
@@ -162,7 +163,7 @@ export default function WalkthroughForm() {
           <Form {...form}>
             <form
               autoComplete="off"
-              className="space-y-[1.2vw] max-sm:space-y-[4vw] max-md:space-y-[3vw]"
+              className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[3vw]"
               onSubmit={handleSubmit(onSubmit)}
             >
               {/* Name */}
@@ -273,20 +274,18 @@ export default function WalkthroughForm() {
               />
 
               {/* Submit Button */}
-              <div className="pt-[1.5vw] max-sm:pt-[6vw] max-md:pt-[3vw]">
-                <Button
-                  type="submit"
-                  aria-label="submit form"
-                  className="cursor-pointer px-0 bg-transparent hover:bg-transparent"
-                >
-                  <div className="relative inline-flex items-center justify-center h-[4vw] min-w-[16vw] px-[2.5vw] rounded-full overflow-hidden text-white group max-sm:h-[14vw] max-sm:px-[8vw] max-sm:min-w-[40vw] max-md:h-[8vw] max-md:px-[5vw] max-md:min-w-[25vw] hover:scale-95 transition-transform duration-300">
-                    <span className="text-[1.3vw] font-heading tracking-wide z-[1] max-sm:text-[4.5vw] max-md:text-[2.8vw]">
-                      {isLoading ? "Sending..." : "Submit"}
-                    </span>
-                    <span className="absolute inset-0 bg-[#f16b0d] rounded-full" />
-                  </div>
-                </Button>
-              </div>
+              <Button
+                type="submit"
+                aria-label="submit form"
+                className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] pt-[1vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw]  max-md:mt-[8vw] max-md:py-[4.5vw] max-md:px-[3.5vw]"
+              >
+                <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                  <span className="text-24 text-white block z-[1] mt-[2vw] max-md:mt-0">
+                    {isLoading ? "Sending..." : "Submit"}
+                  </span>
+                  <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />
+                </div>
+              </Button>
             </form>
           </Form>
         </div>

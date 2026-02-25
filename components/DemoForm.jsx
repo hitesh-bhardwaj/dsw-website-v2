@@ -241,7 +241,7 @@ export default function DemoForm() {
             <Form {...form}>
               <form
                 autoComplete="off"
-                className="space-y-[1vw] max-sm:space-y-[4vw] max-md:space-y-[3vw]"
+                className="space-y-[1vw] max-sm:space-y-[3.5vw] max-md:space-y-[3vw]"
                 onSubmit={handleSubmit(onSubmit)}
               >
                 <div className="formfade">
@@ -311,9 +311,9 @@ export default function DemoForm() {
                   <Button
                     type="submit"
                     aria-label="submit form"
-                    className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw]"
+                    className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] pt-[1vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw]  max-md:mt-[8vw] max-md:py-[4.5vw] max-md:px-[3.5vw]"
                   >
-                    <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                    <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
                       <span className="text-24 text-white block z-[1] mt-[2vw] max-md:mt-0">
                         {isLoading ? "Sending..." : "Submit"}
                       </span>
