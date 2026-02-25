@@ -55,7 +55,7 @@ const JoinUs = () => {
     return (
         <section className="relative w-full h-fit py-[7%] px-[5vw] pb-[3%] max-sm:px-0 max-sm:py-[15%] max-sm:pb-[15%] max-sm:h-fit">
             {/* Heading Section */}
-            <div className="space-y-[5.5vw]  h-fit max-sm:static overflow-hidden max-sm:space-y-[12vw] z-10">
+            <div className="space-y-[5.5vw]  h-fit max-sm:static max-sm:overflow-hidden max-sm:space-y-[12vw] z-10">
                 <div className="text-center max-sm:px-[7vw] space-y-[2vw] max-sm:space-y-[7vw]">
                     <HeadingAnim>
                         <h2 className="text-76 font-heading text-[#0A1B4B] capitalize">
