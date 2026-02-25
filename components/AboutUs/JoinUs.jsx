@@ -12,18 +12,18 @@ import PrimaryButton from '../Buttons/PrimaryButton';
 
 function ValueCard({ deployment }) {
     return (
-        <div className="relative fadeup ">
+        <div className="relative fadeup max-md:w-[48%] ">
             <div
                 className={`
                     relative bg-white  hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
                     w-[21.5vw] h-[14vw] px-[1vw] py-[2vw] border
-                    border-border-color flex flex-col justify-between
+                    border-border-color flex flex-col justify-between  max-md:w-full max-md:p-[4vw] max-md:h-[30vw]
                 `}>
                 <CornerDecorations />
-                <div className=" w-[4vw] h-[4vw] text-primary-blue">
+                <div className=" w-[4vw] h-[4vw] text-primary-blue max-md:size-[7vw]">
                     {deployment.icon}
                 </div>
-                <p className="text-foreground text-24 h-8 leading-[1.2]">
+                <p className="text-foreground text-24 h-8 leading-[1.2] max-md:h-auto">
                     {deployment.title}
                 </p>
             </div>
@@ -53,17 +53,17 @@ function ValueCardMobile({ deployment }) {
 
 const JoinUs = () => {
     return (
-        <section className="relative w-full h-fit py-[7%] px-[5vw] pb-[3%] max-sm:px-0 max-sm:py-[15%] max-sm:pb-[15%] max-sm:h-fit">
+        <section className="relative w-full h-fit py-[7%] px-[5vw] pb-[3%] max-sm:px-0 max-sm:py-[15%] max-sm:pb-[15%] max-sm:h-fit max-md:py-[10%] max-md:overflow-hidden">
             {/* Heading Section */}
-            <div className="space-y-[5.5vw]  h-fit max-sm:static max-sm:overflow-hidden max-sm:space-y-[12vw] z-10">
-                <div className="text-center max-sm:px-[7vw] space-y-[2vw] max-sm:space-y-[7vw]">
+            <div className="space-y-[5.5vw]  h-fit max-sm:static max-sm: max-sm:space-y-[12vw] z-10">
+                <div className="text-center max-sm:px-[7vw] space-y-[2vw] max-sm:space-y-[7vw] max-md:space-y-[4vw]">
                     <HeadingAnim>
                         <h2 className="text-76 font-heading text-[#0A1B4B] capitalize">
                             Join us
                         </h2>
                     </HeadingAnim>
                     <Copy>
-                        <p className="text-24 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[55%] max-sm:w-full mx-auto">
+                        <p className="text-24 font-sans leading-[1.4] text-foreground w-[55%] max-sm:w-full mx-auto max-md:w-[80%]">
                             We're building a category-defining foundation for enterprise AI - and we're looking for people
                             who want to solve deep, meaningful problems.
                         </p>
@@ -82,7 +82,7 @@ const JoinUs = () => {
                 </div>
 
                 {/* Value Cards — Desktop */}
-                <div className="flex justify-between max-sm:hidden">
+                <div className="flex justify-between max-sm:hidden max-md:flex-wrap max-md:gap-y-[3vw]">
                     {values.map((deployment, index) => (
                         <ValueCard key={index} deployment={deployment} />
                     ))}
@@ -99,12 +99,12 @@ const JoinUs = () => {
 
                 <div className='mx-auto'>
                     <Copy>
-                        <p className="text-30 font-sans text-center leading-[1.4] tracking-[0.025vw] text-foreground">
+                        <p className="text-30 font-sans text-center leading-[1.4] text-foreground">
                             …you'll feel at home at DSW.
                         </p>
                     </Copy>
                 </div>
-                <div className='mx-auto flex items-center justify-center fadeup'>
+                <div className='mx-auto flex items-center justify-center fadeup h-fit'>
                     <PrimaryButton text={"View Open Roles"} href="#" />
                 </div>
             </div>

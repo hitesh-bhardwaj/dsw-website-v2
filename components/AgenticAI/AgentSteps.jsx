@@ -58,7 +58,7 @@ function AgenticCard({ id, title, Icon, description }) {
 
   return (
     <div
-      className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] max-md:w-[45%] max-md:h-[55vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col max-sm:w-full max-sm:h-[100vw] max-sm:border-t-[1.7vw] max-sm:justify-between max-sm:py-[7vw] max-sm:pb-[15vw] max-sm:px-[4vw] max-md:px-[3vw] max-md:py-[3vw]"
+      className="relative fadeup bg-card-bg px-[2vw] pt-[1.5vw] pb-[3.5vw] w-[28.5vw] h-[36.5vw] max-md:w-[48.5%] max-md:h-[55vw] overflow-hidden border-t-[0.4vw] border-primary-blue flex flex-col max-sm:w-full max-sm:h-[100vw] max-sm:border-t-[1.7vw] max-md:justify-between max-sm:py-[7vw] max-sm:pb-[15vw] max-sm:px-[4vw] max-md:px-[3vw] max-md:py-[3vw]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -103,7 +103,7 @@ const AgenticSteps = () => {
         </h2>
       </HeadingAnim>
 
-      <div className="flex max-sm:flex-col max-md:flex-wrap max-md:gap-[8vw] max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw]  max-md:p-0">
+      <div className="flex max-sm:flex-col max-md:flex-wrap max-md:gap-y-[4vw] max-sm:justify-center max-sm:items-center justify-between max-sm:gap-[8vw] p-[4vw]  max-md:p-0">
         {CARD_DATA.map((card) => (
           <AgenticCard key={card.id} {...card} />
         ))}

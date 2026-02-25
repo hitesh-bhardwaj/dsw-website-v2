@@ -87,7 +87,7 @@ export default function Infrastructure() {
   return (
     <div>
       {/* ── Desktop ───────────────────────────────────────────── */}
-      <div className="max-sm:hidden h-fit pb-[7%]">
+      <div className="max-md:hidden h-fit pb-[7%]">
 
         {/* HEADING — normal flow, scrolls in before the pin */}
         <HeadingAnim>
@@ -262,8 +262,8 @@ export default function Infrastructure() {
       {/* end desktop */}
 
       {/* ── Mobile ─────────────────────────────────────────────── */}
-      <div className="hidden max-sm:flex max-sm:flex-col max-sm:items-center
-                      max-sm:w-full max-sm:px-[7vw] max-sm:py-10">
+      <div className="hidden max-md:flex max-md:flex-col max-sm:items-center
+                      max-sm:w-full max-sm:px-[7vw] max-sm:py-10 max-md:py-[10%]">
         <HeadingAnim>
           <h2 className="text-44 font-normal text-center leading-[1.3] mb-10">
             The issue wasn't talent or intent.{" "}
@@ -285,7 +285,7 @@ export default function Infrastructure() {
                 {item}
               </div>
               {i < 4 && (
-                <div className="rotate-90 my-[6vw] fadeup">
+                <div className="rotate-90 max-sm:my-[6vw] fadeup max-md:my-[3vw]">
                   <Arrow className="" />
                 </div>
               )}

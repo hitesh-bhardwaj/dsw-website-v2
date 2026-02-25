@@ -2,16 +2,16 @@ import Copy from "@/components/Animations/Copy";
 import HeadingAnim from "@/components/Animations/HeadingAnim";
 export default function Capabilities() {
     return (
-        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] ">
+        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] max-md:py-[10%] overflow-hidden ">
        
-            <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
+            <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw] max-md:space-y-[4vw]">
                 <HeadingAnim>
-                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full max-sm:text-[8.5vw]">
+                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full max-md:w-[80%] max-sm:text-[8.5vw]">
                    Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built-In Capabilities
                 </h2>
                 </HeadingAnim>
                 <Copy>
-                <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto text-[#333333]">
+                <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto max-md:w-[80%] text-[#333333]">
                    UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start.
                 </p>
                 </Copy>
@@ -58,7 +58,7 @@ export default function Capabilities() {
   ];
 
   return (
-    <div className="w-[90%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto  relative ">
+    <div className="w-[90%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto  relative  max-md:w-full">
        
         <div className="max-sm:w-full max-sm:overflow-x-scroll mobile-scrollbar max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0 relative">
 <CornerDecorations/>
