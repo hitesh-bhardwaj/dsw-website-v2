@@ -31,7 +31,7 @@ export const metadata = getPageMetadata({
     url: "/ai-insurance-workshops",
     images: [
       {
-        url: `${homepage}seo/ai-for-insurance.png`,
+        url: `${homepage}seo/workshops.png`,
         width: 1200,
         height: 630,
       },
