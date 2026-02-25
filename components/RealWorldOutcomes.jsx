@@ -42,7 +42,7 @@ export default function RealWorldOutcomes() {
                 {outcomes.map((outcome, index) => (
                     <div
                         key={index}
-                        className={`relative  max-sm:w-full max-md:h-[35vw] w-[23.7vw] h-[15.5vw] bg-white border border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.2vw] py-[1.5vw] max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] max-md:gap-[3vw] outcomes-block max-md:p-[3vw] max-md:w-[48.5%] ${outcome.position}`}
+                        className={`relative  max-sm:w-full max-md:h-[35vw] w-[23.4vw] h-[15.5vw] bg-white border border-primary-blue border-solid overflow-hidden flex flex-col item-start justify-evenly px-[1.2vw] py-[1.5vw] max-sm:h-fit max-sm:p-[5vw] max-sm:gap-[7vw] max-md:gap-[3vw] outcomes-block max-md:p-[3vw] max-md:w-[48.5%] ${outcome.position}`}
                     >
                         {/* Number Label */}
                         <p className="text-[1.04vw] max-md:text-[2vw] font-sans leading-[1.2] text-[#c7c7c7] max-sm:text-[5vw]">
