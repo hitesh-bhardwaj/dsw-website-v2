@@ -1,13 +1,9 @@
 import CornerDecorations from '../CornerDecorations';
 import HeadingAnim from '../Animations/HeadingAnim';
-import { OpenSource } from '../Svg/InfosysFinacle/OpenSource';
-import { CoDeploy } from '../Svg/InfosysFinacle/CoDeploy';
-import { Workshops } from '../Svg/InfosysFinacle/Workshops';
 import { RollOut } from '../Svg/InfosysFinacle/RolllOut';
 import { ReducedCost } from '../Svg/InfosysFinacle/ReducedCost';
 import { EnterpriseGrade } from '../Svg/InfosysFinacle/EnterpriseGrade';
 import { SkilledTeam } from '../Svg/InfosysFinacle/SkilledTeam';
-
 
 function ValueCard({ deployment }) {
     return (
@@ -15,12 +11,12 @@ function ValueCard({ deployment }) {
             <div
                 className={`
                     relative bg-white  hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
-                    w-[21.5vw] h-[25vw] px-[1vw] py-[2vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[58vw] border
+                    w-[21.5vw] h-[25vw] max-md:h-[32vw] max-md:w-[42vw] px-[1vw] py-[2vw] max-md:px-[3vw] max-md:py-[3vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[58vw] border
                     border-border-color flex flex-col justify-between
                 `}
             >
                 <CornerDecorations />
-                <div className=" w-[5vw] h-[5vw] max-sm:h-[15vw] max-sm:w-[15vw] text-primary-blue">
+                <div className=" w-[5vw] h-[5vw] max-md:h-[8vw] max-md:w-[8vw] max-sm:h-[15vw] max-sm:w-[15vw] text-primary-blue">
                     {deployment.icon}
                 </div>
                 <p className="text-foreground h-18 max-sm:leading-[1.2] text-24 max-sm:text-[5vw] max-sm:font-light leading-[1.2]">
@@ -37,11 +33,11 @@ function ValueCard({ deployment }) {
 export default function Values() {
 
     return (
-        <section className="relative w-full py-[5%] px-[5vw] max-sm:py-[15%] space-y-[12vw] max-sm:px-[7vw]">
-            <div className='w-full space-y-[6vw]'>
+        <section className="relative w-full py-[5%] max-md:py-[10%] px-[5vw] max-md:px-[6vw] max-sm:py-[15%] space-y-[12vw] max-sm:px-[7vw]">
+            <div className='w-full space-y-[6vw] max-md:space-y-[10vw] max-sm:space-y-[16vw]'>
                <div className='w-[80%] mx-auto'>
                     <HeadingAnim>
-                        <h2 className='text-76  text-[#0A1B4B] text-center  max-sm:leading-[1.3] leading-[1.4]'>
+                        <h2 className='text-76  text-[#0A1B4B] text-center   max-sm:leading-[1.4] max-md:leading-[1.3] leading-[1.2]'>
                           Bringing Cohesive Value to Banks
                         </h2>
                     </HeadingAnim>
@@ -49,7 +45,7 @@ export default function Values() {
               
         
 
-            <div className="flex justify-between  max-sm:w-full max-sm:mx-auto max-sm:flex-col  space-y-[6vw] max-sm:space-y-[10vw]">
+            <div className="flex justify-between  max-sm:w-full max-sm:mx-auto max-sm:flex-col max-md:flex-wrap  space-y-[6vw] max-sm:space-y-[10vw]">
                 {values.map((deployment, index) => (
                     <ValueCard key={index} deployment={deployment} />
                 ))}

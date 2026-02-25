@@ -57,7 +57,7 @@ const Operations = ({ operationsContent }) => {
   const [active, setActive] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  // ✅ fetch everything from props (same pattern as HeroNew)
+  //  fetch everything from props (same pattern as HeroNew)
   const data = useMemo(
     () => ({
       heading:
@@ -80,7 +80,7 @@ const Operations = ({ operationsContent }) => {
 
     // Targets for SplitText (intro only) + ul fade
     const introEl = wrap.querySelector("[data-intro]");
-    const ulEl = wrap.querySelector("ul"); // ✅ whole ul
+    const ulEl = wrap.querySelector("ul"); // whole ul
 
     if (!introEl) {
       setActive(nextIndex);
@@ -215,20 +215,20 @@ const Operations = ({ operationsContent }) => {
   return (
     <section
       ref={sectionRef}
-      className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-sm:py-[15%] space-y-[5vw]"
+      className="w-full px-[5vw] py-[7%] max-md:px-[7vw] max-md:px-[6vw] max-md:py-[10%] max-sm:py-[15%] space-y-[5vw]"
       id={data.sectionId}
     >
       <div className="w-full h-full gap-y-[2vw] flex flex-col items-center text-center">
         <HeadingAnim>
-          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto w-[85%] capitalize">
+          <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] mx-auto w-[85%] max-md:w-full capitalize">
             {data.heading}
           </h2>
         </HeadingAnim>
       </div>
 
-      <div className="w-full flex justify-between max-sm:flex-col max-sm:gap-0">
+      <div className="w-full flex justify-between max-md:flex-col max-md:gap-0">
         {/* LEFT: tabs — desktop only */}
-        <div className="w-[50%] max-sm:hidden space-y-[3vw] font-light">
+        <div className="w-[50%] max-md:hidden space-y-[3vw] font-light">
           {data.tabs.map((tab, idx) => {
             const isActive = idx === active;
 
@@ -252,7 +252,7 @@ const Operations = ({ operationsContent }) => {
         </div>
 
         {/* MOBILE: accordion tabs with content below each */}
-        <div className="hidden max-sm:flex max-sm:flex-col max-sm:gap-[3vw] w-full max-sm:pt-[7vw] font-light fadeup">
+        <div className="hidden max-md:flex max-md:flex-col max-md:gap-[3vw] w-full max-md:pt-[7vw] font-light fadeup">
           {data.tabs.map((tab, idx) => {
             const isActive = idx === active;
             const tabContent = data.tabs[idx] ?? { intro: "", bullets: [] };
@@ -284,7 +284,7 @@ const Operations = ({ operationsContent }) => {
         {/* RIGHT: content — desktop only */}
         <div
           ref={contentWrapRef}
-          className="w-[45%] max-sm:hidden relative text-30 fadeup"
+          className="w-[45%] max-md:hidden relative text-30 fadeup"
         >
           <div className="w-full space-y-[2vw]">
             <p data-intro>{current.intro}</p>
