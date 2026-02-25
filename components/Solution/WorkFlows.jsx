@@ -61,7 +61,7 @@ const WorkFlows = ({ workflowsContent }) => {
           </HeadingAnim>
           {para && (
             <Copy>
-              <p className="text-44 text-[#0A1B4B] font-light text-[#0A1B4B]">{para}</p>
+              <p className="text-44 text-[#0A1B4B] max-md:text-center font-light text-[#0A1B4B]">{para}</p>
             </Copy>
           )}
         </div>
