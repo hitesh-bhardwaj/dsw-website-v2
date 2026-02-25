@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
       url: `/${slug}`,
       images: post.metaImage
         ? [{ url: post.metaImage.url, width: 1200, height: 630 }]
-        : [{ url: `${homepage}seo/blog-detail.png`, width: 1200, height: 630 }],
+        : [{ url: `${homepage}seo/homepage.png`, width: 1200, height: 630 }],
     },
   })
 }

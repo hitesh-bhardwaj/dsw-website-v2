@@ -6,6 +6,7 @@ import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
 import CaseStudy from "@/components/Solution/CaseStudy";
+import CaseStudySwiper from "@/components/Solution/CaseStudySwiper";
 import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
@@ -55,7 +56,8 @@ const Page = () => {
       <Breaks breaksContent={breaksContent}/>
       <Features featuresContent={featuresContent} />
       <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
+      <CaseStudySwiper/>
+      {/* <CaseStudy caseStudyContent={caseStudyContent}/> */}
       <Operations operationsContent={operationsContent} />
      <CertificationsAndAwards certificationsContent={certificationsContent}/>
       <Benefits benefitsContent={benefitsContent}/>
