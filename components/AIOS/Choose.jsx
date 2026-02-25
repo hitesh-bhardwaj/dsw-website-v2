@@ -151,16 +151,16 @@ const Choose = () => {
 
   return (
     <section className="w-full h-[300vh] max-sm:h-[200vh]" id="choose">
-      <div className="w-full h-screen sticky top-0 flex items-center justify-center flex-nowrap text-[#0A1B4B] max-sm:flex-col max-sm:gap-[15vw] ">
-        <h3 className="text-110 w-[50%] text-center absolute max-sm:static max-sm:w-[90%] max-sm:mx-auto max-sm:translate-x-0 max-sm:translate-y-0 top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content1">
+      <div className="w-full h-screen sticky top-0 flex items-center justify-center flex-nowrap text-[#0A1B4B] max-md:flex-col max-sm:gap-[15vw] max-md:gap-[7vw] ">
+        <h3 className="text-110 w-[50%] text-center absolute max-md:static max-md:w-[90%] max-md:mx-auto max-md:translate-x-0 max-md:translate-y-0 top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content1">
           You choose the environment.
         </h3>
 
-        <h3 className="text-110 w-[50%] text-center absolute max-sm:static max-sm:w-[90%] max-sm:mx-auto max-sm:translate-x-0 max-sm:translate-y-0 top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content2">
+        <h3 className="text-110 w-[50%] text-center absolute max-md:static max-md:w-[90%] max-md:mx-auto max-md:translate-x-0 max-md:translate-y-0 top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content2">
           You own the system.
         </h3>
 
-        <h3 className="text-110 w-[50%] text-center absolute max-sm:static max-sm:w-[90%] max-sm:mx-auto max-sm:translate-x-0 max-sm:translate-y-0 top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content3">
+        <h3 className="text-110 w-[50%] text-center absolute max-md:static max-md:w-[90%] max-md:mx-auto max-md:translate-x-0 max-md:translate-y-0 top-1/2 -translate-y-1/2 -translate-x-1/2 left-1/2 choose-content3">
           You control how AI runs.
         </h3>
       </div>

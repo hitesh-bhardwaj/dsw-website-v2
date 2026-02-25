@@ -21,6 +21,31 @@ const nextConfig = {
     ],
   },
 
+  async redirects() {
+    return [
+      {
+        source: '/enterpriseAIoperatingsystem/analyticsindiamagazine',
+        destination: '/enterpriseAIoperatingsystem/analyticsindiamagazine.pdf',
+        permanent: true,
+      },
+      {
+        source: '/dsw-enterprise-ai-operating-system',
+        destination: '/dsw-enterprise-ai-operating-system.pdf',
+        permanent: true,
+      },
+      {
+        source: '/dsw-enterprise-aios-technical-brochure',
+        destination: '/dsw-enterprise-aios-technical-brochure.pdf',
+        permanent: true,
+      },
+      {
+        source: '/dsw-pilot-program',
+        destination: '/dsw-pilot-program.pdf',
+        permanent: true,
+      },
+    ]
+  },
+
   compress: true,
   productionBrowserSourceMaps: true,
 

@@ -16,7 +16,7 @@ const FeaturedBlog = ({ featuredPost }) => {
   const authorName = featuredPost.author?.name || "DSW Team";
 
   return (
-    <section className="relative w-full py-[5%] max-sm:py-[15%] z-10">
+    <section className="relative w-full py-[7%] max-sm:py-[15%] z-10">
       <div className="px-[5vw] max-sm:px-[7vw]">
         <div className="flex gap-[3vw] items-center max-sm:flex-col max-sm:gap-[8vw]">
           {/* Image Container */}

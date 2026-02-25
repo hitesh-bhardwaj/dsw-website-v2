@@ -5,6 +5,7 @@ import React, { useRef, useEffect, useState } from "react";
  * Variants:
  *  - "default" - horizontal wave from bottom
  *  - "bottomRight" - diagonal wave from bottom-right corner
+ *  - "bottomLeft" - diagonal wave from bottom-left corner
  *  - "rightVertical" - vertical wave from right side
  *  - "leftVertical" - vertical wave from left side
  *  - "topLeft" - diagonal wave from top-left corner
@@ -76,6 +77,8 @@ const  WaveGridCanvas = ({
         return { top: 0, bottom: 0.3, left: 0, right: 0 };
       case "bottomRight":
         return { top: 0, bottom: 0.1, left: 0, right: 0.2 };
+      case "bottomLeft":
+        return { top: 0, bottom: 0.1, left: 0.2, right: 0 };
       case "rightVertical":
         return { top: 0, bottom: 0.1, left: 0, right: 0.3 };
       case "leftVertical":
@@ -212,6 +215,13 @@ const  WaveGridCanvas = ({
         return { u: (u01 + (1 - v01)) * 0.5, v: 1.6 - dist };
       }
 
+      if (variant === "bottomLeft") {
+        const fromRight = 1 - u01;
+        const fromTop = v01;
+        const dist = Math.sqrt(fromRight * fromRight + fromTop * fromTop);
+        return { u: ((1 - u01) + (1 - v01)) * 0.5, v: 1.65 - dist };
+      }
+
       // default
       return { u: u01, v: 1.2 - v01 };
     };
@@ -294,7 +304,7 @@ const  WaveGridCanvas = ({
       const fourOverDpr = 4 / dpr;
 
       // Precompute UV lookup for corner variants
-      if (variant === "bottomRight" || variant === "topLeft") {
+      if (variant === "bottomRight" || variant === "topLeft" || variant === "bottomLeft") {
         uvLookupU = new Float32Array(gradWidth * gradHeight);
         uvLookupV = new Float32Array(gradWidth * gradHeight);
 
@@ -402,7 +412,7 @@ const  WaveGridCanvas = ({
       const tU065 = tU * 0.65;
 
       // Corner variants: use precomputed UV lookup
-      if (variant === "bottomRight" || variant === "topLeft") {
+      if (variant === "bottomRight" || variant === "topLeft" || variant === "bottomLeft") {
         const data = gradData;
         const uLookup = uvLookupU;
         const vLookup = uvLookupV;

@@ -50,7 +50,7 @@ const Page = () => {
     <>
       <WebpageJsonLd metadata={metadata} />
       <Layout>
-        <HeroNew heroContent={heroContent} variant={"topLeft"} breadcrumbs={true} />
+        <HeroNew heroContent={heroContent} variant={"bottomLeft"} breadcrumbs={true} />
 
         <Runtime runtimeContent={runtimeContent} />
         <Breaks breaksContent={breaksContent} />

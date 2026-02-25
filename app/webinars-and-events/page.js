@@ -12,7 +12,7 @@ import { homepage } from "@/lib/util";
 
 
 export const metadata = getPageMetadata({
-  title: "Webinars & Events — DSW UnifyAI Live Sessions",
+  title: "Webinars & Events - DSW UnifyAI Live Sessions",
   description: "Join DSW’s webinars, virtual events & masterclasses to explore enterprise AI, GenAI strategies & AI deployments in insurance, banking, healthcare.",
   url: "resouces/webinars-and-events",
   date_published: "2026-02-18T00:00",
@@ -41,7 +41,7 @@ const AgenticAI = () => {
       <BreadcrumbsJSONLD pathname={metadata.url}/>
       <Layout>
         <main className="min-h-screen">
-          <HeroNew heroContent={heroContent} variant={"leftVertical"} breadcrumbs={true} />
+          <HeroNew heroContent={heroContent} variant={"default"} breadcrumbs={true} />
             <Expect />
             <UpcomingWebinars />
             <Workshops />

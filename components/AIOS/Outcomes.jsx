@@ -87,7 +87,7 @@ export default function Outcomes() {
             <div className="w-full flex flex-col items-center justify-center gap-y-[3vw] max-sm:gap-y-[15vw]">
                 <div className="w-full text-center max-sm:w-full">
                 <HeadingAnim>
-                    <h2 className="text-76  text-[#0A1B4B] ">
+                    <h2 className="text-76  text-[#0A1B4B]  leading-[1.2]">
                         Deployment, Sovereignty, and Control
                     </h2>
                 </HeadingAnim>
@@ -98,7 +98,7 @@ export default function Outcomes() {
                     </p>
                 </Copy>
 
-                <div className="w-[40%] flex flex-col gap-[3vw] max-md:w-full max-md:gap-[7vw] max-sm:gap-[10vw] my-[4vw]">
+                <div className="w-[40%] flex flex-col gap-[3vw] max-md:w-full max-md:gap-[4vw] max-sm:gap-[10vw] my-[4vw]">
                     {POINTS.map(({ id, text, width }) => (
                         <div
                             key={id}
