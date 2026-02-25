@@ -11,7 +11,7 @@ const WatchOnDemand = () => {
           <HeadingAnim>
 
           <h2 className="text-76 text-[#0A1B4B] headingAnim  max-sm:w-full ">
-            Missed a Session? Watch On - Demandx
+            Missed a Session? Watch On - Demand
           </h2>
           </HeadingAnim>
           <Copy>
