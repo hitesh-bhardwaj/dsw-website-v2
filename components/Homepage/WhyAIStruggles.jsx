@@ -63,7 +63,7 @@ export default function WhyAIStruggles() {
 
   return (
     <section
-      className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[10%]  max-sm:py-[15%] max-sm:h-fit pt-[10%] max-sm:pt-[10%] max-md:pt-[10%] overflow-hidden"
+      className="relative w-full h-fit py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[10%]  max-sm:py-[15%] max-sm:h-fit pt-[10%] overflow-hidden"
       id="struggle"
     >
       {/* Heading Section */}
