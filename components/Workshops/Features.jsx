@@ -64,7 +64,7 @@ function CornerDecorations() {
   return (
     <>
       {/* Top Left */}
-      <div className="absolute -top-[0.3%] -left-[0.1%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out">
+      <div className="absolute -top-[0.1%] left-[0%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out">
         <div className={`${line} bg-black`} />
         <div
           className={`${line} bg-black rotate-90 absolute top-[2.2px] -left-1/2`}
@@ -72,7 +72,7 @@ function CornerDecorations() {
       </div>
 
       {/* Top Right */}
-      <div className="absolute top-[0.3%] -right-[0.3%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:-right-[0.3] max-sm:top-[0.4%]">
+      <div className="absolute top-[0.6%] -right-[0.35%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:-right-[0.3] max-sm:top-[0.4%]">
         <div className={`${line} bg-black`} />
         <div
           className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
@@ -80,7 +80,7 @@ function CornerDecorations() {
       </div>
 
       {/* Bottom Left */}
-      <div className="absolute bottom-[0.3%] -left-[0.5%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:bottom-[-12%]">
+      <div className="absolute bottom-[0.6%] -left-[0.4%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:bottom-[-12%]">
         <div className={`${line} bg-black`} />
         <div
           className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
@@ -88,7 +88,7 @@ function CornerDecorations() {
       </div>
 
       {/* Bottom Right */}
-      <div className="absolute -bottom-[0.3%] -right-[0.1%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:bottom-[-12.5%]">
+      <div className="absolute -bottom-[0.1%] right-[0.05%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:bottom-[-12.5%]">
         <div className={`${line} bg-black`} />
         <div
           className={`${line} bg-black rotate-90 absolute top-[2px] -left-1/2`}
