@@ -25,7 +25,7 @@ export default function Benefits({ benefitsContent }) {
   useEffect(() => {
     if (!sectionRef.current) return;
 
-    // ✅ scope selectors to this section only (prevents cross-page conflicts)
+    //  scope selectors to this section only (prevents cross-page conflicts)
     const ctx = gsap.context(() => {
       gsap.set(".about-item", {
         scale: 0.7,
@@ -60,28 +60,28 @@ export default function Benefits({ benefitsContent }) {
   return (
     <section
       ref={sectionRef}
-      className="w-screen h-full px-[5vw] py-[7%] max-sm:py-[15%] max-sm:px-[7vw]"
+      className="w-screen h-full px-[5vw] py-[7%] max-sm:py-[15%] max-md:py-[10%] max-md:px-[6vw] max-sm:px-[7vw]"
       id={sectionId}
     >
-      <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-sm:gap-y-[15vw]">
+      <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-md:gap-y-[12vw] max-sm:gap-y-[15vw]">
         <div className="w-[85%] text-center max-sm:w-full">
           <HeadingAnim>
-            <h2 className="text-76 leading-[1.2] max-sm:leading-[1.4] text-[#0A1B4B] capitalize">{heading}</h2>
+            <h2 className="text-76 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] text-[#0A1B4B] capitalize">{heading}</h2>
           </HeadingAnim>
         </div>
 
-        <div className="w-[50%] flex flex-col gap-[3vw] max-md:w-full max-md:gap-[7vw] max-sm:gap-[10vw]">
+        <div className="w-[50%] flex flex-col gap-[3vw] max-md:w-[90%] max-sm:w-full max-md:gap-[7vw] max-sm:gap-[10vw]">
           {points.map((p, idx) => (
             <div key={p.id ?? idx} className="w-full flex gap-[3.2vw] items-center about-item">
-              <div className="w-[15%] relative max-md:w-[30%]">
+              <div className="w-[15%] relative max-md:w-[35%] max-sm:w-[30%]">
                 <div className="relative w-[5vw] h-[5vw] border border-primary-blue rounded-full flex items-center justify-center max-sm:w-[18vw] max-sm:h-[18vw] max-md:w-[15vw] max-md:h-[15vw]">
-                  <p className="about-id text-primary-1 font-head relative z-[1] text-30">
+                  <p className="about-id text-primary-1 font-head relative z-[1] text-30 max-md:text-[4vw] max-sm:text-[5vw]">
                     {p.id ?? String(idx + 1).padStart(2, "0")}
                   </p>
                 </div>
               </div>
 
-              <p className={`text-30 w-full  ${p.className ?? ""}`}>
+              <p className={`text-30 max-md:text-[3.3vw] max-sm:text-30 max-md:leading-[1.3] max-sm:leading-[1.2] w-full  ${p.className ?? ""}`}>
                 {p.text}
               </p>
             </div>
