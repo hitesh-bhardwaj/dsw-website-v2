@@ -79,6 +79,7 @@ const ctaContent={
   heading:"Together aligned to build Global Banking Success.",
   subParaText:"62+ Years of Collective Open Source Experience & Exposure with Deep-Tech Expertise.",
   subPara:true,
+  paraWidth:"w-full",
   para:"With a strong background in operating systems, middleware,  and the core enterprise technology ecosystem, we have been active contributors and trusted practitioners in the global open source community.  As Infosys Finacle’s strategic open-source consulting and services partner, we bring this collective depth of experience to jointly deliver skills, expertise, and predictable success for Finacle customers and global banks. ",
   primaryButton:{
     present:true,
