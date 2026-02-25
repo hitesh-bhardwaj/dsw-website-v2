@@ -58,7 +58,7 @@ export default function WalkthroughForm() {
     walkthroughTarget,
     markWalkthroughCompleted,
     setOpenWalkThrough,
-    setOpenWalkthroughIframe,
+    // setOpenWalkthroughIframe,
   } = useModal();
 
   /* ---------------- EMAIL VERIFICATION ---------------- */
@@ -138,9 +138,9 @@ export default function WalkthroughForm() {
       /* Close form and open iframe */
       markWalkthroughCompleted(walkthroughTarget);
       setOpenWalkThrough(false);
-      setTimeout(() => {
-        setOpenWalkthroughIframe(true);
-      }, 300);
+      // setTimeout(() => {
+      //   setOpenWalkthroughIframe(true);
+      // }, 300);
 
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 5000);

@@ -9,10 +9,10 @@ gsap.registerPlugin(ScrollTrigger);
 export default function Fragmented() {
   return (
     <section
-      className="dark py-[7%] px-[5vw] bg-radial-night text-white space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%] max-sm:space-y-[18vw]"
+      className="dark py-[7%] px-[5vw] bg-radial-night text-white space-y-[9vw] relative max-sm:py-[15%] max-sm:px-[7vw] max-sm:pb-[30%] max-sm:space-y-[18vw] max-md:py-[15%]"
       id="fragmented"
     >
-      <Copy>
+      <Copy> 
         <p className="text-40 max-sm:leading-normal  w-[75%] text-center mx-auto leading-[1.4] max-sm:w-full">
           An AI/ML runtime that seamlessly unifies data, models, workflows, and
           intelligent agents into a single execution layer that is purpose-built
