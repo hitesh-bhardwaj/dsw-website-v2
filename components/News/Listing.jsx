@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { formatDate } from "@/lib/datetime";
 import Link from "next/link";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
+import LinkButton from "../Buttons/LinkButton";
 
 const Listing = ({ news = [] }) => {
   const [page, setPage] = useState(1);
@@ -26,7 +27,7 @@ const Listing = ({ news = [] }) => {
   const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
 
   return (
-    <section className="px-[5vw] max-sm:py-[10%] relative z-10 pb-[5%]" id="news-listing">
+    <section className="px-[5vw] max-sm:py-[10%] py-[7%] relative z-10" id="news-listing">
       <div className="w-full space-y-[4.5vw] max-sm:space-y-[10vw] max-md:space-y-[5vw] fadeupDelay">
         {currentNews.map((newsItem, id) => (
           <div
@@ -54,14 +55,7 @@ const Listing = ({ news = [] }) => {
                   className="text-24 font-light max-md:order-3"
                   dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
                 />
-                <Link
-                  href={`/news/${newsItem.slug}`}
-                  className="text-primary-blue pt-[1vw] text-24 group max-md:order-4"
-                >
-                  <span className="before:absolute before:block relative before:w-0 before:h-px before:bottom-0 before:left-0 before:bg-primary-blue group-hover:before:w-full before:duration-300">
-                    Read More
-                  </span>
-                </Link>
+                <LinkButton href={`/news/${newsItem.slug}`} text="Read More" />
               </div>
             </div>
             <span className="w-full h-px block bg-gray-1 lineDraw" />
