@@ -33,7 +33,7 @@ export const metadata = getPageMetadata({
     url: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
     images: [
       {
-        url: `${homepage}seo/ai-and-genai.png`,
+        url: `${homepage}seo/masterclass.png`,
         width: 1200,
         height: 630,
       },

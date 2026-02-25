@@ -20,7 +20,7 @@ export const metadata = getPageMetadata({
     },
   },
   openGraph: {
-    url: "resources/product-videos",
+    url: "product-videos",
     images: [
       {
         url: `${homepage}seo/product-videos.png`,
