@@ -229,10 +229,10 @@ export default function WhatWeStandFor() {
             </div>
 
             {/* ── DESKTOP LAYOUT (sm and above) ─────────────────────────────── */}
-            <div className="hidden sm:block relative max-w-[80%] mx-auto">
+            <div className="max-sm:hidden relative max-w-[80%] mx-auto max-md:max-w-[90%]">
                 {/* SVG Line — absolutely centered */}
                 <div
-                    className="absolute left-[60%] -translate-x-1/2 top-0 pointer-events-none"
+                    className="absolute left-[60%] max-md:left-[50%] -translate-x-1/2 top-0 pointer-events-none"
                     style={{ height: `${svgHeight}px`, width: "20px" }}
                 >
                     <svg
@@ -295,7 +295,7 @@ export default function WhatWeStandFor() {
                             {/* Left: Title */}
                             <div
                                 ref={(el) => (leftRefs.current[index] = el)}
-                                className="pr-[8vw] flex items-start justify-start pt-1 w-[84%]"
+                                className="pr-[8vw] flex items-start justify-start pt-1 w-[84%] max-md:pr-0 "
                             >
                                 <h3 className="text-32 text-[#0A1B4B] font-heading ">
                                     {step.title}
@@ -307,7 +307,7 @@ export default function WhatWeStandFor() {
                             {/* Right: Description */}
                             <div
                                 ref={(el) => (rightRefs.current[index] = el)}
-                                className="pl-[3vw] ml-[6vw] flex items-start pt-1 w-[85%]"
+                                className="pl-[3vw] ml-[6vw] flex items-start pt-1 w-[85%] max-md:ml-0 max-md:w-full"
                             >
                                 <p className="text-24 text-[#333333]">
                                     {step.description}
@@ -319,7 +319,7 @@ export default function WhatWeStandFor() {
             </div>
 
             {/* ── MOBILE LAYOUT (below sm) ───────────────────────────────────── */}
-            <div className="block sm:hidden relative w-full">
+            <div className="max-sm:block hidden relative w-full">
                 <div className="relative" style={{ height: `${mobileSvgHeight}px` }}>
 
                     {/* SVG: vertical line + numbered circles, pinned to left */}
@@ -410,10 +410,10 @@ export default function WhatWeStandFor() {
                                     right: "0px",
                                 }}
                             >
-                                <h3 className="text-[4.8vw]  text-[#0A1B4B]  mb-[2vw] font-medium">
+                                <h3 className="max-sm:text-[4.8vw]  text-[#0A1B4B]  mb-[2vw] font-medium max-md:text-[4vw]">
                                     {step.title}
                                 </h3>
-                                <p className="text-[4.4vw] leading-[1.4] text-[#333333] ">
+                                <p className="max-sm:text-[4.4vw] leading-[1.4] text-[#333333]  max-md:text-[2.5vw]">
                                     {step.description}
                                 </p>
                             </div>

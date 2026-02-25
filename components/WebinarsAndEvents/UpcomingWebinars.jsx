@@ -52,7 +52,7 @@ const UpcomingWebinars = () => {
         <div className=" space-y-[2.5vw] max-md:w-full text-center max-sm:space-y-[7vw] max-md:space-y-[5vw] ">
             <HeadingAnim>
 
-          <h2 className=" text-76  headingAnim w-[95%] max-sm:w-full text-[#0A1B4B]">Upcoming Webinars & Events</h2>
+          <h2 className=" text-76  headingAnim w-[95%] max-md:w-full text-[#0A1B4B]">Upcoming Webinars & Events</h2>
             </HeadingAnim>
           <Copy>
             <p className="text-30 text-center w-[70%] max-sm:w-full mx-auto">
@@ -66,7 +66,7 @@ const UpcomingWebinars = () => {
           {/* Main Announcement */}
           <div className="w-full space-y-[4vw] max-sm:space-y-[7vw]">
             <div className="w-full h-fit flex justify-between gap-[4.5vw] max-md:flex-col max-md:gap-y-[7vw]">
-              <div className="w-[29vw] h-[25vw] rounded-[1.2vw] overflow-hidden fadeup max-md:w-full max-md:h-[35vh] max-md:border max-md:border-white/10 max-md:rounded-[7vw]">
+              <div className="w-[29vw] h-[25vw] rounded-[1.2vw] overflow-hidden fadeup max-md:w-full max-md:h-[35vh] max-md:border max-md:border-white/10 max-sm:rounded-[4.5vw] max-md:rounded-[3vw]">
                 <Image
                   src={mainAnnouncement.image}
                   alt={mainAnnouncement.alt}
@@ -75,7 +75,7 @@ const UpcomingWebinars = () => {
                   height={300}
                 />
               </div>
-              <div className="w-[60%] flex flex-col gap-[2.5vw]  max-md:w-full max-sm:justify-start max-sm:gap-[7vw] max-md:gap-[5vw]">
+              <div className="w-[60%] flex flex-col gap-[2.5vw]  max-md:w-full max-sm:justify-start max-sm:gap-[7vw] max-md:gap-[4vw]">
                 <Copy>
                   <h3 className="text-44  text-heading max-sm:text-[5.5vw]">{mainAnnouncement.title}</h3>
                 </Copy>
@@ -113,13 +113,13 @@ const UpcomingWebinars = () => {
 
           {/* Secondary Announcements */}
           <div className="">
-            <div className="w-full flex justify-between fadeup pt-[3vw] max-sm:pt-[6vw] max-md:flex-col max-md:gap-[10vw] max-md:pb-[10vw]">
+            <div className="w-full flex justify-between fadeup pt-[3vw] max-sm:pt-[6vw] max-sm:flex-col max-sm:gap-[10vw] max-md:flex-wrap max-sm:pb-[10vw] max-md:gap-y-[5vw]">
               {secondaryAnnouncements.map((item, index) => (
                 <div
                   key={index}
-                  className="w-[32%] h-fit flex flex-col gap-[1.5vw] max-md:w-full max-md:gap-[5vw]"
+                  className="w-[32%] h-fit flex flex-col gap-[1.5vw] max-sm:w-full max-md:w-[48.5%] max-sm:gap-[5vw] max-md:gap-[2vw]"
                 >
-                  <div className="w-full h-[15vw] rounded-[1.2vw] overflow-hidden max-sm:h-[25vh] max-md:h-[35vh] max-md:rounded-[4.5vw] max-md:border max-md:border-white/20">
+                  <div className="w-full h-[15vw] rounded-[1.2vw] overflow-hidden max-sm:h-[25vh] max-md:h-[30vw] max-md:w-full max-md:rounded-[2vw] max-sm:rounded-[3vw] max-md:border max-md:border-white/20">
                     <Image
                       src={item.image}
                       alt={item.alt}

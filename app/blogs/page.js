@@ -47,7 +47,7 @@ export const metadata = getPageMetadata({
     url: "/blogs",
     images: [
       {
-        url: `${homepage}seo/blog.png`,
+        url: `${homepage}seo/blogs.png`,
         width: 1200,
         height: 630,
       },
