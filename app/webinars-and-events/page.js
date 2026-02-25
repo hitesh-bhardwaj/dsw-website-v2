@@ -24,7 +24,7 @@ export const metadata = getPageMetadata({
     },
   },
   openGraph: {
-    url: "resources/webinars-and-events",
+    url: "webinars-and-events",
     images: [
       {
         url: `${homepage}seo/webinars-and-events.png`,

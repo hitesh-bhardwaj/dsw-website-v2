@@ -6,7 +6,11 @@ import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Outcomes({ outcomesData, showDescription = true , marginTop = "mt-[0vw]"}) {
+export default function Outcomes({
+  outcomesData,
+  showDescription = true,
+  marginTop = "mt-[0vw]",
+}) {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -50,22 +54,29 @@ export default function Outcomes({ outcomesData, showDescription = true , margin
           opacity: 1,
           duration: 0.8,
         },
-        "<-.8"
+        "<-.8",
       );
     });
   }, []);
 
   return (
-    <section className={`w-screen px-[5vw] py-[7%] ${marginTop}`} id="about">
+    <section
+      className={`w-screen px-[5vw] py-[7%] max-md:py-[10%] ${marginTop}`}
+      id="about"
+    >
       <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-md:gap-y-[10vw]">
-        <div className={` w-[75%] max-sm:w-[95%] space-y-[4vw] max-md:space-y-[5vw] max-sm:space-y-[7vw] text-center`}>
+        <div
+          className={` w-[75%] space-y-[4vw] max-md:space-y-[5vw] max-sm:space-y-[7vw] text-center max-md:w-full`}
+        >
           <HeadingAnim>
-          <h2 className={`text-76 text-[#0A1B4B] max-sm:leading-[1.4] headingAnim  max-md:text-center  ${outcomesData.headingCenter ? "text-center" : ""}`}>
-            {outcomesData.heading}
-          </h2>
+            <h2
+              className={`text-76 text-[#0A1B4B] max-sm:leading-[1.4] headingAnim  max-md:text-center  ${outcomesData.headingCenter ? "text-center" : ""}`}
+            >
+              {outcomesData.heading}
+            </h2>
           </HeadingAnim>
           {showDescription && (
-            <div className="space-y-[1vw] max-sm:space-y-[7vw] w-[75%] max-sm:w-[90%] mx-auto text-24">
+            <div className="space-y-[1vw] max-sm:space-y-[7vw] w-[75%] max-md:w-full mx-auto text-24 max-md:space-y-[4vw]">
               <Copy>
                 <p className="text-30 max-md:text-center">
                   {outcomesData.para}
@@ -84,21 +95,23 @@ export default function Outcomes({ outcomesData, showDescription = true , margin
           {outcomesData.points.map(({ id, text, width, title }) => (
             <div
               key={id}
-              className="w-[60%] max-md:w-[100%] flex gap-[3.2vw] max-sm:gap-[6vw] items-center max-sm:items-start about-item"
+              className="w-[60%] max-md:w-full flex gap-[3.2vw] max-sm:gap-[6vw] items-center max-md:items-start about-item"
             >
-              <div className="w-[15%]  relative max-md:w-[30%]">
-                <div className="relative w-[5vw] h-[5vw] border border-primary-1 max-sm:border-primary-blue rounded-full flex items-center justify-center max-md:w-[18vw] max-md:h-[18vw] max-sm:max-sm:h-[15vw] max-sm:w-[15vw]  ">
-                 <p className="about-id max-sm:font-light text-primary-1 text-40 font-head relative z-[1]">
-  {String(id).padStart(2, "0")}
-</p>
+              <div className="w-[15%]  relative max-md:w-[18vw]">
+                <div className="relative w-[5vw] h-[5vw] border border-primary-1 max-sm:border-primary-blue rounded-full flex items-center justify-center max-md:w-[12vw] max-md:h-[12vw] max-sm:max-sm:h-[15vw] max-sm:w-[15vw]  ">
+                  <p className="about-id max-sm:font-light text-primary-1 text-40 font-head relative z-[1]">
+                    {String(id).padStart(2, "0")}
+                  </p>
                 </div>
               </div>
-              <div className="space-y-[1.2vw] max-md:space-y-[3vw]">
+              <div className="space-y-[1.2vw] max-md:space-y-[3vw] max-md:w-full">
                 <p className="text-44 text-foreground max-sm:font-medium font-heading">
                   {title}
                 </p>
 
-                <p className="text-30 max-sm:text-[4.4vw] max-sm:leading-[1.4] text-[#333333] w-[100%] max-md:w-full">{text}</p>
+                <p className="text-30 max-sm:text-[4.4vw] max-sm:leading-[1.4] text-[#333333] w-full">
+                  {text}
+                </p>
               </div>
             </div>
           ))}

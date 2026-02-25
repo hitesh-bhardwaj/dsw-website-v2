@@ -222,7 +222,7 @@ export default function ContactForm() {
                           htmlFor="name"
                           className="origin-start text-muted-foreground group-focus-within:text-foreground has-[+input:not(:placeholder-shown)]:text-foreground absolute top-1/2 block -translate-y-1/2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:top-0 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+input:not(:placeholder-shown)]:pointer-events-none has-[+input:not(:placeholder-shown)]:top-0 has-[+input:not(:placeholder-shown)]:cursor-default has-[+input:not(:placeholder-shown)]:text-xs has-[+input:not(:placeholder-shown)]:font-medium ml-[1.5vw] max-md:ml-[3vw] "
                         >
-                          <span className="bg-white text-foreground inline-flex px-1 text-24  max-md:text-[2.7vw] max-sm:text-[3.5vw]">
+                          <span className="bg-white text-foreground inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]">
                             Name*
                           </span>
                         </label>
@@ -369,7 +369,7 @@ export default function ContactForm() {
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
-                        <SelectTrigger className="w-full  px-[2vw]  h-15! max-sm:h-14!  bg-background border border-black/10 rounded-full text-foreground cursor-pointer!  text-24 max-md:pl-[5vw] max-md:pr-[4vw]">
+                        <SelectTrigger className="w-full  px-[2vw]  h-15! max-sm:h-14!  bg-background border border-black/10 rounded-full text-foreground cursor-pointer!  text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]  max-md:pl-[5vw] max-md:pr-[4vw]">
                           <SelectValue
                             placeholder="Reason*"
                             className="placeholder:!text-[3.5vw] "
@@ -402,7 +402,7 @@ export default function ContactForm() {
                           htmlFor={"message"}
                           className="origin-start text-muted-foreground/70 group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive absolute top-0 block translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium z-[5] ml-[1vw] max-md:ml-[3vw] max-md:mt-[1vw] border-black/10"
                         >
-                          <span className="bg-white inline-flex px-1 text-24 max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground">
+                          <span className="bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]  text-foreground">
                             Message
                           </span>
                         </label>
@@ -459,13 +459,13 @@ export default function ContactForm() {
                 />
               </div>
 
-              <div className="flex items-center justify-start max-sm:mt-[10vw] max-sm:justify-center">
+              <div className="flex items-center justify-start max-md:mt-0 max-sm:mt-[10vw] max-sm:justify-center">
                 <Button
                   type="submit"
                   aria-label="submit form"
-                  className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] px-0  pt-[0.8vw] rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw]"
+                  className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] pt-[1vw] px-0  pt-[0.8vw] rounded-full max-md:mx-auto max-sm:mt-0 max-sm:py-[7vw] max-md:py-[3.5vw] max-md:mt-[8vw]"
                 >
-                  <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                  <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw]  max-sm:min-w-[55vw] max-md:min-w-[35vw] max-sm:px-[7vw] max-sm:py-[4vw]">
                     <span className="text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]  text-white block z-[1] mt-[2vw] max-md:mt-0">
                       {isLoading ? "Sending..." : "Submit"}
                     </span>

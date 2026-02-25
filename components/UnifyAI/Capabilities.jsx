@@ -1,19 +1,17 @@
 import Copy from "@/components/Animations/Copy";
 import HeadingAnim from "@/components/Animations/HeadingAnim";
-import CornerDecorations from "../CornerDecorations";
-
 export default function Capabilities() {
     return (
-        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] ">
+        <section className="relative w-full py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] max-md:py-[10%] overflow-hidden ">
        
-            <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw]">
+            <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw] max-md:space-y-[4vw]">
                 <HeadingAnim>
-                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full max-sm:text-[8.5vw]">
+                <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full max-md:w-[80%] max-sm:text-[8.5vw]">
                    Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built-In Capabilities
                 </h2>
                 </HeadingAnim>
                 <Copy>
-                <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto text-[#333333]">
+                <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto max-md:w-[80%] text-[#333333]">
                    UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start.
                 </p>
                 </Copy>
@@ -60,13 +58,13 @@ export default function Capabilities() {
   ];
 
   return (
-    <div className="w-[90%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto  relative group">
+    <div className="w-[90%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto  relative  max-md:w-full">
        
-        <div className="max-sm:w-full max-sm:overflow-x-scroll mobile-scrollbar max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0">
-
+        <div className="max-sm:w-full max-sm:overflow-x-scroll mobile-scrollbar max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0 relative">
+<CornerDecorations/>
         
          <div className="w-[90%] max-sm:w-[290%] mx-auto max-sm:overflow-y-hidden overflow-x-auto mobile-scrollbar overflow-y-visible">
-       <CornerDecorations/>
+       
       
       <table className="border-collapse w-full h-full border border-[#D9D9D9]">
        
@@ -96,5 +94,52 @@ export default function Capabilities() {
          </div>
       </div>
     </div>
+  );
+}
+
+
+ function CornerDecorations({
+  hoverColor = "#0205fa",
+  baseColor = "black",
+}) {
+  const line = `
+    w-[5px] h-[1px]
+    duration-300 ease-in-out
+  `;
+
+  return (
+    <>
+      {/* Top Left */}
+      <div className="absolute top-[0%] left-[5%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out">
+        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+        <div
+          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
+        />
+      </div>
+
+      {/* Top Right */}
+      <div className="absolute top-[0.4%] right-[4.85%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:right-[-166.5%]">
+        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+        <div
+          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+        />
+      </div>
+
+      {/* Bottom Left */}
+      <div className="absolute bottom-[0.4%] left-[4.85%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:bottom-[6%] max-sm:left-[4.5%]">
+        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+        <div
+          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+        />
+      </div>
+
+      {/* Bottom Right */}
+      <div className="absolute bottom-[0%] right-[5.05%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:right-[-166%] max-sm:bottom-[5.65%]">
+        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+        <div
+          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+        />
+      </div>
+    </>
   );
 }

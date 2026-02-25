@@ -48,13 +48,13 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
   };
 
   return (
-    <section className="relative w-full h-fit space-y-[6vw] max-md:h-full flex flex-col pb-0 max-sm:pb-[28vw]">
+    <section className="relative w-full h-fit space-y-[6vw] max-md:h-full flex flex-col pb-0 max-sm:pb-[28vw] max-md:pb-[20vw] max-md:space-y-0 max-sm:space-y-[7vw]">
       <div className="w-full flex h-full max-sm:px-[5vw] gap-[1vw] items-end justify-between max-sm:flex-col max-sm:items-start">
         <HeadingAnim>
           <h2 className="text-56 text-[#0A1B4B] w-[45%] max-md:w-full">{heading}</h2>
         </HeadingAnim>
 
-        <div className="flex fadeup gap-6 mt-12 max-sm:mt-0 max-md:mt-[10vw] max-md:items-center max-md:justify-center max-md:absolute max-md:bottom-[6vw] max-sm:bottom-[8vw] max-md:right-[8%]">
+        <div className="flex fadeup gap-6 mt-12 max-sm:mt-0 max-md:mt-[10vw] max-md:items-center max-md:justify-center max-md:absolute max-md:bottom-[4vw] max-md:right-0 max-sm:right-[5%]">
           <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
           <NextButton onClick={handleNext} isDisabled={isEnd} />
         </div>
@@ -75,7 +75,7 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
           }}
           onProgress={(swiper, progress) => setProgress(progress)}
           freeMode
-          className="overflow-visible! max-md:pt-[5vw]! pl-[27%]!  max-md:pl-[5vw]! max-md:w-auto max-sm:mb-[2%] max-md:mb-[10%] max-md:pr-[10%]! "
+          className="overflow-visible! max-md:pt-[5vw]! pl-[27%]!  max-md:pl-[5vw]! max-md:w-auto max-sm:mb-[2%] max-md:pr-[10%]! "
           breakpoints={{
             0: {
               slidesPerView: "auto",
@@ -108,7 +108,7 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
                     className="h-full w-full object-cover rounded-[1.5vw] max-sm:rounded-2xl! max-md:rounded-[4vw]"
                     alt={card.name}
                   />
-                  <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center bg-[#F16B0D] text-white h-[2.5vw] w-[2.5vw] p-1.5 max-md:h-[10vw] max-md:w-[10vw]">
+                  <div className="absolute right-[4%] top-[4%] z-[5] rounded-full flex items-center justify-center bg-[#F16B0D] text-white h-[2.5vw] w-[2.5vw] p-1.5 max-sm:h-[10vw] max-sm:w-[10vw] max-md:size-[6vw]">
                     <LinkedIn />
                   </div>
                 </div>

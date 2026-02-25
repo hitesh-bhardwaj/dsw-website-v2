@@ -16,7 +16,7 @@ export function ModalProvider({ children }) {
    * ------------------------- */
   const [open, setOpen] = useState(false);
   const [openWalkThrough, setOpenWalkThrough] = useState(false);
-  const [openWalkthroughIframe, setOpenWalkthroughIframe] = useState(false);
+  // const [openWalkthroughIframe, setOpenWalkthroughIframe] = useState(false);
 
   /* -------------------------
    * Walkthrough state (BOTH)
@@ -50,26 +50,34 @@ export function ModalProvider({ children }) {
     setOpenWalkThrough(true);
   }, []);
 
-  const openWalkthroughIframeModal = useCallback((p) => {
-    setPayload(p || null);
-    setOpenWalkthroughIframe(true);
-  }, []);
+  // const openWalkthroughIframeModal = useCallback((p) => {
+  //   setPayload(p || null);
+  //   setOpenWalkthroughIframe(true);
+  // }, []);
 
   /* -------------------------
    * SMART WALKTHROUGH OPENER
    * ------------------------- */
-  const openWalkthroughSmart = useCallback(
-    (target) => {
-      setWalkthroughTarget(target);
+  // const openWalkthroughSmart = useCallback(
+  //   (target) => {
+  //     setWalkthroughTarget(target);
+       
+  //     if (walkthroughCompleted[target]) {
+  //       setOpenWalkthroughIframe(true);
+  //     } else {
+  //       setOpenWalkThrough(true);
+  //     }
+  //   },
+  //   [walkthroughCompleted]
+  // );
+  const openWalkthroughSmart = useCallback((target) => {
+  setWalkthroughTarget(target);
 
-      if (walkthroughCompleted[target]) {
-        setOpenWalkthroughIframe(true);
-      } else {
-        setOpenWalkThrough(true);
-      }
-    },
-    [walkthroughCompleted]
-  );
+  // Always open normal walkthrough only
+  // setOpenWalkthroughIframe(false); // make sure iframe is closed
+  setOpenWalkThrough(true);
+}, []);
+
 
   /* -------------------------
    * Mark walkthrough completed
@@ -120,9 +128,9 @@ export function ModalProvider({ children }) {
       openWalkThroughModal,
       openWithWalkthrough,
 
-      openWalkthroughIframe,
-      setOpenWalkthroughIframe,
-      openWalkthroughIframeModal,
+      // openWalkthroughIframe,
+      // setOpenWalkthroughIframe,
+      // openWalkthroughIframeModal,
 
       walkthroughTarget,
       setWalkthroughTarget,
@@ -140,7 +148,7 @@ export function ModalProvider({ children }) {
     [
       open,
       openWalkThrough,
-      openWalkthroughIframe,
+      // openWalkthroughIframe,
       walkthroughTarget,
       walkthroughCompleted,
       payload,
@@ -148,7 +156,7 @@ export function ModalProvider({ children }) {
       openWith,
       openWalkThroughModal,
       openWithWalkthrough,
-      openWalkthroughIframeModal,
+      // openWalkthroughIframeModal,
       openWalkthroughSmart,
       markWalkthroughCompleted,
       openByKey,

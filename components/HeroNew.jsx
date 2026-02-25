@@ -197,7 +197,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
           <HeadingAnim delay={baseDelay + 0.3}>
             <h1
-              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full opacity-0 hero-head ${
+              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] opacity-0 hero-head ${
                 heroContent.headingWidth || "w-[70%]"
               }`}
             >

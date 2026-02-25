@@ -35,7 +35,7 @@ const Listing = ({ news = [] }) => {
             className="w-full space-y-[4vw] fadeup max-md:space-y-[4vw] max-sm:space-y-[5vw]"
           >
             <div className="w-full h-fit flex gap-[2.5vw] max-md:flex-col max-md:gap-[5vw]">
-              <div className="w-[30vw] h-[20vw] rounded-[2vw] overflow-hidden max-md:w-full max-sm:h-[30vh] max-md:h-[55vw] max-md:rounded-[3vw] max-sm:rounded-[5vw]">
+              <div className="w-[30vw] h-[20vw] rounded-[2vw] overflow-hidden max-sm:w-full max-sm:h-[30vh] max-md:h-[35vw] max-md:w-[60vw] max-md:rounded-[2.5vw] max-sm:rounded-[5vw]">
                 <Image
                   src={newsItem.featuredImage?.sourceUrl || "/placeholder.jpg"}
                   alt={newsItem.title || "News image"}
@@ -44,7 +44,7 @@ const Listing = ({ news = [] }) => {
                   height={300}
                 />
               </div>
-              <div className="w-[60%] text-foreground flex flex-col gap-[1.5vw] mt-[1vw] max-md:w-full max-md:gap-[6vw]">
+              <div className="w-[60%] text-foreground flex flex-col gap-[1.5vw] mt-[1vw] max-md:w-full max-sm:gap-[6vw]">
                 <p className="text-24 font-light max-md:order-1">
                   {formatDate(newsItem.newsDate?.newsDate)}
                 </p>
@@ -65,11 +65,11 @@ const Listing = ({ news = [] }) => {
 
       {/* Pagination - only show if more than one page */}
       {totalPages > 1 && (
-        <div className="flex items-center justify-center space-x-[2vw] mt-[5vw] max-sm:mt-[12vw] max-md:w-full max-md:justify-between">
+        <div className="flex items-center justify-center space-x-[2vw] mt-[5vw] max-sm:mt-[12vw] max-sm:w-full max-md:w-[60%] max-md:mx-auto max-md:justify-between">
           {/* Left arrow */}
           <PreviousButton onClick={handlePrev} isDisabled={page === 1} />
 
-          <div className="flex max-sm:w-fit max-sm:justify-center font-head max-md:space-x-[10vw] space-x-[2vw] text-30 text-[#909090]">
+          <div className="flex max-sm:w-fit max-sm:justify-center font-head max-sm:space-x-[10vw] max-md:space-x-[4vw] space-x-[2vw] text-30 text-[#909090]">
             {(() => {
               let pagesToShow = [];
               if (totalPages <= 3) {
