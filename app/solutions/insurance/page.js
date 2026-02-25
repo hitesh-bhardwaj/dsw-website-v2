@@ -48,7 +48,7 @@ const Page = () => {
     <WebpageJsonLd metadata={metadata}/>
       <HeroNew
         heroContent={heroContent}
-        variant={"topLeft"}
+        variant={"bottomLeft"}
         breadcrumbs={true}
       />
       <Runtime runtimeContent={runtimeContent} />

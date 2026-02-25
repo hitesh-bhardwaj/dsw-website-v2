@@ -37,7 +37,7 @@ const Page = () => {
     <WebpageJsonLd metadata={metadata}/>
       <BreadcrumbsJSONLD pathname={metadata.url}/>
     <Layout>
-        <HeroNew heroContent={heroContent} variant={"topLeft"} breadcrumbs={true}/>
+        <HeroNew heroContent={heroContent} variant={"default"} breadcrumbs={true}/>
         <VideoListing/>
         <CTAFinal ctaContent={ctaContent}/>
     </Layout>

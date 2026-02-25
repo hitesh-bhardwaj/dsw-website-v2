@@ -21,13 +21,13 @@ export default function CTAFinal({ ctaContent }) {
 
         {ctaContent.subPara && (
           <Copy>
-            <h5 className=" text-44 text-center text-foreground font-heading">
+            <h5 className=" text-44 text-center text-foreground font-heading w-[80%] mx-auto max-md:w-full">
               {ctaContent.subParaText}
             </h5>
           </Copy>
         )}
         <Copy>
-          <p className="text-30 text-center w-[70%] max-md:w-[90%] text-foreground max-sm:w-full mx-auto max-sm:font-light ">
+          <p className={`text-30 text-center max-md:w-[90%] text-foreground max-sm:w-full mx-auto max-sm:font-light ${ctaContent.paraWidth?ctaContent.paraWidth:"w-[70%]"}`}>
             {ctaContent.para}
           </p>
         </Copy>

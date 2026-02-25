@@ -11,14 +11,14 @@ const secondaryAnnouncements = [
     alt: "inside-unify",
     title: "AI for Insurance Workshop",
     date: "July 18, 2025",
-    href: "#",
+    href: "/ai-insurance-workshops",
   },
   {
     image: "/assets/resources/product-videos/genai-production.png",
     alt: "gen-ai-production",
     title: "AI & GenAI Masterclass",
     date: "July 18, 2025",
-    href: "#",
+    href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
   },
 ];
 
