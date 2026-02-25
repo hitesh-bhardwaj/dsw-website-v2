@@ -193,7 +193,7 @@ export default function Header() {
         id="header"
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
-        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
+        className="text-white w-screen fixed top-0 left-0 z-[900] pointer-events-none"
       >
         <nav
           className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${isHidden ? "-translate-y-full" : "translate-y-0"
