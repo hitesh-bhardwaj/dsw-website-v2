@@ -303,8 +303,8 @@ export default function FooterNew() {
         </div>
 
         {/* Bottom Section */}
-        <div className="flex items-end justify-between pt-[4.5vw] max-sm:justify-center">
-          <div className="w-[20vw] h-[11vw] relative max-sm:hidden">
+        <div className="flex items-end justify-between  pt-[4.5vw] max-sm:justify-center">
+          <div className="w-[20vw] max-md:w-[22vw] max-md:h-[10vw] h-[11vw] relative max-sm:hidden">
             <Image
               src="/assets/dsw-logo.svg"
               alt="Data Science Wizards"

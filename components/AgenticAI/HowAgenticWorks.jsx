@@ -256,7 +256,7 @@ const HowAgenticWorks = () => {
       ref={sectionRef}
       className="py-[7%] h-[400vh]  max-md:w-full max-md:py-[15%]"
     >
-      <div className="w-screen h-screen py-[10%] sticky top-0 max-sm:overflow-hidden max-md:top-[-5%]">
+      <div className="w-screen h-screen py-[10%] sticky top-0 max-md:overflow-hidden max-md:top-[-5%]">
         <div
           ref={outerRef}
           className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65vw] max-md:w-[120vw] max-sm:w-[160vw] h-auto"
