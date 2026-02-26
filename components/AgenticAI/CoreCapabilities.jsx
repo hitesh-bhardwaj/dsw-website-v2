@@ -135,7 +135,7 @@ const CoreCapabilities = () => {
   return (
     <section
       id="plat-cap-container"
-      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[15%] max-sm:py-[20%] max-md:space-y-[10vw] space-y-[4vw] max-sm:space-y-[4vw]"
+      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[15%] max-sm:py-[20%] max-md:space-y-[3vw] space-y-[4vw] max-sm:space-y-[4vw]"
     >
       <HeadingAnim>
 

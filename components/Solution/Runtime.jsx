@@ -7,7 +7,7 @@ const Runtime = ({ runtimeContent }) => {
 
   return (
     <section
-      className="w-full px-[5vw] py-[7%] max-md:px-[6vw] max-md:py-[10%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[7%] pt-[10%] max-md:px-[6vw] max-md:py-[10%] max-sm:px-[7vw] max-sm:py-[15%]"
       id="runtime"
     >
       <div className="w-full h-full gap-y-[2vw] max-sm:gap-y-[6vw] max-md:gap-y-[5vw] flex flex-col items-center">
@@ -38,7 +38,7 @@ const Runtime = ({ runtimeContent }) => {
                 key={index}
                 className="w-[49%] max-md:w-[47%] h-[15vw] max-md:h-[28vw] max-sm:w-full max-sm:h-[42vw] rounded-[1.2vw] max-sm:rounded-[3vw] max-md:rounded-[2vw] border border-primary-blue p-[1.5vw] flex flex-col justify-between max-sm:p-[3.5vw] max-md:p-[2.5vw] fadeup"
               >
-                <div className="rounded-full size-[4vw] max-md:size-[6.5vw] max-sm:size-[13vw] p-[2vw] max-md:p-[3vw] max-sm:p-[3vw] border text-32 font-heading flex items-center justify-center">
+                <div className="rounded-full size-[4vw] max-md:size-[6.5vw] max-sm:size-[15vw] p-[2vw] max-md:p-[3vw] max-sm:p-[3vw] border text-32 font-heading flex items-center justify-center">
                   {item.number}
                 </div>
 

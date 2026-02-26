@@ -65,7 +65,7 @@ const CaseStudySwiper = () => {
     <>
       <style>{styles}</style>
       <section
-      className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[15%] overflow-hidden"
       id="casestudy"
     >
       <div className="w-full h-full gap-y-[3vw] max-md:gap-[5vw] max-sm:gap-[6vw] flex flex-col items-center text-center">
@@ -156,7 +156,7 @@ const CaseStudySwiper = () => {
           </Swiper>
 
         </div>
-        <div className="flex gap-[1vw] justify-center mt-[1vw] max-sm:mt-[6vw]">
+        <div className="flex gap-[1vw] justify-center mt-[1vw] max-sm:mt-[6vw] max-sm:gap-[5vw] max-md:gap-[3vw]">
             <PreviousButton onClick={handlePrevClick} isDisabled={activeSlide === 0} />
             <NextButton onClick={handleNextClick} isDisabled={activeSlide === caseStudies.length - 1} />
         </div>

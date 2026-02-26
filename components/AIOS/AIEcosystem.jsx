@@ -125,7 +125,7 @@ const AIEcosystem = ({ecosystemItems}) => {
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 max-w-[70vw] mx-auto">
+            <p className="text-30 w-[70%] max-md:w-[90%] max-sm:w-full mx-auto">
               At the core of the DSW Enterprise AI Operating System is UnifyAI,
               operating as a kernel that governs all AI and agentic execution.
             </p>
@@ -209,7 +209,7 @@ const AIEcosystem = ({ecosystemItems}) => {
         </div>
         {/* Rings Container */}
       </section>
-      <AIEcosystemMob />
+      <AIEcosystemMob ecosystemItems={ecosystemItems} />
     </>
   );
 };

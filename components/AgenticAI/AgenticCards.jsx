@@ -33,7 +33,7 @@ const CardItem = React.forwardRef(({ title, description }, ref) => {
   return (
     <div
       ref={ref}
-      className="relative shadow-sm drop-shadow-lg bg-white rounded-[1.5vw] border border-primary-blue p-[2vw] w-[28vw] h-[37vw] max-md:h-[55vw] max-md:w-[50vw] flex flex-col justify-between max-sm:w-[83vw] max-sm:h-[110vw] max-sm:rounded-[4vw] max-sm:p-[8vw] max-md:p-[5vw]"
+      className="relative shadow-sm drop-shadow-lg bg-white rounded-[1.5vw] border border-primary-blue p-[2vw] w-[28vw] h-[37vw] max-md:h-[65vw] max-md:w-[50vw] max-md:rounded-[3vw] flex flex-col justify-between max-sm:w-[83vw] max-sm:h-[110vw] max-sm:rounded-[4vw] max-sm:p-[8vw] max-md:p-[5vw]"
     >
       <h2 className="text-56 text-[#0A1B4B]">{title}</h2>
 
