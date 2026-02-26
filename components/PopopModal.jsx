@@ -72,7 +72,7 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
       <div className="h-full max-sm:h-fit w-full overflow-y-auto! flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
         <div className="w-[30%] h-full space-y-[1vw] max-md:w-full max-md:space-y-[2vw]">
           {payload ? (
-            <h2 className="text-90 formhead">Download Pdf</h2>
+            <h2 className="text-76 formhead">Download Pdf</h2>
           ) : (
             <h2 className="text-76 text-[#0A1B4B] formhead leading-[1.2]">Get a Full Demo</h2>
           )}

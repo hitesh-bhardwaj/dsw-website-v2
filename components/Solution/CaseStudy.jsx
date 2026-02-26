@@ -1,7 +1,6 @@
 import React from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
-import SecondaryButton from "../Buttons/SecondaryButton";
-import Image from "next/image";
+import CaseStudyCard from "./CaseStudyCard";
 
 const CaseStudy = ({ caseStudyContent }) => {
   const {
@@ -41,39 +40,7 @@ const CaseStudy = ({ caseStudyContent }) => {
         </HeadingAnim>
 
         {/* Case Study Card */}
-        <div className="w-[75%] max-sm:w-full h-[30vw] rounded-[1.2vw] max-md:rounded-[3vw] max-md:h-[45vw] overflow-hidden flex border border-black/20 mt-[4vw] fadeup max-sm:flex-col max-md:w-[95%] max-sm:rounded-[6vw] max-sm:h-[120vw] max-sm:mt-[10vw]">
-          
-          {/* Image Section */}
-          <div className="w-[50%]  max-sm:w-full bg-primary-blue h-full text-white text-56 flex justify-center items-center font-medium max-sm:h-[45%]">
-            {/* {imageContent} */}
-            <Image src={imgSrc} alt={'case study img'} width={400} height={400} className="w-full h-full object-cover"/>
-          </div>
-
-          {/* Content Section */}
-          <div className="w-[50%] max-sm:w-full p-[2.5vw] max-md:p-[3vw] flex flex-col gap-[1.5vw] justify-between text-left pb-[4vw] max-sm:p-[5vw] max-sm:gap-[4vw]">
-            
-            <h4 className="text-44 font-medium text-[#0A1B4B]">
-              {company}
-            </h4>
-
-            <p className="text-24 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]">
-              {description}
-            </p>
-
-            {button?.present && (
-              <div className="w-fit">
-                <SecondaryButton
-                  text={button.text}
-                  href={button.href}
-                  {...(isPdf && {
-                    target: "_blank",
-                    rel: "noopener noreferrer",
-                  })}
-                />
-              </div>
-            )}
-          </div>
-        </div>
+       <CaseStudyCard caseStudy={caseStudyContent}/>
       </div>
     </section>
   );

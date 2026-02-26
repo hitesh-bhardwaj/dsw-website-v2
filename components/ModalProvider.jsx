@@ -31,6 +31,9 @@ export function ModalProvider({ children }) {
   /* Shared payload */
   const [payload, setPayload] = useState(null);
 
+  /* Track if form was submitted */
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   /* -------------------------
    * Existing helpers
    * ------------------------- */
@@ -77,7 +80,6 @@ export function ModalProvider({ children }) {
   // setOpenWalkthroughIframe(false); // make sure iframe is closed
   setOpenWalkThrough(true);
 }, []);
-
 
   /* -------------------------
    * Mark walkthrough completed
@@ -143,6 +145,9 @@ export function ModalProvider({ children }) {
       payload,
       setPayload,
 
+      formSubmitted,
+      setFormSubmitted,
+
       openByKey,
     }),
     [
@@ -152,6 +157,7 @@ export function ModalProvider({ children }) {
       walkthroughTarget,
       walkthroughCompleted,
       payload,
+      formSubmitted,
       openModal,
       openWith,
       openWalkThroughModal,

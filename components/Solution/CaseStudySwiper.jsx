@@ -1,14 +1,16 @@
 "use client"
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Navigation } from "swiper/modules";
+import { Autoplay, EffectCards, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
+import { useModal } from "../ModalProvider";
+import { downloadPdf } from "@/lib/downloadPdf";
 
 const styles = `
   .swiper-slide-shadow {
@@ -30,6 +32,8 @@ const styles = `
 
 const CaseStudySwiper = () => {
   const swiperRef = useRef(null);
+  const { openWith, formSubmitted } = useModal();
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const handlePrevClick = () => {
     swiperRef.current?.slidePrev();
@@ -37,6 +41,22 @@ const CaseStudySwiper = () => {
 
   const handleNextClick = () => {
     swiperRef.current?.slideNext();
+  };
+
+  const handleCaseStudyDownload = async (e, pdfUrl, companyName) => {
+    e.preventDefault();
+    
+    // If form already submitted, download directly
+    if (formSubmitted) {
+      try {
+        await downloadPdf(pdfUrl, `${companyName}-case-study.pdf`);
+      } catch (err) {
+        console.error("Download failed:", err);
+      }
+    } else {
+      // Otherwise, open form modal with PDF payload
+      openWith({ pdfUrl, fileName: `${companyName}-case-study.pdf` });
+    }
   };
 
  
@@ -70,9 +90,17 @@ const CaseStudySwiper = () => {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
+            onSlideChange={(swiper) => {
+              setActiveSlide(swiper.activeIndex);
+            }}
             effect="cards"
+            loop={true}
             grabCursor
-            modules={[EffectCards, Navigation]}
+             autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+            modules={[EffectCards, Navigation, Autoplay]}
             cardsEffect={{
               slideShadows: true,
               rotate: false,
@@ -110,14 +138,15 @@ const CaseStudySwiper = () => {
 
                     {caseStudy.button?.present && (
                       <div className="w-fit">
-                        <SecondaryButton
-                          text={caseStudy.button.text}
-                          href={caseStudy.button.href}
-                          {...(caseStudy.button.type === "pdf" && {
-                            target: "_blank",
-                            rel: "noopener noreferrer",
-                          })}
-                        />
+                        <div
+                          onClick={(e) => handleCaseStudyDownload(e, caseStudy.button.href, caseStudy.company)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          <SecondaryButton
+                            text={caseStudy.button.text}
+                            href="#"
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
@@ -127,9 +156,9 @@ const CaseStudySwiper = () => {
           </Swiper>
 
         </div>
-        <div className="flex gap-[1vw] justify-center mt-[3vw] max-sm:mt-[6vw]">
-            <PreviousButton onClick={handlePrevClick}/>
-            <NextButton  onClick={handleNextClick}/>
+        <div className="flex gap-[1vw] justify-center mt-[1vw] max-sm:mt-[6vw]">
+            <PreviousButton onClick={handlePrevClick} isDisabled={activeSlide === 0} />
+            <NextButton onClick={handleNextClick} isDisabled={activeSlide === caseStudies.length - 1} />
         </div>
       </div>
     </section>
