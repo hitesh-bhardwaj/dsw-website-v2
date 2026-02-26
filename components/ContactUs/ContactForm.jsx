@@ -208,7 +208,7 @@ export default function ContactForm() {
           <Form {...form}>
             <form
               autoComplete="off"
-              className="space-y-[1vw] max-sm:space-y-[4vw] max-md:space-y-[4vw]"
+              className="space-y-[1.2vw] max-sm:space-y-[4vw] max-md:space-y-[4vw]"
               onSubmit={handleSubmit(onSubmit)}
             >
               <FormField
@@ -300,7 +300,7 @@ export default function ContactForm() {
                           id="designation"
                           type="text"
                           placeholder=" "
-                          className="dark:bg-transparent border-[#B0B0B080] border h-15  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] "
+                          className="dark:bg-transparent border-[#B0B0B080] border h-15 max-sm:h-13  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] "
                         />
                       </div>
                     </FormControl>
@@ -330,7 +330,7 @@ export default function ContactForm() {
                           id="company"
                           type="text"
                           placeholder=" "
-                          className="dark:bg-transparent border-[#B0B0B080] border  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] h-15"
+                          className="dark:bg-transparent border-[#B0B0B080] border  !bg-white  !rounded-full  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] h-15 max-sm:h-13"
                         />
                       </div>
                     </FormControl>
@@ -351,7 +351,7 @@ export default function ContactForm() {
                         defaultCountry="IN"
                         international
                         {...field}
-                        className="placeholder:text-[1.15vw] placeholder:text-[#CACACA] max-md:placeholder:text-[2.7vw] max-sm:placeholder:text-[3.5vw] allForm !bg-background "
+                        className="placeholder:text-[1.15vw] h-15! max-md:h-18!  max-sm:h-13! placeholder:text-[#CACACA] max-md:placeholder:text-[2.7vw] max-sm:placeholder:text-[3.5vw] allForm !bg-background "
                       />
                     </FormControl>
                     <FormMessage />
@@ -369,13 +369,13 @@ export default function ContactForm() {
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                       >
-                        <SelectTrigger className="w-full  px-[2vw]  h-15! max-sm:h-14!  bg-background border border-black/10 rounded-full text-foreground cursor-pointer!  text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]  max-md:pl-[5vw] max-md:pr-[4vw]">
+                        <SelectTrigger className="w-full  px-[2vw]  h-15 max-sm:h-13  max-md:h-18 bg-background border border-black/10 rounded-full text-foreground cursor-pointer!  text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]  max-md:pl-[5vw] max-md:pr-[4vw]">
                           <SelectValue
                             placeholder="Reason*"
                             className="placeholder:!text-[3.5vw] "
                           />
                         </SelectTrigger>
-                        <SelectContent className=" bg-white/20 backdrop-blur-lg rounded-[1.2vw] max-md:placeholder:!24 text-foreground border !border-[#B0B0B080]rounded-[1.5vw] p-[1vw] max-sm:rounded-[3vw] max-sm:p-[3vw] max-md:rounded-[2.5vw] max-md:p-[1.5vw]">
+                        <SelectContent className=" bg-white backdrop-blur-lg rounded-[1.2vw] max-md:placeholder:!24 text-foreground border !border-black/20 rounded-[1.5vw] p-[1vw] max-sm:rounded-[3vw] max-sm:p-[3vw] max-md:rounded-[2.5vw] max-md:p-[1.5vw]">
                           <SelectItem value="support">Support</SelectItem>
                           <SelectItem value="sales">Sales Inquiry</SelectItem>
                           <SelectItem value="partnership">
@@ -400,9 +400,10 @@ export default function ContactForm() {
                       <div className="group relative w-full">
                         <label
                           htmlFor={"message"}
-                          className="origin-start text-muted-foreground/70 group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive absolute top-0 block translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium z-[5] ml-[1vw] max-md:ml-[3vw] max-md:mt-[1vw] border-black/10"
+                          className="origin-start text-muted-foreground/70 group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive absolute top-0 block translate-y-4 max-md:translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium z-[5] ml-[1vw] max-md:ml-[3vw] max-md:mt-[1vw] border-black/10"
                         >
-                          <span className="bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw]  text-foreground">
+                          <span className="bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground">
+                            
                             Message
                           </span>
                         </label>
@@ -411,7 +412,7 @@ export default function ContactForm() {
                           {...field}
                           id="messsage"
                           placeholder=" "
-                          className=" py-4 h-35 dark:bg-transparent border-black/10 border  !bg-white  !rounded-[2vw]  pl-[2vw] max-sm:pl-[6vw] max-md:pl-[5vw] max-md:!rounded-[5vw] max-sm:text-[3.5vw] max-md:text-[2.7vw] "
+                          className=" py-4 max-md:pt-6 h-35 dark:bg-transparent border-black/10 border  !bg-white  !rounded-[2vw]  pl-[2vw] max-sm:pl-[5vw] max-md:pl-[5vw] max-md:!rounded-[5vw] max-sm:text-[3.5vw] max-md:text-[2.7vw] "
                         />
                       </div>
                     </FormControl>

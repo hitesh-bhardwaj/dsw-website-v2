@@ -38,12 +38,12 @@ PhoneInput.displayName = "PhoneInput";
 
 const InputComponent = React.forwardRef(({ className, ...props }, ref) => (
   <>
-    <div className="relative w-full h-full overflow-hidden">
+    <div className="relative w-full h-full">
       <input
         ref={ref}
         data-slot="input"
         className={cn(
-          "file:text-foreground placeholder:text-muted-foreground  !text-[1.1vw] max-md:!text-[2.7vw] max-sm:!text-[3.5vw] max-md:px-[4vw] selection:text-primary-foreground flex h-[4.5vw] max-sm:h-[14vw] max-md:h-[9vw] w-full min-w-0 px-[2vw] max-sm:px-[4vw] py-1 text-base shadow-xs transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border border-black/10 rounded-full bg-white/50 text-[#111] placeholder:text-[#111] inputBlock",
+          "file:text-foreground placeholder:text-muted-foreground  !text-[1.1vw] max-md:!text-[2.7vw] max-sm:!text-[3.5vw] max-md:px-[4vw] selection:text-primary-foreground flex h-15 max-md:h-18 max-sm:h-13 w-full min-w-0 px-[2vw] max-sm:px-[4vw]  text-base shadow-xs  transition-[color,box-shadow] outline-none file:inline-flex file:h-7 file:border-0 file:bg-transparent file:text-sm file:font-medium disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm border border-black/10 rounded-full bg-white/50 text-[#111] placeholder:text-[#111] inputBlock",
           "aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40",
           className
         )}
@@ -80,7 +80,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
         <Button
           type="button"
           variant="outline"
-          className="flex justify-center gap-[1.5vw] h-[4.5vw] border border-black/10 shadow-none px-[2vw] pb-2 focus:z-900 max-md:h-[9vw] max-sm:h-[14vw] max-sm:w-[35%] max-sm:gap-[4vw] w-[20%] mr-[0.8vw] max-sm:mr-[2.5vw] bg-white/50 flagblock  rounded-full cursor-pointer hover:bg-white/50"
+          className="flex justify-center gap-[1.5vw] max-md:h-18! border border-black/10 shadow-none px-[2vw] pb-2 focus:z-900 h-15! max-sm:h-13! max-sm:w-[35%] max-sm:gap-[4vw]  w-[20%] mr-[0.8vw] max-sm:mr-[2.5vw] bg-white/50 flagblock  rounded-full cursor-pointer hover:bg-white/50"
           disabled={disabled}
         >
           <FlagComponent country={selectedCountry} countryName={selectedCountry} />
