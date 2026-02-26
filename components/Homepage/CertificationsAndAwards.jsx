@@ -75,7 +75,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
         </div>
 
         <Copy>
-          <p className="text-30 w-[45%] max-md:w-[90%] max-md:pt-[4vw] max-sm:w-full max-sm:pt-[10vw]">{footerText}</p>
+          <p className="text-30 w-[50%] max-md:w-[90%] max-md:pt-[4vw] max-sm:w-full max-sm:pt-[10vw]">{footerText}</p>
         </Copy>
       </div>
     </section>

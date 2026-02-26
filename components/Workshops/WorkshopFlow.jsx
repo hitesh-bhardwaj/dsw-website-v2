@@ -125,7 +125,7 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
             <h3 className="text-32 font-medium text-foreground">{title}</h3>
           </div>
           <div className="w-full  max-md:space-y-[3vw]  py-[1vw] max-sm:mt-[8vw] mt-[5vw]">
-            <ul className={`list-disc  pl-[2vw] max-sm:pl-[5vw] max-sm:space-y-[6vw] ${space}`}>
+            <ul className={`list-disc marker:text-sm  pl-[2vw] max-sm:pl-[5vw] max-sm:space-y-[6vw] ${space}`}>
               {list.map((item, index) => (
                 <li
                   key={index}

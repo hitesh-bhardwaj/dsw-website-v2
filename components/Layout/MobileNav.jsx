@@ -44,7 +44,7 @@ const NAV_LINKS = [
     href: "#",
     drop: true,
     children: [
-      { id: "res-1", label: "Case Studies", href: "#" },
+      { id: "res-1", label: "Case Studies", href: "/casestudies" },
       { id: "res-2", label: "In the News", href: "/news" },
       { id: "res-3", label: "Blogs", href: "/blogs" },
       { id: "res-4", label: "Events", href: "/webinars-and-events" },

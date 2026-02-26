@@ -13,9 +13,9 @@ import { homepage } from '@/lib/util'
 import CertificationsAndAwards from '@/components/Homepage/CertificationsAndAwards'
 
 export const metadata = getPageMetadata({
-  title: "DSW AgenticAI – Governed Enterprise AI Agents for BFSI",
+  title: "DSW AgenticAI - Governed, explainable, production-ready agents for Banking & Insurance",
   description:
-    "Deploy governed, explainable, production-ready AI agents for banking and insurance. Turn AI pilots into auditable, compliant automation with DSW AgenticAI.",
+    "Production-grade agentic AI for regulated enterprises. Deploy GenAI agents in hours and AI/ML workflows in days with audit-first governance and enterprise security.",
   url: "agentic-ai",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -62,7 +62,7 @@ export default AgenticAI
 
 const heroContent={
   tagline:"Deploy AI agents in hours! ",
-  heading:"Governed, explainable, production-ready agents for enterprises.",
+  heading:"Governed, explainable, production-ready agents.",
   primaryButton:{
     present:true,
     link:"#",

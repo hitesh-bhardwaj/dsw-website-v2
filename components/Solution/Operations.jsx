@@ -39,7 +39,7 @@ const MobileAccordionContent = ({ tabContent, isActive }) => {
       >
         <div className="w-full space-y-[4vw]">
           <p>{tabContent.intro}</p>
-          <ul className="list-disc pl-[7vw] space-y-[2vw]">
+          <ul className="list-disc marker:text-sm pl-[7vw] space-y-[2vw]">
             {tabContent.bullets?.map((b, i) => (
               <li key={i}>{b}</li>
             ))}
@@ -289,7 +289,7 @@ const Operations = ({ operationsContent }) => {
           <div className="w-full space-y-[2vw]">
             <p data-intro>{current.intro}</p>
 
-            <ul className="list-disc pl-[1.5vw] space-y-[1vw]">
+            <ul className="list-disc marker:text-sm pl-[1.5vw] space-y-[1vw]">
               {current.bullets?.map((b, i) => (
                 <li key={i}>{b}</li>
               ))}

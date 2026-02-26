@@ -240,7 +240,7 @@ ScrollTrigger.create({
                   <div className="w-full h-[1px] bg-white my-[1vw]" />
 
                   <div className="flex items-center justify-between gap-2">
-                    <ul className="space-y-[0.5vw] pl-[1.5vw] max-sm:pl-[5vw] list-disc max-sm:text-[3.8vw] max-md:text-24 text-24">
+                    <ul className="space-y-[0.5vw] pl-[1.5vw] max-sm:pl-[5vw] list-disc marker:text-sm max-sm:text-[3.8vw] max-md:text-24 text-24">
                       {step.bullets.map((b, liIdx) => (
                         <li
                           key={liIdx}

@@ -48,13 +48,14 @@ export default function Capabilities() {
       delivers: "Seamless integration of external/internal knowledge sources for GenAI workflows."
     },
     {
+      capability: "Auto Monitoring Engine",
+      delivers: "Real-time model and agent monitoring, performance alerts, and drift detection."
+    },
+    {
       capability: "Guardrails & Controls",
       delivers: "Role-based access, safety checks, compliance workflows built in from day one."
     },
-    {
-      capability: "Auto Monitoring Engine",
-      delivers: "Real-time model and agent monitoring, performance alerts, and drift detection."
-    }
+    
   ];
 
   return (

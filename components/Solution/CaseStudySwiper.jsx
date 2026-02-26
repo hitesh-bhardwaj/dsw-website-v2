@@ -1,14 +1,16 @@
 "use client"
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import SecondaryButton from "../Buttons/SecondaryButton";
 import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { EffectCards, Navigation } from "swiper/modules";
+import { Autoplay, EffectCards, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-cards";
 import "swiper/css/navigation";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
+import { useModal } from "../ModalProvider";
+import { downloadPdf } from "@/lib/downloadPdf";
 
 const styles = `
   .swiper-slide-shadow {
@@ -30,6 +32,8 @@ const styles = `
 
 const CaseStudySwiper = () => {
   const swiperRef = useRef(null);
+  const { openWith, formSubmitted } = useModal();
+  const [activeSlide, setActiveSlide] = useState(0);
 
   const handlePrevClick = () => {
     swiperRef.current?.slidePrev();
@@ -39,13 +43,29 @@ const CaseStudySwiper = () => {
     swiperRef.current?.slideNext();
   };
 
+  const handleCaseStudyDownload = async (e, pdfUrl, companyName) => {
+    e.preventDefault();
+    
+    // If form already submitted, download directly
+    if (formSubmitted) {
+      try {
+        await downloadPdf(pdfUrl, `${companyName}-case-study.pdf`);
+      } catch (err) {
+        console.error("Download failed:", err);
+      }
+    } else {
+      // Otherwise, open form modal with PDF payload
+      openWith({ pdfUrl, fileName: `${companyName}-case-study.pdf` });
+    }
+  };
+
  
 
   return (
     <>
       <style>{styles}</style>
       <section
-      className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[7%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[15%] overflow-hidden"
       id="casestudy"
     >
       <div className="w-full h-full gap-y-[3vw] max-md:gap-[5vw] max-sm:gap-[6vw] flex flex-col items-center text-center">
@@ -53,7 +73,7 @@ const CaseStudySwiper = () => {
         
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto capitalize w-[80%]">
-            Case Studies
+           Insurance AI in production
           </h2>
         </HeadingAnim>
 
@@ -70,9 +90,17 @@ const CaseStudySwiper = () => {
             onSwiper={(swiper) => {
               swiperRef.current = swiper;
             }}
+            onSlideChange={(swiper) => {
+              setActiveSlide(swiper.activeIndex);
+            }}
             effect="cards"
+            loop={true}
             grabCursor
-            modules={[EffectCards, Navigation]}
+             autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+            modules={[EffectCards, Navigation, Autoplay]}
             cardsEffect={{
               slideShadows: true,
               rotate: false,
@@ -110,14 +138,15 @@ const CaseStudySwiper = () => {
 
                     {caseStudy.button?.present && (
                       <div className="w-fit">
-                        <SecondaryButton
-                          text={caseStudy.button.text}
-                          href={caseStudy.button.href}
-                          {...(caseStudy.button.type === "pdf" && {
-                            target: "_blank",
-                            rel: "noopener noreferrer",
-                          })}
-                        />
+                        <div
+                          onClick={(e) => handleCaseStudyDownload(e, caseStudy.button.href, caseStudy.company)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          <SecondaryButton
+                            text={caseStudy.button.text}
+                            href="#"
+                          />
+                        </div>
                       </div>
                     )}
                   </div>
@@ -127,9 +156,9 @@ const CaseStudySwiper = () => {
           </Swiper>
 
         </div>
-        <div className="flex gap-[1vw] justify-center mt-[3vw] max-sm:mt-[6vw]">
-            <PreviousButton onClick={handlePrevClick}/>
-            <NextButton  onClick={handleNextClick}/>
+        <div className="flex gap-[1vw] justify-center mt-[1vw] max-sm:mt-[6vw] max-sm:gap-[5vw] max-md:gap-[3vw]">
+            <PreviousButton onClick={handlePrevClick} isDisabled={activeSlide === 0} />
+            <NextButton onClick={handleNextClick} isDisabled={activeSlide === caseStudies.length - 1} />
         </div>
       </div>
     </section>
@@ -146,7 +175,7 @@ export default CaseStudySwiper;
       company: "Persistency",
       description:
         "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
-      imgSrc: "/assets/case-studies/case-study-insurance.png",
+      imgSrc: "/assets/case-studies/insurance/persistency.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -159,7 +188,7 @@ export default CaseStudySwiper;
       company: "Predicting fraud",
       description:
         "The Leading Life Insurance company of India offering a broad portfolio of protection, savings, and investment products across urban and rural markets.",
-      imgSrc: "/assets/case-studies/case-study-banking.png",
+      imgSrc: "/assets/case-studies/insurance/predicting-fraud.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -171,8 +200,8 @@ export default CaseStudySwiper;
       id: 3,
       company: "Customer Unification",
       description:
-        "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient-first principles. Known for its ethical standards, the insurer is committed to delivering innovative solutions that protect both customers and the business.",
-      imgSrc: "/assets/case-studies/case-study-finance.png",
+        "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity,operational scale, and patient-first principles",
+      imgSrc: "/assets/case-studies/insurance/customer-data.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -185,7 +214,7 @@ export default CaseStudySwiper;
       company: "Sales Performance Dashboard",
       description:
         "India’s leading Life Insurance company is a leading insurer in India, serving diverse markets across the country with a wide range of insurance solutions.",
-      imgSrc: "/assets/case-studies/case-study-healthcare.png",
+      imgSrc: "/assets/case-studies/insurance/mahindra.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -198,7 +227,7 @@ export default CaseStudySwiper;
       company: "Email Automation",
       description:
         "India’s leading Health Insurance Company is committed to clinical excellence, patient centricity, and ethical practices.",
-      imgSrc: "/assets/case-studies/case-study-manufacturing.png",
+      imgSrc: "/assets/case-studies/insurance/email-automation.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -211,7 +240,7 @@ export default CaseStudySwiper;
       company: "PIVC",
       description:
         "This Insurance company is a top-tier life insurer in India, serving millions across urban and rural markets.",
-      imgSrc: "/assets/case-studies/case-study-retail.png",
+      imgSrc: "/assets/case-studies/insurance/pivc.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -224,7 +253,7 @@ export default CaseStudySwiper;
       company: "Customer Data Enrichment",
       description:
         "A leading life insurer in India, offering a broad portfolio of protection, savings, and investment products across urban and rural markets.",
-      imgSrc: "/assets/case-studies/case-study-teleco.png",
+      imgSrc: "/assets/case-studies/insurance/data-enrichment.png",
       button: {
         present: true,
         text: "Download Case Study",

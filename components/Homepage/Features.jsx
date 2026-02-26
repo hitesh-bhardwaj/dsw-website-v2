@@ -61,7 +61,7 @@ const Features = () => {
 
                 {feature.bullets && feature.bullets.length > 0 && (
                   // <Copy>
-                    <ul className="font-medium text-30 space-y-[0.5vw] list-disc pl-[1.5vw] max-sm:pl-[5vw] fadeup">
+                    <ul className="font-medium text-30 space-y-[0.5vw] list-disc marker:text-sm pl-[1.5vw] max-sm:pl-[5vw] fadeup">
                       {feature.bullets.map((item, index) => (
                         <li key={index}>{item}</li>
                       ))}

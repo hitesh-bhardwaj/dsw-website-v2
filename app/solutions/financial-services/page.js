@@ -327,9 +327,9 @@ const ctaContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Built for regulated financial environments",
+  subtext: "",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Supports surveillance, governance, and regulatory workflows across lending, markets, and operations.",
 };
 

@@ -39,7 +39,7 @@ export default function Benefits({ benefitsContent }) {
         gsap.timeline({
           scrollTrigger: {
             trigger: item,
-            start: isMobile ? "20% 180%" : "10% bottom",
+            start: isMobile ? "20% 80%" : "10% bottom",
             end: "bottom 40%",
             scrub: true,
             // markers: true,

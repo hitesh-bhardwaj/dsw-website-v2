@@ -83,7 +83,7 @@ export default function BlogContent() {
           className="w-fit overflow-y-scroll h-fit max-h-[55vh] max-md:hidden rounded-[2vw] border border-black/10 drop-shadow-lg
            shadow-background bg-white p-[1vw] fadeup"
         >
-          <ul className="flex flex-col items-start h-full gap-[1.5vw] list-disc p-[2vw]">
+          <ul className="flex flex-col items-start h-full gap-[1.5vw] list-disc marker:text-sm p-[2vw]">
             {tableOfContents.map((item, index) => (
               <li
                 key={index}
@@ -154,7 +154,7 @@ export default function BlogContent() {
                   Manual claims review is time-consuming and error-prone. With
                   GenAI, insurers can:
                 </p>
-                <ul className="list-disc pl-[2vw] max-md:pl-[5vw] py-[1vw] max-sm:py-[8vw] max-md:py-[5vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw] ">
+                <ul className="list-disc marker:text-sm pl-[2vw] max-md:pl-[5vw] py-[1vw] max-sm:py-[8vw] max-md:py-[5vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw] ">
                   <li>Extract and summarize claims documents</li>
                   <li>Auto-generate response templates for approval/denial</li>
                   <li>Speed up settlements with fewer human touchpoints</li>
@@ -173,7 +173,7 @@ export default function BlogContent() {
                   historical claims, behavioral patterns—GenAI can flag
                   anomalies and generate risk narratives to support decisions.
                 </p>
-                <ul className="list-disc pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
+                <ul className="list-disc marker:text-sm pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
                   <li>Detecting fraudulent language patterns</li>
                   <li>
                     Generating fraud likelihood summaries for investigators
@@ -194,7 +194,7 @@ export default function BlogContent() {
                   historical claims, behavioral patterns—GenAI can flag
                   anomalies and generate risk narratives to support decisions.
                 </p>
-                <ul className="list-disc pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
+                <ul className="list-disc marker:text-sm pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
                   <li>Detecting fraudulent language patterns</li>
                   <li>
                     Generating fraud likelihood summaries for investigators
@@ -215,7 +215,7 @@ export default function BlogContent() {
                   historical claims, behavioral patterns—GenAI can flag
                   anomalies and generate risk narratives to support decisions.
                 </p>
-                <ul className="list-disc pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
+                <ul className="list-disc marker:text-sm pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:space-y-[2vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
                   <li>Detecting fraudulent language patterns</li>
                   <li>
                     Generating fraud likelihood summaries for investigators
@@ -250,7 +250,7 @@ export default function BlogContent() {
                   GenAI responsibly is non-negotiable. With DSW's UnifyAI
                   platform, insurers benefit from:
                 </p>
-                <ul className="list-disc pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:py-[5vw] max-md:space-y-[3vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
+                <ul className="list-disc marker:text-sm pl-[2vw] max-md:pl-[5vw] py-[1vw] max-md:py-[5vw] max-md:space-y-[3vw] space-y-[0.5vw] marker:text-sm max-md:marker:text-[2.7vw] max-sm:marker:text-[4vw]">
                   <li>
                     SOC 2, ISO 27001, HIPAA & GDPR-compliant infrastructure
                   </li>

@@ -75,7 +75,7 @@ const CountrySelect = ({ disabled, value: selectedCountry, options: countryList,
   }, [onChange]);
 
   return (
-    <Popover open={isOpen} onOpenChange={setIsOpen} modal className="!z-[1001]">
+    <Popover open={isOpen} onOpenChange={setIsOpen} className="z-1001">
       <PopoverTrigger asChild >
         <Button
           type="button"

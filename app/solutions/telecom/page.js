@@ -314,9 +314,9 @@ const ctaContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Built for regulated telecom environments",
+  subtext: "",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Supports governance, audit, and regulatory workflows across network, operations, and customer environments.",
 };
 

@@ -99,7 +99,7 @@ export default function UseCases() {
       </div>
 
       {/* Use Case Cards */}
-      <div className="w-screen h-screen sticky top-0 mt-[-50vh]  overflow-hidden ml-[-5vw] pl-[5vw] max-md:h-fit max-md:sm-[15vw] max-md:static max-md:mt-[10vw] max-md:overflow-x-scroll mobile-scrollbar max-md:pr-[7vw] z-[15] ">
+      <div className="w-screen h-screen sticky top-0 mt-[-50vh]  overflow-hidden ml-[-5vw] pl-[5vw] max-md:h-fit max-md:static max-md:mt-[10vw] max-md:pb-[4vw] max-md:overflow-x-scroll  mobile-scrollbar max-md:pr-[7vw] z-[15] ">
         <div className="w-fit h-full flex gap-[3vw] items-end use-case-container ">
           {USE_CASES.map((useCase) => (
             <div
@@ -117,7 +117,7 @@ export default function UseCases() {
                     {useCase.title}
                   </h4>
 
-                  <ul className="list-disc text-24 pl-[1vw] space-y-[0.5vw] max-md:pl-[3vw] max-sm:pl-[5vw] text-foreground">
+                  <ul className="list-disc marker:text-sm text-24 pl-[1vw] space-y-[0.5vw] max-md:pl-[3vw] max-sm:pl-[5vw] text-foreground">
                     {useCase.items.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}

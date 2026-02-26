@@ -114,7 +114,7 @@ export default function FooterNew() {
     },
     {
       title: "Case Studies",
-      link: "#",
+      link: "/casestudies",
       id: "case-studies",
     },
     {

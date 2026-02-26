@@ -11,14 +11,14 @@ function AboutCard({ challenge }) {
           relative bg-white hover:border-primary-blue group hover:shadow-md hover:drop-shadow-md
           duration-300 ease-in-out max-md:h-[28vw]
           w-[25.5vw] h-[18vw] p-[2vw] max-md:p-[3vw] max-md:w-[42vw]
-          max-sm:p-[7vw] max-sm:w-full max-sm:pr-[8vw] max-sm:h-[62vw]
+          max-sm:p-[7vw] max-sm:w-full max-sm:pr-[8vw] max-sm:h-[58vw]
           border border-border-color flex flex-col
         "
       >
         <CornerDecorations />
 
         {/* Icon */}
-        <div className="mb-auto w-[4.5vw] h-[4.5vw] max-md:w-[7vw] max-md:h-[7vw] max-sm:h-[12vw] max-sm:w-[12vw] text-foreground group-hover:text-primary-blue max-sm:text-primary-blue">
+        <div className="mb-auto w-[4.5vw] h-[4.5vw] max-md:w-[7vw] max-md:h-[7vw] max-sm:h-[14vw] max-sm:w-[14vw] text-foreground group-hover:text-primary-blue max-sm:text-primary-blue">
           {challenge.icon}
         </div>
 

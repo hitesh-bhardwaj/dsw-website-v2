@@ -34,7 +34,7 @@ export default function DemoForm() {
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  const { payload /* { pdfUrl, fileName } */, closeModal } = useModal();
+  const { payload /* { pdfUrl, fileName } */, setFormSubmitted, setOpen } = useModal();
 
   // Email verification function - only called on blur or submit
   const verifyEmail = useCallback(async (email) => {
@@ -208,6 +208,7 @@ export default function DemoForm() {
       if (!res.ok) throw new Error("Failed to send message");
 
       setIsSubmitted(true);
+      setFormSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 5000);
       form.reset();
       setEmailVerified(false);
@@ -217,9 +218,16 @@ export default function DemoForm() {
       if (pdfUrl) {
         try {
           await downloadPdf(pdfUrl, pdfName || undefined);
+          // Close modal after PDF download
+          setTimeout(() => setOpen(false), 800);
         } catch (e) {
           console.error("PDF download failed:", e);
+          // Still close modal even if download fails
+          setTimeout(() => setOpen(false), 800);
         }
+      } else {
+        // Close modal if no PDF to download
+        setTimeout(() => setOpen(false), 800);
       }
 
       // optionally close the modal

@@ -242,7 +242,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-teleco.png",
+  imgSrc:"/assets/case-studies/case-study-manufacturing.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -363,8 +363,8 @@ const operationsContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Built for industrial and regulated manufacturing environments",
+  subtext: "",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Supports auditability, traceability, and compliance across production, safety, and operational workflows.",
 };

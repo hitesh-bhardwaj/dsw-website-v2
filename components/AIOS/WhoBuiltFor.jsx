@@ -138,25 +138,25 @@ const WhoBuiltFor = () => {
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[3%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             CIOs, CTOs, CDOs, and COOs
           </div>
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[27%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             Enterprise architects and platform teams
           </div>
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[58%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             AI, data, and ML engineering leaders
           </div>
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[83%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             Risk, compliance, and security stakeholders
           </div>
         </div>
