@@ -30,27 +30,26 @@ const Workshops = () => {
     >
       <div className="space-y-[5vw] max-sm:space-y-[10vw]">
         <div className="w-full space-y-[1.5vw] max-sm:space-y-[7vw] max-md:space-y-[2vw]">
-            <HeadingAnim>
-
-          <h2 className="text-76 text-[#0A1B4B] headingAnim  max-sm:w-full text-center">
-            AI workshops
-          </h2>
-            </HeadingAnim>
+          <HeadingAnim>
+            <h2 className="text-76 text-[#0A1B4B] headingAnim  max-sm:w-full text-center leading-[1.2]">
+              AI workshops
+            </h2>
+          </HeadingAnim>
           <Copy>
-            <p className="text-30 text-center">
+            <p className="text-30 text-center max-md:w-[80%] max-sm:w-full mx-auto">
               Watch demo walkthroughs, platform explainers, and customer success
               stories.
             </p>
           </Copy>
         </div>
 
-        <div className="w-full flex justify-between  pt-[0.8vw] max-md:flex-col max-md:gap-[10vw] max-sm:gap-[13vw]">
+        <div className="w-full flex justify-between  pt-[0.8vw] max-sm:flex-col max-md:gap-[3vw] max-sm:gap-[13vw]">
           {secondaryAnnouncements.map((item, index) => (
             <div
               key={index}
-              className="w-[47.5%] h-fit flex flex-col gap-[1.3vw] fadeup max-md:w-full max-md:gap-[3vw] max-sm:gap-[7vw] "
+              className="w-[47.5%] h-fit flex flex-col gap-[1.3vw] fadeup max-sm:w-full max-md:w-[48.5%] max-md:gap-[3vw] max-sm:gap-[7vw] "
             >
-              <div className="w-full h-[24vw] rounded-[1.8vw] overflow-hidden group max-md:h-[35vh] max-sm:h-[27vh] max-md:rounded-[4.5vw] max-md:border max-md:border-white/20">
+              <div className="w-full h-[24vw] rounded-[1.8vw] overflow-hidden group max-md:h-[30vw] max-sm:h-[27vh] max-sm:rounded-[4.5vw] max-md:rounded-[2vw] max-md:border max-md:border-white/20">
                 <Image
                   src={item.image}
                   alt={item.alt}
@@ -59,16 +58,19 @@ const Workshops = () => {
                   height={300}
                 />
               </div>
-              <div className="w-full flex justify-between max-sm:flex-col max-sm:items-start max-sm:space-y-[3vw] items-end">
+              <div className="w-full flex justify-between max-md:flex-col max-md:items-start max-sm:space-y-[3vw] items-end">
                 <div className="space-y-[1vw] max-sm:space-y-[3vw]">
-                    
-              <h3 className="text-30 font-medium max-sm:text-[5.5vw]">{item.title}</h3>
+                  <h3 className="text-30 font-medium max-sm:text-[5.5vw]">
+                    {item.title}
+                  </h3>
 
-              <p className="text-24 max-md:text-[2.5vw] max-sm:text-[4vw]">{item.date}</p>
-                    </div>
-
-              <LinkButton text={"Learn More"} href={item.href} />
+                  <p className="text-24 max-md:text-[2.5vw] max-sm:text-[4vw]">
+                    {item.date}
+                  </p>
                 </div>
+
+                <LinkButton text={"Learn More"} href={item.href} />
+              </div>
             </div>
           ))}
         </div>

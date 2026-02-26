@@ -43,7 +43,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
     <section className="relative w-full h-fit space-y-[3vw] px-[5vw] max-md:h-full overflow-hidden py-[7%] max-sm:py-[10%]">
      <div className="w-full flex flex-col h-full  gap-[1vw] max-md:flex-col max-md:items-start">
   <HeadingAnim>
-    <h2 className="text-76 text-[#0A1B4B] whitespace-nowrap max-sm:whitespace-normal leading-[1.2] max-sm:leading-[1.4] text-center max-sm:mx-auto">
+    <h2 className="text-76 text-[#0A1B4B] whitespace-nowrap max-sm:whitespace-normal leading-[1.2] text-center max-md:mx-auto">
       Workshop Flow & Key Sessions
     </h2>
   </HeadingAnim>
@@ -71,7 +71,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
           className="w-full !overflow-visible"
             breakpoints={{
             640: { slidesPerView: 1.2, spaceBetween: 20 },
-            768: { slidesPerView: 1, spaceBetween: 40 },
+            768: { slidesPerView: 1.3, spaceBetween: 40 },
             1025: { slidesPerView: 2.4, spaceBetween: 10 },
           }}
         >

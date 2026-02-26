@@ -27,7 +27,7 @@ const BlogGrid = ({ posts = [] }) => {
   return (
     <section className="px-[5vw] max-sm:px-[7vw] relative pt-0! mx-auto space-y-[7vw] h-fit py-[5%]">
       {/* Grid */}
-      <div className="grid grid-cols-3 gap-[3vw] max-sm:gap-[9vw] max-md:grid-cols-1">
+      <div className="grid grid-cols-3 gap-[3vw] max-sm:gap-[9vw] max-sm:grid-cols-1 max-md:grid-cols-2">
         {currentCards.map((card, idx) => (
           <BlogCard key={card.id || idx} {...card} />
         ))}

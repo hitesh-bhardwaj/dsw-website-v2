@@ -33,7 +33,7 @@ export const metadata = getPageMetadata({
     url: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
     images: [
       {
-        url: `${homepage}seo/ai-and-genai.png`,
+        url: `${homepage}seo/masterclass.png`,
         width: 1200,
         height: 630,
       },
@@ -53,7 +53,7 @@ const page = () => {
         <Outcomes outcomesData={outcomesData} />
         <Empower heading="First Come First Basis - Limited Seats!"
           para="Fill out the form"
-          width={"w-[90%]"} />
+          width={"w-[90%] max-md:w-full"} />
         {/* <Faqs data={faqData}/> */}
         <CTAFinal ctaContent={ctaContent} />
       </Layout>

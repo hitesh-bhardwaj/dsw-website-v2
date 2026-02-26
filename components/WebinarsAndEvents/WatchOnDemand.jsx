@@ -10,12 +10,12 @@ const WatchOnDemand = () => {
         <div className="w-full space-y-[1.5vw] max-md:space-y-[5vw] max-sm:space-y-[7vw]  text-center max-md:w-full max-md:px-[7vw]">
           <HeadingAnim>
 
-          <h2 className="text-76 text-[#0A1B4B] headingAnim  max-sm:w-full ">
-            Missed a Session? Watch On - Demand 
+          <h2 className="text-76 text-[#0A1B4B] headingAnim  max-sm:w-full leading-[1.2] ">
+            Missed a Session? Watch On - Demandx
           </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 px-[2vw] w-[60%] max-sm:w-full mx-auto">
+            <p className="text-30 px-[2vw] w-[60%] max-sm:w-full max-md:w-[90%] mx-auto">
               Explore our library of recorded webinars and event highlights.
               Learn at your own pace and share with your team.
             </p>

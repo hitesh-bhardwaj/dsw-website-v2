@@ -16,13 +16,13 @@ const FeaturedBlog = ({ featuredPost }) => {
   const authorName = featuredPost.author?.name || "DSW Team";
 
   return (
-    <section className="relative w-full py-[7%] max-sm:py-[15%] z-10">
+    <section className="relative w-full py-[7%] max-sm:py-[15%] z-10 max-md:py-[10%]">
       <div className="px-[5vw] max-sm:px-[7vw]">
-        <div className="flex gap-[3vw] items-center max-sm:flex-col max-sm:gap-[8vw]">
+        <div className="flex gap-[3vw] items-center max-md:flex-col max-md:items-start max-sm:gap-[8vw]">
           {/* Image Container */}
           <Link
             href={`/${featuredPost.slug}`}
-            className="relative w-[38%] aspect-685/500 rounded-[1.2vw] overflow-hidden group max-sm:w-full max-sm:aspect-4/3 max-sm:rounded-[4vw]"
+            className="relative w-[38%] aspect-685/500 rounded-[1.2vw] overflow-hidden group max-sm:w-full max-sm:aspect-4/3 max-sm:rounded-[4vw] max-md:w-[75%] max-md:h-[40vw] max-sm:h-[70vw] max-md:rounded-[3vw]"
             aria-label={`Read blog post: ${featuredPost.title}`}
           >
             <Image
@@ -32,7 +32,7 @@ const FeaturedBlog = ({ featuredPost }) => {
               className="object-cover group-hover:scale-105 duration-700 ease-out transition-transform"
             />
             {/* Arrow Icon */}
-            <div className="absolute top-[1vw] right-[1vw] w-[3.5vw] h-[3.5vw] max-sm:w-[10vw] max-sm:h-[10vw] max-sm:top-[3vw] max-sm:right-[3vw] bg-white/10 rounded-full">
+            <div className="absolute top-[1vw] right-[1vw] w-[3.5vw] h-[3.5vw] max-sm:w-[10vw] max-sm:h-[10vw] max-sm:top-[3vw] max-sm:right-[3vw] bg-white/10 rounded-full max-md:size-[7vw] max-md:top-[5%] max-md:right-[3%]">
               <svg
                 viewBox="0 0 60 60"
                 fill="none"
@@ -51,7 +51,7 @@ const FeaturedBlog = ({ featuredPost }) => {
             </div>
           </Link>
 
-          <div className="flex-1 space-y-[2vw] max-sm:space-y-[6vw]">
+          <div className="flex-1 space-y-[2vw] max-sm:space-y-[6vw] max-md:space-y-[4vw]">
             <h2 className="text-44 text-foreground font-heading leading-[1.2] tracking-[0.02em] max-sm:leading-[1.3]">
               {featuredPost.title}
             </h2>

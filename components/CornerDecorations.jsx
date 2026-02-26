@@ -19,7 +19,7 @@ export default function CornerDecorations({
       </div>
 
       {/* Top Right */}
-      <div className="absolute top-[0.5%] -right-[1%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out">
+      <div className="absolute top-[0.45%] -right-[1%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out">
         <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
         <div
           className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}

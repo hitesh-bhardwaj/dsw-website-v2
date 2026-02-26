@@ -343,10 +343,10 @@ export default function TeamForm() {
               <Button
                 type="submit"
                 aria-label="submit form"
-                className="cursor-pointer mt-[3vw]  bg-primary pb-[3vw] px-0 rounded-full  max-sm:mt-0 max-sm:py-[7vw] max-md:mt-[8vw] "
+                className="cursor-pointer mt-[3vw]  bg-primary pb-[3vw] px-0 rounded-full  max-sm:mt-0 max-sm:py-[7vw]  max-md:py-[3vw] max-md:pb-[5vw] max-md:px-[3.5vw] "
               >
                 <div
-                  className={` relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto  max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw] text-white `}
+                  className={` relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group    max-md:px-[4.5vw] max-sm:min-w-[55vw] max-sm:px-[7vw] max-sm:py-[4vw] text-white  `}
                 >
                  
                   <div className="overflow-clip leading-[1.4] mt-[2vw]  max-sm:mt-0 z-[1]">
