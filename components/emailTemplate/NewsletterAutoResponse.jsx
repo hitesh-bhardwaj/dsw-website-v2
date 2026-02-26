@@ -1,41 +1,56 @@
 import React from "react";
-import { Body, Container, Head, Hr, Html, Img, Preview, Text } from "@react-email/components";
+import {
+  Body,
+  Container,
+  Head,
+  Hr,
+  Html,
+  Img,
+  Preview,
+  Text,
+} from "@react-email/components";
 
-const WorkshopAutoResponse = ({ userName }) => {
+const NewsletterAutoResponse = ({ userName = "there" }) => {
   return (
     <Html>
       <Head />
-      <Preview>
-        Thank you for registering for our Workshop - DSW
-      </Preview>
+      <Preview>Welcome to the DSW Newsletter - you’re subscribed 🎉</Preview>
+
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={"https://www.datasciencewizards.ai/assets/form-logo.png"}
+            src="https://www.datasciencewizards.ai/assets/form-logo.png"
             width="140"
             height="80"
             alt="DSW Logo"
             style={logo}
           />
-          <Text style={greeting}>Dear {userName},</Text>
+
+          <Text style={greeting}>Hi {userName},</Text>
+
           <Text style={paragraph}>
-           Thank you for showing your interest in our workshop.
+            Thanks for subscribing to the <strong>DSW Newsletter</strong> - you’re officially on the list.
           </Text>
+
           <Text style={paragraph}>
-            We will get back to you within 24 hours.
+            You’ll receive product updates, insights, and helpful tips from our team. We’ll keep it relevant and
+            you can unsubscribe anytime.
           </Text>
+
           <Text style={paragraph}>
-            Checkout workshop content - <a href="https://www.datasciencewizards.ai/ai-genai-masterclass/">AI and GenAI Masterclass</a>.
+            To make sure you don’t miss an email, please add us to your safe sender list.
           </Text>
-          
+
           <Text style={paragraph}>
             Best regards,
             <br />
             Team DSW
           </Text>
+
           <Hr style={hr} />
+
           <Text style={footer}>
-            This is an automated confirmation email.
+            This is an automated message. Please do not reply to this email.
           </Text>
           <Text style={footer}>Data Science Wizards</Text>
         </Container>
@@ -44,7 +59,7 @@ const WorkshopAutoResponse = ({ userName }) => {
   );
 };
 
-export default WorkshopAutoResponse;
+export default NewsletterAutoResponse;
 
 const main = {
   backgroundColor: "#ffffff",

@@ -11,7 +11,7 @@ const AutoResponse = ({ userName }) => {
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={"https://www.datasciencewizards.ai/assets/images/form-logo.png"}
+            src={"https://www.datasciencewizards.ai/assets/form-logo.png"}
             width="140"
             height="80"
             alt="DSW Logo"
