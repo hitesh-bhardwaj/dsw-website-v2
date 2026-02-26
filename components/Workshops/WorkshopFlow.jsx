@@ -27,6 +27,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isEnd, setIsEnd] = useState(false);
+  const [isBeginning, setIsBeginning] = useState(true);
 
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -50,7 +51,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
   </HeadingAnim>
 
   <div className="flex fadeup gap-6  max-md:hidden items-end justify-end">
-    <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
+    <PreviousButton onClick={handlePrev} isDisabled={isBeginning} />
     <NextButton
       onClick={handleNext}
       isDisabled={isEnd}
@@ -71,9 +72,14 @@ export default function WorkshopFlow({ sessionsData, space }) {
           onSlideChange={(swiper) => {
             setActiveIndex(swiper.activeIndex);
             setIsEnd(swiper.isEnd);
+            setIsBeginning(swiper.isBeginning);
           }}
           onReachEnd={() => setIsEnd(true)}
-          onFromEdge={() => setIsEnd(false)}
+          onReachBeginning={() => setIsBeginning(true)}
+          onFromEdge={() => {
+            setIsEnd(false);
+            setIsBeginning(false);
+          }}
           className="w-full !overflow-visible"
             breakpoints={{
             640: { slidesPerView: 1.2, spaceBetween: 20 },
@@ -98,7 +104,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
         <div className="workshop-scrollbar mt-10 w-full cursor-grab max-md:hidden" />
 
         <div className="max-md:flex fadeup gap-6 mt-12 hidden w-full justify-center">
-          <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
+          <PreviousButton onClick={handlePrev} isDisabled={isBeginning} />
           <NextButton
             onClick={handleNext}
             isDisabled={isEnd}
