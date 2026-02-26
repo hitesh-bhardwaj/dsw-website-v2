@@ -121,21 +121,21 @@ const NewsContentWp = ({ news }) => {
       {/* Info strip */}
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
         <div className="flex flex-wrap items-center max-md:items-start max-md:justify-start  gap-y-[2.5vw] max-md:gap-y-[5vw]">
-          <div className="text-[1.05vw] max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-full max-md:w-full">
-            <Copy>
+          <div className="text-[1.05vw] max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-full max-md:w-full fadeup">
+            {/* <Copy> */}
               <p className="text-foreground text-24">
                 Publication Date
               </p>
-            </Copy>
-            <Copy>
+            {/* </Copy> */}
+            {/* <Copy> */}
               <p className="text-foreground text-24 font-light">{formatDate(news.newsDate.newsDate)}</p>
-            </Copy>
+            {/* </Copy> */}
           </div>
         </div>
       </div>
 
       {/* TOC */}
-      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full max-sm:mt-[5vw]">
+      <div className="space-y-[1vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full max-sm:mt-[5vw] max-md:hidden">
         {toc[0] && (
           <>
             <Copy>
@@ -152,7 +152,7 @@ const NewsContentWp = ({ news }) => {
                   <li
                     key={item.id}
                     onClick={() => handleScrollTo(item.id)}
-                    className={`flex items-center gap-[2vw] max-sm:gap-[3vw] w-full py-[1.2vw] max-md:py-[3vw] cursor-pointer transition-all duration-300 hover:text-primary-2 ${
+                    className={`flex items-center gap-[1vw] max-sm:gap-[3vw] w-full py-[0.7vw] max-md:py-[3vw] cursor-pointer transition-all duration-300 hover:text-primary-2 ${
                       activeSection === item.title
                         ? "text-primary-blue"
                         : "text-foreground"
@@ -160,7 +160,7 @@ const NewsContentWp = ({ news }) => {
                     title={item.title}
                   >
                     <span className="shrink-0 w-1 h-1 bg-black rounded-full"/>
-                    <span className="text-24 max-sm:text-[4vw] font-light leading-snug">
+                    <span className="text-22 max-sm:text-[4vw] font-light leading-snug">
                       {truncate(item.title, isMobile ? 50 : 20)}
                     </span>
                   </li>

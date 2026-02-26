@@ -50,7 +50,7 @@ const Features = () => {
               <h3 className="text-56">{feature.title}</h3>
             </HeadingAnim>
 
-            <div className="w-full flex justify-between mt-[5.5vw] max-md:flex-col-reverse max-sm:mt-[15vw] max-md:mt-[10vw] max-md:gap-[7vw] max-sm:gap-[20vw]">
+            <div className="w-full flex justify-between mt-[5.5vw] max-md:flex-col-reverse max-sm:mt-[15vw] max-md:mt-[10vw] max-md:gap-[7vw] max-sm:gap-[15vw]">
               {/* Left Content */}
               <div className="w-[45%] h-full flex flex-col gap-[3vw] text-30 max-md:w-full">
                 {/* <Copy> */}

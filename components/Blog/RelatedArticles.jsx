@@ -35,7 +35,7 @@ const RelatedArticles = ({post, relatedPosts: relatedPostsProp}) => {
     <section
       id="relatedArticles"
       ref={relatedArticlesRef}
-      className={`h-full w-screen  max-sm:overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
+      className={`h-full w-screen overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
     >
       <div className="h-full w-full  gap-y-[4vw] flex flex-col items-start justify-between  max-sm:flex-col ">
         <div className="w-full">
@@ -43,12 +43,12 @@ const RelatedArticles = ({post, relatedPosts: relatedPostsProp}) => {
             Related Articles
           </h5>
 
-          <div className="flex gap-6 w-fit ml-auto max-sm:absolute max-sm:bottom-0 max-sm:left-1/2 max-sm:-translate-x-1/2">
+          <div className="flex gap-6 w-fit ml-auto max-md:absolute max-md:bottom-0 max-md:left-1/2 max-md:-translate-x-1/2">
             <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
-            <NextButton onClick={handleNext} isDisabled={relatedBlogs.length <= 3 || activeIndex + 3 >= relatedBlogs.length} />
+            <NextButton onClick={handleNext} isDisabled={ activeIndex == relatedBlogs.length-1} />
           </div>
         </div>
-        <div className="w-full max-sm:py-[15vw] text-white fadeup ">
+        <div className="w-full max-sm:pb-[15vw] max-sm:pt-[7vw] max-md:pb-[10vw] max-md:pt-[4vw] text-white fadeup ">
           <Swiper
             slidesPerView={3}
             className="mySwiper swiper-container max-md:overflow-visible!"
