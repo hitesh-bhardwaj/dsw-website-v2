@@ -276,7 +276,7 @@ const AIEcosystemMob = ({ecosystemItems}) => {
             {current.title}
           </h3>
 
-          <ul data-slide-ul className="pl-[4vw] list-disc max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
+          <ul data-slide-ul className="pl-[4vw] list-disc marker:text-sm max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
             {current.bullets.map((b, i) => (
               <li key={`${active}-${i}`}>{b}</li>
             ))}

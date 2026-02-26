@@ -64,7 +64,7 @@ const Features = ({ featuresContent }) => {
 
                   <p className="text-30">{card.description}</p>
 
-                  <ul className="list-disc pl-[1vw] max-md:pl-[3vw] max-sm:pl-[5vw] max-sm:leading-[1.4] text-30 max-sm:space-y-[1.5vw] max-md:space-y-[1vw] space-y-[0.5vw]">
+                  <ul className="list-disc marker:text-sm pl-[1vw] max-md:pl-[3vw] max-sm:pl-[5vw] max-sm:leading-[1.4] text-30 max-sm:space-y-[1.5vw] max-md:space-y-[1vw] space-y-[0.5vw]">
                     {card.bullets?.map((b, i) => (
                       <li key={i}>{b}</li>
                     ))}

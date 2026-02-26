@@ -97,7 +97,7 @@ export default function Content() {
         <p className="text-white-300 fadeup">
          This Privacy Policy (“Privacy Policy”) applies to the corporate website accessible at <a href="#" className="text-primary-2"> https://www.datasciencewizards.ai/ </a> (“Website”) and the cloud-based technology learning platform also accessible through that website, the video players used to view Data Science Wizards courses, and the mobile applications (“Platform”, and together with the Website, collectively, the “Site”), all owned and operated by Data Science Wizards Pvt Ltd company, (“Data Science Wizards”, “we”, or “us”). This Privacy Policy describes how Data Science Wizards collects and uses personal information collected through the Website and the Platform. It also describes the choices available to you regarding the use of, your access to, and how to update and correct your personal information. Please read the following carefully to understand our views and practices regarding your personal information and how we will treat it. By engaging with the Website and the Platform you acknowledge you have read and understood this Privacy Policy. Data protection laws require companies to describe their role and responsibility when handling personal information. This Privacy Policy sets out:
          </p>
-         <ul className="space-y-[1vw] list-disc pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] fadeup text-white-300">
+         <ul className="space-y-[1vw] list-disc marker:text-sm pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] fadeup text-white-300">
           <li>The information we collect about you</li>
           <li>How we use the information we collect</li>
           <li>Who we give your information to</li>
@@ -347,7 +347,7 @@ export default function Content() {
      We use the following types of cookies:
         </h2>
            </HeadingAnim>
-        <ul className="text-white-300 fadeup space-y-[1vw] list-disc pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]">
+        <ul className="text-white-300 fadeup space-y-[1vw] list-disc marker:text-sm pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]">
           <li><span className="font-medium">Strictly necessary cookies: </span>These are cookies that are required for the operation of our website and under our terms with you. They include, for example, cookies that enable you to log into secure areas of our website, use a shopping cart or make use of e-billing services.</li>
           <li><span className="font-medium">Analytical/performance cookies: </span>They allow us to recognize and count the number of visitors and to see how visitors move around our website when they are using it. This helps us for our legitimate interests of improving the way our website works, for example, by ensuring that users are finding what they are looking for easily.</li>
           <li><span className="font-medium">Functionality cookies: </span>These are used to recognize you when you return to our website. These enable us, subject to your choices and preferences, to personalize our content, greet you by name and remember your preferences (for example, your choice of language or region).</li>

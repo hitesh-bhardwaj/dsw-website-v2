@@ -117,7 +117,7 @@ export default function UseCases() {
                     {useCase.title}
                   </h4>
 
-                  <ul className="list-disc text-24 pl-[1vw] space-y-[0.5vw] max-md:pl-[3vw] max-sm:pl-[5vw] text-foreground">
+                  <ul className="list-disc marker:text-sm text-24 pl-[1vw] space-y-[0.5vw] max-md:pl-[3vw] max-sm:pl-[5vw] text-foreground">
                     {useCase.items.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}

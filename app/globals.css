@@ -352,3 +352,7 @@ h6 {
     --text-32: 5vw;
   }
 }
+
+.list-disc marker:text-sm{
+  
+}

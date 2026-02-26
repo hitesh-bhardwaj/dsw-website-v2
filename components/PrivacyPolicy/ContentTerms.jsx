@@ -153,7 +153,7 @@ export default function ContentTerms() {
                     for your own personal use subjected to restrictions set in
                     these terms and conditions. You must not:
                   </p>
-                  <ul className="space-y-[1vw] list-disc pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] list-disc marker:text-sm pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
                     <li>Republish material from datasciencewizards.ai</li>
                     <li>
                       Sell, rent or sub-license material from
@@ -187,7 +187,7 @@ export default function ContentTerms() {
                     inappropriate, offensive or causes breach of these Terms and
                     Conditions. You warrant and represent that:
                   </p>
-                  <ul className="space-y-[1vw] list-disc pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] list-disc marker:text-sm pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
                     <li>
                       You are entitled to post the Comments on our website and
                       have all necessary licenses and consents to do so;
@@ -234,7 +234,7 @@ export default function ContentTerms() {
                     The following organizations may link to our Website without
                     prior written approval:
                   </p>
-                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
                     <li>Government agencies;</li>
                     <li>Search engines;</li>
                     <li>News organizations;</li>
@@ -262,7 +262,7 @@ export default function ContentTerms() {
                     approve other link requests from the following types of
                     organizations:
                   </p>
-                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
                     <li>
                       commonly-known consumer and/or business information
                       sources;
@@ -303,7 +303,7 @@ export default function ContentTerms() {
                     to link. Wait 4-5 weeks for a response. Approved
                     organizations may hyperlink to our Website as follows:
                   </p>
-                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] text-white-300">
+                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] text-white-300">
                     <li>By use of our corporate name; or</li>
                     <li>
                       By use of the uniform resource locator being linked to; or
@@ -427,7 +427,7 @@ export default function ContentTerms() {
                 website and the use of this website. Nothing in this disclaimer
                 will:
               </p>
-              <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] fadeup text-white-300">
+              <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] fadeup text-white-300">
                 <li>
                   limit or exclude our or your liability for death or personal
                   injury;

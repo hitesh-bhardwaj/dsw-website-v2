@@ -311,7 +311,7 @@ const VisionMission = () => {
           <p className="text-30 text-foreground">
             To build the governed operating layer that enables enterprises to
           </p>
-          <ul className="space-y-[0.5vw] max-sm:space-y-[3vw] text-30 text-foreground list-disc mt-[2vw] max-sm:mt-0 ml-[3vw] max-sm:ml-[5vw]">
+          <ul className="space-y-[0.5vw] max-sm:space-y-[3vw] text-30 text-foreground list-disc marker:text-sm mt-[2vw] max-sm:mt-0 ml-[3vw] max-sm:ml-[5vw]">
             {[
               "Build, integrate, deploy, govern, and operate AI in production",
               "Unify models, agents, tools, and workflows under one runtime",
