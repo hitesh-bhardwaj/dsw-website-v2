@@ -44,11 +44,11 @@ const Help = () => {
           How can we help you?
         </h2>
       </HeadingAnim>
-      <div className="flex flex-wrap fadeup justify-center max-md:justify-between max-sm:justify-center gap-[3vw] items-center w-full max-md:gap-[5vw] max-sm:gap-[8vw] pt-[5vw] max-sm:flex-col max-md:pt-0">
+      <div className="flex flex-wrap fadeup justify-center max-md:justify-between max-sm:justify-center gap-[3vw] items-center w-full max-md:gap-[5vw] max-sm:gap-[8vw] pt-[5vw] max-md:flex-col max-md:pt-0">
         {helpCards.map((card) => (
           <div
             key={card.id}
-            className=" w-[48%] max-md:w-[41vw] p-[3vw] py-[3.5vw] bg-white max-sm:h-full max-sm:w-full!  max-md:justify-between  max-md:px-[4vw] max-sm:px-[7vw] max-md:py-[4vw] max-sm:py-[8vw] relative border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 hover:border-primary-blue ease-in-out"
+            className=" w-[48%] max-md:w-[90vw] p-[3vw] py-[3.5vw] bg-white max-sm:h-full max-sm:w-full!  max-md:justify-between  max-md:px-[4vw] max-sm:px-[7vw] max-md:py-[4vw] max-sm:py-[8vw] relative border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 hover:border-primary-blue ease-in-out"
           >
             <CornerDecorations />
             <div className="w-full h-full space-y-[2.5vw] relative z-[2] max-md:space-y-[7vw]">
