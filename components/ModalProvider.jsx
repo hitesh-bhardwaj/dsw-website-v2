@@ -32,7 +32,20 @@ export function ModalProvider({ children }) {
   const [payload, setPayload] = useState(null);
 
   /* Track if form was submitted */
-  const [formSubmitted, setFormSubmitted] = useState(false);
+  /* Track if form was submitted — persisted for the browser session */
+const [formSubmitted, setFormSubmittedState] = useState(() => {
+  if (typeof window !== "undefined") {
+    return sessionStorage.getItem("formSubmitted") === "true";
+  }
+  return false;
+});
+
+const setFormSubmitted = useCallback((value) => {
+  if (typeof window !== "undefined") {
+    sessionStorage.setItem("formSubmitted", String(value));
+  }
+  setFormSubmittedState(value);
+}, []);
 
   /* -------------------------
    * Existing helpers

@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
-import { downloadPdf } from "@/lib/downloadPdf";
 import { useModal } from "./ModalProvider";
 import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";

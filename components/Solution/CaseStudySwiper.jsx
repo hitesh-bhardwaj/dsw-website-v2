@@ -175,7 +175,7 @@ export default CaseStudySwiper;
       company: "Persistency",
       description:
         "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
-      imgSrc: "/assets/case-studies/case-study-insurance.png",
+      imgSrc: "/assets/case-studies/insurance/persistency.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -188,7 +188,7 @@ export default CaseStudySwiper;
       company: "Predicting fraud",
       description:
         "The Leading Life Insurance company of India offering a broad portfolio of protection, savings, and investment products across urban and rural markets.",
-      imgSrc: "/assets/case-studies/case-study-banking.png",
+      imgSrc: "/assets/case-studies/insurance/predicting-fraud.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -200,8 +200,8 @@ export default CaseStudySwiper;
       id: 3,
       company: "Customer Unification",
       description:
-        "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient-first principles. Known for its ethical standards, the insurer is committed to delivering innovative solutions that protect both customers and the business.",
-      imgSrc: "/assets/case-studies/case-study-finance.png",
+        "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity,operational scale, and patient-first principles",
+      imgSrc: "/assets/case-studies/insurance/customer-data.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -214,7 +214,7 @@ export default CaseStudySwiper;
       company: "Sales Performance Dashboard",
       description:
         "India’s leading Life Insurance company is a leading insurer in India, serving diverse markets across the country with a wide range of insurance solutions.",
-      imgSrc: "/assets/case-studies/case-study-healthcare.png",
+      imgSrc: "/assets/case-studies/insurance/mahindra.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -227,7 +227,7 @@ export default CaseStudySwiper;
       company: "Email Automation",
       description:
         "India’s leading Health Insurance Company is committed to clinical excellence, patient centricity, and ethical practices.",
-      imgSrc: "/assets/case-studies/case-study-manufacturing.png",
+      imgSrc: "/assets/case-studies/insurance/email-automation.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -240,7 +240,7 @@ export default CaseStudySwiper;
       company: "PIVC",
       description:
         "This Insurance company is a top-tier life insurer in India, serving millions across urban and rural markets.",
-      imgSrc: "/assets/case-studies/case-study-retail.png",
+      imgSrc: "/assets/case-studies/insurance/pivc.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -253,7 +253,7 @@ export default CaseStudySwiper;
       company: "Customer Data Enrichment",
       description:
         "A leading life insurer in India, offering a broad portfolio of protection, savings, and investment products across urban and rural markets.",
-      imgSrc: "/assets/case-studies/case-study-teleco.png",
+      imgSrc: "/assets/case-studies/insurance/data-enrichment.png",
       button: {
         present: true,
         text: "Download Case Study",

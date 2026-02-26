@@ -8,7 +8,6 @@ import { downloadPdf } from "@/lib/downloadPdf";
 
 const CaseStudyCard = ({caseStudy}) => {
       const { openWith, formSubmitted } = useModal();
-    
 
     const handleCaseStudyDownload = async (e, pdfUrl, companyName) => {
         e.preventDefault();
@@ -27,7 +26,7 @@ const CaseStudyCard = ({caseStudy}) => {
       };
   return (
     <>
-    <div className='w-[75%] max-sm:w-full h-[30vw] rounded-[1.2vw] max-md:rounded-[3vw] max-md:h-[45vw] overflow-hidden flex border border-black/20 mt-[4vw] fadeup max-sm:flex-col max-md:w-[95%] max-sm:rounded-[6vw] max-sm:h-[120vw] max-sm:mt-[10vw]'>
+    <div className='w-[75%] max-sm:w-full h-[30vw] rounded-[1.2vw] max-md:rounded-[3vw] max-md:h-[45vw] overflow-hidden flex border border-black/20 mt-[4vw] fadeup max-sm:flex-col max-md:w-[95%] max-sm:rounded-[6vw] max-sm:h-full max-sm:mt-[10vw]'>
     <div
                 className="rounded-[1.2vw] max-md:rounded-[3vw] max-sm:rounded-[6vw] border border-black/20 overflow-hidden !flex"
               >

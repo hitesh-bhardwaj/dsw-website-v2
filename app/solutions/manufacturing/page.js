@@ -242,7 +242,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-teleco.png",
+  imgSrc:"/assets/case-studies/case-study-manufacturing.png",
   button: {
     present: true,
     text: "Download Case Study",

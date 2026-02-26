@@ -29,18 +29,19 @@ const iconData = [
     text: "Author and test agents in AgenticAI Studio (fine-tune, simulate, validate).",
     textClass: "absolute right-20 top-30  space-y-[0.6vw]",
   },
-  {
-    key: "operate",
-    icon: Operate,
-    label: "Operate",
-    text: "Enforce runtime policies, monitor telemetry, and maintain immutable audit trails and reports.",
-    textClass: "absolute right-20 bottom-25 space-y-[0.6vw] ",
-  },
+ 
   {
     key: "orchestrate",
     icon: Orchestrate,
     label: "Orchestrate",
     text: "Compose agents, models and enterprise logic into auditable workflows using Workflow Builder.",
+    textClass: "absolute right-20 bottom-25 space-y-[0.6vw]",
+  },
+   {
+    key: "operate",
+    icon: Operate,
+    label: "Operate",
+    text: "Enforce runtime policies, monitor telemetry, and maintain immutable audit trails and reports.",
     textClass: "absolute left-25 bottom-25  space-y-[0.6vw]",
   },
 ];
