@@ -35,7 +35,7 @@ const BreadCrumbs = () => {
   );
 
   return (
-    <div className="breadcrumbs overflow-hidden w-fit flex items-start justify-start text-[1vw] text-white  max-md:text-[2.5vw] max-sm:text-[3.5vw] max-md:h-fit absolute left-[5%] top-[93%] max-md:top-[95%] z-[800] ">
+    <div className="breadcrumbs overflow-hidden w-fit flex items-start justify-start text-[1vw] text-white  max-md:text-[2.5vw] max-sm:text-[3.5vw] max-md:h-fit absolute left-[5%] top-[93%] max-md:top-[15%] max-md:left-1/2 max-md:-translate-x-1/2 max-md:w-full max-md:justify-center max-md:text-foreground z-[800] ">
       <div ref={crumbsRef} className="flex gap-3 items-center">
         {/* Static 'resources' (not a link) */}
         <span className="opacity-60">Resources</span>
@@ -44,7 +44,7 @@ const BreadCrumbs = () => {
         {items.map(({ href, label }, index) => (
           <div key={href} className="flex items-center gap-3">
             <span className=" w-2.5 h-2.5">
-              <Image src={"/assets/icons/breadcrumbs.svg"} alt="braedcrumb icon" width={20} height={20} className="w-full h-full object-contain"/>
+              <Image src={"/assets/icons/breadcrumbs.svg"} alt="braedcrumb icon" width={20} height={20} className="w-full h-full object-contain max-md:invert"/>
             </span>
             <Link href={href} title={label} className="">
               {truncate(label)}
