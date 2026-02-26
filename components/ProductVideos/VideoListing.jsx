@@ -211,7 +211,7 @@ const videos = [
     title: "Insurtech Insight New York USA Talk",
     description:
       "Meet insurAInce by DSW UnifyAI — the AI platform purpose-built for insurers ready to scale from pilots to production.",
-    youtubeUrl: "https://www.youtube.com/watch?v=xgunsLTSCMc2",
+    youtubeUrl: "https://www.youtube.com/watch?v=xgunsLTSCMc",
   },
   {
     image: "/assets/product-videos/dsw-unifyai.jpg",

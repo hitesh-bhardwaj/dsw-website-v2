@@ -60,7 +60,7 @@ const CARDS = [
   {
     icon: "/assets/icons/aios/cloud-platform.svg",
     alt: "Cloud platform icon",
-    text: "Run AI entirely inside customer-controlled environments. (on-premises, private cloud, or hybrid)",
+    text: "Run AI entirely inside customer-controlled environments (on-premises, private cloud, or hybrid)",
   },
   {
     icon: "/assets/icons/aios/ai-ownership.svg",

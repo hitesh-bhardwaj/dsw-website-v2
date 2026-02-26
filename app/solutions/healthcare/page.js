@@ -130,7 +130,7 @@ const breaksContent = {
     {
       icon: <Governance/>,
       title:
-        "Governance sits outside care delivery and operational workflows",
+        "Governance sits outside care and operational workflows",
     },
     {
       icon: <Compliance/>,
@@ -359,8 +359,8 @@ const operationsContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Built for regulated healthcare environments",
+  subtext: "",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Supports governance, auditability, PHI protection, and regulatory compliance across clinical and operational workflows.",
 };

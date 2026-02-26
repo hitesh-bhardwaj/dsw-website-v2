@@ -73,7 +73,7 @@ const CaseStudySwiper = () => {
         
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] mx-auto capitalize w-[80%]">
-            Case Studies
+           Insurance AI in production
           </h2>
         </HeadingAnim>
 

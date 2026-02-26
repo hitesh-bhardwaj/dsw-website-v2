@@ -46,6 +46,7 @@ const Features = ({ featuresContent }) => {
             config={{
               snap: false,
               infinite: false,
+              wheel: false,
               setOffset: ({ wrapperWidth, vertical, wrapperHeight }) => {
                 const w = vertical ? wrapperHeight : wrapperWidth;
                 return w - w * 0.19;
@@ -60,7 +61,7 @@ const Features = ({ featuresContent }) => {
                 className={`w-fit px-[1vw] cursor-grab active:cursor-grabbing select-none max-sm:px-3 ${index === 0 ? "ml-[5vw]  max-sm:ml-[5vw] " : ""} ${index === cards.length - 1 ? "mr-[1vw]" : ""}`}
               >
                 <div className="w-[32vw] h-[40vw] max-sm:w-[83vw] max-md:h-[70vw] max-md:w-[55vw] max-sm:h-[125vw] border-primary-blue border-t-[5px] max-md:px-[3.5vw] max-md:py-[4vw] bg-[#EFF1FB] p-[2vw] flex flex-col gap-[3vw] cursor-grab active:cursor-grabbinggap-[4vw] max-sm:gap-[7vw] max-sm:py-[7vw] max-sm:px-[5vw]">
-                  <h3 className="text-44 max-sm:leading-[1.4] max-md:min-h-[28%] max-sm:h-fit ">{card.title}</h3>
+                  <h3 className="text-44 max-sm:leading-[1.4] max-md:min-h-[28%] max-sm:h-fit leading-[1.2] ">{card.title}</h3>
 
                   <p className="text-30">{card.description}</p>
 
