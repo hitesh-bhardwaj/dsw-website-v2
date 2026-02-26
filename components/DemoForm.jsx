@@ -235,7 +235,7 @@ export default function DemoForm() {
 
   return (
     <>
-      <section className="overflow-hidden h-fit max-md:pb-[4%] max-sm:pb-0" id="formoem">
+      <section className=" h-fit max-md:pb-[4%] max-sm:pb-0" id="formoem">
         <div className="w-full h-full">
           <div className="w-full flex flex-col gap-[2vw]">
             <Form {...form}>
@@ -248,7 +248,7 @@ export default function DemoForm() {
                   <FormField name="name" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <Input placeholder="Name*" autoComplete="off" {...field}
-                        className="placeholder:text-[1.05vw] pl-[2vw] bg-white/50 max-md:py-6 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
+                        className="placeholder:text-[1.05vw] pl-[2.5vw] bg-white/50 max-md:py-6 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
                     </FormControl><FormMessage /></FormItem>
                   )} />
 
@@ -266,7 +266,7 @@ export default function DemoForm() {
                             field.onBlur();
                             handleEmailBlur(e.target.value);
                           }}
-                          className="placeholder:text-[1.05vw] pl-[2vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]"
+                          className="placeholder:text-[1.05vw] pl-[2.5vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]"
                         />
                         {emailVerifying && (
                           <span className="absolute right-[2vw] top-1/2 transform -translate-y-1/2 text-[#e8e8e8] text-[0.9vw] max-sm:text-[3vw] max-md:text-[2vw] max-md:right-[4vw]">
@@ -283,7 +283,7 @@ export default function DemoForm() {
                   <FormField name="designation" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <Input placeholder="Designation*" autoComplete="off" {...field}
-                        className="placeholder:text-[1.05vw] pl-[2vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
+                        className="placeholder:text-[1.05vw] pl-[2.5vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
                     </FormControl><FormMessage /></FormItem>
                   )} />
                 </div>
@@ -293,7 +293,7 @@ export default function DemoForm() {
                   <FormField name="company" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <Input placeholder="Company Name*" autoComplete="off" {...field}
-                        className="placeholder:text-[1.05vw] pl-[2vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
+                        className="placeholder:text-[1.05vw] pl-[2.5vw] max-md:py-6 bg-white/50 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
                     </FormControl><FormMessage /></FormItem>
                   )} />
                 </div>
@@ -311,10 +311,10 @@ export default function DemoForm() {
                   <Button
                     type="submit"
                     aria-label="submit form"
-                    className="cursor-pointer mt-[3vw] bg-primary pb-[3vw] pt-[1vw] px-0 rounded-full max-sm:mx-auto max-sm:mt-0 max-sm:py-[7vw]  max-md:mt-[8vw] max-md:py-[4.5vw] max-md:px-[3.5vw]"
+                    className="cursor-pointer mt-[2vw] bg-primary pb-[2.8vw] pt-[0.8vw] px-0 rounded-full max-sm:mx-auto max-md:mt-0 max-sm:py-[7vw] max-sm:mt-[4vw] max-md:py-[4.5vw] max-md:px-[3.5vw]"
                   >
-                    <div className="relative flex items-center justify-center h-fit min-w-[13vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
-                      <span className="text-24 text-white block z-[1] mt-[2vw] max-md:mt-0">
+                    <div className="relative flex items-center justify-center h-fit min-w-[10vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                      <span className="text-22 text-white block z-[1] mt-[2vw] max-md:mt-0 max-sm:text-[4vw]">
                         {isLoading ? "Sending..." : "Submit"}
                       </span>
                       <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />

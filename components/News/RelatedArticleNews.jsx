@@ -16,9 +16,9 @@ const BlogCard = ({ title, date, img, slug }) => {
   return (
     <>
       <Link href={`/news/${slug}`}>
-        <div className="rounded-3xl group border border-primary-blue pb-4 space-y-8 overflow-hidden group cursor-pointer max-sm:pb-0 h-[33vw] max-sm:h-[110vw] max-md:h-[70vw] max-md:rounded-[4vw] max-sm:rounded-[6vw]">
-          <div className="w-full h-[65%] overflow-hidden rounded-3xl max-sm:h-[60%]">
-            <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-sm:top-[3vw] max-sm:right-[3vw] bg-white/10 rounded-full z-10">
+        <div className="rounded-3xl group border border-primary-blue pb-4 space-y-8 overflow-hidden group cursor-pointer max-sm:pb-0 h-[33vw] max-sm:h-[110vw] max-md:h-[70vw] max-md:rounded-[3vw] max-sm:rounded-[6vw] max-md:space-y-4">
+          <div className="w-full h-[65%] overflow-hidden rounded-[2.5vw] max-sm:h-[60%]">
+            <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-md:top-[3vw] max-md:size-[7vw] max-md:right-[3vw] bg-white/10 rounded-full z-10">
               <svg
                 viewBox="0 0 60 60"
                 fill="none"
@@ -40,14 +40,14 @@ const BlogCard = ({ title, date, img, slug }) => {
               width={531}
               height={510}
               alt={title}
-              className="object-cover h-full w-[31vw] group-hover:scale-[1.05] transition-all duration-500 ease-out max-md:w-full max-md:h-full"
+              className="object-cover h-full w-full group-hover:scale-[1.1] duration-700 ease-in-out transition-all max-sm:w-full max-sm:h-full"
             />
           </div>
           <div className="space-y-5 px-5">
-            <h5 className="text-foreground text-24 leading-normal max-md:w-[80%] max-sm:w-full">
+            <h5 className="text-foreground text-24 leading-normal max-md:w-full max-sm:w-full max-md:text-[3vw] max-sm:text-[4.5vw]">
               {title}
             </h5>
-            <p className="text-20 mt-auto text-gray-1 max-md:text-[3vw] max-sm:text-[3.5vw]">
+            <p className="text-20 mt-auto text-gray-1 max-md:text-[2vw] max-sm:text-[3.5vw]">
               {formatDate(date)}
             </p>
           </div>
@@ -82,7 +82,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
     <section
       id="relatedArticles"
       ref={relatedArticlesRef}
-      className={`h-full w-screen  max-sm:overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
+      className={`h-full w-screen  overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
     >
       <div className="h-full w-full  gap-y-[4vw] flex flex-col items-start justify-between  max-sm:flex-col ">
         <div className="w-full text-center">
@@ -90,12 +90,12 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
             Related Articles
           </h2>
 
-          <div className="flex gap-6 w-fit ml-auto max-sm:absolute max-sm:bottom-0 max-sm:left-1/2 max-sm:-translate-x-1/2">
+          <div className="flex gap-6 w-fit ml-auto max-md:absolute max-md:bottom-0 max-md:left-1/2 max-md:-translate-x-1/2">
             <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
-            <NextButton onClick={handleNext} isDisabled={relatedNews.length <= 3 || activeIndex + 3 >= relatedNews.length} />
+            <NextButton onClick={handleNext} isDisabled={activeIndex==relatedNews.length-1} />
           </div>
         </div>
-        <div className="w-full max-sm:py-[15vw] text-white fadeup ">
+        <div className="w-full max-sm:pb-[15vw] max-md:pb-[10vw] max-sm:pt-[7vw] max-md:pt-[4vw] text-white fadeup ">
           <Swiper
             slidesPerView={3}
             className="mySwiper swiper-container max-md:overflow-visible!"

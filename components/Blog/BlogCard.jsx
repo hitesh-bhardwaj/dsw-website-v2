@@ -7,9 +7,9 @@ const BlogCard = ({ title, date, slug, featuredImage }) => {
   return (
     <>
       <Link href={slug}>
-        <div className="rounded-[1.8vw] fadeup relative group border-[0.25px] border-primary-blue h-[33vw]  background-glass space-y-[1.5vw] max-sm:space-y-[5vw] overflow-hidden group cursor-pointer max-sm:pb-0 max-sm:h-[110vw] max-md:h-[60vw] max-md:rounded-[2.5vw] max-sm:rounded-[6vw] max-md:space-y-[2vw]">
-          <div className="w-full h-[64%] max-sm:h-[60%] overflow-hidden max-sm:rounded-3xl rounded-[1.8vw] relative max-md:h-[45%]">
-            <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-sm:top-[3vw] max-sm:right-[3vw] max-md:size-[7vw] max-md:top-[5%] bg-white/10 rounded-full z-10 max-sm:backdrop-blur-xs">
+        <div className="rounded-3xl fadeup relative group border border-primary-blue h-[33vw]  background-glass space-y-[1.5vw] max-sm:space-y-[5vw] overflow-hidden group cursor-pointer max-sm:pb-0 max-sm:h-[110vw] max-md:h-[70vw] max-md:rounded-[2.5vw] max-sm:rounded-[6vw] max-md:space-y-[2vw]">
+          <div className="w-full h-[64%] max-md:h-[60%] overflow-hidden max-sm:rounded-3xl rounded-[1.8vw] relative ">
+            <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-md:top-[3vw] max-md:right-[3vw] max-md:size-[7vw] bg-white/10 rounded-full z-10 max-sm:backdrop-blur-xs">
               <svg
                 viewBox="0 0 60 60"
                 fill="none"

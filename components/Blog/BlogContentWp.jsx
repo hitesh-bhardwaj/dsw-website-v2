@@ -150,55 +150,39 @@ const BlogContentWp = ({ post }) => {
       {/* Info strip */}
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
         <div className="flex text-foreground flex-wrap items-center max-md:items-start max-md:justify-between max-md:flex-row-reverse gap-y-[2.5vw] max-md:gap-y-[5vw]">
-          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%]">
-            <Copy>
+          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%] fadeup">
               <p className="">
                 Publication Date
               </p>
-            </Copy>
-            <Copy>
               <p className="font-light">{formatDate(post.date)}</p>
-            </Copy>
           </div>
-          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%]">
-            <Copy>
+          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%] fadeup">
               <p className="">
                 Category
               </p>
-            </Copy>
-            <Copy>
               {post.categories.map((category, id) => (
                 <p className="font-light" key={id}>
                   {category.name}
                 </p>
               ))}
-            </Copy>
           </div>
-          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%]">
-            <Copy>
+          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%] fadeup">
               <p className="">
                 Reading Time
               </p>
-            </Copy>
-            <Copy>
               <p className="font-light">{readingTime}</p>
-            </Copy>
           </div>
-          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%]">
-            <Copy>
+          <div className="text-24 max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-[50%] max-md:w-[40%] fadeup">
               <p className="">
                 Author Name
               </p>
-            </Copy>
-            <Copy>
               <p className="font-light"> {post?.blogAuthor?.author || "No author"}</p>
-            </Copy>
           </div>
         </div>
       </div>
 
       {/* TOC */}
-      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full max-sm:mt-[5vw]">
+      <div className="space-y-[3vw] max-md:space-y-[5vw] max-sm:pb-[12vw] md:sticky top-[15%] mt-[15vw] h-full w-[50%] max-sm:w-full max-sm:mt-[5vw] max-md:hidden">
         {toc[0] && (
           <>
             <Copy>
