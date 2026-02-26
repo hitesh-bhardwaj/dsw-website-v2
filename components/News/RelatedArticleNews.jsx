@@ -17,7 +17,7 @@ const BlogCard = ({ title, date, img, slug }) => {
     <>
       <Link href={`/news/${slug}`}>
         <div className="rounded-3xl group border border-primary-blue pb-4 space-y-8 overflow-hidden group cursor-pointer max-sm:pb-0 h-[33vw] max-sm:h-[110vw] max-md:h-[70vw] max-md:rounded-[3vw] max-sm:rounded-[6vw] max-md:space-y-4">
-          <div className="w-full h-[65%] overflow-hidden rounded-[2.5vw] max-sm:h-[60%]">
+          <div className="w-full h-[65%] overflow-hidden rounded-t-xl rounded-b-3xl max-sm:h-[60%]">
             <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-md:top-[3vw] max-md:size-[7vw] max-md:right-[3vw] bg-white/10 rounded-full z-10">
               <svg
                 viewBox="0 0 60 60"
@@ -40,7 +40,7 @@ const BlogCard = ({ title, date, img, slug }) => {
               width={531}
               height={510}
               alt={title}
-              className="object-cover h-full w-full group-hover:scale-[1.1] duration-700 ease-in-out transition-all max-sm:w-full max-sm:h-full"
+              className="object-cover h-full w-full group-hover:scale-[1.1] duration-700 ease-in-out transition-all max-sm:w-full max-sm:h-full "
             />
           </div>
           <div className="space-y-5 px-5">

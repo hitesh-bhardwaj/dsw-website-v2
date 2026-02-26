@@ -309,12 +309,13 @@ export default function FooterNew() {
 
         {/* Bottom Section */}
         <div className="flex items-end justify-between  pt-[4.5vw] max-sm:justify-center">
-          <div className="w-[20vw] max-md:w-[22vw] max-md:h-[10vw] h-[11vw] relative max-sm:hidden">
+          <div className="w-[18vw] max-md:w-[22vw] max-md:h-[10vw] h-auto relative max-sm:hidden">
             <Image
               src="/assets/dsw-logo.svg"
               alt="Data Science Wizards"
-              fill
-              className="object-contain object-left"
+              width={200}
+              height={200}
+              className="object-contain object-left w-full h-full"
             />
           </div>
 

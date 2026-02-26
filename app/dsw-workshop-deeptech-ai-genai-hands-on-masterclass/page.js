@@ -1,6 +1,5 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
-import Faqs from "@/components/FAQs";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import { AIStrategy } from "@/components/Svg/Workshops/AIStrategy";

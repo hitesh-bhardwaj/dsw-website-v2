@@ -44,17 +44,19 @@ const Listing = ({ news = [] }) => {
                   height={300}
                 />
               </div>
-              <div className="w-[60%] text-foreground flex flex-col gap-[1.5vw] mt-[1vw] max-md:w-full max-sm:gap-[6vw]">
+              <div className="w-[60%] text-foreground flex py-[0.5vw] max-md:py-0 flex-col gap-[1.5vw] justify-between max-md:justify-start mt-[1vw] max-md:w-full max-sm:gap-[6vw]">
                 <p className="text-24 font-light max-md:order-1">
                   {formatDate(newsItem.newsDate?.newsDate)}
                 </p>
+                <div className="space-y-[1.2vw]">
                 <h3 className="text-32 max-md:order-2 max-sm:w-[90%]">
                   {newsItem.title}
                 </h3>
                 <div
                   className="text-24 font-light max-md:order-3"
                   dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
-                />
+                  />
+                  </div>
                 <LinkButton href={`/news/${newsItem.slug}`} text="Read More" />
               </div>
             </div>

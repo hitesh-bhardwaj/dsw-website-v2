@@ -10,12 +10,12 @@ const Empower= ({heading,para,width}) => {
         <div className="w-[52%] h-full   max-md:w-full max-sm:mx-auto  space-y-[1.5vw] max-md:space-y-[3vw] max-sm:space-y-[4.5vw] flex flex-col justify-between gap-[6.5vw]">
           <div className="space-y-[1.5vw] max-sm:space-y-[10vw] max-md:space-y-[2.5vw]">
             <HeadingAnim>
-            <h2 className={` text-76 text-[#0A1B4B] max-sm:text-center!  leading-[1.2] ${width}`}>
+            <h2 className={` text-76 text-[#0A1B4B] max-md:w-[75%] max-sm:w-full max-md:text-center!  leading-[1.2] ${width}`}>
               {heading}
             </h2>
             </HeadingAnim>
 
-            <div className="w-[65%] max-sm:w-fit max-sm:mx-auto max-md:w-[85%]">
+            <div className="w-[65%]  max-md:mx-auto max-md:w-fit">
               <Copy>
                 <p className="text-30 max-sm:text-center  text-foreground">
                  {para}

@@ -30,9 +30,9 @@ function AgenticCard({ id, title, description }) {
             className="relative fadeup bg-card-bg px-[2vw] max-md:px-[3vw] max-md:py-[4vw] pt-[1.5vw] pb-[3.5vw] w-[25.5vw] h-[29.5vw] max-md:h-[55vw] max-md:w-[42vw] overflow-hidden border-b-[0.4vw] border-primary-blue flex flex-col gap-[4vw] max-sm:w-full max-sm:h-[100vw] max-sm:border-b-[1.7vw] max-sm:justify-between max-sm:py-[7vw] max-sm:pb-[15vw] max-sm:px-[4vw]"
         >
             {/* Header */}
-            <div className="flex justify-end items-end mb-[2vw] max-sm:pr-[3vw] max-md:pr-[2vw]">
+            <div className="flex justify-end items-end mb-[1.5vw] max-sm:pr-[3vw] max-md:pr-[2vw]">
                
-                <p className="text-80 font-light! text-foreground leading-none max-sm:text-[15vw]">
+                <p className="text-[5vw] max-md:text-[8vw] font-light! text-foreground leading-none max-sm:text-[15vw]">
                     {id}
                 </p>
             </div>

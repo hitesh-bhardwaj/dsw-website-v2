@@ -26,6 +26,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
   });
   const swiperRef = useRef(null);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isEnd, setIsEnd] = useState(false);
 
   const handleNext = () => {
     if (swiperRef.current && swiperRef.current.swiper) {
@@ -52,7 +53,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
     <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
     <NextButton
       onClick={handleNext}
-      isDisabled={sessionsData.length - 1 === activeIndex}
+      isDisabled={isEnd}
     />
   </div>
 </div>
@@ -65,9 +66,14 @@ export default function WorkshopFlow({ sessionsData, space }) {
           scrollbar={{
             el: ".workshop-scrollbar",
             draggable: true,
-            hide: false, // ✅ keep thumb visible
+            hide: false, // keep thumb visible
           }}
-          onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
+          onSlideChange={(swiper) => {
+            setActiveIndex(swiper.activeIndex);
+            setIsEnd(swiper.isEnd);
+          }}
+          onReachEnd={() => setIsEnd(true)}
+          onFromEdge={() => setIsEnd(false)}
           className="w-full !overflow-visible"
             breakpoints={{
             640: { slidesPerView: 1.2, spaceBetween: 20 },
@@ -95,7 +101,7 @@ export default function WorkshopFlow({ sessionsData, space }) {
           <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
           <NextButton
             onClick={handleNext}
-            isDisabled={sessionsData.length - 1 === activeIndex}
+            isDisabled={isEnd}
           />
         </div>
       </div>

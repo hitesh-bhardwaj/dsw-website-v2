@@ -25,7 +25,7 @@ const secondaryAnnouncements = [
 const Workshops = () => {
   return (
     <section
-      className="py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[15%]  px-[5vw]"
+      className="py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[15%] max-md:px-[6vw] max-sm:px-[7vw] px-[5vw]"
       id="workshops"
     >
       <div className="space-y-[5vw] max-sm:space-y-[10vw]">

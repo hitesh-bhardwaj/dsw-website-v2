@@ -38,7 +38,7 @@ const Form = () => {
         <div className="w-[52%] h-full  max-sm:w-full max-md:w-[100%] space-y-[1.5vw] max-md:space-y-[3vw] max-sm:space-y-[4.5vw] flex flex-col justify-between gap-[6.5vw]">
           <div className="h-[35%]  space-y-[1.5vw] max-md:space-y-[7vw] max-sm:space-y-[10vw]">
             <HeadingAnim>
-              <h2 className="w-[90%] max-sm:w-full max-md:w-[90%] text-76 max-md:text-center max-md:mx-auto font-head text-[#0A1B4B] leading-[1.2]">
+              <h2 className="w-[85%] max-sm:w-full max-md:w-[90%] text-76 max-md:text-center max-md:mx-auto font-head text-[#0A1B4B] leading-[1.2]">
                 Have a specific request or question?
               </h2>
             </HeadingAnim>
@@ -109,14 +109,14 @@ const Form = () => {
 
         <div className="hidden max-md:block">
           <div className="h-[40%] max-md:pt-[5vw] flex flex-col justify-between gap-[5vw] ">
-            <div className="space-y-[0.3vw]  text-head text-white-300 font-normal">
-              <p className="text-[3vw] max-sm:text-[4vw]">Phone:</p>
+            <div className="space-y-[0.3vw]  text-head text-white-300 font-normal fadeup">
+              <p className="text-[3vw] max-sm:text-[4vw] ">Phone:</p>
 
               <p className="underline cursor-pointer max-md:text-[2.5vw] max-sm:text-[3.5vw]">+353894015233</p>
               <p className="underline cursor-pointer max-md:text-[2.5vw] max-sm:text-[3.5vw]">+919664056847</p>
             </div>
 
-            <div className="text-white-300 space-y-[0.3vw]">
+            <div className="text-white-300 space-y-[0.3vw] fadeup">
               <p className="text-[3vw] max-sm:text-[4vw]">E-mail:</p>
 
               <p className="underline cursor-pointer max-sm:text-[3.5vw] max-md:text-[2.5vw]">
@@ -124,7 +124,7 @@ const Form = () => {
               </p>
             </div>
 
-            <div className="text-white-300 space-y-[0.8vw] max-sm:space-y-[0.5vw]">
+            <div className="text-white-300 space-y-[0.8vw] max-sm:space-y-[0.5vw] fadeup">
               <p className="text-[3vw] max-sm:text-[4vw]">Socials:</p>
               <div className="flex items-center gap-[1.5vw] mt-[1vw] max-md:mt-[3vw] max-sm:mt-[5vw] max-md:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social, id) => (

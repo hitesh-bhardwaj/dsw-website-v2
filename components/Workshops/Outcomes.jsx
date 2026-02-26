@@ -61,12 +61,12 @@ export default function Outcomes({
 
   return (
     <section
-      className={`w-screen px-[5vw] py-[7%] max-md:py-[10%] ${marginTop}`}
+      className={`w-screen px-[5vw] py-[7%] max-md:px-[6vw] max-md:py-[10%] ${marginTop}`}
       id="about"
     >
       <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-md:gap-y-[10vw]">
         <div
-          className={` w-[75%] space-y-[4vw] max-md:space-y-[5vw] max-sm:space-y-[7vw] text-center max-md:w-full`}
+          className={` w-[75%] space-y-[4vw] max-md:space-y-[5vw] max-sm:space-y-[7vw] text-center max-md:w-[90%] leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]`}
         >
           <HeadingAnim>
             <h2
@@ -76,7 +76,7 @@ export default function Outcomes({
             </h2>
           </HeadingAnim>
           {showDescription && (
-            <div className="space-y-[1vw] max-sm:space-y-[7vw] w-[75%] max-md:w-full mx-auto text-24 max-md:space-y-[4vw]">
+            <div className="space-y-[2vw] max-sm:space-y-[7vw] w-[75%] max-md:w-full mx-auto text-24 max-md:space-y-[4vw]">
               <Copy>
                 <p className="text-30 max-md:text-center">
                   {outcomesData.para}
@@ -95,10 +95,10 @@ export default function Outcomes({
           {outcomesData.points.map(({ id, text, width, title }) => (
             <div
               key={id}
-              className="w-[60%] max-md:w-full flex gap-[3.2vw] max-sm:gap-[6vw] items-center max-md:items-start about-item"
+              className="w-[60%] max-md:w-full font-heading flex gap-[3.2vw] max-sm:gap-[6vw] items-center max-md:items-start about-item"
             >
               <div className="w-[15%]  relative max-md:w-[18vw]">
-                <div className="relative w-[5vw] h-[5vw] border border-primary-1 max-sm:border-primary-blue rounded-full flex items-center justify-center max-md:w-[12vw] max-md:h-[12vw] max-sm:max-sm:h-[15vw] max-sm:w-[15vw]  ">
+                <div className="relative w-[5.4vw] h-[5.4vw] border border-primary-1 max-sm:border-primary-blue rounded-full flex items-center justify-center max-md:w-[12vw] max-md:h-[12vw] max-sm:max-sm:h-[15vw] max-sm:w-[15vw]  ">
                   <p className="about-id max-sm:font-light text-primary-1 text-40 font-head relative z-[1]">
                     {String(id).padStart(2, "0")}
                   </p>

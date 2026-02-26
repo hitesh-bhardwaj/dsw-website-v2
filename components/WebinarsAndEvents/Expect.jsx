@@ -41,7 +41,7 @@ export default function Expect() {
 
   
   return (
-    <section className="w-screen  relative z-10 px-[7vw] max-sm:px-[7vw] max-md:px-[5vw] py-[7%] pt-[10%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] max-md:py-[10%]" id="expect">
+    <section className="w-screen  relative z-10 px-[7vw]  max-sm:px-[7vw] max-md:px-[6vw] py-[7%] pt-[10%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-[25%] max-md:py-[10%]" id="expect">
       <div className="w-full flex flex-col items-center justify-center  gap-y-[7vw] max-sm:gap-y-[15vw] max-md:gap-y-[7vw] max-md:mt-0">
         <div className="text-center">
 

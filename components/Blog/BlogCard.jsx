@@ -7,7 +7,7 @@ const BlogCard = ({ title, date, slug, featuredImage }) => {
   return (
     <>
       <Link href={slug}>
-        <div className="rounded-3xl fadeup relative group border border-primary-blue h-[33vw]  background-glass space-y-[1.5vw] max-sm:space-y-[5vw] overflow-hidden group cursor-pointer max-sm:pb-0 max-sm:h-[110vw] max-md:h-[70vw] max-md:rounded-[2.5vw] max-sm:rounded-[6vw] max-md:space-y-[2vw]">
+        <div className="rounded-3xl fadeup relative group border border-primary-blue h-[35vw]  background-glass space-y-[1.5vw] max-sm:space-y-[5vw] overflow-hidden group cursor-pointer max-sm:pb-0 max-sm:h-[115vw] max-md:h-[70vw] max-md:rounded-[2.5vw] max-sm:rounded-[6vw] max-md:space-y-[2vw]">
           <div className="w-full h-[64%] max-md:h-[60%] overflow-hidden max-sm:rounded-3xl rounded-[1.8vw] relative ">
             <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-md:top-[3vw] max-md:right-[3vw] max-md:size-[7vw] bg-white/10 rounded-full z-10 max-sm:backdrop-blur-xs">
               <svg
@@ -37,7 +37,7 @@ const BlogCard = ({ title, date, slug, featuredImage }) => {
             )}
           </div>
           <div className="space-y-[1vw]  h-[28%] max-sm:space-y-[4.5vw] px-5 max-sm:px-[5vw] max-md:w-full max-md:px-[2.5vw] max-md:space-y-[2vw] flex flex-col max-sm:pb-[4vw] max-sm:pr-[10vw]">
-            <h4 className="text-foreground h-auto text-24 w-5/6 leading-normal  max-md:w-full max-md:text-[3vw] max-sm:text-[4.7vw] max-sm:leading-[1.4]">
+            <h4 className="text-foreground h-auto text-24 w-5/6 leading-[1.2] max-md:leading-[1.2]  max-md:w-full max-md:text-[3vw] max-sm:text-[4.7vw] max-sm:leading-[1.4]">
               {title}
             </h4>
             <p className="text-16 text-gray-1 mt-auto  ">

@@ -80,7 +80,7 @@ const Expertise = () => {
 
   return (
     <section
-      className="min-h-screen  max-md:min-h-full max-sm:py-[15%]  w-screen overflow-x-hidden h-fit flex flex-col items-center justify-center relative !py-[7%] max-md:py-[10%]"
+      className="min-h-screen  max-md:min-h-full max-sm:py-[15%]  w-screen overflow-x-hidden h-fit flex flex-col items-center justify-center relative py-[7%] max-md:py-[18%]"
     >
       <div className="w-full h-full flex flex-col items-center justify-center gap-16 relative z-[2] max-sm:gap-20">
         <div className=" w-fit px-[5vw] max-sm:px-[7vw]">
@@ -95,7 +95,7 @@ const Expertise = () => {
           <div className=" fadeup max-md:my-[7vw] ">
             <div
               ref={marqueeRef1}
-              className="flex  space-x-4  max-md:space-x-[7vw] max-sm:space-x-[5vw]"
+              className="flex  space-x-4  max-md:space-x-[3vw] max-sm:space-x-[5vw]"
             >
               {firstHalfAwards.map((item, index) => (
                 <AwardItem key={index} img={item.img} />
@@ -112,7 +112,7 @@ const Expertise = () => {
           <div className="fadeup max-md:my-[10vw] max-sm:my-[7vw] max-sm:space-x-[5vw] ">
             <div
               ref={marqueeRef2}
-              className="flex space-x-4 max-md:space-x-[7vw] max-sm:space-x-[5vw]"
+              className="flex space-x-4 max-md:space-x-[3vw] max-sm:space-x-[5vw]"
             >
               {secondHalfAwards.map((item, index) => (
                 <AwardItem key={index} img={item.img} />
