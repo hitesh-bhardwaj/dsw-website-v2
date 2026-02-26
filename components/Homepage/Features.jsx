@@ -57,7 +57,7 @@ const Features = () => {
                 <Copy>
                   <p>{feature.description}</p>
                 </Copy>
-                {/* </Copy> */}
+                {/* </Copy> */} 
 
                 {feature.bullets && feature.bullets.length > 0 && (
                   // <Copy>
