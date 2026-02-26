@@ -9,6 +9,7 @@ import { useRef } from "react";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
+import Newsletter from "./Newsletter";
 
 
 const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
@@ -282,28 +283,7 @@ export default function FooterNew() {
             </div>
 
             {/* Newsletter */}
-            <div className="w-[45%] relative max-sm:w-full max-md:mt-[8vw] max-sm:mt-0 max-md:w-[60%]">
-              <p className="text-24 max-sm:text-24 max-md:text-[2.5vw] font-sans tracking-[0.025vw] mb-[3vw]">
-                Subscribe to our newsletter for the latest tech insights and
-                updates.
-              </p>
-
-              <div className="max-sm:space-y-[0.5vw] max-md:space-y-[1vw]">
-                <div className="relative flex mt-[2vw] max-md:gap-[1vw] max-md:flex-col max-sm:gap-[2vw]">
-                  <input
-                    type="email"
-                    placeholder="Enter Your Email"
-                    className="w-full bg-transparent text-20 max-md:text-[2.5vw] font-sans text-[#666] placeholder-[#666] focus:outline-none focus:border-[#ff5f00] transition-colors max-sm:text-[3.5vw] max-sm:mx-auto max-sm:text-center"
-                  />
-                  <div className="w-full h-[0.1px] bg-black hidden max-md:block max-md:mb-[1vw] " />
-
-                  <button className="px-[1.5vw]  py-[0.5vw] max-sm:mt-2 max-md:mt-[2vw] max-md:px-[5vw] max-md:py-[1.5vw] cursor-pointer rounded-full text-white text-[1vw] max-md:text-[2.5vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-md:w-fit max-sm:mx-auto  bg-[#F16B0D]">
-                    Subscribe
-                  </button>
-                </div>
-                <div className="w-full h-[0.1px] mt-[0.5vw] bg-black max-md:hidden" />
-              </div>
-            </div>
+            <Newsletter/>
           </div>
         </div>
 
