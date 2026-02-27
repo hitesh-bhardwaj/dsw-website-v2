@@ -35,7 +35,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   const pathname = usePathname();
   const { openModal } = useModal();
-
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [mob, setMob] = useState(false);
 
@@ -85,10 +84,10 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
         gsap.set(".hero-overlay", { opacity: 0 });
         gsap.set("#hero-bg", { opacity: 0 });
-        tl.from("#hero-bg",{
-          opacity:0,
-          duration:1,
-        })
+        tl.from("#hero-bg", {
+          opacity: 0,
+          duration: 1,
+        });
         tl.from(".herofadeup", {
           yPercent: 20,
           opacity: 0,
@@ -185,11 +184,13 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
-          <Copy delay={1}>
-            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
-              {heroContent?.tagline}
-            </p>
-          </Copy>
+          {heroContent?.tagline && (
+            <Copy delay={1}>
+              <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
+                {heroContent?.tagline}
+              </p>
+            </Copy>
+          )}
 
           <HeadingAnim delay={0.3}>
             <h1

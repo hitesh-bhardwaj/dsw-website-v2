@@ -2,11 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import SplitText from "gsap/SplitText";
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(ScrollTrigger, SplitText);
+  gsap.registerPlugin(SplitText);
 }
 
 export default function SectionBreak({ content, width, big }) {
@@ -28,9 +27,9 @@ export default function SectionBreak({ content, width, big }) {
           .timeline({
             scrollTrigger: {
               trigger: sectionRef.current,
-              start: "top 70%",
-              end: "bottom 40%",
-              scrub: 0.25,
+              start: "top 80%",
+              end: "bottom 50%",
+              scrub: true,
               // markers:true
             },
           })

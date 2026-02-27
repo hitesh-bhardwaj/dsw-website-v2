@@ -28,9 +28,7 @@ const SLIDES = [
   },
 ];
 
-/**
- * Only used for pagination "commit" detection (no snap).
- */
+// Commit points (no snap)
 const SNAP_POINTS = [0.18, 0.4, 0.7, 0.99];
 
 export default function CoreEnterpriseSystemSticky() {
@@ -39,8 +37,10 @@ export default function CoreEnterpriseSystemSticky() {
   const innerRef = useRef(null);
   const coreEnterTitle = useRef(null);
   const wholeContent = useRef(null);
+
   const titleRefs = useRef([]);
   const descRefs = useRef([]);
+
   const currRef = useRef(null);
   const slashRef = useRef(null);
   const totalRef = useRef(null);
@@ -52,7 +52,7 @@ export default function CoreEnterpriseSystemSticky() {
     if (el) descRefs.current[i] = el;
   };
 
-  // Helper: split safely (prevents nested SplitText wrappers)
+  // SplitText helper (ensures no nested wrappers)
   const safeSplit = (el, options) => {
     if (!el) return null;
     if (el._splitInstance?.revert) el._splitInstance.revert();
@@ -61,391 +61,314 @@ export default function CoreEnterpriseSystemSticky() {
     return s;
   };
 
-  // =========================
-  // Scroll intensity spin (circles) - ROBUST
-  // =========================
-  useGSAP(() => {
-    if (!outerRef.current || !innerRef.current) return;
+  useGSAP(
+    () => {
+      const section = sectionRef.current;
+      if (!section) return;
 
-    gsap.set([outerRef.current, innerRef.current], {
-      transformOrigin: "50% 50%",
-      willChange: "transform",
-    });
+      const ctx = gsap.context(() => {
+        // --------------------------------
+        // 1) Constant spin + scroll-boost (optimized)
+        // --------------------------------
+        const outer = outerRef.current;
+        const inner = innerRef.current;
 
-    const outerTL = gsap.to(outerRef.current, {
-      rotation: "+=360",
-      duration: 80,
-      ease: "none",
-      repeat: -1,
-    });
+        let removeScroll = null;
+        let removeTicker = null;
 
-    const innerTL = gsap.to(innerRef.current, {
-      rotation: "-=360",
-      duration: 60,
-      ease: "none",
-      repeat: -1,
-    });
+        if (outer && inner) {
+          gsap.set([outer, inner], {
+            transformOrigin: "50% 50%",
+            willChange: "transform",
+          });
 
-    const BASE = 0.35;
-    const MAX = 8;
-    const SENS = 0.08;
-    const DECAY = 0.88;
+          const outerTL = gsap.to(outer, {
+            rotation: "+=360",
+            duration: 80,
+            ease: "none",
+            repeat: -1,
+          });
 
-    outerTL.timeScale(BASE);
-    innerTL.timeScale(BASE);
+          const innerTL = gsap.to(inner, {
+            rotation: "-=360",
+            duration: 60,
+            ease: "none",
+            repeat: -1,
+          });
 
-    let boost = 0;
-    let lastY = window.scrollY;
+          const BASE = 0.35;
+          const MAX = 8;
+          const SENS = 0.08;
+          const DECAY = 0.88;
 
-    const tick = () => {
-      boost *= DECAY;
-      const t = BASE + boost;
-      outerTL.timeScale(t);
-      innerTL.timeScale(t);
-    };
+          outerTL.timeScale(BASE);
+          innerTL.timeScale(BASE);
 
-    gsap.ticker.add(tick);
+          let boost = 0;
+          let lastY = window.scrollY;
 
-    const onScroll = () => {
-      const y = window.scrollY;
-      const dy = Math.abs(y - lastY);
-      lastY = y;
-      boost = Math.min(boost + dy * SENS, MAX);
-    };
+          // RAF throttle scroll sampling
+          let raf = 0;
+          const onScroll = () => {
+            if (raf) return;
+            raf = requestAnimationFrame(() => {
+              raf = 0;
+              const y = window.scrollY;
+              const dy = Math.abs(y - lastY);
+              lastY = y;
+              boost = Math.min(boost + dy * SENS, MAX);
+            });
+          };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
-  });
+          const tick = () => {
+            boost *= DECAY;
+            const t = BASE + boost;
+            outerTL.timeScale(t);
+            innerTL.timeScale(t);
+          };
 
-  // =========================
-  // Content animation (scrubbed) - ROBUST
-  // ✅ Titles + Descs = yPercent lines
-  // ✅ NO snap
-  // =========================
-  useGSAP(() => {
-    const titles = titleRefs.current.filter(Boolean);
-    const descs = descRefs.current.filter(Boolean);
+          window.addEventListener("scroll", onScroll, { passive: true });
+          gsap.ticker.add(tick);
 
-    if (!titles.length || !descs.length) return;
+          removeScroll = () => {
+            window.removeEventListener("scroll", onScroll);
+            if (raf) cancelAnimationFrame(raf);
+          };
 
-    const splits = [];
-
-    const titleSplits = titles.map((el) => {
-      const s = safeSplit(el, { type: "lines", mask: "lines" });
-      if (s) splits.push(s);
-      return s;
-    });
-
-    const descSplits = descs.map((el) => {
-      const s = safeSplit(el, { type: "lines", mask: "lines" });
-      if (s) splits.push(s);
-      return s;
-    });
-
-    // Initial states
-    titleSplits.forEach(
-      (s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }),
-    );
-    descSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
-    if (globalThis.innerWidth > 1024) {
-      const tl = gsap.timeline({
-        defaults: { ease: "power1.inOut" },
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "15% top",
-          end: "75% bottom",
-          scrub: true,
-          invalidateOnRefresh: true,
-          // markers: true,
-        },
-      });
-      SLIDES.forEach((_, i) => {
-        const tS = titleSplits[i];
-        const dS = descSplits[i];
-        if (!tS?.lines || !dS?.lines) return;
-
-        tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
-          dS.lines,
-          { yPercent: 0, duration: 0.6, stagger: 0.06 },
-          "<",
-        );
-
-        if (i !== SLIDES.length - 1) {
-          tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
-            dS.lines,
-            { yPercent: -100, duration: 0.6, stagger: 0.06 },
-            "<",
-          );
+          removeTicker = () => {
+            gsap.ticker.remove(tick);
+            outerTL.kill();
+            innerTL.kill();
+          };
         }
-      });
-    } else {
-      const tl = gsap.timeline({
-        defaults: { ease: "power1.inOut" },
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "10% top",
-          end: "75% bottom",
-          scrub: true,
-          invalidateOnRefresh: true,
-          // markers: true,
-        },
-      });
-      SLIDES.forEach((_, i) => {
-        const tS = titleSplits[i];
-        const dS = descSplits[i];
-        if (!tS?.lines || !dS?.lines) return;
 
-        tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
-          dS.lines,
-          { yPercent: 0, duration: 0.6, stagger: 0.06 },
-          "<",
-        );
+        // --------------------------------
+        // 2) Title split + intro/outro + pagination
+        //    Use matchMedia to avoid duplicated code
+        // --------------------------------
+        gsap.set(".pagination", { opacity: 0 });
 
-        if (i !== SLIDES.length - 1) {
-          tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
-            dS.lines,
-            { yPercent: -100, duration: 0.6, stagger: 0.06 },
-            "<",
-          );
+        const titleSplit = safeSplit(coreEnterTitle.current, {
+          type: "lines",
+          linesClass: "Headingline++",
+          lineThreshold: 0.1,
+        });
+
+        if (titleSplit?.lines?.length) {
+          gsap.set(titleSplit.lines, { maskPosition: "100% 100%" });
         }
-      });
-    }
-  });
 
-  // =========================
-  // Pagination: fade commit near key points - ROBUST
-  // =========================
-  useGSAP(() => {
-    if (!currRef.current || !slashRef.current || !totalRef.current) return;
+        // --------------------------------
+        // 3) Slide stack split + scrub timeline (optimized)
+        // --------------------------------
+        const titles = titleRefs.current.filter(Boolean);
+        const descs = descRefs.current.filter(Boolean);
 
-    const group = [currRef.current, slashRef.current, totalRef.current];
+        const splits = [];
+        const titleSplits = titles.map((el) => {
+          const s = safeSplit(el, { type: "lines", mask: "lines" });
+          if (s) splits.push(s);
+          return s;
+        });
 
-    gsap.set(group, { autoAlpha: 1, willChange: "opacity" });
+        const descSplits = descs.map((el) => {
+          const s = safeSplit(el, { type: "lines", mask: "lines" });
+          if (s) splits.push(s);
+          return s;
+        });
 
-    currRef.current.textContent = "1";
-    totalRef.current.textContent = String(SLIDES.length);
+        titleSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
+        descSplits.forEach((s) => s?.lines && gsap.set(s.lines, { yPercent: 100 }));
 
-    let activeIndex = 0;
+        // Pagination elements
+        const group = [currRef.current, slashRef.current, totalRef.current].filter(Boolean);
+        if (currRef.current) currRef.current.textContent = "1";
+        if (totalRef.current) totalRef.current.textContent = String(SLIDES.length);
+        if (group.length) gsap.set(group, { autoAlpha: 1, willChange: "opacity" });
 
-    const COMMIT_THRESHOLD = 0.06;
-    const FADE_OUT = 0.18;
-    const FADE_IN = 0.22;
-    if (globalThis.innerWidth > 1024) {
-      const st = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "15% top",
-        end: "75% bottom",
-        invalidateOnRefresh: true,
-        onUpdate(self) {
-          const p = self.progress;
+        const buildSlidesTL = (start, end) => {
+          const tl = gsap.timeline({
+            defaults: { ease: "power1.inOut" },
+            scrollTrigger: {
+              trigger: section,
+              start,
+              end,
+              scrub: true,
+              invalidateOnRefresh: true,
+            },
+          });
 
-          let nearest = 0;
-          let best = Infinity;
+          SLIDES.forEach((_, i) => {
+            const tS = titleSplits[i];
+            const dS = descSplits[i];
+            if (!tS?.lines || !dS?.lines) return;
 
-          for (let i = 0; i < SNAP_POINTS.length; i++) {
-            const d = Math.abs(p - SNAP_POINTS[i]);
-            if (d < best) {
-              best = d;
-              nearest = i;
+            tl.to(tS.lines, { yPercent: 0, duration: 0.6, stagger: 0.08 }).to(
+              dS.lines,
+              { yPercent: 0, duration: 0.6, stagger: 0.06 },
+              "<",
+            );
+
+            if (i !== SLIDES.length - 1) {
+              tl.to(tS.lines, { yPercent: -100, duration: 0.6, stagger: 0.08 }).to(
+                dS.lines,
+                { yPercent: -100, duration: 0.6, stagger: 0.06 },
+                "<",
+              );
             }
-          }
+          });
 
-          if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
-            activeIndex = nearest;
+          return tl;
+        };
 
-            gsap
-              .timeline({ overwrite: true })
-              .to(group, {
-                autoAlpha: 0,
-                duration: FADE_OUT,
-                ease: "power2.out",
-              })
-              .add(() => {
-                currRef.current.textContent = String(activeIndex + 1);
-                totalRef.current.textContent = String(SLIDES.length);
-              })
-              .to(group, {
-                autoAlpha: 1,
-                duration: FADE_IN,
-                ease: "power2.out",
+        const buildPaginationST = (start, end) => {
+          if (!group.length) return null;
+
+          let activeIndex = 0;
+          const COMMIT_THRESHOLD = 0.06;
+          const FADE_OUT = 0.18;
+          const FADE_IN = 0.22;
+
+          return ScrollTrigger.create({
+            trigger: section,
+            start,
+            end,
+            invalidateOnRefresh: true,
+            onUpdate(self) {
+              const p = self.progress;
+
+              let nearest = 0;
+              let best = Infinity;
+
+              for (let i = 0; i < SNAP_POINTS.length; i++) {
+                const d = Math.abs(p - SNAP_POINTS[i]);
+                if (d < best) {
+                  best = d;
+                  nearest = i;
+                }
+              }
+
+              if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
+                activeIndex = nearest;
+
+                gsap
+                  .timeline({ overwrite: true })
+                  .to(group, { autoAlpha: 0, duration: FADE_OUT, ease: "power2.out" })
+                  .add(() => {
+                    if (currRef.current) currRef.current.textContent = String(activeIndex + 1);
+                    if (totalRef.current) totalRef.current.textContent = String(SLIDES.length);
+                  })
+                  .to(group, { autoAlpha: 1, duration: FADE_IN, ease: "power2.out" });
+              }
+            },
+          });
+        };
+
+        const buildIntroOutro = (introStart, introEnd, outroStart, outroEnd, isDesktop) => {
+          // Intro
+          const intro = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: introStart,
+              end: introEnd,
+              scrub: true,
+            },
+          });
+
+          gsap.set(".circle-container", { opacity: 0, scale: 0.9 });
+
+          intro
+            .to(".circle-container", {
+              opacity: 1,
+              scale: 1,
+              ease: "power1.out",
+              duration: 1.2,
+            })
+            .to(titleSplit?.lines || [], {
+              maskPosition: "0% 100%",
+              stagger: 0.2,
+              delay: 0.1,
+              duration: 3,
+              ease: "power3.out",
+            })
+            .to(".pagination", { opacity: 1, duration: 1 }, "<");
+
+          // Outro
+          const outro = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: outroStart,
+              end: outroEnd,
+              scrub: true,
+            },
+          });
+
+          if (isDesktop) {
+            outro
+              .to(wholeContent.current, { opacity: 0, duration: 0.4 })
+              .to(".circle-container", {
+                scale: 10,
+                duration: 2,
+                ease: "power1.in",
+                delay: -0.2,
+              });
+          } else {
+            outro
+              .to(wholeContent.current, { opacity: 0, duration: 1 })
+              .to(".circle-container", {
+                opacity: 0,
+                duration: 1,
+                ease: "power1.in",
+                delay: -0.2,
               });
           }
-        },
-      });
-    } else {
-      const st = ScrollTrigger.create({
-        trigger: sectionRef.current,
-        start: "10% top",
-        end: "75% bottom",
-        invalidateOnRefresh: true,
-        onUpdate(self) {
-          const p = self.progress;
 
-          let nearest = 0;
-          let best = Infinity;
+          return { intro, outro };
+        };
 
-          for (let i = 0; i < SNAP_POINTS.length; i++) {
-            const d = Math.abs(p - SNAP_POINTS[i]);
-            if (d < best) {
-              best = d;
-              nearest = i;
-            }
-          }
-
-          if (best <= COMMIT_THRESHOLD && nearest !== activeIndex) {
-            activeIndex = nearest;
-
-            gsap
-              .timeline({ overwrite: true })
-              .to(group, {
-                autoAlpha: 0,
-                duration: FADE_OUT,
-                ease: "power2.out",
-              })
-              .add(() => {
-                currRef.current.textContent = String(activeIndex + 1);
-                totalRef.current.textContent = String(SLIDES.length);
-              })
-              .to(group, {
-                autoAlpha: 1,
-                duration: FADE_IN,
-                ease: "power2.out",
-              });
-          }
-        },
-      });
-    }
-  });
-
-  // =========================
-  // Title + circles intro anim + end fade/scale - ROBUST
-  // =========================
-  useGSAP(() => {
-    gsap.set(".pagination", { opacity: 0 });
-
-    const titleSplit = safeSplit(coreEnterTitle.current, {
-      type: "lines",
-      linesClass: "Headingline++",
-      lineThreshold: 0.1,
-    });
-
-    if (titleSplit?.lines) {
-      gsap.set(titleSplit.lines, { maskPosition: "100% 100%" });
-    }
-    if (globalThis.innerWidth > 1024) {
-      const intro = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 10%",
-          end: "40% top",
-          scrub: true,
-          // markers: true,
-        },
-      });
-      gsap.set(".circle-container", { opacity: 0, scale: 0.9 });
-      intro
-        .to(".circle-container", {
-          opacity: 1,
-          scale: 1,
-          ease: "power1.out",
-          duration: 1.2,
-        })
-        .to(titleSplit?.lines || [], {
-          maskPosition: "0% 100%",
-          stagger: 0.2,
-          delay: 0.1,
-          duration: 3,
-          ease: "power3.out",
-        })
-        .to(
-          ".pagination",
-          {
-            opacity: 1,
-            duration: 1,
+        // --------------------------------
+        // matchMedia = no duplicate code, handles resize refresh properly
+        // --------------------------------
+        const mm = ScrollTrigger.matchMedia({
+          "(min-width: 1025px)": () => {
+            buildSlidesTL("15% top", "75% bottom");
+            buildPaginationST("15% top", "75% bottom");
+            buildIntroOutro("top 10%", "40% top", "62% top", "75% top", true);
           },
-          "<",
-        );
-
-      const outro = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "62% top",
-          end: "75% top",
-          scrub: true,
-        },
-      });
-
-      outro
-        .to(wholeContent.current, { opacity: 0, duration: 0.4 })
-        .to(".circle-container", {
-          scale: 10,
-          duration: 2,
-          ease: "power1.in",
-          delay: -0.2,
-        });
-    } else {
-      const intro = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "30% top",
-          scrub: true,
-          // markers: true,
-        },
-      });
-
-      intro
-        .from(".circle-container", {
-          opacity: 0,
-          scale: 0.9,
-          ease: "power1.out",
-          duration: 1.2,
-        })
-        // .from(
-        //   innerRef.current,
-        //   {
-        //     opacity: 0,
-        //     scale: 0.9,
-        //     ease: "power1.out",
-        //     duration: 1.2,
-        //   },
-        //   "<"
-        // )
-        .to(titleSplit?.lines || [], {
-          maskPosition: "0% 100%",
-          stagger: 0.2,
-          delay: 0.1,
-          duration: 3,
-          ease: "power3.out",
-        })
-        .to(
-          ".pagination",
-          {
-            opacity: 1,
-            duration: 1,
+          "(max-width: 1024px)": () => {
+            buildSlidesTL("10% top", "75% bottom");
+            buildPaginationST("10% top", "75% bottom");
+            buildIntroOutro("top top", "30% top", "58% top", "70% top", false);
           },
-          "<",
-        );
-
-      const outro = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "58% top",
-          end: "70% top",
-          scrub: true,
-          //  markers:true,
-        },
-      });
-
-      outro
-        .to(wholeContent.current, { opacity: 0, duration: 1 })
-        .to(".circle-container", {
-          opacity: 0,
-          duration: 1,
-          ease: "power1.in",
-          delay: -0.2,
         });
-    }
-  });
+
+        // --------------------------------
+        // Cleanup (critical)
+        // --------------------------------
+        return () => {
+          // revert SplitText wrappers
+          splits.forEach((s) => s?.revert?.());
+          titleSplit?.revert?.();
+
+          // remove boost/ticker
+          removeScroll?.();
+          removeTicker?.();
+
+          // kill matchMedia handlers
+          mm?.kill?.();
+
+          // kill any lingering triggers in scope
+          ScrollTrigger.getAll().forEach((t) => {
+            // Only kill triggers that belong to this section
+            if (t?.trigger === section) t.kill();
+          });
+        };
+      }, sectionRef);
+
+      return () => ctx.revert();
+    },
+    { scope: sectionRef },
+  );
 
   return (
     <section
@@ -525,7 +448,7 @@ export default function CoreEnterpriseSystemSticky() {
             ))}
           </div>
 
-          {/* Pagination (fade only) */}
+          {/* Pagination */}
           <div className="pagination mx-auto w-fit">
             <div className="text-[1.67vw] max-sm:text-[6.5vw] text-[#1727FF] relative flex mx-auto w-fit items-baseline max-md:text-[4vw]">
               <span ref={currRef} className="inline-block">

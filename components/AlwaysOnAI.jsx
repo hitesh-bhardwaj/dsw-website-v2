@@ -119,7 +119,7 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
           </Copy>
         </div>
 
-        <div className={`relative h-auto mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%]  ${imgWidth ? imgWidth : "w-[70vw]"}`}>
+        <div className={`relative h-[42vw] max-sm:h-[60vw] mx-auto fadeup my-[5vw] max-sm:my-[15vw] max-sm:w-[110%] max-sm:ml-[-5%]  ${imgWidth ? imgWidth : "w-[70vw]"}`}>
           <Image
             src="/assets/homepage/laptop-dashboard.png"
             alt="DSW UnifyAI Dashboard"

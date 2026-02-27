@@ -120,9 +120,9 @@ const setFormSubmitted = useCallback((value) => {
           setOpenWalkThrough(true);
           break;
 
-        case "walkthrough-iframe":
-          setOpenWalkthroughIframe(true);
-          break;
+        // case "walkthrough-iframe":
+        //   setOpenWalkthroughIframe(true);
+        //   break;
 
         default:
           break;

@@ -3,12 +3,14 @@ import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
-import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import dynamic from "next/dynamic";
 
+const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
+  ssr: true,
+});
 const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
   ssr: true,
 });
