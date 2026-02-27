@@ -1,9 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { useLayoutEffect, useRef } from "react";
+import { useRef } from "react";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import HeadingAnim from "./Animations/HeadingAnim";
 import Copy from "./Animations/Copy";
 import { useGSAP } from "@gsap/react";
@@ -11,7 +10,6 @@ import SectionBreak from "./SectionBreak";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import { useModal } from "./ModalProvider";
 
-gsap.registerPlugin(ScrollTrigger);
 
 
 export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthroughTarget = "unify" }) {
@@ -128,7 +126,6 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
             width={800}
             height={700}
             className="object-contain h-full w-full"
-            priority
           />
           <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-md:left-1/2 max-md:-translate-x-1/2 ${walkthrough ? "" : "hidden"}`}>
             <PrimaryButton text={"Start Walkthrough"} href={"#"} onClick={(e) => {

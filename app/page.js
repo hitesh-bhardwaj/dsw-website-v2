@@ -1,9 +1,7 @@
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
-import CTAPricing from "@/components/CTAPricing";
-import CTAFinal from "@/components/CTAFinal";
-import HeroNew from "@/components/HeroNew";
+// import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
@@ -23,6 +21,12 @@ const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/Cert
 const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
   ssr: true,
 });
+const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
+  ssr: true,
+});
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
 export const metadata = {
   title: "DSW UnifyAI – Enterprise AI Platform for Insurance",
   description:
@@ -38,7 +42,7 @@ export default function Home() {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <main className="min-h-screen">
-          <HeroNew heroContent={heroContent} variant="default" />
+          {/* <HeroNew heroContent={heroContent} variant="default" /> */}
           <WhyAIStruggles />
           <UnifiedRuntime />
           <Features />

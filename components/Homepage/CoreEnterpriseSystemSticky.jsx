@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef } from "react";
 import Image from "next/image";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
@@ -39,10 +39,8 @@ export default function CoreEnterpriseSystemSticky() {
   const innerRef = useRef(null);
   const coreEnterTitle = useRef(null);
   const wholeContent = useRef(null);
-  const [mob, setMob] = useState(false);
   const titleRefs = useRef([]);
   const descRefs = useRef([]);
-
   const currRef = useRef(null);
   const slashRef = useRef(null);
   const totalRef = useRef(null);
