@@ -34,7 +34,13 @@ export const metadata = {
   url: "",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
-};
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+    },
+  }
+}
 
 export default function Home() {
   return (

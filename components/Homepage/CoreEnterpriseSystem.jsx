@@ -213,12 +213,12 @@ export default function CoreEnterpriseSystem() {
     >
       {/* Outer circle */}
       <div ref={outerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[74vw]">
-        <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
+        <Image src="/assets/homepage/dotted-circle.svg" alt="Dotted Circle" width={1080} height={1080} />
       </div>
 
       {/* Inner circle */}
       <div ref={innerRef} className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[50vw]">
-        <Image src="/assets/homepage/dotted-circle.svg" alt="" width={1080} height={1080} />
+        <Image src="/assets/homepage/dotted-circle.svg" alt="Dotted Circle" width={1080} height={1080} />
       </div>
 
       {/* Content */}
