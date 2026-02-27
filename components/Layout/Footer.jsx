@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
@@ -152,6 +152,14 @@ export default function FooterNew() {
     },
   ];
   const pathname = usePathname();
+   const [mob, setMob] = useState(false);
+
+  useEffect(() => {
+      const update = () => setMob(window.innerWidth <= 1024);
+      update();
+      window.addEventListener("resize", update, { passive: true });
+      return () => window.removeEventListener("resize", update);
+    }, []);
 
   return (
     <footer
@@ -159,11 +167,11 @@ export default function FooterNew() {
       id="footer"
     >
       {/* Background Gradient */}
-      <div className="w-screen h-full">
+      {!mob&&<div className="w-screen h-full">
         <DynamicFooterWave key={pathname} />
-      </div>
+      </div>}
 
-      <div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
+      {mob&&<div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
         <Image
           src="/assets/footer-bg.png"
           width={500}
@@ -172,7 +180,7 @@ export default function FooterNew() {
           className="h-auto w-full"
           alt="footer-bg"
         />
-      </div>
+      </div>}
 
       {/* Content */}
       <div className="relative z-10">
@@ -288,7 +296,6 @@ export default function FooterNew() {
                 ))}
               </ul>
             </div>
-
             {/* Newsletter */}
             <Newsletter />
           </div>

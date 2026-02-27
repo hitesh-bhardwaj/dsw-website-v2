@@ -42,11 +42,11 @@ export default function Home() {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <main className="min-h-screen">
-          {/* <HeroNew heroContent={heroContent} variant="default" /> */}
+          <HeroNew heroContent={heroContent} variant="default" />
           <WhyAIStruggles />
           <UnifiedRuntime />
           <Features />
-          {/* <CoreEnterpriseSystemSticky />
+          <CoreEnterpriseSystemSticky />
           <UseCases />
           <AlwaysOnAI content={tourContent} />
           <ClientsBlur />
@@ -54,7 +54,7 @@ export default function Home() {
           <CTAPricing />
           <CertificationsAndAwards certificationsContent={certificationsContent} />
           <Testimonials />
-          <CTAFinal ctaContent={ctaContent} /> */}
+          <CTAFinal ctaContent={ctaContent} />
         </main>
       </Layout>
     </>
