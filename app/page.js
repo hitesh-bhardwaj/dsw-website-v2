@@ -43,7 +43,7 @@ export default function Home() {
       <Layout>
         <main className="min-h-screen">
           {/* <HeroNew heroContent={heroContent} variant="default" /> */}
-          <WhyAIStruggles />
+          {/* <WhyAIStruggles />
           <UnifiedRuntime />
           <Features />
           <CoreEnterpriseSystemSticky />
@@ -54,7 +54,7 @@ export default function Home() {
           <CTAPricing />
           <CertificationsAndAwards certificationsContent={certificationsContent} />
           <Testimonials />
-          <CTAFinal ctaContent={ctaContent} />
+          <CTAFinal ctaContent={ctaContent} /> */}
         </main>
       </Layout>
     </>
