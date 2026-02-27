@@ -11,7 +11,6 @@ import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import Newsletter from "./Newsletter";
 
-
 const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
   ssr: false,
 });
@@ -152,8 +151,7 @@ export default function FooterNew() {
       id: "join-community",
     },
   ];
-     const pathname = usePathname();
-
+  const pathname = usePathname();
 
   return (
     <footer
@@ -228,15 +226,24 @@ export default function FooterNew() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[1.5vw] max-md:justify-between  mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
-                {socialLinks.map((social, id) => (
+              <div className="flex items-center gap-[1.5vw] max-md:justify-between mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+                {socialLinks.map((social) => (
                   <Link
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]`}
+                    rel="noopener noreferrer"
+                    aria-label={`Visit Data Science Wizards on ${social.name}`}
+                    title={`Data Science Wizards on ${social.name}`}
+                    className="w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]"
                   >
-                    {social.icon}
+                    {/* Make the icon decorative for SR since the link already has a name */}
+                    <span aria-hidden="true" className="block h-full w-full">
+                      {social.icon}
+                    </span>
+
+                    {/* Optional: extra safety for some AT/browser combos */}
+                    <span className="sr-only">Visit us on {social.name}</span>
                   </Link>
                 ))}
               </div>
@@ -283,7 +290,7 @@ export default function FooterNew() {
             </div>
 
             {/* Newsletter */}
-            <Newsletter/>
+            <Newsletter />
           </div>
         </div>
 
