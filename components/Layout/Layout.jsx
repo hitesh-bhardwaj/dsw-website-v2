@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
         <WebsiteJsonLd/>
         <Header />
         {children}
-        <FooterNew />
+        {/* <FooterNew /> */}
         <GlobalPopup/>
         <WalkthroughPopup />
         <WalkthroughIframePopup />

@@ -1,7 +1,7 @@
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
-// import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
@@ -43,10 +43,10 @@ export default function Home() {
       <Layout>
         <main className="min-h-screen">
           {/* <HeroNew heroContent={heroContent} variant="default" /> */}
-          {/* <WhyAIStruggles />
+          <WhyAIStruggles />
           <UnifiedRuntime />
           <Features />
-          <CoreEnterpriseSystemSticky />
+          {/* <CoreEnterpriseSystemSticky />
           <UseCases />
           <AlwaysOnAI content={tourContent} />
           <ClientsBlur />
