@@ -2,6 +2,9 @@ import LenisSmoothScroll from "@/components/LenisSmoothScroll";
 import { neueMontreal, aspekta } from "./fonts";
 import "./globals.css";
 import LayoutTransition from "@/components/LayoutTransition";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "DSW - Enterprise AI Operating System",
@@ -63,6 +66,9 @@ export default function RootLayout({ children }) {
           </LayoutTransition>
 
         </LenisSmoothScroll>
+           <SpeedInsights />
+        <Analytics />
+        <GoogleAnalytics gaId="G-Z5CT0M9533" />
       </body>
     </html>
   );

@@ -221,38 +221,37 @@ const VisionMission = () => {
   return (
     <section className="w-full h-fit bg-white pt-[10%] max-sm:pt-28 md:px-16 max-sm:px-[7vw] max-md:py-[10%] max-sm:py-0">
       <div className="relative grid grid-cols-3 grid-rows-2 max-sm:gap-[8vw] max-md:grid-cols-1 max-md:grid-rows-none max-md:flex max-md:flex-col max-md:gap-[4vw]">
-        <div className="relative col-start-1 col-span-1 row-start-1 border border-[#c2c2c2] bg-white max-sm:gap-y-[15vw] px-[2vw] py-[2vw] max-sm:px-[5vw] max-sm:py-[7vw] hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out flex flex-col items-center justify-between max-sm:items-start max-sm:gap-[6vw] max-md:p-[4vw] max-md:items-start max-md:gap-[7vw] max-md:pb-[10vw]">
+        <div className="relative col-start-1 col-span-1 row-start-1 border border-[#c2c2c2] bg-white max-sm:gap-y-[15vw] px-[2vw] py-[2vw] max-sm:px-[5vw] max-sm:py-[7vw] hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out flex flex-col justify-between max-sm:gap-[6vw] max-md:p-[4vw] max-md:items-start max-md:gap-[7vw] max-md:pb-[10vw]">
+          <div className="absolute -top-[0.25%] -left-[0.07%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out max-sm:-top-[0.35%] max-sm:-left-[0.35%]">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
+            />
+          </div>
 
-         <div className="absolute -top-[0.25%] -left-[0.07%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out max-sm:-top-[0.35%] max-sm:-left-[0.35%]">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
-        />
-      </div>
+          {/* Top Right */}
+          <div className="absolute top-[0.45%] -right-[0.8%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-md:-right-[0.5%] max-sm:-right-[0.8%]">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+            />
+          </div>
 
-      {/* Top Right */}
-      <div className="absolute top-[0.45%] -right-[0.8%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-md:-right-[0.5%] max-sm:-right-[0.8%]">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-        />
-      </div>
+          {/* Bottom Left */}
+          <div className="absolute bottom-[0.35%] -left-[0.8%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-md:-left-[0.5%] max-sm:-left-[0.8%]">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+            />
+          </div>
 
-      {/* Bottom Left */}
-      <div className="absolute bottom-[0.35%] -left-[0.8%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-md:-left-[0.5%] max-sm:-left-[0.8%]">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-        />
-      </div>
-
-      {/* Bottom Right */}
-      <div className="absolute -bottom-[0.3%] -right-[0.25%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-md:-right-[0.1%] max-sm:-right-[0.25%]">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-        />
-      </div>
+          {/* Bottom Right */}
+          <div className="absolute -bottom-[0.3%] -right-[0.25%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-md:-right-[0.1%] max-sm:-right-[0.25%]">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+            />
+          </div>
           <div className="flex items-center w-full justify-between">
             <h3 className="text-56 text-[#0A1B4B] max-sm:text-[8vw]!">
               Vision
@@ -268,38 +267,36 @@ const VisionMission = () => {
         </div>
 
         <div className="relative col-start-2 max-sm:pt-[4vw] col-span-2 row-start-2 border border-[#c2c2c2] bg-white px-[2vw] py-[2vw] max-sm:px-[5vw] max-sm:py-[7vw] hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out flex flex-col items-start justify-between max-sm:gap-[9vw] max-md:p-[4vw] max-md:items-start  max-md:gap-[7vw] max-md:pb-[10vw]">
-
-
           <div className="absolute -top-[0.25%] -left-[0.07%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out ">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
-        />
-      </div>
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
+            />
+          </div>
 
-      {/* Top Right */}
-      <div className="absolute top-[0.45%] -right-[0.35%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:-right-[0.80%] max-sm:top-[0.30%]">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-        />
-      </div>
+          {/* Top Right */}
+          <div className="absolute top-[0.45%] -right-[0.35%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:-right-[0.80%] max-sm:top-[0.30%]">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+            />
+          </div>
 
-      {/* Bottom Left */}
-      <div className="absolute bottom-[0.35%] -left-[0.35%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:-left-[0.8%]">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-        />
-      </div>
+          {/* Bottom Left */}
+          <div className="absolute bottom-[0.35%] -left-[0.35%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:-left-[0.8%]">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+            />
+          </div>
 
-      {/* Bottom Right */}
-      <div className="absolute -bottom-[0.3%] -right-[0.15%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-        <div
-          className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-        />
-      </div>
+          {/* Bottom Right */}
+          <div className="absolute -bottom-[0.3%] -right-[0.15%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out">
+            <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
+            <div
+              className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+            />
+          </div>
           <div className="flex items-center w-full justify-between mb-15 max-sm:mb-0">
             <h3 className="text-56 text-[#0A1B4B] max-sm:text-[8vw]!">
               Mission
@@ -327,8 +324,6 @@ const VisionMission = () => {
     </section>
   );
 };
-
-
 
 function CornerDecorationsChallenge({
   hoverColor = "#0205fa",
@@ -375,5 +370,3 @@ function CornerDecorationsChallenge({
     </>
   );
 }
-
-
