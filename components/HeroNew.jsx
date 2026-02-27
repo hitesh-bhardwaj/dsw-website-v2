@@ -1,4 +1,5 @@
 "use client";
+
 import Image from "next/image";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
@@ -7,72 +8,107 @@ import HeadingAnim from "./Animations/HeadingAnim";
 import { fadeUp } from "./Animations/gsapAnimations";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
 import { useModal } from "./ModalProvider";
 import dynamic from "next/dynamic";
-
+// ✅ WebGL / heavy bg (client-only)
 const DynamicWaveGrid = dynamic(() => import("./Homepage/HeroBg"), {
   ssr: false,
 });
 
+// ✅ Scroll hint (client-only)
+const DynamicScrollHint = dynamic(() => import("./Layout/ScrollHint"), {
+  ssr: false,
+});
+
 export default function HeroNew({ heroContent, variant, breadcrumbs }) {
-  const showButtons =
-    heroContent.primaryButton?.present || heroContent.secondaryButton?.present;
-
-  const scrollHintRef = useRef(null);
-  const idleTimerRef = useRef(null);
-  const {  openModal } = useModal();
-
-
-  const [isIdle, setIsIdle] = useState(false);
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
-
-  // ✅ one source of truth for delaying hero intro
-  const [baseDelay, setBaseDelay] = useState(0);
-
-  fadeUp();
-
-  // ✅ read loader state once (client only)
-  // useEffect(() => {
-  //   if (typeof window === "undefined") return;
-
-  //   const loaderShown = sessionStorage.getItem("loaderShown");
-
-  //   // If loader hasn't been shown yet, it will run now -> delay hero.
-  //   // Tune this to your loader timeline length.
-  //   const delay = loaderShown ? 0 : 5.4;
-
-  //   setBaseDelay(delay);
-  // }, []);
-
-  // ✅ GSAP intro + fadeUp (delayed if loader is running)
-  useGSAP(
-    () => {
-      // if(!baseDelay) return
-      const tl = gsap.timeline();
-        const loaderShown = sessionStorage.getItem("loaderShown");
-
-      gsap.set(".hero-overlay", { opacity: 0 });
-      gsap.set(".hero-text,.hero-head", { opacity: 1 });
-
-      tl.from(".herofadeup", {
-        yPercent: 20,
-        opacity: 0,
-        delay: 1.2
-      }).from(
-        "#header",
-        {
-          yPercent: -20,
-          opacity: 0,
-        },
-        "<"
-      );
-    }
+  const showButtons = useMemo(
+    () =>
+      !!(
+        heroContent?.primaryButton?.present ||
+        heroContent?.secondaryButton?.present
+      ),
+    [heroContent],
   );
 
-  // ✅ Footer visibility watcher (unchanged)
+  const pathname = usePathname();
+  const { openModal } = useModal();
+
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const [mob, setMob] = useState(false);
+
+  // ✅ Defer heavy background until after first paint / idle
+  const [bgReady, setBgReady] = useState(false);
+
+  // ✅ GSAP init (run once)
+  fadeUp();
+
+  // ✅ Robust mob detection (no render loop)
+  useEffect(() => {
+    const update = () => setMob(window.innerWidth <= 1024);
+    update();
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  // ✅ Defer WebGL to protect LCP
+  useEffect(() => {
+    let cancelled = false;
+    const run = () => {
+      if (!cancelled) setBgReady(true);
+    };
+
+    // Prefer idle if available
+    if ("requestIdleCallback" in window) {
+      const id = requestIdleCallback(run, { timeout: 1200 });
+      return () => {
+        cancelled = true;
+        cancelIdleCallback(id);
+      };
+    }
+
+    const t = setTimeout(run, 250);
+    return () => {
+      cancelled = true;
+      clearTimeout(t);
+    };
+  }, []);
+
+  // ✅ Intro timeline (scope to component to avoid global selectors leakage)
+  const heroRootRef = useRef(null);
+  useGSAP(
+    () => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline();
+
+        gsap.set(".hero-overlay", { opacity: 0 });
+        gsap.set("#hero-bg", { opacity: 0 });
+        tl.from("#hero-bg",{
+          opacity:0,
+          duration:1,
+        })
+        tl.from(".herofadeup", {
+          yPercent: 20,
+          opacity: 0,
+          delay: 1.2,
+        }).from(
+          "#header",
+          {
+            yPercent: -20,
+            opacity: 0,
+          },
+          "<",
+        );
+      }, heroRootRef);
+
+      return () => ctx.revert();
+    },
+    { scope: heroRootRef },
+  );
+
+  // ✅ Footer visibility watcher (unchanged, but kept efficient)
   useEffect(() => {
     const checkFooter = () => {
       const footerCta = document.getElementById("footer-cta");
@@ -119,89 +155,49 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     };
   }, []);
 
-  // ✅ Scroll hint behavior (unchanged)
-  useEffect(() => {
-    const hintEl = scrollHintRef.current;
-    if (!hintEl) return;
-
-    gsap.set(hintEl, { autoAlpha: 0 });
-
-    const showHint = () => {
-      if (isFooterVisible) return;
-      setIsIdle(true);
-      gsap.to(hintEl, { autoAlpha: 1, duration: 0.35, overwrite: "auto" });
-    };
-
-    const hideHint = () => {
-      setIsIdle(false);
-      gsap.to(hintEl, { autoAlpha: 0, duration: 0.15, overwrite: "auto" });
-    };
-
-    const resetIdleTimer = () => {
-      hideHint();
-      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-      if (isFooterVisible) return;
-
-      idleTimerRef.current = setTimeout(() => {
-        showHint();
-      }, 7000);
-    };
-
-    resetIdleTimer();
-    window.addEventListener("scroll", resetIdleTimer, { passive: true });
-
-    return () => {
-      window.removeEventListener("scroll", resetIdleTimer);
-      if (idleTimerRef.current) clearTimeout(idleTimerRef.current);
-    };
-  }, [isFooterVisible]);
-
-  useEffect(() => {
-    const hintEl = scrollHintRef.current;
-    if (!hintEl) return;
-
-    if (isFooterVisible) {
-      setIsIdle(false);
-      gsap.to(hintEl, { autoAlpha: 0, duration: 0.15, overwrite: "auto" });
-      if (idleTimerRef.current) {
-        clearTimeout(idleTimerRef.current);
-        idleTimerRef.current = null;
-      }
-    }
-  }, [isFooterVisible]);
-
-   const pathname = usePathname();
-
   return (
-    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10">
-      <div className="absolute inset-0 z-0 h-screen w-full hidden max-md:block">
-        <Image
-          src="/assets/homepage/hero-bg-mob.png"
-          height={1500}
-          width={1500}
-          alt="mobile-hero-bg"
-          className="h-full w-full max-sm:object-cover max-md:object-fill"
-        />
-      </div>
+    <section
+      ref={heroRootRef}
+      className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10"
+    >
+      {/* ✅ Mobile image bg: keep it LCP-friendly */}
+      {mob && (
+        <div className="absolute inset-0 z-0 h-screen w-full">
+          <Image
+            src="/assets/homepage/hero-bg-mob.png"
+            alt="mobile-hero-bg"
+            fill
+            priority
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      )}
 
-      <DynamicWaveGrid key={pathname} variant={variant}/>
+      {/* ✅ Desktop bg: defer WebGL to reduce LCP impact */}
+
+      {!mob && bgReady && (
+        <div className="desktop-shader">
+          <DynamicWaveGrid key={pathname} variant={variant} />
+        </div>
+      )}
 
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
-          {/*  delay Copy by loader delay too */}
-          <Copy delay={baseDelay + 1}>
-            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide opacity-0 hero-text max-sm:max-w-[90%]">
-              {heroContent.tagline}
+          <Copy delay={1}>
+            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
+              {heroContent?.tagline}
             </p>
           </Copy>
 
-          <HeadingAnim delay={baseDelay + 0.3}>
+          <HeadingAnim delay={0.3}>
             <h1
-              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] opacity-0 hero-head ${
-                heroContent.headingWidth || "w-[70%]"
+              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${
+                heroContent?.headingWidth || "w-[70%]"
               }`}
             >
-              {heroContent.heading}
+              {heroContent?.heading}
             </h1>
           </HeadingAnim>
         </div>
@@ -209,42 +205,45 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         <div className="herofadeup">
           {showButtons && (
             <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] max-md:gap-[2vw] mt-15 pointer-events-auto">
-              {heroContent.primaryButton?.present && (
+              {heroContent?.primaryButton?.present && (
                 <PrimaryButton
-                onClick={(e) => {
-                if (heroContent.primaryButton.book) {
-                  e.preventDefault();
-                  openModal()
-                }
-              }}
-                  text={heroContent.primaryButton.text}
-                  href={heroContent.primaryButton.link}
+                  onClick={(e) => {
+                    if (heroContent?.primaryButton?.book) {
+                      e.preventDefault();
+                      openModal();
+                    }
+                  }}
+                  text={heroContent?.primaryButton?.text}
+                  href={heroContent?.primaryButton?.link}
                 />
               )}
 
-              {heroContent.secondaryButton?.present && (
+              {heroContent?.secondaryButton?.present && (
                 <SecondaryButton
-                  text={heroContent.secondaryButton.text}
-                  href={heroContent.secondaryButton.link}
+                  text={heroContent?.secondaryButton?.text}
+                  href={heroContent?.secondaryButton?.link}
                 />
               )}
             </div>
           )}
         </div>
 
-        {heroContent.para && (
+        {heroContent?.para && (
           <div
             className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${
-              heroContent.paraWidth ? heroContent.paraWidth : "w-[60%] max-md:w-[80%]"
+              heroContent?.paraWidth
+                ? heroContent?.paraWidth
+                : "w-[60%] max-md:w-[80%]"
             }`}
           >
-            <Copy delay={baseDelay + 1}>
-              <p className="text-24 text-[#333333]">{heroContent.para}​</p>
+            <Copy delay={1}>
+              <p className="text-24 text-[#333333]">{heroContent?.para}​</p>
             </Copy>
           </div>
         )}
-         <div className="herofadeup">
-          {heroContent.images && (
+
+        <div className="herofadeup">
+          {heroContent?.images && (
             <div className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15">
               <Image
                 src="/assets/infosys-finacle/infosys-finacle.png"
@@ -267,41 +266,12 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         </div>
 
         {breadcrumbs && <BreadCrumbs />}
-
-        {!isFooterVisible && (
-          <div
-            ref={scrollHintRef}
-            className="fixed bottom-10 right-10 max-sm:left-22 flex items-center gap-[1vw] max-sm:gap-[4vw] max-sm:w-full scrolling pointer-events-none"
-            aria-hidden={!isIdle}
-          >
-            <div>
-              <div className="flex flex-col gap-[0.5vw] w-fit h-[1vw] arrow-container max-sm:h-[3.5vw] overflow-hidden translate-y-[15%] max-sm:translate-y-[25%] max-md:translate-y-[20%] max-md:h-[2.5vw]">
-                <div className="w-fit h-fit space-y-[0.5vw] keepScrolling-arrow max-sm:space-y-[1.5vw] max-md:space-y-[1vw]">
-                  <Image
-                    src="/arrow-downward.svg"
-                    width={20}
-                    height={20}
-                    className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
-                    alt="arrow-down"
-                  />
-                  <Image
-                    src="/arrow-downward.svg"
-                    width={20}
-                    height={20}
-                    className="size-[0.8vw] opacity-80 relative z-10 max-sm:h-[3vw] max-sm:w-[3vw] max-md:w-[2vw] max-md:h-[2vw] invert"
-                    alt="arrow-down"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <p className="text-20 font-sans shimmer tracking-[0.056vw]">
-              Keep Scrolling to Discover More
-            </p>
-          </div>
-        )}
       </div>
 
+      {/* ✅ Scroll hint extracted + dynamic */}
+      <DynamicScrollHint isFooterVisible={isFooterVisible} />
+
+      {/* ⚠️ Consider rendering this overlay only when needed */}
       <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" />
     </section>
   );

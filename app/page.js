@@ -1,4 +1,3 @@
-import AlwaysOnAI from "@/components/AlwaysOnAI";
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
@@ -9,11 +8,21 @@ import Layout from "@/components/Layout/Layout";
 import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
-import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
-import ClientsBlur from "@/components/Homepage/ClientsBlur";
 import { WebpageJsonLd } from "@/lib/json-ld";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import dynamic from "next/dynamic";
 
+const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
+  ssr: true,
+});
+const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
+  ssr: true,
+});
+const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
+  ssr: true,
+});
+const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
+  ssr: true,
+});
 export const metadata = {
   title: "DSW UnifyAI – Enterprise AI Platform for Insurance",
   description:
