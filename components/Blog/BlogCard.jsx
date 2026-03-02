@@ -8,7 +8,7 @@ const BlogCard = ({ title, date, slug, featuredImage }) => {
     <>
       <Link href={slug}>
         <div className="rounded-3xl fadeup relative group border border-primary-blue h-[35vw]  background-glass space-y-[1.5vw] max-sm:space-y-[5vw] overflow-hidden group cursor-pointer max-sm:pb-0 max-sm:h-[115vw] max-md:h-[70vw] max-md:rounded-[2.5vw] max-sm:rounded-[6vw] max-md:space-y-[2vw]">
-          <div className="w-full h-[64%] max-md:h-[60%] overflow-hidden max-sm:rounded-3xl rounded-[1.8vw] relative ">
+          <div className="w-full h-[64%] rounded-t-xl rounded-b-3xl max-md:h-[60%] overflow-hidden max-sm:rounded-b-3xl max-sm:rounded-t-xl rounded-[1.8vw] relative ">
             <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-md:top-[3vw] max-md:right-[3vw] max-md:size-[7vw] bg-white/10 rounded-full z-10 max-sm:backdrop-blur-xs">
               <svg
                 viewBox="0 0 60 60"

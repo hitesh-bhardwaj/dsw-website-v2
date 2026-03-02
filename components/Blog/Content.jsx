@@ -5,7 +5,7 @@ const Content = ({ content }) => {
 
     return (
         <>
-            <section className='h-full w-full pb-[5vw]' id='blog-detail'>
+            <section className='h-full w-full pb-[5vw] fadeup' id='blog-detail'>
                 <div className=' w-full h-full flex items-start justify-between'>
                     <div className='w-full h-full space-y-[1.5vw] '>
                         <div

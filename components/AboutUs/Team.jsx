@@ -70,9 +70,11 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
             setActiveIndex(swiper.activeIndex);
             setIsEnd(swiper.isEnd);
           }}
-          onInit={(swiper) => {
-            setIsEnd(swiper.isEnd);
-          }}
+          onReachEnd={() => setIsEnd(true)}
+  onFromEdge={() => setIsEnd(false)}
+  onInit={(swiper) => {
+    setIsEnd(swiper.isEnd);
+  }}
           onProgress={(swiper, progress) => setProgress(progress)}
           freeMode
           className="overflow-visible! max-md:pt-[5vw]! pl-[27%]!  max-md:pl-[5vw]! max-md:w-auto max-sm:mb-[2%] max-md:pr-[10%]! "
