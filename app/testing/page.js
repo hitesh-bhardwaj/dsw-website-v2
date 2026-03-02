@@ -5,7 +5,9 @@ export default function Page() {
         <>
             <Layout>
                 <main>
-                    <h1>Testing Page</h1>
+                    <section className="h-[200vh] w-full">
+                        <h1>Testing Page</h1>
+                    </section>
                 </main>
             </Layout>
         </>
