@@ -47,7 +47,7 @@ const nextConfig = {
   },
 
   compress: true,
-  productionBrowserSourceMaps: true,
+  // productionBrowserSourceMaps: true,
 
   async headers() {
 

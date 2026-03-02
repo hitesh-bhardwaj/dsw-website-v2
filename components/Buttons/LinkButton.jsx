@@ -3,6 +3,7 @@ import Link from "next/link";
 const LinkButton = ({ href, text, className = "" }) => {
   return (
     <Link
+      prefetch={false}
       href={href}
       className={`text-24! max-sm:text-24 max-md:text-[2.8vw] cursor-pointer text-primary-blue font-medium hover:underline transition duration-100 pl-0 ml-0 ${className}`}
     >

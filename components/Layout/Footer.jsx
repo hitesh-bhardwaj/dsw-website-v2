@@ -63,6 +63,7 @@ function AnimatedFooterLink({ href = "#", children, ...props }) {
 
   return (
     <Link
+      prefetch={false}
       href={href}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
@@ -204,6 +205,7 @@ export default function FooterNew() {
               <div className="space-y-[1vw] max-md:space-y-[1.5vw] max-sm:space-y-[1vw] max-md:gap-[2vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
                 <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
                   <Link
+                    prefetch={false}
                     href="mailto:Contact@datasciencewizards.ai"
                     className="block text-24 max-md:text-[2.7vw] max-sm:text-[5vw] under-multi"
                   >
@@ -214,6 +216,7 @@ export default function FooterNew() {
                 <div className="flex gap-[0.5vw] max-md:gap-[2.5vw] max-sm:flex-col max-sm:gap-[1vw]">
                   <div className="under-multi-parent">
                     <Link
+                      prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+91 96640 56847"
                     >
@@ -224,6 +227,7 @@ export default function FooterNew() {
                   <span className="hidden max-md:block max-sm:hidden h-[3.5vw] w-[0.03vw] bg-black"></span>
                   <div className="under-multi-parent">
                     <Link
+                      prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+353 894015233"
                     >
@@ -237,6 +241,7 @@ export default function FooterNew() {
               <div className="flex items-center gap-[1.5vw] max-md:justify-between mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social) => (
                   <Link
+                    prefetch={false}
                     key={social.name}
                     href={social.url}
                     target="_blank"
@@ -268,7 +273,7 @@ export default function FooterNew() {
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((item, id) => (
                   <li key={id}>
-                    <AnimatedFooterLink href={item.link}>
+                    <AnimatedFooterLink prefetch={false} href={item.link}>
                       {item.title}
                     </AnimatedFooterLink>
                   </li>
@@ -285,6 +290,7 @@ export default function FooterNew() {
                 {companyLinks.map((item, id) => (
                   <li key={id}>
                     <AnimatedFooterLink
+                      prefetch={false}
                       href={item.link}
                       {...(item.id === "join-community"
                         ? { target: "_blank", rel: "noopener noreferrer" }

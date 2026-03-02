@@ -11,6 +11,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
 import MobileNav from "./MobileNav";
+import { Logo } from "../Svg/Logo";
 
 gsap.registerPlugin(SplitText);
 
@@ -193,7 +194,7 @@ export default function Header() {
         id="header"
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
-        className="text-white w-screen fixed top-0 left-0 z-[900] pointer-events-none"
+        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
           className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${isHidden ? "-translate-y-full" : "translate-y-0"
@@ -204,14 +205,9 @@ export default function Header() {
 
           {/* Logo */}
           <div className="flex items-center gap-2 w-[12%] max-md:w-[35%] max-sm:w-[36%] z-10 relative">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/assets/dsw-logo.svg"
-                alt="DSW Logo"
-                width={150}
-                height={50}
+            <Link prefetch={false} href="/" className="flex items-center">
+              <Logo 
                 className={`h-7 max-md:h-10 max-sm:h-7 max-md:w-full w-auto`}
-                priority
               />
             </Link>
           </div>
@@ -240,8 +236,9 @@ export default function Header() {
                       onMouseLeave={() => setOpenDropdown(null)}
                     >
                       {/* Top-level link */}
-                      <div className="flex items-center gap-[0.5vw] relative z-[10] navlinks group overflow-clip">
+                      <div className="flex items-center gap-[0.5vw] relative z-10 navlinks group overflow-clip">
                         <AnimatedNavLink
+                          prefetch={false}
                           href={link.href}
                           aria-current={isActive ? "page" : undefined}
                           aria-haspopup={hasChildren ? "menu" : undefined}
@@ -308,6 +305,7 @@ export default function Header() {
                               return (
                                 <li key={child.id} className="overflow-clip">
                                   <AnimatedNavLink
+                                    prefetch={false}
                                     href={child.href}
                                     aria-current={
                                       childActive ? "page" : undefined
@@ -322,7 +320,7 @@ export default function Header() {
                             })}
                           </ul>
 
-                          <span className="w-full h-[60px] absolute bottom-full left-0 z-[20]" />
+                          <span className="w-full h-15 absolute bottom-full left-0 z-20" />
                         </div>
                       )}
                     </li>
@@ -334,7 +332,7 @@ export default function Header() {
             <div className="flex items-center justify-between transition-transform duration-500 pointer-events-auto">
               {/* Hamburger */}
               <button
-                className="hidden max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-[150] max-md:flex max-md:flex-col max-md:w-[6vw] max-md:gap-[1vw] max-sm:w-[7vw]"
+                className="hidden max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-150 max-md:flex max-md:flex-col max-md:w-[6vw] max-md:gap-[1vw] max-sm:w-[7vw]"
                 onClick={() => setOpenMobileMenu((prev) => !prev)}
                 aria-label="Toggle menu"
                 aria-expanded={openMobileMenu}
@@ -348,7 +346,7 @@ export default function Header() {
 
           {/* CTA */}
           {!mob && (
-            <div className="flex items-center gap-6 max-md:hidden relative z-[10]">
+            <div className="flex items-center gap-6 max-md:hidden relative z-10">
               <PrimaryButton text="Contact Us" href="/contact-us" />
             </div>
           )}
