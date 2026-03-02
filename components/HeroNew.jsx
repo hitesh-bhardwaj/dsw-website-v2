@@ -5,7 +5,7 @@ import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
 import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
-import { fadeUp } from "./Animations/gsapAnimations";
+import { fadeUp, lineAnim } from "./Animations/gsapAnimations";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { useEffect, useMemo, useRef, useState } from "react";
@@ -43,7 +43,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ GSAP init (run once)
   fadeUp();
-
+  lineAnim();
   // ✅ Robust mob detection (no render loop)
   useEffect(() => {
     const update = () => setMob(window.innerWidth <= 1024);

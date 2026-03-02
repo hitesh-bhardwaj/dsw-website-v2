@@ -270,13 +270,13 @@ const AIEcosystemMob = ({ecosystemItems}) => {
       </div>
 
       {/* Content */}
-      <div className="w-fit absolute top-[15%] flex left-[7%]">
+      <div className="w-fit absolute top-[15%] flex left-[7%] pr-[5vw]">
         <div ref={contentWrapRef} className="space-y-[4vw] w-screen">
           <h3 data-slide-title className="text-40 font-medium text-[#0A1B4B]">
             {current.title}
           </h3>
 
-          <ul data-slide-ul className="pl-[4vw] list-disc marker:text-sm max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
+          <ul data-slide-ul className="px-[4vw] list-disc marker:text-sm max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
             {current.bullets.map((b, i) => (
               <li key={`${active}-${i}`}>{b}</li>
             ))}

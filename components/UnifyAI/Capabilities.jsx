@@ -127,7 +127,7 @@ export default function Capabilities() {
       </div>
 
       {/* Bottom Left */}
-      <div className="absolute bottom-[0.4%] left-[4.85%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:bottom-[6%] max-sm:left-[4.5%]">
+      <div className="absolute bottom-[0.4%] left-[4.85%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:bottom-[5.8%] max-sm:left-[4.5%]">
         <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
         <div
           className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
@@ -135,7 +135,7 @@ export default function Capabilities() {
       </div>
 
       {/* Bottom Right */}
-      <div className="absolute bottom-[0%] right-[5.05%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:right-[-166%] max-sm:bottom-[5.65%]">
+      <div className="absolute bottom-[0%] right-[5.05%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:right-[-166%] max-sm:bottom-[5.45%]">
         <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
         <div
           className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
