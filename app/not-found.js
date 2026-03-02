@@ -9,8 +9,7 @@ export const metadata = {
   title: "DSW UnifyAI – Enterprise AI Platform for Insurance",
   description:
     "Launch AI use cases in days — scale fast, reduce cost, deploy GenAI in hours with DSW UnifyAI’s insurance-focused enterprise AI platform.",
-  openGraph: { type: "website" },
-  // add canonical/url if available
+  openGraph: { type: "website" }
 };
 
 
