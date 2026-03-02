@@ -92,7 +92,8 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
           yPercent: 20,
           opacity: 0,
           delay: 1.2,
-        }).from(
+        })
+        .from(
           "#header",
           {
             yPercent: -20,

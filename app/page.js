@@ -69,7 +69,6 @@ export default function Home() {
   );
 }
 
-
 const heroContent = {
   tagline: "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
   heading: "The Enterprise AI Operating System",
