@@ -7,13 +7,8 @@ import Link from "next/link";
 import Image from "next/image";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { ChevronDown } from "lucide-react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
 import MobileNav from "./MobileNav";
 import { Logo } from "../Svg/Logo";
-
-gsap.registerPlugin(SplitText);
 
 const NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about", drop: false },
@@ -72,45 +67,13 @@ const isPathActive = (pathname, href) => {
   return pathname === href || pathname.startsWith(href + "/");
 };
 
-// Animated link with SplitText hover animation
+// Optimized link - SplitText removed for performance
 function AnimatedNavLink({ href, children, className = "", onClick, ...props }) {
-  const elRef = useRef(null);
-  const splitRef = useRef(null);
-
-  useGSAP(
-    () => {
-      if (!elRef.current) return;
-      splitRef.current = new SplitText(elRef.current, { type: "chars" });
-      gsap.set(splitRef.current.chars, { yPercent: 0 });
-
-      return () => {
-        splitRef.current?.revert();
-        splitRef.current = null;
-      };
-    },
-    { scope: elRef }
-  );
-
-  const animateTo = (y) => {
-    const chars = splitRef.current?.chars;
-    if (!chars) return;
-    gsap.killTweensOf(chars);
-    gsap.to(chars, {
-      yPercent: y,
-      stagger: 0.008,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
   return (
     <Link
       href={href}
-      ref={elRef}
-      onMouseEnter={() => animateTo(-100)}
-      onMouseLeave={() => animateTo(0)}
       onClick={onClick}
-      className={className}
+      className={`${className} transition-colors duration-300`}
       {...props}
     >
       {children}
