@@ -1,5 +1,6 @@
 import localFont from 'next/font/local';
 
+// Preload heading font (used above the fold)
 export const neueMontreal = localFont({
     src: [
         {
@@ -24,10 +25,11 @@ export const neueMontreal = localFont({
         },
     ],
     preload: true,
-    display: 'swap',
+    display: 'optional', // Changed from 'swap' - won't block render
     variable: '--font-neue-montreal',
 });
 
+// Don't preload body font (loads on-demand)
 export const aspekta = localFont({
     src: [
         {
@@ -51,7 +53,7 @@ export const aspekta = localFont({
             style: 'normal',
         },
     ],
-    preload: true,
-    display: 'swap',
+    preload: false,
+    display: 'optional', // Won't block render
     variable: '--font-aspekta',
 });

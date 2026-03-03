@@ -264,7 +264,7 @@ const HowAgenticWorks = () => {
         >
           <Image
             src="/assets/homepage/dotted-circle.svg"
-            alt=""
+            alt="Dotted circle"
             width={1080}
             height={1080}
             className="h-full w-full opacity-35"
@@ -277,7 +277,7 @@ const HowAgenticWorks = () => {
         >
           <Image
             src="/assets/homepage/inner-circle.svg"
-            alt=""
+            alt="Inner Circle"
             width={1080}
             height={1080}
           />

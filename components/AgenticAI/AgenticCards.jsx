@@ -110,7 +110,7 @@ const AgenticCards = () => {
       </div>
 
       {/* Mobile View with SmoothySlider */}
-      <div className="hidden max-md:block mt-[10vw] w-fit">
+      <div className="hidden max-md:block mt-[10vw] w-fit fadeup">
         <SmoothySlider
           ref={sliderRef}
           className="py-4 cursor-grab active:cursor-grabbing w-screen pr-0 pl-0"

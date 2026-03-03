@@ -29,7 +29,9 @@ const Runtime = ({ runtimeContent }) => {
         <div className="w-full px-[5vw] max-md:px-0 space-y-[2vw] max-md:space-y-[6vw] ">
 
           {/* Static Label */}
+          <Copy>
           <p className="text-30 max-md:w-fit max-md:mx-auto ">AI Now:</p>
+          </Copy>
 
           {/* Cards */}
           <div className="w-full flex justify-between max-sm:flex-col flex-wrap gap-y-[2vw] max-md:gap-y-[6vw] max-sm:gap-y-[6vw]">

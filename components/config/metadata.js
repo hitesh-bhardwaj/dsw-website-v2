@@ -19,6 +19,7 @@ export const siteMetadata = {
     canonical: "/",
     languages: {
       "en-US": "/",
+      "x-default": "/",
     },
   },
   robots: {

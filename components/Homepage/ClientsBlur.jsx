@@ -1,12 +1,10 @@
 "use client";
 import Image from "next/image";
 import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-import React, { useEffect, useRef } from "react";
+import React, {  useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import HeadingAnim from "../Animations/HeadingAnim";
-
-gsap.registerPlugin(ScrollTrigger, useGSAP);
+gsap.registerPlugin( useGSAP);
 
 export default function ClientsBlur() {
   const container = useRef(null);

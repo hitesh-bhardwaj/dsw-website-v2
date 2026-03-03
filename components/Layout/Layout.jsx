@@ -1,14 +1,16 @@
 "use client"
 import React from 'react'
 import Header from './Header'
-import FooterNew from './Footer'
 import { ModalProvider, useModal } from '../ModalProvider'
 import WalkthroughPopup from '../Modals/WalkthroughPopup'
 import WalkthroughIframePopup from '../Modals/WalkthroughIframePopup'
-// import Loader from '../Loader'
 import { ImageObjectJsonLd, LocalBusiness, OrganizationJsonLd, WebsiteJsonLd } from '@/lib/json-ld'
 import PopupModal from '../PopopModal'
+import dynamic from 'next/dynamic'
 
+const FooterNew = dynamic(() => import("./Footer"), {
+  ssr: false,
+});
 
 function GlobalPopup() {
   const { open, setOpen } = useModal();

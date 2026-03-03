@@ -41,8 +41,11 @@ export default function UseCases() {
         },
       },
     });
-    
-    const tl = gsap.timeline({
+    if (globalThis.innerWidth > 1024) {
+      gsap.set(".content-container",{
+        height: "0vw",
+      })
+       const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#usecases",
         start: "20% 90%",
@@ -51,10 +54,6 @@ export default function UseCases() {
         scrub: true,
       },
     });
-    if (globalThis.innerWidth > 1024) {
-      gsap.set(".content-container",{
-        height: "0vw",
-      })
       tl.to(".content-container", {
         height: "37vw",
         stagger: 0.25,
@@ -68,7 +67,7 @@ export default function UseCases() {
         ease: "power1.inOut",
       });
     }
-    
+
   });
 
   return (

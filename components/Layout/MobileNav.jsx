@@ -158,6 +158,7 @@ export default function MobileNav({ isOpen, onClose }) {
                           {link.children.map((child) => (
                             <li key={child.id}>
                               <Link
+                                prefetch={false}
                                 href={child.href}
                                 onClick={handleLinkClick}
                                 className="max-sm:text-[4vw] max-md:text-[2.8vw] text-foreground font-light tracking-[0.02em] block"
@@ -172,6 +173,7 @@ export default function MobileNav({ isOpen, onClose }) {
                   ) : (
                     /* Simple Link */
                     <Link
+                      prefetch={false}
                       href={link.href}
                       onClick={handleLinkClick}
                       className="block max-sm:py-[5vw] max-md:py-[2.5vw] max-sm:text-[4.5vw] max-md:text-[3.5vw] text-foreground font-normal tracking-[0.02em]"
@@ -192,7 +194,7 @@ export default function MobileNav({ isOpen, onClose }) {
           </p>
           <div className="flex items-center gap-[5vw]">
             {SOCIAL_LINKS.map((social) => (
-              <a
+              <Link
                 key={social.id}
                 href={social.href}
                 target="_blank"
@@ -201,7 +203,7 @@ export default function MobileNav({ isOpen, onClose }) {
                 aria-label={social.id}
               >
                 {social.icon}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

@@ -57,7 +57,7 @@ const WhoBuiltFor = () => {
         <div className="absolute top-[2.6vw] left-[19.7vw] w-[14.5vw] h-[5.5vw]">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -79,7 +79,7 @@ const WhoBuiltFor = () => {
         <div className="absolute top-[2.6vw] right-[19.8vw] w-[14.5vw] h-[5.5vw] -scale-x-100">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -101,7 +101,7 @@ const WhoBuiltFor = () => {
         <div className="absolute bottom-[2.6vw] left-[19.8vw] w-[14.5vw] h-[5.5vw] -scale-y-100">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -123,7 +123,7 @@ const WhoBuiltFor = () => {
         <div className="absolute bottom-[2.6vw] right-[19.8vw] w-[14.5vw] h-[5.5vw] scale-[-1]">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />

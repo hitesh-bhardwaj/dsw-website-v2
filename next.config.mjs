@@ -8,6 +8,12 @@ const nextConfig = {
     WORDPRESS_GRAPHQL_ENDPOINT: process.env.WORDPRESS_GRAPHQL_ENDPOINT,
   },
 
+  // Optimize CSS loading
+  experimental: {
+    optimizeCss: true, // Enable CSS optimization
+    optimizePackageImports: ['lucide-react', '@apollo/client'], // Tree-shake packages
+  },
+
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000, // 1 year

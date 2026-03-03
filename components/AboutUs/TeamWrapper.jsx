@@ -45,7 +45,7 @@ export default TeamWrapper;
 
 const foundingTeam = [
   {
-    src: "/assets/about/sandeep.png",
+    src: "/assets/about/sandeep-final.png",
     name: "Sandeep Khuperkar",
     role: "Founder & CEO",
     link: "https://www.linkedin.com/in/sandeepkhuperkar/",
@@ -64,7 +64,7 @@ const foundingTeam = [
   },
 
   {
-    src: "/assets/about/sandhya.png",
+    src: "/assets/about/sandhya-final.png",
     name: "Sandhya Oza",
     role: "Co-Founder & Chief Project Officer",
     link: "https://www.linkedin.com/in/sandhyaoza22/",
@@ -78,7 +78,7 @@ const growthTeam = [
     link: "https://www.linkedin.com/in/deepti-dilip-727b6a14/",
   },
   {
-    src: "/assets/about/rajeshwar.png",
+    src: "/assets/about/rajeshwar-final.png",
     name: "Rajeshwar Singh",
     role: "Chief Business Development Officer",
     link: "https://www.linkedin.com/in/rajeshwar-singh-481aa83/",

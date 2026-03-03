@@ -1,3 +1,5 @@
+import Copy from "../Animations/Copy";
+import HeadingAnim from "../Animations/HeadingAnim";
 import { AIAgent } from "../Svg/Agentic/AIAgent";
 import { AuditGovernance } from "../Svg/Agentic/AuditGovernance";
 import { EnterpriseSecurity } from "../Svg/Agentic/EnterpriseSecurity";
@@ -34,12 +36,16 @@ export default function AgenticAbout() {
     <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] max-md:space-y-[12vw] z-2">
       {/* <Copy>  */}
       <div className="mx-auto text-center w-[70%] max-md:w-full max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw] max-md:space-y-[5vw]">
-        <h2 className=" text-center text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] max-md:leading-[1.3]">
-          Built on proven DSW Enterprise AI OS and UnifyAI Kernel
-        </h2>
+        <HeadingAnim>
+          <h2 className=" text-center text-76 text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] max-md:leading-[1.3]">
+            Built on proven DSW Enterprise AI OS and UnifyAI Kernel
+          </h2>
+        </HeadingAnim>
+        <Copy>
       <p className="text-24">The AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises. Production-grade AgenticAI runtime is purpose-built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence.</p>
+      </Copy>
       </div>
-      {/* </Copy> */}
+      
 
       <div className="flex flex-wrap justify-between my-auto mx-auto w-[72%] max-md:w-full max-sm:w-full max-sm:mx-auto max-sm:flex-col  space-y-[6vw] max-sm:space-y-[10vw]">
         {challenges.map((challenge, index) => (

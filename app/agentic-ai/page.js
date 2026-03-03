@@ -13,7 +13,7 @@ import { homepage } from '@/lib/util'
 import CertificationsAndAwards from '@/components/Homepage/CertificationsAndAwards'
 
 export const metadata = getPageMetadata({
-  title: "DSW AgenticAI - Governed, explainable, production-ready agents for Banking & Insurance",
+  title: "DSW AgenticAI: Governed AI for Banking & Insurance",
   description:
     "Production-grade agentic AI for regulated enterprises. Deploy GenAI agents in hours and AI/ML workflows in days with audit-first governance and enterprise security.",
   url: "agentic-ai",

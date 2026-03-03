@@ -5,12 +5,11 @@ import Link from "next/link";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { SplitText } from "gsap/SplitText";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import Newsletter from "./Newsletter";
-
 
 const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
   ssr: false,
@@ -64,6 +63,7 @@ function AnimatedFooterLink({ href = "#", children, ...props }) {
 
   return (
     <Link
+      prefetch={false}
       href={href}
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
@@ -152,8 +152,15 @@ export default function FooterNew() {
       id: "join-community",
     },
   ];
-     const pathname = usePathname();
+  const pathname = usePathname();
+   const [mob, setMob] = useState(false);
 
+  useEffect(() => {
+      const update = () => setMob(window.innerWidth <= 1024);
+      update();
+      window.addEventListener("resize", update, { passive: true });
+      return () => window.removeEventListener("resize", update);
+    }, []);
 
   return (
     <footer
@@ -161,11 +168,11 @@ export default function FooterNew() {
       id="footer"
     >
       {/* Background Gradient */}
-      <div className="w-screen h-full">
+      {!mob&&<div className="w-screen h-full">
         <DynamicFooterWave key={pathname} />
-      </div>
+      </div>}
 
-      <div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
+      {mob&&<div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
         <Image
           src="/assets/footer-bg.png"
           width={500}
@@ -174,7 +181,7 @@ export default function FooterNew() {
           className="h-auto w-full"
           alt="footer-bg"
         />
-      </div>
+      </div>}
 
       {/* Content */}
       <div className="relative z-10">
@@ -198,6 +205,7 @@ export default function FooterNew() {
               <div className="space-y-[1vw] max-md:space-y-[1.5vw] max-sm:space-y-[1vw] max-md:gap-[2vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
                 <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
                   <Link
+                    prefetch={false}
                     href="mailto:Contact@datasciencewizards.ai"
                     className="block text-24 max-md:text-[2.7vw] max-sm:text-[5vw] under-multi"
                   >
@@ -208,6 +216,7 @@ export default function FooterNew() {
                 <div className="flex gap-[0.5vw] max-md:gap-[2.5vw] max-sm:flex-col max-sm:gap-[1vw]">
                   <div className="under-multi-parent">
                     <Link
+                      prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+91 96640 56847"
                     >
@@ -218,6 +227,7 @@ export default function FooterNew() {
                   <span className="hidden max-md:block max-sm:hidden h-[3.5vw] w-[0.03vw] bg-black"></span>
                   <div className="under-multi-parent">
                     <Link
+                      prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+353 894015233"
                     >
@@ -228,15 +238,25 @@ export default function FooterNew() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[1.5vw] max-md:justify-between  mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
-                {socialLinks.map((social, id) => (
+              <div className="flex items-center gap-[1.5vw] max-md:justify-between mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+                {socialLinks.map((social) => (
                   <Link
+                    prefetch={false}
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]`}
+                    rel="noopener noreferrer"
+                    aria-label={`Visit Data Science Wizards on ${social.name}`}
+                    title={`Data Science Wizards on ${social.name}`}
+                    className="w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]"
                   >
-                    {social.icon}
+                    {/* Make the icon decorative for SR since the link already has a name */}
+                    <span aria-hidden="true" className="block h-full w-full">
+                      {social.icon}
+                    </span>
+
+                    {/* Optional: extra safety for some AT/browser combos */}
+                    <span className="sr-only">Visit us on {social.name}</span>
                   </Link>
                 ))}
               </div>
@@ -253,7 +273,7 @@ export default function FooterNew() {
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((item, id) => (
                   <li key={id}>
-                    <AnimatedFooterLink href={item.link}>
+                    <AnimatedFooterLink prefetch={false} href={item.link}>
                       {item.title}
                     </AnimatedFooterLink>
                   </li>
@@ -270,6 +290,7 @@ export default function FooterNew() {
                 {companyLinks.map((item, id) => (
                   <li key={id}>
                     <AnimatedFooterLink
+                      prefetch={false}
                       href={item.link}
                       {...(item.id === "join-community"
                         ? { target: "_blank", rel: "noopener noreferrer" }
@@ -281,9 +302,8 @@ export default function FooterNew() {
                 ))}
               </ul>
             </div>
-
             {/* Newsletter */}
-            <Newsletter/>
+            <Newsletter />
           </div>
         </div>
 

@@ -30,7 +30,7 @@ export default function Hero({ post }) {
 
         {/* Desktop: default positioning | Mobile: absolute, on top of image */}
         <div className="max-sm:absolute w-full max-sm:top-25 max-sm:left-4 max-sm:z-20 max-md:absolute max-md:top-4 max-md:left-4 max-md:z-20 md:contents fadeup">
-          <BreadCrumbs />
+          <BreadCrumbs  isMobileWhite={true}/>
         </div>
       </section>
     </>
