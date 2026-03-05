@@ -112,10 +112,9 @@ export default function FooterNew() {
                   className="w-full h-full"
                 />
               </div>
-
-              <h5 className="text-24 max-md:text-[3.5vw] font-medium max-sm:text-[5.5vw]">
+              <p className="text-24 max-md:text-[3.5vw] font-medium max-sm:text-[5.5vw]">
                 Contact Us
-              </h5>
+              </p>
 
               <div className="space-y-[1vw] max-md:space-y-[1.5vw] max-sm:space-y-[1vw] max-md:gap-[2vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
                 <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
@@ -179,9 +178,9 @@ export default function FooterNew() {
           <div className="flex justify-between w-[60%] max-md:w-full max-md:flex-wrap max-sm:flex-col max-sm:gap-[10vw] max-sm:w-full max-sm:items-center max-sm:text-center max-md:justify-between">
             {/* Navigation */}
             <div className="space-y-[1.2vw] max-sm:space-y-[2vw] max-md:w-[55%] max-sm:w-full">
-              <h5 className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
+              <p className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
                 Navigation
-              </h5>
+              </p>
 
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
                 {navigationLinks.map((item) => (
@@ -201,9 +200,9 @@ export default function FooterNew() {
 
             {/* Company */}
             <div className="space-y-[1.2vw] max-sm:space-y-[2vw] max-md:w-[40%] max-sm:w-full">
-              <h5 className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
+              <p className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
                 Company
-              </h5>
+              </p>
 
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
                 {companyLinks.map((item) => (

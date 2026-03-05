@@ -36,10 +36,19 @@ const NAV_LINKS = [
       { id: "sol-4", label: "Healthcare", href: "/solutions/healthcare" },
       { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
       { id: "sol-6", label: "Telecom", href: "/solutions/telecom" },
-      { id: "sol-7", label: "Financial Services", href: "/solutions/financial-services" },
+      {
+        id: "sol-7",
+        label: "Financial Services",
+        href: "/solutions/financial-services",
+      },
     ],
   },
-  { id: "opensource", label: "Open source", href: "/infosys-finacle", drop: false },
+  {
+    id: "opensource",
+    label: "Open source",
+    href: "/infosys-finacle",
+    drop: false,
+  },
   {
     id: "resources",
     label: "Resources",
@@ -158,7 +167,11 @@ export default function Header() {
           {/* Logo */}
           <div className="flex items-center gap-2 w-[12%] max-md:w-[35%] max-sm:w-[36%] z-10 relative">
             <Link prefetch={false} href="/" className="flex items-center">
-              <Logo className="h-7 max-md:h-10 max-sm:h-7 max-md:w-full w-auto" />
+              <Logo
+                className="h-7 max-md:h-10 max-sm:h-7 max-md:w-full w-auto"
+                aria-hidden="true"
+              />
+              <span className="sr-only">Data Science Wizards Home</span>
             </Link>
           </div>
 
@@ -175,7 +188,7 @@ export default function Header() {
                     isPathActive(pathname, link.href) ||
                     (hasChildren &&
                       link.children.some((child) =>
-                        isPathActive(pathname, child.href)
+                        isPathActive(pathname, child.href),
                       ));
 
                   return (
@@ -193,7 +206,9 @@ export default function Header() {
                           aria-current={isActive ? "page" : undefined}
                           aria-haspopup={hasChildren ? "menu" : undefined}
                           aria-expanded={
-                            hasChildren ? String(openDropdown === link.id) : undefined
+                            hasChildren
+                              ? String(openDropdown === link.id)
+                              : undefined
                           }
                           className={`${hasChildren ? "cursor-pointer" : ""} ${
                             !isActive
@@ -223,8 +238,8 @@ export default function Header() {
                                     isInverted
                                       ? "stroke-white group-hover:stroke-white"
                                       : isActive
-                                      ? "stroke-primary-blue group-hover:stroke-primary-blue"
-                                      : "stroke-[#111111] group-hover:stroke-primary-blue"
+                                        ? "stroke-primary-blue group-hover:stroke-primary-blue"
+                                        : "stroke-[#111111] group-hover:stroke-primary-blue"
                                   }`}
                                 />
                               </div>
@@ -251,15 +266,20 @@ export default function Header() {
                         >
                           <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw] space-y-[1vw]">
                             {link.children.map((child) => {
-                              const childActive = isPathActive(pathname, child.href);
+                              const childActive = isPathActive(
+                                pathname,
+                                child.href,
+                              );
 
                               return (
                                 <li key={child.id} className="overflow-clip">
                                   <AnimatedHoverLink
-                                  maskClassName="h-[1.5vw]"
+                                    maskClassName="h-[1.5vw]"
                                     prefetch={false}
                                     href={child.href}
-                                    aria-current={childActive ? "page" : undefined}
+                                    aria-current={
+                                      childActive ? "page" : undefined
+                                    }
                                     className={`block text-22 transition-colors whitespace-nowrap ${
                                       isInverted
                                         ? "text-white group-hover:text-primary-white!"
@@ -319,7 +339,10 @@ export default function Header() {
         </nav>
       </header>
 
-      <MobileNav isOpen={openMobileMenu} onClose={() => setOpenMobileMenu(false)} />
+      <MobileNav
+        isOpen={openMobileMenu}
+        onClose={() => setOpenMobileMenu(false)}
+      />
     </>
   );
 }
