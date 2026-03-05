@@ -2,80 +2,17 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import { usePathname } from "next/navigation";
 import dynamic from "next/dynamic";
 import Newsletter from "./Newsletter";
+import AnimatedHoverLink from "./AnimatedHoverLink";
+// import AnimatedHoverLink from "@/components/shared/AnimatedHoverLink";
 
 const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
   ssr: false,
 });
-
-/** ✅ Isolated animated link (each item has its own ref + SplitText) */
-function AnimatedFooterLink({ href = "#", children, ...props }) {
-  const textRef = useRef(null);
-  const splitRef = useRef(null);
-
-  useGSAP(() => {
-    // create once per component
-    splitRef.current = new SplitText(textRef.current, {
-      type: "chars",
-      // NOTE: SplitText's "mask" works best with lines/words.
-      // Keeping your intent, but chars won't use "lines" masking.
-    });
-
-    return () => {
-      splitRef.current?.revert?.();
-      splitRef.current = null;
-    };
-  }, []);
-
-  const onEnter = () => {
-    const chars = splitRef.current?.chars;
-    if (!chars) return;
-
-    gsap.killTweensOf(chars);
-    gsap.to(chars, {
-      yPercent: -100,
-      stagger: 0.008,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
-  const onLeave = () => {
-    const chars = splitRef.current?.chars;
-    if (!chars) return;
-
-    gsap.killTweensOf(chars);
-    // bring it back to normal (0)
-    gsap.to(chars, {
-      yPercent: 0,
-      stagger: 0.008,
-      duration: 0.5,
-      ease: "power2.out",
-    });
-  };
-
-  return (
-    <Link
-      prefetch={false}
-      href={href}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-      {...props}
-      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
-    >
-      <p ref={textRef} className="buttonTextShadow">
-        {children}
-      </p>
-    </Link>
-  );
-}
 
 export default function FooterNew() {
   const socialLinks = [
@@ -103,44 +40,16 @@ export default function FooterNew() {
   ];
 
   const navigationLinks = [
-    {
-      title: "Technology",
-      link: "/aios-technical",
-      id: "technology",
-    },
-    {
-      title: "Solutions",
-      link: "/solutions/insurance",
-      id: "solutions",
-    },
-    {
-      title: "Case Studies",
-      link: "/casestudies",
-      id: "case-studies",
-    },
-    {
-      title: "Resources",
-      link: "/blogs",
-      id: "resources",
-    },
+    { title: "Technology", link: "/aios-technical", id: "technology" },
+    { title: "Solutions", link: "/solutions/insurance", id: "solutions" },
+    { title: "Case Studies", link: "/casestudies", id: "case-studies" },
+    { title: "Resources", link: "/blogs", id: "resources" },
   ];
 
   const companyLinks = [
-    {
-      title: "About Us",
-      link: "/about",
-      id: "about",
-    },
-    {
-      title: "Contact Us",
-      link: "/contact-us",
-      id: "contact",
-    },
-    {
-      title: "Privacy Policy",
-      link: "/privacy-policy",
-      id: "privacy-policy",
-    },
+    { title: "About Us", link: "/about", id: "about" },
+    { title: "Contact Us", link: "/contact-us", id: "contact" },
+    { title: "Privacy Policy", link: "/privacy-policy", id: "privacy-policy" },
     {
       title: "Terms & Conditions",
       link: "/terms-and-conditions",
@@ -152,15 +61,16 @@ export default function FooterNew() {
       id: "join-community",
     },
   ];
+
   const pathname = usePathname();
-   const [mob, setMob] = useState(false);
+  const [mob, setMob] = useState(false);
 
   useEffect(() => {
-      const update = () => setMob(window.innerWidth <= 1024);
-      update();
-      window.addEventListener("resize", update, { passive: true });
-      return () => window.removeEventListener("resize", update);
-    }, []);
+    const update = () => setMob(window.innerWidth <= 1024);
+    update();
+    window.addEventListener("resize", update, { passive: true });
+    return () => window.removeEventListener("resize", update);
+  }, []);
 
   return (
     <footer
@@ -168,27 +78,30 @@ export default function FooterNew() {
       id="footer"
     >
       {/* Background Gradient */}
-      {!mob&&<div className="w-screen h-full">
-        <DynamicFooterWave key={pathname} />
-      </div>}
+      {!mob && (
+        <div className="w-screen h-full">
+          <DynamicFooterWave key={pathname} />
+        </div>
+      )}
 
-      {mob&&<div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
-        <Image
-          src="/assets/footer-bg.png"
-          width={500}
-          loading="lazy"
-          height={700}
-          className="h-auto w-full"
-          alt="footer-bg"
-        />
-      </div>}
+      {mob && (
+        <div className="max-md:block hidden absolute bottom-0 w-full h-auto left-0 right-0">
+          <Image
+            src="/assets/footer-bg.png"
+            width={500}
+            loading="lazy"
+            height={700}
+            className="h-auto w-full"
+            alt="footer-bg"
+          />
+        </div>
+      )}
 
       {/* Content */}
       <div className="relative z-10">
         {/* Top Section */}
         <div className="flex justify-between mb-[2vw] max-sm:flex-col max-md:flex-col max-md:gap-[10vw] max-sm:gap-0">
           <div className="w-[30%] max-sm:w-full max-md:w-[60%] max-sm:text-center">
-            {/* Contact Us */}
             <div className="space-y-[1vw] max-sm:space-y-[2vw]">
               <div className="w-[40vw] h-auto hidden max-sm:block mx-auto mb-[10vw]">
                 <Image
@@ -199,9 +112,11 @@ export default function FooterNew() {
                   className="w-full h-full"
                 />
               </div>
+
               <h5 className="text-24 max-md:text-[3.5vw] font-medium max-sm:text-[5.5vw]">
                 Contact Us
               </h5>
+
               <div className="space-y-[1vw] max-md:space-y-[1.5vw] max-sm:space-y-[1vw] max-md:gap-[2vw] max-sm:flex max-sm:flex-col-reverse max-sm:gap-[2vw]">
                 <div className="under-multi-parent w-fit h-fit max-sm:mx-auto">
                   <Link
@@ -250,12 +165,9 @@ export default function FooterNew() {
                     title={`Data Science Wizards on ${social.name}`}
                     className="w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]"
                   >
-                    {/* Make the icon decorative for SR since the link already has a name */}
                     <span aria-hidden="true" className="block h-full w-full">
                       {social.icon}
                     </span>
-
-                    {/* Optional: extra safety for some AT/browser combos */}
                     <span className="sr-only">Visit us on {social.name}</span>
                   </Link>
                 ))}
@@ -270,45 +182,53 @@ export default function FooterNew() {
               <h5 className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
                 Navigation
               </h5>
+
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
-                {navigationLinks.map((item, id) => (
-                  <li key={id}>
-                    <AnimatedFooterLink prefetch={false} href={item.link}>
+                {navigationLinks.map((item) => (
+                  <li key={item.id}>
+                    <AnimatedHoverLink
+                      href={item.link}
+                      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
+                      // optional if you want strict height:
+                      maskClassName="h-[1.75vw] max-sm:h-[7vw] max-md:h-[4vw]"
+                    >
                       {item.title}
-                    </AnimatedFooterLink>
+                    </AnimatedHoverLink>
                   </li>
                 ))}
               </ul>
             </div>
 
             {/* Company */}
-            <div className="space-y-[1.2vw]  max-sm:space-y-[2vw] max-md:w-[40%] max-sm:w-full">
+            <div className="space-y-[1.2vw] max-sm:space-y-[2vw] max-md:w-[40%] max-sm:w-full">
               <h5 className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
                 Company
               </h5>
+
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">
-                {companyLinks.map((item, id) => (
-                  <li key={id}>
-                    <AnimatedFooterLink
-                      prefetch={false}
+                {companyLinks.map((item) => (
+                  <li key={item.id}>
+                    <AnimatedHoverLink
                       href={item.link}
+                      maskClassName="h-[1.75vw] max-sm:h-[7vw] max-md:h-[4vw]"
                       {...(item.id === "join-community"
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
+                      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
                     >
                       {item.title}
-                    </AnimatedFooterLink>
+                    </AnimatedHoverLink>
                   </li>
                 ))}
               </ul>
             </div>
-            {/* Newsletter */}
+
             <Newsletter />
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="flex items-end justify-between  pt-[4.5vw] max-sm:justify-center">
+        <div className="flex items-end justify-between pt-[4.5vw] max-sm:justify-center">
           <div className="w-[18vw] max-md:w-[22vw] max-md:h-[10vw] h-auto relative max-sm:hidden">
             <Image
               src="/assets/dsw-logo.svg"
@@ -319,9 +239,7 @@ export default function FooterNew() {
             />
           </div>
 
-          <p className="text-20 font-sans">
-            © Copyright Data Science Wizards 2026
-          </p>
+          <p className="text-20 font-sans">© Copyright Data Science Wizards 2026</p>
         </div>
       </div>
     </footer>
