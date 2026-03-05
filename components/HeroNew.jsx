@@ -3,7 +3,6 @@
 import Image from "next/image";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
-import { fadeUp, lineAnim } from "./Animations/gsapAnimations";
 import { useEffect, useMemo, useRef, useState } from "react";
 import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
@@ -37,9 +36,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   // ✅ Defer heavy background until after first paint / idle
   const [bgReady, setBgReady] = useState(false);
 
-  // ✅ GSAP init (run once)
-  fadeUp();
-  lineAnim();
+
   // ✅ Robust mob detection (no render loop)
   useEffect(() => {
     const update = () => setMob(window.innerWidth <= 1024);
@@ -73,6 +70,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
+
 
   // ✅ Footer visibility watcher (unchanged, but kept efficient)
 
@@ -150,7 +148,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         </div>
       )}
 
-      <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
+      <div className="relative z-[999] flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
           {heroContent?.tagline && (
             <p className="text-30 hero-tagline text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
@@ -233,7 +231,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <DynamicScrollHint isFooterVisible={isFooterVisible} />
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
-      {/* <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" /> */}
+      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
     </section>
   );
 }

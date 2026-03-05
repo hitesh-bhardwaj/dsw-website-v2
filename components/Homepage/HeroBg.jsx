@@ -15,7 +15,6 @@ const  WaveGridCanvas = ({
 
   // ===== Wave params =====
   HOVER_ALPHA_BOOST = 4.1,
-
   lowerWaveFreq = 0.5,
   lowerWaveAmp = 0.12,
   lowerWaveSpeed = 0.8,
@@ -23,7 +22,6 @@ const  WaveGridCanvas = ({
   lowerFadeSoftness = 0.15,
   lowerVerticalSpeed = 0.15,
   lowerVerticalAmp = 0.08,
-
   upperWaveFreq = 0.8,
   upperWaveAmp = 0.1,
   upperWaveSpeed = 0.8,

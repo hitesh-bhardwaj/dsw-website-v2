@@ -12,18 +12,6 @@ import AnimatedHoverLink from "./AnimatedHoverLink";
 // import AnimatedHoverLink from "@/components/shared/AnimatedHoverLink";
 
 const NAV_LINKS = [
-  { id: "about", label: "About Us", href: "/about", drop: false },
-  {
-    id: "technology",
-    label: "Technology",
-    href: "#",
-    drop: true,
-    children: [
-      { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
-      { id: "tech-2", label: "AI/ML Runtime", href: "/unifyai" },
-      { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
-    ],
-  },
   {
     id: "solutions",
     label: "Solutions",
@@ -44,8 +32,20 @@ const NAV_LINKS = [
     ],
   },
   {
+    id: "technology",
+    label: "Technology",
+    href: "#",
+    drop: true,
+    children: [
+      { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
+      { id: "tech-2", label: "AI/ML Runtime", href: "/unifyai" },
+      { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
+    ],
+  },
+  
+  {
     id: "opensource",
-    label: "Open source",
+    label: "Open Source",
     href: "/infosys-finacle",
     drop: false,
   },
@@ -69,6 +69,8 @@ const NAV_LINKS = [
       },
     ],
   },
+  { id: "about", label: "About Us", href: "/about", drop: false },
+
   { id: "contact", label: "Contact Us", href: "/contact-us", drop: false },
 ];
 
@@ -145,12 +147,13 @@ export default function Header() {
 
   return (
     <>
+    <div className="header">
       <header
         ref={headerWrapRef}
         id="header"
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
-        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
+        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none header animate-in slide-in-from-top duration-1000"
       >
         <nav
           className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
@@ -338,6 +341,8 @@ export default function Header() {
           )}
         </nav>
       </header>
+
+    </div>
 
       <MobileNav
         isOpen={openMobileMenu}
