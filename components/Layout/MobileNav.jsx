@@ -1,12 +1,9 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { useLenis } from "lenis/react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, X } from "lucide-react";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 
 const NAV_LINKS = [
   { id: "about", label: "About Us", href: "/about", drop: false },
@@ -67,35 +64,17 @@ const SOCIAL_LINKS = [
 
 export default function MobileNav({ isOpen, onClose }) {
   const [expandedItem, setExpandedItem] = useState(null);
-  const menuRef = useRef(null);
-  const lenis = useLenis();
 
   // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      lenis?.stop();
     } else {
       document.body.style.overflow = "";
-      lenis?.start();
     }
     return () => {
       document.body.style.overflow = "";
-      lenis?.start();
     };
-  }, [isOpen, lenis]);
-
-  // GSAP animation for menu
-  useGSAP(() => {
-    if (!menuRef.current) return;
-
-    if (isOpen) {
-      gsap.fromTo(
-        menuRef.current,
-        { opacity: 0, x: 50 },
-        { opacity: 1, x: 0, duration: 0.4, ease: "power2.out" }
-      );
-    }
   }, [isOpen]);
 
   const toggleExpand = (id) => {
@@ -107,15 +86,19 @@ export default function MobileNav({ isOpen, onClose }) {
     setExpandedItem(null);
   };
 
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-999 md:hidden bg-white/80">
+    <div
+      className={`fixed inset-0 z-999 md:hidden bg-white/80 transition-opacity duration-300 ${
+        isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}
+      onClick={onClose}
+    >
       {/* Menu Card */}
       <div
-        data-lenis-prevent
-        ref={menuRef}
-        className="absolute max-sm:top-[5vw] max-sm:left-[5vw] max-sm:right-[5vw] max-sm:bottom-[5vw] max-md:left-[17vw] max-md:bottom-[5vw] max-md:top-[4vw] max-md:right-[3vw] border backdrop-blur-xl border-[#d4d4d4] rounded-[8vw] overflow-hidden flex flex-col"
+        onClick={(e) => e.stopPropagation()}
+        className={`absolute max-sm:top-[5vw] max-sm:left-[5vw] max-sm:right-[5vw] max-sm:bottom-[5vw] max-md:left-[17vw] max-md:bottom-[5vw] max-md:top-[4vw] max-md:right-[3vw] border backdrop-blur-xl border-[#d4d4d4] rounded-[8vw] overflow-hidden flex flex-col transition-all duration-500 ease-out ${
+          isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+        }`}
       >
         {/* Close Button */}
         <button

@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLenis } from "lenis/react";
 import Link from "next/link";
-import Image from "next/image";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { ChevronDown } from "lucide-react";
 import MobileNav from "./MobileNav";

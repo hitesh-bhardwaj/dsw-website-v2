@@ -172,6 +172,100 @@ h6 {
   }
 }
 
+/* Optimized ScrollHint - Pure CSS animations, no GSAP */
+.scroll-hint {
+  position: fixed;
+  bottom: 2.5rem;
+  right: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1vw;
+  pointer-events: none;
+
+  /* CSS-based fade in/out (replaces GSAP autoAlpha) */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.scroll-hint--visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Arrow animation wrapper */
+.scroll-hint__arrow-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+  width: fit-content;
+  height: 1vw;
+  overflow: hidden;
+  transform: translateY(15%);
+}
+
+.scroll-hint__arrow-track {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5vw;
+  width: fit-content;
+  height: fit-content;
+  animation: ArrowAnim 2s ease-in-out infinite;
+}
+
+.scroll-hint__arrow {
+  width: 0.8vw;
+  height: 0.8vw;
+  opacity: 0.8;
+  position: relative;
+  z-index: 10;
+  filter: invert(1);
+}
+
+.scroll-hint__text {
+  font-size: var(--text-20);
+  font-family: var(--font-sans);
+}
+
+/* Responsive styles */
+@media (max-width: 542px) {
+  .scroll-hint {
+    left: 5.5rem;
+    gap: 4vw;
+    width: 100%;
+  }
+
+  .scroll-hint__arrow-wrapper {
+    height: 3.5vw;
+    transform: translateY(25%);
+  }
+
+  .scroll-hint__arrow-track {
+    gap: 1.5vw;
+  }
+
+  .scroll-hint__arrow {
+    width: 3vw;
+    height: 3vw;
+  }
+}
+
+@media (max-width: 1024px) and (min-width: 543px) {
+  .scroll-hint__arrow-wrapper {
+    height: 2.5vw;
+    transform: translateY(20%);
+  }
+
+  .scroll-hint__arrow-track {
+    gap: 1vw;
+  }
+
+  .scroll-hint__arrow {
+    width: 2vw;
+    height: 2vw;
+  }
+}
+
 /* New Section Break Animation */
 .split__wrapper .split-chars {
   transition: color 0.4s;
