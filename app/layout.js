@@ -1,7 +1,4 @@
-// import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import { neueMontreal, aspekta } from "./fonts";
 import "./globals.css";
-// import LayoutTransition from "@/components/LayoutTransition";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from "@next/third-parties/google";
@@ -57,22 +54,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
+    <html lang="en" className="antialiased">
       <head>
         {/* Preconnect to external domains */}
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
       </head>
       <body>
-        {/* <LenisSmoothScroll> */}
         <ReactLenis root>
-          {/* <LayoutTransition> */}
           <main data-lenis-root id="main-content">
             {children}
           </main>
-          {/* </LayoutTransition> */}
         </ReactLenis>
-        {/* </LenisSmoothScroll> */}
         <SpeedInsights />
         <Analytics />
         <GoogleAnalytics gaId="G-Z5CT0M9533" />
