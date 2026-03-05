@@ -3,11 +3,7 @@
 import Image from "next/image";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
-import Copy from "./Animations/Copy";
-import HeadingAnim from "./Animations/HeadingAnim";
 import { fadeUp, lineAnim } from "./Animations/gsapAnimations";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import { useEffect, useMemo, useRef, useState } from "react";
 import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
@@ -77,38 +73,9 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
-  useGSAP(
-    () => {
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline();
-
-        gsap.set(".hero-overlay", { opacity: 0 });
-        gsap.set("#hero-bg", { opacity: 0 });
-        tl.from("#hero-bg", {
-          opacity: 0,
-          duration: 1,
-        });
-        tl.from(".herofadeup", {
-          yPercent: 20,
-          opacity: 0,
-          delay: 1.2,
-        })
-        .from(
-          "#header",
-          {
-            yPercent: -20,
-            opacity: 0,
-          },
-          "<",
-        );
-      }, heroRootRef);
-
-      return () => ctx.revert();
-    },
-    { scope: heroRootRef },
-  );
 
   // ✅ Footer visibility watcher (unchanged, but kept efficient)
+
   useEffect(() => {
     const checkFooter = () => {
       const footerCta = document.getElementById("footer-cta");
@@ -186,25 +153,20 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
           {heroContent?.tagline && (
-            <Copy delay={1}>
-              <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
-                {heroContent?.tagline}
-              </p>
-            </Copy>
+            <p className="text-30 hero-tagline text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
+              {heroContent?.tagline}
+            </p>
           )}
 
-          <HeadingAnim delay={0.3}>
-            <h1
-              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${
-                heroContent?.headingWidth || "w-[70%]"
+          <h1
+            className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${heroContent?.headingWidth || "w-[70%]"
               }`}
-            >
-              {heroContent?.heading}
-            </h1>
-          </HeadingAnim>
+          >
+            {heroContent?.heading}
+          </h1>
         </div>
 
-        <div className="herofadeup">
+        <div className="herofadeup hero-buttons">
           {showButtons && (
             <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] max-md:gap-[2vw] mt-15 pointer-events-auto">
               {heroContent?.primaryButton?.present && (
@@ -232,15 +194,12 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
         {heroContent?.para && (
           <div
-            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${
-              heroContent?.paraWidth
-                ? heroContent?.paraWidth
-                : "w-[60%] max-md:w-[80%]"
-            }`}
+            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${heroContent?.paraWidth
+              ? heroContent?.paraWidth
+              : "w-[60%] max-md:w-[80%]"
+              }`}
           >
-            <Copy delay={1}>
-              <p className="text-24 text-[#333333]">{heroContent?.para}​</p>
-            </Copy>
+            <p className="text-24 hero-content text-[#333333]">{heroContent?.para}​</p>
           </div>
         )}
 
@@ -274,7 +233,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <DynamicScrollHint isFooterVisible={isFooterVisible} />
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
-      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" />
+      {/* <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" /> */}
     </section>
   );
 }
