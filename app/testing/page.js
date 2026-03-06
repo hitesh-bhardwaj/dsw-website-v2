@@ -1,11 +1,6 @@
 import Header from "@/components/Testing/Header";
 import Hero from "@/components/Testing/Hero";
 import { ModalProvider } from "@/components/ModalProvider";
-import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
-import Features from "@/components/Homepage/Features";
-import UseCases from "@/components/Homepage/UseCases";
-import RealWorldOutcomes from "@/components/RealWorldOutcomes";
-import Testimonials from "@/components/Testimonials";
 import dynamic from "next/dynamic";
 
 const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
@@ -27,6 +22,21 @@ const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
   ssr: true,
 });
 const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
+const WhyAIStruggles = dynamic(() => import("@/components/Homepage/WhyAIStruggles"), {
+  ssr: true,
+});
+const Features = dynamic(() => import("@/components/Homepage/Features"), {
+  ssr: true,
+});
+const UseCases = dynamic(() => import("@/components/Homepage/UseCases"), {
+  ssr: true,
+});
+const RealWorldOutcomes = dynamic(() => import("@/components/RealWorldOutcomes"), { 
+  ssr: true,
+});
+const Testimonials = dynamic(() => import("@/components/Testimonials"), {
   ssr: true,
 });
 
