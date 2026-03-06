@@ -13,10 +13,9 @@ gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 const NewsContentWp = ({ news }) => {
   const [activeSection, setActiveSection] = useState("Introduction");
   const [modifiedHtml, setModifiedHtml] = useState(news?.content || "");
-  const [toc, setToc] = useState([]); // [{ id, title }]
+  const [toc, setToc] = useState([]); 
   const [isMobile, setIsMobile] = useState(false);
   const contentRef = useRef(null);
-  // console.log(news, "NEWS.....")
 
   const getHeaderOffset = () => 100;
 
@@ -122,14 +121,10 @@ const NewsContentWp = ({ news }) => {
       <div className="h-fit absolute max-md:relative max-sm:py-[15vw] max-md:pt-0! max-md:pb-[10vw] max-md:w-full w-fit blog-info">
         <div className="flex flex-wrap items-center max-md:items-start max-md:justify-start  gap-y-[2.5vw] max-md:gap-y-[5vw]">
           <div className="text-[1.05vw] max-sm:text-[4vw] max-md:text-[3vw] space-y-[.8vw] w-full max-md:w-full fadeup">
-            {/* <Copy> */}
               <p className="text-foreground text-24">
                 Publication Date
               </p>
-            {/* </Copy> */}
-            {/* <Copy> */}
-              <p className="text-foreground text-24 font-light">{formatDate(news.newsDate.newsDate)}</p>
-            {/* </Copy> */}
+              <p className="text-foreground text-24 font-light">{formatDate(news.date)}</p>
           </div>
         </div>
       </div>
