@@ -30,6 +30,9 @@ export default function Team({ heading, cardsData, teamId = "team" }) {
       thumb.style.transform = `translateX(${px}px)`;
     };
 
+
+    
+
     updatePosition();
     window.addEventListener("resize", updatePosition);
     return () => window.removeEventListener("resize", updatePosition);
