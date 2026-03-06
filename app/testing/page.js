@@ -2,43 +2,55 @@ import Header from "@/components/Testing/Header";
 import Hero from "@/components/Testing/Hero";
 import { ModalProvider } from "@/components/ModalProvider";
 import dynamic from "next/dynamic";
+import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
+import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
+import Features from "@/components/Homepage/Features";
+import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
+import UseCases from "@/components/Homepage/UseCases";
+import AlwaysOnAI from "@/components/AlwaysOnAI";
+import ClientsBlur from "@/components/Homepage/ClientsBlur";
+import RealWorldOutcomes from "@/components/RealWorldOutcomes";
+import CTAPricing from "@/components/CTAPricing";
+import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import Testimonials from "@/components/Testimonials";
+import CTAFinal from "@/components/CTAFinal";
 
-const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
-  ssr: true,
-});
-const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
-  ssr: true,
-});
-const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
-  ssr: true,
-});
-const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
-  ssr: true,
-});
-const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
-  ssr: true,
-});
-const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
-  ssr: true,
-});
-const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
-  ssr: true,
-});
-const WhyAIStruggles = dynamic(() => import("@/components/Homepage/WhyAIStruggles"), {
-  ssr: true,
-});
-const Features = dynamic(() => import("@/components/Homepage/Features"), {
-  ssr: true,
-});
-const UseCases = dynamic(() => import("@/components/Homepage/UseCases"), {
-  ssr: true,
-});
-const RealWorldOutcomes = dynamic(() => import("@/components/RealWorldOutcomes"), { 
-  ssr: true,
-});
-const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-  ssr: true,
-});
+// const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
+//   ssr: true,
+// });
+// const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
+//   ssr: true,
+// });
+// const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
+//   ssr: true,
+// });
+// const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
+//   ssr: true,
+// });
+// const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
+//   ssr: true,
+// });
+// const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
+//   ssr: true,
+// });
+// const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+//   ssr: true,
+// });
+// const WhyAIStruggles = dynamic(() => import("@/components/Homepage/WhyAIStruggles"), {
+//   ssr: true,
+// });
+// const Features = dynamic(() => import("@/components/Homepage/Features"), {
+//   ssr: true,
+// });
+// const UseCases = dynamic(() => import("@/components/Homepage/UseCases"), {
+//   ssr: true,
+// });
+// const RealWorldOutcomes = dynamic(() => import("@/components/RealWorldOutcomes"), { 
+//   ssr: true,
+// });
+// const Testimonials = dynamic(() => import("@/components/Testimonials"), {
+//   ssr: true,
+// });
 
 export const metadata = {
   title: "Performance Testing Page - DSW UnifyAI",
