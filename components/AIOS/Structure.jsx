@@ -15,8 +15,14 @@ export default function Fragmented() {
     >
       <HeadingAnim>
         <h2 className="text-76 w-[50%] mx-auto max-md:w-full text-center">
-            DSW Enterprise AI OS Kernel First Architecture
-        </h2>
+  <span className="block">
+    DSW UnifyAI OS
+  </span>
+
+  <span className="block">
+    Kernel First Architecture
+  </span>
+</h2>
       </HeadingAnim>
       <Diagram />
     </section>

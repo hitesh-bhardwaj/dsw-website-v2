@@ -104,14 +104,14 @@ const ctaContent = {
 const tourContent = {
   heading: "Always-On AI. Built as Infrastructure.",
   para: "AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously",
-  tagline: "The AI Operating System makes this possible by running as part of your core enterprise architecture."
+  tagline: "UnifyAI OS makes this possible by running as part of your core enterprise architecture."
 }
 
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Designed For Regulated Enterprises. Proven in BFSI.",
-  subtext: "Enabling enterprise teams to operate AI at scale",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Enabling enterprise teams to operate AI at scale.",
 };
 

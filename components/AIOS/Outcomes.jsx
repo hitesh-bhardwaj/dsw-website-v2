@@ -94,7 +94,7 @@ export default function Outcomes() {
                 </div>
                 <Copy>
                     <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground">
-                        Deploy the DSW Enterprise AI Operating System in:
+                        Deploy DSW UnifyAI OS in:
                     </p>
                 </Copy>
 

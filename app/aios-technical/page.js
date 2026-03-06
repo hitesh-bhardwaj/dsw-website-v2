@@ -70,9 +70,9 @@ export default Page
 
 const heroContent = {
     tagline: "Built for enterprises that don’t just build AI - but operate it.",
-    heading: "The Architecture Behind The Enterprise AI Operating System",
+    heading: "The Architecture behind DSW UnifyAI OS - The Enterprise AI operating system",
     headingWidth: "w-[80%]",
-    para: "DSW is built for enterprises that are moving AI from experiments into long-running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
+    para: "DSW UnifyAI OS is built for enterprises that are moving AI from experiments into long-running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
     primaryButton: {
         present: false,
         link: "#",

@@ -77,7 +77,7 @@ const SystemStructure = () => {
           {/* Header Bar */}
           <div className="bg-background border-b border-primary-blue py-[1.5vw] rounded-t-[1.5vw] max-sm:py-[5vw]">
             <p className="text-24 text-primary-blue font-medium text-center max-sm:text-40 max-md:text-[3.6vw]">
-              DSW Enterprise AI Operating System
+              DSW UnifyAI OS - the Enterprise AI Operating System
             </p>
           </div>
 
@@ -180,7 +180,8 @@ const SystemStructure = () => {
                 Linux, Windows, Unix, or container runtimes manage compute, memory, and networking.
                 <br className="max-sm:hidden" />
                 <span className="max-sm:inline"> </span>
-                DSW operates above this layer without modifying it.
+                DSW UnifyAI OS operates above this layer without modifying it.
+
               </p>
             </div>
           </div>

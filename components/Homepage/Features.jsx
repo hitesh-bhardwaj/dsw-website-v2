@@ -102,7 +102,7 @@ const FEATURES = [
     hasBottomBorder: false,
     title: "Create Your Own AI Native Infrastructure",
     description:
-      "Deploy the Enterprise AI Operating System entirely within your environment on-prem, cloud, or hybrid.",
+      "Deploy UnifyAI OS entirely within your environment on-prem, cloud, or hybrid.",
     para: "Enterprise-grade security, control, and data sovereignty remain fully in your hands.",
     image: "/assets/homepage/featuresDashboard1.png",
   },
