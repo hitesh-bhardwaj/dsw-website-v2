@@ -77,36 +77,36 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
-  useGSAP(
-    () => {
-      const ctx = gsap.context(() => {
-        const tl = gsap.timeline();
+  // useGSAP(
+  //   () => {
+  //     const ctx = gsap.context(() => {
+  //       const tl = gsap.timeline();
 
-        gsap.set(".hero-overlay", { opacity: 0 });
-        gsap.set("#hero-bg", { opacity: 0 });
-        tl.from("#hero-bg", {
-          opacity: 0,
-          duration: 1,
-        });
-        tl.from(".herofadeup", {
-          yPercent: 20,
-          opacity: 0,
-          delay: 1.2,
-        })
-        .from(
-          "#header",
-          {
-            yPercent: -20,
-            opacity: 0,
-          },
-          "<",
-        );
-      }, heroRootRef);
+  //       gsap.set(".hero-overlay", { opacity: 0 });
+  //       gsap.set("#hero-bg", { opacity: 0 });
+  //       tl.from("#hero-bg", {
+  //         opacity: 0,
+  //         duration: 1,
+  //       });
+  //       tl.from(".herofadeup", {
+  //         yPercent: 20,
+  //         opacity: 0,
+  //         delay: 1.2,
+  //       })
+  //       .from(
+  //         "#header",
+  //         {
+  //           yPercent: -20,
+  //           opacity: 0,
+  //         },
+  //         "<",
+  //       );
+  //     }, heroRootRef);
 
-      return () => ctx.revert();
-    },
-    { scope: heroRootRef },
-  );
+  //     return () => ctx.revert();
+  //   },
+  //   { scope: heroRootRef },
+  // );
 
   // ✅ Footer visibility watcher (unchanged, but kept efficient)
   useEffect(() => {
@@ -274,7 +274,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <DynamicScrollHint isFooterVisible={isFooterVisible} />
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
-      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" />
+      <div className="w-screen h-[110vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
     </section>
   );
 }

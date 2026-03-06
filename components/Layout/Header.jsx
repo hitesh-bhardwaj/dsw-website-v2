@@ -35,13 +35,24 @@ const NAV_LINKS = [
       { id: "sol-4", label: "Healthcare", href: "/solutions/healthcare" },
       { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
       { id: "sol-6", label: "Telecom", href: "/solutions/telecom" },
-      { id: "sol-7", label: "Financial Services", href: "/solutions/financial-services" }
 
+      {
+        id: "sol-7",
+        label: "Financial Services",
+        href: "/solutions/financial-services",
+      },
+
+      { id: "sol-8", label: "Hospitality", href: "/solutions/hospitality" },
     ],
   },
-  // { id: "opensource", label: "Open Source", href: "/infosys-finacle", drop:false},
 
-  { id: "opensource", label: "Open source", href: "/infosys-finacle", drop: false },
+
+  {
+    id: "opensource",
+    label: "Open source",
+    href: "/infosys-finacle",
+    drop: false,
+  },
   {
     id: "resources",
     label: "Resources",
@@ -55,7 +66,11 @@ const NAV_LINKS = [
       { id: "res-5", label: "Videos", href: "/product-videos" },
       { id: "res-6", label: "Whitepapers", href: "#" },
       { id: "res-7", label: "Workshops", href: "/ai-insurance-workshops" },
-      { id: "res-8", label: "Masterclass", href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass" },
+      {
+        id: "res-8",
+        label: "Masterclass",
+        href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+      },
     ],
   },
   { id: "contact", label: "Contact Us", href: "/contact-us", drop: false },
@@ -68,7 +83,13 @@ const isPathActive = (pathname, href) => {
 };
 
 // Optimized link - SplitText removed for performance
-function AnimatedNavLink({ href, children, className = "", onClick, ...props }) {
+function AnimatedNavLink({
+  href,
+  children,
+  className = "",
+  onClick,
+  ...props
+}) {
   return (
     <Link
       href={href}
@@ -160,16 +181,19 @@ export default function Header() {
         className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
       >
         <nav
-          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${isHidden ? "-translate-y-full" : "translate-y-0"
-            }`}
+          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${
+            isHidden ? "-translate-y-full" : "translate-y-0"
+          }`}
           ref={headerRef}
         >
-          <span className={`h-full w-full block absolute top-0 left-0 z-1 ${isScrolled ? " backdrop-blur-md" : ""}`} />
+          <span
+            className={`h-full w-full block absolute top-0 left-0 z-1 ${isScrolled ? " backdrop-blur-md" : ""}`}
+          />
 
           {/* Logo */}
           <div className="flex items-center gap-2 w-[12%] max-md:w-[35%] max-sm:w-[36%] z-10 relative">
             <Link prefetch={false} href="/" className="flex items-center">
-              <Logo 
+              <Logo
                 className={`h-7 max-md:h-10 max-sm:h-7 max-md:w-full w-auto`}
               />
             </Link>
@@ -180,115 +204,130 @@ export default function Header() {
             <div className="rounded-full max-md:hidden relative z-10">
               <div className="w-full h-full absolute top-0 left-0" />
               <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
-                {NAV_LINKS.filter(link => link.id !== "contact").map((link) => {
-                  const hasChildren =
-                    Array.isArray(link.children) && link.children.length > 0;
+                {NAV_LINKS.filter((link) => link.id !== "contact").map(
+                  (link) => {
+                    const hasChildren =
+                      Array.isArray(link.children) && link.children.length > 0;
 
-                  const isActive =
-                    isPathActive(pathname, link.href) ||
-                    (hasChildren &&
-                      link.children.some((child) =>
-                        isPathActive(pathname, child.href)
-                      ));
+                    const isActive =
+                      isPathActive(pathname, link.href) ||
+                      (hasChildren &&
+                        link.children.some((child) =>
+                          isPathActive(pathname, child.href),
+                        ));
 
-                  return (
-                    <li
-                      key={link.id}
-                      className="relative text-black dropdown-links"
-                      onMouseEnter={() => setOpenDropdown(link.id)}
-                      onMouseLeave={() => setOpenDropdown(null)}
-                    >
-                      {/* Top-level link */}
-                      <div className="flex items-center gap-[0.5vw] relative z-10 navlinks group overflow-clip">
-                        <AnimatedNavLink
-                          prefetch={false}
-                          href={link.href}
-                          aria-current={isActive ? "page" : undefined}
-                          aria-haspopup={hasChildren ? "menu" : undefined}
-                          aria-expanded={
-                            hasChildren
-                              ? String(openDropdown === link.id)
-                              : undefined
-                          }
-                          className={`${hasChildren ? "cursor-pointer" : ""} ${!isActive
-                              ? " text-22 duration-500 transition-color ease-out font-medium"
-                              : " text-22 font-medium text-primary-blue"
-                            } buttonTextShadow ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
+                    return (
+                      <li
+                        key={link.id}
+                        className="relative text-black dropdown-links"
+                        onMouseEnter={() => setOpenDropdown(link.id)}
+                        onMouseLeave={() => setOpenDropdown(null)}
+                      >
+                        {/* Top-level link */}
+                        <div className="flex items-center gap-[0.5vw] relative z-10 navlinks group overflow-clip">
+                          <AnimatedNavLink
+                            prefetch={false}
+                            href={link.href}
+                            aria-current={isActive ? "page" : undefined}
+                            aria-haspopup={hasChildren ? "menu" : undefined}
+                            aria-expanded={
+                              hasChildren
+                                ? String(openDropdown === link.id)
+                                : undefined
+                            }
+                            className={`${hasChildren ? "cursor-pointer" : ""} ${
+                              !isActive
+                                ? " text-22 duration-500 transition-color ease-out font-medium"
+                                : " text-22 font-medium text-primary-blue"
+                            } buttonTextShadow ${
+                              isInverted
+                                ? "text-white group-hover:text-primary-white!"
+                                : "text-foreground group-hover:text-primary-blue!"
                             }`}
-                          onClick={(e) => {
-                            if (hasChildren) e.preventDefault();
-                          }}
-                        >
-                          {link.label}
-                        </AnimatedNavLink>
+                            onClick={(e) => {
+                              if (hasChildren) e.preventDefault();
+                            }}
+                          >
+                            {link.label}
+                          </AnimatedNavLink>
 
-                        {hasChildren && (
-                          <div className="w-fit">
-                            <div
-                              className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${openDropdown === link.id
-                                  ? "translate-y-[25%] scale-[1.05]"
-                                  : ""
+                          {hasChildren && (
+                            <div className="w-fit">
+                              <div
+                                className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${
+                                  openDropdown === link.id
+                                    ? "translate-y-[25%] scale-[1.05]"
+                                    : ""
                                 }`}
-                            >
-                              <div className="w-[2.8vw] h-auto">
-                                <ChevronDown className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${isInverted
-                                    ? "stroke-white group-hover:stroke-white"
-                                    : isActive
-                                      ? "stroke-primary-blue group-hover:stroke-primary-blue"
-                                      : "stroke-[#111111] group-hover:stroke-primary-blue"
-                                  }`} />
+                              >
+                                <div className="w-[2.8vw] h-auto">
+                                  <ChevronDown
+                                    className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${
+                                      isInverted
+                                        ? "stroke-white group-hover:stroke-white"
+                                        : isActive
+                                          ? "stroke-primary-blue group-hover:stroke-primary-blue"
+                                          : "stroke-[#111111] group-hover:stroke-primary-blue"
+                                    }`}
+                                  />
+                                </div>
                               </div>
-                            </div>
 
-                            <span
-                              className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${openDropdown === link.id ? "h-[8vw]" : "h-0"
+                              <span
+                                className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${
+                                  openDropdown === link.id ? "h-[8vw]" : "h-0"
                                 }`}
-                            />
+                              />
+                            </div>
+                          )}
+                        </div>
+
+                        {/* Submenu */}
+                        {hasChildren && (
+                          <div
+                            className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${
+                              openDropdown === link.id
+                                ? "opacity-100"
+                                : "opacity-0 pointer-events-none"
+                            }`}
+                            onMouseEnter={() => setOpenDropdown(link.id)}
+                            onMouseLeave={() => setOpenDropdown(null)}
+                          >
+                            <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw] space-y-[1vw]">
+                              {link.children.map((child) => {
+                                const childActive = isPathActive(
+                                  pathname,
+                                  child.href,
+                                );
+
+                                return (
+                                  <li key={child.id} className="overflow-clip">
+                                    <AnimatedNavLink
+                                      prefetch={false}
+                                      href={child.href}
+                                      aria-current={
+                                        childActive ? "page" : undefined
+                                      }
+                                      className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${
+                                        isInverted
+                                          ? "text-white group-hover:text-primary-white!"
+                                          : "text-foreground group-hover:text-primary-blue!"
+                                      }`}
+                                    >
+                                      {child.label}
+                                    </AnimatedNavLink>
+                                  </li>
+                                );
+                              })}
+                            </ul>
+
+                            <span className="w-full h-15 absolute bottom-full left-0 z-20" />
                           </div>
                         )}
-                      </div>
-
-                      {/* Submenu */}
-                      {hasChildren && (
-                        <div
-                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${openDropdown === link.id
-                              ? "opacity-100"
-                              : "opacity-0 pointer-events-none"
-                            }`}
-                          onMouseEnter={() => setOpenDropdown(link.id)}
-                          onMouseLeave={() => setOpenDropdown(null)}
-                        >
-                          <ul className="py-[1.8vw] px-[1.5vw] min-w-[10vw] space-y-[1vw]">
-                            {link.children.map((child) => {
-                              const childActive = isPathActive(
-                                pathname,
-                                child.href
-                              );
-
-                              return (
-                                <li key={child.id} className="overflow-clip">
-                                  <AnimatedNavLink
-                                    prefetch={false}
-                                    href={child.href}
-                                    aria-current={
-                                      childActive ? "page" : undefined
-                                    }
-                                    className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-                                      }`}
-                                  >
-                                    {child.label}
-                                  </AnimatedNavLink>
-                                </li>
-                              );
-                            })}
-                          </ul>
-
-                          <span className="w-full h-15 absolute bottom-full left-0 z-20" />
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
+                      </li>
+                    );
+                  },
+                )}
               </ul>
             </div>
           ) : (
@@ -300,9 +339,15 @@ export default function Header() {
                 aria-label="Toggle menu"
                 aria-expanded={openMobileMenu}
               >
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "rotate-45 translate-y-[2vw]" : ""}`} />
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 bg-black ${openMobileMenu ? "opacity-0" : ""}`} />
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "-rotate-45 max-sm:-translate-y-[2vw] max-md:-translate-y-[0.7vw]" : ""}`} />
+                <div
+                  className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "rotate-45 translate-y-[2vw]" : ""}`}
+                />
+                <div
+                  className={`w-full h-[2.5px] rounded-full transition-all duration-500 bg-black ${openMobileMenu ? "opacity-0" : ""}`}
+                />
+                <div
+                  className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "-rotate-45 max-sm:-translate-y-[2vw] max-md:-translate-y-[0.7vw]" : ""}`}
+                />
               </button>
             </div>
           )}
