@@ -32,23 +32,32 @@ const Loader = () => {
   }, [lenis, showLoader, hidden]);
 
   useEffect(() => {
-    const hasVisited = sessionStorage.getItem("hasVisited");
-    if (!hasVisited) {
-      setShowLoader(true);
-      sessionStorage.setItem("hasVisited", "true");
+    try {
+      const hasVisited = sessionStorage.getItem("hasVisited");
+      if (!hasVisited) {
+        setShowLoader(true);
+        sessionStorage.setItem("hasVisited", "true");
+      }
+    } catch (e) {
+      // sessionStorage blocked (iframe/private browsing) - skip loader
+      setShowLoader(false);
     }
   }, []);
 
   useEffect(() => {
     if (!showLoader) return;
 
-    const alreadyShown = sessionStorage.getItem("loaderShown");
-    if (alreadyShown) {
-      setShowLoader(false);
-      return;
-    }
+    try {
+      const alreadyShown = sessionStorage.getItem("loaderShown");
+      if (alreadyShown) {
+        setShowLoader(false);
+        return;
+      }
 
-    sessionStorage.setItem("loaderShown", "true");
+      sessionStorage.setItem("loaderShown", "true");
+    } catch (e) {
+      // sessionStorage blocked - continue with loader
+    }
 
     const ctx = gsap.context(() => {
       const tl = gsap.timeline();

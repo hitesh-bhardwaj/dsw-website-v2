@@ -2,13 +2,11 @@
 
 import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
-import { usePathname } from "next/navigation";
 import { useModal } from "../ModalProvider";
 import dynamic from "next/dynamic";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 
-const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgOptimized"), { ssr: false });
 const DynamicScrollHint = dynamic(() => import("../Layout/ScrollHintOptimized"), { ssr: false });
 
 export default function Hero({ heroContent, variant = "default" }) {
@@ -17,10 +15,8 @@ export default function Hero({ heroContent, variant = "default" }) {
     [heroContent]
   );
 
-  const pathname = usePathname();
   const { openModal } = useModal();
   const [mob, setMob] = useState(false);
-  const [bgReady, setBgReady] = useState(false);
 
   // Mobile detection
   useEffect(() => {
@@ -30,51 +26,20 @@ export default function Hero({ heroContent, variant = "default" }) {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  // Defer WebGL shader
-  useEffect(() => {
-    let cancelled = false;
-    const run = () => {
-      if (!cancelled) setBgReady(true);
-    };
-
-    if ("requestIdleCallback" in window) {
-      const id = requestIdleCallback(run, { timeout: 1200 });
-      return () => {
-        cancelled = true;
-        cancelIdleCallback(id);
-      };
-    }
-
-    const t = setTimeout(run, 250);
-    return () => {
-      cancelled = true;
-      clearTimeout(t);
-    };
-  }, []);
-
   return (
     <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10">
-      {/* Mobile: Static image */}
-      {mob && (
-        <div className="absolute inset-0 z-0 h-screen w-full">
-          <Image
-            src="/assets/homepage/hero-bg-mob.png"
-            alt="mobile-hero-bg"
-            fill
-            priority
-            fetchPriority="high"
-            sizes="100vw"
-            className="object-cover"
-          />
-        </div>
-      )}
-
-      {/* Desktop: WebGL shader */}
-      {!mob && bgReady && (
-        <div className="desktop-shader">
-          <DynamicWaveGrid key={pathname} variant={variant} />
-        </div>
-      )}
+      {/* Background image (mobile and desktop) */}
+      <div className="absolute inset-0 z-0 h-screen w-full">
+        <Image
+          src="/assets/homepage/hero-bg-mob.png"
+          alt="hero-bg"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
 
       {/* Content */}
       <div className="relative z-999 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
