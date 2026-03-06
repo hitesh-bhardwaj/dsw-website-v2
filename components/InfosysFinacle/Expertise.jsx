@@ -41,42 +41,45 @@ const Expertise = () => {
     return () => window.removeEventListener("resize", check);
   }, []);
 
-  useGSAP(
-    () => {
-      // First marquee - left to right
-      if (marqueeRef1.current) {
-        const track = marqueeRef1.current;
-        const trackWidth = track.scrollWidth / 3; 
+ useGSAP(() => {
+  const ctx = gsap.context(() => {
+    // FIRST MARQUEE
+    if (marqueeRef1.current) {
+      const track = marqueeRef1.current;
 
-        gsap.to(track, {
-          x: -trackWidth,
+      gsap.set(track, { willChange: "transform" });
+
+      gsap.to(track, {
+        xPercent: -33.3333, // because you're duplicating 3 times
+        duration: 25,
+        ease: "none",
+        repeat: -1,
+        force3D: true,
+      });
+    }
+
+    // SECOND MARQUEE
+    if (marqueeRef2.current) {
+      const track = marqueeRef2.current;
+
+      gsap.set(track, { willChange: "transform" });
+
+      gsap.fromTo(
+        track,
+        { xPercent: -33.3333 },
+        {
+          xPercent: 0,
           duration: 25,
           ease: "none",
           repeat: -1,
-        });
-      }
+          force3D: true,
+        }
+      );
+    }
+  });
 
-      // Second marquee - right to left (reverse)
-      if (marqueeRef2.current) {
-        const track = marqueeRef2.current;
-        const trackWidth = track.scrollWidth / 3; 
-
-        gsap.fromTo(
-          track,
-          {
-            x: -trackWidth,
-          },
-          {
-            x: 0,
-            duration: 25,
-            ease: "none",
-            repeat: -1,
-          }
-        );
-      }
-    },
-    { dependencies: [isMobile] }
-  );
+  return () => ctx.revert(); // cleanup properly
+}, []);
 
   return (
     <section

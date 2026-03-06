@@ -1,24 +1,31 @@
 "use client";
 
 import Image from "next/image";
-import PrimaryButton from "./Buttons/PrimaryButton";
-import SecondaryButton from "./Buttons/SecondaryButton";
+// import PrimaryButton from "./Buttons/PrimaryButton";
+// import SecondaryButton from "./Buttons/SecondaryButton";
+import Copy from "./Animations/Copy";
+import HeadingAnim from "./Animations/HeadingAnim";
+import { fadeUp, lineAnim } from "./Animations/gsapAnimations";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import { useEffect, useMemo, useRef, useState } from "react";
 import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
 import { useModal } from "./ModalProvider";
 import dynamic from "next/dynamic";
-// ✅ WebGL / heavy bg (client-only)
-const DynamicWaveGrid = dynamic(() => import("./Homepage/HeroBg"), {
+import HeroImg from "@/public/assets/homepage/hero-bg-mob.png";
+
+// ✅ Optimized WebGL background (client-only)
+const DynamicWaveGrid = dynamic(() => import("./Homepage/HeroBgOptimized"), {
   ssr: false,
 });
 
-// ✅ Scroll hint (client-only)
-const DynamicScrollHint = dynamic(() => import("./Layout/ScrollHint"), {
+// ✅ Optimized scroll hint (client-only, no GSAP)
+const DynamicScrollHint = dynamic(() => import("./Layout/ScrollHintOptimized"), {
   ssr: false,
 });
 
-export default function HeroNew({ heroContent, variant, breadcrumbs }) {
+export default function HeroNewOptimized({ heroContent, variant, breadcrumbs }) {
   const showButtons = useMemo(
     () =>
       !!(
@@ -30,12 +37,14 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   const pathname = usePathname();
   const { openModal } = useModal();
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [mob, setMob] = useState(false);
 
   // ✅ Defer heavy background until after first paint / idle
   const [bgReady, setBgReady] = useState(false);
 
+  // ✅ GSAP init (run once)
+  fadeUp();
+  lineAnim();
 
   // ✅ Robust mob detection (no render loop)
   useEffect(() => {
@@ -45,7 +54,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     return () => window.removeEventListener("resize", update);
   }, []);
 
-  // ✅ Defer WebGL to protect LCP
+  // ✅ Reduced timeout from 1200ms to 600ms for faster canvas appearance
   useEffect(() => {
     let cancelled = false;
     const run = () => {
@@ -54,7 +63,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
     // Prefer idle if available
     if ("requestIdleCallback" in window) {
-      const id = requestIdleCallback(run, { timeout: 1200 });
+      const id = requestIdleCallback(run, { timeout: 600 }); // Reduced from 1200
       return () => {
         cancelled = true;
         cancelIdleCallback(id);
@@ -70,55 +79,38 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
+  useGSAP(
+    () => {
+      const ctx = gsap.context(() => {
+        const tl = gsap.timeline();
 
-
-  // ✅ Footer visibility watcher (unchanged, but kept efficient)
-
-  useEffect(() => {
-    const checkFooter = () => {
-      const footerCta = document.getElementById("footer-cta");
-      const footer = document.getElementById("footer");
-      const elements = [footerCta, footer].filter(Boolean);
-
-      if (elements.length === 0) {
-        setIsFooterVisible(false);
-        return;
-      }
-
-      const vh = window.innerHeight;
-
-      const anyVisible = elements.some((el) => {
-        const rect = el.getBoundingClientRect();
-        return rect.top < vh + 50 && rect.bottom > -50;
-      });
-
-      setIsFooterVisible(anyVisible);
-    };
-
-    checkFooter();
-
-    let ticking = false;
-    const throttledCheck = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          checkFooter();
-          ticking = false;
+        gsap.set(".hero-overlay", { opacity: 0 });
+        gsap.set("#hero-bg", { opacity: 0 });
+        tl.from("#hero-bg", {
+          opacity: 0,
+          duration: 1,
         });
-        ticking = true;
-      }
-    };
+        tl.from(".herofadeup", {
+          yPercent: 20,
+          opacity: 0,
+          delay: 1.2,
+        })
+        .from(
+          "#header",
+          {
+            yPercent: -20,
+            opacity: 0,
+          },
+          "<",
+        );
+      }, heroRootRef);
 
-    window.addEventListener("scroll", throttledCheck, { passive: true });
-    window.addEventListener("resize", checkFooter);
+      return () => ctx.revert();
+    },
+    { scope: heroRootRef },
+  );
 
-    const delayedCheck = setTimeout(checkFooter, 500);
-
-    return () => {
-      window.removeEventListener("scroll", throttledCheck);
-      window.removeEventListener("resize", checkFooter);
-      clearTimeout(delayedCheck);
-    };
-  }, []);
+  // ✅ Footer visibility now handled by ScrollHintOptimized (IntersectionObserver)
 
   return (
     <section
@@ -129,10 +121,11 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       {mob && (
         <div className="absolute inset-0 z-0 h-screen w-full">
           <Image
-            src="/assets/homepage/hero-bg-mob.png"
+            src={HeroImg}
             alt="mobile-hero-bg"
             fill
             priority
+            placeholder="blur"
             fetchPriority="high"
             sizes="100vw"
             className="object-cover"
@@ -140,31 +133,35 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         </div>
       )}
 
-      {/* ✅ Desktop bg: defer WebGL to reduce LCP impact */}
-
+      {/* ✅ Desktop bg: optimized WebGL canvas */}
       {!mob && bgReady && (
         <div className="desktop-shader">
           <DynamicWaveGrid key={pathname} variant={variant} />
         </div>
       )}
 
-      <div className="relative z-[999] flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
+      <div className="relative z-10 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
           {heroContent?.tagline && (
-            <p className="text-30 hero-tagline text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
-              {heroContent?.tagline}
-            </p>
+            <Copy delay={1}>
+              <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
+                {heroContent?.tagline}
+              </p>
+            </Copy>
           )}
 
-          <h1
-            className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${heroContent?.headingWidth || "w-[70%]"
+          <HeadingAnim delay={0.3}>
+            <h1
+              className={`text-110 text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${
+                heroContent?.headingWidth || "w-[70%]"
               }`}
-          >
-            {heroContent?.heading}
-          </h1>
+            >
+              {heroContent?.heading}
+            </h1>
+          </HeadingAnim>
         </div>
 
-        <div className="herofadeup hero-buttons">
+        {/* <div className="herofadeup">
           {showButtons && (
             <div className="flex max-sm:flex-col items-center gap-[1vw] max-sm:gap-[4vw] max-md:gap-[2vw] mt-15 pointer-events-auto">
               {heroContent?.primaryButton?.present && (
@@ -188,16 +185,19 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
               )}
             </div>
           )}
-        </div>
+        </div> */}
 
         {heroContent?.para && (
           <div
-            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${heroContent?.paraWidth
-              ? heroContent?.paraWidth
-              : "w-[60%] max-md:w-[80%]"
-              }`}
+            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${
+              heroContent?.paraWidth
+                ? heroContent?.paraWidth
+                : "w-[60%] max-md:w-[80%]"
+            }`}
           >
-            <p className="text-24 hero-content text-[#333333]">{heroContent?.para}​</p>
+            <Copy delay={1}>
+              <p className="text-24 text-[#333333]">{heroContent?.para}​</p>
+            </Copy>
           </div>
         )}
 
@@ -227,11 +227,11 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
         {breadcrumbs && <BreadCrumbs />}
       </div>
 
-      {/* ✅ Scroll hint extracted + dynamic */}
-      <DynamicScrollHint isFooterVisible={isFooterVisible} />
+      {/* ✅ Optimized scroll hint (self-contained, no props needed) */}
+      <DynamicScrollHint />
 
-      {/* ⚠️ Consider rendering this overlay only when needed */}
-      <div className="w-screen h-[110vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
+      {/* ⚠️ Hero overlay for transitions */}
+      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[9999]" />
     </section>
   );
 }

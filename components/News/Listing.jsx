@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { formatDate } from "@/lib/datetime";
-import Link from "next/link";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
 import LinkButton from "../Buttons/LinkButton";
 
@@ -17,11 +16,70 @@ const Listing = ({ news = [] }) => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+ useEffect(() => {
+  const section = document.getElementById("news-listing");
+
+  if (!section) return;
+
+  // wait for DOM + new blogs to render
+  requestAnimationFrame(() => {
+    section.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  });
+
+}, [page]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof window !== "undefined" && window.ScrollTrigger) {
+        window.ScrollTrigger.refresh();
+      } else {
+        import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+          ScrollTrigger.refresh();
+        }).catch(() => {});
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [page]);
+
   const itemsPerPage = 5;
   const totalPages = Math.ceil(news.length / itemsPerPage);
 
-  const handlePrev = () => setPage((p) => Math.max(1, p - 1));
-  const handleNext = () => setPage((p) => Math.min(totalPages, p + 1));
+  const scrollToSection = () => {
+    const section = document.getElementById("news-listing");
+
+    if (section) {
+      const offset = 50;
+
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    setPage((p) => Math.max(1, p - 1));
+    scrollToSection();
+  };
+
+  const handleNext = () => {
+    setPage((p) => Math.min(totalPages, p + 1));
+    scrollToSection();
+  };
+
+  const handlePageClick = (p) => {
+    setPage(p);
+    scrollToSection();
+  };
 
   const startIndex = (page - 1) * itemsPerPage;
   const currentNews = news.slice(startIndex, startIndex + itemsPerPage);
@@ -46,17 +104,17 @@ const Listing = ({ news = [] }) => {
               </div>
               <div className="w-[60%] text-foreground flex py-[0.5vw] max-md:py-0 flex-col gap-[1.5vw] justify-between max-md:justify-start mt-[1vw] max-md:w-full max-sm:gap-[6vw]">
                 <p className="text-24 font-light max-md:order-1">
-                  {formatDate(newsItem.newsDate?.newsDate)}
+                  {formatDate(newsItem.date)}
                 </p>
                 <div className="space-y-[1.2vw]">
-                <h3 className="text-32 max-md:order-2 max-sm:w-[90%]">
-                  {newsItem.title}
-                </h3>
-                <div
-                  className="text-24 font-light max-md:order-3"
-                  dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
+                  <h3 className="text-32 max-md:order-2 max-sm:w-[90%]">
+                    {newsItem.title}
+                  </h3>
+                  <div
+                    className="text-24 font-light max-md:order-3"
+                    dangerouslySetInnerHTML={{ __html: newsItem.excerpt }}
                   />
-                  </div>
+                </div>
                 <LinkButton href={`/news/${newsItem.slug}`} text="Read More" />
               </div>
             </div>
@@ -86,7 +144,7 @@ const Listing = ({ news = [] }) => {
               return pagesToShow.map((p) => (
                 <button
                   key={p}
-                  onClick={() => setPage(p)}
+                  onClick={() => handlePageClick(p)}
                   className={`${
                     page === p ? "text-primary-blue" : "text-[#909090]"
                   } transition cursor-pointer`}

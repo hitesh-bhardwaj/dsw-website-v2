@@ -15,17 +15,74 @@ const BlogGrid = ({ posts = [] }) => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  useEffect(() => {
+    const section = document.getElementById("blog-grid");
+
+    if (!section) return;
+
+    requestAnimationFrame(() => {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    });
+  }, [page]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (typeof window !== "undefined" && window.ScrollTrigger) {
+        window.ScrollTrigger.refresh();
+      } else {
+        import("gsap/ScrollTrigger").then(({ ScrollTrigger }) => {
+          ScrollTrigger.refresh();
+        }).catch(() => {});
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [page]);
+
   const cardsPerPage = isMobile ? 12 : 12;
   const totalPages = Math.ceil(posts.length / cardsPerPage);
 
-  const handlePrev = () => setPage((p) => Math.max(1, p - 1));
-  const handleNext = () => setPage((p) => Math.min(totalPages, p + 1));
+  const scrollToSection = () => {
+    const section = document.getElementById("blog-grid");
+
+    if (section) {
+      const offset = 50;
+
+      const y =
+        section.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  const handlePrev = () => {
+    setPage((p) => Math.max(1, p - 1));
+    scrollToSection();
+  };
+
+  const handleNext = () => {
+    setPage((p) => Math.min(totalPages, p + 1));
+    scrollToSection();
+  };
+
+  const handlePageClick = (p) => {
+    setPage(p);
+    scrollToSection();
+  };
 
   const startIndex = (page - 1) * cardsPerPage;
   const currentCards = posts.slice(startIndex, startIndex + cardsPerPage);
 
   return (
-    <section className="px-[5vw] max-sm:px-[7vw] relative pt-0! mx-auto space-y-[7vw] h-fit py-[5%]">
+    <section className="px-[5vw] max-sm:px-[7vw] relative pt-0! mx-auto space-y-[7vw] h-fit py-[5%]" id="blog-grid">
       {/* Grid */}
       <div className="grid grid-cols-3 gap-[3vw] max-sm:gap-[9vw] max-sm:grid-cols-1 max-md:grid-cols-2">
         {currentCards.map((card, idx) => (
@@ -53,7 +110,7 @@ const BlogGrid = ({ posts = [] }) => {
             return pagesToShow.map((p) => (
               <button
                 key={p}
-                onClick={() => setPage(p)}
+                onClick={() => handlePageClick(p)}
                 className={`${
                   page === p ? "text-primary-blue" : "text-[#909090]"
                 } transition cursor-pointer`}

@@ -1,39 +1,46 @@
-"use client"
-import React from 'react'
-import Header from './Header'
-import { ModalProvider, useModal } from '../ModalProvider'
-import WalkthroughPopup from '../Modals/WalkthroughPopup'
-import WalkthroughIframePopup from '../Modals/WalkthroughIframePopup'
-import { ImageObjectJsonLd, LocalBusiness, OrganizationJsonLd, WebsiteJsonLd } from '@/lib/json-ld'
-import PopupModal from '../PopopModal'
-import dynamic from 'next/dynamic'
+"use client";
 
-const FooterNew = dynamic(() => import("./Footer"), {
+import React from "react";
+import Header from "./Header";
+import { ModalProvider } from "../ModalProvider";
+import dynamic from "next/dynamic";
+import {
+  ImageObjectJsonLd,
+  LocalBusiness,
+  OrganizationJsonLd,
+  WebsiteJsonLd,
+} from "@/lib/json-ld";
+
+// Footer (already dynamic)
+const FooterNew = dynamic(() => import("./Footer"), { ssr: false });
+
+// ✅ Dynamic modals (no SSR)
+const GlobalPopup = dynamic(() => import("../Modals/GlobalPopup"), { ssr: false });
+const WalkthroughPopup = dynamic(() => import("../Modals/WalkthroughPopup"), {
   ssr: false,
 });
+const WalkthroughIframePopup = dynamic(
+  () => import("../Modals/WalkthroughIframePopup"),
+  { ssr: false }
+);
 
-function GlobalPopup() {
-  const { open, setOpen } = useModal();
-  return <PopupModal modalOpen={open} setModalOpen={setOpen} />;
-}
 const Layout = ({ children }) => {
   return (
-    <>
-      <ModalProvider>
-        {/* <Loader/> */}
-        <OrganizationJsonLd/>
-        <LocalBusiness/>
-        <ImageObjectJsonLd/>
-        <WebsiteJsonLd/>
-        <Header />
-        {children}
-        <FooterNew />
-        <GlobalPopup/>
-        <WalkthroughPopup />
-        <WalkthroughIframePopup />
-      </ModalProvider>
-    </>
-  )
-}
+    <ModalProvider>
+      {/* JSON-LD: keep SSR-friendly if these are server-safe; otherwise wrap too */}
+      <OrganizationJsonLd />
+      <LocalBusiness />
+      <ImageObjectJsonLd />
+      <WebsiteJsonLd />
+      <Header />
+      {children}
+      <FooterNew />
+      {/* ✅ All modals now lazy-loaded */}
+      <GlobalPopup/>
+      <WalkthroughPopup />
+      <WalkthroughIframePopup />
+    </ModalProvider>
+  );
+};
 
-export default Layout
+export default Layout;

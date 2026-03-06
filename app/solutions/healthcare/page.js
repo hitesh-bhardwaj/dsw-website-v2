@@ -51,7 +51,6 @@ const Page = () => {
         variant={"bottomLeft"}
         breadcrumbs={true}
       />
-
       <Runtime runtimeContent={runtimeContent} />
       <Breaks breaksContent={breaksContent}/>
       <Features featuresContent={featuresContent} />

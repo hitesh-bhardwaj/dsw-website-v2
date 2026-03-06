@@ -74,6 +74,7 @@ export default function ScrollHint({ isFooterVisible }) {
         <div className="flex flex-col gap-[0.5vw] w-fit h-[1vw] arrow-container max-sm:h-[3.5vw] overflow-hidden translate-y-[15%] max-sm:translate-y-[25%] max-md:translate-y-[20%] max-md:h-[2.5vw]">
           <div className="w-fit h-fit space-y-[0.5vw] keepScrolling-arrow max-sm:space-y-[1.5vw] max-md:space-y-[1vw]">
             <Image
+              priority={false}
               src="/arrow-downward.svg"
               width={20}
               height={20}
@@ -81,6 +82,7 @@ export default function ScrollHint({ isFooterVisible }) {
               alt="arrow-down"
             />
             <Image
+              priority={false}
               src="/arrow-downward.svg"
               width={20}
               height={20}

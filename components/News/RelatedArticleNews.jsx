@@ -82,7 +82,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
     <section
       id="relatedArticles"
       ref={relatedArticlesRef}
-      className={`h-full w-screen  overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
+      className={`h-full w-screen  overflow-x-hidden relative px-[5vw] flex-col flex py-[5%] max-sm:py-[20%] max-md:py-[10%]`}
     >
       <div className="h-full w-full  gap-y-[4vw] flex flex-col items-start justify-between  max-sm:flex-col ">
         <div className="w-full text-center">
@@ -90,7 +90,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
             Related Articles
           </h2>
 
-          <div className="flex gap-6 w-fit ml-auto max-md:absolute max-md:bottom-0 max-md:left-1/2 max-md:-translate-x-1/2">
+          <div className="flex gap-6 w-fit ml-auto max-md:absolute max-md:bottom-10 max-md:left-1/2 max-md:-translate-x-1/2">
             <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
             <NextButton onClick={handleNext} isDisabled={activeIndex==relatedNews.length-1} />
           </div>
@@ -127,7 +127,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
                 <BlogCard
                   title={newsItem.node.title}
                   img={newsItem.node.featuredImage?.node?.sourceUrl}
-                  date={newsItem.node.newsDate?.newsDate || newsItem.node.date}
+                  date={newsItem.node.date}
                   slug={newsItem.node.slug}
                 />
               </SwiperSlide>

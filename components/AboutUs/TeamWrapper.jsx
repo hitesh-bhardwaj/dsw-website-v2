@@ -91,13 +91,13 @@ const growthTeam = [
   },
 
   {
-    src: "/assets/about/hardik.png",
+    src: "/assets/about/hardik-raja.png",
     name: "Hardik Raja",
     role: "Senior Data Scientist",
     link: "https://www.linkedin.com/in/hardik-raja-a3807824/",
   },
   {
-    src: "/assets/about/saurabh.png",
+    src: "/assets/about/saurabh-singh.png",
     name: "Saurabh Singh",
     role: "Senior Data Scientist",
     link: "https://www.linkedin.com/in/saurabhsingh1401/",
