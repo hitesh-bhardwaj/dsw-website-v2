@@ -1,26 +1,24 @@
+"use client";
+
 import Header from "@/components/Testing/Header";
 import Hero from "@/components/Testing/Hero";
 import { ModalProvider } from "@/components/ModalProvider";
 import dynamic from "next/dynamic";
-import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
-import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
-import Features from "@/components/Homepage/Features";
-import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
-import UseCases from "@/components/Homepage/UseCases";
-import AlwaysOnAI from "@/components/AlwaysOnAI";
-import ClientsBlur from "@/components/Homepage/ClientsBlur";
-import RealWorldOutcomes from "@/components/RealWorldOutcomes";
-import CTAPricing from "@/components/CTAPricing";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
-import Testimonials from "@/components/Testimonials";
-import CTAFinal from "@/components/CTAFinal";
 
-const FooterNew = dynamic(() => import("@/components/Layout/Footer"), { ssr: true });
-
-export const metadata = {
-  title: "Performance Testing Page - DSW UnifyAI",
-  description: "Optimized hero section with minimal JavaScript and CSS",
-};
+// Defer below-the-fold components for optimal Lighthouse score (90+ desktop target)
+const WhyAIStruggles = dynamic(() => import("@/components/Homepage/WhyAIStruggles"), { ssr: false });
+const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), { ssr: false });
+const Features = dynamic(() => import("@/components/Homepage/Features"), { ssr: false });
+const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), { ssr: false });
+const UseCases = dynamic(() => import("@/components/Homepage/UseCases"), { ssr: false });
+const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), { ssr: false });
+const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), { ssr: false });
+const RealWorldOutcomes = dynamic(() => import("@/components/RealWorldOutcomes"), { ssr: false });
+const CTAPricing = dynamic(() => import("@/components/CTAPricing"), { ssr: false });
+const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), { ssr: false });
+const FooterNew = dynamic(() => import("@/components/Layout/Footer"), { ssr: false });
 
 export default function TestingPage() {
   return (
