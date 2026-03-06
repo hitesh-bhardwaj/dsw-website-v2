@@ -3,75 +3,18 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { ChevronDown, X } from "lucide-react";
-import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
+import { SOCIAL_LINKS } from "./nav-data";
 
-const NAV_LINKS = [
-  { id: "about", label: "About Us", href: "/about", drop: false },
-  {
-    id: "technology",
-    label: "Technology",
-    href: "#",
-    drop: true,
-    children: [
-      { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
-      { id: "tech-2", label: "AI/ML Runtime", href: "/unifyai" },
-      { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
-    ],
-  },
-  {
-    id: "solutions",
-    label: "Solutions",
-    href: "#",
-    drop: true,
-    children: [
-     { id: "sol-1", label: "Insurance", href: "/solutions/insurance" },
-      { id: "sol-2", label: "Banking", href: "/solutions/banking" },
-       { id: "sol-3", label: "Retail", href: "/solutions/retail" },
-      { id: "sol-4", label: "Healthcare", href: "/solutions/healthcare" },
-       { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
-      { id: "sol-6", label: "Telecom", href: "/solutions/telecom" },
-      {id:"sol-7", label:"Financial Services", href:"/solutions/financial-services"}
-    ],
-  },
-  // { id: "pilot", label: "Pilot Program", href: "#", drop: false },
-  { id: "opensource", label: "Open Source", href: "/infosys-finacle", drop: false },
-  {
-    id: "resources",
-    label: "Resources",
-    href: "#",
-    drop: true,
-    children: [
-      { id: "res-1", label: "Case Studies", href: "/casestudies" },
-      { id: "res-2", label: "In the News", href: "/news" },
-      { id: "res-3", label: "Blogs", href: "/blogs" },
-      { id: "res-4", label: "Events", href: "/webinars-and-events" },
-      { id: "res-5", label: "Videos", href: "/product-videos" },
-      { id: "res-6", label: "Whitepapers", href: "#" },
-      { id: "res-7", label: "Workshops", href: "/ai-insurance-workshops" },
-      { id: "res-8", label: "Masterclass", href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass" },
-    ],
-  },
-  { id: "contact", label: "Contact Us", href: "/contact-us", drop: false },
-];
-
-const SOCIAL_LINKS = [
-  { id: "linkedin", href: "https://www.linkedin.com/company/data-science-wizards/", icon: <LinkedIn /> },
-  { id: "instagram", href: "https://www.instagram.com/datasciencewizards/", icon: <Insta /> },
-  { id: "facebook", href: "https://www.facebook.com/datasciencewizards/", icon: <Facebook /> },
-  { id: "twitter", href: "https://x.com/dswizards", icon: <Twitter /> },
-  { id: "youtube", href: "https://www.youtube.com/@DataScienceWizards", icon: <Youtube /> },
-];
-
-export default function MobileNav({ isOpen, onClose }) {
+export default function MobileNav({ isOpen, onClose, navLinks = [] }) {
   const [expandedItem, setExpandedItem] = useState(null);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "";
     }
+
     return () => {
       document.body.style.overflow = "";
     };
@@ -89,53 +32,64 @@ export default function MobileNav({ isOpen, onClose }) {
   return (
     <div
       className={`fixed inset-0 z-999 md:hidden bg-white/80 transition-opacity duration-300 ${
-        isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       }`}
       onClick={onClose}
     >
-      {/* Menu Card */}
       <div
         onClick={(e) => e.stopPropagation()}
         className={`absolute max-sm:top-[5vw] max-sm:left-[5vw] max-sm:right-[5vw] max-sm:bottom-[5vw] max-md:left-[17vw] max-md:bottom-[5vw] max-md:top-[4vw] max-md:right-[3vw] border backdrop-blur-xl border-[#d4d4d4] rounded-[8vw] overflow-hidden flex flex-col transition-all duration-500 ease-out ${
-          isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-12'
+          isOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-12"
         }`}
       >
-        {/* Close Button */}
         <button
           onClick={onClose}
           className="absolute max-md:top-[4vw] max-md:right-[4vw] max-sm:top-[4vw] max-sm:right-[4vw] max-md:w-[8vw] max-md:h-[8vw] max-sm:w-[12vw] max-sm:h-[12vw] bg-primary rounded-full flex items-center justify-center z-10"
           aria-label="Close menu"
         >
-          <X className="max-sm:w-[6vw] max-sm:h-[6vw] max-md:h-[5vw] max-md:w-[5vw] text-white" strokeWidth={2} />
+          <X
+            className="max-sm:w-[6vw] max-sm:h-[6vw] max-md:h-[5vw] max-md:w-[5vw] text-white"
+            strokeWidth={2}
+          />
         </button>
 
-        {/* Navigation Links */}
         <nav className="flex-1 overflow-y-auto px-[6vw] max-sm:pt-[18vw] max-md:pt-[16vw] pb-[4vw]">
           <ul className="space-y-0">
-            {NAV_LINKS.map((link) => {
-              const hasChildren = Array.isArray(link.children) && link.children.length > 0;
+            {navLinks.map((link) => {
+              const hasChildren =
+                Array.isArray(link.children) && link.children.length > 0;
               const isExpanded = expandedItem === link.id;
 
               return (
                 <li key={link.id} className="border-b border-primary-blue">
                   {hasChildren ? (
                     <>
-                      {/* Expandable Item */}
                       <button
                         onClick={() => toggleExpand(link.id)}
                         className="w-full flex items-center justify-between max-sm:py-[5vw] max-md:py-[2.5vw] pr-[2vw]"
                       >
-                        <span className={`max-sm:text-[4.5vw] max-md:text-[3.5vw] tracking-[0.02em] transition-all duration-300 ease-in font-normal ${isExpanded ? "text-primary-blue font-normal" : "text-foreground font-light"}`}>
+                        <span
+                          className={`max-sm:text-[4.5vw] max-md:text-[3.5vw] tracking-[0.02em] transition-all duration-300 ease-in font-normal ${
+                            isExpanded
+                              ? "text-primary-blue font-normal"
+                              : "text-foreground font-light"
+                          }`}
+                        >
                           {link.label}
                         </span>
                         <ChevronDown
-                          className={`w-[4vw] h-[4vw] text-primary-blue transition-transform duration-500 ${isExpanded ? "rotate-180" : "-rotate-90"}`}
+                          className={`w-[4vw] h-[4vw] text-primary-blue transition-transform duration-500 ${
+                            isExpanded ? "rotate-180" : "-rotate-90"
+                          }`}
                         />
                       </button>
 
-                      {/* Sub Items */}
                       <div
-                        className={`overflow-hidden transition-all duration-500 ${isExpanded ? "max-h-[75vw] max-md:pb-[5vw] max-sm:pb-[8vw]" : "max-h-0"}`}
+                        className={`overflow-hidden transition-all duration-500 ${
+                          isExpanded
+                            ? "max-h-[75vw] max-md:pb-[5vw] max-sm:pb-[8vw]"
+                            : "max-h-0"
+                        }`}
                       >
                         <ul className="max-sm:space-y-[3vw] max-md:space-y-[1.5vw] pl-[1vw]">
                           {link.children.map((child) => (
@@ -154,7 +108,6 @@ export default function MobileNav({ isOpen, onClose }) {
                       </div>
                     </>
                   ) : (
-                    /* Simple Link */
                     <Link
                       prefetch={false}
                       href={link.href}
@@ -170,7 +123,6 @@ export default function MobileNav({ isOpen, onClose }) {
           </ul>
         </nav>
 
-        {/* Social Links */}
         <div className="px-[6vw] pb-[8vw]">
           <p className="max-sm:text-[4vw] max-md:text-[3vw] text-foreground font-light tracking-[0.02em] mb-[4vw]">
             Connect With Us

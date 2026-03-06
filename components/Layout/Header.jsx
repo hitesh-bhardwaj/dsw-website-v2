@@ -67,6 +67,7 @@ const NAV_LINKS = [
         label: "Masterclass",
         href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
       },
+      
     ],
   },
   { id: "about", label: "About Us", href: "/about", drop: false },
@@ -296,12 +297,13 @@ export default function Header() {
                             })}
                           </ul>
 
-                          <span className="w-full h-15 absolute bottom-full left-0 z-20" />
-                        </div>
-                      )}
-                    </li>
-                  );
-                })}
+                            <span className="w-full h-15 absolute bottom-full left-0 z-20" />
+                          </div>
+                        )}
+                      </li>
+                    );
+                  },
+                )}
               </ul>
             </div>
           ) : (

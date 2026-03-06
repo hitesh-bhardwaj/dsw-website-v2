@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import Header from "./Header";
+// import Header from "./Header";
 import { ModalProvider } from "../ModalProvider";
 import dynamic from "next/dynamic";
 import {
@@ -10,6 +10,7 @@ import {
   OrganizationJsonLd,
   WebsiteJsonLd,
 } from "@/lib/json-ld";
+import HeaderNew from "./HeaderNew";
 
 // Footer (already dynamic)
 const FooterNew = dynamic(() => import("./Footer"), { ssr: false });
@@ -32,7 +33,7 @@ const Layout = ({ children }) => {
       <LocalBusiness />
       <ImageObjectJsonLd />
       <WebsiteJsonLd />
-      <Header />
+      <HeaderNew />
       {children}
       <FooterNew />
       {/* ✅ All modals now lazy-loaded */}

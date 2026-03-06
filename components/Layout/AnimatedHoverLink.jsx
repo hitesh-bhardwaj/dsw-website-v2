@@ -1,13 +1,5 @@
-"use client";
-
 import Link from "next/link";
 
-/**
- * Reusable "slide-up reveal" link:
- * - renders two stacked copies of the label
- * - on hover, both copies translate up by 100%
- * - bottom copy can have shadow class (e.g. buttonTextShadow)
- */
 export default function AnimatedHoverLink({
   href = "#",
   children,

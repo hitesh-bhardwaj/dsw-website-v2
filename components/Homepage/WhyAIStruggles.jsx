@@ -32,9 +32,9 @@ export default function WhyAIStruggles() {
       isHighlighted: false,
     },
   ];
-    // ✅ GSAP init (run once)
-    fadeUp();
-    lineAnim();
+  // ✅ GSAP init (run once)
+  fadeUp();
+  lineAnim();
 
   useGSAP(() => {
     if (globalThis.innerWidth > 1024) {
@@ -49,8 +49,8 @@ export default function WhyAIStruggles() {
           // markers:true
         },
       });
-    }else{
-       gsap.from(".struggle-card", {
+    } else {
+      gsap.from(".struggle-card", {
         opacity: 0,
         stagger: 0.1,
         ease: "power2.inOut",
