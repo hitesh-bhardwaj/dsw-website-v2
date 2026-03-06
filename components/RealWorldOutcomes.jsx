@@ -32,7 +32,7 @@ export default function RealWorldOutcomes() {
                 </HeadingAnim>
                 <Copy>
                 <p className="text-30">
-                    Enterprises use the DSW Enterprise AI Operating System to:
+                    Enterprises use the DSW UnifyAI OS to:
                 </p>
                 </Copy>
             </div>

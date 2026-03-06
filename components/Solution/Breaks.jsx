@@ -63,7 +63,7 @@ const Breaks = ({ breaksContent }) => {
         </div>
          {extra && (
           <div
-            className="w-[60%] text-center text-30 fadeup mt-[3vw] max-sm:w-full"
+            className="w-[70%] text-center text-30 fadeup mt-[3vw] max-sm:w-full"
             dangerouslySetInnerHTML={{ __html: extra }}
           />
         )}

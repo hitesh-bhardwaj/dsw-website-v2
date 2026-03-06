@@ -8,6 +8,7 @@ import BreadCrumbs from "./BreadCrumbs";
 import { usePathname } from "next/navigation";
 import { useModal } from "./ModalProvider";
 import dynamic from "next/dynamic";
+import { fadeUp } from "./Animations/gsapAnimations";
 // ✅ WebGL / heavy bg (client-only)
 const DynamicWaveGrid = dynamic(() => import("./Homepage/HeroBg"), {
   ssr: false,
@@ -71,7 +72,8 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
 
-
+ fadeUp()
+ 
   // ✅ Footer visibility watcher (unchanged, but kept efficient)
 
   useEffect(() => {
@@ -231,7 +233,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <DynamicScrollHint isFooterVisible={isFooterVisible} />
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
-      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
+      <div className="w-screen h-[110vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
     </section>
   );
 }
