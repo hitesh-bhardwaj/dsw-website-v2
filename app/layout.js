@@ -1,4 +1,4 @@
-import "./fonts.css"; // ← Critical fonts loaded first
+import "./fonts.css";
 import "./globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
@@ -68,6 +68,13 @@ export default function RootLayout({ children }) {
         <link
           rel="preload"
           href="/fonts/Aspekta-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Aspekta-500.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"
