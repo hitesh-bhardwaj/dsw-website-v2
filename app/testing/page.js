@@ -15,9 +15,7 @@ import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwar
 import Testimonials from "@/components/Testimonials";
 import CTAFinal from "@/components/CTAFinal";
 
-const Footer = dynamic(() => import("@/components/Layout/Footer"), {
-  ssr: true,
-});
+const FooterNew = dynamic(() => import("@/components/Layout/Footer"), { ssr: true });
 
 export const metadata = {
   title: "Performance Testing Page - DSW UnifyAI",
@@ -42,7 +40,7 @@ export default function TestingPage() {
         <CertificationsAndAwards certificationsContent={certificationsContent} />
         <Testimonials />
         <CTAFinal ctaContent={ctaContent} />
-        <Footer />
+        <FooterNew />
       </main>
     </ModalProvider>
   );
