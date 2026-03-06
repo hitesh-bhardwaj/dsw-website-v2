@@ -57,70 +57,39 @@ const nextConfig = {
 
   async headers() {
 
-    // const csp = [
-    //   "default-src 'self'",
+    const csp = [
+      "default-src 'self'",
 
-    //   // ✅ Scripts (Next + Vercel + Google)
-    //   "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://va.vercel-scripts.com https://www.googletagmanager.com https://www.google-analytics.com",
+      // ✅ Scripts (Next + Vercel + Google)
+      "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://va.vercel-scripts.com https://www.googletagmanager.com https://www.google-analytics.com",
 
-    //   // ✅ Styles
-    //   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+      // ✅ Styles
+      "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 
-    //   // ✅ Images (GA uses pixels)
-    //   "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com",
+      // ✅ Images (GA uses pixels)
+      "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in https://stats.g.doubleclick.net",
 
-    //   // ✅ Fonts
-    //   "font-src 'self' data: https://fonts.gstatic.com",
+      // ✅ Fonts
+      "font-src 'self' data: https://fonts.gstatic.com",
 
-    //   // ✅ Analytics & fetch requests
-    //   "connect-src 'self' https: https://va.vercel-scripts.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
+      // ✅ Analytics & fetch requests
+      "connect-src 'self' https: https://va.vercel-scripts.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
 
-    //   // ✅ Media
-    //   "media-src 'self' blob: https://www.youtube.com https://*.googlevideo.com",
+      // ✅ Media
+      "media-src 'self' blob: https://www.youtube.com https://*.googlevideo.com",
 
-    //   // ✅ Iframes (GTM preview + YouTube)
-    //   "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com",
+      // ✅ Iframes (GTM preview + YouTube)
+      "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com",
 
-    //   // ✅ Workers
-    //   "worker-src 'self' blob:",
+      // ✅ Workers
+      "worker-src 'self' blob:",
 
-    //   // ✅ Security hardening
-    //   "object-src 'none'",
-    //   "frame-ancestors 'self'",
-    //   "upgrade-insecure-requests",
-    //   "base-uri 'self'",
-    // ].join("; ");
-
-    // Allow local network IPs in development
-const isDev = process.env.NODE_ENV === 'development';
-const csp = isDev ? [
-  "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: http://localhost:* http://127.0.0.1:* 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8",
-  "style-src 'self' 'unsafe-inline' http://localhost:* http://127.0.0.1:* 192.168.0.0/16 172.16.0.0/12 10.0.0.0/8",
-  "img-src 'self' data: blob: http: https:",
-  "font-src 'self' data: http: https:",
-  "connect-src 'self' http: https: ws: wss:",
-  "media-src 'self' blob: http: https:",
-  "frame-src 'self' http: https:",
-  "worker-src 'self' blob:",
-  "object-src 'none'",
-  "frame-ancestors 'self'",
-].join("; ")
-: [
-  "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://va.vercel-scripts.com https://www.googletagmanager.com https://www.google-analytics.com",
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com",
-  "font-src 'self' data: https://fonts.gstatic.com",
-  "connect-src 'self' https: https://va.vercel-scripts.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
-  "media-src 'self' blob: https://www.youtube.com https://*.googlevideo.com",
-  "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com",
-  "worker-src 'self' blob:",
-  "object-src 'none'",
-  "frame-ancestors 'self'",
-  "upgrade-insecure-requests",
-  "base-uri 'self'",
-].join("; ");
+      // ✅ Security hardening
+      "object-src 'none'",
+      "frame-ancestors 'self'",
+      "upgrade-insecure-requests",
+      "base-uri 'self'",
+    ].join("; ");
 
     const securityHeaders = [
       {
@@ -156,7 +125,7 @@ const csp = isDev ? [
       // Cross-origin isolation defaults
       {
         key: "Cross-Origin-Opener-Policy",
-        value: isDev ? "unsafe-none" : "same-origin",
+        value: "same-origin",
       },
       {
         key: "Cross-Origin-Resource-Policy",
