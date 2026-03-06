@@ -258,6 +258,10 @@ h6 {
   transform: translateY(-100%);
 }
 
+.secondary-button:hover .button-text .letter {
+  transform: translateY(-100%);
+}
+
 /* @layer utilities { */
 .bg-radial-night {
   background: radial-gradient(
