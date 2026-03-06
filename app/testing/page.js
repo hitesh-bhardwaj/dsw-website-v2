@@ -15,42 +15,9 @@ import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwar
 import Testimonials from "@/components/Testimonials";
 import CTAFinal from "@/components/CTAFinal";
 
-// const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
-//   ssr: true,
-// });
-// const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
-//   ssr: true,
-// });
-// const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
-//   ssr: true,
-// });
-// const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
-//   ssr: true,
-// });
-// const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
-//   ssr: true,
-// });
-// const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
-//   ssr: true,
-// });
-// const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
-//   ssr: true,
-// });
-// const WhyAIStruggles = dynamic(() => import("@/components/Homepage/WhyAIStruggles"), {
-//   ssr: true,
-// });
-// const Features = dynamic(() => import("@/components/Homepage/Features"), {
-//   ssr: true,
-// });
-// const UseCases = dynamic(() => import("@/components/Homepage/UseCases"), {
-//   ssr: true,
-// });
-// const RealWorldOutcomes = dynamic(() => import("@/components/RealWorldOutcomes"), { 
-//   ssr: true,
-// });
-// const Testimonials = dynamic(() => import("@/components/Testimonials"), {
-//   ssr: true,
-// });
+const Footer = dynamic(() => import("@/components/Layout/Footer"), {
+  ssr: true,
+});
 
 export const metadata = {
   title: "Performance Testing Page - DSW UnifyAI",
@@ -75,6 +42,7 @@ export default function TestingPage() {
         <CertificationsAndAwards certificationsContent={certificationsContent} />
         <Testimonials />
         <CTAFinal ctaContent={ctaContent} />
+        <Footer />
       </main>
     </ModalProvider>
   );
