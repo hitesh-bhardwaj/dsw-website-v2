@@ -239,6 +239,25 @@ h6 {
   transform: translate(0px, -1.5em);
 }
 
+/* ===== Optimized Button (CSS-only, no GSAP) ===== */
+.button-text {
+  display: inline-block;
+  /* Text shadow effect (replaces GSAP buttonTextShadow) */
+  text-shadow: 0 1.5em currentColor;
+}
+
+.button-text .letter {
+  display: inline-block;
+  will-change: transform;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  /* Staggered delay based on --index custom property */
+  transition-delay: calc(var(--index) * 8ms);
+}
+
+.primary-button:hover .button-text .letter {
+  transform: translateY(-100%);
+}
+
 /* @layer utilities { */
 .bg-radial-night {
   background: radial-gradient(

@@ -1,14 +1,4 @@
-/**
- * Ultra-Minimal Performance Testing Page
- *
- * Fonts loaded via root layout.js - no imports needed here
- *
- * Goals:
- * 1. Zero forced reflows
- * 2. Minimal network requests
- * 3. Fast LCP (<1.2s)
- * 4. Clean Lighthouse score
- */
+import Header from "@/components/Testing/Header";
 
 export const metadata = {
   title: "Performance Testing Page",
@@ -17,6 +7,8 @@ export const metadata = {
 
 export default function Page() {
   return (
+    <>
+    <Header />
     <main className="min-h-screen bg-white">
       {/* Hero Section - Inline critical CSS */}
       <section
@@ -28,7 +20,7 @@ export default function Page() {
       >
         <div className="text-center px-4 max-w-4xl">
           <h1
-            className="font-bold mb-6"
+            className="mb-6"
             style={{
               fontSize: 'clamp(2rem, 5vw, 4rem)',
               color: 'white',
@@ -39,7 +31,7 @@ export default function Page() {
             Performance Testing Page
           </h1>
           <p
-            className="text-white/90"
+            className="text-white/90 font-medium"
             style={{
               fontSize: 'clamp(1rem, 2vw, 1.5rem)',
               fontFamily: 'var(--font-sans)',
@@ -53,7 +45,7 @@ export default function Page() {
       {/* Content Section */}
       <section className="py-20 px-4">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-32 font-bold mb-6">Optimization Results</h2>
+          <h2 className="text-32 mb-6">Optimization Results</h2>
 
           <div className="grid gap-6 md:grid-cols-2">
             <MetricCard
@@ -79,7 +71,7 @@ export default function Page() {
           </div>
 
           <div className="mt-12 p-6 bg-gray-50 rounded-lg">
-            <h3 className="text-24 font-bold mb-4">Testing Checklist</h3>
+            <h3 className="text-24 mb-4">Testing Checklist</h3>
             <ul className="space-y-2 text-18">
               <li>✅ Open DevTools → Performance tab</li>
               <li>✅ Record page load</li>
@@ -97,14 +89,15 @@ export default function Page() {
         <p className="text-18">Optimized for maximum performance</p>
       </footer>
     </main>
+    </>
   );
 }
 
 function MetricCard({ title, value, description }) {
   return (
     <div className="p-6 bg-white border border-gray-200 rounded-lg">
-      <h3 className="text-20 font-bold text-gray-900 mb-2">{title}</h3>
-      <p className="text-32 font-bold text-primary-blue mb-2">{value}</p>
+      <h3 className="text-20 text-gray-900 mb-2">{title}</h3>
+      <p className="text-32 text-primary-blue mb-2">{value}</p>
       <p className="text-16 text-gray-600">{description}</p>
     </div>
   );
