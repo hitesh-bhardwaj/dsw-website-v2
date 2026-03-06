@@ -1,13 +1,18 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, useRef } from "react";
 import { useModal } from "../ModalProvider";
 import dynamic from "next/dynamic";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
 
 const DynamicScrollHint = dynamic(() => import("../Layout/ScrollHintOptimized"), { ssr: false });
+// Web Worker-based shader: Offloads rendering to worker thread
+const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgWorker"), {
+  ssr: false,
+  loading: () => null, // No loading state - just empty until ready
+});
 
 export default function Hero({ heroContent, variant = "default" }) {
   const showButtons = useMemo(
@@ -17,6 +22,8 @@ export default function Hero({ heroContent, variant = "default" }) {
 
   const { openModal } = useModal();
   const [mob, setMob] = useState(false);
+  const [shaderReady, setShaderReady] = useState(false);
+  const heroRef = useRef(null);
 
   // Mobile detection
   useEffect(() => {
@@ -26,9 +33,32 @@ export default function Hero({ heroContent, variant = "default" }) {
     return () => window.removeEventListener("resize", update);
   }, []);
 
+  // Progressive shader loading: Load worker-based shader after initial paint
+  useEffect(() => {
+    // Skip shader on mobile entirely (use static image for better battery life)
+    if (mob) return;
+
+    let cancelled = false;
+
+    // Simple delay approach: Load shader after 1.5s to ensure LCP is captured
+    const timer = setTimeout(() => {
+      if (!cancelled) {
+        setShaderReady(true);
+      }
+    }, 1500);
+
+    return () => {
+      cancelled = true;
+      clearTimeout(timer);
+    };
+  }, [mob]);
+
   return (
-    <section className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10">
-      {/* Background image (mobile and desktop) */}
+    <section
+      ref={heroRef}
+      className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10"
+    >
+      {/* Static background image (always visible, priority loaded) */}
       <div className="absolute inset-0 z-0 h-screen w-full">
         <Image
           src="/assets/homepage/hero-bg-mob.png"
@@ -40,6 +70,13 @@ export default function Hero({ heroContent, variant = "default" }) {
           className="object-cover"
         />
       </div>
+
+      {/* Desktop shader - loaded AFTER metrics, overlays on top of static image */}
+      {!mob && shaderReady && (
+        <div className="absolute inset-0 z-1 h-screen w-full desktop-shader">
+          <DynamicWaveGrid variant={variant} />
+        </div>
+      )}
 
       {/* Content */}
       <div className="relative z-999 flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
