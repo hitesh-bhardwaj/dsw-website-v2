@@ -5,6 +5,7 @@ import gsap from "gsap";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
 import SectionBreak from "../SectionBreak";
+import { fadeUp, lineAnim } from "../Animations/gsapAnimations";
 
 export default function WhyAIStruggles() {
   const challenges = [
@@ -31,6 +32,9 @@ export default function WhyAIStruggles() {
       isHighlighted: false,
     },
   ];
+    // ✅ GSAP init (run once)
+    fadeUp();
+    lineAnim();
 
   useGSAP(() => {
     if (globalThis.innerWidth > 1024) {

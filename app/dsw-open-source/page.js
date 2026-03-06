@@ -9,7 +9,7 @@ import Outcomes from "@/components/InfosysFinacle/Outcomes";
 import Recognized from "@/components/InfosysFinacle/Recognized";
 import Values from "@/components/InfosysFinacle/Values";
 import Layout from "@/components/Layout/Layout";
-import Testimonials from "@/components/Testimonials";
+// import Testimonials from "@/components/Testimonials";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
 
@@ -51,7 +51,7 @@ export default async function InfosysFinacle() {
         <EngagementModels/>
         <Values/>
         <CertificationsAndAwards certificationsContent={certificationsContent}/>
-        <Testimonials/>
+        {/* <Testimonials/> */}
         <CTAFinal ctaContent={ctaContent}/>
     </Layout>
     </>

@@ -4,25 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { useLenis } from "lenis/react";
 import Link from "next/link";
-import Image from "next/image";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import { ChevronDown } from "lucide-react";
 import MobileNav from "./MobileNav";
 import { Logo } from "../Svg/Logo";
+import AnimatedHoverLink from "./AnimatedHoverLink";
+// import AnimatedHoverLink from "@/components/shared/AnimatedHoverLink";
 
 const NAV_LINKS = [
-  { id: "about", label: "About Us", href: "/about", drop: false },
-  {
-    id: "technology",
-    label: "Technology",
-    href: "#",
-    drop: true,
-    children: [
-      { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
-      { id: "tech-2", label: "AI/ML Runtime", href: "/unifyai" },
-      { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
-    ],
-  },
   {
     id: "solutions",
     label: "Solutions",
@@ -35,13 +24,31 @@ const NAV_LINKS = [
       { id: "sol-4", label: "Healthcare", href: "/solutions/healthcare" },
       { id: "sol-5", label: "Manufacturing", href: "/solutions/manufacturing" },
       { id: "sol-6", label: "Telecom", href: "/solutions/telecom" },
-      { id: "sol-7", label: "Financial Services", href: "/solutions/financial-services" }
-
+      {
+        id: "sol-7",
+        label: "Financial Services",
+        href: "/solutions/financial-services",
+      },
     ],
   },
-  // { id: "opensource", label: "Open Source", href: "/infosys-finacle", drop:false},
-
-  { id: "opensource", label: "Open source", href: "/infosys-finacle", drop: false },
+  {
+    id: "technology",
+    label: "Technology",
+    href: "#",
+    drop: true,
+    children: [
+      { id: "tech-1", label: "AIOS Technical", href: "/aios-technical" },
+      { id: "tech-2", label: "AI/ML Runtime", href: "/unifyai" },
+      { id: "tech-3", label: "AgenticAI Runtime", href: "/agentic-ai" },
+    ],
+  },
+  
+  {
+    id: "opensource",
+    label: "Open Source",
+    href: "/infosys-finacle",
+    drop: false,
+  },
   {
     id: "resources",
     label: "Resources",
@@ -55,9 +62,15 @@ const NAV_LINKS = [
       { id: "res-5", label: "Videos", href: "/product-videos" },
       { id: "res-6", label: "Whitepapers", href: "#" },
       { id: "res-7", label: "Workshops", href: "/ai-insurance-workshops" },
-      { id: "res-8", label: "Masterclass", href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass" },
+      {
+        id: "res-8",
+        label: "Masterclass",
+        href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+      },
     ],
   },
+  { id: "about", label: "About Us", href: "/about", drop: false },
+
   { id: "contact", label: "Contact Us", href: "/contact-us", drop: false },
 ];
 
@@ -66,20 +79,6 @@ const isPathActive = (pathname, href) => {
   if (href === "/") return pathname === "/";
   return pathname === href || pathname.startsWith(href + "/");
 };
-
-// Optimized link - SplitText removed for performance
-function AnimatedNavLink({ href, children, className = "", onClick, ...props }) {
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      className={`${className} transition-colors duration-300`}
-      {...props}
-    >
-      {children}
-    </Link>
-  );
-}
 
 export default function Header() {
   const [isHidden, setIsHidden] = useState(false);
@@ -93,9 +92,8 @@ export default function Header() {
   const headerWrapRef = useRef(null);
   const lenis = useLenis();
   const pathname = usePathname();
-  const [isInverted, setIsInverted] = useState(false);
+  const [isInverted] = useState(false);
 
-  // Detect mobile
   useEffect(() => {
     const check = () => setMob(globalThis.innerWidth <= 1024);
     check();
@@ -103,18 +101,15 @@ export default function Header() {
     return () => globalThis.removeEventListener("resize", check);
   }, []);
 
-  // Close mobile menu on route change
   useEffect(() => {
     setOpenMobileMenu(false);
   }, [pathname]);
 
-  // Reset scroll on route change
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "auto" });
     if (lenis) lenis.scrollTo(0, { immediate: true });
   }, [lenis, pathname]);
 
-  // Show/hide header on scroll
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -152,26 +147,34 @@ export default function Header() {
 
   return (
     <>
+    <div className="header">
       <header
         ref={headerWrapRef}
         id="header"
         onMouseEnter={() => setIsHoveringHeader(true)}
         onMouseLeave={() => setIsHoveringHeader(false)}
-        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none"
+        className="text-white w-screen fixed top-0 left-0 z-900 pointer-events-none header animate-in slide-in-from-top duration-1000"
       >
         <nav
-          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md  ${isHidden ? "-translate-y-full" : "translate-y-0"
-            }`}
+          className={`relative flex items-center justify-between px-12 py-3 w-full transition-transform duration-500 bg-white/75 pointer-events-auto max-sm:px-[7vw] max-md:px-[3vw] max-md:py-[4vw] max-sm:py-[3vw] max-sm:pt-[5vw] max-md:backdrop-blur-md ${
+            isHidden ? "-translate-y-full" : "translate-y-0"
+          }`}
           ref={headerRef}
         >
-          <span className={`h-full w-full block absolute top-0 left-0 z-1 ${isScrolled ? " backdrop-blur-md" : ""}`} />
+          <span
+            className={`h-full w-full block absolute top-0 left-0 z-1 ${
+              isScrolled ? " backdrop-blur-md" : ""
+            }`}
+          />
 
           {/* Logo */}
           <div className="flex items-center gap-2 w-[12%] max-md:w-[35%] max-sm:w-[36%] z-10 relative">
             <Link prefetch={false} href="/" className="flex items-center">
-              <Logo 
-                className={`h-7 max-md:h-10 max-sm:h-7 max-md:w-full w-auto`}
+              <Logo
+                className="h-7 max-md:h-10 max-sm:h-7 max-md:w-full w-auto"
+                aria-hidden="true"
               />
+              <span className="sr-only">Data Science Wizards Home</span>
             </Link>
           </div>
 
@@ -180,7 +183,7 @@ export default function Header() {
             <div className="rounded-full max-md:hidden relative z-10">
               <div className="w-full h-full absolute top-0 left-0" />
               <ul className="flex items-center justify-between px-[2.5vw] py-[1.5vw] gap-[3vw] text-[1vw]">
-                {NAV_LINKS.filter(link => link.id !== "contact").map((link) => {
+                {NAV_LINKS.filter((l) => l.id !== "contact").map((link) => {
                   const hasChildren =
                     Array.isArray(link.children) && link.children.length > 0;
 
@@ -188,7 +191,7 @@ export default function Header() {
                     isPathActive(pathname, link.href) ||
                     (hasChildren &&
                       link.children.some((child) =>
-                        isPathActive(pathname, child.href)
+                        isPathActive(pathname, child.href),
                       ));
 
                   return (
@@ -198,11 +201,11 @@ export default function Header() {
                       onMouseEnter={() => setOpenDropdown(link.id)}
                       onMouseLeave={() => setOpenDropdown(null)}
                     >
-                      {/* Top-level link */}
                       <div className="flex items-center gap-[0.5vw] relative z-10 navlinks group overflow-clip">
-                        <AnimatedNavLink
+                        <AnimatedHoverLink
                           prefetch={false}
                           href={link.href}
+                          maskClassName="h-[1.5vw]"
                           aria-current={isActive ? "page" : undefined}
                           aria-haspopup={hasChildren ? "menu" : undefined}
                           aria-expanded={
@@ -210,51 +213,57 @@ export default function Header() {
                               ? String(openDropdown === link.id)
                               : undefined
                           }
-                          className={`${hasChildren ? "cursor-pointer" : ""} ${!isActive
-                              ? " text-22 duration-500 transition-color ease-out font-medium"
-                              : " text-22 font-medium text-primary-blue"
-                            } buttonTextShadow ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-                            }`}
+                          className={`${hasChildren ? "cursor-pointer" : ""} ${
+                            !isActive
+                              ? "text-22 duration-500 transition-color ease-out font-medium"
+                              : "text-22 font-medium text-primary-blue"
+                          } ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"}`}
                           onClick={(e) => {
                             if (hasChildren) e.preventDefault();
                           }}
+                          // bottom copy already has buttonTextShadow by default
                         >
                           {link.label}
-                        </AnimatedNavLink>
+                        </AnimatedHoverLink>
 
                         {hasChildren && (
                           <div className="w-fit">
                             <div
-                              className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${openDropdown === link.id
+                              className={`text-[#CACACA] flex items-center justify-center gap-0 w-[0.8vw] mt-[-0.1vw] h-full max-sm:w-[3vw] transition-transform duration-300 ${
+                                openDropdown === link.id
                                   ? "translate-y-[25%] scale-[1.05]"
                                   : ""
-                                }`}
+                              }`}
                             >
                               <div className="w-[2.8vw] h-auto">
-                                <ChevronDown className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${isInverted
-                                    ? "stroke-white group-hover:stroke-white"
-                                    : isActive
-                                      ? "stroke-primary-blue group-hover:stroke-primary-blue"
-                                      : "stroke-[#111111] group-hover:stroke-primary-blue"
-                                  }`} />
+                                <ChevronDown
+                                  className={`w-[1.2vw] h-full duration-300 transition-all ease-in ${
+                                    isInverted
+                                      ? "stroke-white group-hover:stroke-white"
+                                      : isActive
+                                        ? "stroke-primary-blue group-hover:stroke-primary-blue"
+                                        : "stroke-[#111111] group-hover:stroke-primary-blue"
+                                  }`}
+                                />
                               </div>
                             </div>
 
                             <span
-                              className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${openDropdown === link.id ? "h-[8vw]" : "h-0"
-                                }`}
+                              className={`block w-full absolute left-0 top-[60%] z-[-1] bg-transparent ${
+                                openDropdown === link.id ? "h-[8vw]" : "h-0"
+                              }`}
                             />
                           </div>
                         )}
                       </div>
 
-                      {/* Submenu */}
                       {hasChildren && (
                         <div
-                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${openDropdown === link.id
+                          className={`absolute top-[260%] left-[-5%] w-fit h-fit bg-white/75 shadow-sm rounded-[0.8vw] border border-black/5 transition-opacity duration-300 backdrop-blur-md ${
+                            openDropdown === link.id
                               ? "opacity-100"
                               : "opacity-0 pointer-events-none"
-                            }`}
+                          }`}
                           onMouseEnter={() => setOpenDropdown(link.id)}
                           onMouseLeave={() => setOpenDropdown(null)}
                         >
@@ -262,22 +271,26 @@ export default function Header() {
                             {link.children.map((child) => {
                               const childActive = isPathActive(
                                 pathname,
-                                child.href
+                                child.href,
                               );
 
                               return (
                                 <li key={child.id} className="overflow-clip">
-                                  <AnimatedNavLink
+                                  <AnimatedHoverLink
+                                    maskClassName="h-[1.5vw]"
                                     prefetch={false}
                                     href={child.href}
                                     aria-current={
                                       childActive ? "page" : undefined
                                     }
-                                    className={`block text-22 transition-colors whitespace-nowrap buttonTextShadow ${isInverted ? "text-white group-hover:text-primary-white!" : "text-foreground group-hover:text-primary-blue!"
-                                      }`}
+                                    className={`block text-22 transition-colors whitespace-nowrap ${
+                                      isInverted
+                                        ? "text-white group-hover:text-primary-white!"
+                                        : "text-foreground hover:text-primary-blue"
+                                    }`}
                                   >
                                     {child.label}
-                                  </AnimatedNavLink>
+                                  </AnimatedHoverLink>
                                 </li>
                               );
                             })}
@@ -293,16 +306,29 @@ export default function Header() {
             </div>
           ) : (
             <div className="flex items-center justify-between transition-transform duration-500 pointer-events-auto">
-              {/* Hamburger */}
               <button
                 className="hidden max-sm:flex-col gap-[1.5vw] w-[8vw] relative z-150 max-md:flex max-md:flex-col max-md:w-[6vw] max-md:gap-[1vw] max-sm:w-[7vw]"
                 onClick={() => setOpenMobileMenu((prev) => !prev)}
                 aria-label="Toggle menu"
                 aria-expanded={openMobileMenu}
               >
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "rotate-45 translate-y-[2vw]" : ""}`} />
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 bg-black ${openMobileMenu ? "opacity-0" : ""}`} />
-                <div className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${openMobileMenu ? "-rotate-45 max-sm:-translate-y-[2vw] max-md:-translate-y-[0.7vw]" : ""}`} />
+                <div
+                  className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${
+                    openMobileMenu ? "rotate-45 translate-y-[2vw]" : ""
+                  }`}
+                />
+                <div
+                  className={`w-full h-[2.5px] rounded-full transition-all duration-500 bg-black ${
+                    openMobileMenu ? "opacity-0" : ""
+                  }`}
+                />
+                <div
+                  className={`w-full h-[2.5px] rounded-full transition-all duration-500 origin-center bg-black ${
+                    openMobileMenu
+                      ? "-rotate-45 max-sm:-translate-y-[2vw] max-md:-translate-y-[0.7vw]"
+                      : ""
+                  }`}
+                />
               </button>
             </div>
           )}
@@ -316,7 +342,8 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Mobile Navigation */}
+    </div>
+
       <MobileNav
         isOpen={openMobileMenu}
         onClose={() => setOpenMobileMenu(false)}
