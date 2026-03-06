@@ -6,6 +6,8 @@ import { useModal } from "../ModalProvider";
 import dynamic from "next/dynamic";
 import PrimaryButton from "./PrimaryButton";
 import SecondaryButton from "./SecondaryButton";
+import HeroImg from "@/public/assets/homepage/hero-bg-mob.png";
+import BreadCrumbs from "../BreadCrumbs";
 
 const DynamicScrollHint = dynamic(() => import("../Layout/ScrollHintOptimized"), { ssr: false });
 // Web Worker-based shader: Offloads rendering to worker thread
@@ -14,7 +16,7 @@ const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgWorker"), {
   loading: () => null, // No loading state - just empty until ready
 });
 
-export default function Hero({ heroContent, variant = "default" }) {
+export default function Hero({ heroContent, breadcrumbs, variant = "default" }) {
   const showButtons = useMemo(
     () => !!(heroContent?.primaryButton?.present || heroContent?.secondaryButton?.present),
     [heroContent]
@@ -58,18 +60,21 @@ export default function Hero({ heroContent, variant = "default" }) {
       ref={heroRef}
       className="relative max-sm:px-[7vw] w-full h-screen bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10"
     >
-      {/* Static background image (always visible, priority loaded) */}
-      <div className="absolute inset-0 z-0 h-screen w-full">
-        <Image
-          src="/assets/homepage/hero-bg-mob.png"
-          alt="hero-bg"
-          fill
-          priority
-          fetchPriority="high"
-          sizes="100vw"
-          className="object-cover"
-        />
-      </div>
+      {/* ✅ Mobile image bg: keep it LCP-friendly */}
+      {mob && (
+        <div className="absolute inset-0 z-0 h-screen w-full">
+          <Image
+            src={HeroImg}
+            alt="mobile-hero-bg"
+            fill
+            priority
+            placeholder="blur"
+            fetchPriority="high"
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
+      )}
 
       {/* Desktop shader - loaded AFTER metrics, overlays on top of static image */}
       {!mob && shaderReady && (
@@ -147,6 +152,8 @@ export default function Hero({ heroContent, variant = "default" }) {
             />
           </div>
         )}
+
+        {breadcrumbs && <BreadCrumbs />}
       </div>
 
       {/* Scroll hint */}

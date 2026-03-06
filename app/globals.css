@@ -1,83 +1,4 @@
 @import "tailwindcss";
-/* @import "tw-animate-css"; */
-/* @import "shadcn/tailwind.css"; */
-
-/* ========================================
-   FONTS MOVED TO fonts-optimized.css
-   ========================================
-
-   Old font declarations commented out to prevent
-   duplicate loading. Now using optimized loading
-   strategy from /app/fonts-optimized.css
-
-   See FONT_OPTIMIZATION_GUIDE.md for details.
-   ======================================== */
-
-/*
-@font-face {
-    font-family: 'neueMontreal';
-    src: url('/fonts/ppneuemontreal-thin.woff2') format("woff2");
-    font-display: swap;
-    font-weight: 300;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'neueMontreal';
-    src: url('/fonts/ppneuemontreal-book.woff2') format("woff2");
-    font-display: swap;
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'neueMontreal';
-    src: url('/fonts/ppneuemontreal-medium.woff2') format("woff2");
-    font-display: swap;
-    font-weight: 500;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'neueMontreal';
-    src: url('/fonts/ppneuemontreal-bold.woff2') format("woff2");
-    font-display: swap;
-    font-weight: 700;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'aspekta';
-    src: url('/fonts/Aspekta-300.woff2') format("woff2");
-    font-display: optional;
-    font-weight: 300;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'aspekta';
-    src: url('/fonts/Aspekta-400.woff2') format("woff2");
-    font-display: optional;
-    font-weight: 400;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'aspekta';
-    src: url('/fonts/Aspekta-500.woff2') format("woff2");
-    font-display: optional;
-    font-weight: 500;
-    font-style: normal
-}
-
-@font-face {
-    font-family: 'aspekta';
-    src: url('/fonts/Aspekta-700.woff2') format("woff2");
-    font-display: optional;
-    font-weight: 700;
-    font-style: normal
-}
-*/
 
 :root {
   --background: #ffffff;
@@ -174,7 +95,7 @@ h6 {
 .hero-overlay{
   opacity: 1;
   animation: shade 0.8s forwards;
-  animation-delay: 1.2s;
+  animation-delay: 2s;
 }
 #header{
   opacity: 0;

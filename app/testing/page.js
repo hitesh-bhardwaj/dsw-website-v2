@@ -1,6 +1,34 @@
 import Header from "@/components/Testing/Header";
 import Hero from "@/components/Testing/Hero";
 import { ModalProvider } from "@/components/ModalProvider";
+import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
+import Features from "@/components/Homepage/Features";
+import UseCases from "@/components/Homepage/UseCases";
+import RealWorldOutcomes from "@/components/RealWorldOutcomes";
+import Testimonials from "@/components/Testimonials";
+import dynamic from "next/dynamic";
+
+const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
+  ssr: true,
+});
+const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
+  ssr: true,
+});
+const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
+  ssr: true,
+});
+const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
+  ssr: true,
+});
+const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
+  ssr: true,
+});
+const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
+  ssr: true,
+});
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
 
 export const metadata = {
   title: "Performance Testing Page - DSW UnifyAI",
@@ -13,58 +41,18 @@ export default function TestingPage() {
       <Header />
       <main className="min-h-screen bg-white">
         <Hero heroContent={heroContent} variant="default" />
-
-        {/* Performance Metrics Section */}
-        <section className="py-20 px-[5vw] max-sm:px-[7vw]">
-          <div className="max-w-[90vw] mx-auto">
-            <h2 className="text-56 max-sm:text-[9vw] mb-[3vw] text-center text-[#0A1B4B]">
-              Optimization Results
-            </h2>
-
-            <div className="grid gap-[2vw] max-sm:gap-[5vw] md:grid-cols-2 mt-[4vw]">
-              <MetricCard
-                title="Canvas Performance"
-                value="60 FPS"
-                description="Reduced from 120fps, -50% CPU usage"
-              />
-              <MetricCard
-                title="Font Loading"
-                value="2 fonts (75KB)"
-                description="Down from 8 fonts (300KB)"
-              />
-              <MetricCard
-                title="Bundle Size"
-                value="-43KB"
-                description="Removed GSAP above the fold"
-              />
-              <MetricCard
-                title="Lighthouse Score"
-                value="95+"
-                description="Up from 78, +17 points"
-              />
-            </div>
-
-            <div className="mt-[4vw] p-[2vw] max-sm:p-[5vw] bg-[#eff1fb] rounded-[1vw]">
-              <h3 className="text-32 max-sm:text-[6vw] mb-[1.5vw]">Testing Checklist</h3>
-              <ul className="space-y-[0.8vw] text-20 max-sm:text-[4vw] text-[#333333]">
-                <li>✅ Open DevTools → Performance tab</li>
-                <li>✅ Record page load and check FCP/LCP</li>
-                <li>✅ Verify no GSAP loads above the fold</li>
-                <li>✅ Check Network tab for font loading (2 preloaded)</li>
-                <li>✅ Test button stagger hover effect</li>
-                <li>✅ Run Lighthouse audit (target: 95+)</li>
-                <li>✅ Test mobile view with static image fallback</li>
-              </ul>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer className="py-[3vw] text-center text-[#666666]">
-          <p className="text-20 max-sm:text-[4vw]">
-            Optimized Hero Section • CSS-Only Animations • Zero GSAP Above Fold
-          </p>
-        </footer>
+        <WhyAIStruggles />
+        <UnifiedRuntime />
+        <Features />
+        <CoreEnterpriseSystemSticky />
+        <UseCases />
+        <AlwaysOnAI content={tourContent} />
+        <ClientsBlur />
+        <RealWorldOutcomes />
+        <CTAPricing />
+        <CertificationsAndAwards certificationsContent={certificationsContent} />
+        <Testimonials />
+        <CTAFinal ctaContent={ctaContent} />
       </main>
     </ModalProvider>
   );
@@ -87,12 +75,32 @@ const heroContent = {
   },
 };
 
-function MetricCard({ title, value, description }) {
-  return (
-    <div className="p-[2vw] max-sm:p-[5vw] bg-white border border-[#e1e1e1] rounded-[1vw] max-sm:rounded-[3vw]">
-      <h3 className="text-24 max-sm:text-[5vw] text-[#0A1B4B] mb-[0.5vw]">{title}</h3>
-      <p className="text-44 max-sm:text-[8vw] text-[#1727ff] font-medium mb-[0.5vw]">{value}</p>
-      <p className="text-18 max-sm:text-[4vw] text-[#666666]">{description}</p>
-    </div>
-  );
+const tourContent = {
+  heading: "Always-On AI. Built as Infrastructure.",
+  para: "AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously",
+  tagline: "The AI Operating System makes this possible by running as part of your core enterprise architecture."
+}
+
+const certificationsContent = {
+  sectionId: "compliance",
+  heading: "Tailor-made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  footerText:
+    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+};
+
+const ctaContent = {
+  heading: "Own How AI Runs in Your Enterprise",
+  para: "DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true
+  },
+  secondaryButton: {
+    present: true,
+    link: "/contact-us",
+    text: "Talk to our Team"
+  },
 }
