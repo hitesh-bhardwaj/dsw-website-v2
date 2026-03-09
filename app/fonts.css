@@ -1,12 +1,3 @@
-/* Optimized Font Loading Strategy
- *
- * Priority 1: Critical fonts (needed for LCP) - preload
- * Priority 2: Secondary fonts - load after LCP
- * Priority 3: Unused weights - don't load
- */
-
-/* === CRITICAL FONTS (Above-the-fold) === */
-/* neueMontreal Book (400) - Used for hero heading */
 @font-face {
   font-family: 'neueMontreal';
   src: url('/fonts/ppneuemontreal-book.woff2') format("woff2");
@@ -15,7 +6,6 @@
   font-style: normal;
 }
 
-/* Aspekta Regular (400) - Used for body text */
 @font-face {
   font-family: 'aspekta';
   src: url('/fonts/Aspekta-400.woff2') format("woff2");
@@ -24,7 +14,6 @@
   font-style: normal;
 }
 
-/* Aspekta Regular (500) - Used for links text */
 @font-face {
   font-family: 'aspekta';
   src: url('/fonts/Aspekta-500.woff2') format("woff2");
@@ -33,12 +22,10 @@
   font-style: normal;
 }
 
-/* === SECONDARY FONTS (Below-the-fold) === */
-/* These load after critical content */
 @font-face {
   font-family: 'neueMontreal';
   src: url('/fonts/ppneuemontreal-medium.woff2') format("woff2");
-  font-display: swap;
+  font-display: optional;
   font-weight: 500;
   font-style: normal;
 }
@@ -46,14 +33,11 @@
 @font-face {
   font-family: 'aspekta';
   src: url('/fonts/Aspekta-300.woff2') format("woff2");
-  font-display: swap;
+  font-display: optional;
   font-weight: 300;
   font-style: normal;
 }
 
-
-/* === OPTIONAL FONTS (Rarely used) === */
-/* Only load if actually needed - use font-display: optional */
 @font-face {
   font-family: 'neueMontreal';
   src: url('/fonts/ppneuemontreal-bold.woff2') format("woff2");
@@ -64,7 +48,7 @@
 @font-face {
   font-family: 'neueMontreal';
   src: url('/fonts/ppneuemontreal-thin.woff2') format("woff2");
-  font-display: optional; /* Don't block render */
+  font-display: optional; 
   font-weight: 300;
   font-style: normal;
 }

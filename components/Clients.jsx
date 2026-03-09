@@ -57,10 +57,10 @@ export default function Clients() {
   }, []);
 
   return (
-    <section className="relative w-screen overflow-hidden py-[7%] px-0 space-y-[5vw] max-sm:space-y-[15vw] max-sm:py-[25%] ">
+    <section className="relative w-screen overflow-hidden py-[7%] px-0 space-y-[5vw] max-sm:space-y-[15vw] max-sm:py-[15%]">
       {/* Heading */}
       <HeadingAnim>
-        <h2 className="text-76 text-[#0A1B4B] leading-[1.2] w-[60%] text-center mx-auto max-sm:w-[90%]">
+        <h2 className="text-76 text-[#0A1B4B] leading-[1.2] w-[60%] text-center mx-auto max-sm:w-[90%] max-md:w-full">
           Trusted by Enterprises
           <br />
           Operating AI at Scale
