@@ -59,7 +59,7 @@ const ArchitecturalPrinciples = () => {
         </HeadingAnim>
         <Copy>
           <p className="text-30 w-[65%] mx-auto max-md:w-full">
-            The DSW Enterprise AI Operating System is designed to operationalize
+            DSW UnifyAI OS is designed to operationalize
             AI and agentic systems with long-running enterprise capabilities,
             not isolated applications.
           </p>

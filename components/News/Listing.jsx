@@ -16,20 +16,20 @@ const Listing = ({ news = [] }) => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
- useEffect(() => {
-  const section = document.getElementById("news-listing");
+//  useEffect(() => { 
+//   const section = document.getElementById("news-listing");
 
-  if (!section) return;
+//   if (!section) return;
 
-  // wait for DOM + new blogs to render
-  requestAnimationFrame(() => {
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
-  });
+//   // wait for DOM + new blogs to render
+//   requestAnimationFrame(() => {
+//     section.scrollIntoView({
+//       behavior: "smooth",
+//       block: "start",
+//     });
+//   });
 
-}, [page]);
+// }, [page]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

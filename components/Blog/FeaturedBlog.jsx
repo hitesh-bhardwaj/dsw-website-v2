@@ -26,9 +26,16 @@ const FeaturedBlog = ({ featuredPost }) => {
             aria-label={`Read blog post: ${featuredPost.title}`}
           >
             <Image
-              src={featuredPost.featuredImage?.sourceUrl || "/assets/images/blog/ai-blog.png"}
+              src={
+                featuredPost.featuredImage?.sourceUrl ||
+                "/assets/images/blog/ai-blog.png"
+              }
               fill
-              alt={featuredPost.featuredImage?.altText || featuredPost.title || "Featured blog image"}
+              alt={
+                featuredPost.featuredImage?.altText ||
+                featuredPost.title ||
+                "Featured blog image"
+              }
               className="object-cover group-hover:scale-105 duration-700 ease-out transition-transform"
             />
             {/* Arrow Icon */}
@@ -39,7 +46,14 @@ const FeaturedBlog = ({ featuredPost }) => {
                 xmlns="http://www.w3.org/2000/svg"
                 className="w-full h-full"
               >
-                <circle cx="30" cy="30" r="29" stroke="#fff" strokeWidth="1" fill="none"/>
+                <circle
+                  cx="30"
+                  cy="30"
+                  r="29"
+                  stroke="#fff"
+                  strokeWidth="1"
+                  fill="none"
+                />
                 <path
                   d="M22 38L38 22M38 22H26M38 22V34"
                   stroke="#fff"
@@ -92,14 +106,13 @@ const FeaturedBlog = ({ featuredPost }) => {
 
             {/* Read More Button */}
             <div className="max-sm:flex max-sm:justify-center">
-
-            <div className="pt-[1vw] max-sm:pt-[4vw] max-sm:mx-auto">
-              <PrimaryButton
-                href={`/${featuredPost.slug}`}
-                text="Read More"
+              <div className="pt-[1vw] max-sm:pt-[4vw] max-sm:mx-auto">
+                <PrimaryButton
+                  href={`/${featuredPost.slug}`}
+                  text="Read More"
                 />
+              </div>
             </div>
-                </div>
           </div>
         </div>
       </div>

@@ -32,7 +32,7 @@ function DeployementCard({ deployment }) {
 export default function Deployments() {
 
     return (
-        <section className="relative w-full py-[10%] px-[5vw] max-sm:py-[15%] max-md:px-[6vw] space-y-[12vw] max-sm:px-[7vw]">
+        <section className="relative w-full py-[10%] px-[5vw] max-sm:py-[15%] max-md:px-[6vw] space-y-[12vw] max-sm:px-[7vw] z-[101]">
             <div className='w-full space-y-[6vw] max-md:space-y-[10vw] max-sm:space-y-[12vw]'>
                <div className='w-[80%] mx-auto max-md:w-full'>
                     <HeadingAnim>

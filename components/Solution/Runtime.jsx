@@ -7,7 +7,7 @@ const Runtime = ({ runtimeContent }) => {
 
   return (
     <section
-      className="w-full px-[5vw] py-[7%] pt-[10%] max-md:px-[6vw] max-md:py-[10%] max-sm:px-[7vw] max-sm:py-[15%]"
+      className="w-full px-[5vw] py-[7%] pt-[10%] max-md:px-[6vw] max-md:py-[10%] max-sm:px-[7vw] max-sm:py-[15%] relative z-[200]"
       id="runtime"
     >
       <div className="w-full h-full gap-y-[2vw] max-sm:gap-y-[6vw] max-md:gap-y-[5vw] flex flex-col items-center">

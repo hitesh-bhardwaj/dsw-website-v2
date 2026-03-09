@@ -26,7 +26,7 @@ const FeaturesCard = ({ icon, title, para }) => {
 const Features = ({ featuresData }) => {
   return (
     <section
-      className="h-full max-md:relative  max-md:h-fit max-md:z-[20] w-screen px-[5vw] max-sm:px-[7vw] py-[10%] max-sm:py-[17%]"
+      className="h-full relative  max-md:h-fit max-md:z-[20] w-screen px-[5vw] max-sm:px-[7vw] py-[10%] max-sm:py-[17%] z-[100]"
       id="features"
     >
       <div className="h-full w-full  space-y-[4vw] max-sm:space-y-[10vw] mx-auto max-md:space-y-[7vw]">

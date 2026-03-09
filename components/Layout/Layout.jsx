@@ -34,6 +34,7 @@ const Layout = ({ children }) => {
       <ImageObjectJsonLd />
       <WebsiteJsonLd />
       <HeaderNew />
+      {/* <HeaderWithSearchData/> */}
       {children}
       <FooterNew />
       {/* ✅ All modals now lazy-loaded */}

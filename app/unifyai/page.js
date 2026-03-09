@@ -102,7 +102,7 @@ const tourContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
+  heading: "Designed For Regulated Enterprises. Proven in BFSI. ",
   subtext: "Designed for compliance-driven, risk-sensitive operations.",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",

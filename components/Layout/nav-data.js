@@ -60,7 +60,7 @@ export const NAV_LINKS = [
       {
         id: "sol-8",
         label: "Hospitality",
-        href: "/solutions/banking",
+        href: "/solutions/hospitality",
         description: "AI to optimize operations and guest intelligence.",
       },
     ],
@@ -120,7 +120,7 @@ export const NAV_LINKS = [
   {
     id: "opensource",
     label: "Open Source",
-    href: "/infosys-finacle",
+    href: "/dsw-open-source",
     drop: false,
   },
 
