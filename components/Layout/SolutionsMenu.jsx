@@ -23,7 +23,7 @@ export default function SolutionsMenu({ data }) {
                 <div key={item.id} className="gap-[0.5vw] flex flex-col">
                   <Link
                     href={item.href}
-                    className="ahLink text-32 w-fit font-light text-foreground hover:text-primary-blue duration-500 ease-out"
+                    className="ahLink text-30 font-heading! w-fit text-foreground hover:text-primary-blue duration-500 ease-out"
                   >
                     <span className="ahLink__mask h-[2.2vw]">
                       <span className="ahLink__line">{item.label}</span>
@@ -44,7 +44,7 @@ export default function SolutionsMenu({ data }) {
 
       <div className="w-[33%] h-full flex gap-[1.5vw] justify-end">
         <div className="flex w-fit flex-col gap-[1.5vw]">
-          <h3 className="text-32">Customer Stories</h3>
+          <h3 className="text-30 font-heading!">Customer Stories</h3>
 
           {stories.map((story) => (
             <div

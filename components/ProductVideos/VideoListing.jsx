@@ -68,7 +68,7 @@ const VideoListing = () => {
   return (
     <>
       <section
-        className={` px-[5vw] py-[7%] max-sm:py-[15%]  relative  w-screen h-full`}
+        className={` px-[5vw] py-[7%] max-sm:py-[15%]  relative  w-screen h-full z-100`}
         id="video-listing"
       >
         <div className="w-full h-full flex flex-wrap fadeup justify-between gap-y-[7vw] max-sm:gap-y-[10vw] max-md:gap-y-[7vw]">

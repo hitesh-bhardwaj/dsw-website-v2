@@ -42,76 +42,81 @@ export const metadata = getPageMetadata({
 const page = () => {
   return (
     <>
-     <WebpageJsonLd metadata={metadata} />
+      <WebpageJsonLd metadata={metadata} />
       <BreadcrumbsJSONLD pathname={metadata.url} />
-    <Layout>
-        <HeroNew heroContent={heroContent} variant={"default"} breadcrumbs={true}/>
-        <Features featuresData={featuresData}/>
-         <WorkshopFlow sessionsData={sessionsData} space={"space-y-[2vw]"} />
-         <Outcomes outcomesData={outcomesData}/>
-          <Empower  heading="Ready to Empower Your Team with Practical AI Skills?"
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"default"}
+          breadcrumbs={true}
+        />
+        <Features featuresData={featuresData} />
+        <WorkshopFlow sessionsData={sessionsData} space={"space-y-[2vw]"} />
+        <Outcomes outcomesData={outcomesData} />
+        <Empower
+          heading="Ready to Empower Your Team with Practical AI Skills?"
           para="Fill out the form"
-          width={"w-[90%] max-md:w-full"}/>
-          {/* <Faqs data={faqData}/> */}
-        <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+          width={"w-[90%] max-md:w-full"}
+        />
+        {/* <Faqs data={faqData}/> */}
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
 
 export default page;
 
-const heroContent={
-  tagline:"",
-  heading:"Equip Your Team With Real -World AI & GenAI Skills for Insurance",
-  primaryButton:{
-    present:false,
-    link:"#",
-    text:""
+const heroContent = {
+  tagline: "",
+  heading: "Equip Your Team With Real-World AI & GenAI Skills for Insurance",
+  primaryButton: {
+    present: false,
+    link: "#",
+    text: "",
   },
-  secondaryButton:{
-    present:false,
-    link:"#",
-    text:"Talk to our Team"
+  secondaryButton: {
+    present: false,
+    link: "#",
+    text: "Talk to our Team",
   },
-  para:"The insurance industry is evolving—and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation—all tailored for insurance workflows."
-}
+  para: "The insurance industry is evolving—and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation—all tailored for insurance workflows.",
+};
 
-const ctaContent={
-  heading:"Take a lightning tour of the Enterprise AI Platform",
-  para:"Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Take a lightning tour of the Enterprise AI Platform",
+  para: "Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true,
-    
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
-}
+};
 const featuresData = [
   {
-    icon: <Business/>,
+    icon: <Business />,
     title: "Business & Operations Leaders",
     para: "Discover how AI can improve efficiency, reduce risk, and unlock new revenue opportunities across the insurance value chain.",
   },
   {
-        icon: <DataScience/>,
+    icon: <DataScience />,
     title: "Data Science & Analytics Teams",
     para: "Explore hands-on methods to train, fine-tune, and deploy models tailored for fraud detection, claims automation, and more. ",
   },
   {
-    icon: <RiskCompliance/>,
+    icon: <RiskCompliance />,
     title: "Risk, Compliance & IT Professionals",
     para: "Understand governance frameworks, model explainability, and security protocols that align with industry regulations like SOC 2, ISO 27001, HIPAA, and GDPR.",
   },
   {
-    icon: <Innovation/>,
+    icon: <Innovation />,
     title: "Innovation, Product & Strategy Leaders",
     para: "Identify high-impact AI use cases and learn how to bring GenAI projects from concept to production in days—not months.",
   },
@@ -263,8 +268,6 @@ const outcomesData = {
     },
   ],
 };
-
-
 
 const faqData = [
   {

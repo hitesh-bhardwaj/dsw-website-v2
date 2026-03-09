@@ -19,7 +19,7 @@ export default function ResourcesMenu({ data }) {
             }`}
           >
             <div className="flex flex-col gap-[2vw] w-[80%]">
-              <h4 className="text-primary-blue text-24 font-medium">
+              <h4 className="text-primary-blue text-24 font-sans! font-medium">
                 {group}
               </h4>
 
@@ -27,7 +27,7 @@ export default function ResourcesMenu({ data }) {
                 <div key={item.id} className="gap-[0.5vw] flex flex-col">
                   <Link
                     href={item.href}
-                    className="ahLink text-32 font-light w-fit text-foreground hover:text-primary-blue duration-500 ease-out"
+                    className="ahLink text-30 font-heading! w-fit text-foreground hover:text-primary-blue duration-500 ease-out"
                   >
                     <span className="ahLink__mask h-[2.2vw]">
                       <span className="ahLink__line">{item.label}</span>

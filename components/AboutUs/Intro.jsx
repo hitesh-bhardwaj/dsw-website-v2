@@ -3,7 +3,7 @@ import HeadingAnim from "../Animations/HeadingAnim";
 
 export default function Intro() {
     return (
-        <section className="relative w-full py-[7%] pt-[15%] max-sm:px-[7vw] max-sm:py-[15%] max-md:py-[10%] space-y-[8vw] max-sm:space-y-[24vw] z-[2]">
+        <section className="relative w-full py-[7%] pt-[15%] max-sm:px-[7vw] max-sm:py-[15%] max-md:py-[10%] space-y-[8vw] max-sm:space-y-[24vw] z-[100]">
             <div className="text-center mx-auto space-y-[2vw] max-sm:w-full max-sm:space-y-[7vw] max-md:space-y-[4vw]">
                 <HeadingAnim>
                     <h2 className="text-76 text-center font-heading  text-[#0A1B4B] leading-[1.2]">

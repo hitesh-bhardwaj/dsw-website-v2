@@ -33,7 +33,7 @@ function AboutCard({ challenge }) {
 
 export default function AgenticAbout() {
   return (
-    <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] max-md:space-y-[12vw] z-2">
+    <section className="relative w-full py-[7%] pt-[10%] max-sm:px-[7vw] max-md:px-[6vw] max-sm:py-[20%] space-y-[8vw] max-sm:space-y-[24vw] max-md:space-y-[12vw] z-[100]">
       {/* <Copy>  */}
       <div className="mx-auto text-center w-[70%] max-md:w-full max-sm:w-full space-y-[2.5vw] max-sm:space-y-[6vw] max-md:space-y-[5vw]">
         <HeadingAnim>

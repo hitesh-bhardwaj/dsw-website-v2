@@ -203,7 +203,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
           </div>
         )}
 
-        <div className="herofadeup">
+        <div className="hero-content">
           {heroContent?.images && (
             <div className="flex items-center justify-center gap-[4vw] max-sm:gap-[10vw] max-md:gap-[7vw] mt-15">
               <Image
@@ -233,7 +233,8 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       <DynamicScrollHint isFooterVisible={isFooterVisible} />
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
-      <div className="w-screen h-[110vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
+      <div className="w-screen h-[130vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
     </section>
   );
 }
+

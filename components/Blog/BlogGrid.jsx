@@ -15,18 +15,18 @@ const BlogGrid = ({ posts = [] }) => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-  useEffect(() => {
-    const section = document.getElementById("blog-grid");
+  // useEffect(() => {
+  //   const section = document.getElementById("blog-grid");
 
-    if (!section) return;
+  //   if (!section) return;
 
-    requestAnimationFrame(() => {
-      section.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    });
-  }, [page]);
+  //   requestAnimationFrame(() => {
+  //     section.scrollIntoView({
+  //       behavior: "smooth",
+  //       block: "start",
+  //     });
+  //   });
+  // }, [page]);
 
   useEffect(() => {
     const timer = setTimeout(() => {

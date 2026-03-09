@@ -90,7 +90,7 @@ const OperatingSystem = () => {
 
   return (
     <section
-      className="relative w-screen pt-[8%]  max-sm:pt-0  h-[260vh] max-md:h-full  "
+      className="relative w-screen pt-[8%]  max-sm:pt-0  h-[260vh] max-md:h-full z-[100]  "
     >
       <div id="operatingSystem" className="sticky  h-[135vh] flex flex-col justify-center max-md:h-fit top-0 w-full   max-sm:px-[7vw]   max-md:py-[0%]  max-sm:py-[15%] max-sm:h-fit max-md:pt-[1%] z-[10]">
 
