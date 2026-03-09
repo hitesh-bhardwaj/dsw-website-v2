@@ -212,15 +212,15 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Telecom AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Borosil",
+  company: "Email Automation",
   description:
-    "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
+    "How India’s leading Health Insurance Company Streamlined Customer Communications and Operations with AI in weeks!",
   imageContent: <p>Case Study Image</p>,
   imgSrc:"/assets/case-studies/case-study-teleco.png",
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/borosil.pdf",
+    href: "/assets/case-studies/email-automation.pdf",
     type: "pdf",
   },
 };
@@ -314,9 +314,9 @@ const ctaContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Built for regulated telecom environments",
+  subtext: "",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Supports governance, audit, and regulatory workflows across network, operations, and customer environments.",
 };
 

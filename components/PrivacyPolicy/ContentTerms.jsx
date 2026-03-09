@@ -86,11 +86,11 @@ export default function ContentTerms() {
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="welcome">
               <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]  headingAnim">
                 Welcome to datasciencewizards
               </h2>
               </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 These terms and conditions outline the rules and regulations for
                 the use of DATA SCIENCE WIZARDS PVT LTD’s Website, located at
                 www.datasciencewizards.ai. By accessing this website we assume
@@ -118,9 +118,9 @@ export default function ContentTerms() {
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="cookies">
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">Cookies</h2>
+              <h2 className="text-44  leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] headingAnim">Cookies</h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 We employ the use of cookies. By accessing
                 datasciencewizards.in, you agreed to use cookies in agreement
                 with the DATA SCIENCE WIZARDS PVT LTD’s Privacy and Cookie
@@ -133,10 +133,10 @@ export default function ContentTerms() {
             </div>
 
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="license">
-              <h2 className="text-44 text-white-200 headingAnim">License</h2>
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] headingAnim">License</h2>
               <div className="space-y-[1.5vw]">
                 <div className="fadeup">
-                  <p className="text-white-300">
+                  <p className="">
                     Unless otherwise stated, DATA SCIENCE WIZARDS PVT LTD and/or
                     its licensors own the intellectual property rights for all
                     material on{" "}
@@ -153,7 +153,7 @@ export default function ContentTerms() {
                     for your own personal use subjected to restrictions set in
                     these terms and conditions. You must not:
                   </p>
-                  <ul className="space-y-[1vw] list-disc pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] list-disc marker:text-sm pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  ">
                     <li>Republish material from datasciencewizards.ai</li>
                     <li>
                       Sell, rent or sub-license material from
@@ -167,7 +167,7 @@ export default function ContentTerms() {
                   </ul>
                 </div>
                 <div className="fadeup">
-                  <p className="text-white-300">
+                  <p className="">
                     This Agreement shall begin on the date hereof (the effective
                     date – 1st January 2020). Parts of this website offer an
                     opportunity for users to post and exchange opinions and
@@ -187,7 +187,7 @@ export default function ContentTerms() {
                     inappropriate, offensive or causes breach of these Terms and
                     Conditions. You warrant and represent that:
                   </p>
-                  <ul className="space-y-[1vw] list-disc pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] list-disc marker:text-sm pl-[1.5vw] py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  ">
                     <li>
                       You are entitled to post the Comments on our website and
                       have all necessary licenses and consents to do so;
@@ -209,7 +209,7 @@ export default function ContentTerms() {
                     </li>
                   </ul>
                 </div>
-                <p className="text-white-300 fadeup">
+                <p className="fadeup">
                   You hereby grant DATA SCIENCE WIZARDS PVT LTD a non-exclusive
                   license to use, reproduce, edit and authorize others to use,
                   reproduce and edit any of your Comments in any and all forms,
@@ -224,17 +224,17 @@ export default function ContentTerms() {
             >
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] headingAnim">
                 Hyperlinking to our Content
               </h2>
                </HeadingAnim>
               <div className="space-y-[1.5vw]">
                 <div className="fadeup">
-                  <p className="text-white-300">
+                  <p className="">
                     The following organizations may link to our Website without
                     prior written approval:
                   </p>
-                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  ">
                     <li>Government agencies;</li>
                     <li>Search engines;</li>
                     <li>News organizations;</li>
@@ -252,7 +252,7 @@ export default function ContentTerms() {
                   </ul>
                 </div>
                 <div className="fadeup">
-                  <p className="text-white-300">
+                  <p className="">
                     These organizations may link to our home page, to
                     publications or to other Website information so long as the
                     link: (a) is not in any way deceptive; (b) does not falsely
@@ -262,7 +262,7 @@ export default function ContentTerms() {
                     approve other link requests from the following types of
                     organizations:
                   </p>
-                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  text-white-300">
+                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw]  ">
                     <li>
                       commonly-known consumer and/or business information
                       sources;
@@ -279,7 +279,7 @@ export default function ContentTerms() {
                 </div>
 
                 <div className="fadeup">
-                  <p className="text-white-300">
+                  <p className="">
                     We will approve link requests from these organizations if we
                     decide that: (a) the link would not make us look
                     unfavourably to ourselves or to our accredited businesses;
@@ -303,7 +303,7 @@ export default function ContentTerms() {
                     to link. Wait 4-5 weeks for a response. Approved
                     organizations may hyperlink to our Website as follows:
                   </p>
-                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] text-white-300">
+                  <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] ">
                     <li>By use of our corporate name; or</li>
                     <li>
                       By use of the uniform resource locator being linked to; or
@@ -316,7 +316,7 @@ export default function ContentTerms() {
                   </ul>
                 </div>
                 <div className="fadeup">
-                  <p className="text-white-300">
+                  <p className="">
                     No use of DATA SCIENCE WIZARDS PVT LTD’s logo or other
                     artwork will be allowed for linking absent a trademark
                     license agreement.
@@ -328,9 +328,9 @@ export default function ContentTerms() {
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="iframes">
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">iFrames</h2>
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]  headingAnim">iFrames</h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 Without prior approval and written permission, you may not
                 create frames around our Webpages that alter in any way the
                 visual presentation or appearance of our Website.
@@ -343,11 +343,11 @@ export default function ContentTerms() {
             >
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] headingAnim">
                 Content Liability
               </h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 We shall not be hold responsible for any content that appears on
                 your Website. You agree to protect and defend us against all
                 claims that is rising on your Website. No link(s) should appear
@@ -363,11 +363,11 @@ export default function ContentTerms() {
             >
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] headingAnim">
                 Your Privacy
               </h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 Please read Privacy Policy
               </p>
             </div>
@@ -378,11 +378,11 @@ export default function ContentTerms() {
             >
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]  headingAnim">
                 Reservation of Rights
               </h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 We reserve the right to request that you remove all links or any
                 particular link to our Website. You approve to immediately
                 remove all links to our Website upon request. We also reserve
@@ -400,11 +400,11 @@ export default function ContentTerms() {
 
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]  headingAnim">
                 Removal of links from our website
               </h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 If you find any link on our Website that is offensive for any
                 reason, you are free to contact and inform us any moment. We
                 will consider requests to remove links but we are not obligated
@@ -419,15 +419,15 @@ export default function ContentTerms() {
             <div className="space-y-[2vw] max-md:space-y-[4vw]" id="disclaimer">
                <HeadingAnim>
 
-              <h2 className="text-44 text-white-200 headingAnim">Disclaimer</h2>
+              <h2 className="text-44 leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4] headingAnim">Disclaimer</h2>
                </HeadingAnim>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 To the maximum extent permitted by applicable law, we exclude
                 all representations, warranties and conditions relating to our
                 website and the use of this website. Nothing in this disclaimer
                 will:
               </p>
-              <ul className="space-y-[1vw] pl-[1.5vw] list-disc py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] fadeup text-white-300">
+              <ul className="space-y-[1vw] pl-[1.5vw] list-disc marker:text-sm py-[1vw] max-md:pl-[7vw] max-md:py-[3vw] max-md:space-y-[2vw] fadeup ">
                 <li>
                   limit or exclude our or your liability for death or personal
                   injury;
@@ -445,7 +445,7 @@ export default function ContentTerms() {
                   excluded under applicable law.
                 </li>
               </ul>
-              <p className="text-white-300 fadeup">
+              <p className="fadeup">
                 The limitations and prohibitions of liability set in this
                 Section and elsewhere in this disclaimer: (a) are subject to the
                 preceding paragraph; and (b) govern all liabilities arising

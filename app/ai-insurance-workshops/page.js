@@ -234,13 +234,13 @@ const outcomesData = {
     {
       id: "1",
       title: "Clear AI Roadmap",
-      text: "Identify high-impact use cases tailored to your insurance workflows—from underwriting to claims automation.",
+      text: "Identify high-impact use cases tailored to your insurance workflows - from underwriting to claims automation.",
       width: "w-[30%]",
     },
     {
       id: "2",
       title: "Hands-On GenAI Experience",
-      text: "Build and deploy a working AI/GenAI prototype using your own or sample data—no-code to full-code options available.",
+      text: "Build and deploy a working AI/GenAI prototype using your own or sample data-no-code to full-code options available.",
       width: "w-full",
     },
     {

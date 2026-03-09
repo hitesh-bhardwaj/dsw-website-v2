@@ -83,7 +83,7 @@ const heroContent = {
     link: "#",
     text: "Talk to our Team",
   },
-  paraWidth: "w-[40%]",
+  paraWidth: "w-[40%] max-md:w-[80%]",
   images: false,
   para:
     "Enable production AI across the insurance lifecycle - controlled, auditable, and operated as one system.",

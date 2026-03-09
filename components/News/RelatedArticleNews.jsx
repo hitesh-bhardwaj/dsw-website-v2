@@ -17,7 +17,7 @@ const BlogCard = ({ title, date, img, slug }) => {
     <>
       <Link href={`/news/${slug}`}>
         <div className="rounded-3xl group border border-primary-blue pb-4 space-y-8 overflow-hidden group cursor-pointer max-sm:pb-0 h-[33vw] max-sm:h-[110vw] max-md:h-[70vw] max-md:rounded-[3vw] max-sm:rounded-[6vw] max-md:space-y-4">
-          <div className="w-full h-[65%] overflow-hidden rounded-[2.5vw] max-sm:h-[60%]">
+          <div className="w-full h-[65%] overflow-hidden rounded-t-xl rounded-b-3xl max-sm:h-[60%]">
             <div className="absolute top-[1vw] right-[1vw] size-[3vw] max-sm:size-[10vw] max-md:top-[3vw] max-md:size-[7vw] max-md:right-[3vw] bg-white/10 rounded-full z-10">
               <svg
                 viewBox="0 0 60 60"
@@ -40,7 +40,7 @@ const BlogCard = ({ title, date, img, slug }) => {
               width={531}
               height={510}
               alt={title}
-              className="object-cover h-full w-full group-hover:scale-[1.1] duration-700 ease-in-out transition-all max-sm:w-full max-sm:h-full"
+              className="object-cover h-full w-full group-hover:scale-[1.1] duration-700 ease-in-out transition-all max-sm:w-full max-sm:h-full "
             />
           </div>
           <div className="space-y-5 px-5">
@@ -82,7 +82,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
     <section
       id="relatedArticles"
       ref={relatedArticlesRef}
-      className={`h-full w-screen  overflow-x-hidden relative px-[5vw] flex-col flex py-[5%]`}
+      className={`h-full w-screen  overflow-x-hidden relative px-[5vw] flex-col flex py-[5%] max-sm:py-[20%] max-md:py-[10%]`}
     >
       <div className="h-full w-full  gap-y-[4vw] flex flex-col items-start justify-between  max-sm:flex-col ">
         <div className="w-full text-center">
@@ -90,7 +90,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
             Related Articles
           </h2>
 
-          <div className="flex gap-6 w-fit ml-auto max-md:absolute max-md:bottom-0 max-md:left-1/2 max-md:-translate-x-1/2">
+          <div className="flex gap-6 w-fit ml-auto max-md:absolute max-md:bottom-10 max-md:left-1/2 max-md:-translate-x-1/2">
             <PreviousButton onClick={handlePrev} isDisabled={activeIndex === 0} />
             <NextButton onClick={handleNext} isDisabled={activeIndex==relatedNews.length-1} />
           </div>
@@ -127,7 +127,7 @@ const RelatedArticleNews = ({news, relatedNews: relatedNewsProp}) => {
                 <BlogCard
                   title={newsItem.node.title}
                   img={newsItem.node.featuredImage?.node?.sourceUrl}
-                  date={newsItem.node.newsDate?.newsDate || newsItem.node.date}
+                  date={newsItem.node.date}
                   slug={newsItem.node.slug}
                 />
               </SwiperSlide>

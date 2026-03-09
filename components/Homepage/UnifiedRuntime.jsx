@@ -1,12 +1,9 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import Image from "next/image";
-import ScrollTrigger from "gsap/ScrollTrigger";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
 import Diagram from "./Diagram";
-gsap.registerPlugin(ScrollTrigger);
 
 export default function UnifiedRuntime() {
  useGSAP(() => {

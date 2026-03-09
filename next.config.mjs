@@ -8,6 +8,12 @@ const nextConfig = {
     WORDPRESS_GRAPHQL_ENDPOINT: process.env.WORDPRESS_GRAPHQL_ENDPOINT,
   },
 
+  // Optimize CSS loading
+  experimental: {
+    optimizeCss: true, // Enable CSS optimization
+    optimizePackageImports: ['lucide-react', '@apollo/client'], // Tree-shake packages
+  },
+
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000, // 1 year
@@ -47,7 +53,7 @@ const nextConfig = {
   },
 
   compress: true,
-  productionBrowserSourceMaps: true,
+  // productionBrowserSourceMaps: true,
 
   async headers() {
 
@@ -61,7 +67,7 @@ const nextConfig = {
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 
       // ✅ Images (GA uses pixels)
-      "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com",
+      "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in https://stats.g.doubleclick.net",
 
       // ✅ Fonts
       "font-src 'self' data: https://fonts.gstatic.com",
@@ -111,10 +117,10 @@ const nextConfig = {
       },
 
       // HSTS (only use on HTTPS)
-      {
-        key: "Strict-Transport-Security",
-        value: "max-age=63072000; includeSubDomains; preload",
-      },
+      // {
+      //   key: "Strict-Transport-Security",
+      //   value: "max-age=63072000; includeSubDomains; preload",
+      // },
 
       // Cross-origin isolation defaults
       {
@@ -123,7 +129,7 @@ const nextConfig = {
       },
       {
         key: "Cross-Origin-Resource-Policy",
-        value: "same-origin",
+        value: "cross-origin",
       },
 
       {

@@ -1,19 +1,34 @@
-import AlwaysOnAI from "@/components/AlwaysOnAI";
 import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
 import RealWorldOutcomes from "@/components/RealWorldOutcomes";
 import Testimonials from "@/components/Testimonials";
-import CTAPricing from "@/components/CTAPricing";
-import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import Layout from "@/components/Layout/Layout";
-import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
-import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
-import ClientsBlur from "@/components/Homepage/ClientsBlur";
 import { WebpageJsonLd } from "@/lib/json-ld";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import dynamic from "next/dynamic";
 
+const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
+  ssr: true,
+});
+const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
+  ssr: true,
+});
+const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
+  ssr: true,
+});
+const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
+  ssr: true,
+});
+const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
+  ssr: true,
+});
+const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
+  ssr: true,
+});
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
 export const metadata = {
   title: "DSW UnifyAI – Enterprise AI Platform for Insurance",
   description:
@@ -21,7 +36,13 @@ export const metadata = {
   url: "",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
-};
+  alternates: {
+    canonical: "/",
+    languages: {
+      "en-US": "/",
+    },
+  }
+}
 
 export default function Home() {
   return (
@@ -48,10 +69,9 @@ export default function Home() {
   );
 }
 
-
 const heroContent = {
   tagline: "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
-  heading: "The Enterprise AI Operating System",
+  heading: "DSW UnifyAI OS - The Enterprise AI Operating System",
   primaryButton: {
     present: true,
     book: true,
@@ -66,13 +86,13 @@ const heroContent = {
 }
 
 const ctaContent = {
-  heading: "Own How AI Runs in Your Enterprise  ",
-  para: "DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
+  heading: "Own How AI Runs in Your Enterprise",
+  para: "DSW UnifyAI OS is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
   primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
-    book:true
+    book: true
   },
   secondaryButton: {
     present: true,
@@ -89,8 +109,8 @@ const tourContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Designed For Regulated Enterprises. Proven in BFSI.",
+  subtext: "Enabling enterprise teams to operate AI at scale",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };

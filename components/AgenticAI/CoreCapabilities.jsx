@@ -288,7 +288,7 @@ const CoreCapabilities = () => {
     <section
       ref={sectionRef}
       id="plat-cap-container"
-      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[15%] max-sm:py-[20%] max-md:space-y-[10vw] space-y-[4vw] max-sm:space-y-[4vw]"
+      className="w-screen h-fit  pb-[5%] max-sm:px-[7vw] max-md:px-[6vw] max-md:py-[15%] max-sm:py-[20%] max-md:space-y-[3vw] space-y-[4vw] max-sm:space-y-[4vw]"
     >
       <HeadingAnim>
         <h2 className="text-center text-76 text-[#0A1B4B]">

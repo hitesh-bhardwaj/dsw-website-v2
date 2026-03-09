@@ -11,7 +11,7 @@ function ValueCard({ deployment }) {
             <div
                 className={`
                     relative bg-white  hover:border-primary-blue group hover:shadow-lg hover:drop-shadow-lg duration-300 ease-in-out group 
-                    w-[21.5vw] h-[25vw] max-md:h-[32vw] max-md:w-[42vw] px-[1vw] py-[2vw] max-md:px-[3vw] max-md:py-[3vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[58vw] border
+                    w-[21.5vw] h-[25vw] max-md:h-[32vw] max-md:w-[42vw] px-[1.2vw] py-[2vw] max-md:px-[3vw] max-md:py-[3vw] max-sm:px-[6vw] max-sm:py-[6vw] max-sm:w-full max-sm:pr-[12vw] max-sm:h-[58vw] border
                     border-border-color flex flex-col justify-between
                 `}
             >

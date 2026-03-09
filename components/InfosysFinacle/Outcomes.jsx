@@ -88,7 +88,7 @@ export default function Outcomes() {
 
     return (
         <section className="w-screen h-full px-[5vw] py-[7%] max-md:px-[6vw] max-md:py-[10%] max-sm:py-[15%] max-sm:px-[7vw]" id="finacle-outcomes">
-            <div className="w-full flex flex-col items-center justify-center gap-y-[5vw] max-md:gap-y-[10vw] max-sm:gap-y-[15vw]">
+            <div className="w-full flex flex-col items-center justify-center gap-y-[2.5vw] max-md:gap-y-[10vw] max-sm:gap-y-[15vw]">
                 <div className="w-[70%] text-center max-md:w-full">
                 <HeadingAnim>
                     <h2 className="text-76  text-[#0A1B4B] leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]">
@@ -97,21 +97,21 @@ export default function Outcomes() {
                 </HeadingAnim>
                 </div>
                 <Copy>
-                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground">
+                    <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground leading-[1.3]">
                         As a strategic open-source consulting partner to Infosys Finacle, DSW helps
                         global banks modernize, optimize, and scale Finacle deployments through
                         enterprise-grade open-source adoption.
                     </p>
                 </Copy>
 
-                <div className="w-[63%] max-md:w-[90%] flex flex-col gap-[3vw] max-sm:w-full max-md:gap-[7vw] max-sm:gap-[10vw]">
+                <div className="w-[60%] max-md:w-[90%] flex flex-col gap-[3vw] max-sm:w-full pt-[3vw] max-md:pt-0 max-md:gap-[7vw] max-sm:gap-[10vw]">
                     {POINTS.map(({ id, text, width }) => (
                         <div
                             key={id}
-                            className="w-full flex gap-[3.2vw] items-center about-item"
+                            className="w-full flex gap-[2vw] max-md:gap-[3.2vw] items-center about-item"
                         >
                             <div className="w-[15%] relative max-md:w-[35%] max-sm:w-[30%]">
-                                <div className="relative w-[5vw] h-[5vw] border border-primary-blue rounded-full flex items-center justify-center max-sm:w-[18vw] max-sm:h-[18vw] max-md:w-[15vw] max-md:h-[15vw]">
+                                <div className="relative w-[5.2vw] h-[5.2vw] border border-primary-blue rounded-full flex items-center justify-center max-sm:w-[18vw] max-sm:h-[18vw] max-md:w-[15vw] max-md:h-[15vw]">
                   <p className="about-id text-primary-1 font-head relative z-[1] text-30 max-md:text-[4vw] max-sm:text-[5vw]">
                     {id ?? String(idx + 1).padStart(2, "0")}
                   </p>

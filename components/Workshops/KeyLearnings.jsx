@@ -20,7 +20,7 @@ const capabilities = [
 const KeyLearnings = () => {
   return (
     <section className="h-full px-[5vw] py-[7%]">
-      <div className="flex flex-col justify-between items-center space-y-[5vw] max-md:flex-col pt-[4vw] max-md:pt-[10vw]">
+      <div className="flex flex-col justify-between items-center space-y-[5vw] max-md:flex-col max-sm:pt-[10vw]">
         <div className="w-full text-center">
           <HeadingAnim>
           <h3 className="text-76  max-sm:text-center max-sm:leading-[1.4]  font-heading max-sm:w-[60%] max-sm:mx-auto">
@@ -29,7 +29,7 @@ const KeyLearnings = () => {
           </HeadingAnim>
         </div>
 
-        <div className="w-[40%] max-md:w-full max-md:mt-[8vw]">
+        <div className="w-[50%] max-md:ml-0 pl-[3vw] max-md:w-full max-md:mt-[8vw]">
           <div className="space-y-[2vw] max-sm:space-y-[2vw] w-full">
             {capabilities.map((cap, index) => (
               <div key={index} className="relative max-md:pb-[8vw] pb-[1.5vw] max-sm:w-[90%] fadeup">

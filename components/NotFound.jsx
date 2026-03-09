@@ -6,7 +6,12 @@ import Copy from "@/components/Animations/Copy";
 import { Suspense, useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import WaveGridCanvas from "./Homepage/HeroBg";
+import dynamic from "next/dynamic";
+
+const WaveGridCanvas = dynamic(() => import("./Homepage/HeroBg"), {
+  ssr: false,
+  loading: () => <div className="absolute top-0 left-0 h-screen w-screen" />
+});
 
 const Notfound = () => {
   const ShaderRef = useRef();

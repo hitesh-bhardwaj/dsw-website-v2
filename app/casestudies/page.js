@@ -11,20 +11,20 @@ export const metadata = getPageMetadata({
   title: "DSW News & Press — Media Features & Announcements",
   description:
     "Read DSW’s latest press coverage, announcements, interviews, and media features highlighting our enterprise AI innovations and market impact.",
-  url: "/news",
+  url: "/casestudies",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/news",
+    canonical: "/casestudies",
     languages: {
-      "en-US": "/news",
+      "en-US": "/casestudies",
     },
   },
   openGraph: {
-    url: "/news",
+    url: "/casestudies",
     images: [
       {
-        url: `${homepage}seo/news.png`,
+        url: `${homepage}seo/casestudies.png`,
         width: 1200,
         height: 630,
       },

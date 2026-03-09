@@ -41,8 +41,11 @@ export default function UseCases() {
         },
       },
     });
-    
-    const tl = gsap.timeline({
+    if (globalThis.innerWidth > 1024) {
+      gsap.set(".content-container",{
+        height: "0vw",
+      })
+       const tl = gsap.timeline({
       scrollTrigger: {
         trigger: "#usecases",
         start: "20% 90%",
@@ -51,10 +54,6 @@ export default function UseCases() {
         scrub: true,
       },
     });
-    if (globalThis.innerWidth > 1024) {
-      gsap.set(".content-container",{
-        height: "0vw",
-      })
       tl.to(".content-container", {
         height: "37vw",
         stagger: 0.25,
@@ -68,7 +67,7 @@ export default function UseCases() {
         ease: "power1.inOut",
       });
     }
-    
+
   });
 
   return (
@@ -117,7 +116,7 @@ export default function UseCases() {
                     {useCase.title}
                   </h4>
 
-                  <ul className="list-disc text-24 pl-[1vw] space-y-[0.5vw] max-md:pl-[3vw] max-sm:pl-[5vw] text-foreground">
+                  <ul className="list-disc marker:text-sm text-24 pl-[1vw] space-y-[0.5vw] max-md:pl-[3vw] max-sm:pl-[5vw] text-foreground">
                     {useCase.items.map((item, index) => (
                       <li key={index}>{item}</li>
                     ))}

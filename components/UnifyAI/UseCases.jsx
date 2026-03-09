@@ -61,7 +61,7 @@ const content = [
     },
     {
         heading: "Unified Ops",
-        para: "One OS. One Centralized AI/ML ecosystem. Total Control",
+        para: "One OS. One Centralized AI/ML ecosystem. Total Control.",
         features: [
             "Centralized observability across models and agents",
             "Built-in compliance - ISO 42001, SOC 2, ISO 27001, HIPAA, GDPR",

@@ -7,7 +7,7 @@ import { SplitText } from "gsap/SplitText";
 
 gsap.registerPlugin(SplitText);
 
-const AIEcosystemMob = () => {
+const AIEcosystemMob = ({ecosystemItems}) => {
   const sectionRef = useRef(null);
   const blueRingRef = useRef(null);
   const orangeRingRef = useRef(null);
@@ -18,30 +18,30 @@ const AIEcosystemMob = () => {
 
   const SLIDES = useMemo(
     () => [
-      {
-        title: "Kernel-level governance",
-        bullets: [
-          "Policies execute as code",
-          "Audit, traceability, and reversibility are native",
-          "Controls cannot be bypassed or bolted on later",
-        ],
-      },
-      {
-        title: "Policy & access control",
-        bullets: [
-          "Identity, roles, and scoped permissions",
-          "Runtime policy gating for actions and tools",
-          "Tenant boundaries enforced by design",
-        ],
-      },
-      {
-        title: "Observability & audit trail",
-        bullets: [
-          "Every action is logged and explainable",
-          "End-to-end lineage across decisions",
-          "Safe rollback patterns for workflows",
-        ],
-      },
+     {
+    title: "Kernel-level governance",
+    bullets: [
+      "Policies execute as code",
+      "Audit, traceability, and reversibility are native",
+      "Controls cannot be bypassed or bolted on later",
+    ],
+  },
+  {
+    title: "Governed AI and agentic execution",
+    bullets: [
+      "Models and agents operate inside defined constraints",
+      "Autonomy is controlled, not improvised",
+      "Lifecycles are managed like system processes",
+    ],
+  },
+  {
+    title: "AI as enterprise infrastructure",
+    bullets: [
+      "Long-running, production-grade execution",
+      "Independent of vendors, clouds, or tools",
+      "Fully owned and operated by your enterprise",
+    ],
+  },
     ],
     []
   );
@@ -270,13 +270,13 @@ const AIEcosystemMob = () => {
       </div>
 
       {/* Content */}
-      <div className="w-fit absolute top-[15%] flex left-[7%]">
+      <div className="w-fit absolute top-[15%] flex left-[7%] pr-[5vw]">
         <div ref={contentWrapRef} className="space-y-[4vw] w-screen">
           <h3 data-slide-title className="text-40 font-medium text-[#0A1B4B]">
             {current.title}
           </h3>
 
-          <ul data-slide-ul className="pl-[4vw] list-disc max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
+          <ul data-slide-ul className="px-[4vw] list-disc marker:text-sm max-md:text-24 max-sm:space-y-[2vw] max-md:space-y-[1vw]">
             {current.bullets.map((b, i) => (
               <li key={`${active}-${i}`}>{b}</li>
             ))}

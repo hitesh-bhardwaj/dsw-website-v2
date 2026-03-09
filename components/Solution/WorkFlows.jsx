@@ -66,7 +66,7 @@ const WorkFlows = ({ workflowsContent }) => {
           )}
         </div>
 
-        <div className="w-[44.5%] flex flex-col max-md:w-full  max-sm:space-y-[5vw]">
+        <div className="w-[44.5%] flex flex-col max-md:w-full  max-sm:space-y-[5vw] max-sm:px-[1vw]">
           {items.map((item, index) => {
             const isEven = index % 2 === 1; // 2nd, 4th... align right
             return (

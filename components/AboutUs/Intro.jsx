@@ -20,7 +20,7 @@ export default function Intro() {
                     </p>
                 </Copy>
                 <Copy>
-                    <p className="text-30 w-[60%] font-sans font-medium max-sm:font-normal max-sm:w-full max-md:w-[80%] leading-[1.4] text-foreground mx-auto">
+                    <p className="text-30 w-[60%] font-sans font-medium  max-sm:w-full max-md:w-[80%] leading-[1.4] text-foreground mx-auto">
                         An operating layer to run AI with control, governance, and ownership.
 
                     </p>

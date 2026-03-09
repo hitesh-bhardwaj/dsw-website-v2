@@ -1,7 +1,9 @@
-import LenisSmoothScroll from "@/components/LenisSmoothScroll";
-import { neueMontreal, aspekta } from "./fonts";
+import "./fonts.css";
 import "./globals.css";
-import LayoutTransition from "@/components/LayoutTransition";
+import { ReactLenis } from 'lenis/react';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "DSW - Enterprise AI Operating System",
@@ -53,16 +55,58 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${neueMontreal.variable} ${aspekta.variable} antialiased`}>
-      <body >
-        <LenisSmoothScroll>
-          <LayoutTransition>
-            <main data-lenis-root id="main-content">
-              {children}
-            </main>
-          </LayoutTransition>
+    <html lang="en" className="antialiased">
+      <head>
+        {/* Preload critical fonts for fast LCP */}
+        <link
+          rel="preload"
+          href="/fonts/ppneuemontreal-book.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Aspekta-400.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Aspekta-500.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/ppneuemontreal-medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Aspekta-300.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
 
-        </LenisSmoothScroll>
+        {/* Preconnect to external domains */}
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+      </head>
+      <body>
+        <ReactLenis root>
+          <main data-lenis-root id="main-content">
+            {children}
+          </main>
+        </ReactLenis>
+        <SpeedInsights />
+        <Analytics />
+        <GoogleAnalytics gaId="G-Z5CT0M9533" />
       </body>
     </html>
   );

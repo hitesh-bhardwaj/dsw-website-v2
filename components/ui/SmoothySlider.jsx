@@ -11,6 +11,7 @@ const SmoothySlider = forwardRef(function SmoothySlider(
 ) {
   const containerRef = useRef(null);
   const sliderRef = useRef(null);
+  
 
   useEffect(() => {
     if (containerRef.current && !sliderRef.current) {

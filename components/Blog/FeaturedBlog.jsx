@@ -17,12 +17,12 @@ const FeaturedBlog = ({ featuredPost }) => {
 
   return (
     <section className="relative w-full py-[7%] max-sm:py-[15%] z-10 max-md:py-[10%]">
-      <div className="px-[5vw] max-sm:px-[7vw]">
-        <div className="flex gap-[3vw] items-center max-md:flex-col max-md:items-start max-sm:gap-[8vw]">
+      <div className="px-[5vw] max-sm:px-[7vw] max-md:px-[6vw]">
+        <div className="flex gap-[3vw]  items-center max-md:flex-col max-md:items-start max-sm:gap-[8vw]">
           {/* Image Container */}
           <Link
             href={`/${featuredPost.slug}`}
-            className="relative w-[38%] aspect-685/500 rounded-[1.2vw] overflow-hidden group max-sm:w-full max-sm:aspect-4/3 max-sm:rounded-[4vw] max-md:w-[75%] max-md:h-[40vw] max-sm:h-[70vw] max-md:rounded-[3vw]"
+            className="relative fadeup w-[38%] aspect-685/500 rounded-[1.2vw] overflow-hidden group max-sm:w-full max-sm:aspect-4/3 max-sm:rounded-[4vw] max-md:w-[75%] max-md:h-[40vw] max-sm:h-[70vw] max-md:rounded-[3vw]"
             aria-label={`Read blog post: ${featuredPost.title}`}
           >
             <Image
@@ -51,7 +51,7 @@ const FeaturedBlog = ({ featuredPost }) => {
             </div>
           </Link>
 
-          <div className="flex-1 space-y-[2vw] max-sm:space-y-[6vw] max-md:space-y-[4vw]">
+          <div className="flex-1 fadeup space-y-[2vw] max-sm:space-y-[6vw] max-md:space-y-[4vw]">
             <h2 className="text-44 text-foreground font-heading leading-[1.2] tracking-[0.02em] max-sm:leading-[1.3]">
               {featuredPost.title}
             </h2>

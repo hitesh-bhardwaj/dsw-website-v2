@@ -1,10 +1,13 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import DemoForm from "./DemoForm";
+import dynamic from "next/dynamic";
 import { useLenis } from "lenis/react";
 import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { useModal } from "./ModalProvider";
+
+// Lazy load form only when modal opens
+const DemoForm = dynamic(() => import("./DemoForm"), { ssr: false });
 
 const PopupModal = ({ modalOpen, setModalOpen }) => {
   const lenis = useLenis();
@@ -69,7 +72,7 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
     >
       <div data-lenis-prevent className="relative  w-[78%] h-[78vh] max-h-[90vh] overflow-y-auto  rounded-[2vw] border border-[#d4d4d4] bg-white/30 max-sm:rounded-[6vw] max-md:w-[92%]  max-md:h-[78%] max-sm:h-[75%] max-sm:px-[5vw] max-sm:py-[10%] p-[4vw] max-md:pt-[6vw] max-md:p-[5vw] max-md:rounded-[4vw]">
       
-      <div className="h-full max-sm:h-fit w-full overflow-y-auto! flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
+      <div className="h-full max-sm:h-fit w-full  flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
         <div className="w-[30%] h-full space-y-[1vw] max-md:w-full max-md:space-y-[2vw]">
           {payload ? (
             <h2 className="text-76 formhead">Download Pdf</h2>

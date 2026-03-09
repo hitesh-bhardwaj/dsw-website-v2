@@ -35,14 +35,23 @@ export function ModalProvider({ children }) {
   /* Track if form was submitted — persisted for the browser session */
 const [formSubmitted, setFormSubmittedState] = useState(() => {
   if (typeof window !== "undefined") {
-    return sessionStorage.getItem("formSubmitted") === "true";
+    try {
+      return sessionStorage.getItem("formSubmitted") === "true";
+    } catch (e) {
+      // sessionStorage blocked (iframe/private browsing)
+      return false;
+    }
   }
   return false;
 });
 
 const setFormSubmitted = useCallback((value) => {
   if (typeof window !== "undefined") {
-    sessionStorage.setItem("formSubmitted", String(value));
+    try {
+      sessionStorage.setItem("formSubmitted", String(value));
+    } catch (e) {
+      // sessionStorage blocked - continue without persistence
+    }
   }
   setFormSubmittedState(value);
 }, []);
@@ -120,9 +129,9 @@ const setFormSubmitted = useCallback((value) => {
           setOpenWalkThrough(true);
           break;
 
-        case "walkthrough-iframe":
-          setOpenWalkthroughIframe(true);
-          break;
+        // case "walkthrough-iframe":
+        //   setOpenWalkthroughIframe(true);
+        //   break;
 
         default:
           break;

@@ -47,7 +47,7 @@ const secondaryAnnouncements = [
 
 const UpcomingWebinars = () => {
   return (
-    <section className="py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-0 px-[5vw] max-sm:px-[7vw]" id="announcement">
+    <section className="py-[7%] space-y-[8vw] max-sm:space-y-[12vw] max-sm:py-0 px-[5vw] max-md:px-[6vw] max-sm:px-[7vw]" id="announcement">
       <div className="space-y-[7vw]">
         <div className=" space-y-[2.5vw] max-md:w-full text-center max-sm:space-y-[7vw] max-md:space-y-[5vw] ">
             <HeadingAnim>

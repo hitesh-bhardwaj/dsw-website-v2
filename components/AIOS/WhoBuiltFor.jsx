@@ -57,7 +57,7 @@ const WhoBuiltFor = () => {
         <div className="absolute top-[2.6vw] left-[19.7vw] w-[14.5vw] h-[5.5vw]">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -79,7 +79,7 @@ const WhoBuiltFor = () => {
         <div className="absolute top-[2.6vw] right-[19.8vw] w-[14.5vw] h-[5.5vw] -scale-x-100">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -101,7 +101,7 @@ const WhoBuiltFor = () => {
         <div className="absolute bottom-[2.6vw] left-[19.8vw] w-[14.5vw] h-[5.5vw] -scale-y-100">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -123,7 +123,7 @@ const WhoBuiltFor = () => {
         <div className="absolute bottom-[2.6vw] right-[19.8vw] w-[14.5vw] h-[5.5vw] scale-[-1]">
           <Image
             src="/assets/icons/aios/connector-arm.svg"
-            alt=""
+            alt="Connector arm"
             fill
             className="object-contain"
           />
@@ -138,25 +138,25 @@ const WhoBuiltFor = () => {
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[3%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             CIOs, CTOs, CDOs, and COOs
           </div>
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[27%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             Enterprise architects and platform teams
           </div>
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[58%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             AI, data, and ML engineering leaders
           </div>
         </div>
         <div className="w-full flex max-sm:h-[18vw] max-md:h-[14vw] gap-[1.5vw] absolute left-[40%] top-[83%]">
           <div className="w-[3vw] h-full border border-primary-blue" />
-          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30">
+          <div className="w-[50vw] h-full border border-primary-blue p-[3vw] max-md:text-30 max-sm:text-24">
             Risk, compliance, and security stakeholders
           </div>
         </div>
