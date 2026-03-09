@@ -4,7 +4,7 @@ import React from "react";
 import { getAllNews } from "@/lib/news";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
-import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/Layout/HeroNew";
 import Listing from "@/components/News/Listing";
 import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";

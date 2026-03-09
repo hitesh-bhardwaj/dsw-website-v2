@@ -10,7 +10,7 @@ import { Logo } from "../Svg/Logo";
 import DesktopNav from "./DesktopNav";
 
 // ✅ Dynamic import - only loads when mobile menu is first opened
-const MobileNav = dynamic(() => import("../Layout/MobileNav"), {
+const MobileNav = dynamic(() => import("../Layout/Header/MobileNav"), {
   ssr: false,
   loading: () => null,
 });

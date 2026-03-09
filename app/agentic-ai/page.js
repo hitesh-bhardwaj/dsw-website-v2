@@ -4,7 +4,7 @@ import AgenticCards from '@/components/AgenticAI/AgenticCards'
 import CoreCapabilities from '@/components/AgenticAI/CoreCapabilities'
 import AgentSteps from '@/components/AgenticAI/AgentSteps'
 import HowAgenticWorks from '@/components/AgenticAI/HowAgenticWorks'
-import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/Layout/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
 import { WebpageJsonLd } from '@/lib/json-ld'

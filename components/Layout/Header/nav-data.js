@@ -4,7 +4,7 @@ import {
   LinkedIn,
   Twitter,
   Youtube,
-} from "../Svg/Icons";
+} from "../../Svg/Icons";
 
 export const NAV_LINKS = [
   {

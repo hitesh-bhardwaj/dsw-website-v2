@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
-import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/Layout/HeroNew";
 import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";
 import { homepage } from "@/lib/util";

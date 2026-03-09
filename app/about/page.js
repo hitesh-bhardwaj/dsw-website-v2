@@ -1,5 +1,5 @@
 import React from "react";
-import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/Layout/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import CTAFinal from "@/components/CTAFinal";
 import Intro from "@/components/AboutUs/Intro";

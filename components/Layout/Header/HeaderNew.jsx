@@ -6,17 +6,17 @@ import { useLenis } from "lenis/react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-import PrimaryButton from "../Buttons/PrimaryButton";
-import SecondaryButton from "../Buttons/SecondaryButton";
+import PrimaryButton from "../../Buttons/PrimaryButton";
+import SecondaryButton from "../../Buttons/SecondaryButton";
 import MobileNav from "./MobileNav";
-import { Logo } from "../Svg/Logo";
-import AnimatedHoverLink from "./AnimatedHoverLink";
-import Search from "../Svg/Search";
+import { Logo } from "../../Svg/Logo";
+import AnimatedHoverLink from "../AnimatedHoverLink";
+import Search from "../../Svg/Search";
 import SolutionsMenu from "./SolutionsMenu";
 import TechnologyMenu from "./TechnologyMenu";
 import ResourcesMenu from "./ResourcesMenu";
 import { NAV_LINKS } from "./nav-data";
-import SearchModal from "./Search/SearchModal";
+import SearchModal from "../Search/SearchModal";
 
 const MEGA_MENU_IDS = ["solutions", "technology", "resources"];
 

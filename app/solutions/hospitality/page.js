@@ -1,6 +1,6 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
-import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/Layout/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
 import Breaks from "@/components/Solution/Breaks";

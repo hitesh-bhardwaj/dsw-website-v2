@@ -1,5 +1,5 @@
 import { getPageMetadata } from '@/components/config/metadata';
-import HeroNew from '@/components/HeroNew'
+import HeroNew from '@/components/Layout/HeroNew'
 import Layout from '@/components/Layout/Layout'
 import Content from '@/components/PrivacyPolicy/Content'
 import { WebpageJsonLd } from '@/lib/json-ld';

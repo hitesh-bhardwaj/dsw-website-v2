@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-// import Header from "./Header";
 import { ModalProvider } from "../ModalProvider";
 import dynamic from "next/dynamic";
 import {
@@ -10,7 +9,7 @@ import {
   OrganizationJsonLd,
   WebsiteJsonLd,
 } from "@/lib/json-ld";
-import HeaderNew from "./HeaderNew";
+import HeaderNew from "./Header/HeaderNew";
 
 // Footer (already dynamic)
 const FooterNew = dynamic(() => import("./Footer"), { ssr: false });

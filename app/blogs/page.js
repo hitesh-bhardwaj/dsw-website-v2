@@ -2,7 +2,7 @@ import FeaturedBlog from "@/components/Blog/FeaturedBlog";
 import BlogGrid from "@/components/Blog/BlogGrid";
 import { getAllPosts, sortStickyPosts } from "@/lib/posts";
 import Layout from "@/components/Layout/Layout";
-import HeroNew from "@/components/HeroNew";
+import HeroNew from "@/components/Layout/HeroNew";
 import CTAFinal from "@/components/CTAFinal";
 import { BreadcrumbsJSONLD, WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";

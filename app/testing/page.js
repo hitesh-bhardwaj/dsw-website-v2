@@ -13,7 +13,7 @@ import CTAPricing from "@/components/CTAPricing";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Testimonials from "@/components/Testimonials";
 import CTAFinal from "@/components/CTAFinal";
-import HeaderNew from "@/components/Layout/HeaderNew";
+import HeaderNew from "@/components/Layout/Header/HeaderNew";
 
 const FooterNew = dynamic(() => import("@/components/Layout/Footer"), {
   ssr: true,

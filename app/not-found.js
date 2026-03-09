@@ -1,6 +1,6 @@
 // app/not-found.jsx
 
-import Header from "@/components/Layout/Header";
+import HeaderNew from "@/components/Layout/Header/HeaderNew";
 import Notfound from "@/components/NotFound";
 import { ImageObjectJsonLd, LocalBusiness, OrganizationJsonLd, WebpageJsonLd, WebsiteJsonLd } from "@/lib/json-ld";
 
@@ -23,7 +23,7 @@ export default function NotFoundPage() {
       <LocalBusiness />
       <ImageObjectJsonLd />
       <WebsiteJsonLd />
-      <Header />
+      <HeaderNew />
       <Notfound/>
     </>
   );

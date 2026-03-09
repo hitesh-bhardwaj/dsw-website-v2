@@ -1,4 +1,4 @@
-import { NAV_LINKS } from "../nav-data";
+import { NAV_LINKS } from "../Header/nav-data";
 
 const normalize = (value = "") =>
   value
