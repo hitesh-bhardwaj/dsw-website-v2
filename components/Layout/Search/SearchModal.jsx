@@ -139,7 +139,7 @@ export default function SearchModal({
           </div>
         </div>
 
-        <div className="absolute left-[8%] top-[4%] w-[90%] flex-1 overflow-y-auto px-[12vw] pb-[6vw] max-md:top-[10%] max-md:w-full max-md:left-0 max-md:px-[7vw]">
+        <div className="absolute left-[6%] top-[4%] w-[90%] flex-1 overflow-y-auto px-[12vw] pb-[6vw] max-md:top-[10%] max-md:w-full max-md:left-0 max-md:px-[7vw]">
           <form onSubmit={handleSubmit}>
             <SearchInput
               value={query}

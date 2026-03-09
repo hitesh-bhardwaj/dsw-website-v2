@@ -204,6 +204,12 @@ export const NAV_LINKS = [
     href: "/contact-us",
     drop: false,
   },
+  {
+    id: "live-demo",
+    label: "Join a Live Demo",
+    href: "/live-demo",
+    drop: false,
+  },
 ];
 
 export const SOCIAL_LINKS = [

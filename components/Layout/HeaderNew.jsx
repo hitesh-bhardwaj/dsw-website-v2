@@ -155,7 +155,7 @@ export default function HeaderNew() {
               <div className="relative z-10 rounded-full max-md:hidden">
                 <div className="absolute top-0 left-0 h-full w-full" />
                 <ul className="flex items-center justify-between gap-[3vw] px-[2.5vw] py-[1.5vw] text-[1vw]">
-                  {NAV_LINKS.filter((l) => l.id !== "contact").map((link) => {
+                  {NAV_LINKS.filter((l) => l.id !== "contact" && l.id !== "live-demo").map((link) => {
                     const hasChildren =
                       Array.isArray(link.children) && link.children.length > 0;
 

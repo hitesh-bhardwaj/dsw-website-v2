@@ -44,9 +44,9 @@ const Features = ({ featuresContent }) => {
             ref={sliderRef}
             className="py-4 cursor-grab active:cursor-grabbing w-screen pr-0 pl-0"
             config={{
-              snap: false,
+              // snap: false,
               infinite: false,
-              wheel: false,
+              // wheel: false,
               setOffset: ({ wrapperWidth, vertical, wrapperHeight }) => {
                 const w = vertical ? wrapperHeight : wrapperWidth;
                 return w - w * 0.19;
