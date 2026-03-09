@@ -1,10 +1,13 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
-import WalkthroughForm from "./WalkthroughForm";
+import dynamic from "next/dynamic";
 import { useModal } from "../ModalProvider";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+
+// Lazy load form only when modal opens
+const WalkthroughForm = dynamic(() => import("./WalkthroughForm"), { ssr: false });
 
 const WalkthroughPopup = () => {
   const lenis = useLenis();

@@ -1,0 +1,32 @@
+<svg width="76" height="62" viewBox="0 0 76 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_520_2344)">
+<path d="M52.5 58H4C2.34315 58 1 56.6569 1 55V4C1 2.34314 2.34315 1 4 1H60C61.6569 1 63 2.34315 63 4V26" stroke="#0205FA"/>
+<rect x="9" y="37" width="12" height="12" rx="2" stroke="#0205FA"/>
+<rect x="9" y="18" width="12" height="12" rx="2" stroke="#0205FA"/>
+<path d="M11.5 24.5L13.2879 26.2879C13.405 26.405 13.595 26.405 13.7121 26.2879L19 21" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M11.5 44L13.2879 45.7879C13.405 45.905 13.595 45.905 13.7121 45.7879L19 40.5" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M25 46H38" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M25 40H44" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M25 27H38" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M25 21H44" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M1 9.5H63" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M6.5 5H9" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M13 5H15.5" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M19 5H21.5" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M25.5 5H57.5" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M74.5 47.5V43.3C74.5 43.1343 74.3657 43 74.2 43H52.8C52.6343 43 52.5 43.1343 52.5 43.3V60.7C52.5 60.8657 52.6343 61 52.8 61H74.2C74.3657 61 74.5 60.8657 74.5 60.7V52M74.5 47.5H71.5M74.5 47.5V52M74.5 52H71.5" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M74.5 56H71.5" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M52.5 56H56" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M52.5 52H56" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M52.5 48H56" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M62 52L61.0932 55.6272C61.0459 55.8166 61.1891 56 61.3842 56H65.6158C65.8109 56 65.9541 55.8166 65.9068 55.6272L65 52" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M65 52C65 52 66 51.1046 66 50C66 48.8954 65.0758 47.5 63.5 47.5C62 47.5 61 48.8954 61 50C61 51.1046 62 52 62 52" stroke="#0205FA"/>
+<path d="M54.5 43V36C54.5 36 54.5 26 63 26C72.5 26 72.5 35.9999 72.5 35.9999V43" stroke="#0205FA" stroke-linecap="round"/>
+<path d="M58 43V36C58 36 58 30 63.5 30C69 30 69 36 69 36V43" stroke="#0205FA" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_520_2344">
+<rect width="76" height="62" fill="white"/>
+</clipPath>
+</defs>
+</svg>

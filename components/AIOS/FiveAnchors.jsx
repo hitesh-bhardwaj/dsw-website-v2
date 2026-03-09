@@ -1,7 +1,7 @@
 "use client";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import Image from "next/image";
 import { useRef } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
@@ -15,145 +15,161 @@ const anchors = [
     id: 1,
     label: "Continuous adaptation",
     alt: "Continuous Adaption",
-    src: "/assets/icons/aios/anchors/continous-adaption-new.svg",
+    src: "/assets/icons/aios/anchors/continuous-adaptation-anchor.svg",
     position: "top-[4%] left-1/2 -translate-x-1/2",
   },
   {
     id: 2,
     label: "Data Sovereignty",
     alt: "Data Sovereignty",
-    src: "/assets/icons/aios/anchors/data-sovereignty-new.svg",
+    src: "/assets/icons/aios/anchors/data-sovereignty-anchor.svg",
     position: "top-[35%] right-0 max-sm:right-[-3%]",
   },
   {
     id: 3,
     label: "Human Centric AI",
     alt: "Human Centric",
-    src: "/assets/icons/aios/anchors/human-centric.svg",
+    src: "/assets/icons/aios/anchors/human-centric-anchor.svg",
     position: "bottom-[5%] right-[15%] max-sm:bottom-[-2%]",
   },
   {
     id: 4,
     label: "Strategic Flexibility",
     alt: "Strategic Flexibility",
-    src: "/assets/icons/aios/anchors/startegic-flexibility.svg",
+    src: "/assets/icons/aios/anchors/strategic-flexibility-anchor.svg",
     position: "bottom-[5%] left-[15%] max-sm:bottom-[-3%]",
   },
   {
     id: 5,
     label: "Adoption Reality",
-    alt: "Adaption Reality",
-    src: "/assets/icons/aios/anchors/adoption-reality-new.svg",
+    alt: "Adoption Reality",
+    src: "/assets/icons/aios/anchors/adoption-reality-anchor.svg",
     position: "top-[35%] left-0 max-sm:left-[-2%]",
   },
 ];
 
-/**
- * ✅ Smooth scroll-reactive rotation
- *
- * What makes this smooth:
- * 1) We don't change tween.duration() every tick (that causes stutter/jumps).
- * 2) We keep ONE infinite rotation tween and only adjust its timeScale().
- * 3) We smooth the speed using a low-pass filter (lerp) over time.
- *
- * Props:
- * - baseDuration: seconds per rotation at idle (default 30)
- * - maxTimeScale: max speed multiplier on scroll (default 3.5)
- * - sensitivity: how much scroll delta adds speed (default 0.002)
- * - decay: how fast the impulse decays (default 0.9)
- * - smoothing: lerp factor toward target speed (default 0.12)
- * - maxImpulse: cap impulse amount (default 2.5)
- */
-const FiveAnchors = ({
-  baseDuration = 30,
-  maxTimeScale = 3.5,
-  sensitivity = 0.002,
-  decay = 0.9,
-  smoothing = 0.12,
-  maxImpulse = 2.5,
-} = {}) => {
-  const sectionRef = useRef(null);
+const FiveAnchors = () => {
+  const outerRef = useRef(null);
+  const stickyRef = useRef(null);
   const ringRef = useRef(null);
+  const diagramRef = useRef(null);
 
   useGSAP(
     () => {
       const ring = ringRef.current;
-      if (!ring) return;
+      const diagram = diagramRef.current;
+      if (!ring || !diagram) return;
 
-      // ✅ One continuous rotation tween
+      // ── Continuous base rotation (same pattern as HowAgenticWorksWheel) ──
+      gsap.set(ring, {
+        transformOrigin: "50% 50%",
+        willChange: "transform",
+      });
+
       const rot = gsap.to(ring, {
         rotation: "+=360",
-        duration: baseDuration,
+        duration: 30,
         repeat: -1,
         ease: "none",
         force3D: true,
       });
 
-      // impulse -> targetSpeed -> smoothedSpeed
-      let impulse = 0; // accumulates with scroll
-      let targetScale = 1; // desired timeScale
-      let currentScale = 1; // smoothed timeScale
+      const BASE = 0.35;
+      const MAX = 8;
+      const SENS = 0.08;
+      const DECAY = 0.88;
 
+      rot.timeScale(BASE);
+
+      let boost = 0;
       let lastY = window.scrollY;
+
+      const tick = () => {
+        boost *= DECAY;
+        const t = BASE + boost;
+        rot.timeScale(t);
+      };
+
+      gsap.ticker.add(tick);
 
       const onScroll = () => {
         const y = window.scrollY;
         const dy = Math.abs(y - lastY);
         lastY = y;
-
-        // add impulse based on dy
-        impulse = Math.min(maxImpulse, impulse + dy * sensitivity);
-      };
-
-      const tick = () => {
-        // decay impulse when scroll stops
-        impulse *= decay;
-
-        // map impulse to desired timeScale
-        // 1..maxTimeScale
-        targetScale = clamp(1 + impulse, 1, maxTimeScale);
-
-        // smooth toward targetScale (low-pass filter)
-        currentScale += (targetScale - currentScale) * smoothing;
-
-        rot.timeScale(currentScale);
+        boost = Math.min(boost + dy * SENS, MAX);
       };
 
       window.addEventListener("scroll", onScroll, { passive: true });
-      gsap.ticker.add(tick);
 
-      // ✅ cleanup (important in React/Next)
+      // ── Fade-in animations (unchanged) ──
+      const isMobileOrTablet = (globalThis.innerWidth ?? 1024) < 1024;
+
+      if (isMobileOrTablet) {
+        gsap.fromTo(
+          diagram,
+          { opacity: 0, y: 24 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: stickyRef.current,
+              start: "10% 80%",
+            },
+          }
+        );
+      } else {
+        gsap.set(ring, { opacity: 0 });
+        gsap.set("[data-anchor-id]", { opacity: 0 });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: stickyRef.current,
+            start: "top 50%",
+            end: "bottom bottom",
+            scrub: 1,
+            markers: false,
+          },
+        });
+
+        tl.fromTo(
+          ring,
+          { opacity: 0 },
+          { opacity: 1, ease: "power2.out", duration: 0.35 },
+          0
+        );
+
+        tl.fromTo(
+          `[data-anchor-id="1"]`,
+          { opacity: 0, scale: 0.95 },
+          { opacity: 1, ease: "power2.out", duration: 0.25, scale: 1 },
+          0.05
+        );
+
+        anchors.slice(1).forEach((anchor, i) => {
+          tl.fromTo(
+            `[data-anchor-id="${anchor.id}"]`,
+            { opacity: 0, scale: 0.95 },
+            { opacity: 1, ease: "power2.out", duration: 0.25, scale: 1 },
+            0.15 + i * 0.14
+          );
+        });
+      }
+
       return () => {
         window.removeEventListener("scroll", onScroll);
         gsap.ticker.remove(tick);
         rot.kill();
+        ScrollTrigger.getAll().forEach((st) => st.kill());
       };
     },
-    { scope: sectionRef }
-  );
-
-  useGSAP(
-    () => {
-      gsap.from(".fiveAnchorsCircle", {
-        opacity: 0,
-        scale: 0.98,
-        duration: 1,
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 20%",
-        },
-      });
-    },
-    { scope: sectionRef }
+    { scope: outerRef }
   );
 
   return (
-    <section
-      ref={sectionRef}
-      className="relative w-full py-[7%] bg-background max-sm:py-[15%] overflow-hidden"
-    >
-      {/* Heading */}
-      <div className="text-center px-[5vw] mb-[5vw] max-sm:mb-[10vw]">
+    <div ref={outerRef} className="relative bg-background">
+      <div className="text-center px-[5vw] pt-[7%] pb-[2vw] max-sm:pt-[15%] max-sm:pb-[6vw] max-md:pb-[3vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B] leading-[1.2]">
             The Five Timeless Anchors of the Enterprise AI Operating System
@@ -161,68 +177,51 @@ const FiveAnchors = ({
         </HeadingAnim>
       </div>
 
-      {/* Infographic Container */}
-      <div className="relative w-[45vw] mx-auto aspect-square max-sm:w-[100vw] fiveAnchorsCircle max-md:w-[80vw]">
-        {/* Rotating Circle Ring */}
-        <div ref={ringRef} className="absolute inset-[10%] z-0">
-          <Image
-            src="/assets/icons/aios/anchors/circle-ring.png"
-            alt="Circle ring"
-            fill
-            className="object-contain"
-            priority
-          />
-        </div>
-
-        {/* ✅ Anchors rendered via map */}
-        {anchors.map((anchor) => (
+      <div
+        ref={stickyRef}
+        className="py-0 max-md:py-[10%] h-[300vh] max-md:h-auto"
+      >
+        <div className="w-full flex items-center justify-center overflow-hidden sticky top-0 h-screen max-md:relative max-md:h-[50vh]">
           <div
-            key={anchor.id}
-            className={`absolute ${anchor.position} flex flex-col items-center gap-[0.8vw] z-10`}
+            ref={diagramRef}
+            className="relative w-[45vw] aspect-square max-sm:w-[90vw] max-md:w-[70vw]"
           >
-            <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[15vw] max-sm:h-[15vw] max-md:size-[12vw]">
-              <div className="absolute inset-[20%]">
-                <Image
-                  src={anchor.src}
-                  alt={anchor.alt}
-                  fill
-                  className="object-contain"
-                />
-              </div>
+            <div ref={ringRef} className="absolute inset-[10%] z-0">
+              <Image
+                src="/assets/icons/aios/anchors/circle-ring.png"
+                alt="Circle ring"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
 
-            <p className="text-24 text-foreground capitalize max-sm:w-[70%] max-sm:text-center">
-              {anchor.label}
-            </p>
+            {anchors.map((anchor) => (
+              <div
+                key={anchor.id}
+                data-anchor-id={anchor.id}
+                className={`absolute ${anchor.position} flex flex-col items-center gap-[0.8vw] z-10 max-sm:gap-[2vw]`}
+              >
+                <div className="w-[7.5vw] h-[7.5vw] relative rounded-full bg-background border border-primary-blue flex items-center justify-center max-sm:w-[14vw] max-sm:h-[14vw] max-md:size-[10vw]">
+                  <div className="absolute inset-[20%]">
+                    <Image
+                      src={anchor.src}
+                      alt={anchor.alt}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
+                <p className="text-24 text-foreground capitalize max-sm:text-[2.8vw] max-sm:w-[70%] max-sm:text-center max-md:text-[1.6vw]">
+                  {anchor.label}
+                </p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </div>
-    </section>
+    </div>
   );
 };
 
 export default FiveAnchors;
-
-/**
- * ✅ Smooth presets:
- *
- * Cinematic (recommended):
- * <FiveAnchors
- *   baseDuration={34}
- *   maxTimeScale={2.8}
- *   sensitivity={0.0016}
- *   decay={0.92}
- *   smoothing={0.10}
- *   maxImpulse={1.8}
- * />
- *
- * More reactive:
- * <FiveAnchors
- *   baseDuration={30}
- *   maxTimeScale={4.0}
- *   sensitivity={0.0025}
- *   decay={0.88}
- *   smoothing={0.14}
- *   maxImpulse={2.8}
- * />
- */

@@ -38,7 +38,7 @@ const Layout = ({ children }) => {
       {children}
       <FooterNew />
       {/* ✅ All modals now lazy-loaded */}
-      <GlobalPopup/>
+      <GlobalPopup />
       <WalkthroughPopup />
       <WalkthroughIframePopup />
     </ModalProvider>

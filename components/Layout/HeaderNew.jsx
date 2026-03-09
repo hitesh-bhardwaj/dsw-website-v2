@@ -127,7 +127,7 @@ export default function HeaderNew() {
             setIsHoveringHeader(false);
             setOpenDropdown(null);
           }}
-          className="header fixed top-0 left-0 z-[900] w-screen text-white pointer-events-none"
+          className="header fixed top-0 left-0 z-900 w-screen text-white pointer-events-none"
         >
           <nav
             ref={headerRef}
