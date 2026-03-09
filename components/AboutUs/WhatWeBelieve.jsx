@@ -97,7 +97,6 @@ export default function WhatWeBelieve() {
             trigger: section,
             start: "top 30%",
             once: true,
-
           },
         });
       }
@@ -112,7 +111,7 @@ export default function WhatWeBelieve() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-fit py-[7%] px-[5vw] max-sm:px-0 max-sm:py-[15%] max-sm:h-fit max-md:py-[10%]"
+      className="relative w-full h-fit py-[7%] px-[5vw] max-md:px-0 max-sm:py-[15%] max-sm:h-fit max-md:py-[10%]"
       id="struggle"
     >
     
@@ -190,7 +189,7 @@ export default function WhatWeBelieve() {
 
         {/* Challenge Boxes — Mobile Slider */}
         <div className="hidden max-md:block w-full overflow-x-auto mobile-scrollbar overflow-y-visible pb-6">
-          <div className="flex gap-[2.5vw] flex-nowrap w-max items-center max-sm:px-[7vw]">
+          <div className="flex gap-[2.5vw] flex-nowrap w-max items-center max-md:px-[5vw] max-sm:px-[7vw]">
             {data.map((item, index) => (
               <React.Fragment key={index}>
                 <div className="struggle-card relative flex-shrink-0 max-sm:w-[75vw] max-sm:h-[50vw] h-[60vw] max-sm:p-[5vw] justify-between flex flex-col max-sm:pb-[8vw] items-end border border-solid border-[#c2c2c2] bg-white max-md:h-[30vw] max-md:w-[40vw] max-md:p-[4vw]">
@@ -237,7 +236,7 @@ const VisionMission = () => {
     duration-300 ease-in-out
   `;
   return (
-    <section className="w-full h-fit fadeup bg-white pt-[10%] max-sm:pt-28 md:px-16 max-sm:px-[7vw] max-md:py-[10%] max-sm:py-0">
+    <section className="w-full h-fit fadeup bg-white pt-[10%] max-sm:pt-28 md:px-16 max-md:px-[5vw] max-sm:px-[7vw] max-md:py-[10%] max-sm:py-0">
       <div className="relative grid grid-cols-3 grid-rows-2 max-sm:gap-[8vw] max-md:grid-cols-1 max-md:grid-rows-none max-md:flex max-md:flex-col max-md:gap-[4vw]">
         <div className="relative col-start-1 col-span-1 row-start-1 border border-[#c2c2c2] bg-white max-sm:gap-y-[15vw] px-[2vw] py-[2vw] max-sm:px-[5vw] max-sm:py-[7vw] hover:border-primary-blue hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 ease-in-out flex flex-col justify-between max-sm:gap-[6vw] max-md:p-[4vw] max-md:items-start max-md:gap-[7vw] max-md:pb-[10vw]">
           <div className="absolute -top-[0.25%] -left-[0.07%] w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out max-sm:-top-[0.35%] max-sm:-left-[0.35%]">

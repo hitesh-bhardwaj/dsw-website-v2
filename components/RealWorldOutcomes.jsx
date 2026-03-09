@@ -24,14 +24,14 @@ export default function RealWorldOutcomes() {
     return (
         <section className="relative w-full h-[240vh] py-[7%] max-md:px-[6vw] space-y-[8vw] max-sm:px-[7vw]" id="realworld-outcomes">
             {/* Heading */}
-            <div className="text-center space-y-[1vw] max-sm:space-y-[7vw]">
+            <div className="text-center space-y-[1vw] max-md:space-y-[3vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
                 <h2 className="text-76 text-[#0A1B4B]">
                     Real-World Outcomes
                 </h2>
                 </HeadingAnim>
                 <Copy>
-                <p className="text-30">
+                <p className="text-30 max-sm:w-full max-md:w-[85%] max-md:mx-auto">
                     Enterprises use DSW UnifyAI OS - the Enterprise AI Operating System to: 
 
                 </p>

@@ -75,7 +75,7 @@ const SystemStructure = () => {
       <div className="px-[5vw]">
         <div className="relative w-full bg-[#eff1fb] border border-primary-blue rounded-[1.5vw] overflow-hidden max-sm:rounded-[5vw] fadeup max-md:rounded-[2.5vw]">
           {/* Header Bar */}
-          <div className="bg-background border-b border-primary-blue py-[1.5vw] rounded-t-[1.5vw] max-sm:py-[5vw]">
+          <div className="bg-background max-sm:px-[5vw] max-md:px-[3vw] border-b border-primary-blue py-[1.5vw] rounded-t-[1.5vw] max-sm:py-[5vw]">
             <p className="text-24 text-primary-blue font-medium text-center max-sm:text-40 max-md:text-[3.6vw]">
               DSW UnifyAI OS - the Enterprise AI Operating System
             </p>
