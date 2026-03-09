@@ -49,33 +49,37 @@ export default function WhatWeBelieve() {
         // Set initial state explicitly before animating
         gsap.set(".struggle-card", {
           x: (i) => {
-            const offsets = [0, "-118.7%", "-237.4%", "-356%", "-474.7%"];
+            const offsets = [0, "-80%", "-80", "-80", "-80%"];
             return offsets[i] ?? 0;
           },
+          opacity: 0,
         });
         gsap.set(".struggle-arrow", { opacity: 0 });
 
         const tl = gsap.timeline({
           scrollTrigger: {
-            trigger: section,
+            trigger: '.about-believe-cards',
             start: "25% 70%",
-            once: true,
+            end:'bottom bottom',
+            // once: true,
+            scrub:true,
             // markers:true
           },
         });
 
         tl.to(".struggle-card", {
           x: 0,
-          stagger: 0.15,
-          ease: "power2.inOut",
-          duration: 1,
+          opacity: 1,
+          stagger: 0.5,
+          ease: "power2.out",
+          duration: 1.2,
         });
 
         tl.to(
           ".struggle-arrow",
           {
             opacity: 1,
-            stagger: 0.3,
+            stagger: 0.75,
             ease: "power2.out",
             duration: 0.8,
             delay: 0.8,
@@ -94,6 +98,7 @@ export default function WhatWeBelieve() {
             trigger: section,
             start: "top 30%",
             once: true,
+
           },
         });
       }
@@ -111,8 +116,10 @@ export default function WhatWeBelieve() {
       className="relative w-full h-fit py-[7%] px-[5vw] max-sm:px-0 max-sm:py-[15%] max-sm:h-fit max-md:py-[10%]"
       id="struggle"
     >
+    
+        
       {/* Heading Section */}
-      <div className="space-y-[5.5vw] h-fit max-sm:static overflow-hidden max-sm:overflow-visible max-sm:space-y-[12vw] max-md:space-y-[7vw] z-10">
+      <div className="space-y-[2vw] h-fit  max-sm:static  max-sm:overflow-visible max-sm:space-y-[12vw] max-md:space-y-[7vw] z-10">
         <div className="text-center space-y-[2vw] max-sm:space-y-[7vw] max-sm:px-[7vw] max-md:space-y-[4vw]">
           <HeadingAnim>
             <h2 className="text-76 font-heading text-[#0A1B4B] capitalize">
@@ -120,7 +127,7 @@ export default function WhatWeBelieve() {
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans leading-[1.4] tracking-[0.025vw] text-foreground w-[55%] max-sm:w-full mx-auto max-md:w-[80%]">
+            <p className="text-30 font-sans leading-[1.4] text-foreground w-[55%] max-sm:w-full mx-auto max-md:w-[80%]">
               In the AI era, the advantage won't come from who experiments the
               most. It will come from who can{" "}
               <span className="font-medium">operate AI the best</span> - safely,
@@ -128,6 +135,14 @@ export default function WhatWeBelieve() {
             </p>
           </Copy>
         </div>
+
+
+        <div className="h-[160vh] relative about-believe-cards max-md:h-fit max-md:static">
+
+        
+        <div className="h-fit sticky top-[12%] max-md:static  flex flex-col items-center justify-start gap-[8vw] max-sm:gap-[12vw]">
+
+      
 
         <div className="pt-[2vw] max-sm:px-[7vw] max-md:pt-0">
           <Copy>
@@ -206,7 +221,11 @@ export default function WhatWeBelieve() {
             big={false}
           />
         </div>
+          </div>
+          </div>
       </div>
+          
+
 
       <VisionMission />
     </section>
