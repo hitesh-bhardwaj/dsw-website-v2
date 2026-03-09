@@ -16,7 +16,7 @@ export default function TechnologyMenu({ data }) {
             <div className="flex flex-col space-y-[1.5vw] w-[75%] py-[3vw]">
               <Link
                 href={column.href}
-                className="ahLink text-32 font-light text-foreground hover:text-primary-blue duration-500 ease-out"
+                className="ahLink text-30 font-heading text-foreground hover:text-primary-blue duration-500 ease-out"
               >
                 <span className="ahLink__mask h-[2.2vw]">
                   <span className="ahLink__line">{column.label}</span>

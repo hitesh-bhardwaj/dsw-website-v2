@@ -23,7 +23,7 @@ export default function SolutionsMenu({ data }) {
                 <div key={item.id} className="gap-[0.5vw] flex flex-col">
                   <Link
                     href={item.href}
-                    className="ahLink text-32 w-fit font-light text-foreground hover:text-primary-blue duration-500 ease-out"
+                    className="ahLink text-32 w-fit font-heading text-foreground hover:text-primary-blue duration-500 ease-out"
                   >
                     <span className="ahLink__mask h-[2.2vw]">
                       <span className="ahLink__line">{item.label}</span>

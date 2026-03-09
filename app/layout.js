@@ -1,9 +1,9 @@
 import "./fonts.css";
 import "./globals.css";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import { ReactLenis } from 'lenis/react';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export const metadata = {
   title: "DSW - Enterprise AI Operating System",
@@ -75,6 +75,20 @@ export default function RootLayout({ children }) {
         <link
           rel="preload"
           href="/fonts/Aspekta-500.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/ppneuemontreal-medium.woff2"
+          as="font"
+          type="font/woff2"
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="/fonts/Aspekta-300.woff2"
           as="font"
           type="font/woff2"
           crossOrigin="anonymous"

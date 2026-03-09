@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 import Copy from "../Animations/Copy";
 import { Facebook, Insta, LinkedIn, Twitter, Youtube } from "../Svg/Icons";
 import Link from "next/link";
 import HeadingAnim from "../Animations/HeadingAnim";
-import ContactForm from "./ContactForm";
+import dynamic from "next/dynamic";
+
+// Lazy load form
+const ContactForm = dynamic(() => import("./ContactForm"), { ssr: false });
 
 const socialLinks = [
   {
