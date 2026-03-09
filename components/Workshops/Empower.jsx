@@ -1,7 +1,12 @@
+"use client";
+
 import React from "react";
 import Copy from "../Animations/Copy";
-import TeamForm from "./TeamForm";
+import dynamic from "next/dynamic";
 import HeadingAnim from "../Animations/HeadingAnim";
+
+// Lazy load form
+const TeamForm = dynamic(() => import("./TeamForm"), { ssr: false });
 
 const Empower= ({heading,para,width}) => {
   return (

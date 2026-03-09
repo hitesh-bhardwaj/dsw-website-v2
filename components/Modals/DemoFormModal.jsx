@@ -1,10 +1,13 @@
 "use client";
 import React, { useEffect, useRef } from "react";
-import DemoForm from "../DemoForm";
+import dynamic from "next/dynamic";
 import { useLenis } from "lenis/react";
 import { SplitText } from "gsap/SplitText";
 import gsap from "gsap";
 import { useModal } from "../ModalProvider";
+
+// Lazy load form
+const DemoForm = dynamic(() => import("../DemoForm"), { ssr: false });
 
 const DemoFormModal = () => {
   const lenis = useLenis();
