@@ -16,7 +16,7 @@ const Listing = ({ news = [] }) => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
-//  useEffect(() => {
+//  useEffect(() => { 
 //   const section = document.getElementById("news-listing");
 
 //   if (!section) return;
