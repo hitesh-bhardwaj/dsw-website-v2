@@ -61,7 +61,6 @@ export default function WhatWeBelieve() {
             trigger: '.about-believe-cards',
             start: "25% 70%",
             end:'bottom bottom',
-            // once: true,
             scrub:true,
             // markers:true
           },
