@@ -1,4 +1,5 @@
 "use client";
+import {  ScrollTrigger } from "@/lib/gsapCore";
 import React, { useState, useEffect } from "react";
 import BlogCard from "./BlogCard";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";

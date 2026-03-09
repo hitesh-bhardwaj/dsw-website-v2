@@ -1,12 +1,11 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { ScrollTrigger, gsap, useGSAP } from "@/lib/gsapCore";
+
+
 import Image from "next/image";
 import { useRef } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 

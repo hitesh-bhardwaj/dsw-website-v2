@@ -1,11 +1,10 @@
 "use client";
+import { SplitText, gsap } from "@/lib/gsapCore";
 
 import React, { useMemo, useRef, useState, useEffect } from "react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
-gsap.registerPlugin(SplitText);
 
 const MobileAccordionContent = ({ tabContent, isActive }) => {
   const containerRef = useRef(null);

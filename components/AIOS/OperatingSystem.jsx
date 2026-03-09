@@ -1,12 +1,11 @@
 "use client";
+import { ScrollTrigger, gsap, useGSAP } from "@/lib/gsapCore";
 import Image from "next/image";
 import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+
+
 
 const data = [
   {

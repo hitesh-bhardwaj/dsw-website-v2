@@ -1,14 +1,13 @@
 "use client";
+import { ScrollToPlugin, ScrollTrigger, gsap } from "@/lib/gsapCore";
 
 import React, { useEffect, useRef, useState } from "react";
 import Content from "./Content";
 import Copy from "../Animations/Copy";
 import { formatDate } from "@/lib/datetime";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
-gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
+
+
 
 const NewsContentWp = ({ news }) => {
   const [activeSection, setActiveSection] = useState("Introduction");

@@ -1,14 +1,13 @@
 "use client";
+import { ScrollTrigger, SplitText, gsap, useGSAP } from "@/lib/gsapCore";
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
+
+
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const SLIDES = [
   {

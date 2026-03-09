@@ -1,10 +1,9 @@
 "use client";
+import { ScrollTrigger, gsap, useGSAP } from "@/lib/gsapCore";
 import Image from "next/image";
 import React, {useRef } from "react";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
-import { useGSAP } from "@gsap/react";
+
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
 const AwardItem = ({ img }) => {

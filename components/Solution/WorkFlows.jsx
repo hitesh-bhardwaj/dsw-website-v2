@@ -3,8 +3,8 @@ import React from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import CornerDecorations from "../CornerDecorations";
 import Copy from "../Animations/Copy";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
+import { gsap, useGSAP } from "@/lib/gsapCore";
 
 const WorkFlows = ({ workflowsContent }) => {
   const { heading, items = [], para } = workflowsContent;

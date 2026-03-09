@@ -1,12 +1,11 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 
 import Copy from "@/components/Animations/Copy";
 import HeadingAnim from "@/components/Animations/HeadingAnim";
 import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 export default function Accelerate() {
     const sectionRef = useRef(null);

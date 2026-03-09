@@ -1,9 +1,9 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
 import { useModal } from "../ModalProvider";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 
 // Define iframe URLs for different walkthrough targets
 const IFRAME_URLS = {

@@ -1,6 +1,6 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import { gsap, useGSAP } from "@/lib/gsapCore";
+
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
 import Diagram from "./Diagram";

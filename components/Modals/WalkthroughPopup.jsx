@@ -1,10 +1,10 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
 import dynamic from "next/dynamic";
 import { useModal } from "../ModalProvider";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
+
 
 // Lazy load form only when modal opens
 const WalkthroughForm = dynamic(() => import("./WalkthroughForm"), { ssr: false });

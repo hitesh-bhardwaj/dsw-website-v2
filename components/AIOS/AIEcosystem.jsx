@@ -1,14 +1,13 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger, gsap, useGSAP } from "@/lib/gsapCore";
+
+
 import Image from "next/image";
 import { useRef } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
 import AIEcosystemMob from "./AIEcosystemMob";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const AIEcosystem = ({ecosystemItems}) => {
   const sliderRef = useRef(null);

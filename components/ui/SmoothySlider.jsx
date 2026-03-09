@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, forwardRef, useImperativeHandle } from 'react';
 import Core from 'smooothy';
-import gsap from 'gsap';
+import { gsap } from '@/lib/gsapCore';
 
 /** Reusable SmoothySlider component */
 const SmoothySlider = forwardRef(function SmoothySlider(

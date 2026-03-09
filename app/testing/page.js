@@ -1,7 +1,6 @@
 import Hero from "@/components/Testing/Hero";
 import { ModalProvider } from "@/components/ModalProvider";
 import dynamic from "next/dynamic";
-import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
 import UnifiedRuntime from "@/components/Homepage/UnifiedRuntime";
 import Features from "@/components/Homepage/Features";
 import CoreEnterpriseSystemSticky from "@/components/Homepage/CoreEnterpriseSystemSticky";
@@ -14,6 +13,7 @@ import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwar
 import Testimonials from "@/components/Testimonials";
 import CTAFinal from "@/components/CTAFinal";
 import HeaderNew from "@/components/Layout/Header/HeaderNew";
+import WhyAIStruggles from "@/components/Homepage/WhyAIStruggles";
 
 const FooterNew = dynamic(() => import("@/components/Layout/Footer"), {
   ssr: true,
@@ -46,7 +46,7 @@ export default function TestingPage() {
 // Hero content from homepage
 const heroContent = {
   tagline: "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
-  heading: "The Enterprise AI Operating System",
+  heading: "DSW UnifyAI OS - The Enterprise AI Operating System",
   primaryButton: {
     present: true,
     book: true,
@@ -58,7 +58,7 @@ const heroContent = {
     link: "/contact-us",
     text: "Talk to our Team"
   },
-};
+}
 
 const tourContent = {
   heading: "Always-On AI. Built as Infrastructure.",

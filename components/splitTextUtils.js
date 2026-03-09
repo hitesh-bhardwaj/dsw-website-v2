@@ -1,7 +1,7 @@
 // src/utils/splitText.js
 
 // import SplitType from 'split-type';
-import gsap from 'gsap';
+import { gsap } from '@/lib/gsapCore';
 
 
 export function SplitInLineOnly(element) {

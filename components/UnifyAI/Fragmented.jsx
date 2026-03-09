@@ -1,10 +1,9 @@
 "use client";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/ScrollTrigger";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
+
 import Diagram from "@/components/Homepage/Diagram";
 import Copy from "@/components/Animations/Copy";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Fragmented() {
   return (

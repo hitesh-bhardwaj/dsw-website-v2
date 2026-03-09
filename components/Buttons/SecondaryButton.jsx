@@ -1,7 +1,7 @@
 "use client"
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
+
+import { gsap, useGSAP, SplitText } from "@/lib/gsapCore";
+
 import Link from "next/link";
 import { useRef, useState } from "react";
 

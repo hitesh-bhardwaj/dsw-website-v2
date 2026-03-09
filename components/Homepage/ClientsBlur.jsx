@@ -1,10 +1,9 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 import Image from "next/image";
-import gsap from "gsap";
 import React, {  useRef } from "react";
-import { useGSAP } from "@gsap/react";
+
 import HeadingAnim from "../Animations/HeadingAnim";
-gsap.registerPlugin( useGSAP);
 
 export default function ClientsBlur() {
   const container = useRef(null);

@@ -1,18 +1,17 @@
 "use client";
+import { ScrollTrigger, SplitText, gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useRef, useState } from "react";
 import { Circle } from "../Svg/Lines/Circle";
 import { Connect } from "../Svg/Connect";
 import { Build } from "../Svg/Build";
 import { Operate } from "../Svg/Operate";
 import { Orchestrate } from "../Svg/Orchestrate";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SplitText from "gsap/SplitText";
+
+
+
 import Image from "next/image";
 import HeadingAnim from "../Animations/HeadingAnim";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const iconData = [
   {

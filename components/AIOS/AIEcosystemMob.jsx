@@ -1,11 +1,10 @@
 "use client";
+import { SplitText, gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useMemo, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(SplitText);
+
+
 
 const AIEcosystemMob = ({ecosystemItems}) => {
   const sectionRef = useRef(null);

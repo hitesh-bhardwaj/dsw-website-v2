@@ -1,11 +1,11 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 
 import Image from "next/image";
 import { useRef } from "react";
-import gsap from "gsap";
 import HeadingAnim from "./Animations/HeadingAnim";
 import Copy from "./Animations/Copy";
-import { useGSAP } from "@gsap/react";
+
 import SectionBreak from "./SectionBreak";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import { useModal } from "./ModalProvider";

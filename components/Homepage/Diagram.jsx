@@ -1,13 +1,12 @@
 "use client";
+import { ScrollTrigger, SplitText, gsap, useGSAP } from "@/lib/gsapCore";
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { SplitText } from "gsap/SplitText";
-import { useGSAP } from "@gsap/react";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+
+
+
 
 const STEPS = [
   {

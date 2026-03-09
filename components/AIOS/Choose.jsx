@@ -1,10 +1,9 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollTrigger, gsap, useGSAP } from "@/lib/gsapCore";
+
+
 import React from "react";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const Choose = () => {
   useGSAP(() => {

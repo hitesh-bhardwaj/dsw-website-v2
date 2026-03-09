@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import gsap from "gsap";
+import { gsap } from "@/lib/gsapCore";
 import { SplitInLine } from "../splitTextUtils";
 import { useEffect } from "react";
 

@@ -1,7 +1,6 @@
 "use client";
-import { useGSAP } from "@gsap/react";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 import CornerDecorations from "../CornerDecorations";
-import gsap from "gsap";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
 import SectionBreak from "../SectionBreak";

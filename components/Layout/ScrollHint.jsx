@@ -1,8 +1,8 @@
 "use client";
+import { gsap } from "@/lib/gsapCore";
 
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import gsap from "gsap";
 
 export default function ScrollHint({ isFooterVisible }) {
   const scrollHintRef = useRef(null);

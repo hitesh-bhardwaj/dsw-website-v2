@@ -1,8 +1,8 @@
 "use client"
-import { useGSAP } from "@gsap/react";
+
 import Copy from "./Animations/Copy";
 import HeadingAnim from "./Animations/HeadingAnim";
-import gsap from "gsap";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 
 export default function RealWorldOutcomes() {
    useGSAP(()=>{

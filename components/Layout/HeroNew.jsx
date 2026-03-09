@@ -1,15 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import PrimaryButton from "../Buttons/PrimaryButton";
-import SecondaryButton from "../Buttons/SecondaryButton";
 import { useEffect, useMemo, useRef, useState } from "react";
 import BreadCrumbs from "../BreadCrumbs";
 import { usePathname } from "next/navigation";
 import { useModal } from "../ModalProvider";
 import dynamic from "next/dynamic";
-import { fadeUp } from "../Animations/gsapAnimations";
-// ✅ WebGL / heavy bg (client-only)
+import PrimaryButton from "../Testing/PrimaryButton";
+import SecondaryButton from "../Testing/SecondaryButton";
+
 const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBg"), {
   ssr: false,
 });
@@ -36,7 +35,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ Defer heavy background until after first paint / idle
   const [bgReady, setBgReady] = useState(false);
-
 
   // ✅ Robust mob detection (no render loop)
   useEffect(() => {
@@ -72,8 +70,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
 
- fadeUp()
- 
   // ✅ Footer visibility watcher (unchanged, but kept efficient)
 
   useEffect(() => {

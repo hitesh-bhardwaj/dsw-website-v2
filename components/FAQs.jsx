@@ -1,11 +1,10 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 
 import { useLayoutEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import gsap from "gsap";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
 import HeadingAnim from "./Animations/HeadingAnim";
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Faqs({ allowMultiple = false, data }) {
   const [openIndexes, setOpenIndexes] = useState([]);

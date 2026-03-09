@@ -1,7 +1,6 @@
 "use client";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
 const POINTS = [

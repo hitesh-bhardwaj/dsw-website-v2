@@ -1,11 +1,6 @@
 "use client";
-
+import { ScrollTrigger, SplitText, gsap } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(SplitText, ScrollTrigger);
 
 export default function HeadingAnim({ children, animateOnScroll = true, delay = 0 }) {
   const containerRef = useRef(null);

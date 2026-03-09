@@ -1,10 +1,9 @@
 "use client";
+import { ScrollToPlugin, ScrollTrigger, gsap } from "@/lib/gsapCore";
 
 import React, { useState, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
+
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
 export default function ContentTerms() {

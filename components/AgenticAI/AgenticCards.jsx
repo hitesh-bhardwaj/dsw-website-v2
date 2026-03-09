@@ -1,15 +1,14 @@
 "use client";
+import { ScrollTrigger, gsap, useGSAP } from "@/lib/gsapCore";
 
 import React from "react";
 import { useRef, useEffect, useState } from "react";
-import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
 import SmoothySlider, {Slide} from "../ui/SmoothySlider";
 import SectionBreak from "../SectionBreak";
-gsap.registerPlugin(ScrollTrigger);
 
 const cardsData = [
   {

@@ -1,9 +1,9 @@
 "use client";
+import { SplitText, gsap } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useLenis } from "lenis/react";
-import { SplitText } from "gsap/SplitText";
-import gsap from "gsap";
+
 import { useModal } from "./ModalProvider";
 
 // Lazy load form only when modal opens

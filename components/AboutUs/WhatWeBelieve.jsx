@@ -1,4 +1,5 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
@@ -11,10 +12,8 @@ import { Owned } from "../Svg/AboutUs/Owned";
 import { Arrow } from "../Svg/AboutUs/Arrow";
 import { Vision } from "../Svg/AboutUs/Vision";
 import { Mission } from "../Svg/AboutUs/Mission";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
+
 
 const data = [
   { icon: <Governed />, title: "Governed while it runs", isHighlighted: true },

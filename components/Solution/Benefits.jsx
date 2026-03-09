@@ -1,10 +1,9 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import { useEffect, useRef, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import HeadingAnim from "../Animations/HeadingAnim";
 
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Benefits({ benefitsContent }) {
   const { heading, points = [], sectionId = "finacle-outcomes" } = benefitsContent;

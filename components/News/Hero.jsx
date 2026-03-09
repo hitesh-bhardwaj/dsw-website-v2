@@ -1,4 +1,5 @@
 "use client";
+import { gsap } from "@/lib/gsapCore";
 import React, { useEffect } from "react";
 import {
   fadeIn,
@@ -8,7 +9,6 @@ import {
   paraAnim,
 } from "../Animations/gsapAnimations";
 import { initSplit } from "../splitTextUtils";
-import gsap from "gsap";
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 

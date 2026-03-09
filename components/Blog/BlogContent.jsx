@@ -1,12 +1,11 @@
 "use client";
+import { ScrollToPlugin, ScrollTrigger, gsap } from "@/lib/gsapCore";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import gsap from "gsap";
-import ScrollToPlugin from "gsap/dist/ScrollToPlugin";
-import ScrollTrigger from "gsap/dist/ScrollTrigger";
+
+
 import Copy from "../Animations/Copy";
 
-gsap.registerPlugin(ScrollToPlugin, ScrollTrigger);
 
 export default function BlogContent() {
   const [activeSection, setActiveSection] = useState("Introduction");

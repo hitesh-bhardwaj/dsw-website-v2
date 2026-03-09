@@ -1,11 +1,10 @@
 "use client";
+import { SplitText, gsap } from "@/lib/gsapCore";
 
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import SplitText from "gsap/SplitText";
+
 
 if (typeof window !== "undefined") {
-  gsap.registerPlugin(SplitText);
 }
 
 export default function SectionBreak({ content, width, big }) {

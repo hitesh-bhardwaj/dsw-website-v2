@@ -1,10 +1,9 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import { useEffect, useState } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Outcomes({
   outcomesData,

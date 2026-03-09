@@ -3,11 +3,10 @@ import { useEffect, useRef } from "react";
 import { CircleBg } from "../Svg/Lines/DottedCircle";
 import { Arrow } from "../Svg/AboutUs/Arrow";
 import HeadingAnim from "../Animations/HeadingAnim";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { gsap } from "@/lib/gsapCore";
+
 import Copy from "../Animations/Copy";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const R     = 15; // vw  — circle radius
 const LINE  = 3;  // vw  — connector line length

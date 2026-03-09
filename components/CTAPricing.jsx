@@ -1,11 +1,10 @@
 "use client";
+import { MotionPathPlugin, gsap } from "@/lib/gsapCore";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { MotionPathPlugin } from "gsap/MotionPathPlugin";
+
 import HeadingAnim from "./Animations/HeadingAnim";
 
-gsap.registerPlugin(MotionPathPlugin);
 
 export default function CTAPricing() {
   return (

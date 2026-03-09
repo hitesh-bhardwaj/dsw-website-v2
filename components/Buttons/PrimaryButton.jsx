@@ -1,12 +1,8 @@
 "use client";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { SplitText } from "gsap/SplitText";
-import { ScrollToPlugin } from "gsap/ScrollToPlugin";
+import { ScrollToPlugin, SplitText, gsap, useGSAP } from "@/lib/gsapCore";
+
 import Link from "next/link";
 import { useRef, useState } from "react";
-
-gsap.registerPlugin(SplitText, ScrollToPlugin);
 
 const PrimaryButton = ({
   text,

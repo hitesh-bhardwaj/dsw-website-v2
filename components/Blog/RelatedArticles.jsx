@@ -1,13 +1,12 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import BlogCard from "./BlogCard";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const RelatedArticles = ({post, relatedPosts: relatedPostsProp}) => {
   const swiperRef = useRef(null);

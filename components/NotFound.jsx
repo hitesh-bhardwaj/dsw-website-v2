@@ -1,11 +1,11 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
 import Copy from "@/components/Animations/Copy";
 import { Suspense, useEffect, useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
 import dynamic from "next/dynamic";
 
 const WaveGridCanvas = dynamic(() => import("./Homepage/HeroBg"), {

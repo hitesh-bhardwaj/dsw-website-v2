@@ -1,16 +1,15 @@
 "use client";
+import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import React, { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 //import "swiper/css/navigation";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 import Link from "next/link";
 import { formatDate } from "@/lib/datetime";
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const BlogCard = ({ title, date, img, slug }) => {
   return (

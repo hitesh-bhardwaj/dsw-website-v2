@@ -1,8 +1,8 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 
 import React, { useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
 import { CircleBg } from "../Svg/Lines/DottedCircle";
 import { Insurance } from "@/components/Svg/Insurance";
 import { Bank } from "../Svg/Bank";

@@ -1,6 +1,6 @@
 "use client";
+import { gsap } from "@/lib/gsapCore";
 import React, {  useEffect, useState } from "react";
-import gsap from "gsap";
 import Image from "next/image";
 import { useLenis } from "lenis/react";
 

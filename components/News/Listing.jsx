@@ -1,4 +1,5 @@
 "use client";
+import {  ScrollTrigger } from "@/lib/gsapCore";
 import Image from "next/image";
 import React, { useState, useEffect } from "react";
 import { formatDate } from "@/lib/datetime";

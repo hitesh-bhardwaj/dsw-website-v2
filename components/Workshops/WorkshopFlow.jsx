@@ -1,11 +1,11 @@
 "use client";
+import { gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useState, useRef } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation, Scrollbar } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/scrollbar";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+
 import { NextButton, PreviousButton } from "../Buttons/SliderButtons";
 import HeadingAnim from "../Animations/HeadingAnim";
 
