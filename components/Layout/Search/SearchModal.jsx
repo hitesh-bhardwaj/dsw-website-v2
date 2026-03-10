@@ -120,7 +120,8 @@ export default function SearchModal({
       <div className="relative flex h-full w-full flex-col">
         <div className="flex items-center justify-between px-[3.3vw] pt-[1vw] max-md:pt-[2.5vw] max-sm:px-[7vw]">
           <Link href="/" className="flex items-center" onClick={handleClose}>
-            <Logo className="h-7 w-auto max-md:h-10 max-md:w-full max-sm:h-7" />
+            <Logo className="h-7 w-auto max-md:h-10 max-md:w-full max-sm:h-7" aria-hidden="true" />
+            <span className="sr-only">Data Science Wizards Home</span>
           </Link>
 
           <div
