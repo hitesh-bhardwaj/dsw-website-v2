@@ -66,7 +66,7 @@ export default AgenticAI;
 
 const heroContent = {
   tagline:
-    "We’re building the Enterprise AI Operating System. Because production AI needs an ecosystem, not scattered tools.",
+    "We're building the Enterprise AI Operating System. Because production AI needs an ecosystem, not scattered tools.",
   heading: "About Us",
   primaryButton: {
     present: true,
