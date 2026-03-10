@@ -43,7 +43,7 @@ export default async function InfosysFinacle() {
     <>
     <WebpageJsonLd metadata={metadata} />
     <Layout>
-        <HeroNew heroContent={heroContent} variant={"topLeft"}/>
+        <HeroNew heroContent={heroContent} variant={"bottomRight"}/>
         <Deployments/>
         <Recognized/>
         <Outcomes/>
