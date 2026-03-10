@@ -72,7 +72,7 @@ export default function MobileNav({ isOpen, onClose, navLinks = [] }) {
                           className={`max-sm:text-[4.5vw] max-md:text-[3.5vw] tracking-[0.02em] transition-all duration-300 ease-in font-normal ${
                             isExpanded
                               ? "text-primary-blue font-normal"
-                              : "text-foreground font-light"
+                              : "text-foreground"
                           }`}
                         >
                           {link.label}
@@ -98,7 +98,7 @@ export default function MobileNav({ isOpen, onClose, navLinks = [] }) {
                                 prefetch={false}
                                 href={child.href}
                                 onClick={handleLinkClick}
-                                className="max-sm:text-[4vw] max-md:text-[2.8vw] text-foreground font-light tracking-[0.02em] block"
+                                className="max-sm:text-[4vw] max-md:text-[2.8vw] text-foreground tracking-[0.02em] block"
                               >
                                 {child.label}
                               </Link>
@@ -124,7 +124,7 @@ export default function MobileNav({ isOpen, onClose, navLinks = [] }) {
         </nav>
 
         <div className="px-[6vw] pb-[8vw]">
-          <p className="max-sm:text-[4vw] max-md:text-[3vw] text-foreground font-light tracking-[0.02em] mb-[4vw]">
+          <p className="max-sm:text-[4vw] max-md:text-[3vw] text-foreground tracking-[0.02em] mb-[4vw]">
             Connect With Us
           </p>
           <div className="flex items-center gap-[5vw]">

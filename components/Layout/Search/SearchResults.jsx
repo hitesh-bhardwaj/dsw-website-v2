@@ -19,7 +19,7 @@ function SectionBlock({ title, items, onSelect }) {
   return (
     <div className="grid grid-cols-[9rem_1px_minmax(0,1fr)] gap-6 max-md:grid-cols-1 max-md:gap-4">
       <div className="pt-1">
-        <p className="text-[1vw] uppercase text-foreground/70 max-sm:text-[3.5vw] max-md:text-[1.8vw] max-md:font-medium max-md:text-primary-blue">
+        <p className="text-[1vw] uppercase text-foreground/70 max-sm:text-[3.5vw] max-md:text-[1.8vw] max-md:font-medium font-sans! max-md:text-primary-blue">
           {title}
         </p>
       </div>

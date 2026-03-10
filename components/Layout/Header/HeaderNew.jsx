@@ -190,8 +190,8 @@ export default function HeaderNew() {
                             }
                             className={`${hasChildren ? "cursor-pointer" : ""} ${
                               !isActive
-                                ? "text-22 font-medium duration-500 transition-color ease-out"
-                                : "text-22 font-medium text-primary-blue"
+                                ? "text-22 font-medium font-sans! duration-500 transition-color ease-out"
+                                : "text-22 font-medium font-sans! text-primary-blue"
                             } ${
                               isInverted
                                 ? "text-white group-hover:text-primary-white!"
