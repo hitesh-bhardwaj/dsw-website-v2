@@ -71,7 +71,7 @@ export default function Home() {
 
 const heroContent = {
   tagline: "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
-  heading: "DSW UnifyAI OS - The Enterprise AI Operating System",
+  heading: "DSW UnifyAI OS- The Enterprise AI Operating System",
   primaryButton: {
     present: true,
     book: true,
