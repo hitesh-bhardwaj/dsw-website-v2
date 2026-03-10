@@ -45,7 +45,7 @@ const page = () => {
       <WebpageJsonLd metadata={metadata} />
       <BreadcrumbsJSONLD pathname={metadata.url} />
       <Layout>
-        <HeroNew heroContent={heroContent} variant={"bottomLeft"} breadcrumbs={true} />
+        <HeroNew heroContent={heroContent} variant={"bottomRight"} breadcrumbs={true} />
         <Features featuresData={featuresData} />
         <KeyLearnings />
         <WorkshopFlow sessionsData={sessionsData} space={"space-y-[2vw]"} />

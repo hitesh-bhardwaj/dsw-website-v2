@@ -83,7 +83,7 @@ const Page = () => {
       <Layout>
         <HeroNew
           heroContent={heroContent}
-          variant={"bottomLeft"}
+          variant={"bottomRight"}
           breadcrumbs={true}
         />
 
