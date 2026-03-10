@@ -47,7 +47,7 @@ const AgenticAI = () => {
       <WebpageJsonLd metadata={metadata} />
       <Layout>
         <main className="min-h-screen">
-          <HeroNew heroContent={heroContent} variant={"bottomRight"} />
+          <HeroNew heroContent={heroContent} variant={"rightVertical"} />
           <Intro />
           <DSWArrival />
           <Infrastructure />
