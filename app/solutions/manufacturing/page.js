@@ -1,29 +1,59 @@
+
 import { getPageMetadata } from "@/components/config/metadata";
-import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/Layout/HeroNew";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
-import Benefits from "@/components/Solution/Benefits";
-import Breaks from "@/components/Solution/Breaks";
-import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
-import Features from "@/components/Solution/Features";
-import Operations from "@/components/Solution/Operations";
-import Runtime from "@/components/Solution/Runtime";
-import WorkFlows from "@/components/Solution/WorkFlows";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
+import dynamic from "next/dynamic";
+import React from "react";
 import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
-import Claims from "@/components/Svg/Solutions/Claims";
-import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import { Omnichannel } from "@/components/Svg/Solutions/Omnichannel";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
-import { WebpageJsonLd } from "@/lib/json-ld";
-import { homepage } from "@/lib/util";
-import React from "react";
+
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
+
+const CertificationsAndAwards = dynamic(
+  () => import("@/components/Homepage/CertificationsAndAwards"),
+  {
+    ssr: true,
+  }
+);
+
+const Benefits = dynamic(() => import("@/components/Solution/Benefits"), {
+  ssr: true,
+});
+
+const Breaks = dynamic(() => import("@/components/Solution/Breaks"), {
+  ssr: true,
+});
+
+const CaseStudy = dynamic(() => import("@/components/Solution/CaseStudy"), {
+  ssr: true,
+});
+
+const Features = dynamic(() => import("@/components/Solution/Features"), {
+  ssr: true,
+});
+
+const Operations = dynamic(() => import("@/components/Solution/Operations"), {
+  ssr: true,
+});
+
+const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
+  ssr: true,
+});
+
+const WorkFlows = dynamic(() => import("@/components/Solution/WorkFlows"), {
+  ssr: true,
+});
 
 export const metadata = getPageMetadata({
   title: "Manufacturing AI Operating System | DSW",
-  description: "Run factory, supply chain, quality, and maintenance AI under one governed system that delivers real-time insights and operational control.",
+  description:
+    "Run factory, supply chain, quality, and maintenance AI under one governed system that delivers real-time insights and operational control.",
   url: "/solutions/manufacturing",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -44,27 +74,31 @@ export const metadata = getPageMetadata({
     ],
   },
 });
+
 const Page = () => {
   return (
     <>
-    <WebpageJsonLd metadata={metadata} />
-    <Layout>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
+      <WebpageJsonLd metadata={metadata} />
 
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations operationsContent={operationsContent} />
-      <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"bottomLeft"}
+          breadcrumbs={true}
+        />
+
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <CaseStudy caseStudyContent={caseStudyContent} />
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -72,8 +106,10 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Production AI across industrial operations. Controlled, auditable, and operated as one system.",
-  heading: "Run plant, supply chain, and quality intelligence on one AI operating layer",
+  tagline:
+    "Production AI across industrial operations. Controlled, auditable, and operated as one system.",
+  heading:
+    "Run plant, supply chain, and quality intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -92,12 +128,9 @@ const heroContent = {
 };
 
 const runtimeContent = {
-  heading:
-    "Industrial AI exists on the floor. It is not yet operationalized.",
-
+  heading: "Industrial AI exists on the floor. It is not yet operationalized.",
   description:
     "Most manufacturers run AI across predictive maintenance, quality, and planning. Few can operate it continuously across plants, lines, and supply networks.",
-
   items: [
     {
       number: "01",
@@ -118,27 +151,20 @@ const runtimeContent = {
   ],
 };
 
-
-
 const breaksContent = {
-  heading:
-    "Where manufacturing AI breaks without an operating layer",
-
+  heading: "Where manufacturing AI breaks without an operating layer",
   challenges: [
     {
       icon: <UnderWriting />,
-      title:
-        "Plant, quality, and supply chain intelligence remain siloed",
+      title: "Plant, quality, and supply chain intelligence remain siloed",
     },
     {
-      icon: <Governance/>,
-      title:
-        "Governance exists outside operational execution",
+      icon: <Governance />,
+      title: "Governance exists outside operational execution",
     },
     {
-      icon: <Omnichannel/>,
-      title:
-        "OT and IT environments remain fragmented",
+      icon: <Omnichannel />,
+      title: "OT and IT environments remain fragmented",
     },
     {
       icon: <Nodes />,
@@ -146,17 +172,12 @@ const breaksContent = {
         "Each new use case introduces new tooling and integration complexity",
     },
   ],
-
   extra:
     "<p>Manufacturers are not lacking AI capability. <br/> They are lacking a system to operate it across production environments.</p>",
 };
 
-
-
 const featuresContent = {
-  heading:
-    "Unlimited Manufacturing AI and Agentic AI. One governed runtime.",
-
+  heading: "Unlimited Manufacturing AI and Agentic AI. One governed runtime.",
   cards: [
     {
       title: "Predictive Maintenance Operating Inside Production Environments",
@@ -168,7 +189,6 @@ const featuresContent = {
         "Asset lifecycle monitoring",
       ],
     },
-
     {
       title: "Quality Intelligence Across Production Lines",
       description:
@@ -179,7 +199,6 @@ const featuresContent = {
         "Yield improvement support",
       ],
     },
-
     {
       title: "Supply Chain Intelligence Operating Across Networks",
       description:
@@ -190,7 +209,6 @@ const featuresContent = {
         "Supplier risk monitoring",
       ],
     },
-
     {
       title: "Production Planning and Operations Optimization",
       description:
@@ -201,7 +219,6 @@ const featuresContent = {
         "Capacity planning support",
       ],
     },
-
     {
       title: "Agentic Copilots for Plant Engineers and Operations Teams",
       description:
@@ -214,9 +231,6 @@ const featuresContent = {
     },
   ],
 };
-
-
-
 
 const workflowsContent = {
   heading: "Industrial Workflows Expanding Without New Stacks or Vendor Sprawl",
@@ -234,7 +248,6 @@ const workflowsContent = {
   ],
 };
 
-
 const caseStudyContent = {
   heading: "Manufacturing AI in production",
   subheading: "Real deployment. Measurable operational impact.",
@@ -242,7 +255,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-manufacturing-2.png",
+  imgSrc: "/assets/case-studies/case-study-manufacturing-2.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -253,10 +266,8 @@ const caseStudyContent = {
 
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-
   heading:
     "Scale Manufacturing AI without governance gaps, lock-in, or operational fragmentation",
-
   points: [
     {
       id: "01",
@@ -265,8 +276,7 @@ const benefitsContent = {
     },
     {
       id: "02",
-      text:
-        "Reduce operational friction across production environments",
+      text: "Reduce operational friction across production environments",
     },
     {
       id: "03",
@@ -275,8 +285,7 @@ const benefitsContent = {
     },
     {
       id: "04",
-      text:
-        "Strengthen accountability and operational visibility",
+      text: "Strengthen accountability and operational visibility",
     },
     {
       id: "05",
@@ -286,42 +295,37 @@ const benefitsContent = {
   ],
 };
 
-
-
-const ctaContent={
-  heading:"Operate Manufacturing AI as infrastructure",
-  para:"See how the DSW Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence. ",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Manufacturing AI as infrastructure",
+  para:
+    "See how the DSW Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true
-
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
-}
+};
 
 const operationsContent = {
   heading:
     "Kernel-governed execution across plant, supply chain, and operations",
-
   tabs: [
     {
       label: "Governance enforced where production decisions happen",
-      intro:
-        "Policies operate inside plant and operational workflows.",
+      intro: "Policies operate inside plant and operational workflows.",
       bullets: [
         "Governance-as-code at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility embedded into execution",
       ],
     },
-
     {
       label:
         "Unified runtimes across plant, supply, and operational intelligence",
@@ -333,10 +337,8 @@ const operationsContent = {
         "Human-in-the-loop operational boundaries",
       ],
     },
-
     {
-      label:
-        "Integration across OT and enterprise systems without disruption",
+      label: "Integration across OT and enterprise systems without disruption",
       intro:
         "Connect plant systems, supply platforms, and enterprise applications through governed interfaces.",
       bullets: [
@@ -345,12 +347,9 @@ const operationsContent = {
         "Expands ecosystem without vendor lock-in",
       ],
     },
-
     {
-      label:
-        "Enterprise custody of manufacturing AI infrastructure and assets",
-      intro:
-        "Operate entirely within industrial environments.",
+      label: "Enterprise custody of manufacturing AI infrastructure and assets",
+      intro: "Operate entirely within industrial environments.",
       bullets: [
         "On-prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
@@ -360,7 +359,6 @@ const operationsContent = {
   ],
 };
 
-
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Built for industrial and regulated manufacturing environments",
@@ -368,3 +366,4 @@ const certificationsContent = {
   footerText:
     "Supports auditability, traceability, and compliance across production, safety, and operational workflows.",
 };
+

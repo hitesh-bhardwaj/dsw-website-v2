@@ -1,28 +1,59 @@
 import { getPageMetadata } from "@/components/config/metadata";
-import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/Layout/HeroNew";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
-import Benefits from "@/components/Solution/Benefits";
-import Breaks from "@/components/Solution/Breaks";
-import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
-import Features from "@/components/Solution/Features";
-import Operations from "@/components/Solution/Operations";
-import Runtime from "@/components/Solution/Runtime";
-import WorkFlows from "@/components/Solution/WorkFlows";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
+import dynamic from "next/dynamic";
+import React from "react";
+
 import Claims from "@/components/Svg/Solutions/Claims";
-import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import { Omnichannel } from "@/components/Svg/Solutions/Omnichannel";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
-import { WebpageJsonLd } from "@/lib/json-ld";
-import { homepage } from "@/lib/util";
-import React from "react";
+
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
+
+const CertificationsAndAwards = dynamic(
+  () => import("@/components/Homepage/CertificationsAndAwards"),
+  {
+    ssr: true,
+  }
+);
+
+const Benefits = dynamic(() => import("@/components/Solution/Benefits"), {
+  ssr: true,
+});
+
+const Breaks = dynamic(() => import("@/components/Solution/Breaks"), {
+  ssr: true,
+});
+
+const CaseStudy = dynamic(() => import("@/components/Solution/CaseStudy"), {
+  ssr: true,
+});
+
+const Features = dynamic(() => import("@/components/Solution/Features"), {
+  ssr: true,
+});
+
+const Operations = dynamic(() => import("@/components/Solution/Operations"), {
+  ssr: true,
+});
+
+const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
+  ssr: true,
+});
+
+const WorkFlows = dynamic(() => import("@/components/Solution/WorkFlows"), {
+  ssr: true,
+});
 
 export const metadata = getPageMetadata({
   title: "Retail AI Operating Layer | DSW",
-  description: "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
+  description:
+    "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
   url: "/solutions/retail",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -43,27 +74,31 @@ export const metadata = getPageMetadata({
     ],
   },
 });
+
 const Page = () => {
   return (
     <>
-    <WebpageJsonLd metadata={metadata} />
-    <Layout>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
+      <WebpageJsonLd metadata={metadata} />
 
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations operationsContent={operationsContent} />
-       <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"bottomLeft"}
+          breadcrumbs={true}
+        />
+
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <CaseStudy caseStudyContent={caseStudyContent} />
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -71,8 +106,10 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Production AI across commerce, supply chain, and store operations. Governed, real time, and operated as one system.",
-  heading: "Run merchandising, demand, and customer intelligence on one AI operating layer",
+  tagline:
+    "Production AI across commerce, supply chain, and store operations. Governed, real time, and operated as one system.",
+  heading:
+    "Run merchandising, demand, and customer intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -93,10 +130,8 @@ const heroContent = {
 const runtimeContent = {
   heading:
     "Retail AI is deployed across channels. It is not yet operating as one system.",
-
   description:
     "Most retailers run AI across demand forecasting, personalization, and supply chain. Few can operate it continuously across stores, digital, and fulfilment environments.",
-
   items: [
     {
       number: "01",
@@ -115,15 +150,10 @@ const runtimeContent = {
       text: "Must be governed during execution, not after deployment",
     },
   ],
-
-  
 };
 
-
 const breaksContent = {
-  heading:
-    "Where retail AI breaks without an operating layer",
-
+  heading: "Where retail AI breaks without an operating layer",
   challenges: [
     {
       icon: <UnderWriting />,
@@ -132,13 +162,11 @@ const breaksContent = {
     },
     {
       icon: <Claims />,
-      title:
-        "Governance sits outside pricing and operational decisions",
+      title: "Governance sits outside pricing and operational decisions",
     },
     {
-      icon: <Omnichannel/>,
-      title:
-        "Omnichannel execution remains fragmented",
+      icon: <Omnichannel />,
+      title: "Omnichannel execution remains fragmented",
     },
     {
       icon: <Nodes />,
@@ -146,16 +174,12 @@ const breaksContent = {
         "Each new use case introduces new tooling, vendors, and operational complexity",
     },
   ],
-
   extra:
     "<p>Retailers are not lacking AI capability. <br/> They are lacking a system to run it across commerce operations.</p>",
 };
 
-
 const featuresContent = {
-  heading:
-    "Unlimited Retail AI and Agentic AI. One governed runtime.",
-
+  heading: "Unlimited Retail AI and Agentic AI. One governed runtime.",
   cards: [
     {
       title: "Demand and Merchandising Intelligence Operating at Execution",
@@ -167,7 +191,6 @@ const featuresContent = {
         "Dynamic pricing decision support",
       ],
     },
-
     {
       title: "Inventory and Supply Chain Intelligence in Motion",
       description:
@@ -178,7 +201,6 @@ const featuresContent = {
         "Fulfilment prioritization",
       ],
     },
-
     {
       title: "Customer Intelligence Across Omnichannel Experiences",
       description:
@@ -189,7 +211,6 @@ const featuresContent = {
         "Loyalty and retention insights",
       ],
     },
-
     {
       title: "Store and Operations Intelligence Across Locations",
       description:
@@ -200,7 +221,6 @@ const featuresContent = {
         "Operational anomaly detection",
       ],
     },
-
     {
       title: "Agentic Copilots for Merchandising, Planning, and Operations Teams",
       description:
@@ -213,8 +233,6 @@ const featuresContent = {
     },
   ],
 };
-
-
 
 const workflowsContent = {
   heading: "Retail Workflows Expanding Without New Stacks or Vendor Sprawl",
@@ -232,7 +250,6 @@ const workflowsContent = {
   ],
 };
 
-
 const caseStudyContent = {
   heading: "Retail AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
@@ -240,7 +257,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-retail.png",
+  imgSrc: "/assets/case-studies/case-study-retail.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -251,10 +268,8 @@ const caseStudyContent = {
 
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-
   heading:
     "Scale Retail AI without governance gaps, lock-in, or operational fragmentation",
-
   points: [
     {
       id: "01",
@@ -263,18 +278,15 @@ const benefitsContent = {
     },
     {
       id: "02",
-      text:
-        "Reduce friction across planning, pricing, and fulfilment workflows",
+      text: "Reduce friction across planning, pricing, and fulfilment workflows",
     },
     {
       id: "03",
-      text:
-        "Scale use cases without multiplying infrastructure or vendors",
+      text: "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
-      text:
-        "Strengthen execution visibility and accountability",
+      text: "Strengthen execution visibility and accountability",
     },
     {
       id: "05",
@@ -284,29 +296,27 @@ const benefitsContent = {
   ],
 };
 
-
-const ctaContent={
-  heading:"Operate Retail AI as infrastructure",
-  para:"See how the DSW Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Retail AI as infrastructure",
+  para:
+    "See how the DSW Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true
-
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
-}
+};
 
 const operationsContent = {
   heading:
     "Kernel-Governed Execution across commerce, supply chain, and store operations",
-
   tabs: [
     {
       label: "Governance enforced where retail decisions happen",
@@ -318,22 +328,18 @@ const operationsContent = {
         "Auditability, traceability, and reversibility embedded into execution",
       ],
     },
-
     {
       label:
         "Unified runtimes across customer, inventory, and operational intelligence",
-      intro:
-        "Operate ML and agentic systems in one governed environment.",
+      intro: "Operate ML and agentic systems in one governed environment.",
       bullets: [
         "Model lifecycle governance",
         "Real-time inference control",
         "Human-in-the-loop decision boundaries",
       ],
     },
-
     {
-      label:
-        "Integration across retail platforms without disruption",
+      label: "Integration across retail platforms without disruption",
       intro:
         "Connect ecommerce, store, and supply ecosystems through governed interfaces.",
       bullets: [
@@ -342,12 +348,9 @@ const operationsContent = {
         "Expands ecosystem without vendor lock-in",
       ],
     },
-
     {
-      label:
-        "Enterprise custody of retail AI infrastructure and assets",
-      intro:
-        "Operate entirely within retailer environments.",
+      label: "Enterprise custody of retail AI infrastructure and assets",
+      intro: "Operate entirely within retailer environments.",
       bullets: [
         "On-prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
