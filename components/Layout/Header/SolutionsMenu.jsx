@@ -44,7 +44,7 @@ export default function SolutionsMenu({ data }) {
 
       <div className="w-[33%] h-full flex gap-[1.5vw] justify-end">
         <div className="flex w-fit flex-col gap-[1.5vw]">
-          <h3 className="text-30 font-heading!">Customer Stories</h3>
+          <p className="text-30 font-heading!">Customer Stories</p>
 
           {stories.map((story) => (
             <div

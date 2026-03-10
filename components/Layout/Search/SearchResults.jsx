@@ -24,7 +24,7 @@ function SectionBlock({ title, items, onSelect }) {
         </p>
       </div>
 
-      <div className="w-px bg-primary-blue/40 max-md:hidden" />
+      <div className="w-px bg-primary-blue/70 max-md:hidden" />
 
       <div>
         <div className="flex flex-col gap-3">

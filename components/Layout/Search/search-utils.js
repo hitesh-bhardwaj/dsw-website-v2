@@ -9,12 +9,6 @@ const normalize = (value = "") =>
     .replace(/\s+/g, " ")
     .trim();
 
-function toArray(value) {
-  if (!value) return [];
-  if (Array.isArray(value)) return value;
-  return [value];
-}
-
 function tokenize(value = "") {
   return normalize(value)
     .split(/\s+/)
@@ -23,19 +17,6 @@ function tokenize(value = "") {
 
 function uniqueTokens(tokens = []) {
   return [...new Set(tokens.filter(Boolean))];
-}
-
-function buildNavTokens(item = {}) {
-  const text = [
-    item.title,
-    item.description,
-    item.href,
-    ...(item.keywords || []),
-  ]
-    .filter(Boolean)
-    .join(" ");
-
-  return uniqueTokens(tokenize(text));
 }
 
 function buildTitleTokens(title = "") {
@@ -60,7 +41,7 @@ function flattenNavLinks(navLinks = []) {
 
       items.push({
         ...mapped,
-        tokens: buildNavTokens(mapped),
+        tokens: buildTitleTokens(mapped.title),
       });
     }
 
@@ -96,7 +77,7 @@ function flattenNavLinks(navLinks = []) {
 
         items.push({
           ...mapped,
-          tokens: buildNavTokens(mapped),
+          tokens: buildTitleTokens(mapped.title),
         });
       });
     }
@@ -149,47 +130,6 @@ export function buildSearchIndex({ blogs = [], news = [] }) {
   ];
 }
 
-function scoreNavItem(item, queryTokens, normalizedQuery) {
-  const title = normalize(item.title);
-  const description = normalize(item.description);
-  const href = normalize(item.href);
-  const itemTokens = item.tokens || [];
-
-  let score = 0;
-  let matched = 0;
-
-  for (const q of queryTokens) {
-    let found = false;
-
-    for (const token of itemTokens) {
-      if (token === q) {
-        score += 35;
-        found = true;
-        break;
-      }
-
-      if (q.length >= 2 && token.startsWith(q)) {
-        score += 16;
-        found = true;
-        break;
-      }
-    }
-
-    if (found) matched += 1;
-  }
-
-  if (matched === 0) return 0;
-  if (matched === queryTokens.length) score += 20;
-
-  if (title === normalizedQuery) score += 90;
-  if (title.startsWith(normalizedQuery)) score += 45;
-  if (normalizedQuery.length >= 2 && title.includes(normalizedQuery)) score += 18;
-  if (normalizedQuery.length >= 2 && description.includes(normalizedQuery)) score += 8;
-  if (normalizedQuery.length >= 2 && href.includes(normalizedQuery)) score += 6;
-
-  return score;
-}
-
 function scoreTitleOnlyItem(item, queryTokens, normalizedQuery) {
   const title = normalize(item.title);
   const titleTokens = item.tokens || [];
@@ -201,16 +141,14 @@ function scoreTitleOnlyItem(item, queryTokens, normalizedQuery) {
     let found = false;
 
     for (const token of titleTokens) {
-      // exact full-word match
       if (token === q) {
         score += 60;
         found = true;
         break;
       }
 
-      // robust prefix match only when user typed 3+ chars
-      if (q.length >= 3 && token.startsWith(q)) {
-        score += 24;
+      if (token.startsWith(q)) {
+        score += q.length === 1 ? 10 : q.length === 2 ? 18 : 28;
         found = true;
         break;
       }
@@ -219,18 +157,13 @@ function scoreTitleOnlyItem(item, queryTokens, normalizedQuery) {
     if (found) matched += 1;
   }
 
-  // no matched words = no result
   if (matched === 0) return 0;
-
-  // require every meaningful query token to match the title
   if (matched !== queryTokens.length) return 0;
 
-  // phrase boosts
   if (title === normalizedQuery) score += 140;
   else if (title.startsWith(normalizedQuery)) score += 70;
-  else if (normalizedQuery.length >= 3 && title.includes(normalizedQuery)) score += 30;
+  else if (normalizedQuery.length >= 1 && title.includes(normalizedQuery)) score += 20;
 
-  // extra boost when all tokens matched
   score += 30;
 
   return score;
@@ -241,19 +174,9 @@ export function scoreItem(item, query) {
   if (!normalizedQuery) return 0;
 
   const queryTokens = uniqueTokens(tokenize(normalizedQuery));
+  if (!queryTokens.length) return 0;
 
-  // prevent noisy 1-char and 2-char random search
-  if (!queryTokens.length || queryTokens.every((t) => t.length < 2)) {
-    return 0;
-  }
-
-  // Blogs + News => title only
-  if (item.type === "Blog" || item.type === "News") {
-    return scoreTitleOnlyItem(item, queryTokens, normalizedQuery);
-  }
-
-  // Everything else => regular nav matching
-  return scoreNavItem(item, queryTokens, normalizedQuery);
+  return scoreTitleOnlyItem(item, queryTokens, normalizedQuery);
 }
 
 export function searchItems(index = [], query = "") {
@@ -262,9 +185,6 @@ export function searchItems(index = [], query = "") {
 
   if (!normalizedQuery) return [];
   if (!queryTokens.length) return [];
-
-  // For blog/news robustness, ignore pure 1-char searches
-  if (queryTokens.every((t) => t.length < 2)) return [];
 
   return index
     .map((item) => ({

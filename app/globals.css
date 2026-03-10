@@ -95,13 +95,13 @@ h6 {
 .hero-overlay{
   opacity: 1;
   animation: shade 0.8s forwards;
-  animation-delay: 2s;
+  animation-delay: 1s;
 }
 #header{
-  opacity: 1;
+  opacity: 0;
   /* display: block; */
   /* position: relative; */
-  /* animation: slideIn 0.8s forwards; */
+  animation: slide 0.8s forwards;
   animation-delay: 1.2s;
 }
 
@@ -129,7 +129,7 @@ h6 {
     opacity: 0;
   }
 }
-@keyframes slideIn {
+@keyframes slide {
   from {
     opacity: 0;
     transform: translateY(-50%);

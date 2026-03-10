@@ -19,9 +19,9 @@ export default function ResourcesMenu({ data }) {
             }`}
           >
             <div className="flex flex-col gap-[2vw] w-[80%]">
-              <h4 className="text-primary-blue text-24 font-sans! font-medium">
+              <p className="text-primary-blue text-24 font-sans! font-medium">
                 {group}
-              </h4>
+              </p>
 
               {items.map((item) => (
                 <div key={item.id} className="gap-[0.5vw] flex flex-col">

@@ -31,10 +31,10 @@ function MegaMenuShell({ isOpen, onEnter, onLeave, children }) {
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className={`fixed top-[6.1vw] left-0 z-[850] w-screen h-fit bg-white/75 px-[5vw] pb-[4vw] pt-[2vw] text-foreground backdrop-blur-lg sub-menu-container transition-all duration-500 ease-out ${
+      className={`fixed top-[6vw] left-0 z-[850] w-screen h-fit bg-white px-[5vw] pb-[4vw] pt-[2vw] text-foreground backdrop-blur-lg sub-menu-container transition-all duration-500 ease-out ${
         isOpen
           ? "opacity-100 translate-y-0 pointer-events-auto visible"
-          : "opacity-0 pointer-events-none invisible"
+          : "opacity-0 pointer-events-none invisible "
       }`}
     >
       {children}
@@ -118,7 +118,6 @@ export default function HeaderNew() {
 
   return (
     <>
-      <div className="header">
         <header
           ref={headerWrapRef}
           id="header"
@@ -131,7 +130,7 @@ export default function HeaderNew() {
         >
           <nav
             ref={headerRef}
-            className={`relative flex items-center justify-between w-full px-12 py-3 bg-white/75 pointer-events-auto transition-transform duration-500 max-md:px-[3vw] max-md:py-[4vw] max-md:backdrop-blur-md max-sm:px-[7vw] max-sm:py-[3vw] max-sm:pt-[5vw] ${
+            className={`relative flex items-center justify-between w-full px-12 py-3 bg-white pointer-events-auto transition-transform duration-500 max-md:px-[3vw] max-md:py-[4vw] max-md:backdrop-blur-md max-sm:px-[7vw] max-sm:py-[3vw] max-sm:pt-[5vw] ${
               isHidden ? "-translate-y-full" : "translate-y-0"
             }`}
           >
@@ -327,7 +326,6 @@ export default function HeaderNew() {
             )}
           </nav>
         </header>
-      </div>
 
       <MobileNav
         isOpen={openMobileMenu}
