@@ -9,7 +9,7 @@ import dynamic from "next/dynamic";
 import PrimaryButton from "../Testing/PrimaryButton";
 import SecondaryButton from "../Testing/SecondaryButton";
 
-const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBg"), {
+const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgWorker"), {
   ssr: false,
 });
 
