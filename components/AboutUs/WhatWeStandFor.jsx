@@ -1,9 +1,6 @@
 "use client";
-import { ScrollTrigger, gsap } from "@/lib/gsapCore";
-
+import gsap from "gsap";
 import { useEffect, useRef } from "react";
-
-
 
 const steps = [
     {

@@ -1,17 +1,20 @@
 import React from "react";
+import dynamic from "next/dynamic";
 import HeroNew from "@/components/Layout/HeroNew";
 import Layout from "@/components/Layout/Layout";
-import CTAFinal from "@/components/CTAFinal";
-import Intro from "@/components/AboutUs/Intro";
-import DSWArrival from "@/components/AboutUs/DSWArrival";
-import WhatWeBelieve from "@/components/AboutUs/WhatWeBelieve";
-import TeamWrapper from "@/components/AboutUs/TeamWrapper";
-import JoinUs from "@/components/AboutUs/JoinUs";
-import WhatWeStandFor from "@/components/AboutUs/WhatWeStandFor";
-import Infrastructure from "@/components/AboutUs/Infrastructure";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";
 import { homepage } from "@/lib/util";
+
+// Dynamic Components
+const Intro = dynamic(() => import("@/components/AboutUs/Intro"));
+const DSWArrival = dynamic(() => import("@/components/AboutUs/DSWArrival"));
+const Infrastructure = dynamic(() => import("@/components/AboutUs/Infrastructure"));
+const WhatWeBelieve = dynamic(() => import("@/components/AboutUs/WhatWeBelieve"));
+const WhatWeStandFor = dynamic(() => import("@/components/AboutUs/WhatWeStandFor"));
+const TeamWrapper = dynamic(() => import("@/components/AboutUs/TeamWrapper"));
+const JoinUs = dynamic(() => import("@/components/AboutUs/JoinUs"));
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"));
 
 export const metadata = getPageMetadata({
   title: "About DSW UnifyAI - Deep-Tech AI for Enterprises",
@@ -37,6 +40,7 @@ export const metadata = getPageMetadata({
     ],
   },
 });
+
 const AgenticAI = () => {
   return (
     <>
@@ -47,7 +51,7 @@ const AgenticAI = () => {
           <Intro />
           <DSWArrival />
           <Infrastructure />
-          <WhatWeBelieve /> 
+          <WhatWeBelieve />
           <WhatWeStandFor />
           <TeamWrapper />
           <JoinUs />

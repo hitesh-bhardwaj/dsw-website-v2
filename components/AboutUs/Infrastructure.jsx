@@ -3,9 +3,8 @@ import { useEffect, useRef } from "react";
 import { CircleBg } from "../Svg/Lines/DottedCircle";
 import { Arrow } from "../Svg/AboutUs/Arrow";
 import HeadingAnim from "../Animations/HeadingAnim";
-import { gsap } from "@/lib/gsapCore";
-
 import Copy from "../Animations/Copy";
+import gsap from "gsap";
 
 
 const R     = 15; // vw  — circle radius

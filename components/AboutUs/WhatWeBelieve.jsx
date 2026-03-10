@@ -1,5 +1,5 @@
 "use client";
-import { ScrollTrigger, gsap } from "@/lib/gsapCore";
+// import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
@@ -12,6 +12,8 @@ import { Owned } from "../Svg/AboutUs/Owned";
 import { Arrow } from "../Svg/AboutUs/Arrow";
 import { Vision } from "../Svg/AboutUs/Vision";
 import { Mission } from "../Svg/AboutUs/Mission";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/dist/ScrollTrigger";
 
 
 
@@ -58,8 +60,8 @@ export default function WhatWeBelieve() {
         const tl = gsap.timeline({
           scrollTrigger: {
             trigger: '.about-believe-cards',
-            start: "25% 70%",
-            end:'bottom 30%',
+            start: "10% 70%",
+            end:'120% 30%',
             scrub:true,
             // markers:true
           },

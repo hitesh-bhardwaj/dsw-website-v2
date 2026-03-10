@@ -5,7 +5,6 @@ import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
 import dynamic from "next/dynamic";
 import React from "react";
-
 import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
@@ -86,7 +85,7 @@ const Page = () => {
       <Layout>
         <HeroNew
           heroContent={heroContent}
-          variant={"bottomLeft"}
+          variant={"bottomRight"}
           breadcrumbs={true}
         />
         <Runtime runtimeContent={runtimeContent} />
@@ -249,21 +248,21 @@ const workflowsContent = {
   ],
 };
 
-const caseStudyContent = {
-  heading: "Insurance AI in Production",
-  subheading: "Real deployment. Measurable operational impact.",
-  company: "Persistency",
-  description:
-    "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
-  imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/case-study-insurance.png",
-  button: {
-    present: true,
-    text: "Download Case Study",
-    href: "/assets/case-studies/persistency.pdf",
-    type: "pdf",
-  },
-};
+// const caseStudyContent = {
+//   heading: "Insurance AI in Production",
+//   subheading: "Real deployment. Measurable operational impact.",
+//   company: "Persistency",
+//   description:
+//     "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
+//   imageContent: <p>Case Study Image</p>,
+//   imgSrc: "/assets/case-studies/case-study-insurance.png",
+//   button: {
+//     present: true,
+//     text: "Download Case Study",
+//     href: "/assets/case-studies/persistency.pdf",
+//     type: "pdf",
+//   },
+// };
 
 const benefitsContent = {
   sectionId: "finacle-outcomes",
