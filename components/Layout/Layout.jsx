@@ -11,23 +11,20 @@ import {
 } from "@/lib/json-ld";
 import { fadeUp } from "../Animations/gsapAnimations";
 import HeaderNew from "./Header/HeaderNew";
-import GlobalPopup from "../Modals/GlobalPopup";
-import WalkthroughPopup from "../Modals/WalkthroughPopup";
-import WalkthroughIframePopup from "../Modals/WalkthroughIframePopup";
 
 // Footer (already dynamic)
 const FooterNew = dynamic(() => import("./Footer"), { ssr: false });
 // const HeaderNew = dynamic(() => import("./Header/HeaderNew"), { ssr: false });
 
 // ✅ Dynamic modals (no SSR)
-// const GlobalPopup = dynamic(() => import("../Modals/GlobalPopup"), { ssr: false });
-// const WalkthroughPopup = dynamic(() => import("../Modals/WalkthroughPopup"), {
-//   ssr: false,
-// });
-// const WalkthroughIframePopup = dynamic(
-//   () => import("../Modals/WalkthroughIframePopup"),
-//   { ssr: false }
-// );
+const GlobalPopup = dynamic(() => import("../Modals/GlobalPopup"), { ssr: false });
+const WalkthroughPopup = dynamic(() => import("../Modals/WalkthroughPopup"), {
+  ssr: false,
+});
+const WalkthroughIframePopup = dynamic(
+  () => import("../Modals/WalkthroughIframePopup"),
+  { ssr: false }
+);
 
 const Layout = ({ children }) => {
   fadeUp()
