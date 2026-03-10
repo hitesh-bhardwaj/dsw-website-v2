@@ -92,18 +92,18 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       {/* ✅ Desktop bg: defer WebGL to reduce LCP impact */}
 
       {!mob && bgReady && (
-        <div className="desktop-shader">
+        <div className="desktop-shader absolute w-screen h-screen inset-0">
           <DynamicWaveGrid key={pathname} variant={variant} />
         </div>
       )}
 
       <div className="relative z-[999] flex flex-col items-center h-full pt-[12vw] max-md:pt-[37vw] max-sm:pt-[45vw] pointer-events-none">
-        <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
+        <div className=" flex flex-col gap-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
           {heroContent?.tagline && (
-            <p className="text-30 hero-tagline text-center max-w-[60%] mx-auto text-[#333333] tracking-wide hero-text max-sm:max-w-[90%]">
+            <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] max-sm:max-w-[90%] hero-content">
               {heroContent?.tagline}
             </p>
-          )}
+       )} 
 
           <h1
             className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${heroContent?.headingWidth || "w-[70%]"
