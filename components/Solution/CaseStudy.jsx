@@ -6,17 +6,9 @@ const CaseStudy = ({ caseStudyContent }) => {
   const {
     heading,
     subheading,
-    company,
-    description,
-    button,
-    imgSrc,
-    imageContent,
     sectionId = "casestudy",
   } = caseStudyContent;
 
-  const isPdf =
-    button?.href?.toLowerCase().endsWith(".pdf") ||
-    button?.type === "pdf";
 
   return (
     <section

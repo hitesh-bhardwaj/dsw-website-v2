@@ -1,30 +1,58 @@
 import { getPageMetadata } from "@/components/config/metadata";
-import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/Layout/HeroNew";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
-import Benefits from "@/components/Solution/Benefits";
-import Breaks from "@/components/Solution/Breaks";
-import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
-import Features from "@/components/Solution/Features";
-import Operations from "@/components/Solution/Operations";
-import Runtime from "@/components/Solution/Runtime";
-import WorkFlows from "@/components/Solution/WorkFlows";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
+import dynamic from "next/dynamic";
 import { Fraud } from "@/components/Svg/Solutions/Banking/Fraud";
 import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import { UseCase } from "@/components/Svg/Solutions/Banking/UseCase";
-import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
-import Nodes from "@/components/Svg/Solutions/Nodes";
-import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
-import { WebpageJsonLd } from "@/lib/json-ld";
-import { homepage } from "@/lib/util";
 import React from "react";
+
+const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
+  ssr: true,
+});
+
+const Breaks = dynamic(() => import("@/components/Solution/Breaks"), {
+  ssr: true,
+});
+
+const Features = dynamic(() => import("@/components/Solution/Features"), {
+  ssr: true,
+});
+
+const WorkFlows = dynamic(() => import("@/components/Solution/WorkFlows"), {
+  ssr: true,
+});
+
+const CaseStudy = dynamic(() => import("@/components/Solution/CaseStudy"), {
+  ssr: true,
+});
+
+const Operations = dynamic(() => import("@/components/Solution/Operations"), {
+  ssr: true,
+});
+
+const Benefits = dynamic(() => import("@/components/Solution/Benefits"), {
+  ssr: true,
+});
+
+const CertificationsAndAwards = dynamic(
+  () => import("@/components/Homepage/CertificationsAndAwards"),
+  {
+    ssr: true,
+  }
+);
+
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
 
 export const metadata = getPageMetadata({
   title: "AI Operating System for Banking | DSW",
-  description: "Operate AI across banking risk, compliance, credit, fraud, and customer workflows with one governed system built for production enterprise use.",
+  description:
+    "Operate AI across banking risk, compliance, credit, fraud, and customer workflows with one governed system built for production enterprise use.",
   url: "/solutions/banking",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -45,26 +73,31 @@ export const metadata = getPageMetadata({
     ],
   },
 });
+
 const Page = () => {
   return (
     <>
-    <WebpageJsonLd metadata={metadata} />
-    <Layout>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations operationsContent={operationsContent} />
-      <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+      <WebpageJsonLd metadata={metadata} />
+
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"rightVertical"}
+          breadcrumbs={true}
+        />
+
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <CaseStudy caseStudyContent={caseStudyContent} />
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -72,7 +105,8 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Run AI across risk, compliance, operations, and customer engagement as one governed system.",
+  tagline:
+    "Run AI across risk, compliance, operations, and customer engagement as one governed system.",
   heading: "The Operating Layer for Production AI in Banking",
   headingWidth: "w-[84%]",
   primaryButton: {
@@ -92,8 +126,7 @@ const heroContent = {
 };
 
 const runtimeContent = {
-  heading:
-    "Banking has moved past AI pilots. Now it must operate AI.",
+  heading: "Banking has moved past AI pilots. Now it must operate AI.",
   description:
     "Most banks have models in production. Few have a system to operate them continuously across lines of business.",
   items: [
@@ -114,23 +147,22 @@ const runtimeContent = {
       text: "Must be governed as it runs - not after deployment",
     },
   ],
-  extra:"<p>Banks are moving from AI programs to <span class='text-primary-blue'>AI operations</span> - where governance, model lifecycle, and execution accountability are built into the runtime.</p>"
+  extra:
+    "<p>Banks are moving from AI programs to <span class='text-primary-blue'>AI operations</span> - where governance, model lifecycle, and execution accountability are built into the runtime.</p>",
 };
 
 const breaksContent = {
   tagline:
     "Banks are moving from isolated AI initiatives to always-on execution across onboarding, credit, fraud, collections, servicing, and regulatory workflows.",
-  heading:
-    "Where AI execution breaks inside banks today",
+  heading: "Where AI execution breaks inside banks today",
   challenges: [
     {
-      icon: <Fraud/>,
+      icon: <Fraud />,
       title: "Models sit in silos across risk, fraud, underwriting, and operations",
     },
     {
-      icon: <Governance/>,
-      title:
-        "Governance exists as review processes, not execution controls",
+      icon: <Governance />,
+      title: "Governance exists as review processes, not execution controls",
     },
     {
       icon: <Focus />,
@@ -138,18 +170,17 @@ const breaksContent = {
         "Regulatory pressure increases model risk, audit exposure, and change complexity",
     },
     {
-      icon: <UseCase/>,
+      icon: <UseCase />,
       title:
         "Every new use case becomes a new stack, new vendor, and new cost structure",
     },
   ],
-  extra:"<p>Banks don’t struggle to build AI. <br/> They struggle to<span class='text-primary-blue'> operate AI as a system across the enterprise.</span> </p>"
+  extra:
+    "<p>Banks don’t struggle to build AI. <br/> They struggle to<span class='text-primary-blue'> operate AI as a system across the enterprise.</span> </p>",
 };
 
 const featuresContent = {
-  heading:
-    "High-impact Banking Use Cases on the AI Operating System",
-
+  heading: "High-impact Banking Use Cases on the AI Operating System",
   cards: [
     {
       title: "KYC / AML Intelligence and Continuous Monitoring",
@@ -161,7 +192,6 @@ const featuresContent = {
         "Audit-ready lineage across models and decisions",
       ],
     },
-
     {
       title: "Credit Risk Modeling and Portfolio Scoring",
       description:
@@ -172,7 +202,6 @@ const featuresContent = {
         "Controlled promotion to production environments",
       ],
     },
-
     {
       title: "Collections Optimization and Delinquency Prediction",
       description:
@@ -183,7 +212,6 @@ const featuresContent = {
         "Reversible workflows across customer engagement actions",
       ],
     },
-
     {
       title:
         "Agentic Copilots for Relationship Managers, Operations, and Compliance",
@@ -195,7 +223,6 @@ const featuresContent = {
         "Operations copilots for case workflows",
       ],
     },
-
     {
       title: "Enterprise GenAI Knowledge Systems for Banking Teams",
       description:
@@ -209,11 +236,9 @@ const featuresContent = {
   ],
 };
 
-
 const workflowsContent = {
   heading: "Unlimited Use Cases with a Single Subscription.",
-  para:"",
-  para:"No more use-case-based cost barrier.",
+  para: "No more use-case-based cost barrier.",
   items: [
     { number: "01", title: "Fraud detection and anomaly monitoring" },
     { number: "02", title: "Transaction monitoring triage" },
@@ -228,7 +253,6 @@ const workflowsContent = {
   ],
 };
 
-
 const caseStudyContent = {
   heading: "Running Real-Time Banking Decisions on a Unified AI Runtime",
   subheading: "Real deployment. Measurable operational impact.",
@@ -236,7 +260,7 @@ const caseStudyContent = {
   description:
     "Revolutionizing Document Intelligence for a Leading Indian Fintech Company",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-banking.png",
+  imgSrc: "/assets/case-studies/case-study-banking.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -247,10 +271,7 @@ const caseStudyContent = {
 
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-
-  heading:
-    "From fragmented AI to an enterprise operating model",
-
+  heading: "From fragmented AI to an enterprise operating model",
   points: [
     {
       id: "01",
@@ -259,8 +280,7 @@ const benefitsContent = {
     },
     {
       id: "02",
-      text:
-        "Reduce model deployment friction and governance overhead",
+      text: "Reduce model deployment friction and governance overhead",
     },
     {
       id: "03",
@@ -269,8 +289,7 @@ const benefitsContent = {
     },
     {
       id: "04",
-      text:
-        "Improve audit readiness and execution accountability",
+      text: "Improve audit readiness and execution accountability",
     },
     {
       id: "05",
@@ -280,28 +299,25 @@ const benefitsContent = {
   ],
 };
 
-
-const ctaContent={
-  heading:"Operate AI as Infrastructure Inside your Bank ",
-  para:"Experience the DSW Enterprise AI Operating System ",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate AI as Infrastructure Inside your Bank ",
+  para: "Experience the DSW Enterprise AI Operating System ",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecndary:true
-
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecndary: true,
   },
-}
+};
 
 const operationsContent = {
   heading: "How the Enterprise AI Operating System runs inside your Bank",
-
   tabs: [
     {
       label: "The AI OS Kernel: governance enforced where AI executes",
@@ -312,7 +328,6 @@ const operationsContent = {
         "Auditability, traceability, and reversibility built into execution",
       ],
     },
-
     {
       label: "Governed Runtimes: models and agents operating under policy",
       intro: "Unified execution across ML and agentic systems.",
@@ -322,7 +337,6 @@ const operationsContent = {
         "Agent autonomy boundaries and human-in-the-loop oversight",
       ],
     },
-
     {
       label: "AI Fabric: integrate the banking ecosystem without lock-in",
       intro: "Integration layer across existing banking ecosystems.",
@@ -332,7 +346,6 @@ const operationsContent = {
         "Enable ecosystem expansion without lock-in",
       ],
     },
-
     {
       label: "Enterprise deployment: run entirely within your environment",
       intro: "Operate entirely within the bank’s environment.",
@@ -344,7 +357,6 @@ const operationsContent = {
     },
   ],
 };
-
 
 const certificationsContent = {
   sectionId: "compliance",

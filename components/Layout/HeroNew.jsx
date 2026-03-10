@@ -65,7 +65,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       clearTimeout(t);
     };
   }, []);
-
+ 
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
 

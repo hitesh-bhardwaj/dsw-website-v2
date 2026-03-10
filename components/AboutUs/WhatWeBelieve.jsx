@@ -59,7 +59,7 @@ export default function WhatWeBelieve() {
           scrollTrigger: {
             trigger: '.about-believe-cards',
             start: "25% 70%",
-            end:'bottom bottom',
+            end:'bottom 30%',
             scrub:true,
             // markers:true
           },
@@ -77,10 +77,10 @@ export default function WhatWeBelieve() {
           ".struggle-arrow",
           {
             opacity: 1,
-            stagger: 0.75,
+            stagger: 0.5,
             ease: "power2.out",
             duration: 0.8,
-            delay: 0.8,
+            delay: 1,
           },
           "<",
         ); // overlap slightly with cards landing

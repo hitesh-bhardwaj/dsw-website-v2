@@ -1,28 +1,60 @@
 import { getPageMetadata } from "@/components/config/metadata";
-import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/Layout/HeroNew";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
-import Benefits from "@/components/Solution/Benefits";
-import Breaks from "@/components/Solution/Breaks";
-import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
-import Features from "@/components/Solution/Features";
-import Operations from "@/components/Solution/Operations";
-import Runtime from "@/components/Solution/Runtime";
-import WorkFlows from "@/components/Solution/WorkFlows";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
+import dynamic from "next/dynamic";
+import React from "react";
 import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
-import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
-import { WebpageJsonLd } from "@/lib/json-ld";
-import { homepage } from "@/lib/util";
-import React from "react";
+
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
+
+const CertificationsAndAwards = dynamic(
+  () => import("@/components/Homepage/CertificationsAndAwards"),
+  {
+    ssr: true,
+  }
+);
+
+const Benefits = dynamic(() => import("@/components/Solution/Benefits"), {
+  ssr: true,
+});
+
+const Breaks = dynamic(() => import("@/components/Solution/Breaks"), {
+  ssr: true,
+});
+
+const CaseStudy = dynamic(() => import("@/components/Solution/CaseStudy"), {
+  ssr: true,
+});
+
+
+
+const Features = dynamic(() => import("@/components/Solution/Features"), {
+  ssr: true,
+});
+
+const Operations = dynamic(() => import("@/components/Solution/Operations"), {
+  ssr: true,
+});
+
+const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
+  ssr: true,
+});
+
+const WorkFlows = dynamic(() => import("@/components/Solution/WorkFlows"), {
+  ssr: true,
+});
 
 export const metadata = getPageMetadata({
   title: "Financial Services AI Operating System | DSW",
-  description: "Enterprise AI layer for financial services - govern lending, markets, payments, risk, and compliance workflows with a single controlled runtime.",
+  description:
+    "Enterprise AI layer for financial services - govern lending, markets, payments, risk, and compliance workflows with a single controlled runtime.",
   url: "/solutions/financial-services",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -48,10 +80,11 @@ const Page = () => {
   return (
     <>
       <WebpageJsonLd metadata={metadata} />
+
       <Layout>
         <HeroNew
           heroContent={heroContent}
-          variant={"bottomLeft"}
+          variant={"bottomRight"}
           breadcrumbs={true}
         />
 
@@ -61,7 +94,9 @@ const Page = () => {
         <WorkFlows workflowsContent={workflowsContent} />
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
-         <CertificationsAndAwards certificationsContent={certificationsContent}/>
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
         {/* <Compliance complianceContent={complianceContent} /> */}
         <Benefits benefitsContent={benefitsContent} />
         <CTAFinal ctaContent={ctaContent} />
@@ -77,7 +112,8 @@ export default Page;
 --------------------------------------------- */
 const heroContent = {
   tagline: "One operating system for real-time financial decisioning.",
-  heading: "Govern lending, markets, payments, and portfolio risk at runtime",
+  heading:
+    "Govern lending, markets, payments, and portfolio risk at runtime",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -100,15 +136,25 @@ const heroContent = {
 --------------------------------------------- */
 const runtimeContent = {
   heading: "Financial AI is already deployed. It is not yet operationalized.",
-
   description:
     "Most financial institutions run models across lending, capital markets, fraud, and compliance. Few can operate them continuously across business units and decision environments.",
-
   items: [
-    { number: "01", text: "Drives lending, pricing, and portfolio decisions in real time" },
-    { number: "02", text: "Operates inside trading, surveillance, and payment workflows" },
-    { number: "03", text: "Interacts with analysts, relationship teams, and risk functions" },
-    { number: "04", text: "Must be governed during execution, not after deployment" },
+    {
+      number: "01",
+      text: "Drives lending, pricing, and portfolio decisions in real time",
+    },
+    {
+      number: "02",
+      text: "Operates inside trading, surveillance, and payment workflows",
+    },
+    {
+      number: "03",
+      text: "Interacts with analysts, relationship teams, and risk functions",
+    },
+    {
+      number: "04",
+      text: "Must be governed during execution, not after deployment",
+    },
   ],
 };
 
@@ -116,11 +162,17 @@ const runtimeContent = {
    BREAKS
 --------------------------------------------- */
 const breaksContent = {
-  heading: "Where Financial Services AI loses control without an operating layer",
-
+  heading:
+    "Where Financial Services AI loses control without an operating layer",
   challenges: [
-    { icon: <UnderWriting />, title: "Lending, markets, and compliance models operate in silos" },
-    { icon: <Governance />, title: "Governance exists as oversight instead of runtime enforcement" },
+    {
+      icon: <UnderWriting />,
+      title: "Lending, markets, and compliance models operate in silos",
+    },
+    {
+      icon: <Governance />,
+      title: "Governance exists as oversight instead of runtime enforcement",
+    },
     {
       icon: <Focus />,
       title:
@@ -132,7 +184,6 @@ const breaksContent = {
         "Each new use case introduces new tooling, vendors, and operational fragmentation",
     },
   ],
-
   extra:
     "<p>Institutions do not struggle to build AI. <br/> They struggle to <span class='text-primary-blue'>operate it across portfolios, markets, and regulated workflows as one system.</span></p>",
 };
@@ -142,7 +193,6 @@ const breaksContent = {
 --------------------------------------------- */
 const featuresContent = {
   heading: "Unlimited Financial AI and Agentic AI. One governed runtime.",
-
   cards: [
     {
       title: "Runtime-governed lending and credit intelligence",
@@ -165,7 +215,8 @@ const featuresContent = {
       ],
     },
     {
-      title: "Payments and fraud intelligence operating inside transaction workflows",
+      title:
+        "Payments and fraud intelligence operating inside transaction workflows",
       description:
         "Identify anomalies and operational risks across payment ecosystems.",
       bullets: [
@@ -216,7 +267,6 @@ const workflowsContent = {
   ],
 };
 
-
 /* ---------------------------------------------
    CASE STUDY
 --------------------------------------------- */
@@ -227,7 +277,7 @@ const caseStudyContent = {
   description:
     "The customer is a prominent fintech company specializing in digital escrow services, headquartered in Delhi, India. ",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-finance.png",
+  imgSrc: "/assets/case-studies/case-study-finance.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -240,8 +290,8 @@ const caseStudyContent = {
    OPERATIONS
 --------------------------------------------- */
 const operationsContent = {
-  heading: "Kernel-governed execution across lending, markets, and payments",
-
+  heading:
+    "Kernel-governed execution across lending, markets, and payments",
   tabs: [
     {
       label: "Governance enforced where financial AI executes",
@@ -254,7 +304,8 @@ const operationsContent = {
     },
     {
       label: "Unified runtimes for models, analytics, and agentic systems",
-      intro: "Operate ML and agentic execution within one governed environment.",
+      intro:
+        "Operate ML and agentic execution within one governed environment.",
       bullets: [
         "Model lifecycle governance",
         "Real-time and batch inference control",
@@ -262,8 +313,10 @@ const operationsContent = {
       ],
     },
     {
-      label: "Integration across financial ecosystems without platform disruption",
-      intro: "Connect lending, market, and payment systems through governed interfaces.",
+      label:
+        "Integration across financial ecosystems without platform disruption",
+      intro:
+        "Connect lending, market, and payment systems through governed interfaces.",
       bullets: [
         "Works with core platforms and data environments",
         "Enables modernization without system replacement",
@@ -283,23 +336,36 @@ const operationsContent = {
 };
 
 /* ---------------------------------------------
-   COMPLIANCE
---------------------------------------------- */
-
-/* ---------------------------------------------
    BENEFITS
 --------------------------------------------- */
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-
-  heading: "Scale Financial AI without governance gaps, lock-in, or cost fragmentation",
-
+  heading:
+    "Scale Financial AI without governance gaps, lock-in, or cost fragmentation",
   points: [
-    { id: "01", text: "Operate lending, markets, payments, and risk as one governed system" },
-    { id: "02", text: "Reduce friction in deploying and managing production AI" },
-    { id: "03", text: "Scale use cases without multiplying infrastructure or vendors" },
-    { id: "04", text: "Strengthen audit readiness and execution accountability" },
-    { id: "05", text: "Transition from fragmented adoption to enterprise AI operations" },
+    {
+      id: "01",
+      text:
+        "Operate lending, markets, payments, and risk as one governed system",
+    },
+    {
+      id: "02",
+      text: "Reduce friction in deploying and managing production AI",
+    },
+    {
+      id: "03",
+      text:
+        "Scale use cases without multiplying infrastructure or vendors",
+    },
+    {
+      id: "04",
+      text: "Strengthen audit readiness and execution accountability",
+    },
+    {
+      id: "05",
+      text:
+        "Transition from fragmented adoption to enterprise AI operations",
+    },
   ],
 };
 
@@ -314,14 +380,13 @@ const ctaContent = {
     present: true,
     link: "#",
     text: "Book a Demo",
-    book:true
+    book: true,
   },
   secondaryButton: {
     present: true,
     link: "https://calendly.com/",
     text: "Schedule a Call",
-    targetSecondary:true
-
+    targetSecondary: true,
   },
 };
 
@@ -332,4 +397,3 @@ const certificationsContent = {
   footerText:
     "Supports surveillance, governance, and regulatory workflows across lending, markets, and operations.",
 };
-

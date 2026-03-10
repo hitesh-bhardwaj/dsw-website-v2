@@ -1,50 +1,81 @@
 import { getPageMetadata } from "@/components/config/metadata";
-import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/Layout/HeroNew";
-import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
 import Layout from "@/components/Layout/Layout";
-import Breaks from "@/components/Solution/Breaks";
-import CaseStudy from "@/components/Solution/CaseStudy";
-import Features from "@/components/Solution/Features";
-import Operations from "@/components/Solution/Operations";
-import Runtime from "@/components/Solution/Runtime";
-import WorkFlows from "@/components/Solution/WorkFlows";
+import { WebpageJsonLd } from "@/lib/json-ld";
+import { homepage } from "@/lib/util";
+import dynamic from "next/dynamic";
+import React from "react";
+
 import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import { Compliance } from "@/components/Svg/Solutions/Compliance";
 import Config from "@/components/Svg/Solutions/Config";
 import Nodes from "@/components/Svg/Solutions/Nodes";
-import { WebpageJsonLd } from "@/lib/json-ld";
-import { homepage } from "@/lib/util";
-import React from "react";
+
+const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+  ssr: true,
+});
+
+const CertificationsAndAwards = dynamic(
+  () => import("@/components/Homepage/CertificationsAndAwards"),
+  {
+    ssr: true,
+  }
+);
+
+const Breaks = dynamic(() => import("@/components/Solution/Breaks"), {
+  ssr: true,
+});
+
+const CaseStudy = dynamic(() => import("@/components/Solution/CaseStudy"), {
+  ssr: true,
+});
+
+const Features = dynamic(() => import("@/components/Solution/Features"), {
+  ssr: true,
+});
+
+const Operations = dynamic(() => import("@/components/Solution/Operations"), {
+  ssr: true,
+});
+
+const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
+  ssr: true,
+});
+
+const WorkFlows = dynamic(() => import("@/components/Solution/WorkFlows"), {
+  ssr: true,
+});
 
 export const metadata = getPageMetadata({
-  title: "Healthcare AI Operating System | DSW",
+  title: "Hospitality AI Platform for Guest, Revenue & Operations",
   description:
-    "Govern AI in clinical support, patient engagement, revenue cycle, and operations with a unified, controlled execution layer for healthcare.",
-  url: "/solutions/healthcare",
+    "Run guest experience, revenue optimization, and hospitality operations on one governed AI platform for hotels and hospitality enterprises.",
+  url: "/solutions/hospitality",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/solutions/healthcare",
+    canonical: "/solutions/hospitality",
     languages: {
-      "en-US": "/solutions/healthcare",
+      "en-US": "/solutions/hospitality",
     },
   },
   openGraph: {
-    url: "/solutions/healthcare",
+    url: "/solutions/hospitality",
     images: [
       {
-        url: `${homepage}seo/solutions-healthcare.png`,
+        url: `${homepage}seo/solutions-hospitality.png`,
         width: 1200,
         height: 630,
       },
     ],
   },
 });
+
 const Page = () => {
   return (
     <>
       <WebpageJsonLd metadata={metadata} />
+
       <Layout>
         <HeroNew
           heroContent={heroContent}
@@ -60,7 +91,6 @@ const Page = () => {
         <CertificationsAndAwards
           certificationsContent={certificationsContent}
         />
-        {/* <Benefits benefitsContent={benefitsContent} /> */}
         <CTAFinal ctaContent={ctaContent} />
       </Layout>
     </>
@@ -91,10 +121,8 @@ const heroContent = {
 const runtimeContent = {
   heading:
     "AI across hospitality operations. Controlled, auditable, and operated as one system.",
-
   description:
     "Hotels and hospitality groups are increasingly deploying AI across guest services, revenue optimization, operations, and marketing. Few organizations can operate these systems continuously across properties, service channels, and operational workflows. ",
-
   items: [
     {
       number: "01",
@@ -121,7 +149,6 @@ const runtimeContent = {
 
 const breaksContent = {
   heading: "Where hospitality AI breaks without an operating layer",
-
   challenges: [
     {
       icon: <Governance />,
@@ -143,14 +170,12 @@ const breaksContent = {
         "Each new AI use case introduces new tools, integrations, and vendors",
     },
   ],
-
   extra:
     "<p>Hospitality organizations are not lacking AI capability. <br/> They are lacking a system to operate it across guest and operational environments.</p>",
 };
 
 const featuresContent = {
   heading: "Unlimited Hospitality AI and Agentic AI. One governed runtime.",
-
   cards: [
     {
       title: "Guest experience intelligence operating across channels",
@@ -162,7 +187,6 @@ const featuresContent = {
         "Sentiment and feedback intelligence",
       ],
     },
-
     {
       title: "Revenue management intelligence across properties",
       description:
@@ -173,7 +197,6 @@ const featuresContent = {
         "Occupancy and revenue intelligence",
       ],
     },
-
     {
       title: "Operations intelligence across properties and services",
       description:
@@ -184,7 +207,6 @@ const featuresContent = {
         "Operational efficiency analytics",
       ],
     },
-
     {
       title: "Marketing and loyalty intelligence ",
       description:
@@ -195,7 +217,6 @@ const featuresContent = {
         "Loyalty engagement analytics",
       ],
     },
-
     {
       title: "Agentic copilots for hospitality teams ",
       description:
@@ -264,7 +285,6 @@ const ctaContent = {
 const operationsContent = {
   heading:
     "Kernel-governed execution across care, operations, and revenue workflows",
-
   tabs: [
     {
       label:
@@ -276,7 +296,6 @@ const operationsContent = {
         "Human-in-the-loop operational boundaries ",
       ],
     },
-
     {
       label: "Integration across hospitality systems without disruption",
       intro:
@@ -287,11 +306,9 @@ const operationsContent = {
         "Expands ecosystem without vendor lock-in",
       ],
     },
-
     {
       label: "Enterprise custody of hospitality AI infrastructure and assets",
-      intro:
-        "Operate entirely within enterprise environments. ",
+      intro: "Operate entirely within enterprise environments. ",
       bullets: [
         "On-prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
@@ -303,7 +320,8 @@ const operationsContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Built for hospitality enterprises operating in regulated and global environments ",
+  heading:
+    "Built for hospitality enterprises operating in regulated and global environments ",
   subtext: "",
   footerText:
     "Supports auditability, traceability, and operational governance across guest data, service operations, and revenue management workflows. ",

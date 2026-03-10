@@ -52,11 +52,7 @@ const Runtime = ({ runtimeContent }) => {
           </div>
         </div>
 
-        {/* <div className="hidden max-sm:block text-30 text-center max-sm:pt-[5vw]">
-          <p>
-              It is not about building Insurance AI. It is about running it as a system across the enterprise.
-          </p>
-        </div> */}
+     
 
         {/* Extra HTML Content */}
         {extra && (

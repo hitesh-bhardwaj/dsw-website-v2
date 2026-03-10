@@ -1,8 +1,8 @@
 "use client";
-import { ScrollTrigger, gsap } from "@/lib/gsapCore";
 import { useEffect, useRef, useState } from "react";
 
 import HeadingAnim from "../Animations/HeadingAnim";
+import gsap from "gsap";
 
 
 export default function Benefits({ benefitsContent }) {

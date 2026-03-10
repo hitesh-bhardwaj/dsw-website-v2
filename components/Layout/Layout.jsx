@@ -9,6 +9,7 @@ import {
   OrganizationJsonLd,
   WebsiteJsonLd,
 } from "@/lib/json-ld";
+import { fadeUp } from "../Animations/gsapAnimations";
 
 // Footer (already dynamic)
 const FooterNew = dynamic(() => import("./Footer"), { ssr: false });
@@ -25,6 +26,7 @@ const WalkthroughIframePopup = dynamic(
 );
 
 const Layout = ({ children }) => {
+  fadeUp()
   return (
     <ModalProvider>
       {/* JSON-LD: keep SSR-friendly if these are server-safe; otherwise wrap too */}
