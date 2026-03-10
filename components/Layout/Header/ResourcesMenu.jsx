@@ -26,6 +26,7 @@ export default function ResourcesMenu({ data }) {
               {items.map((item) => (
                 <div key={item.id} className="gap-[0.5vw] flex flex-col">
                   <Link
+                  prefetch={false}
                     href={item.href}
                     className="ahLink text-30 font-heading! w-fit text-foreground hover:text-primary-blue duration-500 ease-out"
                   >

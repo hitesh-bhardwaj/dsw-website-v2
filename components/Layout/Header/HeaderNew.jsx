@@ -5,20 +5,31 @@ import { usePathname } from "next/navigation";
 import { useLenis } from "lenis/react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
-
 import PrimaryButton from "../../Buttons/PrimaryButton";
 import SecondaryButton from "../../Buttons/SecondaryButton";
 import MobileNav from "./MobileNav";
 import { Logo } from "../../Svg/Logo";
 import AnimatedHoverLink from "../AnimatedHoverLink";
 import Search from "../../Svg/Search";
-import SolutionsMenu from "./SolutionsMenu";
-import TechnologyMenu from "./TechnologyMenu";
-import ResourcesMenu from "./ResourcesMenu";
+// import SolutionsMenu from "./SolutionsMenu";
+// import TechnologyMenu from "./TechnologyMenu";
+// import ResourcesMenu from "./ResourcesMenu";
 import { NAV_LINKS } from "./nav-data";
 import SearchModal from "../Search/SearchModal";
+import dynamic from "next/dynamic";
 
 const MEGA_MENU_IDS = ["solutions", "technology", "resources"];
+
+const SolutionsMenu = dynamic(() => import("./SolutionsMenu"), {
+  ssr: false,
+});
+const TechnologyMenu = dynamic(() => import("./TechnologyMenu"), {
+  ssr: false,
+});
+const ResourcesMenu = dynamic(() => import("./ResourcesMenu"), {
+  ssr: false,
+});
+
 
 const isPathActive = (pathname, href) => {
   if (!href || !pathname || href === "#") return false;

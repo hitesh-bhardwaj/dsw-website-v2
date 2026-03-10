@@ -22,6 +22,7 @@ export default function SolutionsMenu({ data }) {
               return (
                 <div key={item.id} className="gap-[0.5vw] flex flex-col">
                   <Link
+                  prefetch={false}
                     href={item.href}
                     className="ahLink text-30 font-heading! w-fit text-foreground hover:text-primary-blue duration-500 ease-out"
                   >
@@ -58,6 +59,7 @@ export default function SolutionsMenu({ data }) {
                   <Image
                     src={story.image}
                     alt={story.name}
+                    loading="lazy"
                     className="w-full h-full object-contain"
                     width={30}
                     height={30}

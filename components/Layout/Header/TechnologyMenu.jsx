@@ -15,6 +15,7 @@ export default function TechnologyMenu({ data }) {
           >
             <div className="gap-[0.5vw] flex flex-col w-[75%] py-[3vw]">
               <Link
+              prefetch={false}
                 href={column.href}
                 className="ahLink text-30 font-heading! text-foreground hover:text-primary-blue duration-500 ease-out"
               >
