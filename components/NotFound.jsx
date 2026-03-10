@@ -1,12 +1,11 @@
 "use client";
-import { gsap, useGSAP } from "@/lib/gsapCore";
-import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import Copy from "@/components/Animations/Copy";
 import { Suspense, useEffect, useRef, useState } from "react";
-
 import dynamic from "next/dynamic";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import LinkButton from "./Buttons/LinkButton";
 
 const WaveGridCanvas = dynamic(() => import("./Homepage/HeroBg"), {
   ssr: false,
@@ -17,9 +16,6 @@ const Notfound = () => {
   const ShaderRef = useRef();
   const [mob, setMob] = useState(false);
   useGSAP(() => {
-    gsap.set(".not-found-para", {
-      opacity: 1,
-    });
     gsap.to(".num", {
       translateY: "-100%",
       stagger: { from: "random", amount: 1 },
@@ -36,30 +32,7 @@ const Notfound = () => {
       delay: 0.5,
       ease: "power2.out",
     });
-    gsap.fromTo(
-      ShaderRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 3,
-        delay: 0.5,
-        ease: "power3.out",
-      }
-    );
-    gsap.fromTo(
-      ".mobile-shader",
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        duration: 3,
-        delay: 0.5,
-        ease: "power3.out",
-      }
-    );
+  
   });
   useEffect(() => {
     if (globalThis.innerWidth <= 1024) {
@@ -71,9 +44,9 @@ const Notfound = () => {
   return (
     <section className="w-screen relative h-screen  max-sm:pb-0  overflow-hidden">
       <div
-        className={`h-full w-full flex-col flex items-center justify-center z-[99] relative text-foreground text-center`}
+        className={`h-full w-full flex-col flex items-center justify-center z-[101] relative text-foreground text-center pointer-events-none`}
       >
-        <div className="w-fit h-[16vw] overflow-hidden max-sm:h-[32vw] max-md:h-[22vw]">
+        <div className="w-fit h-[16vw] overflow-hidden max-sm:h-[32vw] max-md:h-[22vw] ">
           <h1
             className={`text-[20vw] h-[16vw] flex flex-row  font-medium font-display w-fit  text-white-200 overflow-hidden not-found-head translate-y-[110%] rotate-[5deg] max-sm:text-[40vw] max-sm:h-[32vw] max-md:text-[27vw] max-md:h-[22vw]`}
           >
@@ -94,17 +67,10 @@ const Notfound = () => {
         <div
           className={`w-[60%] max-md:w-[80%] pt-[2vw] text-content-20 text-gray-2 max-sm:w-full max-md:pt-[5vw] max-sm:pt-[7vw]`}
         >
-          <Copy delay={0.5 + 0.5}>
-            <p className="leading-[1.5] text-white-300  max-sm:leading-[1.5] max-md:text-[3vw] max-sm:text-[4.2vw] opacity-0 not-found-para">
+            <p className="leading-[1.4] text-24! text-white-300  max-md:text-[3vw] max-sm:text-[4.2vw] hero-content pointer-events-auto">
               Go back to{" "}
-              <Link
-                href="/"
-                className="under-multi-parent w-fit pointer-events-auto pb-[1px]"
-              >
-                <span className="under-multi">Homepage!!!</span>
-              </Link>
+              <LinkButton href={"/"} text={"Homepage!!"}/>
             </p>
-          </Copy>
         </div>
       </div>
       {!mob ? (
@@ -121,14 +87,15 @@ const Notfound = () => {
           <Image
             src={"/assets/homepage/hero-bg-mob.png"}
             height={852}
-            // fetchPriority="high"
-            loading="lazy"
+            fetchPriority="high"
             width={393}
             alt="hero-bg"
             className="h-full w-full"
           />
         </div>
       )}
+      <div className="w-screen h-screen bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
+
     </section>
   );
 };

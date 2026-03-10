@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { Input } from "../ui/input";
 import { useState } from "react";
 

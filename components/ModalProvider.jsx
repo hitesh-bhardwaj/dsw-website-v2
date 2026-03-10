@@ -16,7 +16,6 @@ export function ModalProvider({ children }) {
    * ------------------------- */
   const [open, setOpen] = useState(false);
   const [openWalkThrough, setOpenWalkThrough] = useState(false);
-  // const [openWalkthroughIframe, setOpenWalkthroughIframe] = useState(false);
 
   /* -------------------------
    * Walkthrough state (BOTH)
@@ -75,31 +74,12 @@ const setFormSubmitted = useCallback((value) => {
     setOpenWalkThrough(true);
   }, []);
 
-  // const openWalkthroughIframeModal = useCallback((p) => {
-  //   setPayload(p || null);
-  //   setOpenWalkthroughIframe(true);
-  // }, []);
 
-  /* -------------------------
-   * SMART WALKTHROUGH OPENER
-   * ------------------------- */
-  // const openWalkthroughSmart = useCallback(
-  //   (target) => {
-  //     setWalkthroughTarget(target);
-       
-  //     if (walkthroughCompleted[target]) {
-  //       setOpenWalkthroughIframe(true);
-  //     } else {
-  //       setOpenWalkThrough(true);
-  //     }
-  //   },
-  //   [walkthroughCompleted]
-  // );
   const openWalkthroughSmart = useCallback((target) => {
   setWalkthroughTarget(target);
 
   // Always open normal walkthrough only
-  // setOpenWalkthroughIframe(false); // make sure iframe is closed
+
   setOpenWalkThrough(true);
 }, []);
 
@@ -129,10 +109,6 @@ const setFormSubmitted = useCallback((value) => {
           setOpenWalkThrough(true);
           break;
 
-        // case "walkthrough-iframe":
-        //   setOpenWalkthroughIframe(true);
-        //   break;
-
         default:
           break;
       }
@@ -151,10 +127,6 @@ const setFormSubmitted = useCallback((value) => {
       setOpenWalkThrough,
       openWalkThroughModal,
       openWithWalkthrough,
-
-      // openWalkthroughIframe,
-      // setOpenWalkthroughIframe,
-      // openWalkthroughIframeModal,
 
       walkthroughTarget,
       setWalkthroughTarget,

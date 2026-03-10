@@ -30,7 +30,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   const pathname = usePathname();
   const { openModal } = useModal();
-  const [isFooterVisible, setIsFooterVisible] = useState(false);
   const [mob, setMob] = useState(false);
 
   // ✅ Defer heavy background until after first paint / idle
@@ -69,54 +68,6 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
-
-  // ✅ Footer visibility watcher (unchanged, but kept efficient)
-
-  useEffect(() => {
-    const checkFooter = () => {
-      const footerCta = document.getElementById("footer-cta");
-      const footer = document.getElementById("footer");
-      const elements = [footerCta, footer].filter(Boolean);
-
-      if (elements.length === 0) {
-        setIsFooterVisible(false);
-        return;
-      }
-
-      const vh = window.innerHeight;
-
-      const anyVisible = elements.some((el) => {
-        const rect = el.getBoundingClientRect();
-        return rect.top < vh + 50 && rect.bottom > -50;
-      });
-
-      setIsFooterVisible(anyVisible);
-    };
-
-    checkFooter();
-
-    let ticking = false;
-    const throttledCheck = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          checkFooter();
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", throttledCheck, { passive: true });
-    window.addEventListener("resize", checkFooter);
-
-    const delayedCheck = setTimeout(checkFooter, 500);
-
-    return () => {
-      window.removeEventListener("scroll", throttledCheck);
-      window.removeEventListener("resize", checkFooter);
-      clearTimeout(delayedCheck);
-    };
-  }, []);
 
   return (
     <section
@@ -226,7 +177,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       </div>
 
       {/* ✅ Scroll hint extracted + dynamic */}
-      <DynamicScrollHint isFooterVisible={isFooterVisible} />
+      <DynamicScrollHint />
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
       <div className="w-screen h-[130vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />

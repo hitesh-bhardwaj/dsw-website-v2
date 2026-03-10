@@ -9,10 +9,10 @@ import {
   OrganizationJsonLd,
   WebsiteJsonLd,
 } from "@/lib/json-ld";
-import HeaderNew from "./Header/HeaderNew";
 
 // Footer (already dynamic)
 const FooterNew = dynamic(() => import("./Footer"), { ssr: false });
+const HeaderNew = dynamic(() => import("./Header/HeaderNew"), { ssr: false });
 
 // ✅ Dynamic modals (no SSR)
 const GlobalPopup = dynamic(() => import("../Modals/GlobalPopup"), { ssr: false });
@@ -33,7 +33,6 @@ const Layout = ({ children }) => {
       <ImageObjectJsonLd />
       <WebsiteJsonLd />
       <HeaderNew />
-      {/* <HeaderWithSearchData/> */}
       {children}
       <FooterNew />
       {/* ✅ All modals now lazy-loaded */}

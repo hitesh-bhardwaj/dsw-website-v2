@@ -102,7 +102,7 @@ h6 {
   /* display: block; */
   /* position: relative; */
   animation: slide 0.8s forwards;
-  animation-delay: 1.2s;
+  animation-delay: 0.8s;
 }
 
 @keyframes headingReveal {
