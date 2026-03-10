@@ -177,7 +177,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       </div>
 
       {/* ✅ Scroll hint extracted + dynamic */}
-      <DynamicScrollHint />
+      {!mob&&<DynamicScrollHint />}
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
       <div className="w-screen h-[130vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
