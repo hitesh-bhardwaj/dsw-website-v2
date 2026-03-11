@@ -449,7 +449,7 @@ export default function CoreEnterpriseSystemSticky() {
 
           {/* Pagination */}
           <div className="pagination mx-auto w-fit">
-            <div className="text-[1.67vw] max-sm:text-[5vw] text-[#1727FF] relative flex mx-auto w-fit items-baseline max-md:text-[4vw]">
+            <div className="text-[1.67vw] max-sm:text-[5vw] text-primary-blue relative flex mx-auto w-fit items-baseline max-md:text-[4vw]">
               <span ref={currRef} className="inline-block">
                 1
               </span>

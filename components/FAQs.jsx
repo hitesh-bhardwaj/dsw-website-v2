@@ -58,7 +58,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }) {
     <div className="w-full group  overflow-hidden relative z-[10] faq-tab fadeupanim accordion-block group fadeup">
       <div className="w-full mr-auto relative">
         <div className="absolute bottom-0 left-0 w-full h-[1.5px] bg-primary-blue"></div>
-        <div className={`absolute bottom-0 left-0 w-full h-[1.5px] bg--primary-blue scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ${isOpen?"scale-x-100":"scale-x-0"}`}></div>
+        <div className={`absolute bottom-0 left-0 w-full h-[1.5px] bg-primary-blue scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ${isOpen?"scale-x-100":"scale-x-0"}`}></div>
 
         <div className="inset-0 w-full relative">
           <div className="relative w-full h-full z-10 px-[3vw] max-sm:rounded-[2.5vw] content mix-blend-difference duration-300 max-sm:px-0">
@@ -71,7 +71,7 @@ function AccordionItem({ question, answer, isOpen, onToggle }) {
                 {question}
               </h3>
               <div
-                className={` h-auto relative duration-500 max-sm:w-[8vw] max-sm:h-[8vw] rounded-full border-[1.5px]  p-[2vw]  transition-all  ease-out max-sm:p-[4vw] max-md:p-[4vw] max-md:w-[10vw] max-md:h-[10vw] ${ isOpen ? " bg-[#0205FA] border-[#0205FA]" :" bg-white border-[#030815]"}  ${
+                className={` h-auto relative duration-500 max-sm:w-[8vw] max-sm:h-[8vw] rounded-full border-[1.5px]  p-[2vw]  transition-all  ease-out max-sm:p-[4vw] max-md:p-[4vw] max-md:w-[10vw] max-md:h-[10vw] ${ isOpen ? " bg-primary-blue border-primary-blue" :" bg-white border-[#030815]"}  ${
                   !isOpen ? "group-hover:rotate-[180deg]" : "group-hover:rotate-[315deg] rotate-[45deg]"
                 }`}
               >

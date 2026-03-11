@@ -80,33 +80,33 @@ function CornerDecorations() {
     <>
       {/* Top Left */}
       <div className="absolute -top-[0.25%] -left-[0.1%] w-fit h-fit group-hover/corner:-top-[3%] group-hover/corner:-left-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
+        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2.2px] -left-1/2`}
         />
       </div>
 
       {/* Top Right */}
       <div className="absolute top-[0.3%] -right-[0.5%] w-fit h-fit rotate-90 group-hover/corner:-top-[2.2%] group-hover/corner:-right-[4.5%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
+        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
         />
       </div>
 
       {/* Bottom Left */}
       <div className="absolute bottom-[0.3%] -left-[0.5%] w-fit h-fit -rotate-90 group-hover/corner:-bottom-[2.2%] group-hover/corner:-left-[4.5%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
+        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
         />
       </div>
 
       {/* Bottom Right */}
       <div className="absolute -bottom-[0.4%] -right-[0.1%] w-fit h-fit rotate-180 group-hover/corner:-bottom-[3%] group-hover/corner:-right-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-[#0205fa]`} />
+        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover/corner:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
         />
       </div>
     </>

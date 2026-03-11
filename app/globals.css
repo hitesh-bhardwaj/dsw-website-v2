@@ -7,7 +7,7 @@
   --secondary: #e61216;
   --card-bg: #eff1fb;
   --border-cards: #e1e1e1;
-  --primary-blue: #1727ff;
+  --primary-blue: #0205FA;
   --gray-1: #333333;
   --text-110: 6vw;
   --text-40: 2.2vw;
@@ -206,7 +206,7 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1727ff;
+  background: #0205FA;
   border-radius: 100px;
 }
 

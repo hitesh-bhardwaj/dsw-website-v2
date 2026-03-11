@@ -119,7 +119,7 @@ const SwiperCard = ({ title, list, duration, onHover, isActive, space }) => {
   return (
     <>
       <div
-        className="relative py-[3vw] !min-h-[60vh] h-full max-md:py-[8vw] max-md:px-[8vw] rounded-[1.5vw] overflow-hidden w-[36vw] px-[2.5vw] max-md:min-h-[60vh] max-sm:min-h-[70vh] max-md:h-fit max-md:w-full max-sm:w-[95%] max-sm:mx-auto max-md:rounded-[6vw] border border-[#0205FA] group cursor-grab hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out "
+        className="relative py-[3vw] !min-h-[60vh] h-full max-md:py-[8vw] max-md:px-[8vw] rounded-[1.5vw] overflow-hidden w-[36vw] px-[2.5vw] max-md:min-h-[60vh] max-sm:min-h-[70vh] max-md:h-fit max-md:w-full max-sm:w-[95%] max-sm:mx-auto max-md:rounded-[6vw] border border-primary-blue group cursor-grab hover:bg-[#EFF1FB] transition-all duration-300 ease-in-out "
         onMouseEnter={onHover}
       >
         <div

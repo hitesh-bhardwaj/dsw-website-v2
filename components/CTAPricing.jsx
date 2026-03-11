@@ -5,7 +5,6 @@ import { useRef, useEffect } from "react";
 
 import HeadingAnim from "./Animations/HeadingAnim";
 
-
 export default function CTAPricing() {
   return (
     <section className="relative w-full h-fit bg-white pt-[7%] px-[5vw] max-md:px-[6vw] overflow-hidden mb-[-5vw] max-md:mb-0 max-sm:px-[7vw] max-sm:h-fit max-sm:py-[15%] max-md:py-[15%]">
@@ -570,7 +569,7 @@ const Background = () => {
           y2="341.031"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -581,7 +580,7 @@ const Background = () => {
           y2="341.031"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -592,7 +591,7 @@ const Background = () => {
           y2="18.2009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
 
@@ -604,7 +603,7 @@ const Background = () => {
           y2="18.2009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -615,7 +614,7 @@ const Background = () => {
           y2="341.031"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -626,7 +625,7 @@ const Background = () => {
           y2="341.031"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -637,7 +636,7 @@ const Background = () => {
           y2="664.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
 
@@ -649,7 +648,7 @@ const Background = () => {
           y2="664.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -660,7 +659,7 @@ const Background = () => {
           y2="664.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -671,7 +670,7 @@ const Background = () => {
           y2="664.201"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -682,7 +681,7 @@ const Background = () => {
           y2="18.2009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
         <linearGradient
@@ -693,7 +692,7 @@ const Background = () => {
           y2="18.2009"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0.51" stopColor="#1727FF" />
+          <stop offset="0.51" stopColor="#0205FA" />
           <stop offset="1" stopColor="white" stopOpacity="0" />
         </linearGradient>
       </defs>

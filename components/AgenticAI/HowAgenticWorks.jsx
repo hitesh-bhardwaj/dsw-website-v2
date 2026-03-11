@@ -141,7 +141,7 @@ const HowAgenticWorks = () => {
          - last TEXT stays blue always
          - card BG animates normally (NO permanent last card bg)
       ========================= */
-      const PRIMARY_BLUE = "#1727ff";
+      const PRIMARY_BLUE = "#0205FA";
       const INACTIVE = "#111111";
 
       const splits = textBlockRefs.current.map((el) => {

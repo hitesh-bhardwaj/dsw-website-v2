@@ -162,7 +162,7 @@ export default function FooterNew() {
                     rel="noopener noreferrer"
                     aria-label={`Visit Data Science Wizards on ${social.name}`}
                     title={`Data Science Wizards on ${social.name}`}
-                    className="w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-[#1727ff]"
+                    className="w-auto h-[2.2vw] max-md:h-[6vw] max-md:w-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] max-sm:w-auto text-foreground hover:text-primary-blue"
                   >
                     <span aria-hidden="true" className="block h-full w-full">
                       {social.icon}
@@ -187,7 +187,7 @@ export default function FooterNew() {
                   <li key={item.id}>
                     <AnimatedHoverLink
                       href={item.link}
-                      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
+                      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-primary-blue transition-colors duration-300 block max-sm:text-[5vw]"
                       // optional if you want strict height:
                       maskClassName="h-[1.75vw] max-sm:h-[7vw] max-md:h-[4vw]"
                     >
@@ -213,7 +213,7 @@ export default function FooterNew() {
                       {...(item.id === "join-community"
                         ? { target: "_blank", rel: "noopener noreferrer" }
                         : {})}
-                      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-[#1727ff] transition-colors duration-300 block max-sm:text-[5vw]"
+                      className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-primary-blue transition-colors duration-300 block max-sm:text-[5vw]"
                     >
                       {item.title}
                     </AnimatedHoverLink>

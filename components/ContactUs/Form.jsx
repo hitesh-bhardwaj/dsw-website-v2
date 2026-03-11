@@ -99,7 +99,7 @@ const Form = () => {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-primary-blue`}
                   >
                     {social.icon}
                   </Link>
@@ -137,7 +137,7 @@ const Form = () => {
                     key={social.name}
                     href={social.url}
                     target="_blank"
-                    className={`w-auto h-[2.2vw] max-md:h-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-[#1727ff]`}
+                    className={`w-auto h-[2.2vw] max-md:h-[6vw] relative duration-500 transition-all hover:scale-[0.95] block max-sm:h-[10vw] text-foreground hover:text-primary-blue`}
                   >
                     {social.icon}
                   </Link>
