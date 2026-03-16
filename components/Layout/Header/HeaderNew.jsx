@@ -302,7 +302,7 @@ export default function HeaderNew() {
                 <SecondaryButton text="Contact Us" href="/contact-us" />
                 <PrimaryButton
                   text="Join a Live Demo"
-                  href="/live-demo"
+                  href="#"
                   className="px-[1.7vw]!"
                 />
               </div>

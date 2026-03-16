@@ -207,7 +207,7 @@ export const NAV_LINKS = [
   {
     id: "live-demo",
     label: "Join a Live Demo",
-    href: "/live-demo",
+    href: "#",
     drop: false,
   },
 ];
