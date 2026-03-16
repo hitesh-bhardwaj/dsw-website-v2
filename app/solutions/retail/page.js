@@ -92,7 +92,7 @@ const heroContent = {
 
 const runtimeContent = {
   heading:
-    "Retail AI is deployed across channels. It is not yet operating as one system.",
+    "Retail AI is deployed across channels.<br/> It is not yet operating as one system.",
 
   description:
     "Most retailers run AI across demand forecasting, personalization, and supply chain. Few can operate it continuously across stores, digital, and fulfilment environments.",
@@ -185,7 +185,7 @@ const featuresContent = {
         "Run personalization, engagement, and retention inside governed execution workflows.",
       bullets: [
         "Customer segmentation intelligence",
-        "Next-best engagement actions",
+        "Next - best engagement actions",
         "Loyalty and retention insights",
       ],
     },
@@ -223,7 +223,7 @@ const workflowsContent = {
     { number: "02", title: "Category performance analytics" },
     { number: "03", title: "Supplier and vendor performance monitoring" },
     { number: "04", title: "Returns and reverse logistics optimization" },
-    { number: "05", title: "Basket analysis and cross-sell intelligence" },
+    { number: "05", title: "Basket analysis and cross - sell intelligence" },
     { number: "06", title: "Customer lifetime value modelling" },
     { number: "07", title: "Fulfilment cost optimization" },
     { number: "08", title: "Omnichannel experience intelligence" },
@@ -253,7 +253,7 @@ const benefitsContent = {
   sectionId: "finacle-outcomes",
 
   heading:
-    "Scale Retail AI without governance gaps, lock-in, or operational fragmentation",
+    "Scale Retail AI without governance gaps, lock - in, or operational fragmentation",
 
   points: [
     {
@@ -287,7 +287,7 @@ const benefitsContent = {
 
 const ctaContent={
   heading:"Operate Retail AI as infrastructure",
-  para:"See how the DSW Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
+  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
   primaryButton:{
     present:true,
     link:"#",
@@ -305,7 +305,7 @@ const ctaContent={
 
 const operationsContent = {
   heading:
-    "Kernel-Governed Execution across commerce, supply chain, and store operations",
+    "Kernel - Governed Execution across commerce, supply chain, and store operations",
 
   tabs: [
     {
@@ -313,7 +313,7 @@ const operationsContent = {
       intro:
         "Policies operate inside pricing, merchandising, and operational workflows.",
       bullets: [
-        "Governance-as-code at runtime",
+        "Governance - as - code at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility embedded into execution",
       ],
@@ -326,8 +326,8 @@ const operationsContent = {
         "Operate ML and agentic systems in one governed environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time inference control",
-        "Human-in-the-loop decision boundaries",
+        "Real - time inference control",
+        "Human - in - the - loop decision boundaries",
       ],
     },
 
@@ -339,7 +339,7 @@ const operationsContent = {
       bullets: [
         "Works with existing commerce and enterprise platforms",
         "Enables modernization without system replacement",
-        "Expands ecosystem without vendor lock-in",
+        "Expands ecosystem without vendor lock - in",
       ],
     },
 
@@ -349,7 +349,7 @@ const operationsContent = {
       intro:
         "Operate entirely within retailer environments.",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],

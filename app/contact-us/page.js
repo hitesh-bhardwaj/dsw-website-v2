@@ -69,7 +69,7 @@ const heroContent = {
 
 const ctaContent={
   heading:"Own How AI Runs in Your Enterprise  ",
-  para:"DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
+  para:"DSW UnifyAI is the enterprise AI operating system layer that sits on top of your existing  infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale. ",
   primaryButton:{
     present:true,
     link:"#",

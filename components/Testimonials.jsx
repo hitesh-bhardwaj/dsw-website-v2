@@ -21,7 +21,7 @@ const TESTIMONIALS = [
   {
     type: "testimonial",
     quote:
-      "With DSW's insurance-specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.",
+      "With DSW's insurance - specific solutions on top of its robust AI platform, we've been able to move use cases into production quickly.",
     name: "Ritesh Rathod",
     title: "Chief Strategy and Data Officer, Canara HSBC",
     avatar: "/profile-ritesh.png",
@@ -34,7 +34,7 @@ const TESTIMONIALS = [
   {
     type: "testimonial",
     quote:
-      "DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.",
+      "DSW UnifyAI simplified our data - driven approach, enabling easy development of AI - powered use cases.",
     name: "Stefano Bonfa",
     title: "Director, OxSDE, Europe",
     avatar: "/profile-stefano.png",

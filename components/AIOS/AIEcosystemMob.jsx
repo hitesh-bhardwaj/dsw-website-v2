@@ -19,7 +19,7 @@ const AIEcosystemMob = ({ecosystemItems}) => {
   const SLIDES = useMemo(
     () => [
      {
-    title: "Kernel-level governance",
+    title: "Kernel - level governance",
     bullets: [
       "Policies execute as code",
       "Audit, traceability, and reversibility are native",
@@ -37,7 +37,7 @@ const AIEcosystemMob = ({ecosystemItems}) => {
   {
     title: "AI as enterprise infrastructure",
     bullets: [
-      "Long-running, production-grade execution",
+      "Long - running, production - grade execution",
       "Independent of vendors, clouds, or tools",
       "Fully owned and operated by your enterprise",
     ],

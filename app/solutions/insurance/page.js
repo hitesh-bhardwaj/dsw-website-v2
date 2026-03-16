@@ -91,7 +91,7 @@ const heroContent = {
 
 const runtimeContent = {
   heading:
-    "From disconnected models to runtime- governed insurance execution",
+    "From disconnected models to runtime - governed insurance execution",
   description:
     "Most insurers already run models in underwriting, claims, and fraud. Few can operate them continuously across the enterprise.",
   items: [
@@ -147,7 +147,7 @@ const featuresContent = {
     "Build unlimited Insurance AI and Agentic AI use cases. Scale without new stacks or vendors.",
   cards: [
     {
-      title: "Runtime-governed underwriting and risk intelligence",
+      title: "Runtime - governed underwriting and risk intelligence",
       description:
         "Deploy underwriting models with controlled decisioning and continuous monitoring.",
       bullets: [
@@ -157,7 +157,7 @@ const featuresContent = {
       ],
     },
     {
-      title: "Claims execution with policy-aware automation",
+      title: "Claims execution with policy - aware automation",
       description:
         "Operate FNOL, triage, and adjudication with accountable AI workflows.",
       bullets: [
@@ -183,7 +183,7 @@ const featuresContent = {
       bullets: [
         "Underwriter decision assist",
         "Claims adjuster copilots",
-        "Compliance-aligned operations support",
+        "Compliance - aligned operations support",
       ],
     },
     {
@@ -191,7 +191,7 @@ const featuresContent = {
       description:
         "Enable internal GenAI systems with controlled access and runtime governance.",
       bullets: [
-        "Role-based knowledge retrieval",
+        "Role - based knowledge retrieval",
         "Traceable citations",
         "Tool usage governed at runtime",
       ],
@@ -249,7 +249,7 @@ const benefitsContent = {
 
 const ctaContent={
   heading:"Operate Insurance AI as Enterprise Infrastructure  ",
-  para:"See how the DSW Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
+  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
   primaryButton:{
     present:true,
     link:"#",
@@ -265,13 +265,13 @@ const ctaContent={
 }
 
 const operationsContent = {
-  heading: "Kernel-governed execution across underwriting, claims, and operations",
+  heading: "Kernel - governed execution across underwriting, claims, and operations",
   tabs: [
     {
       label: "Governance enforced where AI runs",
       intro: "Policies execute inside workflows, not outside them.",
       bullets: [
-        "Governance-as-code at runtime",
+        "Governance - as - code at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility embedded into execution",
       ],
@@ -281,8 +281,8 @@ const operationsContent = {
       intro: "Operate ML and agentic execution within one controlled environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time and batch inference control",
-        "Human-in-the-loop boundaries",
+        "Real - time and batch inference control",
+        "Human - in - the - loop boundaries",
       ],
     },
     {
@@ -291,14 +291,14 @@ const operationsContent = {
       bullets: [
         "Works with core systems and decision engines",
         "Enables modernization without disruption",
-        "Expands ecosystem without vendor lock-in",
+        "Expands ecosystem without vendor lock - in",
       ],
     },
     {
       label: "Full enterprise custody of AI infrastructure and assets",
       intro: "Operate entirely within your environment with ownership intact.",
       bullets: [
-        "On-prem, cloud, or hybrid",
+        "On - prem, cloud, or hybrid",
         "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],
@@ -308,8 +308,8 @@ const operationsContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Tailor - made for regulated insurance environments",
+  subtext: "Designed for compliance-driven, risk - sensitive operations.",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };

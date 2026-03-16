@@ -15,7 +15,7 @@ const CARD_DATA = [
     },
     {
         id: 3,
-        title: "But production-scale AI became slow, fragmented, and hard to govern",
+        title: "But production - scale AI became slow, fragmented, and hard to govern",
     },
 ];
 
@@ -49,7 +49,7 @@ const DSWArrival = () => {
             </HeadingAnim>
 
             <Copy>
-                <p className="text-30 w-[70%] max-sm:w-full text-center font-sans leading-[1.4] text-foreground mx-auto max-md:w-[90%]">DSW started with hands-on enterprise AI work - building models, deploying use cases, and
+                <p className="text-30 w-[70%] max-sm:w-full text-center font-sans leading-[1.4] text-foreground mx-auto max-md:w-[90%]">DSW started with hands - on Enterprise AI work - building models, deploying use cases, and
                     driving outcomes.
                     But across organizations, the same pattern kept repeating</p>
             </Copy>

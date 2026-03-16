@@ -31,7 +31,7 @@ const data = [
   },
   {
     icon: <Owned />,
-    title: "Owned end-to-end by the enterprise",
+    title: "Owned end - to - end by the enterprise",
     isHighlighted: false,
   },
 ];
@@ -60,7 +60,7 @@ export default function WhatWeBelieve() {
           scrollTrigger: {
             trigger: '.about-believe-cards',
             start: "25% 70%",
-            end:'bottom bottom',
+            end:'bottom 20%',
             scrub:true,
             // markers:true
           },

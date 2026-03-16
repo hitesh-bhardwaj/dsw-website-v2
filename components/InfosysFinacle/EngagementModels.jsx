@@ -8,19 +8,19 @@ const CARD_DATA = [
         id: 1,
         title: "Managed Open Source Services",
         description:
-            "End-to-end deployment, monitoring, patching, and optimization of Finacle open-source components.",
+            "End - to - end deployment, monitoring, patching, and optimization of Finacle open - source components.",
     },
     {
         id: 2,
         title: "Skill Enablement",
         description:
-            "Ongoing workshops, certifications, and co-created enablement programs to strengthen Finacle and client teams.",
+            "Ongoing workshops, certifications, and co - created enablement programs to strengthen Finacle and client teams.",
     },
     {
         id: 3,
         title: "Innovation Catalyst",
         description:
-            "Continuous research and evaluation of emerging open-source technologies to enrich Finacle’s global roadmap and performance benchmarks.",
+            "Continuous research and evaluation of emerging open - source technologies to enrich Finacle’s global roadmap and performance benchmarks.",
     },
 ];
 

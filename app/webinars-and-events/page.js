@@ -57,8 +57,8 @@ export default AgenticAI;
 
 const heroContent = {
   
-  heading: "Stay Ahead with Live Insights, Expert Panels & Hands-On Learning",
-  para:"At Data Science Wizards, we don’t just talk about AI—we show you how to build it, deploy it, and scale it securely in the enterprise. Our webinars, virtual sessions, and live events are designed to help decision-makers, technologists, and innovators stay ahead in the fast-moving world of AI and GenAI.​",
+  heading: "Stay Ahead with Live Insights, Expert Panels & Hands - On Learning",
+  para:"At Data Science Wizards, we don’t just talk about AI - we show you how to build it, deploy it, and scale it securely in the enterprise. Our webinars, virtual sessions, and live events are designed to help decision - makers, technologists, and innovators stay ahead in the fast - moving world of AI and GenAI.​",
   primaryButton: {
     present: false,
     link: "#",

@@ -6,7 +6,6 @@ import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
 import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
 import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
@@ -14,10 +13,7 @@ import WorkFlows from "@/components/Solution/WorkFlows";
 import { Fraud } from "@/components/Svg/Solutions/Banking/Fraud";
 import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import { UseCase } from "@/components/Svg/Solutions/Banking/UseCase";
-import Claims from "@/components/Svg/Solutions/Claims";
 import Focus from "@/components/Svg/Solutions/Focus";
-import Nodes from "@/components/Svg/Solutions/Nodes";
-import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
 import React from "react";
@@ -88,12 +84,12 @@ const heroContent = {
   paraWidth: "w-[60%]",
   images: false,
   para:
-    "Build, integrate, deploy, govern, and operate AI as a long-running enterprise system - inside your own environment, with full control, auditability, and accountability.",
+    "Build, integrate, deploy, govern, and operate AI as a long - running enterprise system - inside your own environment, with full control, auditability, and accountability.",
 };
 
 const runtimeContent = {
   heading:
-    "Banking has moved past AI pilots. Now it must operate AI.",
+    "Banking has moved past AI pilots.<br/> Now it must operate AI.",
   description:
     "Most banks have models in production. Few have a system to operate them continuously across lines of business.",
   items: [
@@ -119,7 +115,7 @@ const runtimeContent = {
 
 const breaksContent = {
   tagline:
-    "Banks are moving from isolated AI initiatives to always-on execution across onboarding, credit, fraud, collections, servicing, and regulatory workflows.",
+    "Banks are moving from isolated AI initiatives to always - on execution across onboarding, credit, fraud, collections, servicing, and regulatory workflows.",
   heading:
     "Where AI execution breaks inside banks today",
   challenges: [
@@ -148,17 +144,17 @@ const breaksContent = {
 
 const featuresContent = {
   heading:
-    "High-impact Banking Use Cases on the AI Operating System",
+    "High - Impact Banking Use Cases on DSW UnifyAI OS",
 
   cards: [
     {
       title: "KYC / AML Intelligence and Continuous Monitoring",
       description:
-        "Run onboarding and transaction monitoring as governed, real-time pipelines across customer data, behavioral signals, and alerts.",
+        "Run onboarding and transaction monitoring as governed, real - time pipelines across customer data, behavioral signals, and alerts.",
       bullets: [
         "Continuous risk scoring",
         "Suspicious activity monitoring acceleration",
-        "Audit-ready lineage across models and decisions",
+        "Audit - ready lineage across models and decisions",
       ],
     },
 
@@ -178,7 +174,7 @@ const featuresContent = {
       description:
         "Predict early delinquency, prioritize accounts, and optimize outreach strategies.",
       bullets: [
-        "Policy-aware automation",
+        "Policy - aware automation",
         "Traceable decision pathways",
         "Reversible workflows across customer engagement actions",
       ],
@@ -188,7 +184,7 @@ const featuresContent = {
       title:
         "Agentic Copilots for Relationship Managers, Operations, and Compliance",
       description:
-        "Support frontline and operations teams with contextual insights, policy checks, and next-best actions.",
+        "Support frontline and operations teams with contextual insights, policy checks, and next - best actions.",
       bullets: [
         "RM copilots for portfolio insights",
         "Compliance copilots for policy adherence",
@@ -202,7 +198,7 @@ const featuresContent = {
         "Enable governed enterprise knowledge across policy, product, risk, and operational content.",
       bullets: [
         "Controlled retrieval and citations",
-        "Role-based access enforcement",
+        "Role - based access enforcement",
         "Tool usage governed at runtime",
       ],
     },
@@ -213,13 +209,13 @@ const featuresContent = {
 const workflowsContent = {
   heading: "Unlimited Use Cases with a Single Subscription.",
   para:"",
-  para:"No more use-case-based cost barrier.",
+  para:"No more use - case - based cost barrier.",
   items: [
     { number: "01", title: "Fraud detection and anomaly monitoring" },
     { number: "02", title: "Transaction monitoring triage" },
     { number: "03", title: "Underwriting decision intelligence" },
     { number: "04", title: "Customer churn prediction and retention" },
-    { number: "05", title: "Next-best offer and personalization" },
+    { number: "05", title: "Next - best offer and personalization" },
     { number: "06", title: "Contact center assist and QA analytics" },
     { number: "07", title: "Dispute and chargeback workflow support" },
     { number: "08", title: "Treasury and liquidity forecasting" },
@@ -230,7 +226,7 @@ const workflowsContent = {
 
 
 const caseStudyContent = {
-  heading: "Running Real-Time Banking Decisions on a Unified AI Runtime",
+  heading: "Running Real - Time Banking Decisions on a Unified AI Runtime",
   subheading: "Real deployment. Measurable operational impact.",
   company: "Castler",
   description:
@@ -246,7 +242,7 @@ const caseStudyContent = {
 };
 
 const benefitsContent = {
-  sectionId: "finacle-outcomes",
+  sectionId: "finacle - outcomes",
 
   heading:
     "From fragmented AI to an enterprise operating model",
@@ -275,7 +271,7 @@ const benefitsContent = {
     {
       id: "05",
       text:
-        "Move from fragmented AI adoption to enterprise-wide AI operations",
+        "Move from fragmented AI adoption to enterprise - wide AI operations",
     },
   ],
 };
@@ -283,7 +279,7 @@ const benefitsContent = {
 
 const ctaContent={
   heading:"Operate AI as Infrastructure Inside your Bank ",
-  para:"Experience the DSW Enterprise AI Operating System ",
+  para:"Experience DSW UnifyAI OS - The Enterprise AI Operating System ",
   primaryButton:{
     present:true,
     link:"#",
@@ -307,7 +303,7 @@ const operationsContent = {
       label: "The AI OS Kernel: governance enforced where AI executes",
       intro: "The governed control plane for AI execution.",
       bullets: [
-        "Governance-as-code enforced at runtime",
+        "Governance - as - code enforced at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility built into execution",
       ],
@@ -318,18 +314,18 @@ const operationsContent = {
       intro: "Unified execution across ML and agentic systems.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time and batch inference control",
-        "Agent autonomy boundaries and human-in-the-loop oversight",
+        "Real - time and batch inference control",
+        "Agent autonomy boundaries and human - in - the - loop oversight",
       ],
     },
 
     {
-      label: "AI Fabric: integrate the banking ecosystem without lock-in",
+      label: "AI Fabric: integrate the banking ecosystem without lock - in",
       intro: "Integration layer across existing banking ecosystems.",
       bullets: [
         "Connect core banking, data platforms, decision engines, and enterprise systems",
-        "Avoid rip-and-replace modernization",
-        "Enable ecosystem expansion without lock-in",
+        "Avoid rip - and - replace modernization",
+        "Enable ecosystem expansion without lock - in",
       ],
     },
 
@@ -337,7 +333,7 @@ const operationsContent = {
       label: "Enterprise deployment: run entirely within your environment",
       intro: "Operate entirely within the bank’s environment.",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of models, data, artifacts, and IP",
         "No outbound learning or forced SaaS dependency",
       ],

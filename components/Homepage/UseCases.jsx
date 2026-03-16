@@ -148,7 +148,7 @@ const USE_CASES = [
     title: "Insurance-specific for AI, GenAI, agentic workflows",
     items: [
       "Early claim fraud detection",
-      "Claims decisioning & straight-through processing",
+      "Claims decisioning & straight - through processing",
       "Underwriting triage & risk scoring",
       "Customer service copilots (policy queries, documentation, endorsements)",
       "Agentic workflows for FNOL, claims routing, policy servicing",
@@ -156,7 +156,7 @@ const USE_CASES = [
   },
   {
     id: 3,
-    title: "Telecom for network, customer, and field-ops intelligence",
+    title: "Telecom for network, customer, and field - ops intelligence",
     items: [
       "Predictive maintenance",
       "NOC automation with agentic workflows",

@@ -17,34 +17,42 @@ const Form = () => {
           <div className="h-[35%]  space-y-[1.5vw] max-md:space-y-[7vw] max-sm:space-y-[10vw]">
             <HeadingAnim>
               <h2 className="w-[85%] max-md:w-full text-76  font-head text-[#0A1B4B] leading-[1.2]">
-               Get a Full Demo
+               Join a Live Demo
               </h2>
             </HeadingAnim>
 
             <div className="w-[83%]  space-y-[2vw] max-md:text-left max-md:w-full max-md:space-y-[4vw]">
               <Copy>
+                <p className=" text-30 mb-[2vw]">See the Enterprise AI Operating System in Action</p>
                 <p className="text-24 font-normal max-md:text-left">
-                AI is moving faster than the infrastructure built to support it. Legacy systems can’t keep pace with the exabyte-scale, real-time demands of millions of AI agents. VAST AI OS changes that.
+                AI is moving rapidly into production, yet most enterprises still operate through fragmented models, agents, tools, and vendors. What organizations need now is not another AI tool, but a system to operate AI securely and at scale.
                 </p>
               </Copy>
                <Copy>
                 <p className="text-24 font-normal max-md:text-left">
-                Built on our Disaggregated Shared Everything (DASE) architecture, it unifies storage, database, and AI compute into a single, AI-native platform - giving every GPU simultaneous access to all your data for limitless scale and speed.
-
+                <span className="font-medium">DSW UnifyAI OS – The Enterprise AI Operating System</span> enables enterprises to build, integrate, deploy, govern, and operate AI and Agentic AI within their own environment.
+                </p>
+              </Copy>
+               <Copy>
+                <p className="text-24 font-normal max-md:text-left">
+                Join our live demo to see how enterprises move from fragmented AI initiatives to a governed system for operating AI in production.
                 </p>
               </Copy>
                <Copy>
                 <div className="text-24 font-normal max-md:text-left">
-                Join our live demo, offered every Tuesday and Thursday, to:
+                Our live sessions walk through real enterprise AI workflows running on UnifyAI OS.
+                 <br/>
+                You will see:
                 <ul className="pl-[2vw] py-[1vw] list-disc space-y-[0.5vw]">
-                    <li>See how the VAST AI OS powers the Agentic Age of AI</li>
-                    <li>Discover how DASE eliminates bottlenecks and complexity</li>
-                    <li>Learn how to cut costs and accelerate AI projects</li>
+                    <li>AI and Agentic AI lifecycle in action</li>
+                    <li>Runtime governance and execution control</li>
+                    <li>Enterprise AI deployment architecture</li>
+                    <li>Real - world enterprise use cases</li>
                 </ul>
                 </div>
               </Copy>
               <Copy>
-                <p className="text-24 font-normal max-md:text-left">Reserve your spot - this is a demo you don’t want to miss. <br/> Want a deep dive? <span className="text-primary-blue">Schedule a personalized demo.</span> </p>
+                <p className="text-24 font-normal max-md:text-left">Want a deeper look? <span className="text-primary-blue">Schedule a personalized demo.</span> </p>
               </Copy>
             </div>
           </div>

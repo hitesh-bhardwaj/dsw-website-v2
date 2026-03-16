@@ -230,7 +230,7 @@ export default function FooterNew() {
         <div className="flex items-end justify-between pt-[4.5vw] max-sm:justify-center">
           <div className="w-[18vw] max-md:w-[22vw] max-md:h-[10vw] h-auto relative max-sm:hidden">
             <Image
-              src="/assets/dsw-logo.svg"
+              src="/assets/icons/dsw-logo-bottom.png"
               alt="Data Science Wizards"
               width={200}
               height={200}

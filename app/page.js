@@ -56,7 +56,7 @@ export default function Home() {
           <Features />
           <CoreEnterpriseSystemSticky />
           <UseCases />
-          <AlwaysOnAI content={tourContent} />
+          <AlwaysOnAI content={tourContent} walkthrough={true} />
           <ClientsBlur />
           <RealWorldOutcomes />
           <CTAPricing />
@@ -71,7 +71,7 @@ export default function Home() {
 
 const heroContent = {
   tagline: "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
-  heading: "DSW UnifyAI OS - The Enterprise AI Operating System",
+  heading: "<span class='text-primary-blue shimmer-text'>DSW UnifyAI OS</span><br/>The Enterprise AI Operating System",
   primaryButton: {
     present: true,
     book: true,
@@ -102,15 +102,15 @@ const ctaContent = {
 }
 
 const tourContent = {
-  heading: "Always-On AI. Built as Infrastructure.",
-  para: "AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously",
+  heading: "Always - On AI. Built as Infrastructure.",
+  para: "AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously. <span class='text-primary-blue'>Take a lightning walkthrough now</span>",
   tagline: "UnifyAI OS makes this possible by running as part of your core enterprise architecture."
 }
 
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Designed For Regulated Enterprises. Proven in BFSI.",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  subtext: "Designed for compliance - driven, risk - sensitive operations.",
   footerText:
     "Enabling enterprise teams to operate AI at scale.",
 };

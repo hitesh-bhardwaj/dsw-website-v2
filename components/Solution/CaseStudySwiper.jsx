@@ -200,7 +200,7 @@ export default CaseStudySwiper;
       id: 3,
       company: "Customer Unification",
       description:
-        "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity,operational scale, and patient-first principles",
+        "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity,operational scale, and patient - first principles",
       imgSrc: "/assets/case-studies/insurance/customer-data.png",
       button: {
         present: true,
@@ -214,7 +214,7 @@ export default CaseStudySwiper;
       company: "Sales Performance Dashboard",
       description:
         "India’s leading Life Insurance company is a leading insurer in India, serving diverse markets across the country with a wide range of insurance solutions.",
-      imgSrc: "/assets/case-studies/insurance/mahindra.png",
+      imgSrc: "/assets/case-studies/case-study-sales-dashboard.png",
       button: {
         present: true,
         text: "Download Case Study",
@@ -239,7 +239,7 @@ export default CaseStudySwiper;
       id: 6,
       company: "PIVC",
       description:
-        "This Insurance company is a top-tier life insurer in India, serving millions across urban and rural markets.",
+        "This Insurance company is a top - tier life insurer in India, serving millions across urban and rural markets.",
       imgSrc: "/assets/case-studies/insurance/pivc.png",
       button: {
         present: true,

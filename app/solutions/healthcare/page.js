@@ -224,7 +224,7 @@ const workflowsContent = {
     { number: "05", title: "Clinical quality monitoring" },
     { number: "06", title: "Supply chain and procurement intelligence" },
     { number: "07", title: "Clinical trial operations support" },
-    { number: "08", title: "Payer-provider collaboration intelligence" },
+    { number: "08", title: "Payer - provider collaboration intelligence" },
     { number: "09", title: "Compliance monitoring workflows" },
     { number: "10", title: "Model governance workflows" },
   ],
@@ -236,9 +236,9 @@ const caseStudyContent = {
   subheading: "Real deployment. Measurable operational impact.",
   company: "Customer Unification",
   description:
-    "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient-first principles. ",
+    "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient - first principles. ",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-healthcare.png",
+  imgSrc:"/assets/case-studies/insurance/customer-data.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -251,7 +251,7 @@ const benefitsContent = {
   sectionId: "finacle-outcomes",
 
   heading:
-    "Scale Healthcare AI without governance gaps, lock-in, or operational fragmentation",
+    "Scale Healthcare AI without governance gaps, lock - in, or operational fragmentation",
 
   points: [
     {
@@ -285,7 +285,7 @@ const benefitsContent = {
 
 const ctaContent={
   heading:"Operate Healthcare AI as Infrastructure",
-  para:"See how the DSW Enterprise AI Operating System governs execution across clinical care, patient engagement, revenue cycle, and operational environments.",
+  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across clinical care, patient engagement, revenue cycle, and operational environments.",
   primaryButton:{
     present:true,
     link:"#",
@@ -302,7 +302,7 @@ const ctaContent={
 
 const operationsContent = {
   heading:
-    "Kernel-governed execution across care, operations, and revenue workflows",
+    "Kernel - governed execution across care, operations, and revenue workflows",
 
   tabs: [
     {
@@ -311,7 +311,7 @@ const operationsContent = {
       intro:
         "Policies operate inside clinical and operational environments.",
       bullets: [
-        "Governance-as-code at runtime",
+        "Governance - as - code at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility embedded into execution",
       ],
@@ -324,8 +324,8 @@ const operationsContent = {
         "Operate ML and agentic systems within one governed execution environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time inference control",
-        "Human-in-the-loop decision boundaries",
+        "Real - time inference control",
+        "Human - in - the - loop decision boundaries",
       ],
     },
 
@@ -337,17 +337,17 @@ const operationsContent = {
       bullets: [
         "Works with existing healthcare systems and data environments",
         "Enables modernization without system replacement",
-        "Expands ecosystem without vendor lock-in",
+        "Expands ecosystem without vendor lock - in",
       ],
     },
 
     {
       label:
-        "Enterprise custody of healthcare AI infrastructure and PHI-sensitive assets",
+        "Enterprise custody of healthcare AI infrastructure and PHI - sensitive assets",
       intro:
         "Operate entirely within healthcare environments.",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],

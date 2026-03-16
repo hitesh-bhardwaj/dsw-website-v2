@@ -93,7 +93,7 @@ const heroContent = {
 
 const runtimeContent = {
   heading:
-    "Industrial AI exists on the floor. It is not yet operationalized.",
+    "Industrial AI exists on the floor.<br/> It is not yet operationalized.",
 
   description:
     "Most manufacturers run AI across predictive maintenance, quality, and planning. Few can operate it continuously across plants, lines, and supply networks.",
@@ -290,7 +290,7 @@ const benefitsContent = {
 
 const ctaContent={
   heading:"Operate Manufacturing AI as infrastructure",
-  para:"See how the DSW Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence. ",
+  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence. ",
   primaryButton:{
     present:true,
     link:"#",
@@ -308,7 +308,7 @@ const ctaContent={
 
 const operationsContent = {
   heading:
-    "Kernel-governed execution across plant, supply chain, and operations",
+    "Kernel - governed execution across plant, supply chain, and operations",
 
   tabs: [
     {
@@ -316,7 +316,7 @@ const operationsContent = {
       intro:
         "Policies operate inside plant and operational workflows.",
       bullets: [
-        "Governance-as-code at runtime",
+        "Governance - as - code at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility embedded into execution",
       ],
@@ -329,8 +329,8 @@ const operationsContent = {
         "Operate ML and agentic systems within one governed environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time inference control",
-        "Human-in-the-loop operational boundaries",
+        "Real - time inference control",
+        "Human - in - the - loop operational boundaries",
       ],
     },
 
@@ -352,7 +352,7 @@ const operationsContent = {
       intro:
         "Operate entirely within industrial environments.",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],

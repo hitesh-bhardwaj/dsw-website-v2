@@ -113,9 +113,7 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans w-[50%] max-md:w-full mx-auto max-sm:w-full">
-              {content.para}
-            </p>
+            <p className="text-30 font-sans w-[60%] max-md:w-full mx-auto max-sm:w-full"  dangerouslySetInnerHTML={{ __html: content?.para || "" }}/>
           </Copy>
         </div>
 
@@ -125,9 +123,9 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
             alt="DSW UnifyAI Dashboard"
             width={800}
             height={700}
-            className="object-contain h-full w-full"
+            className="object-contain h-full w-full brightness-90"
           />
-          <div className={`w-fit h-fit absolute top-[45%] left-[43%] max-sm:top-[40%] max-md:left-1/2 max-md:-translate-x-1/2 ${walkthrough ? "" : "hidden"}`}>
+          <div className={`w-fit h-fit absolute top-[45%] left-[41%] max-sm:top-[40%] max-md:left-1/2 max-md:-translate-x-1/2 ${walkthrough ? "" : "hidden"}`}>
             <PrimaryButton text={"Start Walkthrough"} href={"#"} onClick={(e) => {
               e.preventDefault();
               openWalkthroughSmart(walkthroughTarget);

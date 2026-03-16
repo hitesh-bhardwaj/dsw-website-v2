@@ -27,12 +27,12 @@ export default function RealWorldOutcomes() {
             <div className="text-center space-y-[1vw] max-sm:space-y-[7vw]">
                 <HeadingAnim>
                 <h2 className="text-76 text-[#0A1B4B]">
-                    Real-World Outcomes
+                    Real - World Outcomes
                 </h2>
                 </HeadingAnim>
                 <Copy>
                 <p className="text-30">
-                    Enterprises use DSW UnifyAI OS - the Enterprise AI Operating System to: 
+                    Enterprises use DSW UnifyAI OS - The Enterprise AI Operating System to: 
 
                 </p>
                 </Copy>
@@ -76,12 +76,12 @@ export default function RealWorldOutcomes() {
         {
             number: "02",
             title: "Eliminate unpredictable per-use-case AI costs",
-            description: "Single-subscription model replacing per-model and per-agent pricing",
+            description: "Single - subscription model replacing per - model and per-agent pricing",
             position: "col-start-3"
         },
         {
             number: "03",
-            title: "Operate audit-ready AI systems by default",
+            title: "Operate audit - ready AI systems by default",
             description: "Continuous execution logs, traces, and approvals enforced at runtime",
             position: "col-start-2 row-start-2"
         },
@@ -94,7 +94,7 @@ export default function RealWorldOutcomes() {
         {
             number: "05",
             title: "Retain full ownership of AI systems and IP",
-            description: "No outbound learning, no vendor lock-in",
+            description: "No outbound learning, no vendor lock - in",
             position: "col-start-3 row-start-3"
         }
     ];

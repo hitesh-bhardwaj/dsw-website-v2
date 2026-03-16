@@ -98,7 +98,7 @@ const runtimeContent = {
   items: [
     {
       number: "01",
-      text: "Personalizes guest engagement across digital and on-property interactions",
+      text: "Personalizes guest engagement across digital and on - property interactions",
     },
     {
       number: "02",
@@ -155,7 +155,7 @@ const featuresContent = {
     {
       title: "Guest experience intelligence operating across channels",
       description:
-        "Deliver personalized guest engagement across booking, stay, and post-stay interactions.",
+        "Deliver personalized guest engagement across booking, stay, and post - stay interactions.",
       bullets: [
         "Guest preference intelligence",
         "Personalized recommendation engines",
@@ -188,7 +188,7 @@ const featuresContent = {
     {
       title: "Marketing and loyalty intelligence ",
       description:
-        "Run AI-driven guest acquisition, retention, and loyalty strategies. ",
+        "Run AI - driven guest acquisition, retention, and loyalty strategies. ",
       bullets: [
         "Customer segmentation intelligence ",
         "Campaign performance optimization ",
@@ -219,7 +219,7 @@ const workflowsContent = {
     { number: "05", title: "Workforce productivity insights " },
     { number: "06", title: "Digital concierge capabilities " },
     { number: "07", title: "Guest churn prediction " },
-    { number: "08", title: "Cross-property demand intelligence " },
+    { number: "08", title: "Cross - property demand intelligence " },
     { number: "09", title: " Model governance workflows" },
     { number: "10", title: "Loyalty optimization intelligence " },
   ],
@@ -230,7 +230,7 @@ const caseStudyContent = {
   subheading: "Real deployment. Measurable operational impact. ",
   company: "Mahindra",
   description:
-    "How a Leading Enterprise Transformed Guest Check-In with AI-Powered Facial Recognition on DSW UnifyAI",
+    "How a Leading Enterprise Transformed Guest Check - In with AI - Powered Facial Recognition on DSW UnifyAI",
   imageContent: <p>Case Study Image</p>,
   imgSrc: "/assets/case-studies/case-study-hospitality.png",
   button: {
@@ -263,7 +263,7 @@ const ctaContent = {
 
 const operationsContent = {
   heading:
-    "Kernel-governed execution across care, operations, and revenue workflows",
+    "Kernel - governed execution across care, operations, and revenue workflows",
 
   tabs: [
     {
@@ -272,8 +272,8 @@ const operationsContent = {
       intro: "Operate ML and agentic systems within one governed environment.",
       bullets: [
         "Model lifecycle governance ",
-        "Real-time inference control ",
-        "Human-in-the-loop operational boundaries ",
+        "Real - time inference control ",
+        "Human - in - the - loop operational boundaries ",
       ],
     },
 
@@ -283,8 +283,8 @@ const operationsContent = {
         "Connect property systems, reservation platforms, and customer systems through governed interfaces. ",
       bullets: [
         "Works with existing PMS, CRS, CRM, and operational systems",
-        " Enables modernization without system replacement",
-        "Expands ecosystem without vendor lock-in",
+        "Enables modernization without system replacement",
+        "Expands ecosystem without vendor lock - in",
       ],
     },
 
@@ -293,9 +293,9 @@ const operationsContent = {
       intro:
         "Operate entirely within enterprise environments. ",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
-        " No outbound learning or forced SaaS dependency",
+        "No outbound learning or forced SaaS dependency",
       ],
     },
   ],

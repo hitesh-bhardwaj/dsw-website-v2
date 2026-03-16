@@ -34,10 +34,10 @@ export default function Deployments() {
     return (
         <section className="relative w-full py-[10%] px-[5vw] max-sm:py-[15%] max-md:px-[6vw] space-y-[12vw] max-sm:px-[7vw] z-[101]">
             <div className='w-full space-y-[6vw] max-md:space-y-[10vw] max-sm:space-y-[12vw]'>
-               <div className='w-[80%] mx-auto max-md:w-full'>
+               <div className='w-[75%] mx-auto max-md:w-full'>
                     <HeadingAnim>
                         <h2 className='text-76  text-[#0A1B4B] text-center  max-md:leading-[1.3] max-sm:leading-[1.4] leading-[1.2]'>
-                           Finacle Deployments Anchored by Open-Source Expertise 
+                           Finacle Deployments Anchored by Open - Source Expertise 
                         </h2>
                     </HeadingAnim>
                     </div>
@@ -60,15 +60,15 @@ export default function Deployments() {
 const deployments = [
     {
         icon: <OpenSource/>,
-        title: "Joint open-source adoption strategies for Finacle at global banks. ​",
+        title: "Joint open - source adoption strategies for Finacle at global banks. ​",
     },
     {
         icon: <CoDeploy/>,
-        title: "Co-deploy, operate, and maintain Finacle open-source stacks worldwide. ​",
+        title: "Co - deploy, operate, and maintain Finacle open - source stacks worldwide. ​",
     },
     {
         icon: <Workshops/>,
-        title: "Conduct workshops, playbooks, and research to build open-source capability across Finacle teams and customers. ​",
+        title: "Conduct workshops, playbooks, and research to build open - source capability across Finacle teams and customers. ​",
     }
 ];
 

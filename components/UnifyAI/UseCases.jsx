@@ -53,10 +53,10 @@ const content = [
         heading: "UnifyAI",
         para: "Build, test, deploy, and monitor AI/ML models with lightning speed using accelerated workflows:",
         features: [
-            "400+ pre-built connectors for seamless data ingestion and transformation",
-            "Real-time monitoring with performance, drift, and anomaly tracking",
-            "Core AI/ML runtime engine with built-in model selection and evaluation",
-            "One-click deployment to production environments"
+            "400+ pre - built connectors for seamless data ingestion and transformation",
+            "Real - time monitoring with performance, drift, and anomaly tracking",
+            "Core AI/ML runtime engine with built - in model selection and evaluation",
+            "One - click deployment to production environments"
         ]
     },
     {
@@ -64,7 +64,7 @@ const content = [
         para: "One OS. One Centralized AI/ML ecosystem. Total Control.",
         features: [
             "Centralized observability across models and agents",
-            "Built-in compliance - ISO 42001, SOC 2, ISO 27001, HIPAA, GDPR",
+            "Built - in compliance - ISO 42001, SOC 2, ISO 27001, HIPAA, GDPR",
             "Full traceability with logs, alerts, and audit trails",
         ]
     }

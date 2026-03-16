@@ -531,7 +531,7 @@ h6 {
 
 @media (max-width: 542px) {
   :root {
-    --text-110: 12vw;
+    --text-110: 11.2vw;
     --text-80: 11vw;
     --text-44: 6vw;
     --text-76: 8vw;
@@ -593,4 +593,32 @@ h6 {
 ::-webkit-scrollbar {
   height: 0px;
   width: 0px;
+}
+
+
+.shimmer-text {
+  display: inline-block;
+  background: linear-gradient(
+    90deg,
+    #1727ff 0%,
+    #1726ff7d 20%,
+    #ffffff2d 40%,
+    #1726ff7d 60%,
+    #1727ff 100%
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  animation: shimmerMove 5.5s linear infinite;
+}
+
+@keyframes shimmerMove {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }

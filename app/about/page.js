@@ -12,6 +12,7 @@ import Infrastructure from "@/components/AboutUs/Infrastructure";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";
 import { homepage } from "@/lib/util";
+import Journey from "@/components/AboutUs/Journey";
 
 export const metadata = getPageMetadata({
   title: "About DSW UnifyAI - Deep-Tech AI for Enterprises",
@@ -47,6 +48,7 @@ const AgenticAI = () => {
           <Intro />
           <DSWArrival />
           <Infrastructure />
+          {/* <Journey/> */}
           <WhatWeBelieve /> 
           <WhatWeStandFor />
           <TeamWrapper />
@@ -79,7 +81,7 @@ const heroContent = {
 
 const ctaContent = {
   heading: "Ready to operate AI like a unified, governed system? ",
-  para: "Whether you’re exploring enterprise AI at scale or looking to build the foundation with us  - we’d love to connect.",
+  para: "Whether you’re exploring enterprise AI at scale or looking to build the foundation with us - we’d love to connect.",
   subPara: false,
   primaryButton: {
     present: true,

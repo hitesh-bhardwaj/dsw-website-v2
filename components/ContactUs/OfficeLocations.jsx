@@ -45,7 +45,7 @@ const OfficeLocations = () => {
         </Copy>
         <Copy>
           <p className="text-24 max-md:text-30 max-sm:text-24 text-foreground">
-            604-605, 6th Floor, B Wing, Lodha Supremus II,Road No. 22, Wagle
+            604 - 605, 6th Floor, B Wing, Lodha Supremus II,Road No. 22, Wagle
             Industrial Estate, Thane West - 400604
           </p>
         </Copy>

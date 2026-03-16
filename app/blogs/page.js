@@ -95,7 +95,7 @@ const heroContent = {
 
 const ctaContent = {
   heading: "Take a lightning tour of the Enterprise AI Platform",
-  para: "Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
+  para: "Discover how DSW UnifyAI - The Enterprise AI Operating System can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
   primaryButton: {
     present: true,
     link: "#",

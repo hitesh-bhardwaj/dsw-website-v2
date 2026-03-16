@@ -69,6 +69,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
     };
   }, []);
 
+
   // ✅ Intro timeline (scope to component to avoid global selectors leakage)
   const heroRootRef = useRef(null);
 
@@ -159,11 +160,11 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
           )}
 
           <h1
-            className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${heroContent?.headingWidth || "w-[70%]"
-              }`}
-          >
-            {heroContent?.heading}
-          </h1>
+            className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${
+              heroContent?.headingWidth || "w-[70%]"
+            }`}
+            dangerouslySetInnerHTML={{ __html: heroContent?.heading || "" }}
+          />
         </div>
 
         <div className="herofadeup hero-buttons">
@@ -194,12 +195,15 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
         {heroContent?.para && (
           <div
-            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${heroContent?.paraWidth
-              ? heroContent?.paraWidth
-              : "w-[60%] max-md:w-[80%]"
-              }`}
+            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${
+              heroContent?.paraWidth
+                ? heroContent?.paraWidth
+                : "w-[60%] max-md:w-[80%]"
+            }`}
           >
-            <p className="text-24 hero-content text-[#333333]">{heroContent?.para}​</p>
+            <p className="text-24 hero-content text-[#333333]">
+              {heroContent?.para}​
+            </p>
           </div>
         )}
 
@@ -217,7 +221,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
               <Image
                 src="/dsw-logo.svg"
                 alt="dsw"
-                className="w-[13vw] mt-[2vw] max-sm:w-[42vw] max-sm:mt-[5vw] h-auto max-md:w-[18vw]"
+                className="w-[15vw] mt-[2vw] max-sm:w-[44vw] max-sm:mt-[5vw] h-auto max-md:w-[18vw]"
                 width={297}
                 height={46}
                 priority
@@ -230,11 +234,10 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
       </div>
 
       {/* ✅ Scroll hint extracted + dynamic */}
-      <DynamicScrollHint isFooterVisible={isFooterVisible} />
+      {!mob && <DynamicScrollHint />}
 
       {/* ⚠️ Consider rendering this overlay only when needed */}
       <div className="w-screen h-[130vh] bg-white absolute inset-0 pointer-events-none hero-overlay z-[99]" />
     </section>
   );
 }
-

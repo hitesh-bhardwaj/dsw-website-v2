@@ -110,7 +110,7 @@ export const NAV_LINKS = [
       },
       {
         id: "tech-3",
-        label: "AgenticAI",
+        label: "AgenticAI Runtime",
         href: "/agentic-ai",
         description: "Deploy AI agents in hours!",
       },

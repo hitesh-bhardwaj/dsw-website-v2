@@ -157,7 +157,7 @@ export default function UnifiedRuntime() {
           <Copy>
             <p>
               Unify models, agents, tools, and workflows under a single governed
-              runtime designed for production-ready AI.
+              runtime designed for production - ready AI.
             </p>
           </Copy>
           <Copy>

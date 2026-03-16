@@ -190,7 +190,7 @@ const OperatingSystem = () => {
 
         <Copy>
           <p className="text-30 font-sans leading-[1.4] tracking-[0.025vw] text-foreground">
-            That foundation is DSW UnifyAI OS- The Enterprise AI Operating System.
+            That foundation is DSW UnifyAI OS - The Enterprise AI Operating System.
           </p>
         </Copy>
       </div>
