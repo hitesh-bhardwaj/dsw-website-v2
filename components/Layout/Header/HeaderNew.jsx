@@ -268,17 +268,17 @@ export default function HeaderNew() {
                   type="button"
                 >
                   <div
-                    className={`h-[2.5px] w-full rounded-full bg-black transition-all duration-500 origin-center ${
+                    className={`h-[1.5px] w-full rounded-full bg-black transition-all duration-500 origin-center ${
                       openMobileMenu ? "translate-y-[2vw] rotate-45" : ""
                     }`}
                   />
                   <div
-                    className={`h-[2.5px] w-full rounded-full bg-black transition-all duration-500 ${
+                    className={`h-[1.5px] w-full rounded-full bg-black transition-all duration-500 ${
                       openMobileMenu ? "opacity-0" : ""
                     }`}
                   />
                   <div
-                    className={`h-[2.5px] w-full rounded-full bg-black transition-all duration-500 origin-center ${
+                    className={`h-[1.5px] w-full rounded-full bg-black transition-all duration-500 origin-center ${
                       openMobileMenu
                         ? "-rotate-45 max-sm:-translate-y-[2vw] max-md:-translate-y-[0.7vw]"
                         : ""
