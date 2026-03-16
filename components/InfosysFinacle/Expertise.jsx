@@ -10,7 +10,7 @@ import HeadingAnim from "../Animations/HeadingAnim";
 
 const AwardItem = ({ img, label }) => {
   return (
-    <div className="flex-shrink-0 h-[13vw] flex flex-col items-center justify-center gap-[1vw] w-[15vw] max-md:!w-[25vw] max-sm:!w-[30vw] max-md:gap-[2vw] border border-primary-blue/50 rounded-lg bg-white py-[2vw] ">
+    <div className="flex-shrink-0 h-[13vw] flex flex-col items-center justify-center gap-[1vw] w-[15vw] max-md:w-[30vw] max-sm:w-[35vw] max-sm:h-[35vw] max-md:gap-[2vw] border border-primary-blue/50 rounded-lg bg-white py-[2vw] ">
       <div className="w-[10vw] h-auto max-md:w-[18vw] max-sm:!w-[30vw]">
         <Image
           src={img}
