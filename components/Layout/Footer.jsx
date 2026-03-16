@@ -103,9 +103,9 @@ export default function FooterNew() {
         <div className="flex justify-between mb-[2vw] max-sm:flex-col max-md:flex-col max-md:gap-[10vw] max-sm:gap-0">
           <div className="w-[30%] max-sm:w-full max-md:w-[60%] max-sm:text-center">
             <div className="space-y-[1vw] max-sm:space-y-[2vw]">
-              <div className="w-[40vw] h-auto hidden max-sm:block mx-auto mb-[10vw]">
+              <div className="w-[50vw] h-auto hidden max-sm:block mx-auto mb-[10vw]">
                 <Image
-                  src="/logo-footer.svg"
+                  src="/assets/icons/dsw-logo-bottom.png"
                   alt="Data Science Wizards"
                   width={300}
                   height={170}
