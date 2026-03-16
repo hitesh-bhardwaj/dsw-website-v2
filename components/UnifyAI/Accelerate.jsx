@@ -116,11 +116,11 @@ export default function Accelerate() {
         },
         {
             title: "Configure",
-            description: "Build or select from pre-designed model / agent blueprints",
+            description: "Build or select from pre - designed model / agent blueprints",
         },
         {
             title: "Deploy",
-            description: "Launch with production-grade infrastructure, fast",
+            description: "Launch with production - grade infrastructure, fast",
         },
         {
             title: "Govern",
@@ -146,7 +146,7 @@ export default function Accelerate() {
             {/* Animated Steps with SVG Lines */}
             <div className="relative w-full mx-auto">
                  <p className="text-30 max-sm:text-[4vw] max-sm:w-[90%] max-sm:mx-auto  mb-8  text-center text-[#333333]">
-                        The runtime gives you a complete, ready-to-run path to enterprise AI/ML.
+                        The runtime gives you a complete, ready - to - run path to enterprise AI/ML.
                     </p>
                 {/* Top connecting line from paragraph */}
                 <div className="flex justify-center mb-8">

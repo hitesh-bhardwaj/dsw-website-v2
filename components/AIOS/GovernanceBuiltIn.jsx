@@ -21,7 +21,7 @@ const GovernanceBuiltIn = () => {
       id: 3,
       title: "Traceability is native",
       description:
-        "Any outcome can be traced end-to-end - from data to decision",
+        "Any outcome can be traced end - to - end - from data to decision",
     },
   ];
 

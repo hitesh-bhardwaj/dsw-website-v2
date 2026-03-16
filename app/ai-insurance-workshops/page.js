@@ -17,7 +17,7 @@ import React from "react";
 export const metadata = getPageMetadata({
   title: "AI for Insurance Workshop | DSW",
   description:
-    "Join our hands-on AI & GenAI workshop for insurers - build prototypes, learn compliance, and turn ideas into action in underwriting, claims & fraud.",
+    "Join our hands - on AI & GenAI workshop for insurers - build prototypes, learn compliance, and turn ideas into action in underwriting, claims & fraud.",
   url: "/ai-insurance-workshops",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -69,7 +69,7 @@ export default page;
 
 const heroContent = {
   tagline: "",
-  heading: "Equip Your Team With Real-World AI & GenAI Skills for Insurance",
+  heading: "Equip Your Team With Real - World AI & GenAI Skills for Insurance",
   primaryButton: {
     present: false,
     link: "#",
@@ -80,12 +80,12 @@ const heroContent = {
     link: "#",
     text: "Talk to our Team",
   },
-  para: "The insurance industry is evolving—and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation—all tailored for insurance workflows.",
+  para: "The insurance industry is evolving — and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation — all tailored for insurance workflows.",
 };
 
 const ctaContent = {
   heading: "Take a lightning tour of the Enterprise AI Platform",
-  para: "Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
+  para: "Discover how DSW UnifyAI - The Enterprise AI Operating System can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
   primaryButton: {
     present: true,
     link: "#",
@@ -108,7 +108,7 @@ const featuresData = [
   {
     icon: <DataScience />,
     title: "Data Science & Analytics Teams",
-    para: "Explore hands-on methods to train, fine-tune, and deploy models tailored for fraud detection, claims automation, and more. ",
+    para: "Explore hands - on methods to train, fine - tune, and deploy models tailored for fraud detection, claims automation, and more. ",
   },
   {
     icon: <RiskCompliance />,
@@ -118,7 +118,7 @@ const featuresData = [
   {
     icon: <Innovation />,
     title: "Innovation, Product & Strategy Leaders",
-    para: "Identify high-impact AI use cases and learn how to bring GenAI projects from concept to production in days—not months.",
+    para: "Identify high - impact AI use cases and learn how to bring GenAI projects from concept to production in days — not months.",
   },
 ];
 const sessionsData = [
@@ -131,7 +131,7 @@ const sessionsData = [
         para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
       },
       {
-        heading: "High-Impact Use Cases:",
+        heading: "High - Impact Use Cases:",
         para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
       },
       {
@@ -149,7 +149,7 @@ const sessionsData = [
         para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
       },
       {
-        heading: "High-Impact Use Cases:",
+        heading: "High - Impact Use Cases:",
         para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
       },
       {
@@ -167,7 +167,7 @@ const sessionsData = [
         para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
       },
       {
-        heading: "High-Impact Use Cases:",
+        heading: "High - Impact Use Cases:",
         para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
       },
       {
@@ -185,7 +185,7 @@ const sessionsData = [
         para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
       },
       {
-        heading: "High-Impact Use Cases:",
+        heading: "High - Impact Use Cases:",
         para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
       },
       {
@@ -203,7 +203,7 @@ const sessionsData = [
         para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
       },
       {
-        heading: "High-Impact Use Cases:",
+        heading: "High - Impact Use Cases:",
         para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
       },
       {
@@ -221,7 +221,7 @@ const sessionsData = [
         para: "Get a clear intro to how ML, NLP, and predictive analytics are transforming the insurance landscape.",
       },
       {
-        heading: "High-Impact Use Cases:",
+        heading: "High - Impact Use Cases:",
         para: "Explore real examples of AI improving claims processing, underwriting, fraud detection, CX, and risk management.",
       },
       {
@@ -232,31 +232,31 @@ const sessionsData = [
   },
 ];
 const outcomesData = {
-  heading: "Walk Away With Real-World Skills, Strategy & Clarity",
-  para: "By the end of this hands-on workshop, your team will be equipped to move AI projects from concept to execution with confidence. Expect tangible outcomes, not just theory.",
+  heading: "Walk Away With Real - World Skills, Strategy & Clarity",
+  para: "By the end of this hands - on workshop, your team will be equipped to move AI projects from concept to execution with confidence. Expect tangible outcomes, not just theory.",
   para2: "What You'll Gain:",
   points: [
     {
       id: "1",
       title: "Clear AI Roadmap",
-      text: "Identify high-impact use cases tailored to your insurance workflows - from underwriting to claims automation.",
+      text: "Identify high - impact use cases tailored to your insurance workflows - from underwriting to claims automation.",
       width: "w-[30%]",
     },
     {
       id: "2",
-      title: "Hands-On GenAI Experience",
-      text: "Build and deploy a working AI/GenAI prototype using your own or sample data-no-code to full-code options available.",
+      title: "Hands - On GenAI Experience",
+      text: "Build and deploy a working AI/GenAI prototype using your own or sample data - no - code to full - code options available.",
       width: "w-full",
     },
     {
       id: "3",
-      title: "Compliance-First AI Knowledge",
+      title: "Compliance - First AI Knowledge",
       text: "Understand how to align AI solutions with SOC 2, ISO 27001, HIPAA, and GDPR standards.",
       width: "w-full",
     },
     {
       id: "4",
-      title: "Cross-Functional Alignment",
+      title: "Cross - Functional Alignment",
       text: "Align business, data, and tech teams on a shared AI vision and execution path.",
       width: "w-[60%] max-sm:w-full",
     },

@@ -14,16 +14,16 @@ const SLIDES = [
     desc: "Governance is enforced in real time as AI executes, ensuring policies, validations, and approvals cannot be bypassed.",
   },
   {
-    title: "Agent-Safe by Design",
-    desc: "Agentic workflows operate within enforced execution boundaries, enabling autonomy at scale with built-in guardrails.",
+    title: "Agent - Safe by Design",
+    desc: "Agentic workflows operate within enforced execution boundaries, enabling autonomy at scale with built - in guardrails.",
   },
   {
-    title: "Built-in Auditability",
+    title: "Built - in Auditability",
     desc: "Every AI action is automatically logged, traced, and explainable, creating a continuous audit trail without additional tooling.",
   },
   {
     title: "Traceability and Reversibility is Native",
-    desc: "Traceability and reversibility are native, providing end-to-end lineage and safe rollback across AI decisions, models, and agent workflows.",
+    desc: "Traceability and reversibility are native, providing end - to - end lineage and safe rollback across AI decisions, models, and agent workflows.",
   },
 ];
 

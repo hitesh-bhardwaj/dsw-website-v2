@@ -60,7 +60,7 @@ export default async function InfosysFinacle() {
 
 const heroContent={
   tagline:"Trusted Strategic Open-Source Consulting Partner to Infosys Finacle",
-  heading:"Together, Bringing Open-Source Success to Global Banks",
+  heading:"Together, Bringing Open - Source Success to Global Banks",
   headingWidth:"w-[85%]",
   primaryButton:{
     present:false,
@@ -77,10 +77,10 @@ const heroContent={
 
 const ctaContent={
   heading:"Together aligned to build Global Banking Success.",
-  subParaText:"62+ Years of Collective Open Source Experience & Exposure with Deep-Tech Expertise.",
+  subParaText:"62+ Years of Collective Open Source Experience & Exposure with Deep - Tech Expertise.",
   subPara:true,
   paraWidth:"w-full",
-  para:"With a strong background in operating systems, middleware,  and the core enterprise technology ecosystem, we have been active contributors and trusted practitioners in the global open source community.  As Infosys Finacle’s strategic open-source consulting and services partner, we bring this collective depth of experience to jointly deliver skills, expertise, and predictable success for Finacle customers and global banks. ",
+  para:"With a strong background in operating systems, middleware,  and the core enterprise technology ecosystem, we have been active contributors and trusted practitioners in the global open source community.  As Infosys Finacle’s strategic open - source consulting and services partner, we bring this collective depth of experience to jointly deliver skills, expertise, and predictable success for Finacle customers and global banks. ",
   primaryButton:{
     present:true,
     link:"/contact-us",
@@ -90,8 +90,8 @@ const ctaContent={
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Tailor-made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  heading: "Awards & recoginition",
+  subtext: "Designed for compliance - driven, risk - sensitive operations.",
   footerText:
-    "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
+    "Supports governance, audit, and regulatory workflows.",
 };

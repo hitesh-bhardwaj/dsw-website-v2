@@ -30,7 +30,7 @@ const CertificationsAndAwards = ({ certificationsContent }) => {
             return (
               <div
                 key={index}
-                className={isLast ? `w-[25vw] h-[10vw] max-sm:h-[20vw] max-sm:w-[70vw] max-md:w-[40vw]` : `size-[10vw] max-sm:size-[20vw] max-md:size-[15vw]`}
+                className={isLast ? `w-[25vw] h-[10vw] max-sm:h-[20vw] max-sm:w-[70vw] max-md:w-[40vw]` : `size-[8.8vw] max-sm:size-[20vw] max-md:size-[15vw]`}
               >
                 <Image
                   src={logo.src}

@@ -32,7 +32,7 @@ export default function ClientsBlur() {
         opacity: 0,
         x: () => gsap.utils.random(-150, 150),
         y: () => gsap.utils.random(-150, 150),
-        filter: "blur(5px)",
+        filter: "blur(2px)",
         z: () => gsap.utils.random(-2000, -2000),
       });
         gridItems.forEach((item, index) =>
@@ -41,16 +41,16 @@ export default function ClientsBlur() {
               z: 0,
               opacity: 1,
               filter: "blur(0px) invert(0)",
-              duration: 4,
+              duration: 3,
               delay: index * -0.4,
             })
             .to(
               item,
               {
-                filter: "blur(5px)",
+                filter: "blur(2px)",
                 opacity: 0,
                 z: 2000,
-                duration: 3.5,
+                duration: 2.5,
               },
               ">"
             )

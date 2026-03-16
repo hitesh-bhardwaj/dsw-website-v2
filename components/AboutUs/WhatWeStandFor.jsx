@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 
 const steps = [
     {
-        title: "Enterprise-grade by design",
+        title: "Enterprise - grade by design",
         description: "We build for regulated environments, hybrid stacks, and real operational complexity.",
     },
     {
@@ -12,7 +12,7 @@ const steps = [
         description: "Governance must be enforceable logic - embedded in runtime.",
     },
     {
-        title: "Ownership is non-negotiable",
+        title: "Ownership is non - negotiable",
         description: "Enterprises should have full custody of AI assets, artifacts, and IP.",
     },
     {

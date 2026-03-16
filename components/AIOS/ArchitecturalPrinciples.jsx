@@ -53,20 +53,20 @@ const ArchitecturalPrinciples = () => {
       <div className="text-center space-y-[1.5vw] px-[5vw] mb-[5vw] max-sm:space-y-[5vw] max-md:mb-[10vw] max-md:space-y-[4vw]">
         <HeadingAnim>
           <h2 className="text-76 text-[#0A1B4B]">
-            A Kernel-Centric Enterprise AI Architecture 
+            A Kernel - Centric Enterprise AI Architecture 
           </h2>
         </HeadingAnim>
         <Copy>
           <p className="text-30 w-[65%] mx-auto max-md:w-full">
             DSW UnifyAI OS is designed to operationalize
-            AI and agentic systems with long-running enterprise capabilities,
+            AI and agentic systems with long - running enterprise capabilities,
             not isolated applications.
           </p>
         </Copy>
         <Copy>
           <p className="text-30 w-[65%] mx-auto max-md:w-full">
             Optimized for regulated and hybrid environments, governance and
-            control are embedded at the system level-not added as compliance
+            control are embedded at the system level - not added as compliance
             afterthoughts.
           </p>
         </Copy>
@@ -133,9 +133,9 @@ export default ArchitecturalPrinciples;
 const PRINCIPLES = [
   {
     side: "right",
-    title: "Kernel-centric governance",
+    title: "Kernel - centric governance",
     description:
-      "Policy enforcement and auditability are implemented as non-bypassable kernel functions.",
+      "Policy enforcement and auditability are implemented as non - bypassable kernel functions.",
   },
   {
     side: "left",
@@ -159,6 +159,6 @@ const PRINCIPLES = [
     side: "right",
     title: "Controlled ecosystem integration",
     description:
-      "External models, tools, and services integrate only through kernel-governed interfaces.",
+      "External models, tools, and services integrate only through kernel - governed interfaces.",
   },
 ];

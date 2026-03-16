@@ -9,7 +9,7 @@ const SystemStructure = () => {
       title: "ML Runtime",
       icon: "/assets/icons/aios/ml-runtime.svg",
       items: [
-        "Batch and real-time inference",
+        "Batch and real - time inference",
         "Model versioning and controlled rollout",
         "Performance monitoring and drift detection",
       ],
@@ -19,9 +19,9 @@ const SystemStructure = () => {
       title: "Agentic Runtime",
       icon: "/assets/icons/aios/agentic-runtime.svg",
       items: [
-        "Multi-agent orchestration",
-        "Policy-aware autonomy",
-        "Human-in-the-loop controls",
+        "Multi - agent orchestration",
+        "Policy - aware autonomy",
+        "Human - in - the - loop controls",
         "Agent lifecycle management",
       ],
     },
@@ -31,7 +31,7 @@ const SystemStructure = () => {
       icon: "/assets/icons/aios/ai-fabric.svg",
       items: [
         "Foundation models and LLMs",
-        "Open-source frameworks",
+        "Open - source frameworks",
         "Partner tools and services",
         "Enterprise APIs and data systems",
       ],

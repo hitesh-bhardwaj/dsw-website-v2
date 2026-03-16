@@ -176,7 +176,7 @@ export default function Infrastructure() {
               <div className="w-full h-full bg-white border border-primary-blue
                               text-30 flex items-center justify-center
                               rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
-                Post-deployment controls
+                Post - deployment controls
               </div>
             </div>
 
@@ -251,7 +251,7 @@ export default function Infrastructure() {
           <p className="text-30  mx-auto text-center">
             Over time, it became clear to us that AI had crossed the threshold from "software project" to enterprise system.
             That's when the journey shifted. We stopped thinking like a platform team.
-            We started thinking like operating system builders. And that is how DSW evolved into the <span className="font-medium"> Enterprise AI Operating System. </span> 
+            We started thinking like operating system builders. And that is how DSW evolved into  <span className="font-medium">UnifyAI OS - The Enterprise AI Operating System. </span> 
           </p>
           </Copy>
         </div>
@@ -294,7 +294,7 @@ export default function Infrastructure() {
         <p className="text-30 w-[90%] mx-auto text-center fadeup mt-10 max-sm:w-full">
           Over time, it became clear to us that AI had crossed the threshold from "software project" to enterprise system.
           That's when the journey shifted. We stopped thinking like a platform team.
-          We started thinking like operating system builders. And that is how DSW evolved into the Enterprise AI Operating System.
+          We started thinking like operating system builders. And that is how DSW evolved into UnifyAI OS - The Enterprise AI Operating System.
         </p>
       </div>
     </div>

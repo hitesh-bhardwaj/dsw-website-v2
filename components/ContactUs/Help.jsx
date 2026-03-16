@@ -26,7 +26,7 @@ const helpCards = [
     id: 3,
     title: "Our Community",
     description:
-      "Be part of a growing community where data scientists and AI practitioners collaborate, share insights, and build impactful solutions together. DSW is where learning meets real-world AI innovation.",
+      "Be part of a growing community where data scientists and AI practitioners collaborate, share insights, and build impactful solutions together. DSW is where learning meets real - world AI innovation.",
     buttonText: "Join Our Community",
     href: "https://chat.whatsapp.com/4UJBjd1ZjV3JcXWCgYqqRH",
     target: "_blank",

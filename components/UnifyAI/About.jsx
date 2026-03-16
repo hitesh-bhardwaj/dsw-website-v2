@@ -38,7 +38,7 @@ export default function UnifyAbout() {
 
     return (
         <section className="relative w-full pt-[15%] pb-[2%] px-[5vw] max-sm:py-[15%] max-sm:space-y-[15vw] space-y-[7vw] max-md:space-y-[10vw]">
-            <SectionBreak content={"Fragmented AI stacks, post-deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time."}/>
+            <SectionBreak content={"Fragmented AI stacks, post - deployment governance, and limited runtime visibility keep enterprises stuck in pilots. The UnifyAI kernel solves this by enforcing governance and control in real time."}/>
 
             <div className='w-full flex max-md:flex-col max-sm:gap-[7vw] items-end justify-between max-md:items-start max-md:gap-[5vw]'>
                 <div className='w-[45%] max-sm:w-full max-sm:mx-auto max-md:w-[70%]'>
@@ -86,7 +86,7 @@ const challenges = [
     },
     {
         icon: EnterprisePrivacy,
-        title: "Ensure enterprise-grade privacy, compliance and observability",
+        title: "Ensure enterprise - grade privacy, compliance and observability",
     },
     {
         icon: Deploy,

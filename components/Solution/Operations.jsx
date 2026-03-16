@@ -33,8 +33,7 @@ const MobileAccordionContent = ({ tabContent, isActive }) => {
         style={{
           opacity: isActive ? 1 : 0,
           transform: isActive ? "translateY(0)" : "translateY(-8px)",
-          transition:
-            "opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s",
+          transition: "opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s",
         }}
       >
         <div className="w-full space-y-[4vw]">
@@ -66,7 +65,7 @@ const Operations = ({ operationsContent }) => {
       tabs: operationsContent?.tabs ?? [],
       sectionId: operationsContent?.sectionId ?? "operations",
     }),
-    [operationsContent]
+    [operationsContent],
   );
 
   const animateTo = (nextIndex) => {
@@ -117,7 +116,7 @@ const Operations = ({ operationsContent }) => {
         duration: 0.28,
         stagger: 0.04,
       },
-      0
+      0,
     );
     if (ulEl) {
       tl.to(
@@ -126,7 +125,7 @@ const Operations = ({ operationsContent }) => {
           autoAlpha: 0,
           duration: 0.28,
         },
-        0
+        0,
       );
     }
 
@@ -200,7 +199,7 @@ const Operations = ({ operationsContent }) => {
             });
           }
         });
-      }); 
+      });
     });
   };
 
@@ -228,25 +227,36 @@ const Operations = ({ operationsContent }) => {
 
       <div className="w-full flex justify-between max-md:flex-col max-md:gap-0">
         {/* LEFT: tabs — desktop only */}
-        <div className="w-[50%] max-md:hidden space-y-[3vw] font-light">
+        <div className="w-[50%] max-md:hidden space-y-[2vw] font-light">
           {data.tabs.map((tab, idx) => {
             const isActive = idx === active;
 
             return (
-              <button
-                key={idx}
-                type="button"
-                onClick={() => animateTo(idx)}
-                disabled={isAnimating}
-                className={[
-                  "w-full text-left p-[1vw] bg-[#EFF1FB] text-32 capitalize transition-colors cursor-pointer fadeup",
+              <div
+              key={idx}
+              onClick={() => animateTo(idx)}
+                className={` transition-colors cursor-pointer border fadeup    p-[1vw] bg-[#EFF1FB] ${
                   isActive
-                    ? "border-l-[4px] border border-primary-blue text-primary-blue"
-                    : "border border-transparent text-[#0A1B4B]",
-                ].join(" ")}
+                    ? "border-l-[4px]    border-primary-blue text-primary-blue"
+                    : "border border-transparent text-[#0A1B4B]"
+                }`}
               >
-                {tab.label}
-              </button>
+                <button
+                  
+                  type="button"
+                  
+                  disabled={isAnimating}
+                  className={["w-full text-left text-30 capitalize cursor-pointer "].join(" ")}
+                >
+                  {tab.label}
+                </button>
+
+                <p
+                  className={`${isActive ? "opacity-0" : "opacity-100"} duration-300 font-medium text-22 mt-[1vw] cursor-pointer text-primary-blue w-full`}
+                >
+                  Read More
+                </p>
+              </div>
             );
           })}
         </div>
@@ -270,6 +280,11 @@ const Operations = ({ operationsContent }) => {
                   ].join(" ")}
                 >
                   {tab.label}
+                   <p
+                  className={`${isActive ? "opacity-0" : "opacity-100"} duration-300 font-medium max-sm:text-[3.5vw] max-md:text-[2.4vw] mt-[4vw] cursor-pointer text-primary-blue w-full`}
+                >
+                  Read More
+                </p>
                 </button>
 
                 <MobileAccordionContent

@@ -66,7 +66,7 @@ const values = [
     },
     {
         icon: <EnterpriseGrade/>,
-        title: "Enterprise-grade reliability with modernized, open architectures.​",
+        title: "Enterprise - grade reliability with modernized, open architectures.​",
     },
     {
         icon:<SkilledTeam/>,

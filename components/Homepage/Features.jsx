@@ -102,8 +102,8 @@ const FEATURES = [
     hasBottomBorder: false,
     title: "Create Your Own AI Native Infrastructure",
     description:
-      "Deploy UnifyAI OS entirely within your environment on-prem, cloud, or hybrid.",
-    para: "Enterprise-grade security, control, and data sovereignty remain fully in your hands.",
+      "Deploy UnifyAI OS entirely within your environment on - prem, cloud, or hybrid.",
+    para: "Enterprise - grade security, control, and data sovereignty remain fully in your hands.",
     image: "/assets/homepage/featuresDashboard1.png",
   },
   {
@@ -128,7 +128,7 @@ const FEATURES = [
     extraPaddingBottom: true,
     title: "Break the Cost Per User Case Barrier",
     description:
-      "Build, deploy, and operate unlimited AI and GenAI use cases without per-model, per-agent, or per-workflow pricing.",
+      "Build, deploy, and operate unlimited AI and GenAI use cases without per - model, per - agent, or per - workflow pricing.",
     bullets: [
       "One subscription.",
       "Predictable spend.",

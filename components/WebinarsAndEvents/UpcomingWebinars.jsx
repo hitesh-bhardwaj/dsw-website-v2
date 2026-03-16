@@ -11,7 +11,7 @@ const mainAnnouncement = {
   alt: "dsw-launches",
   title: "Deploying GenAI for Claims Automation",
   description:
-    "Data Science Wizards (DSW) has unveiled a groundbreaking capability that allows insurance providers to deploy Generative AI solutions in just 2–4 hours, transforming traditional workflows such as claims processing, fraud detection, customer support, and document intelligence.",
+    "Data Science Wizards (DSW) has unveiled a groundbreaking capability that allows insurance providers to deploy Generative AI solutions in just 2 – 4 hours, transforming traditional workflows such as claims processing, fraud detection, customer support, and document intelligence.",
   format: "Live Demo + Q&A",
   date: "July 4, 2025",
   author: "Jane Smith",
@@ -22,7 +22,7 @@ const secondaryAnnouncements = [
   {
     image: "/assets/resources/unifyai-achieves.png",
     alt: "unifyai-achieves",
-    title: "Compliance-First AI: SOC 2, ISO & Beyond",
+    title: "Compliance - First AI: SOC 2, ISO & Beyond",
     type: "Expert Panel",
     date: "July 18, 2025",
     href: "#",
@@ -100,7 +100,6 @@ const UpcomingWebinars = () => {
 
                 <div className="w-fit fadeup max-md:my-[5vw] max-sm:my-[6vw]">
                   <PrimaryButton
-                    
                     text="Register Now"
                     href={mainAnnouncement.href}
                     className="hover:text-primary-2 text-primary-2"

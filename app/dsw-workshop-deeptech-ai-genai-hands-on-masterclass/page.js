@@ -18,18 +18,18 @@ import React from "react";
 
 export const metadata = getPageMetadata({
   title: "AI & GenAI Masterclass | DSW",
-  description: "Join DSW’s hands-on masterclass to build enterprise AI/GenAI use cases, learn strategy, architecture, governance & deployment with domain experts.",
-  url: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+  description: "Join DSW’s hands - on masterclass to build enterprise AI/GenAI use cases, learn strategy, architecture, governance & deployment with domain experts.",
+  url: "/dsw-workshop-deeptech-ai-genai-hands - on-masterclass",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
   alternates: {
-    canonical: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+    canonical: "/dsw-workshop-deeptech-ai-genai-hands - on-masterclass",
     languages: {
-      "en-US": "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+      "en-US": "/dsw-workshop-deeptech-ai-genai-hands - on-masterclass",
     },
   },
   openGraph: {
-    url: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+    url: "/dsw-workshop-deeptech-ai-genai-hands - on-masterclass",
     images: [
       {
         url: `${homepage}seo/masterclass.png`,
@@ -66,7 +66,7 @@ export default page;
 
 const heroContent = {
   tagline: "",
-  heading: "DeepTech AI + GenAI Hands-On Masterclass",
+  heading: "DeepTech AI + GenAI Hands - On Masterclass",
   primaryButton: {
     present: false,
     link: "#",
@@ -77,12 +77,12 @@ const heroContent = {
     link: "#",
     text: "Talk to our Team"
   },
-  para: "Led by AI architects and industry experts from Data Science Wizards (DSW), this session covers strategy, architecture, compliance, and practical implementation using our enterprise platform, UnifyAI. This intensive hands-on masterclass is designed for enterprises, innovation leaders, and technical teams who want to go beyond theory and bring AI and Generative AI into real-world production."
+  para: "Led by AI architects and industry experts from Data Science Wizards (DSW), this session covers strategy, architecture, compliance, and practical implementation using our enterprise platform, UnifyAI. This intensive hands - on masterclass is designed for enterprises, innovation leaders, and technical teams who want to go beyond theory and bring AI and Generative AI into real - world production."
 }
 
 const ctaContent = {
   heading: "Take a lightning tour of the Enterprise AI Platform",
-  para: "Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
+  para: "Discover how DSW UnifyAI - The Enterprise AI Operating System can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
   primaryButton: {
     present: true,
     link: "#",
@@ -100,7 +100,7 @@ const featuresData = [
   {
     icon: <CTO />,
     title: "CTOs, CIOs, and Heads of Innovation",
-    para: "Learn how to align your organization’s AI roadmap with business goals, assess technology readiness, and accelerate adoption with governance-first deployment strategies. ",
+    para: "Learn how to align your organization’s AI roadmap with business goals, assess technology readiness, and accelerate adoption with governance - first deployment strategies. ",
   },
   {
 
@@ -112,7 +112,7 @@ const featuresData = [
 
     icon: <DataScienceEngineering />,
     title: "Data Science, Engineering & ML Ops Teams",
-    para: "Get hands-on experience with building, deploying, and managing GenAI and ML models in production. Learn to scale infrastructure, operationalize models faster, and integrate securely with enterprise systems—all within days.",
+    para: "Get hands - on experience with building, deploying, and managing GenAI and ML models in production. Learn to scale infrastructure, operationalize models faster, and integrate securely with enterprise systems — all within days.",
   },
   {
     icon: <AIStrategy />,
@@ -132,7 +132,7 @@ const sessionsData = [
       },
       {
         heading: "",
-        para: "Real-world AI/ML enterprise use cases."
+        para: "Real - world AI/ML enterprise use cases."
       },
       {
         heading: "",
@@ -140,7 +140,7 @@ const sessionsData = [
       },
       {
         heading: "",
-        para: "Real-world applications of GenAI for automation and process optimization."
+        para: "Real - world applications of GenAI for automation and process optimization."
       },
     ]
   },
@@ -176,11 +176,11 @@ const sessionsData = [
       },
       {
         heading: "",
-        para: "Deploying AI solutions at scale – cloud and on-premises strategies."
+        para: "Deploying AI solutions at scale – cloud and on - premises strategies."
       },
       {
         heading: "",
-        para: "Hands-on problem-solving session – Applying advanced techniques to real-world problems."
+        para: "Hands - on problem - solving session – Applying advanced techniques to real - world problems."
       },
     ]
   },
@@ -194,7 +194,7 @@ const sessionsData = [
       },
       {
         heading: "",
-        para: "Real-world AI/ML enterprise use cases."
+        para: "Real - world AI/ML enterprise use cases."
       },
       {
         heading: "",
@@ -202,7 +202,7 @@ const sessionsData = [
       },
       {
         heading: "",
-        para: "Real-world applications of GenAI for automation and process optimization."
+        para: "Real - world applications of GenAI for automation and process optimization."
       },
     ]
   },
@@ -242,21 +242,21 @@ const sessionsData = [
       },
       {
         heading: "",
-        para: "Hands-on problem-solving session – Applying advanced techniques to real-world problems."
+        para: "Hands - on problem - solving session – Applying advanced techniques to real - world problems."
       },
     ]
   },
 
 ];
 const outcomesData = {
-  heading: "Walk Away With Real -World Skills, Strategy & Clarity",
-  para: "By the end of this hands-on workshop, your team will be equipped to move AI projects from concept to execution with confidence. Expect tangible outcomes, not just theory.",
+  heading: "Walk Away With Real - World Skills, Strategy & Clarity",
+  para: "By the end of this hands - on workshop, your team will be equipped to move AI projects from concept to execution with confidence. Expect tangible outcomes, not just theory.",
   para2: "What You'll Gain:",
   points: [
     {
       id: "01",
       title: "Build & Test a Working AI/GenAI Use Case",
-      text: "Create and deploy a working AI or GenAI prototype using real or sample data—no-code to full-code.",
+      text: "Create and deploy a working AI or GenAI prototype using real or sample data - no - code to full - code.",
     },
     {
       id: "02",
@@ -279,7 +279,7 @@ const outcomesData = {
     {
       id: "05",
       title: "Earn a Certificate of Completion",
-      text: "Showcase your skills with a DSW-issued certificate recognizing your AI readiness and hands-on expertise.",
+      text: "Showcase your skills with a DSW - issued certificate recognizing your AI readiness and hands - on expertise.",
 
     }
   ]

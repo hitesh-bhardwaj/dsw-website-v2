@@ -9,12 +9,12 @@ import HeadingAnim from "../Animations/HeadingAnim";
 const POINTS = [
     {
         id: "01",
-        text: "Consulting and aligning on open-source adoption strategies for global banks.",
+        text: "Consulting and aligning on open - source adoption strategies for global banks.",
         width: "w-full",
     },
     {
         id: "02",
-        text: "Co-deploying, managing, and maintaining open-source stacks for Finacle implementations across regions.",
+        text: "Co - deploying, managing, and maintaining open - source stacks for Finacle implementations across regions.",
         width: "w-full",
     },
     {
@@ -24,12 +24,12 @@ const POINTS = [
     },
     {
         id: "04",
-        text: "Researching open-source evolution to embed the latest, stable, and most efficient frameworks into Finacle’s roadmap.",
+        text: "Researching open - source evolution to embed the latest, stable, and most efficient frameworks into Finacle’s roadmap.",
         width: "w-full",
     },
     {
         id: "05",
-        text: "Acting as an extended open-source competency arm for Finacle, amplifying its value proposition for global banking clients.",
+        text: "Acting as an extended open - source competency arm for Finacle, amplifying its value proposition for global banking clients.",
         width: "w-full",
     },
 ];
@@ -91,15 +91,15 @@ export default function Outcomes() {
                 <div className="w-[70%] text-center max-md:w-full">
                 <HeadingAnim>
                     <h2 className="text-76  text-[#0A1B4B] leading-[1.2] max-md:leading-[1.3] max-sm:leading-[1.4]">
-                        Delivering Finacle Success Through Open-Source Expertise
+                        Delivering Finacle Success Through Open - Source Expertise
                     </h2>
                 </HeadingAnim>
                 </div>
                 <Copy>
                     <p className="w-[60%] max-md:w-[95%] text-center text-30 text-foreground leading-[1.3]">
-                        As a strategic open-source consulting partner to Infosys Finacle, DSW helps
+                        As a strategic open - source consulting partner to Infosys Finacle, DSW helps
                         global banks modernize, optimize, and scale Finacle deployments through
-                        enterprise-grade open-source adoption.
+                        enterprise - grade open-source adoption.
                     </p>
                 </Copy>
 

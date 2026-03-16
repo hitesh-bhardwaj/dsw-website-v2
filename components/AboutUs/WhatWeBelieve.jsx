@@ -32,7 +32,7 @@ const data = [
   },
   {
     icon: <Owned />,
-    title: "Owned end-to-end by the enterprise",
+    title: "Owned end - to - end by the enterprise",
     isHighlighted: false,
   },
 ];

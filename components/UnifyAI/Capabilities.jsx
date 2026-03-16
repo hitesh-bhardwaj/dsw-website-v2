@@ -7,12 +7,12 @@ export default function Capabilities() {
             <div className="text-center space-y-[2vw] max-sm:px-[7vw] px-[5vw] max-sm:space-y-[7vw] max-md:space-y-[4vw]">
                 <HeadingAnim>
                 <h2 className="text-56 text-[#0A1B4B] w-[60%] text-center mx-auto max-sm:w-full max-md:w-[80%] max-sm:text-[8.5vw]">
-                   Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built-In Capabilities
+                   Supercharge Your AI/ML Use Cases with DSW UnifyAI’s Built - In Capabilities
                 </h2>
                 </HeadingAnim>
                 <Copy>
                 <p className="text-30 w-[70%] max-sm:w-full max-sm:leading-normal mx-auto max-md:w-[80%] text-[#333333]">
-                   UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production-ready from the start.
+                   UnifyAI kernel operates your AI/ML runtime with advanced tools that help you move faster, reduce manual work, and stay production - ready from the start.
                 </p>
                 </Copy>
             </div>
@@ -28,8 +28,8 @@ export default function Capabilities() {
  function CapabilitiesTable() {
   const capabilities = [
     {
-      capability: "In-built AI Studio",
-      delivers: "Fast-track AI/ML model development with auto-ML, feature engineering, and monitoring."
+      capability: "In - built AI Studio",
+      delivers: "Fast - track AI/ML model development with auto - ML, feature engineering, and monitoring."
     },
     {
       capability: "Prompt Hub",
@@ -49,11 +49,11 @@ export default function Capabilities() {
     },
     {
       capability: "Auto Monitoring Engine",
-      delivers: "Real-time model and agent monitoring, performance alerts, and drift detection."
+      delivers: "Real - time model and agent monitoring, performance alerts, and drift detection."
     },
     {
       capability: "Guardrails & Controls",
-      delivers: "Role-based access, safety checks, compliance workflows built in from day one."
+      delivers: "Role - based access, safety checks, compliance workflows built in from day one."
     },
     
   ];

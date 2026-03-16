@@ -72,7 +72,7 @@ const foundingTeam = [
 ];
 const growthTeam = [
   {
-    src: "/assets/about/deepti.png",
+    src: "/assets/about/deepti-img-new.png",
     name: "Deepti Dilip J.",
     role: "Chief Marketing Officer",
     link: "https://www.linkedin.com/in/deepti-dilip-727b6a14/",

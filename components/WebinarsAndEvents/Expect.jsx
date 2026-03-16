@@ -7,19 +7,19 @@ const POINTS = [
   {
     id: "01",
     title: "Live Expert Panels",
-    text: "Hear from AI leaders, CTOs, and compliance specialists on real-world strategies and deployment journeys.",
+    text: "Hear from AI leaders, CTOs, and compliance specialists on real - world strategies and deployment journeys.",
     width: "w-full",
   },
   {
     id: "02",
-    title: "Industry-Specific Sessions",
+    title: "Industry - Specific Sessions",
     text: "Explore tailored events focused on insurance, banking, healthcare, and other regulated industries.",
     width: "w-full",
   },
   {
     id: "03",
-    title: "Hands-On Webinars",
-    text: "Follow guided walkthroughs of AI and GenAI use cases using the UnifyAI platform—with no-code to full-code options.",
+    title: "Hands - On Webinars",
+    text: "Follow guided walkthroughs of AI and GenAI use cases using the UnifyAI platform - with no - code to full - code options.",
     width: "w-full",
   },
   {

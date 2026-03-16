@@ -14,7 +14,7 @@ export default function Fragmented() {
       <Copy> 
         <p className="text-40 max-sm:leading-normal  w-[75%] text-center mx-auto leading-[1.4] max-sm:w-full">
           An AI/ML runtime that seamlessly unifies data, models, workflows, and
-          intelligent agents into a single execution layer that is purpose-built
+          intelligent agents into a single execution layer that is purpose - built
           to operationalize AI at scale and consistently drive measurable
           business outcomes.
         </p>

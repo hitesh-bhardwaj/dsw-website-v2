@@ -111,9 +111,8 @@ export default Page;
    HERO
 --------------------------------------------- */
 const heroContent = {
-  tagline: "One operating system for real-time financial decisioning.",
-  heading:
-    "Govern lending, markets, payments, and portfolio risk at runtime",
+  tagline: "One operating system for real - time financial decisioning.",
+  heading: "Govern lending, markets, payments, and portfolio risk at runtime",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -135,7 +134,8 @@ const heroContent = {
    RUNTIME
 --------------------------------------------- */
 const runtimeContent = {
-  heading: "Financial AI is already deployed. It is not yet operationalized.",
+  heading: "Financial AI is already deployed.<br/> It is not yet operationalized.",
+
   description:
     "Most financial institutions run models across lending, capital markets, fraud, and compliance. Few can operate them continuously across business units and decision environments.",
   items: [
@@ -195,7 +195,7 @@ const featuresContent = {
   heading: "Unlimited Financial AI and Agentic AI. One governed runtime.",
   cards: [
     {
-      title: "Runtime-governed lending and credit intelligence",
+      title: "Runtime - governed lending and credit intelligence",
       description:
         "Operate origination, underwriting, and portfolio monitoring within controlled execution environments.",
       bullets: [
@@ -228,7 +228,7 @@ const featuresContent = {
     {
       title: "Agentic copilots for analysts, relationship teams, and operations",
       description:
-        "Assist teams with context, recommendations, and next-best actions under policy control.",
+        "Assist teams with context, recommendations, and next - best actions under policy control.",
       bullets: [
         "Relationship manager copilots",
         "Analyst productivity copilots",
@@ -240,7 +240,7 @@ const featuresContent = {
       description:
         "Enable governed knowledge systems across product, policy, research, and compliance environments.",
       bullets: [
-        "Role-based knowledge retrieval",
+        "Role - based knowledge retrieval",
         "Traceable citations and decision support",
         "Tool usage governed at runtime",
       ],
@@ -290,14 +290,14 @@ const caseStudyContent = {
    OPERATIONS
 --------------------------------------------- */
 const operationsContent = {
-  heading:
-    "Kernel-governed execution across lending, markets, and payments",
+  heading: "Kernel - governed execution across lending, markets, and payments",
+
   tabs: [
     {
       label: "Governance enforced where financial AI executes",
       intro: "Policies operate inside workflows and decision environments.",
       bullets: [
-        "Governance-as-code at runtime",
+        "Governance - as - code at runtime",
         "Policy enforcement across models, agents, and workflows",
         "Auditability, traceability, and reversibility embedded into execution",
       ],
@@ -308,8 +308,8 @@ const operationsContent = {
         "Operate ML and agentic execution within one governed environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time and batch inference control",
-        "Human-in-the-loop decision boundaries",
+        "Real - time and batch inference control",
+        "Human - in - the - loop decision boundaries",
       ],
     },
     {
@@ -320,14 +320,14 @@ const operationsContent = {
       bullets: [
         "Works with core platforms and data environments",
         "Enables modernization without system replacement",
-        "Expands ecosystem without vendor lock-in",
+        "Expands ecosystem without vendor lock - in",
       ],
     },
     {
       label: "Enterprise custody of AI infrastructure and decision assets",
       intro: "Operate entirely within institutional environments.",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of models, data, and IP",
         "No outbound learning or forced SaaS dependency",
       ],
@@ -340,8 +340,9 @@ const operationsContent = {
 --------------------------------------------- */
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-  heading:
-    "Scale Financial AI without governance gaps, lock-in, or cost fragmentation",
+
+  heading: "Scale Financial AI without governance gaps, lock - in, or cost fragmentation",
+
   points: [
     {
       id: "01",
@@ -375,7 +376,7 @@ const benefitsContent = {
 const ctaContent = {
   heading: "Operate Financial AI as enterprise infrastructure",
   para:
-    "See how the DSW Enterprise AI Operating System governs execution across lending, markets, payments, risk, and compliance workflows.",
+    "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across lending, markets, payments, risk, and compliance workflows.",
   primaryButton: {
     present: true,
     link: "#",

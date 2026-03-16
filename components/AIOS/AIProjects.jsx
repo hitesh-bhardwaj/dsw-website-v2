@@ -60,7 +60,7 @@ const CARDS = [
   {
     icon: "/assets/icons/aios/cloud-platform.svg",
     alt: "Cloud platform icon",
-    text: "Run AI entirely inside customer-controlled environments (on-premises, private cloud, or hybrid)",
+    text: "Run AI entirely inside customer - controlled environments (on - premises, private cloud, or hybrid)",
   },
   {
     icon: "/assets/icons/aios/ai-ownership.svg",
@@ -70,11 +70,11 @@ const CARDS = [
   {
     icon: "/assets/icons/aios/no-vendor-lockin.svg",
     alt: "No vendor lock-in icon",
-    text: "Integrate any AI ecosystem without vendor lock-in",
+    text: "Integrate any AI ecosystem without vendor lock - in",
   },
   {
     icon: "/assets/icons/aios/production-infra.svg",
     alt: "Production infrastructure icon",
-    text: "Treat AI use cases as production infrastructure - not short-term projects",
+    text: "Treat AI use cases as production infrastructure - not short - term projects",
   },
 ];

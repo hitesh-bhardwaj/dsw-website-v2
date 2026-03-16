@@ -106,9 +106,8 @@ export default Page;
 
 const heroContent = {
   tagline:
-    "Real-time AI execution across OSS, BSS, network, and service environments.",
-  heading:
-    "Run network, operations, and subscriber intelligence on one AI operating layer",
+    "Real - time AI execution across OSS, BSS, network, and service environments.",
+  heading: "Run network, operations, and subscriber intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -131,7 +130,8 @@ const heroContent = {
 --------------------------------------------- */
 
 const runtimeContent = {
-  heading: "Telecom AI is everywhere. Operational control is not.",
+  heading: "Telecom AI is everywhere. <br/>Operational control is not.",
+
   description:
     "Most telecom providers run AI across network optimization, churn, fraud, and customer operations. Few can operate it continuously across OSS, BSS, and service environments.",
   items: [
@@ -220,7 +220,7 @@ const featuresContent = {
       bullets: [
         "Churn prediction intelligence",
         "Customer experience signals",
-        "Next-best engagement actions",
+        "Next - best engagement actions",
       ],
     },
     {
@@ -280,7 +280,7 @@ const caseStudyContent = {
   description:
     "How India’s leading Health Insurance Company Streamlined Customer Communications and Operations with AI in weeks!",
   imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/case-study-teleco.png",
+  imgSrc:"/assets/case-studies/insurance/email-automation.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -294,8 +294,7 @@ const caseStudyContent = {
 --------------------------------------------- */
 
 const operationsContent = {
-  heading:
-    "Kernel-governed execution across OSS, BSS, and network operations",
+  heading: "Kernel - governed execution across OSS, BSS, and network operations",
 
   tabs: [
     {
@@ -314,8 +313,8 @@ const operationsContent = {
         "Operate ML and agentic systems in one governed execution environment.",
       bullets: [
         "Model lifecycle governance",
-        "Real-time inference control",
-        "Human-in-the-loop operational boundaries",
+        "Real - time inference control",
+        "Human - in - the - loop operational boundaries",
       ],
     },
     {
@@ -332,7 +331,7 @@ const operationsContent = {
       label: "Enterprise custody of telecom AI infrastructure and assets",
       intro: "Operate entirely within provider environments.",
       bullets: [
-        "On-prem, cloud, or hybrid deployment",
+        "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
         "No outbound learning or forced SaaS dependency",
       ],
@@ -346,8 +345,7 @@ const operationsContent = {
 
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-  heading:
-    "Scale Telecom AI without governance gaps, lock-in, or operational fragmentation",
+  heading: "Scale Telecom AI without governance gaps, lock - in, or operational fragmentation",
   points: [
     {
       id: "01",
@@ -379,7 +377,7 @@ const benefitsContent = {
 const ctaContent = {
   heading: "Operate Telecom AI as infrastructure",
   para:
-    "See how the DSW Enterprise AI Operating System governs execution across network operations, subscriber intelligence, revenue systems, and service environments.",
+    "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across network operations, subscriber intelligence, revenue systems, and service environments.",
   primaryButton: {
     present: true,
     link: "#",

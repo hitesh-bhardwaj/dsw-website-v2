@@ -9,7 +9,7 @@ import HeadingAnim from "../Animations/HeadingAnim";
 const POINTS = [
     {
         id: "01",
-        text: "On-premises environments",
+        text: "On - premises environments",
         width: "w-full",
     },
     {

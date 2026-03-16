@@ -72,14 +72,14 @@ export const NAV_LINKS = [
       stories: [
         {
           quote:
-            "DSW UnifyAI simplified our data-driven approach, enabling easy development of AI-powered use cases.",
+            "DSW UnifyAI simplified our data - driven approach, enabling easy development of AI - powered use cases.",
           image: "/assets/homepage/testimonials/oxsde-final.png",
           name: "Stefano Bonfa",
           role: "Director, OxSDE, Europe",
         },
         {
           quote:
-            "With DSW's insurance-specific solutions on top of its robust AI platform, we’ve been able to move use cases into production quickly.",
+            "With DSW's insurance - specific solutions on top of its robust AI platform, we’ve been able to move use cases into production quickly.",
           image: "/assets/homepage/testimonials/canara-hsbc.png",
           name: "Ritesh Rathod",
           role: "Chief Strategy and Data Officer, Canara HSBC",
@@ -110,7 +110,7 @@ export const NAV_LINKS = [
       },
       {
         id: "tech-3",
-        label: "AgenticAI",
+        label: "AgenticAI Runtime",
         href: "/agentic-ai",
         description: "Deploy AI agents in hours!",
       },
@@ -141,14 +141,14 @@ export const NAV_LINKS = [
         id: "res-2",
         label: "Workshops",
         href: "/ai-insurance-workshops",
-        description: "Real-world AI & GenAI training for teams.",
+        description: "Real - world AI & GenAI training for teams.",
         group: "Learn",
       },
       {
         id: "res-3",
         label: "Masterclass",
         href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
-        description: "Hands-on DeepTech AI & GenAI masterclass.",
+        description: "Hands - on DeepTech AI & GenAI masterclass.",
         group: "Learn",
       },
       {
@@ -162,7 +162,7 @@ export const NAV_LINKS = [
         id: "res-5",
         label: "Events",
         href: "/webinars-and-events",
-        description: "Live panels, expert talks, and hands-on sessions.",
+        description: "Live panels, expert talks, and hands - on sessions.",
         group: "Engage",
       },
       {

@@ -13,51 +13,51 @@ const STEPS = [
     title: "Enterprise & AI Applications",
     bullets: [
       "Business applications, workflows, and decision systems",
-      "AI behaves as long-running production systems",
+      "AI behaves as long - running production systems",
     ],
-    layerSrc: "/assets/homepage/glass-layer-1.png",
-    layerTop: "0%",
+    layerSrc: "/assets/homepage/structure-layer-1.png",
+    layerTopClass: "top-[12%] max-md:top-[14%] max-sm:top-[17vw]",
     z: 7,
   },
   {
-    title: "AI Execution Subsystems (Kernel-Controlled)",
+    title: "AI Execution Subsystems (Kernel - Controlled)",
     bullets: [
       "ML Runtime - inference, scoring, monitoring",
-      "Agentic Runtime - multi-agent orchestration",
+      "Agentic Runtime - multi - agent orchestration",
       "No execution bypasses kernel policies",
     ],
-    layerSrc: "/assets/homepage/glass-layer-2.png",
-    layerTop: "13%",
+    layerSrc: "/assets/homepage/structure-glass-layer-2.png",
+    layerTopClass: "top-[26%] max-md:top-[31%] max-sm:top-[35vw]",
     z: 6,
   },
   {
     title: "DSW Enterprise AI OS Kernel (UnifyAI Core)",
     bullets: [
-      "Governance-as-Code (mandatory, non-bypassable)",
+      "Governance - as - Code (mandatory, non - bypassable)",
       "Policy enforcement, lineage, audit, reversibility",
       "AI lifecycle, versioning, execution contracts",
       "Defines allowed interactions with runtimes & fabric",
     ],
-    layerSrc: "/assets/homepage/glass-layer-3.png",
-    layerTop: "26%",
+    layerSrc: "/assets/homepage/structure-layer-3.png",
+    layerTopClass: "top-[40%] max-md:top-[47%] max-sm:top-[54vw]",
     z: 5,
   },
   {
-    title: "AI Fabric (Kernel-Mediated Extension & Integration Layer)",
+    title: "AI Fabric (Kernel - Mediated Extension & Integration Layer)",
     bullets: [
       "External models, LLMs, OSS, ISV tools",
-      "Accessed only via kernel-defined interfaces",
+      "Accessed only via kernel - defined interfaces",
       "No direct execution without kernel mediation",
     ],
-    layerSrc: "/assets/homepage/glass-layer-4.png",
-    layerTop: "39%",
+    layerSrc: "/assets/homepage/structure-layer-4.png",
+    layerTopClass: "top-[55%] max-md:top-[65%] max-sm:top-[72vw]",
     z: 4,
   },
   {
     title: "Hardware / Cloud Infrastructure",
     bullets: ["Servers, storage, network, accelerators"],
-    layerSrc: "/assets/homepage/glass-layer-5.png",
-    layerTop: "52%",
+    layerSrc: "/assets/homepage/structure-bottom-layer.png",
+    layerTopClass: "top-[69%] max-md:top-[80%] max-sm:top-[90vw]",
     z: 2,
   },
 ];
@@ -68,17 +68,16 @@ export default function Diagram() {
   const layerRefs = useRef([]);
   const blockRefs = useRef([]);
   const headingRefs = useRef([]);
-  const listItemRefs = useRef([]); // 2D: [stepIndex][liIndex]
+  const listItemRefs = useRef([]);
   const splitsRef = useRef([]);
+  const structureBottomRef = useRef(null);
 
   useGSAP(() => {
     const sectionEl = sectionRef.current;
     if (!sectionEl) return;
 
-    // ✅ DESCENDING: start from last
     const DESC_STEPS = [...STEPS].slice().reverse();
 
-    // ✅ revert old SplitText
     splitsRef.current.forEach((s) => {
       try {
         s?.revert?.();
@@ -86,7 +85,6 @@ export default function Diagram() {
     });
     splitsRef.current = [];
 
-    // ✅ Split headings
     headingRefs.current.forEach((h, i) => {
       if (!h) return;
 
@@ -104,15 +102,14 @@ export default function Diagram() {
       });
     });
 
-    // ✅ Initial states (only first visible = DESC first = original LAST)
-    layerRefs.current.forEach((el, i) => {
+    layerRefs.current.forEach((el) => {
       if (!el) return;
-      gsap.set(el, { autoAlpha: i === 0 ? 0 : 0, y: i === 0 ? 0 : 24 });
+      gsap.set(el, { autoAlpha: 0, y: 24 });
     });
 
-    blockRefs.current.forEach((el, i) => {
+    blockRefs.current.forEach((el) => {
       if (!el) return;
-      gsap.set(el, { autoAlpha: i === 0 ? 0 : 0 });
+      gsap.set(el, { autoAlpha: 0 });
     });
 
     listItemRefs.current.forEach((items, stepIdx) => {
@@ -125,6 +122,8 @@ export default function Diagram() {
       });
     });
 
+    gsap.set(structureBottomRef.current, { autoAlpha: 0 });
+
     const stepsCount = DESC_STEPS.length;
     const tl = gsap.timeline({ defaults: { ease: "none" } });
 
@@ -134,10 +133,11 @@ export default function Diagram() {
       const exitTime = i;
       const enterTime = i + gap;
 
-      // OUT previous
       if (i > 0) {
         const prevBlock = blockRefs.current[i - 1];
-        if (prevBlock) tl.to(prevBlock, { autoAlpha: 0, duration: 0.25 }, exitTime);
+        if (prevBlock) {
+          tl.to(prevBlock, { autoAlpha: 0, duration: 0.25 }, exitTime);
+        }
 
         const prevSplit = splitsRef.current[i - 1];
         if (prevSplit?.lines?.length) {
@@ -150,18 +150,27 @@ export default function Diagram() {
 
         const prevLis = listItemRefs.current[i - 1] || [];
         if (prevLis.length) {
-          tl.to(prevLis, { autoAlpha: 0, y: -8, duration: 0.2, stagger: 0.02 }, exitTime);
+          tl.to(
+            prevLis,
+            { autoAlpha: 0, y: -8, duration: 0.2, stagger: 0.02 },
+            exitTime
+          );
         }
       }
 
-      // IN current
       const currentBlock = blockRefs.current[i];
-      if (currentBlock) tl.to(currentBlock, { autoAlpha: 1, duration: 0.25 }, enterTime);
+      if (currentBlock) {
+        tl.to(currentBlock, { autoAlpha: 1, duration: 0.25 }, enterTime);
+      }
 
       const layer = layerRefs.current[i];
       if (layer) {
         tl.set(layer, { autoAlpha: 0, y: 24 }, enterTime);
-        tl.to(layer, { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" }, enterTime);
+        tl.to(
+          layer,
+          { autoAlpha: 1, y: 0, duration: 0.35, ease: "power2.out" },
+          enterTime
+        );
       }
 
       const split = splitsRef.current[i];
@@ -185,7 +194,13 @@ export default function Diagram() {
         tl.set(lis, { autoAlpha: 0, y: 12 }, enterTime);
         tl.to(
           lis,
-          { autoAlpha: 1, y: 0, duration: 0.45, stagger: 0.06, ease: "power3.out" },
+          {
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.45,
+            stagger: 0.06,
+            ease: "power3.out",
+          },
           enterTime + 0.12
         );
       }
@@ -193,34 +208,43 @@ export default function Diagram() {
 
     const width = globalThis.innerWidth;
 
-// default desktop + mobile
-let startPosition = "top 80%";
-let endPosition = "bottom bottom";
+    let startPosition = "top 80%";
+    let endPosition = "bottom bottom";
 
-// ✅ tablet (>640 && <1025)
-if (width > 640 && width < 1025) {
-  startPosition = "-5% 20%";
-  endPosition = "bottom bottom";
-}
+    if (width > 640 && width < 1025) {
+      startPosition = "-5% 20%";
+      endPosition = "bottom bottom";
+    }
 
-ScrollTrigger.create({
-  trigger: sectionEl,
-  start: startPosition,
-  end: endPosition,
-  scrub: true,
-  animation: tl,
-  // markers: true,
-});
+    gsap.to(structureBottomRef.current, {
+      autoAlpha: 1,
+      duration: 0.25,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "85% 80%",
+        end: "95% 80%",
+        scrub: true,
+        // markers: true,
+      },
+    });
+
+    ScrollTrigger.create({
+      trigger: sectionEl,
+      start: startPosition,
+      end: endPosition,
+      scrub: true,
+      animation: tl,
+      // markers: true,
+    });
   }, []);
 
-  // ✅ DESCENDING: use reversed steps for rendering too (refs must align)
   const DESC_STEPS = [...STEPS].slice().reverse();
 
   return (
     <section ref={sectionRef} className="w-full h-fit">
       <div className="h-[240vw] max-md:h-[450vw] max-sm:h-[520vh]">
-        <div className="w-full flex justify-between max-md:flex-col max-md:justify-center max-md:items-start  max-sm:gap-0 h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%] max-md:top-0">
-          {/* LEFT */}
+        <div className="w-full flex justify-between max-md:flex-col max-md:justify-center max-md:items-start max-sm:gap-0 h-screen sticky top-[5%] max-sm:overflow-hidden max-sm:top-[3%] max-md:top-0">
           <div className="w-[40%] max-sm:w-full max-md:w-[70%] pt-[10vw] relative">
             <div className="relative w-full min-h-[32vw] max-sm:min-h-[75vw] max-md:min-h-[40vw]">
               {DESC_STEPS.map((step, i) => (
@@ -258,14 +282,19 @@ ScrollTrigger.create({
             </div>
           </div>
 
-          {/* RIGHT */}
-          <div className="w-[50%] h-[42vw] max-md:w-full max-md:h-[80vw] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[10%] max-md:-translate-y-[20%]">
+          <div className="w-[50%] h-[42vw] max-md:w-full max-md:h-[80vw] -translate-y-[5%] relative max-sm:w-[150%] max-sm:ml-[-25%] max-sm:h-[150vw] mr-[-4vw] max-sm:-translate-y-[30%] max-md:-translate-y-[25%]">
             {DESC_STEPS.map((step, i) => (
               <div
                 key={i}
                 ref={(el) => (layerRefs.current[i] = el)}
-                className="w-[42vw] max-md:w-[95vw]  h-auto absolute right-0 max-sm:w-full"
-                style={{ top: step.layerTop, zIndex: step.z }}
+                className={`${step.layerTopClass} w-[27vw] max-md:w-[60vw] h-auto absolute max-sm:w-[80vw] ${
+                  i === 3
+                    ? "scale-[1.01] left-[14.5%] max-sm:left-[18.5%] max-md:left-[17.5%]"
+                    : "left-[15%] max-sm:left-[19%] max-md:left-[18%]"
+                }`}
+                style={{
+                  zIndex: step.z,
+                }}
               >
                 <Image
                   src={step.layerSrc}
@@ -276,6 +305,19 @@ ScrollTrigger.create({
                 />
               </div>
             ))}
+
+            <div
+              ref={structureBottomRef}
+              className="w-[31.5vw] max-md:w-[70vw] max-sm:w-[97vw] top-[5%] left-[9.5%] max-md:left-[12%] h-auto absolute structure-bottom max-sm:left-[12%]"
+            >
+              <Image
+                src="/assets/homepage/structure-frame.png"
+                className="w-full h-full object-cover"
+                width={400}
+                height={800}
+                alt="structure-bottom-layer"
+              />
+            </div>
           </div>
         </div>
       </div>

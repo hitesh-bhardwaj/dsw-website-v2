@@ -64,7 +64,7 @@ const JoinUs = () => {
                     </HeadingAnim>
                     <Copy>
                         <p className="text-24 font-sans leading-[1.4] text-foreground w-[55%] max-sm:w-full mx-auto max-md:w-[80%]">
-                            We're building a category-defining foundation for enterprise AI - and we're looking for people
+                            We're building a category - defining foundation for enterprise AI - and we're looking for people
                             who want to solve deep, meaningful problems.
                         </p>
                     </Copy>

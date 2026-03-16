@@ -48,7 +48,7 @@ const Page = () => {
             <Layout>
                 <HeroNew heroContent={heroContent} variant={"bottomRight"} />
                 <OperatingSystem />
-                <AIProjects />
+                <AIProjects  />
                 <AIEcosystem ecosystemItems={ECOSYSTEM_ITEMS} />
                 <Fragmented />
                 <ArchitecturalPrinciples />
@@ -70,9 +70,9 @@ export default Page
 
 const heroContent = {
     tagline: "Built for enterprises that don’t just build AI - but operate it.",
-    heading: "The Architecture behind DSW UnifyAI OS - The Enterprise AI operating system",
+    heading: "The Architecture behind<br/> DSW UnifyAI OS - The Enterprise AI Operating System",
     headingWidth: "w-[80%]",
-    para: "DSW UnifyAI OS is built for enterprises that are moving AI from experiments into long-running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
+    para: "DSW UnifyAI OS is built for enterprises that are moving AI from experiments into long - running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
     primaryButton: {
         present: false,
         link: "#",
@@ -89,9 +89,9 @@ const heroContent = {
 
 const ctaContent={
   heading:"Own How AI Runs in Your Enterprise",
-  para:"DSW is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
+  para:"DSW UnifyAI OS is the enterprise AI operating system layer that sits on top of your existing infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
   subPara: true,
-  subParaText: 'Turn AI pilots into auditable, production-grade agents',
+  subParaText: 'Turn AI pilots into auditable, production - grade agents',
   primaryButton:{
     present: true,
     link: "#",
@@ -108,14 +108,14 @@ const ctaContent={
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Designed For Regulated Enterprises. Proven in BFSI. ",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  subtext: "Designed for compliance - driven, risk - sensitive operations.",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };
 
 const ECOSYSTEM_ITEMS = [
   {
-    title: "Kernel-level governance",
+    title: "Kernel - level governance",
     points: [
       "Policies execute as code",
       "Audit, traceability, and reversibility are native",
@@ -133,7 +133,7 @@ const ECOSYSTEM_ITEMS = [
   {
     title: "AI as enterprise infrastructure",
     points: [
-      "Long-running, production-grade execution",
+      "Long - running, production - grade execution",
       "Independent of vendors, clouds, or tools",
       "Fully owned and operated by your enterprise",
     ],

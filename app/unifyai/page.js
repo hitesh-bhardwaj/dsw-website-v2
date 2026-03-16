@@ -63,8 +63,8 @@ export default AgenticAI;
 
 const heroContent = {
   tagline:
-    "No more delays. No more stalled pilots. Just production-ready AI/ML in weeks.",
-  heading: "Enterprise AI/ML Runtime Built for Real-World Use Case Deployment",
+    "No more delays. No more stalled pilots. Just production - ready AI/ML in weeks.",
+  heading: "Enterprise AI/ML Runtime Built for Real - World Use Case Deployment",
   primaryButton: {
     present: false,
     link: "#",
@@ -78,7 +78,7 @@ const heroContent = {
 };
 
 const ctaContent = {
-  heading: "Ready to run enterprise AI safely, continuously, and at scale ? ",
+  heading: "Ready to run Enterprise AI safely, continuously, and at scale ? ",
   para: "Launch smarter, faster, scalable AI / ML runtime.",
   subPara: false,
   primaryButton: {
@@ -103,7 +103,7 @@ const tourContent = {
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Designed For Regulated Enterprises. Proven in BFSI. ",
-  subtext: "Designed for compliance-driven, risk-sensitive operations.",
+  subtext: "Designed for compliance - driven, risk - sensitive operations.",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
-};
+}; 

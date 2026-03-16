@@ -5,6 +5,7 @@ import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";
 import { homepage } from "@/lib/util";
+import Journey from "@/components/AboutUs/Journey";
 
 // Dynamic Components
 const Intro = dynamic(() => import("@/components/AboutUs/Intro"));
@@ -51,6 +52,7 @@ const AgenticAI = () => {
           <Intro />
           <DSWArrival />
           <Infrastructure />
+          {/* <Journey/> */}
           <WhatWeBelieve />
           <WhatWeStandFor />
           <TeamWrapper />
@@ -83,7 +85,7 @@ const heroContent = {
 
 const ctaContent = {
   heading: "Ready to operate AI like a unified, governed system? ",
-  para: "Whether you’re exploring enterprise AI at scale or looking to build the foundation with us  - we’d love to connect.",
+  para: "Whether you’re exploring enterprise AI at scale or looking to build the foundation with us - we’d love to connect.",
   subPara: false,
   primaryButton: {
     present: true,

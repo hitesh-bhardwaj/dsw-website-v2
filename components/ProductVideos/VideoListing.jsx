@@ -210,7 +210,7 @@ const videos = [
     duration: "15.12 mins",
     title: "Insurtech Insight New York USA Talk",
     description:
-      "Meet insurAInce by DSW UnifyAI — the AI platform purpose-built for insurers ready to scale from pilots to production.",
+      "Meet insurAInce by DSW UnifyAI - the AI platform purpose-built for insurers ready to scale from pilots to production.",
     youtubeUrl: "https://www.youtube.com/watch?v=xgunsLTSCMc",
   },
   {
@@ -219,7 +219,7 @@ const videos = [
     duration: "1.40 min",
     title: "DSW UnifyAI: Welcome to the future of Enterprise AI",
     description:
-      "Discover the power of DSW UnifyAI, an enterprise-grade AI platform designed to streamline your AI adoption journey.",
+      "Discover the power of DSW UnifyAI, an enterprise - grade AI platform designed to streamline your AI adoption journey.",
     youtubeUrl: "https://www.youtube.com/watch?v=Koch5FOWPdc",
   },
   {
@@ -227,9 +227,9 @@ const videos = [
     alt: "securing-ai",
     duration: "44.07 mins",
     title:
-      "AI for ALL: Power of Democratizing AI and Data Science with UnifyAI, an Enterprise-Ready AI Platform",
+      "AI for ALL: Power of Democratizing AI and Data Science with UnifyAI, an Enterprise - Ready AI Platform",
     description:
-      "UnifyAI is an API-driven platform that offers an end-to-end journey for organizations to build and scale their AI-enabled services.",
+      "UnifyAI is an API - driven platform that offers an end-to-end journey for organizations to build and scale their AI-enabled services.",
     youtubeUrl: "https://www.youtube.com/watch?v=7yMR3fkAI20",
   },
   {
