@@ -264,9 +264,9 @@ const caseStudyContent = {
   subheading: "Real deployment. Measurable operational impact.",
   company: "Castler",
   description:
-    "Revolutionizing Document Intelligence for a Leading Indian Fintech Company",
+    "The customer is a prominent fintech company specializing in digital escrow services, headquartered in Delhi, India.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/case-study-banking.png",
+  imgSrc: "/assets/case-studies/castler.png",
   button: {
     present: true,
     text: "Download Case Study",

@@ -253,15 +253,15 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Healthcare AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Customer Unification",
+  company: "Borosil",
   description:
-    "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient - first principles. ",
+    "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/insurance/customer-data.png",
+  imgSrc: "/assets/case-studies/borosil.png",
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/customer-unification.pdf",
+    href: "/assets/case-studies/borosil.pdf",
     type: "pdf",
   },
 };

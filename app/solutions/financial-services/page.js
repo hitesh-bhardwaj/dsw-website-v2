@@ -277,7 +277,7 @@ const caseStudyContent = {
   description:
     "The customer is a prominent fintech company specializing in digital escrow services, headquartered in Delhi, India. ",
   imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/case-study-finance.png",
+  imgSrc: "/assets/case-studies/castler.png",
   button: {
     present: true,
     text: "Download Case Study",

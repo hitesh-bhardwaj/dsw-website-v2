@@ -52,7 +52,7 @@ const AgenticAI = () => {
           <Intro />
           <DSWArrival />
           <Infrastructure />
-          {/* <Journey/> */}
+          <Journey/>
           <WhatWeBelieve />
           <WhatWeStandFor />
           <TeamWrapper />

@@ -257,7 +257,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/case-study-manufacturing-2.png",
+  imgSrc: "/assets/case-studies/borosil.png",
   button: {
     present: true,
     text: "Download Case Study",
