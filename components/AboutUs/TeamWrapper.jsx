@@ -102,6 +102,12 @@ const growthTeam = [
     role: "Senior Data Scientist",
     link: "https://www.linkedin.com/in/saurabhsingh1401/",
   },
+  {
+    src: "/assets/about/aaron-about-img.jpg",
+    name: "Aaron Douchinsky ",
+    role: "Head of Sales - America",
+    link: "https://www.linkedin.com/in/aarondouchinsky/",
+  },
 ];
 const advisors = [
   {
