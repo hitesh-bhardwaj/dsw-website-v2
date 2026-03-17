@@ -25,7 +25,7 @@ const WorkshopAutoResponse = ({ userName }) => {
             We will get back to you within 24 hours.
           </Text>
           <Text style={paragraph}>
-            Checkout workshop content - <a href="https://www.datasciencewizards.ai/ai-genai-masterclass/">AI and GenAI Masterclass</a>.
+            Checkout workshop content - <a href="https://www.datasciencewizards.ai/dsw-workshop-deeptech-ai-genai-hands-on-masterclass/">AI and GenAI Masterclass</a>.
           </Text>
           
           <Text style={paragraph}>

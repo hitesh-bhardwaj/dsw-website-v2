@@ -50,13 +50,13 @@ const WalkthroughAutoResponse = ({ userName, downloadedPdfName }) => {
 Vice President - Sales and Business Strategy <br/>
 +91-9664056847 | www.datasciencewizards.ai 
           </Text>
-          <Img
+          {/* <Img
             src={"https://www.datasciencewizards.ai/wp-content/uploads/2025/01/email-signature-rohit.png"}
             width="140"
             height="80"
             alt="Signature Banner"
             style="width: 100%; height: auto; display: block;"
-          />
+          /> */}
           <Hr style={hr} />
           <Text style={footer}>
             This is an automated response. Please do not reply to this email.
