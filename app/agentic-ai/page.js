@@ -80,7 +80,7 @@ const ctaContent={
   heading:"DSW AgenticAI runtime for BFSI ",
   para:"Unify data, models and agent orchestration with pre - built BFSI playbooks, audit - first governance and human - in - the - loop controls - built for regulated financial services. ",
   subPara: true,
-  subParaText: 'Turn AI pilots into auditable, production-grade agents',
+  subParaText: 'Turn AI pilots into auditable, production - grade agents',
   primaryButton:{
     present:true,
     link:"#",
@@ -97,7 +97,7 @@ const ctaContent={
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Designed For Regulated Enterprises. Proven in BFSI. ",
-  subtext: "Designed for compliance - driven, risk-sensitive operations.",
+  subtext: "Designed for compliance - driven, risk - sensitive operations.",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };
