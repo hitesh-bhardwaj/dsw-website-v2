@@ -355,7 +355,7 @@ const operationsContent = {
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Tailor - made for regulated insurance environments",
-  subtext: "Designed for compliance-driven, risk - sensitive operations.",
+  subtext: "Designed for compliance - driven, risk - sensitive operations.",
   footerText:
     "Supports governance, audit, and regulatory workflows across underwriting, claims, and servicing.",
 };

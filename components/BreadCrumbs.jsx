@@ -35,7 +35,7 @@ const BreadCrumbs = ({isMobileWhite}) => {
   );
 
   return (
-    <div className={`breadcrumbs overflow-hidden w-fit flex items-start justify-start text-[1vw] text-white  max-md:text-[2.5vw] max-sm:text-[3.5vw] max-md:h-fit absolute left-[5%] top-[93%] max-md:top-[15%] max-md:left-1/2 max-md:-translate-x-1/2 max-md:w-full max-md:justify-center  z-[800] fadeup ${isMobileWhite ? "max-md:text-white" : "max-md:text-foreground"}`}>
+    <div className={`breadcrumbs overflow-hidden w-fit flex items-start justify-start text-[1vw] text-white  max-md:text-[2.5vw] max-sm:text-[3.5vw] max-md:h-fit absolute left-[5%] top-[93%] max-md:top-[12%] max-md:left-1/2 max-md:-translate-x-1/2 max-md:w-full max-md:justify-center  z-[800] fadeup ${isMobileWhite ? "max-md:text-white" : "max-md:text-foreground"}`}>
       <div ref={crumbsRef} className="flex gap-3 items-center">
         {/* Static 'resources' (not a link) */}
         <span className="opacity-60">Resources</span>

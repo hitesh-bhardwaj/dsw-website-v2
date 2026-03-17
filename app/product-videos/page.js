@@ -49,7 +49,7 @@ export default Page;
 
 const heroContent={
   tagline:"",
-  heading:"Watch AI in Action- Learn, Explore, and Be Inspired",
+  heading:"Watch AI in Action - Learn, Explore, and Be Inspired",
   headingWidth:"w-[84%]",
   primaryButton:{
     present:false,
@@ -62,7 +62,7 @@ const heroContent={
     text:"Talk to our Team"
   },
   images:false,
-  para:"Welcome to the DSW Video Hub — where we showcase how AI and GenAI are transforming enterprises through secure, scalable, and industry-specific solutions. Whether you’re evaluating platforms, looking for technical demos, or curious about how leading organizations are accelerating their AI journey, you’ll find valuable insights here.​"
+  para:"Welcome to the DSW Video Hub - where we showcase how AI and GenAI are transforming enterprises through secure, scalable, and industry - specific solutions. Whether you’re evaluating platforms, looking for technical demos, or curious about how leading organizations are accelerating their AI journey, you’ll find valuable insights here.​"
 }
 
 const ctaContent={

@@ -185,7 +185,7 @@ const breaksContent = {
     },
   ],
   extra:
-    "<p>Institutions do not struggle to build AI. <br/> They struggle to <span class='text-primary-blue'>operate it across portfolios, markets, and regulated workflows as one system.</span></p>",
+    "<p>Institutions do not struggle to build AI. <br/> They struggle to operate it across portfolios, markets, and regulated workflows as one system.</p>",
 };
 
 /* ---------------------------------------------

@@ -104,7 +104,7 @@ export default function Outcomes({
                 </div>
               </div>
               <div className="space-y-[1.2vw] max-md:space-y-[3vw] max-md:w-full">
-                <p className="text-44 text-foreground max-sm:font-medium font-heading">
+                <p className="text-44 text-foreground max-sm:font-medium max-md:text-32 font-heading">
                   {title}
                 </p>
 

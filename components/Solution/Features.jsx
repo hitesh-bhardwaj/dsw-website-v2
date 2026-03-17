@@ -32,7 +32,7 @@ const Features = ({ featuresContent }) => {
 
   return (
     <section className="w-full py-[7%] max-md:py-[10%] max-sm:py-[15%]" id="features">
-      <div className="w-full space-y-[7vw] max-sm:space-y-[17vw] max-md:space-y-[10vw]">
+      <div className="w-full space-y-[7vw] max-md:space-y-[10vw]">
         <HeadingAnim>
           <h2 className="text-[#0A1B4B] leading-[1.2] max-sm:leading-[1.4] text-76 text-center w-[72%] max-md:w-[90%] capitalize mx-auto">
             {heading}

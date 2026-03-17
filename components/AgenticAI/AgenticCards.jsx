@@ -14,17 +14,17 @@ const cardsData = [
   {
     title: "DataOps",
     description:
-      "Real-time ingestion, automated validation, lineage tracking, quality checks, and graph-native pipelines with explainability and proactive alerting.",
+      "Real - time ingestion, automated validation, lineage tracking, quality checks, and graph - native pipelines with explainability and proactive alerting.",
   },
   {
     title: "AgenticAI Studio",
     description:
-      "A complete development environment with fine-tuning, lifecycle control, testing, monitoring, guardrails, and an Agent Dev Kit for production-ready agents along with fully customizable RAG pipelines (connectors, indexing, retrievers, rerankers, caching, evaluation, and deployment controls).",
+      "A complete development environment with fine - tuning, lifecycle control, testing, monitoring, guardrails, and an Agent Dev Kit for production - ready agents along with fully customizable RAG pipelines (connectors, indexing, retrievers, rerankers, caching, evaluation, and deployment controls).",
   },
   {
     title: "AgenticAI Workflow Builder",
     description:
-      "Orchestration tools that connect AI models, GenAI agents, and enterprise logic into multi-step workflows, enabling A2A collaboration and MCP style orchestration.",
+      "Orchestration tools that connect AI models, GenAI agents, and enterprise logic into multi - step workflows, enabling A2A collaboration and MCP style orchestration.",
   },
 ];
 
@@ -88,7 +88,7 @@ const AgenticCards = () => {
       className="w-full h-[200vh] max-md:py-[5%] max-sm:py-0  max-md:h-auto max-sm:w-screen max-md:overflow-x-hidden relative"
     >
       <div className="text-center mx-auto w-[80%] max-sm:w-[90%] ">
-        <SectionBreak content={"Turn proofs of concept into auditable, production- grade automation with explainable agents, deterministic governance, and enterprise-grade security."} big={true}/>
+        <SectionBreak content={"Turn proofs of concept into auditable, production - grade automation with explainable agents, deterministic governance, and enterprise - grade security."} big={true}/>
         <HeadingAnim>
           <p className=" font-normal max-sm:px-[7vw] leading-[1.2] max-sm:pb-[5vw] max-sm:leading-[1.2] text-56! font-heading">
             

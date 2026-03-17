@@ -1,5 +1,5 @@
 "use client";
-import { ScrollTrigger, SplitText, gsap, useGSAP } from "@/lib/gsapCore";
+import {  SplitText, gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useRef, useState } from "react";
 import { Circle } from "../Svg/Lines/Circle";
 import { Connect } from "../Svg/Connect";

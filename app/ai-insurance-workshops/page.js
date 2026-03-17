@@ -80,7 +80,7 @@ const heroContent = {
     link: "#",
     text: "Talk to our Team",
   },
-  para: "The insurance industry is evolving — and AI is no longer optional. Our hands-on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation — all tailored for insurance workflows.",
+  para: "The insurance industry is evolving - and AI is no longer optional. Our hands - on workshops are designed specifically for insurersready to unlock real value from AI, Machine Learning, and Generative AI. Led by enterprise AI experts, these sessions blend strategy,compliance, and implementation - all tailored for insurance workflows.",
 };
 
 const ctaContent = {

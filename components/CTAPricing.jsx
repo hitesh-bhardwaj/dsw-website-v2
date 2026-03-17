@@ -22,7 +22,7 @@ export default function CTAPricing() {
 
       {/* Decorative Lines Background - Simplified */}
 
-      <div className="relative inset-0 w-screen h-screen ml-[-8vw] mt-[-17vw] max-md:mt-[3vw] max-sm:h-[70vh] max-md:h-[30vh] max-sm:pt-[23vh] fadeup">
+      <div className="relative inset-0 w-screen h-screen ml-[-8vw] mt-[-17vw] max-md:mt-[3vw] max-sm:h-[70vh] max-md:h-[30vh] max-sm:pt-[55vw] fadeup">
         <Background />
         <div className="absolute left-[46%] z-[2] top-[50%] -translate-y-1/2 max-sm:top-[100%] max-md:left-[40%] max-sm:left-1/2 max-sm:-translate-x-1/2">
           <PrimaryButton href="#" text={"Discuss Pricing"} />

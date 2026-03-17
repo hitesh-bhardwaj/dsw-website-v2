@@ -42,7 +42,7 @@ export default function AgenticAbout() {
           </h2>
         </HeadingAnim>
         <Copy>
-      <p className="text-24">The AgenticAI runtime brings agent orchestration, audit-first governance, and human-in-the-loop controls for regulated enterprises. Production-grade AgenticAI runtime is purpose-built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence.</p>
+      <p className="text-24">The AgenticAI runtime brings agent orchestration, audit - first governance, and human - in - the - loop controls for regulated enterprises. Production - grade AgenticAI runtime is purpose - built for enterprises. It unifies data pipelines and agents into a single governed runtime, so regulated enterprises can deploy autonomous workflows with confidence.</p>
       </Copy>
       </div>
       
@@ -59,7 +59,7 @@ export default function AgenticAbout() {
 const challenges = [
   {
     icon: <AIAgent/>,
-    title: "AI-powered Agents in hours",
+    title: "AI - powered Agents in hours",
   },
   {
     icon: <Workflow/>,
@@ -67,7 +67,7 @@ const challenges = [
   },
   {
     icon: <AuditGovernance/>,
-    title: "Audit-first governance",
+    title: "Audit - first governance",
   },
   {
     icon: <EnterpriseSecurity/>,
