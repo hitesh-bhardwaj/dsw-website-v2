@@ -61,9 +61,9 @@ export default function ClientsBlur() {
         transformOrigin: "0% 0%",
         opacity: 0,
         x: () => gsap.utils.random(0, 0),
-        y: () => gsap.utils.random(-450, 450),
-        filter: "blur(5px)",
-        z: () => gsap.utils.random(-1000, -1000),
+        y: () => gsap.utils.random(-250, 250),
+        filter: "blur(2px)",
+        z: () => gsap.utils.random(-500, -500),
       });
         gridItems.forEach((item, index) =>
           timeline
@@ -73,14 +73,14 @@ export default function ClientsBlur() {
               opacity: 1,
               filter: "blur(0px) invert(0)",
               duration: 4,
-              delay: index * -0.4,
+              delay: index * -0.2,
             })
             .to(
               item,
               {
-                filter: "blur(5px)",
+                filter: "blur(2px)",
                 opacity: 0,
-                z: 600,
+                z: 800,
                 duration: 3.5,
               },
               ">"
@@ -96,7 +96,7 @@ export default function ClientsBlur() {
       <section
         ref={container}
         id="clientblur"
-        className="relative w-screen h-[300vh] text-center z-[1] mt-[-30vh] max-sm:mt-[-20vh]"
+        className="relative w-screen h-[300vh] max-sm:h-[500vh] text-center z-[1] mt-[-30vh] max-sm:mt-[-20vh]"
       >
         <div className="sticky w-full top-0 h-screen flex items-center justify-center">
           <HeadingAnim>
@@ -108,12 +108,12 @@ export default function ClientsBlur() {
         <div className="left-0 sticky mt-[-100vh] top-0 z-20 h-screen w-screen overflow-hidden flex items-center justify-center">
           <div
             ref={gridRef}
-            className="grid grid-cols-5 gap-[1vw] perspective-[5000px]"
+            className="grid grid-cols-5 gap-[1vw] perspective-[5000px] max-sm:px-[20vw]"
           >
             {logos.map((item, index) => (
               <div key={index} className="grid__item">
                 <Image
-                  className="w-[14vw] h-auto max-sm:w-[100vw] max-md:w-[60vw] max-md:scale-[1.8] max-sm:scale-[3] "
+                  className="w-[14vw] h-auto max-sm:w-[100vw] max-md:w-[60vw] max-md:scale-[1.8] max-sm:scale-[4] "
                   src={item}
                   alt={item}
                   width={200}

@@ -50,7 +50,7 @@ const Form = () => {
 
             <div className="w-[60%] max-sm:w-full max-md:mx-auto  max-md:w-[85%]">
               <Copy>
-                <p className="text-30 font-normal max-md:text-center max-sm:text-left">
+                <p className="text-30 font-normal max-md:text-center ">
                   Fill out the form below and our team will get back to you
                   within 24 hours.
                 </p>

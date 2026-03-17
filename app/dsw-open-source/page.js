@@ -59,7 +59,7 @@ export default async function InfosysFinacle() {
 }
 
 const heroContent={
-  tagline:"Trusted Strategic Open-Source Consulting Partner to Infosys Finacle",
+  tagline:"Trusted Strategic Open - Source Consulting Partner to Infosys Finacle",
   heading:"Together, Bringing Open - Source Success to Global Banks",
   headingWidth:"w-[85%]",
   primaryButton:{
