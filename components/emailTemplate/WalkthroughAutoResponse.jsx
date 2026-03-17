@@ -67,7 +67,7 @@ const WalkthroughAutoResponse = ({ userName, downloadedPdfName }) => {
           </Text>
           <Img
             src={
-              "http://localhost:3000/assets/email-signature-img.png"
+              "https://www.datasciencewizards.ai/assets/email-signature-img.png"
             }
             width="140"
             height="80"

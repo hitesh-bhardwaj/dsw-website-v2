@@ -145,7 +145,7 @@ const USE_CASES = [
   },
   {
     id: 2,
-    title: "Insurance-specific for AI, GenAI, agentic workflows",
+    title: "Insurance - specific for AI, GenAI, agentic workflows",
     items: [
       "Early claim fraud detection",
       "Claims decisioning & straight - through processing",
@@ -167,7 +167,7 @@ const USE_CASES = [
   {
     id: 4,
     title:
-      "Retail & E-commerce for personalization, forecasting, and operational AI",
+      "Retail & E - commerce for personalization, forecasting, and operational AI",
     items: [
       "Demand forecasting",
       "Dynamic pricing",
