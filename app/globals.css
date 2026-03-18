@@ -607,9 +607,9 @@ h6 {
   background: linear-gradient(
     90deg,
     #1727ff 0%,
-    #1726ff7d 20%,
-    #ffffff2d 40%,
-    #1726ff7d 60%,
+    #1726ffbf 20%,
+    #ffffff 60%,
+    #1726ffbf 90%,
     #1727ff 100%
   );
   background-size: 200% auto;
@@ -617,13 +617,17 @@ h6 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  animation: shimmerMove 5.5s linear infinite;
+
+  animation: shimmerMove 20s linear infinite;
 }
 
 @keyframes shimmerMove {
+  /* shimmer movement */
   0% {
     background-position: 200% center;
   }
+
+  /* hold position (pause) */
   100% {
     background-position: -200% center;
   }

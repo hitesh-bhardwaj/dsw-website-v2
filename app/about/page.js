@@ -53,7 +53,7 @@ const AgenticAI = () => {
           <DSWArrival />
           <Infrastructure />
           <Journey/>
-          <WhatWeBelieve />
+          <WhatWeBelieve /> 
           <WhatWeStandFor />
           <TeamWrapper />
           <JoinUs />

@@ -47,6 +47,13 @@ const topJourneyData = [
     content:
       "InsurAInce Launch with 300+ GenAI Agents",
   },
+  {
+    id: "2026-march",
+    year: "2026",
+    month: "March",
+    content:
+      "DSW UnifyAI OS - The Enterprise Operating System",
+  },
 ];
 
 const bottomJourneyData = [
@@ -89,7 +96,7 @@ export default function Journey() {
       scrollTrigger: {
         trigger: "#journey",
         start: "2% top",
-        end: "97% bottom",
+        end: "92% bottom",
         scrub: true,
         // markers: true,
       },
@@ -99,10 +106,10 @@ export default function Journey() {
     });
 
     if (globalThis.innerWidth >= 642 && globalThis.innerWidth <= 1024) {
-      tl.fromTo(wholeSliderRef.current, { xPercent: 0 }, { xPercent: -55 });
+      tl.fromTo(wholeSliderRef.current, { xPercent: 0 }, { xPercent: -60 });
 
       gsap.to(".journey-line", {
-        width: "70%",
+        width: "75%",
         ease: "none",
         scrollTrigger: {
           trigger: "#journey",
@@ -113,10 +120,10 @@ export default function Journey() {
         },
       });
     } else if (globalThis.innerWidth < 642) {
-      tl.fromTo(wholeSliderRef.current, { xPercent: 0 }, { xPercent: -55 });
+      tl.fromTo(wholeSliderRef.current, { xPercent: 0 }, { xPercent: -57 });
 
       gsap.to(".journey-line", {
-        width: "62%",
+        width: "65%",
         ease: "none",
         scrollTrigger: {
           trigger: "#journey",
@@ -127,7 +134,7 @@ export default function Journey() {
         },
       });
     } else {
-      tl.fromTo(wholeSliderRef.current, { xPercent: 0 }, { xPercent: -60 });
+      tl.fromTo(wholeSliderRef.current, { xPercent: 0 }, { xPercent: -65 });
 
       gsap.to(".journey-line", {
         width: "98%",
@@ -135,7 +142,7 @@ export default function Journey() {
         scrollTrigger: {
           trigger: "#journey",
           start: "top 60%",
-          end: "97% bottom",
+          end: "92% bottom",
           scrub: true,
           // markers: true,
         },
@@ -240,12 +247,13 @@ export default function Journey() {
     const positions =
       globalThis.innerWidth < 642
         ? [
-            [23, 33],
-            [33, 43],
-            [40, 50],
-            [53, 63],
+            [22, 32],
+            [28, 38],
+            [36, 46],
+            [45, 55],
+            [52, 62],
             [60, 70],
-            [70, 80],
+            [69, 79],
           ]
         : globalThis.innerWidth >= 642 && globalThis.innerWidth <= 1024
           ? [
@@ -254,15 +262,17 @@ export default function Journey() {
               [35, 47],
               [45, 57],
               [55, 67],
-              [65, 77],
+              [62, 74],
+              [70, 82],
             ]
           : [
-              [9, 29],
-              [21, 41],
-              [34, 54],
+              [6, 26],
+              [16, 36],
+              [26, 46],
+              [35, 55],
               [45, 65],
-              [62, 82],
-              [74, 94],
+              [55, 75],
+              [65, 85],
             ];
 
     items.forEach((item, index) => {
@@ -283,22 +293,18 @@ export default function Journey() {
     };
   });
 
-  const handleSkip = () => {
-    const next = document.getElementById("tech-partners");
-    if (next) next.scrollIntoView({ behavior: "smooth" });
-  };
 
   return (
     <section
       id="journey"
       className="h-[200vw] max-md:h-[400vh] max-sm:h-[400vh] w-full relative py-[7%]"
     >
-      <div className="h-screen w-screen sticky top-0 pt-[15%] overflow-hidden max-md:pt-[5%] max-sm:pt-[15%]">
+      <div className="h-screen w-screen sticky top-[10%] pt-[5%] overflow-hidden ">
         <div
           ref={wholeSliderRef}
-          className="h-[30vw] max-md:w-[400vw] px-[5vw] max-sm:h-[80vh] max-md:h-[70vh] flex gap-[5vw] mr-[2vw] items-center max-md:items-start max-sm:w-[700vw] max-md:flex-col w-[200vw] max-sm:px-[7vw] max-md:gap-[2vw]"
+          className="h-[30vw] max-md:w-[400vw] px-[5vw] max-sm:h-[80vh] max-md:h-[70vh] flex gap-[5vw] mr-[2vw] items-center max-md:items-start max-sm:w-[800vw] max-md:flex-col w-[240vw] max-sm:px-[7vw] max-md:gap-[2vw]"
         >
-          <div className="h-full max-sm:h-[50vw] max-sm:w-[70vw] max-md:h-[40vh] max-md:w-[12.2%] journey-img w-[27vw] overflow-hidden rounded-[2vw] fadeup max-sm:rounded-[5vw] max-md:rounded-[3vw]">
+          <div className="h-full max-sm:h-[50vw] max-sm:w-[70vw] max-md:h-[40vw] max-md:w-[12.2%] journey-img w-[27vw] overflow-hidden rounded-[2vw] fadeup max-sm:rounded-[5vw] max-md:rounded-[3vw]">
             <Image
               src={"/assets/about/journey-img.png"}
               alt="journey"
@@ -324,11 +330,11 @@ export default function Journey() {
                 </HeadingAnim>
               </div>
 
-              <div className="w-full flex h-full gap-x-[20vw] max-sm:gap-x-[40vw]">
+              <div className="w-full flex h-full gap-x-[15vw] max-sm:gap-x-[40vw]">
                 {topJourneyData.map((item, index) => (
                   <div
                     key={`top-${index}`}
-                    className="w-[25vw] max-sm:w-[70vw] max-md:w-[50vw] max-sm:flex max-sm:flex-col  journey-container px-[3vw] h-full relative max-sm:px-[7vw] max-md:px-[5vw]"
+                    className="w-[30vw] max-sm:w-[70vw] max-md:w-[50vw] max-sm:flex max-sm:flex-col  journey-container px-[3vw] h-full relative max-sm:px-[7vw] max-md:px-[5vw]"
                   >
                     <div className="w-full absolute left-0 bottom-0 top-0 h-full">
                       <div
@@ -353,15 +359,15 @@ export default function Journey() {
             </div>
 
             <div className="h-1/2 flex items-center justify-start w-full">
-              <div className="w-[34%] pt-[2vw] max-sm:pt-[5vw] h-full max-md:pt-[5vw]">
+              <div className="w-[34%] pt-[2vw] max-sm:pt-[5vw] max-sm:w-[30%] h-full max-md:pt-[5vw]">
                 <Copy>
-                  <p className="text-24 headings w-[100%] font-head">
+                  <p className="text-24 font-head">
                     2021-2025
                   </p>
                 </Copy>
               </div>
 
-              <div className="w-full flex h-full gap-x-[20vw] ml-[10vw] max-sm:gap-x-[40vw] max-md:ml-0 max-sm:ml-[10vw]">
+              <div className="w-full flex h-full gap-x-[20vw] ml-[7vw] max-sm:gap-x-[40vw] max-md:ml-0 max-sm:ml-[7vw]">
                 {bottomJourneyData.map((item, index) => (
                   <div
                     key={`bottom-${index}`}
@@ -393,42 +399,7 @@ export default function Journey() {
           </div>
         </div>
 
-        <div className="absolute bottom-[7%] right-[3%]">
-          <button
-            className="round px-6 py-2 rounded-full flex items-center cursor-pointer gap-2 text-white font-light hover:scale-95 text-[1vw] max-sm:text-[4.2vw] max-md:text-[2.7vw] transition duration-500 ease-out"
-            onClick={handleSkip}
-          >
-            Skip Timeline
-            <div className="-rotate-90 text-white flex items-center justify-center gap-0 w-[0.8vw] h-full max-sm:w-[3vw] max-md:w-[1.8vw]">
-              <svg
-                className="arrow primera next"
-                width="8"
-                height="15"
-                viewBox="0 0 8 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.50293 14.46L2.50293 7.45996L7.50293 0.459961H5.05293L0.0529289 7.45996L5.05293 14.46H7.50293Z"
-                  fill="currentColor"
-                />
-              </svg>
-              <svg
-                className="arrow segunda next"
-                width="8"
-                height="15"
-                viewBox="0 0 8 15"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M7.50293 14.46L2.50293 7.45996L7.50293 0.459961H5.05293L0.0529289 7.45996L5.05293 14.46H7.50293Z"
-                  fill="currentColor"
-                />
-              </svg>
-            </div>
-          </button>
-        </div>
+       
       </div>
     </section>
   );

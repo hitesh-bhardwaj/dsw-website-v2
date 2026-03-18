@@ -112,7 +112,7 @@ export default function WhatWeBelieve() {
   return (
     <section
       ref={sectionRef}
-      className="relative w-full h-fit py-[7%] px-[5vw] max-md:px-0 max-sm:py-[15%] max-sm:h-fit max-md:py-[10%]"
+      className="relative w-full h-fit py-[7%] px-[5vw] max-sm:px-0 max-sm:py-[15%] max-sm:h-fit max-md:py-[10%] mt-[-15%]"
       id="struggle"
     >
     

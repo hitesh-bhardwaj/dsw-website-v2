@@ -42,7 +42,7 @@ function MegaMenuShell({ isOpen, onEnter, onLeave, children }) {
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className={`fixed top-[6vw] left-0 z-[850] w-screen h-fit bg-white px-[5vw] pb-[4vw] pt-[2vw] text-foreground backdrop-blur-lg sub-menu-container transition-all duration-500 ease-out ${
+      className={`fixed top-[6.1vw] left-0 z-[850] w-screen h-fit bg-white px-[5vw] pb-[4vw] pt-[2vw] text-foreground backdrop-blur-lg sub-menu-container transition-all duration-500 ease-out ${
         isOpen
           ? "opacity-100 translate-y-0 pointer-events-auto visible"
           : "opacity-0 pointer-events-none invisible "
