@@ -127,7 +127,7 @@ export default function WhatWeBelieve() {
           </HeadingAnim>
           <Copy>
             <p className="text-30 font-sans leading-[1.4] text-foreground w-[55%] max-sm:w-full mx-auto max-md:w-[80%]">
-              In the AI era, the advantage won't come from who experiments the
+              In the AI era, the advantage won&apos;t come from who experiments the
               most. It will come from who can{" "}
               <span className="font-medium">operate AI the best</span> - safely,
               continuously, and at scale.
