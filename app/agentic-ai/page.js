@@ -62,7 +62,7 @@ export default AgenticAI
 
 const heroContent={
   tagline:"Deploy AI agents in hours! ",
-  heading:"Governed, explainable, production-ready agents.",
+  heading:"Governed, explainable, production - ready agents.",
   primaryButton:{
     present:true,
     link:"#",

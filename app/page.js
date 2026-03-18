@@ -7,6 +7,7 @@ import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import dynamic from "next/dynamic";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 
 const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
   ssr: true,
@@ -60,6 +61,7 @@ export default function Home() {
           <ClientsBlur />
           <RealWorldOutcomes />
           <CTAPricing />
+          <PricingTableWrapper/>
           <CertificationsAndAwards certificationsContent={certificationsContent} />
           <Testimonials />
           <CTAFinal ctaContent={ctaContent} />
