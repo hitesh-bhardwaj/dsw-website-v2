@@ -158,11 +158,11 @@ export default function WhatWeBelieve() {
             <React.Fragment key={index}>
               <div
                 className={`struggle-card flex items-center
-                  ${index === 0 ? "z-[6]" : ""}
-                  ${index === 1 ? "z-[5]" : ""}
-                  ${index === 2 ? "z-[4]" : ""}
-                  ${index === 3 ? "z-[3]" : ""}
-                  ${index === 4 ? "z-[2]" : ""}
+                  ${index === 0 ? "z-6" : ""}
+                  ${index === 1 ? "z-5" : ""}
+                  ${index === 2 ? "z-4" : ""}
+                  ${index === 3 ? "z-3" : ""}
+                  ${index === 4 ? "z-2" : ""}
                 `}
                 // NO inline translateX here — GSAP sets it via gsap.set()
               >
@@ -180,7 +180,7 @@ export default function WhatWeBelieve() {
               </div>
 
               {index < data.length - 1 && (
-                <div className="struggle-arrow opacity-0 flex-shrink-0 w-[2.8vw] px-1 flex items-center justify-center text-[#002AFF]">
+                <div className="struggle-arrow opacity-0 shrink-0 w-[2.8vw] px-1 flex items-center justify-center text-[#002AFF]">
                   <Arrow />
                 </div>
               )}
@@ -193,7 +193,7 @@ export default function WhatWeBelieve() {
           <div className="flex gap-[2.5vw] flex-nowrap w-max items-center max-md:px-[5vw] max-sm:px-[7vw]">
             {data.map((item, index) => (
               <React.Fragment key={index}>
-                <div className="struggle-card relative flex-shrink-0 max-sm:w-[75vw] max-sm:h-[50vw] h-[60vw] max-sm:p-[5vw] justify-between flex flex-col max-sm:pb-[8vw] items-end border border-solid border-[#c2c2c2] bg-white max-md:h-[30vw] max-md:w-[40vw] max-md:p-[4vw]">
+                <div className="struggle-card relative shrink-0 max-sm:w-[75vw] max-sm:h-[50vw] h-[60vw] max-sm:p-[5vw] justify-between flex flex-col max-sm:pb-[8vw] items-end border border-solid border-[#c2c2c2] bg-white max-md:h-[30vw] max-md:w-[40vw] max-md:p-[4vw]">
                   <CornerDecorationsChallenge />
                   <div className="text-[#002AFF] size-[8vw] max-sm:size-[13vw]">
                     {item.icon}
@@ -205,7 +205,7 @@ export default function WhatWeBelieve() {
                   </div>
                 </div>
                 {index < data.length - 1 && (
-                  <div className="flex-shrink-0 max-sm:w-[10vw] flex items-center justify-center text-primary-blue max-md:w-[6vw]">
+                  <div className="shrink-0 max-sm:w-[10vw] flex items-center justify-center text-primary-blue max-md:w-[6vw]">
                     <Arrow />
                   </div>
                 )}
@@ -251,7 +251,7 @@ const VisionMission = () => {
           <div className="absolute top-[0.45%] -right-[0.8%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-md:-right-[0.5%] max-sm:-right-[0.8%]">
             <div className={`${line} bg-black group-hover:bg-primary-blue`} />
             <div
-              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
             />
           </div>
 
@@ -259,7 +259,7 @@ const VisionMission = () => {
           <div className="absolute bottom-[0.35%] -left-[0.8%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-md:-left-[0.5%] max-sm:-left-[0.8%]">
             <div className={`${line} bg-black group-hover:bg-primary-blue`} />
             <div
-              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
             />
           </div>
 
@@ -267,7 +267,7 @@ const VisionMission = () => {
           <div className="absolute -bottom-[0.3%] -right-[0.25%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-md:-right-[0.1%] max-sm:-right-[0.25%]">
             <div className={`${line} bg-black group-hover:bg-primary-blue`} />
             <div
-              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
             />
           </div>
           <div className="flex items-center w-full justify-between">
@@ -296,7 +296,7 @@ const VisionMission = () => {
           <div className="absolute top-[0.45%] -right-[0.35%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:-right-[0.80%] max-sm:top-[0.30%]">
             <div className={`${line} bg-black group-hover:bg-primary-blue`} />
             <div
-              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
             />
           </div>
 
@@ -304,7 +304,7 @@ const VisionMission = () => {
           <div className="absolute bottom-[0.35%] -left-[0.35%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:-left-[0.8%]">
             <div className={`${line} bg-black group-hover:bg-primary-blue`} />
             <div
-              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
             />
           </div>
 
@@ -312,7 +312,7 @@ const VisionMission = () => {
           <div className="absolute -bottom-[0.3%] -right-[0.15%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out">
             <div className={`${line} bg-black group-hover:bg-primary-blue`} />
             <div
-              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+              className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
             />
           </div>
           <div className="flex items-center w-full justify-between mb-15 max-sm:mb-0">
@@ -366,7 +366,7 @@ function CornerDecorationsChallenge({
       <div className="absolute top-[0.55%] -right-[1.5%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-md:-right-[1%] ">
         <div className={`${line} bg-black group-hover:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
         />
       </div>
 
@@ -374,7 +374,7 @@ function CornerDecorationsChallenge({
       <div className="absolute bottom-[0.5%] -left-[1.3%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-md:-left-[0.9%] max-sm:-left-[1%]">
         <div className={`${line} bg-black group-hover:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
         />
       </div>
 
@@ -382,7 +382,7 @@ function CornerDecorationsChallenge({
       <div className="absolute -bottom-[0.5%] -right-[0.25%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out">
         <div className={`${line} bg-black group-hover:bg-primary-blue`} />
         <div
-          className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
+          className={`${line} bg-black group-hover:bg-primary-blue rotate-90 absolute top-0.5 -left-1/2`}
         />
       </div>
     </>

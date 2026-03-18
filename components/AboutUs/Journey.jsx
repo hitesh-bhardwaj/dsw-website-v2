@@ -314,10 +314,10 @@ export default function Journey() {
             />
           </div>
 
-          <div className="w-[100%] relative h-full max-md:h-[50%]">
+          <div className="w-full relative h-full max-md:h-[50%]">
             <div className="w-full absolute left-0 top-[49%] tranlate-y-[-50%] flex items-center h-fit">
               <div className="h-[.8vw] max-sm:h-[2vw] max-sm:w-[2vw] w-[.8vw] rounded-full bg-primary-blue max-md:w-[1.5vw] max-md:h-[1.5vw]"></div>
-              <div className="h-[1px] w-[0%] rounded-full bg-primary-blue journey-line"></div>
+              <div className="h-px w-[0%] rounded-full bg-primary-blue journey-line"></div>
               <div className="h-[.8vw] max-sm:h-[2vw] max-sm:w-[2vw] w-[.8vw] rounded-full bg-primary-blue max-md:w-[1.5vw] max-md:h-[1.5vw]"></div>
             </div>
 
@@ -341,7 +341,7 @@ export default function Journey() {
                         className={`size-[1vw] max-sm:size-[2.5vw] max-md:size-[2vw] translate-x-[-50%] relative aspect-square rounded-full bg-primary-blue jd-${item.id}`}
                       ></div>
                       <div
-                        className={`h-[94%] w-[1px] origin-bottom rounded-full bg-primary-blue jl-${item.id}`}
+                        className={`h-[94%] w-px origin-bottom rounded-full bg-primary-blue jl-${item.id}`}
                       ></div>
                     </div>
 
@@ -371,11 +371,11 @@ export default function Journey() {
                 {bottomJourneyData.map((item, index) => (
                   <div
                     key={`bottom-${index}`}
-                    className="w-[25vw] max-sm:w-[70vw] max-md:w-[50vw] max-md:w-[20%] max-md:flex max-md:flex-col max-md:justify-center journey-container px-[3vw] h-full relative max-sm:px-[7vw] max-md:px-[5vw]"
+                    className="w-[25vw] max-sm:w-[70vw] max-md:w-[20%] max-md:flex max-md:flex-col max-md:justify-center journey-container px-[3vw] h-full relative max-sm:px-[7vw] max-md:px-[5vw]"
                   >
                     <div className="w-full absolute left-0 bottom-[-1%] h-full">
                       <div
-                        className={`h-[94%] origin-top w-[1px] rounded-full bg-primary-blue max-sm:h-full jl-${item.id}`}
+                        className={`h-[94%] origin-top w-px rounded-full bg-primary-blue max-sm:h-full jl-${item.id}`}
                       ></div>
                       <div
                         className={`size-[1vw] max-sm:size-[2.5vw] max-md:size-[2vw] translate-x-[-50%] relative w-auto aspect-square rounded-full bg-primary-blue jd-${item.id}`}

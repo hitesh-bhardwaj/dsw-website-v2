@@ -42,7 +42,7 @@ function MegaMenuShell({ isOpen, onEnter, onLeave, children }) {
     <div
       onMouseEnter={onEnter}
       onMouseLeave={onLeave}
-      className={`fixed top-[6.1vw] left-0 z-[850] w-screen h-fit bg-white px-[5vw] pb-[4vw] pt-[2vw] text-foreground backdrop-blur-lg sub-menu-container transition-all duration-500 ease-out ${
+      className={`fixed top-[6.1vw] left-0 z-850 w-screen h-fit bg-white px-[5vw] pb-[4vw] pt-[2vw] text-foreground backdrop-blur-lg sub-menu-container transition-all duration-500 ease-out ${
         isOpen
           ? "opacity-100 translate-y-0 pointer-events-auto visible"
           : "opacity-0 pointer-events-none invisible "
@@ -146,7 +146,7 @@ export default function HeaderNew() {
             }`}
           >
             <span
-              className={`absolute top-0 left-0 z-[1] block h-full w-full ${
+              className={`absolute top-0 left-0 z-1 block h-full w-full ${
                 isScrolled ? "backdrop-blur-md" : ""
               }`}
             />
@@ -251,7 +251,7 @@ export default function HeaderNew() {
                 </ul>
               </div>
             ) : (
-              <div className="pointer-events-auto flex gap-[4vw] items-center justify-between transition-transform duration-500 relative z-[200]">
+              <div className="pointer-events-auto flex gap-[4vw] items-center justify-between transition-transform duration-500 relative z-200">
                 <button
                   type="button"
                   aria-label="Search website"
@@ -261,7 +261,7 @@ export default function HeaderNew() {
                   <Search />
                 </button>
                 <button
-                  className="relative z-[150] hidden w-[8vw] max-sm:flex-col max-sm:w-[7vw] gap-[1.5vw] max-md:flex max-md:w-[6vw] max-md:flex-col max-md:gap-[1vw]"
+                  className="relative z-150 hidden w-[8vw] max-sm:flex-col max-sm:w-[7vw] gap-[1.5vw] max-md:flex max-md:w-[6vw] max-md:flex-col max-md:gap-[1vw]"
                   onClick={() => setOpenMobileMenu((prev) => !prev)}
                   aria-label="Toggle menu"
                   aria-expanded={openMobileMenu}

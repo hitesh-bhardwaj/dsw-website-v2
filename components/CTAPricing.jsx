@@ -31,7 +31,7 @@ export default function CTAPricing() {
         {/* <div className="absolute left-[46%] z-[2] top-[50%] -translate-y-1/2 max-sm:top-[100%] max-md:left-[40%] max-sm:left-1/2 max-sm:-translate-x-1/2">
           <PrimaryButton href="#" text={"Discuss Pricing"} />
         </div> */}
-        <div className="w-full h-[10vh] max-sm:block absolute from-white via-white/90 bg-gradient-to-b to-white/0 hidden top-0" />
+        <div className="w-full h-[10vh] max-sm:block absolute from-white via-white/90 bg-linear-to-b to-white/0 hidden top-0" />
         {/* <div className="w-full h-[10vh] max-sm:block absolute bg-white hidden top-[100%]" /> */}
       </div>
       
