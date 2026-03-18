@@ -1,7 +1,9 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
@@ -20,7 +22,8 @@ import React from "react";
 
 export const metadata = getPageMetadata({
   title: "Healthcare AI Operating System | DSW",
-  description: "Govern AI in clinical support, patient engagement, revenue cycle, and operations with a unified, controlled execution layer for healthcare.",
+  description:
+    "Govern AI in clinical support, patient engagement, revenue cycle, and operations with a unified, controlled execution layer for healthcare.",
   url: "/solutions/healthcare",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -44,23 +47,27 @@ export const metadata = getPageMetadata({
 const Page = () => {
   return (
     <>
-    <WebpageJsonLd metadata={metadata} />
-    <Layout>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations operationsContent={operationsContent} />
-      <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+      <WebpageJsonLd metadata={metadata} />
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"bottomLeft"}
+          breadcrumbs={true}
+        />
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <CTAPricing />
+        <PricingTableWrapper />
+        <CaseStudy caseStudyContent={caseStudyContent} />
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -68,8 +75,10 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Production AI across care delivery, patient operations, and payer workflows. Controlled, auditable, and operated as one system.",
-  heading: "Govern clinical, operational, and revenue intelligence on one AI operating layer",
+  tagline:
+    "Production AI across care delivery, patient operations, and payer workflows. Controlled, auditable, and operated as one system.",
+  heading:
+    "Govern clinical, operational, and revenue intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -83,8 +92,7 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Operate Healthcare AI and Agentic AI across clinical support, revenue cycle, patient engagement, and operational environments within a governed execution runtime.",
+  para: "Operate Healthcare AI and Agentic AI across clinical support, revenue cycle, patient engagement, and operational environments within a governed execution runtime.",
 };
 
 const runtimeContent = {
@@ -114,25 +122,20 @@ const runtimeContent = {
   ],
 };
 
-
-
 const breaksContent = {
-  heading:
-    "Where healthcare AI breaks without an operating layer",
+  heading: "Where healthcare AI breaks without an operating layer",
 
   challenges: [
     {
       icon: <UnderWriting />,
-      title:
-        "Clinical, administrative, and financial AI operate in silos",
+      title: "Clinical, administrative, and financial AI operate in silos",
     },
     {
-      icon: <Governance/>,
-      title:
-        "Governance sits outside care and operational workflows",
+      icon: <Governance />,
+      title: "Governance sits outside care and operational workflows",
     },
     {
-      icon: <Compliance/>,
+      icon: <Compliance />,
       title:
         "Compliance, PHI protection, and audit requirements increase execution risk",
     },
@@ -146,7 +149,6 @@ const breaksContent = {
   extra:
     "<p>Healthcare organizations are not lacking AI capability. <br/> They are lacking a system to run it across care and operations.</p>",
 };
-
 
 const featuresContent = {
   heading:
@@ -198,8 +200,7 @@ const featuresContent = {
     },
 
     {
-      title:
-        "Agentic Copilots for Clinicians, Care Teams, and Operations",
+      title: "Agentic Copilots for Clinicians, Care Teams, and Operations",
       description:
         "Assist teams with governed decision support across clinical and operational environments.",
       bullets: [
@@ -210,9 +211,6 @@ const featuresContent = {
     },
   ],
 };
-
-
-
 
 const workflowsContent = {
   heading: "Healthcare workflows expanding without new stacks or vendor sprawl",
@@ -230,7 +228,6 @@ const workflowsContent = {
   ],
 };
 
-
 const caseStudyContent = {
   heading: "Healthcare AI in production",
   subheading: "Real deployment. Measurable operational impact.",
@@ -238,7 +235,7 @@ const caseStudyContent = {
   description:
     "A leading Health Insurance company that serves millions of policyholders with a strong focus on healthcare integrity, operational scale, and patient - first principles. ",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/insurance/customer-data.png",
+  imgSrc: "/assets/case-studies/insurance/customer-data.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -256,49 +253,43 @@ const benefitsContent = {
   points: [
     {
       id: "01",
-      text:
-        "Operate clinical, operational, and financial intelligence as one governed system",
+      text: "Operate clinical, operational, and financial intelligence as one governed system",
     },
     {
       id: "02",
-      text:
-        "Reduce friction across care, revenue, and patient engagement workflows",
+      text: "Reduce friction across care, revenue, and patient engagement workflows",
     },
     {
       id: "03",
-      text:
-        "Scale use cases without multiplying infrastructure or vendors",
+      text: "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
-      text:
-        "Strengthen compliance, audit readiness, and execution accountability",
+      text: "Strengthen compliance, audit readiness, and execution accountability",
     },
     {
       id: "05",
-      text:
-        "Move from isolated AI deployments to enterprise healthcare AI operations",
+      text: "Move from isolated AI deployments to enterprise healthcare AI operations",
     },
   ],
 };
 
-
-const ctaContent={
-  heading:"Operate Healthcare AI as Infrastructure",
-  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across clinical care, patient engagement, revenue cycle, and operational environments.",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Healthcare AI as Infrastructure",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across clinical care, patient engagement, revenue cycle, and operational environments.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
-}
+};
 
 const operationsContent = {
   heading:
@@ -306,10 +297,8 @@ const operationsContent = {
 
   tabs: [
     {
-      label:
-        "Governance enforced where healthcare decisions happen",
-      intro:
-        "Policies operate inside clinical and operational environments.",
+      label: "Governance enforced where healthcare decisions happen",
+      intro: "Policies operate inside clinical and operational environments.",
       bullets: [
         "Governance - as - code at runtime",
         "Policy enforcement across models, agents, and workflows",
@@ -344,8 +333,7 @@ const operationsContent = {
     {
       label:
         "Enterprise custody of healthcare AI infrastructure and PHI - sensitive assets",
-      intro:
-        "Operate entirely within healthcare environments.",
+      intro: "Operate entirely within healthcare environments.",
       bullets: [
         "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
@@ -354,7 +342,6 @@ const operationsContent = {
     },
   ],
 };
-
 
 const certificationsContent = {
   sectionId: "compliance",

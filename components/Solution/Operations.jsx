@@ -233,6 +233,7 @@ const Operations = ({ operationsContent }) => {
 
             return (
               <div
+              key={idx}
               onClick={() => animateTo(idx)}
                 className={` transition-colors cursor-pointer border fadeup    p-[1vw] bg-[#EFF1FB] ${
                   isActive
@@ -241,7 +242,7 @@ const Operations = ({ operationsContent }) => {
                 }`}
               >
                 <button
-                  key={idx}
+                  
                   type="button"
                   
                   disabled={isAnimating}

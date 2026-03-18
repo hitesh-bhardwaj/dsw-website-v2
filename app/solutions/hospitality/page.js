@@ -1,7 +1,9 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import Breaks from "@/components/Solution/Breaks";
 import CaseStudy from "@/components/Solution/CaseStudy";
@@ -55,6 +57,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
+        <CTAPricing />
+        <PricingTableWrapper />
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards
@@ -290,8 +294,7 @@ const operationsContent = {
 
     {
       label: "Enterprise custody of hospitality AI infrastructure and assets",
-      intro:
-        "Operate entirely within enterprise environments. ",
+      intro: "Operate entirely within enterprise environments. ",
       bullets: [
         "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",
@@ -303,7 +306,8 @@ const operationsContent = {
 
 const certificationsContent = {
   sectionId: "compliance",
-  heading: "Built for hospitality enterprises operating in regulated and global environments ",
+  heading:
+    "Built for hospitality enterprises operating in regulated and global environments ",
   subtext: "",
   footerText:
     "Supports auditability, traceability, and operational governance across guest data, service operations, and revenue management workflows. ",

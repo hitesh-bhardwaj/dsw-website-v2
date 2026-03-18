@@ -1,18 +1,18 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
 import CaseStudy from "@/components/Solution/CaseStudy";
-import Compliance from "@/components/Solution/Compliance";
 import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
 import Runtime from "@/components/Solution/Runtime";
 import WorkFlows from "@/components/Solution/WorkFlows";
 import Claims from "@/components/Svg/Solutions/Claims";
-import Focus from "@/components/Svg/Solutions/Focus";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import { Omnichannel } from "@/components/Svg/Solutions/Omnichannel";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
@@ -22,7 +22,8 @@ import React from "react";
 
 export const metadata = getPageMetadata({
   title: "Retail AI Operating Layer | DSW",
-  description: "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
+  description:
+    "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
   url: "/solutions/retail",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -46,24 +47,28 @@ export const metadata = getPageMetadata({
 const Page = () => {
   return (
     <>
-    <WebpageJsonLd metadata={metadata} />
-    <Layout>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
+      <WebpageJsonLd metadata={metadata} />
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"bottomLeft"}
+          breadcrumbs={true}
+        />
 
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations operationsContent={operationsContent} />
-       <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <CTAPricing />
+        <PricingTableWrapper />
+        <CaseStudy caseStudyContent={caseStudyContent} />
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -71,8 +76,10 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Production AI across commerce, supply chain, and store operations. Governed, real time, and operated as one system.",
-  heading: "Run merchandising, demand, and customer intelligence on one AI operating layer",
+  tagline:
+    "Production AI across commerce, supply chain, and store operations. Governed, real time, and operated as one system.",
+  heading:
+    "Run merchandising, demand, and customer intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -86,8 +93,7 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Operate Retail AI and Agentic AI across merchandising, pricing, inventory, customer engagement, and fulfilment within a unified execution runtime.",
+  para: "Operate Retail AI and Agentic AI across merchandising, pricing, inventory, customer engagement, and fulfilment within a unified execution runtime.",
 };
 
 const runtimeContent = {
@@ -115,14 +121,10 @@ const runtimeContent = {
       text: "Must be governed during execution, not after deployment",
     },
   ],
-
-  
 };
 
-
 const breaksContent = {
-  heading:
-    "Where retail AI breaks without an operating layer",
+  heading: "Where retail AI breaks without an operating layer",
 
   challenges: [
     {
@@ -132,13 +134,11 @@ const breaksContent = {
     },
     {
       icon: <Claims />,
-      title:
-        "Governance sits outside pricing and operational decisions",
+      title: "Governance sits outside pricing and operational decisions",
     },
     {
-      icon: <Omnichannel/>,
-      title:
-        "Omnichannel execution remains fragmented",
+      icon: <Omnichannel />,
+      title: "Omnichannel execution remains fragmented",
     },
     {
       icon: <Nodes />,
@@ -151,10 +151,8 @@ const breaksContent = {
     "<p>Retailers are not lacking AI capability. <br/> They are lacking a system to run it across commerce operations.</p>",
 };
 
-
 const featuresContent = {
-  heading:
-    "Unlimited Retail AI and Agentic AI. One governed runtime.",
+  heading: "Unlimited Retail AI and Agentic AI. One governed runtime.",
 
   cards: [
     {
@@ -202,7 +200,8 @@ const featuresContent = {
     },
 
     {
-      title: "Agentic Copilots for Merchandising, Planning, and Operations Teams",
+      title:
+        "Agentic Copilots for Merchandising, Planning, and Operations Teams",
       description:
         "Assist retail teams with governed decision support across planning and execution.",
       bullets: [
@@ -213,8 +212,6 @@ const featuresContent = {
     },
   ],
 };
-
-
 
 const workflowsContent = {
   heading: "Retail Workflows Expanding Without New Stacks or Vendor Sprawl",
@@ -232,7 +229,6 @@ const workflowsContent = {
   ],
 };
 
-
 const caseStudyContent = {
   heading: "Retail AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
@@ -240,7 +236,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-retail.png",
+  imgSrc: "/assets/case-studies/case-study-retail.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -258,50 +254,43 @@ const benefitsContent = {
   points: [
     {
       id: "01",
-      text:
-        "Operate merchandising, supply chain, and customer intelligence as one governed system",
+      text: "Operate merchandising, supply chain, and customer intelligence as one governed system",
     },
     {
       id: "02",
-      text:
-        "Reduce friction across planning, pricing, and fulfilment workflows",
+      text: "Reduce friction across planning, pricing, and fulfilment workflows",
     },
     {
       id: "03",
-      text:
-        "Scale use cases without multiplying infrastructure or vendors",
+      text: "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
-      text:
-        "Strengthen execution visibility and accountability",
+      text: "Strengthen execution visibility and accountability",
     },
     {
       id: "05",
-      text:
-        "Move from isolated AI deployments to enterprise retail AI operations",
+      text: "Move from isolated AI deployments to enterprise retail AI operations",
     },
   ],
 };
 
-
-const ctaContent={
-  heading:"Operate Retail AI as infrastructure",
-  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Retail AI as infrastructure",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true
-
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
-}
+};
 
 const operationsContent = {
   heading:
@@ -322,8 +311,7 @@ const operationsContent = {
     {
       label:
         "Unified runtimes across customer, inventory, and operational intelligence",
-      intro:
-        "Operate ML and agentic systems in one governed environment.",
+      intro: "Operate ML and agentic systems in one governed environment.",
       bullets: [
         "Model lifecycle governance",
         "Real - time inference control",
@@ -332,8 +320,7 @@ const operationsContent = {
     },
 
     {
-      label:
-        "Integration across retail platforms without disruption",
+      label: "Integration across retail platforms without disruption",
       intro:
         "Connect ecommerce, store, and supply ecosystems through governed interfaces.",
       bullets: [
@@ -344,10 +331,8 @@ const operationsContent = {
     },
 
     {
-      label:
-        "Enterprise custody of retail AI infrastructure and assets",
-      intro:
-        "Operate entirely within retailer environments.",
+      label: "Enterprise custody of retail AI infrastructure and assets",
+      intro: "Operate entirely within retailer environments.",
       bullets: [
         "On - prem, cloud, or hybrid deployment",
         "Full custody of data, models, and IP",

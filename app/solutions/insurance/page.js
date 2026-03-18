@@ -1,11 +1,12 @@
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
-import CaseStudy from "@/components/Solution/CaseStudy";
 import CaseStudySwiper from "@/components/Solution/CaseStudySwiper";
 import Features from "@/components/Solution/Features";
 import Operations from "@/components/Solution/Operations";
@@ -21,7 +22,8 @@ import React from "react";
 
 export const metadata = getPageMetadata({
   title: "Insurance AI Operating System for Insurers | DSW",
-  description: "Enterprise AI operating layer for insurers — govern underwriting, claims, fraud, and compliance with controlled, auditable, scalable AI execution.",
+  description:
+    "Enterprise AI operating layer for insurers — govern underwriting, claims, fraud, and compliance with controlled, auditable, scalable AI execution.",
   url: "/solutions/insurance",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -45,24 +47,28 @@ export const metadata = getPageMetadata({
 const Page = () => {
   return (
     <>
-     <Layout>
-    <WebpageJsonLd metadata={metadata}/>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudySwiper/>
-      {/* <CaseStudy caseStudyContent={caseStudyContent}/> */}
-      <Operations operationsContent={operationsContent} />
-     <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+      <Layout>
+        <WebpageJsonLd metadata={metadata} />
+        <HeroNew
+          heroContent={heroContent}
+          variant={"bottomLeft"}
+          breadcrumbs={true}
+        />
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <CTAPricing />
+        <PricingTableWrapper />
+        <CaseStudySwiper />
+        {/* <CaseStudy caseStudyContent={caseStudyContent}/> */}
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -70,7 +76,8 @@ const Page = () => {
 export default Page;
 
 const heroContent = {
-  tagline: "Govern underwriting, claims, and fraud on a single AI operating layer",
+  tagline:
+    "Govern underwriting, claims, and fraud on a single AI operating layer",
   heading: "The Enterprise AI Operating System Purpose Built for Insurers",
   headingWidth: "w-[84%]",
   primaryButton: {
@@ -85,13 +92,11 @@ const heroContent = {
   },
   paraWidth: "w-[40%] max-md:w-[80%]",
   images: false,
-  para:
-    "Enable production AI across the insurance lifecycle - controlled, auditable, and operated as one system.",
+  para: "Enable production AI across the insurance lifecycle - controlled, auditable, and operated as one system.",
 };
 
 const runtimeContent = {
-  heading:
-    "From disconnected models to runtime - governed insurance execution",
+  heading: "From disconnected models to runtime - governed insurance execution",
   description:
     "Most insurers already run models in underwriting, claims, and fraud. Few can operate them continuously across the enterprise.",
   items: [
@@ -117,8 +122,7 @@ const runtimeContent = {
 const breaksContent = {
   tagline:
     "It is not about building Insurance AI. It is about running it as a system across the enterprise.",
-  heading:
-    "Where insurance AI breaks without a governed operating system",
+  heading: "Where insurance AI breaks without a governed operating system",
   challenges: [
     {
       icon: <UnderWriting />,
@@ -126,13 +130,11 @@ const breaksContent = {
     },
     {
       icon: <Claims />,
-      title:
-        "Governance exists as oversight instead of execution control",
+      title: "Governance exists as oversight instead of execution control",
     },
     {
       icon: <Focus />,
-      title:
-        "Regulatory pressure increases audit and model risk exposure",
+      title: "Regulatory pressure increases audit and model risk exposure",
     },
     {
       icon: <Nodes />,
@@ -177,7 +179,8 @@ const featuresContent = {
       ],
     },
     {
-      title: "Agentic copilots operating within policy and compliance boundaries",
+      title:
+        "Agentic copilots operating within policy and compliance boundaries",
       description:
         "Assist underwriters, adjusters, and operations teams with governed autonomy.",
       bullets: [
@@ -215,7 +218,6 @@ const workflowsContent = {
   ],
 };
 
-
 const caseStudyContent = {
   heading: "Insurance AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
@@ -223,7 +225,7 @@ const caseStudyContent = {
   description:
     "India’s leading Life Insurer, serving millions across urban and rural markets through a wide distribution network.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-insurance.png",
+  imgSrc: "/assets/case-studies/case-study-insurance.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -232,40 +234,54 @@ const caseStudyContent = {
   },
 };
 
-
-
 const benefitsContent = {
   sectionId: "finacle-outcomes",
   heading:
     "Scale insurance AI and Agentic AI easily - No governance gaps, vendor lock in, or cost sprawl",
   points: [
-    { id: "01", text: "Run underwriting, claims, fraud, and servicing as one governed system" },
-    { id: "02", text: "Reduce operational friction in deploying and managing models" },
-    { id: "03", text: "Scale use cases without multiplying infrastructure and vendors" },
-    { id: "04", text: "Strengthen audit readiness and execution accountability" },
-    { id: "05", text: "Transition from fragmented adoption to enterprise AI operations" },
+    {
+      id: "01",
+      text: "Run underwriting, claims, fraud, and servicing as one governed system",
+    },
+    {
+      id: "02",
+      text: "Reduce operational friction in deploying and managing models",
+    },
+    {
+      id: "03",
+      text: "Scale use cases without multiplying infrastructure and vendors",
+    },
+    {
+      id: "04",
+      text: "Strengthen audit readiness and execution accountability",
+    },
+    {
+      id: "05",
+      text: "Transition from fragmented adoption to enterprise AI operations",
+    },
   ],
 };
 
-const ctaContent={
-  heading:"Operate Insurance AI as Enterprise Infrastructure  ",
-  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Insurance AI as Enterprise Infrastructure  ",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
-}
+};
 
 const operationsContent = {
-  heading: "Kernel - governed execution across underwriting, claims, and operations",
+  heading:
+    "Kernel - governed execution across underwriting, claims, and operations",
   tabs: [
     {
       label: "Governance enforced where AI runs",
@@ -278,7 +294,8 @@ const operationsContent = {
     },
     {
       label: "Unified runtimes for models and agentic systems",
-      intro: "Operate ML and agentic execution within one controlled environment.",
+      intro:
+        "Operate ML and agentic execution within one controlled environment.",
       bullets: [
         "Model lifecycle governance",
         "Real - time and batch inference control",
@@ -287,7 +304,8 @@ const operationsContent = {
     },
     {
       label: "Integration without replacing core insurance platforms",
-      intro: "Connect policy, claims, and data ecosystems through governed interfaces.",
+      intro:
+        "Connect policy, claims, and data ecosystems through governed interfaces.",
       bullets: [
         "Works with core systems and decision engines",
         "Enables modernization without disruption",

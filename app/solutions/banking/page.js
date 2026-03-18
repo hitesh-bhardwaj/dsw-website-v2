@@ -2,6 +2,7 @@ import { getPageMetadata } from "@/components/config/metadata";
 import CTAFinal from "@/components/CTAFinal";
 import HeroNew from "@/components/HeroNew";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import Benefits from "@/components/Solution/Benefits";
 import Breaks from "@/components/Solution/Breaks";
@@ -55,6 +56,10 @@ const Page = () => {
       <Breaks breaksContent={breaksContent}/>
       <Features featuresContent={featuresContent} />
       <WorkFlows workflowsContent={workflowsContent}/>
+      {/* <CTAPricing/> */}
+      <div className="pt-[7%] max-sm:pt-[15%] max-md:pt-[10%]">
+      <PricingTableWrapper/>
+      </div>
       <CaseStudy caseStudyContent={caseStudyContent}/>
       <Operations operationsContent={operationsContent} />
       <CertificationsAndAwards certificationsContent={certificationsContent}/>
