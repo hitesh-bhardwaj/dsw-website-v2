@@ -54,8 +54,8 @@ const Page = () => {
         <AIEcosystem ecosystemItems={ECOSYSTEM_ITEMS} />
         <Fragmented />
         <ArchitecturalPrinciples />
-        <CTAPricing />
-        <PricingTableWrapper />
+        {/* <CTAPricing /> */}
+        {/* <PricingTableWrapper /> */}
         <FiveAnchors />
         <SystemStructure />
         <GovernanceBuiltIn />

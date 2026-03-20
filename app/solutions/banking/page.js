@@ -57,9 +57,9 @@ const Page = () => {
       <Features featuresContent={featuresContent} />
       <WorkFlows workflowsContent={workflowsContent}/>
       {/* <CTAPricing/> */}
-      <div className="pt-[7%] max-sm:pt-[15%] max-md:pt-[10%]">
+      {/* <div className="pt-[7%] max-sm:pt-[15%] max-md:pt-[10%]">
       <PricingTableWrapper/>
-      </div>
+      </div> */}
       <CaseStudy caseStudyContent={caseStudyContent}/>
       <Operations operationsContent={operationsContent} />
       <CertificationsAndAwards certificationsContent={certificationsContent}/>
