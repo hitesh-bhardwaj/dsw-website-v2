@@ -1,5 +1,4 @@
 import { getPageMetadata } from "@/components/config/metadata";
-import HeroNew from "@/components/Layout/HeroNew";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -10,6 +9,7 @@ import { UseCase } from "@/components/Svg/Solutions/Banking/UseCase";
 import Focus from "@/components/Svg/Solutions/Focus";
 
 import React from "react";
+import HeroNew from "@/components/Layout/HeroNew";
 
 const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
   ssr: true,
@@ -78,27 +78,23 @@ export const metadata = getPageMetadata({
 const Page = () => {
   return (
     <>
-      <WebpageJsonLd metadata={metadata} />
-
-      <Layout>
-        <HeroNew
-          heroContent={heroContent}
-          variant={"rightVertical"}
-          breadcrumbs={true}
-        />
-
-        <Runtime runtimeContent={runtimeContent} />
-        <Breaks breaksContent={breaksContent} />
-        <Features featuresContent={featuresContent} />
-        <WorkFlows workflowsContent={workflowsContent} />
-        <CaseStudy caseStudyContent={caseStudyContent} />
-        <Operations operationsContent={operationsContent} />
-        <CertificationsAndAwards
-          certificationsContent={certificationsContent}
-        />
-        <Benefits benefitsContent={benefitsContent} />
-        <CTAFinal ctaContent={ctaContent} />
-      </Layout>
+    <WebpageJsonLd metadata={metadata} />
+    <Layout>
+      <HeroNew
+        heroContent={heroContent}
+        variant={"bottomLeft"}
+        breadcrumbs={true}
+      />
+      <Runtime runtimeContent={runtimeContent} />
+      <Breaks breaksContent={breaksContent}/>
+      <Features featuresContent={featuresContent} />
+      <WorkFlows workflowsContent={workflowsContent}/>
+      <CaseStudy caseStudyContent={caseStudyContent}/>
+      <Operations operationsContent={operationsContent} />
+      <CertificationsAndAwards certificationsContent={certificationsContent}/>
+      <Benefits benefitsContent={benefitsContent}/>
+       <CTAFinal ctaContent={ctaContent}/>
+    </Layout>
     </>
   );
 };

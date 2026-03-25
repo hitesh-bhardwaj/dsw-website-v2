@@ -7,7 +7,6 @@ import OperatingSystem from "@/components/AIOS/OperatingSystem"
 import SystemStructure from "@/components/AIOS/SystemStructure"
 import WhoBuiltFor from "@/components/AIOS/WhoBuiltFor"
 import CTAFinal from "@/components/CTAFinal"
-import HeroNew from "@/components/Layout/HeroNew"
 import Layout from "@/components/Layout/Layout"
 import Fragmented from "@/components/AIOS/Structure"
 import Outcomes from "@/components/AIOS/Outcomes"
@@ -16,6 +15,7 @@ import { WebpageJsonLd } from "@/lib/json-ld"
 import { getPageMetadata } from "@/components/config/metadata"
 import { homepage } from "@/lib/util"
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards"
+import HeroNew from "@/components/Layout/HeroNew"
 
 export const metadata = getPageMetadata({
   title: "Enterprise AI Operating System | DSW AIOS Technical",
@@ -42,68 +42,71 @@ export const metadata = getPageMetadata({
   },
 });
 const Page = () => {
-    return (
-        <>
-        <WebpageJsonLd metadata={metadata} />
-            <Layout>
-                <HeroNew heroContent={heroContent} variant={"bottomRight"} />
-                <OperatingSystem />
-                <AIProjects  />
-                <AIEcosystem ecosystemItems={ECOSYSTEM_ITEMS} />
-                <Fragmented />
-                <ArchitecturalPrinciples />
-                <FiveAnchors />
-                <SystemStructure />
-                <GovernanceBuiltIn />
-                <Outcomes/>
-                <Choose/>
-                <WhoBuiltFor />
-                <CertificationsAndAwards certificationsContent={certificationsContent}/>
-                <CTAFinal ctaContent={ctaContent} />
-            </Layout>
+  return (
+    <>
+      <WebpageJsonLd metadata={metadata} />
+      <Layout>
+        <HeroNew heroContent={heroContent} variant={"bottomRight"} />
+        <OperatingSystem />
+        <AIProjects />
+        <AIEcosystem ecosystemItems={ECOSYSTEM_ITEMS} />
+        <Fragmented />
+        <ArchitecturalPrinciples />
+        {/* <CTAPricing /> */}
+        {/* <PricingTableWrapper /> */}
+        <FiveAnchors />
+        <SystemStructure />
+        <GovernanceBuiltIn />
+        <Outcomes />
+        <Choose />
+        <WhoBuiltFor />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
+    </>
+  );
+};
 
-        </>
-    )
-}
-
-export default Page
+export default Page;
 
 const heroContent = {
-    tagline: "Built for enterprises that don’t just build AI - but operate it.",
-    heading: "The Architecture behind<br/> DSW UnifyAI OS - The Enterprise AI Operating System",
-    headingWidth: "w-[80%]",
-    para: "DSW UnifyAI OS is built for enterprises that are moving AI from experiments into long - running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
-    primaryButton: {
-        present: false,
-        link: "#",
-        text: "Book a Demo"
-    },
-    secondaryButton: {
-        present: false,
-        link: "#",
-        text: "Talk to our Team"
-    },
-    images: false
-}
+  tagline: "Built for enterprises that don’t just build AI - but operate it.",
+  heading:
+    "The Architecture behind<br/> DSW UnifyAI OS - The Enterprise AI Operating System",
+  headingWidth: "w-[80%]",
+  para: "DSW UnifyAI OS is built for enterprises that are moving AI from experiments into long - running production systems. It provides the operating layer required to run AI safely, continuously, and at scale - without losing governance, ownership, or architectural freedom.",
+  primaryButton: {
+    present: false,
+    link: "#",
+    text: "Book a Demo",
+  },
+  secondaryButton: {
+    present: false,
+    link: "#",
+    text: "Talk to our Team",
+  },
+  images: false,
+};
 
-
-const ctaContent={
-  heading:"Own How AI Runs in Your Enterprise",
-  para:"DSW UnifyAI OS is the enterprise AI operating system layer that sits on top of your existing infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
+const ctaContent = {
+  heading: "Own How AI Runs in Your Enterprise",
+  para: "DSW UnifyAI OS is the enterprise AI operating system layer that sits on top of your existing infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
   subPara: true,
-  subParaText: 'Turn AI pilots into auditable, production - grade agents',
-  primaryButton:{
+  subParaText: "Turn AI pilots into auditable, production - grade agents",
+  primaryButton: {
     present: true,
     link: "#",
-    text:"Book a Demo",
-    book:true
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
+  secondaryButton: {
     present: true,
-    link:"/contact-us",
-    text:"Talk to our Team"
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
-}
+};
 
 const certificationsContent = {
   sectionId: "compliance",

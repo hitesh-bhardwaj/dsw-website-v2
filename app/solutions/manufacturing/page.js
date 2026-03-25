@@ -1,6 +1,8 @@
 
 import { getPageMetadata } from "@/components/config/metadata";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -123,8 +125,7 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Operate Manufacturing AI and Agentic AI across shop floor, supply chain, maintenance, and production planning within a governed execution runtime.",
+  para: "Operate Manufacturing AI and Agentic AI across shop floor, supply chain, maintenance, and production planning within a governed execution runtime.",
 };
 
 const runtimeContent = {
@@ -159,12 +160,17 @@ const breaksContent = {
     {
       icon: <UnderWriting />,
       title: "Plant, quality, and supply chain intelligence remain siloed",
+      title: "Plant, quality, and supply chain intelligence remain siloed",
     },
     {
       icon: <Governance />,
       title: "Governance exists outside operational execution",
+      icon: <Governance />,
+      title: "Governance exists outside operational execution",
     },
     {
+      icon: <Omnichannel />,
+      title: "OT and IT environments remain fragmented",
       icon: <Omnichannel />,
       title: "OT and IT environments remain fragmented",
     },
@@ -273,40 +279,37 @@ const benefitsContent = {
   points: [
     {
       id: "01",
-      text:
-        "Operate plant, supply chain, and quality intelligence as one governed system",
+      text: "Operate plant, supply chain, and quality intelligence as one governed system",
     },
     {
       id: "02",
       text: "Reduce operational friction across production environments",
+      text: "Reduce operational friction across production environments",
     },
     {
       id: "03",
-      text:
-        "Scale use cases without multiplying infrastructure or vendors",
+      text: "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
       text: "Strengthen accountability and operational visibility",
+      text: "Strengthen accountability and operational visibility",
     },
     {
       id: "05",
-      text:
-        "Move from isolated AI deployments to enterprise-wide industrial AI operations",
+      text: "Move from isolated AI deployments to enterprise-wide industrial AI operations",
     },
   ],
 };
 
-
-
-const ctaContent={
-  heading:"Operate Manufacturing AI as infrastructure",
-  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence. ",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Manufacturing AI as infrastructure",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across plant operations, supply chain, maintenance, and production intelligence. ",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
   secondaryButton: {
     present: true,
@@ -314,7 +317,7 @@ const ctaContent={
     text: "Schedule a Call",
     targetSecondary: true,
   },
-};
+}
 
 const operationsContent = {
   heading:
@@ -323,6 +326,7 @@ const operationsContent = {
   tabs: [
     {
       label: "Governance enforced where production decisions happen",
+      intro: "Policies operate inside plant and operational workflows.",
       intro: "Policies operate inside plant and operational workflows.",
       bullets: [
         "Governance - as - code at runtime",
@@ -333,8 +337,7 @@ const operationsContent = {
     {
       label:
         "Unified runtimes across plant, supply, and operational intelligence",
-      intro:
-        "Operate ML and agentic systems within one governed environment.",
+      intro: "Operate ML and agentic systems within one governed environment.",
       bullets: [
         "Model lifecycle governance",
         "Real - time inference control",
@@ -342,6 +345,7 @@ const operationsContent = {
       ],
     },
     {
+      label: "Integration across OT and enterprise systems without disruption",
       label: "Integration across OT and enterprise systems without disruption",
       intro:
         "Connect plant systems, supply platforms, and enterprise applications through governed interfaces.",
@@ -352,6 +356,8 @@ const operationsContent = {
       ],
     },
     {
+      label: "Enterprise custody of manufacturing AI infrastructure and assets",
+      intro: "Operate entirely within industrial environments.",
       label: "Enterprise custody of manufacturing AI infrastructure and assets",
       intro: "Operate entirely within industrial environments.",
       bullets: [

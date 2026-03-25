@@ -1,5 +1,7 @@
 import { getPageMetadata } from "@/components/config/metadata";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -50,6 +52,8 @@ export const metadata = getPageMetadata({
   title: "Telecom AI Operating Layer | DSW",
   description:
     "Operate AI across network, OSS/BSS, subscriber, and service intelligence within a governed runtime for real-time telecom operations.",
+  description:
+    "Operate AI across network, OSS/BSS, subscriber, and service intelligence within a governed runtime for real-time telecom operations.",
   url: "/solutions/telecom",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -83,6 +87,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
+        {/* <CTAPricing />
+        <PricingTableWrapper /> */}
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
 
@@ -107,7 +113,8 @@ export default Page;
 const heroContent = {
   tagline:
     "Real - time AI execution across OSS, BSS, network, and service environments.",
-  heading: "Run network, operations, and subscriber intelligence on one AI operating layer",
+  heading:
+    "Run network, operations, and subscriber intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -121,8 +128,7 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Operate Telecom AI and Agentic AI across network performance, customer experience, field operations, and revenue systems within one governed execution runtime.",
+  para: "Operate Telecom AI and Agentic AI across network performance, customer experience, field operations, and revenue systems within one governed execution runtime.",
 };
 
 /* ---------------------------------------------
@@ -151,6 +157,7 @@ const runtimeContent = {
       number: "04",
       text: "Must be governed during execution, not after deployment",
     },
+   
   ],
 };
 
@@ -179,6 +186,7 @@ const breaksContent = {
       title:
         "Every new use case introduces new tooling, vendors, and complexity",
     },
+    
   ],
 
   extra:
@@ -224,7 +232,8 @@ const featuresContent = {
       ],
     },
     {
-      title: "Revenue assurance and fraud intelligence inside transaction ecosystems",
+      title:
+        "Revenue assurance and fraud intelligence inside transaction ecosystems",
       description:
         "Monitor billing, usage, and financial activity in real time.",
       bullets: [
@@ -261,6 +270,10 @@ const workflowsContent = {
       number: "05",
       title: "Subscriber segmentation and lifetime value modeling",
     },
+    {
+      number: "05",
+      title: "Subscriber segmentation and lifetime value modeling",
+    },
     { number: "06", title: "Regulatory compliance monitoring" },
     { number: "07", title: "SLA intelligence and reporting" },
     { number: "08", title: "Contact center intelligence" },
@@ -280,7 +293,7 @@ const caseStudyContent = {
   description:
     "How India’s leading Health Insurance Company Streamlined Customer Communications and Operations with AI in weeks!",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/insurance/email-automation.png",
+  imgSrc: "/assets/case-studies/insurance/email-automation.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -294,7 +307,8 @@ const caseStudyContent = {
 --------------------------------------------- */
 
 const operationsContent = {
-  heading: "Kernel - governed execution across OSS, BSS, and network operations",
+  heading:
+    "Kernel - governed execution across OSS, BSS, and network operations",
 
   tabs: [
     {
@@ -311,6 +325,10 @@ const operationsContent = {
         "Unified runtimes across network, subscriber, and operations intelligence",
       intro:
         "Operate ML and agentic systems in one governed execution environment.",
+      label:
+        "Unified runtimes across network, subscriber, and operations intelligence",
+      intro:
+        "Operate ML and agentic systems in one governed execution environment.",
       bullets: [
         "Model lifecycle governance",
         "Real - time inference control",
@@ -319,6 +337,8 @@ const operationsContent = {
     },
     {
       label: "Integration across telecom systems without disruption",
+      intro:
+        "Connect OSS, BSS, network platforms, and data environments through governed interfaces.",
       intro:
         "Connect OSS, BSS, network platforms, and data environments through governed interfaces.",
       bullets: [
@@ -345,7 +365,8 @@ const operationsContent = {
 
 const benefitsContent = {
   sectionId: "finacle-outcomes",
-  heading: "Scale Telecom AI without governance gaps, lock - in, or operational fragmentation",
+  heading:
+    "Scale Telecom AI without governance gaps, lock - in, or operational fragmentation",
   points: [
     {
       id: "01",
@@ -367,6 +388,7 @@ const benefitsContent = {
       id: "05",
       text: "Move from isolated AI deployments to telecom-wide AI operations",
     },
+    
   ],
 };
 
@@ -376,18 +398,19 @@ const benefitsContent = {
 
 const ctaContent = {
   heading: "Operate Telecom AI as infrastructure",
-  para:
-    "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across network operations, subscriber intelligence, revenue systems, and service environments.",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across network operations, subscriber intelligence, revenue systems, and service environments.",
   primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
+    book: true,
     book: true,
   },
   secondaryButton: {
     present: true,
     link: "https://calendly.com/",
     text: "Schedule a Call",
+    targetSecondary: true,
     targetSecondary: true,
   },
 };

@@ -1,5 +1,7 @@
 import { getPageMetadata } from "@/components/config/metadata";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -52,6 +54,8 @@ const WorkFlows = dynamic(() => import("@/components/Solution/WorkFlows"), {
 
 export const metadata = getPageMetadata({
   title: "Retail AI Operating Layer | DSW",
+  description:
+    "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
   description:
     "Unified AI operating system for retail - run merchandising, demand, pricing, inventory, and customer intelligence with governed execution.",
   url: "/solutions/retail",
@@ -110,6 +114,10 @@ const heroContent = {
     "Production AI across commerce, supply chain, and store operations. Governed, real time, and operated as one system.",
   heading:
     "Run merchandising, demand, and customer intelligence on one AI operating layer",
+  tagline:
+    "Production AI across commerce, supply chain, and store operations. Governed, real time, and operated as one system.",
+  heading:
+    "Run merchandising, demand, and customer intelligence on one AI operating layer",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -123,8 +131,7 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Operate Retail AI and Agentic AI across merchandising, pricing, inventory, customer engagement, and fulfilment within a unified execution runtime.",
+  para: "Operate Retail AI and Agentic AI across merchandising, pricing, inventory, customer engagement, and fulfilment within a unified execution runtime.",
 };
 
 const runtimeContent = {
@@ -164,8 +171,11 @@ const breaksContent = {
     {
       icon: <Claims />,
       title: "Governance sits outside pricing and operational decisions",
+      title: "Governance sits outside pricing and operational decisions",
     },
     {
+      icon: <Omnichannel />,
+      title: "Omnichannel execution remains fragmented",
       icon: <Omnichannel />,
       title: "Omnichannel execution remains fragmented",
     },
@@ -223,7 +233,8 @@ const featuresContent = {
       ],
     },
     {
-      title: "Agentic Copilots for Merchandising, Planning, and Operations Teams",
+      title:
+        "Agentic Copilots for Merchandising, Planning, and Operations Teams",
       description:
         "Assist retail teams with governed decision support across planning and execution.",
       bullets: [
@@ -258,7 +269,7 @@ const caseStudyContent = {
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/case-study-retail.png",
+  imgSrc: "/assets/case-studies/borosil.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -275,45 +286,51 @@ const benefitsContent = {
   points: [
     {
       id: "01",
-      text:
-        "Operate merchandising, supply chain, and customer intelligence as one governed system",
+      text: "Operate merchandising, supply chain, and customer intelligence as one governed system",
     },
     {
       id: "02",
+      text: "Reduce friction across planning, pricing, and fulfilment workflows",
       text: "Reduce friction across planning, pricing, and fulfilment workflows",
     },
     {
       id: "03",
       text: "Scale use cases without multiplying infrastructure or vendors",
+      text: "Scale use cases without multiplying infrastructure or vendors",
     },
     {
       id: "04",
       text: "Strengthen execution visibility and accountability",
+      text: "Strengthen execution visibility and accountability",
     },
     {
       id: "05",
-      text:
-        "Move from isolated AI deployments to enterprise retail AI operations",
+      text: "Move from isolated AI deployments to enterprise retail AI operations",
     },
   ],
 };
 
-
-const ctaContent={
-  heading:"Operate Retail AI as infrastructure",
-  para:"See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+const ctaContent = {
+  heading: "Operate Retail AI as infrastructure",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across merchandising, demand, customer experience, and supply chain operations.",
+  primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
   secondaryButton: {
     present: true,
     link: "https://calendly.com/",
     text: "Schedule a Call",
     targetSecondary: true,
+  secondaryButton: {
+    present: true,
+    link: "https://calendly.com/",
+    text: "Schedule a Call",
+    targetSecondary: true,
   },
+}
 };
 
 const operationsContent = {
@@ -335,6 +352,7 @@ const operationsContent = {
       label:
         "Unified runtimes across customer, inventory, and operational intelligence",
       intro: "Operate ML and agentic systems in one governed environment.",
+      intro: "Operate ML and agentic systems in one governed environment.",
       bullets: [
         "Model lifecycle governance",
         "Real - time inference control",
@@ -342,6 +360,7 @@ const operationsContent = {
       ],
     },
     {
+      label: "Integration across retail platforms without disruption",
       label: "Integration across retail platforms without disruption",
       intro:
         "Connect ecommerce, store, and supply ecosystems through governed interfaces.",
@@ -352,6 +371,8 @@ const operationsContent = {
       ],
     },
     {
+      label: "Enterprise custody of retail AI infrastructure and assets",
+      intro: "Operate entirely within retailer environments.",
       label: "Enterprise custody of retail AI infrastructure and assets",
       intro: "Operate entirely within retailer environments.",
       bullets: [

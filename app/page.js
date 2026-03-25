@@ -61,7 +61,7 @@ export default function Home() {
           <ClientsBlur />
           <RealWorldOutcomes />
           <CTAPricing />
-          <PricingTableWrapper/>
+          {/* <PricingTableWrapper/> */}
           <CertificationsAndAwards certificationsContent={certificationsContent} />
           <Testimonials />
           <CTAFinal ctaContent={ctaContent} />

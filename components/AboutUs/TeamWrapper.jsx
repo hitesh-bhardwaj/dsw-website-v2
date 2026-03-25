@@ -64,7 +64,7 @@ const foundingTeam = [
   },
 
   {
-    src: "/assets/about/sandhya-final.png",
+    src: "/assets/about/sandhya-img.png",
     name: "Sandhya Oza",
     role: "Co-Founder & Chief Project Officer",
     link: "https://www.linkedin.com/in/sandhyaoza22/",
@@ -103,7 +103,7 @@ const growthTeam = [
     link: "https://www.linkedin.com/in/saurabhsingh1401/",
   },
   {
-    src: "/assets/about/aaron-about-img.jpg",
+    src: "/assets/about/aaron-img.png",
     name: "Aaron Douchinsky ",
     role: "Head of Sales - America",
     link: "https://www.linkedin.com/in/aarondouchinsky/",

@@ -1,5 +1,7 @@
 import { getPageMetadata } from "@/components/config/metadata";
+// import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
+// import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -55,6 +57,8 @@ export const metadata = getPageMetadata({
   title: "Financial Services AI Operating System | DSW",
   description:
     "Enterprise AI layer for financial services - govern lending, markets, payments, risk, and compliance workflows with a single controlled runtime.",
+  description:
+    "Enterprise AI layer for financial services - govern lending, markets, payments, risk, and compliance workflows with a single controlled runtime.",
   url: "/solutions/financial-services",
   date_published: "2026-02-18T00:00",
   date_modified: "2026-02-18T00:00",
@@ -87,13 +91,17 @@ const Page = () => {
           variant={"bottomRight"}
           breadcrumbs={true}
         />
-
         <Runtime runtimeContent={runtimeContent} />
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
+        {/* <CTAPricing />
+        <PricingTableWrapper /> */}
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
         <CertificationsAndAwards
           certificationsContent={certificationsContent}
         />
@@ -126,15 +134,15 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Run Financial AI and Agentic AI across lending, capital markets, payments, and risk as one controlled, auditable execution environment.",
+  para: "Run Financial AI and Agentic AI across lending, capital markets, payments, and risk as one controlled, auditable execution environment.",
 };
 
 /* ---------------------------------------------
    RUNTIME
 --------------------------------------------- */
 const runtimeContent = {
-  heading: "Financial AI is already deployed.<br/> It is not yet operationalized.",
+  heading:
+    "Financial AI is already deployed.<br/> It is not yet operationalized.",
 
   description:
     "Most financial institutions run models across lending, capital markets, fraud, and compliance. Few can operate them continuously across business units and decision environments.",
@@ -155,6 +163,7 @@ const runtimeContent = {
       number: "04",
       text: "Must be governed during execution, not after deployment",
     },
+    
   ],
 };
 
@@ -173,6 +182,7 @@ const breaksContent = {
       icon: <Governance />,
       title: "Governance exists as oversight instead of runtime enforcement",
     },
+    
     {
       icon: <Focus />,
       title:
@@ -226,7 +236,8 @@ const featuresContent = {
       ],
     },
     {
-      title: "Agentic copilots for analysts, relationship teams, and operations",
+      title:
+        "Agentic copilots for analysts, relationship teams, and operations",
       description:
         "Assist teams with context, recommendations, and next - best actions under policy control.",
       bullets: [
@@ -306,6 +317,8 @@ const operationsContent = {
       label: "Unified runtimes for models, analytics, and agentic systems",
       intro:
         "Operate ML and agentic execution within one governed environment.",
+      intro:
+        "Operate ML and agentic execution within one governed environment.",
       bullets: [
         "Model lifecycle governance",
         "Real - time and batch inference control",
@@ -313,6 +326,10 @@ const operationsContent = {
       ],
     },
     {
+      label:
+        "Integration across financial ecosystems without platform disruption",
+      intro:
+        "Connect lending, market, and payment systems through governed interfaces.",
       label:
         "Integration across financial ecosystems without platform disruption",
       intro:
@@ -341,7 +358,8 @@ const operationsContent = {
 const benefitsContent = {
   sectionId: "finacle-outcomes",
 
-  heading: "Scale Financial AI without governance gaps, lock - in, or cost fragmentation",
+  heading:
+    "Scale Financial AI without governance gaps, lock - in, or cost fragmentation",
 
   points: [
     {
@@ -375,18 +393,19 @@ const benefitsContent = {
 --------------------------------------------- */
 const ctaContent = {
   heading: "Operate Financial AI as enterprise infrastructure",
-  para:
-    "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across lending, markets, payments, risk, and compliance workflows.",
+  para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across lending, markets, payments, risk, and compliance workflows.",
   primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
+    book: true,
     book: true,
   },
   secondaryButton: {
     present: true,
     link: "https://calendly.com/",
     text: "Schedule a Call",
+    targetSecondary: true,
     targetSecondary: true,
   },
 };

@@ -1,5 +1,7 @@
 import { getPageMetadata } from "@/components/config/metadata";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -86,6 +88,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
+        {/* <CTAPricing />
+        <PricingTableWrapper /> */}
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards

@@ -90,7 +90,7 @@ const PricingTable = ({ region = "IN" }) => {
   `;
 
   return (
-    <div className="w-[65%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto relative max-md:w-[85%] pb-[7%] max-md:pb-[10%] max-sm:pb-[15%] max-sm:mt-[-20vw] max-md:-mt-[10vw]">
+    <div className="w-[65%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto relative max-md:w-[85%] pb-[7%] max-md:pb-[10%] max-sm:pb-[15%] max-sm:mt-[-20vw] max-md:-mt-[10vw] fadeup">
       <div className="w-full max-sm:overflow-x-scroll mobile-scrollbar max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0 relative">
         <div className="w-full max-sm:w-[150%] mx-auto relative">
           <div>
