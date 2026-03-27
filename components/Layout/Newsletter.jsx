@@ -57,7 +57,7 @@ const Newsletter = () => {
   };
 
   return (
-    <div className=" w-[45%] relative max-sm:w-full max-md:mt-[8vw] max-sm:mt-0 max-md:w-[60%]">
+    <div className=" w-full relative max-sm:w-full  max-sm:mt-0 max-md:w-[60%]">
       <p className="text-24 max-sm:text-24 max-md:text-[2.5vw] font-sans  mb-[3vw]">
         Subscribe to our newsletter for the latest tech insights and updates.
       </p>

@@ -221,14 +221,35 @@ export default function FooterNew() {
                 ))}
               </ul>
             </div>
-
-            <Newsletter />
+            <div className="w-[40%] flex flex-col gap-[2vw] max-sm:w-full max-md:w-full max-md:items-start items-center max-sm:gap-[7vw]">
+              <div className="w-fit flex gap-[1.5vw]  max-sm:gap-[4vw]">
+                <div className="size-[6vw] max-sm:size-[20vw] max-md:size-[10vw] ">
+                  <Image
+                    src={"/assets/certifications/soc-2-compliant-wbg.png"}
+                    alt=""
+                    className="w-full h-full"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className="size-[6vw] max-sm:size-[20vw] max-md:size-[10vw]">
+                  <Image
+                    src={"/assets/certifications/iso-27001-wbg.png"}
+                    alt=""
+                    className="w-full h-full"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+              </div>
+              <Newsletter />
+            </div>
           </div>
         </div>
 
         {/* Bottom Section */}
         <div className="flex items-end justify-between pt-[4.5vw] max-sm:justify-center">
-          <div className="w-[18vw] max-md:w-[22vw] max-md:h-[10vw] h-auto relative max-sm:hidden">
+          <div className="w-[18vw] max-md:w-[30vw] max-md:h-[10vw] h-auto relative max-sm:hidden">
             <Image
               src="/assets/icons/dsw-logo-bottom.png"
               alt="Data Science Wizards"
@@ -238,7 +259,9 @@ export default function FooterNew() {
             />
           </div>
 
-          <p className="text-20 font-sans">© Copyright Data Science Wizards 2026</p>
+          <p className="text-20 font-sans">
+            © Copyright Data Science Wizards 2026
+          </p>
         </div>
       </div>
     </footer>

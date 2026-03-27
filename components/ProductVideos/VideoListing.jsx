@@ -68,7 +68,7 @@ const VideoListing = () => {
   return (
     <>
       <section
-        className={` px-[5vw] py-[7%] max-sm:py-[15%]  relative  w-screen h-full z-100`}
+        className={` px-[5vw] py-[7%] max-sm:py-[15%]  relative bg-white  w-screen h-full z-100`}
         id="video-listing"
       >
         <div className="w-full h-full flex flex-wrap fadeup justify-between gap-y-[7vw] max-sm:gap-y-[10vw] max-md:gap-y-[7vw]">
@@ -83,7 +83,7 @@ const VideoListing = () => {
                 }`}
               />
               <div
-                className="w-full h-[25vw] rounded-[1.8vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none  fadeup  group max-sm:h-[27vh] max-md:h-[30vw] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[2vw]"
+                className="w-full h-[25vw] border border-black/10 rounded-[1.8vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none  fadeup  group max-sm:h-[27vh] max-md:h-[30vw] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[2vw]"
                 role="button"
                 tabIndex={0}
                 aria-label={`Play video: ${video.title}`}
@@ -112,7 +112,7 @@ const VideoListing = () => {
                       src={"/assets/icons/play-icon.svg"}
                     />
                   </div>
-                  <p className="text-white-200">{video.duration}</p>
+                  <p className="text-white">{video.duration}</p>
                 </div>
               </div>
               <Copy>
@@ -196,9 +196,45 @@ const VideoListing = () => {
 export default VideoListing;
 const videos = [
   {
+    image: "/assets/product-videos/here-is-why.png",
+    alt: "Here is why Image",
+    duration: "2:10 min",
+    title: "Here's why Enterprise AI Needs an Operating System - DSW UnifyAI OS",
+    description:
+      "Artificial Intelligence is at a turning point.....",
+    youtubeUrl: "https://www.youtube.com/watch?v=xeS2h37VO28",
+  },
+  {
+    image: "/assets/product-videos/shift-2-5.png",
+    alt: "shift 2/5 image",
+    duration: "2:17 min",
+    title: "Shift 2/5 - Governance in Motion",
+    description:
+      "When AI runs continuously, governance can no longer be a 'layer' on top or a manual process around the system. It must execute inside the system itself....",
+    youtubeUrl: "https://www.youtube.com/watch?v=j94FZqIUaZ8",
+  },
+  {
+    image: "/assets/product-videos/ai-in-insurance.png",
+    alt: "ai in insurance image",
+    duration: "14:38 min",
+    title: "AI in Insurance: From Experiments to Enterprise Infrastructure | IIA Podcast with Sandeep Khuperkar",
+    description:
+      "AI adoption in insurance has moved far beyond early experimentation. The bigger question today is: how can enterprises actually operate AI at scale?...",
+    youtubeUrl: "https://www.youtube.com/watch?v=j94FZqIUaZ8",
+  },
+  {
+    image: "/assets/product-videos/shift-1-5.png",
+    alt: "shift 1/5 image",
+    duration: "1:50 min",
+    title: "Shift 1/5 - AI is entering its systems era!",
+    description:
+      "The Shift  is a 5-part video series by DSW curated to understand the next era of AI for enterprises...",
+    youtubeUrl: "https://youtu.be/eeLN-r49a2Y?si=xAuSdt32jJmHfNs0",
+  },
+  {
     image: "/assets/product-videos/os-for-ai.jpg",
-    alt: "inside-unify",
-    duration: "1.46 min",
+    alt: "inside unify image",
+    duration: "1:46 min",
     title: "Launch Enterprise AI in Days and GenAI in Hours!",
     description:
       "DSW UnifyAI, our enterprise AI platform makes it happen by empowering you to move quickly and securely, with powerful end to end tools ...",
@@ -207,7 +243,7 @@ const videos = [
   {
     image: "/assets/product-videos/insurtech-insights.jpg",
     alt: "genai-production",
-    duration: "15.12 mins",
+    duration: "15:12 mins",
     title: "Insurtech Insight New York USA Talk",
     description:
       "Meet insurAInce by DSW UnifyAI - the AI platform purpose-built for insurers ready to scale from pilots to production.",
@@ -216,7 +252,7 @@ const videos = [
   {
     image: "/assets/product-videos/dsw-unifyai.jpg",
     alt: "ai-complexity",
-    duration: "1.40 min",
+    duration: "1:40 min",
     title: "DSW UnifyAI: Welcome to the future of Enterprise AI",
     description:
       "Discover the power of DSW UnifyAI, an enterprise - grade AI platform designed to streamline your AI adoption journey.",
@@ -225,7 +261,7 @@ const videos = [
   {
     image: "/assets/product-videos/ai-for-all.jpg",
     alt: "securing-ai",
-    duration: "44.07 mins",
+    duration: "44:07 mins",
     title:
       "AI for ALL: Power of Democratizing AI and Data Science with UnifyAI, an Enterprise - Ready AI Platform",
     description:
@@ -235,7 +271,7 @@ const videos = [
   {
     image: "/assets/product-videos/dsw-at-mint.png",
     alt: "unify-video-5",
-    duration: "5.32 mins",
+    duration: "5:32 mins",
     title:
       "DSW at Mint Annual Banking Conclave – The 14th Edition: Navigating the digital opportunity",
     description:
@@ -245,7 +281,7 @@ const videos = [
   {
     image: "/assets/product-videos/unifyai-business-flow.jpg",
     alt: "unify-video-6",
-    duration: "2.01 mins",
+    duration: "2:01 mins",
     title: "DSW UnifyAI by Data Science Wizards",
     description:
       "UnifyAI is a “Platform as a Solution” that helps organizations right from identifying and integrating data sources, to building a unified data ...",

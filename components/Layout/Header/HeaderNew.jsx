@@ -95,37 +95,37 @@ export default function HeaderNew() {
     if (lenis) lenis.scrollTo(0, { immediate: true });
   }, [lenis, pathname]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const currentScrollY = window.scrollY;
 
-      if (isHoveringHeader || openMobileMenu || isSearchOpen) {
-        setIsHidden(false);
-        setLastScrollY(currentScrollY);
-        return;
-      }
+  //     if (isHoveringHeader || openMobileMenu || isSearchOpen) {
+  //       setIsHidden(false);
+  //       setLastScrollY(currentScrollY);
+  //       return;
+  //     }
 
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsHidden(true);
-      } else {
-        setIsHidden(false);
-      }
+  //     if (currentScrollY > lastScrollY && currentScrollY > 50) {
+  //       setIsHidden(true);
+  //     } else {
+  //       setIsHidden(false);
+  //     }
 
-      setLastScrollY(currentScrollY);
-    };
+  //     setLastScrollY(currentScrollY);
+  //   };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY, isHoveringHeader, openMobileMenu, isSearchOpen]);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, [lastScrollY, isHoveringHeader, openMobileMenu, isSearchOpen]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.pageYOffset > 150);
-    };
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     setIsScrolled(window.pageYOffset > 150);
+  //   };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <>
