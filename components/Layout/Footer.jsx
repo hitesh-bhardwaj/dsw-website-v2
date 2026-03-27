@@ -221,7 +221,7 @@ export default function FooterNew() {
                 ))}
               </ul>
             </div>
-            <div className="w-[40%] flex flex-col gap-[2vw] max-sm:w-full max-md:w-full max-md:items-start items-center max-sm:gap-[7vw]">
+            <div className="w-[40%] flex flex-col gap-[2vw] max-sm:w-full max-md:w-full max-sm:items-center max-sm:gap-[7vw]">
               <div className="w-fit flex gap-[1.5vw]  max-sm:gap-[4vw]">
                 <div className="size-[6vw] max-sm:size-[20vw] max-md:size-[10vw] ">
                   <Image
