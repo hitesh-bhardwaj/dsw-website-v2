@@ -1,53 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# DSW - Enterprise AI Operating System
 
-## Getting Started
+Corporate website for **Data Science Wizards (DSW)**, showcasing their Enterprise AI Operating System platform.
 
-First, run the development server:
+**Live Site:** [datasciencewizards.ai](https://www.datasciencewizards.ai/)
+
+## Tech Stack
+
+- **Framework:** Next.js 16 (App Router)
+- **Styling:** Tailwind CSS v4
+- **Animations:** GSAP + ScrollTrigger
+- **Smooth Scroll:** Lenis
+- **CMS:** WordPress (Headless) + WPGraphQL
+- **Forms:** React Hook Form + Zod
+- **Email:** Resend
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Set up environment variables
+cp .env.example .env.local
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Create a `.env.local` file with:
 
-## Learn More
+```env
+WORDPRESS_GRAPHQL_ENDPOINT=https://your-wp-site.com/graphql
+RESEND_API_KEY=your_resend_api_key
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `ANALYZE=true npm run build` | Analyze bundle size |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
 
-## Deploy on Vercel
+```
+app/                  # Next.js pages (App Router)
+components/           # React components
+├── Layout/           # Header, Footer, Layout
+├── Homepage/         # Homepage sections
+├── Animations/       # GSAP animation utilities
+├── ui/               # shadcn/ui components
+└── Svg/              # SVG icon components
+data/                 # GraphQL queries
+lib/                  # Utilities & configs
+public/               # Static assets
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Typography Classes
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Class | Usage |
+|-------|-------|
+| `text-110` | Hero headings |
+| `text-76` | Section headings |
+| `text-56` | Subheadings |
+| `text-44` | Card titles |
+| `text-32` | Large body |
+| `text-24` | Body text |
+| `text-22` | Buttons |
+| `text-20` | Small text |
 
+## Documentation
 
-//Text sizes :
+For detailed documentation, see:
+- **[HANDOVER.md](./HANDOVER.md)** - Comprehensive developer guide
+- **[CLAUDE.md](./CLAUDE.md)** - AI assistant instructions
 
-text-30 (subpara and content of cards)
-text-110 (hero heading)
-text-22 (button)
-text-76 (heading for other components)
-text-24 (text)
-text-44 (subHeading)
-text-56
-text-20
-text-32
+## Deployment
 
-
-text-96 (card nos) - not used as class in globals
-text-20 (card nos) - not used in globals
+Deployed on **Vercel**. Pushes to `master` trigger automatic deployments.
