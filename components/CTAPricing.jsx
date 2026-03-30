@@ -32,7 +32,7 @@ export default function CTAPricing() {
           <PrimaryButton href="#" text={"Discuss Pricing"} />
         </div> 
         <div className="w-full h-[10vh] max-sm:block absolute from-white via-white/90 bg-linear-to-b to-white/0 hidden top-0" />
-        {/* <div className="w-full h-[10vh] max-sm:block absolute bg-white hidden top-[100%]" /> */}
+        <div className="w-full h-[10vh] max-sm:block absolute bg-white hidden top-[100%]" />
       </div>
       
     </section>

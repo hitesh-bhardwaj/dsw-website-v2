@@ -7,24 +7,34 @@ import Features from "@/components/Homepage/Features";
 import UseCases from "@/components/Homepage/UseCases";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import dynamic from "next/dynamic";
-import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
+// import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
+import Clients from "@/components/Clients";
+import HomepagVideo from "@/components/Homepage/HomepagVideo";
 
-
-const UnifiedRuntime = dynamic(() => import("@/components/Homepage/UnifiedRuntime"), {
-  ssr: true,
-});
-const CoreEnterpriseSystemSticky = dynamic(() => import("@/components/Homepage/CoreEnterpriseSystemSticky"), {
-  ssr: true,
-});
+const UnifiedRuntime = dynamic(
+  () => import("@/components/Homepage/UnifiedRuntime"),
+  {
+    ssr: true,
+  },
+);
+const CoreEnterpriseSystemSticky = dynamic(
+  () => import("@/components/Homepage/CoreEnterpriseSystemSticky"),
+  {
+    ssr: true,
+  },
+);
 const AlwaysOnAI = dynamic(() => import("@/components/AlwaysOnAI"), {
   ssr: true,
 });
-const CertificationsAndAwards = dynamic(() => import("@/components/Homepage/CertificationsAndAwards"), {
-  ssr: true,
-});
-const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
-  ssr: true,
-});
+const CertificationsAndAwards = dynamic(
+  () => import("@/components/Homepage/CertificationsAndAwards"),
+  {
+    ssr: true,
+  },
+);
+// const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
+//   ssr: true,
+// });
 const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
   ssr: true,
 });
@@ -43,8 +53,8 @@ export const metadata = {
     languages: {
       "en-US": "/",
     },
-  }
-}
+  },
+};
 
 export default function Home() {
   return (
@@ -55,15 +65,19 @@ export default function Home() {
           <HeroNew heroContent={heroContent} variant="default" />
           <WhyAIStruggles />
           <UnifiedRuntime />
+          <HomepagVideo/>
           <Features />
           <CoreEnterpriseSystemSticky />
           <UseCases />
           <AlwaysOnAI content={tourContent} walkthrough={true} />
-          <ClientsBlur />
+          {/* <ClientsBlur /> */}
+          <Clients />
           <RealWorldOutcomes />
           <CTAPricing />
           {/* <PricingTableWrapper/> */}
-          <CertificationsAndAwards certificationsContent={certificationsContent} />
+          <CertificationsAndAwards
+            certificationsContent={certificationsContent}
+          />
           <Testimonials />
           <CTAFinal ctaContent={ctaContent} />
         </main>
@@ -73,20 +87,22 @@ export default function Home() {
 }
 
 const heroContent = {
-  tagline: "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
-  heading: "<span class='text-primary-blue shimmer-text'>DSW UnifyAI OS</span><br/>The Enterprise AI Operating System",
+  tagline:
+    "Build, integrate, deploy, govern, and operate AI at scale, in your own environment.",
+  heading:
+    "<span class='text-primary-blue shimmer-text'>DSW UnifyAI OS</span><br/>The Enterprise AI Operating System",
   primaryButton: {
     present: true,
     book: true,
     link: "#",
-    text: "Book a Demo"
+    text: "Book a Demo",
   },
   secondaryButton: {
     present: true,
     link: "/contact-us",
-    text: "Talk to our Team"
+    text: "Talk to our Team",
   },
-}
+};
 
 const ctaContent = {
   heading: "Own How AI Runs in Your Enterprise",
@@ -95,26 +111,25 @@ const ctaContent = {
     present: true,
     link: "#",
     text: "Book a Demo",
-    book: true
+    book: true,
   },
   secondaryButton: {
     present: true,
     link: "/contact-us",
-    text: "Talk to our Team"
+    text: "Talk to our Team",
   },
-}
+};
 
 const tourContent = {
   heading: "Always - On AI. Built as Infrastructure.",
   para: "AI only scales when enterprises can build it safely, trust it in daily workflows, and run it continuously. <span class='text-primary-blue'>Take a lightning walkthrough now</span>",
-  tagline: "UnifyAI OS makes this possible by running as part of your core enterprise architecture."
-}
+  tagline:
+    "UnifyAI OS makes this possible by running as part of your core enterprise architecture.",
+};
 
 const certificationsContent = {
   sectionId: "compliance",
   heading: "Designed For Regulated Enterprises. Proven in BFSI.",
   subtext: "Designed for compliance - driven, risk - sensitive operations.",
-  footerText:
-    "Enabling enterprise teams to operate AI at scale.",
+  footerText: "Enabling enterprise teams to operate AI at scale.",
 };
-
