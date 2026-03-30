@@ -308,17 +308,16 @@ const benefitsContent = {
 const ctaContent={
   heading:"Operate AI as Infrastructure Inside your Bank ",
   para:"Experience DSW UnifyAI OS - The Enterprise AI Operating System ",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+    primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
   secondaryButton: {
     present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecndary: true,
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
 };
 

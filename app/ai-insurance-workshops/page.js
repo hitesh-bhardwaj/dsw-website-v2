@@ -58,7 +58,6 @@ const page = () => {
           para="Fill out the form"
           width={"w-[90%] max-md:w-full"}
         />
-        {/* <Faqs data={faqData}/> */}
         <CTAFinal ctaContent={ctaContent} />
       </Layout>
     </>

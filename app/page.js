@@ -9,7 +9,7 @@ import { WebpageJsonLd } from "@/lib/json-ld";
 import dynamic from "next/dynamic";
 // import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Clients from "@/components/Clients";
-import HomepagVideo from "@/components/Homepage/HomepagVideo";
+import HomepageVideo from "@/components/Homepage/HomepageVideo";
 
 const UnifiedRuntime = dynamic(
   () => import("@/components/Homepage/UnifiedRuntime"),
@@ -65,7 +65,7 @@ export default function Home() {
           <HeroNew heroContent={heroContent} variant="default" />
           <WhyAIStruggles />
           <UnifiedRuntime />
-          <HomepagVideo/>
+          <HomepageVideo/>
           <Features />
           <CoreEnterpriseSystemSticky />
           <UseCases />

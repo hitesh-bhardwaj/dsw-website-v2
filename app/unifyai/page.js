@@ -12,6 +12,7 @@ import { WebpageJsonLd } from "@/lib/json-ld";
 import { getPageMetadata } from "@/components/config/metadata";
 import { homepage } from "@/lib/util";
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards";
+import HomepageVideo from "@/components/Homepage/HomepageVideo";
 
 
 export const metadata = getPageMetadata({
@@ -49,6 +50,7 @@ const AgenticAI = () => {
           <AlwaysOnAI content={tourContent} imgWidth={"w-[80vw]"} walkthrough={true} />
           <UseCases />
           <Fragmented />
+          <HomepageVideo/>
           <Capabilities />
           <Accelerate />
            <CertificationsAndAwards certificationsContent={certificationsContent}/>

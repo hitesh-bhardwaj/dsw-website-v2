@@ -66,16 +66,15 @@ const heroContent = {
 const ctaContent = {
   heading: "Looking to write about us or request an interview?",
   para: "Download our press kit or reach out directly to our media team.",
-  primaryButton: {
+    primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
-    book:true
+    book: true,
   },
   secondaryButton: {
     present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecondary:true
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
 };

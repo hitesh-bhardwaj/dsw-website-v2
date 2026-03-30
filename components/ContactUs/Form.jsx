@@ -63,6 +63,14 @@ const Form = () => {
               <p className="text-30 text-foreground">Phone:</p>
               <div className="under-multi-parent w-fit">
                 <a
+                  href={`tel:+1 (408) 821-2124`}
+                  className="under-multi text-30 text-foreground "
+                >
+                  +1 (408) 821-2124
+                </a>
+              </div>
+              <div className="under-multi-parent w-fit">
+                <a
                   href={`tel:+353894015233`}
                   className="under-multi text-30 text-foreground "
                 >

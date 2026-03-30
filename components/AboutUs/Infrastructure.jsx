@@ -99,7 +99,7 @@ export default function Infrastructure() {
 
         {/* SCROLL SPACE — sectionRef — this is what triggers + holds the pin */}
         <div className="w-full h-[200vw]">
-        <div ref={sectionRef} className="sticky top-0">
+        <div ref={sectionRef} className="sticky top-[5%]">
 
           {/* DIAGRAM — diagramRef — this element gets pinned to the viewport */}
           <div
@@ -109,16 +109,16 @@ export default function Infrastructure() {
             {/* CENTER CIRCLE */}
             <div
               ref={circleWrapRef}
-              className=" z-10 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[22vw]"
+              className=" z-10 flex items-center justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 size-[18vw]"
               
             >
               <CircleBg className={"outer-circle"}/>
               <div
                 ref={circleCenterTextRef}
                 className="absolute inset-0 flex items-center justify-center
-                           text-center text-30 w-[85%] mx-auto z-50 text-black leading-snug"
+                           text-center text-30 w-[75%] mx-auto z-50 text-black leading-snug"
               >
-                Enterprises were trying<br />to run production AI using
+                Enterprises were trying to run production AI using
               </div>
             </div>
 
@@ -130,7 +130,7 @@ export default function Infrastructure() {
                 width:  "1.5px",
                 height: `${LINE}vw`,
                 left:   "calc(50% - 0.75px)",
-                top:    `calc(57.2% - ${R}vw - ${LINE}vw)`,
+                top:    `calc(60.5% - ${R}vw - ${LINE}vw)`,
               }}
             />
             {/* TOP BOX */}
@@ -141,11 +141,11 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 left:   `calc(50% - ${BOX_W / 2}vw)`,
-                top:    `calc(57.2% - ${R}vw - ${LINE}vw - ${BOX_H}vw)`,
+                top:    `calc(60.5% - ${R}vw - ${LINE}vw - ${BOX_H}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
-                              text-30 flex items-center justify-center
+                              text-24 flex items-center justify-center
                               rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
                 Disconnected tools and vendors
               </div>
@@ -159,7 +159,7 @@ export default function Infrastructure() {
                 width:  "1.5px",
                 height: `${LINE}vw`,
                 left:   "calc(50% - 0.75px)",
-                top:    `calc(43% + ${R}vw)`,
+                top:    `calc(39.5% + ${R}vw)`,
               }}
             />
             {/* BOTTOM BOX */}
@@ -170,11 +170,11 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 left:   `calc(50% - ${BOX_W / 2}vw)`,
-                top:    `calc(43% + ${R}vw + ${LINE}vw)`,
+                top:    `calc(39.5% + ${R}vw + ${LINE}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
-                              text-30 flex items-center justify-center
+                             text-24 flex items-center justify-center
                               rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
                 Post - deployment controls
               </div>
@@ -188,7 +188,7 @@ export default function Infrastructure() {
                 height: "1.5px",
                 width:  `${LINE}vw`,
                 top:    "calc(50% - 0.75px)",
-                left:   `calc(46% + ${R}vw)`,
+                left:   `calc(44% + ${R}vw)`,
               }}
             />
             {/* RIGHT BOX */}
@@ -199,11 +199,11 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 top:    `calc(50% - ${BOX_H / 2}vw)`,
-                left:   `calc(46% + ${R}vw + ${LINE}vw)`,
+                left:   `calc(44% + ${R}vw + ${LINE}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
-                              text-30 flex items-center justify-center
+                              text-24 flex items-center justify-center
                               rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
                 Governance as documentation
               </div>
@@ -217,7 +217,7 @@ export default function Infrastructure() {
                 height: "1.5px",
                 width:  `${LINE}vw`,
                 top:    "calc(50% - 0.75px)",
-                left:   `calc(54% - ${R}vw - ${LINE}vw)`,
+                left:   `calc(56% - ${R}vw - ${LINE}vw)`,
               }}
             />
             {/* LEFT BOX */}
@@ -228,11 +228,11 @@ export default function Infrastructure() {
                 width:  `${BOX_W}vw`,
                 height: `${BOX_H}vw`,
                 top:    `calc(50% - ${BOX_H / 2}vw)`,
-                left:   `calc(54% - ${R}vw - ${LINE}vw - ${BOX_W}vw)`,
+                left:   `calc(56% - ${R}vw - ${LINE}vw - ${BOX_W}vw)`,
               }}
             >
               <div className="w-full h-full bg-white border border-primary-blue
-                              text-30 flex items-center justify-center
+                              text-24 flex items-center justify-center
                               rounded-[1vw] leading-[1.2] text-black text-center px-[2vw]">
                 Brittle integrations that couldn't scale
               </div>

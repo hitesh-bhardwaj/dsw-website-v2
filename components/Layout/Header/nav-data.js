@@ -140,14 +140,14 @@ export const NAV_LINKS = [
       {
         id: "res-2",
         label: "Workshops",
-        href: "/ai-insurance-workshops",
+        href: "#",
         description: "Real - world AI & GenAI training for teams.",
         group: "Learn",
       },
       {
         id: "res-3",
         label: "Masterclass",
-        href: "/dsw-workshop-deeptech-ai-genai-hands-on-masterclass",
+        href: "#",
         description: "Hands - on DeepTech AI & GenAI masterclass.",
         group: "Learn",
       },
@@ -207,7 +207,7 @@ export const NAV_LINKS = [
   {
     id: "live-demo",
     label: "Join a Live Demo",
-    href: "#",
+    href: "/live-demo",
     drop: false,
   },
 ];

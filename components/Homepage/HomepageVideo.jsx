@@ -2,13 +2,13 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import HeadingAnim from "../Animations/HeadingAnim";
 
 const videoData = {
   title: "Here is why",
-  description:
-    "Artificial Intelligence is at a turning point.....",
+  description: "Artificial Intelligence is at a turning point.....",
   youtubeUrl: "https://www.youtube.com/watch?v=xeS2h37VO28",
-  thumbnail: "/assets/product-videos/here-is-why.png",
+  thumbnail: "/assets/homepage/here-is-why-thumbnail.jpg",
 };
 
 const toEmbedUrl = (url) => {
@@ -29,7 +29,7 @@ const toEmbedUrl = (url) => {
   return url;
 };
 
-const HomepagVideo = () => {
+const HomepageVideo = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);
@@ -53,11 +53,16 @@ const HomepagVideo = () => {
 
   return (
     <section
-      className="w-full h-full py-[10%] flex justify-center items-center relative max-sm:py-[15%]"
+      className="w-full h-full py-[10%] flex flex-col gap-[7vw] justify-center items-center relative max-sm:py-[15%] px-[7vw]"
       id="film"
     >
+      <HeadingAnim>
+        <h2 className=" text-76 font-heading text-[#0A1B4B] text-center leading-[1.2]">
+          What is DSW UnifyAI OS <br /> The Enterprise AI Operating System
+        </h2>
+      </HeadingAnim>
       <div
-        className="w-[75%] h-[37vw] border border-black/10 rounded-[1.2vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none fadeup group max-sm:h-[60vw] max-md:h-[50vw] max-md:w-[85%] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[2vw]"
+        className="w-[85%] h-[37vw] border border-black/10 rounded-[1.2vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none fadeup group max-sm:h-[60vw] max-md:h-[50vw] max-md:w-[95%] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[2vw]"
         role="button"
         tabIndex={0}
         aria-label="Play video"
@@ -77,16 +82,16 @@ const HomepagVideo = () => {
           height={700}
         />
 
-          <div className="w-[5vw] h-auto max-sm:w-[8vw] max-md:w-[6vw] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[4]">
-            <Image
-              alt="play-icon"
-              className="group-hover:scale-[0.97] duration-700 ease-in-out w-full h-full"
-              width={40}
-              height={40}
-              src="/assets/icons/play-icon.svg"
-            />
-          </div>
-        <div className="w-full h-full absolute bg-black/10 z-[2] inset-0 flex justify-between items-end p-[2vw] max-sm:p-[5vw]"/>
+        <div className="w-[5vw] h-auto max-sm:w-[8vw] max-md:w-[6vw] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[4]">
+          <Image
+            alt="play-icon"
+            className="group-hover:scale-[0.97] duration-700 ease-in-out w-full h-full"
+            width={40}
+            height={40}
+            src="/assets/icons/play-icon.svg"
+          />
+        </div>
+        <div className="w-full h-full absolute bg-black/10 z-[2] inset-0 flex justify-between items-end p-[2vw] max-sm:p-[5vw]" />
       </div>
 
       <div
@@ -113,8 +118,6 @@ const HomepagVideo = () => {
           ].join(" ")}
         >
           <div className="w-full h-full bg-[#050E2B] rounded-[1.8vw] overflow-hidden shadow-xl p-[2vw] space-y-[1.5vw] max-sm:rounded-[4.5vw] max-sm:p-[5vw] max-sm:space-y-[7vw] max-sm:h-fit max-md:space-y-[5vw] max-md:p-[3vw]">
-            
-
             {isOpen && (
               <iframe
                 className="w-full h-[85%] rounded-[1.2vw] max-sm:rounded-[4.2vw] max-sm:h-[30vh] max-md:h-[40vh]"
@@ -128,28 +131,28 @@ const HomepagVideo = () => {
             <p className="text-[#cacaca]">{videoData.description}</p>
           </div>
         </div>
+        <div
+          onClick={handleClose}
+          className={` h-auto absolute right-[5%] top-[5%] group  max-sm:w-[12vw] rounded-full   p-[2vw]  transition-all  ease-out max-sm:p-[6vw]  bg-[#F16B0D] cursor-pointer max-md:p-[4vw] `}
+        >
           <div
-              onClick={handleClose}
-              className={` h-auto absolute right-[5%] top-[5%] group  max-sm:w-[12vw] rounded-full   p-[2vw]  transition-all  ease-out max-sm:p-[6vw]  bg-[#F16B0D] cursor-pointer max-md:p-[4vw] `}
-            >
-              <div
-                style={{
-                  transitionTimingFunction: "cubic-bezier(0.625, 0.05, 0, 1)",
-                }}
-                className="rotate-45 group-hover:rotate-[225deg] duration-700"
-              >
-                <span
-                  className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] rotate-90 max-md:w-[3vw]`}
-                ></span>
+            style={{
+              transitionTimingFunction: "cubic-bezier(0.625, 0.05, 0, 1)",
+            }}
+            className="rotate-45 group-hover:rotate-[225deg] duration-700"
+          >
+            <span
+              className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] rotate-90 max-md:w-[3vw]`}
+            ></span>
 
-                <span
-                  className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] max-md:w-[3vw]`}
-                ></span>
-              </div>
-            </div>
+            <span
+              className={`w-[1.5vw] rounded-full h-[2px] bg-[#ffffff] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 duration-300 transform-origin-center max-sm:w-[5vw] max-sm:h-[1.5px] max-md:w-[3vw]`}
+            ></span>
+          </div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default HomepagVideo;
+export default HomepageVideo;

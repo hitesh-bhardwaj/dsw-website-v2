@@ -77,7 +77,7 @@ const ctaContent = {
     present: true,
     link: "https://www.youtube.com/@DataScienceWizards",
     targetPrimary: true,
-    text: "Subscribe Our Youtube ",
+    text: "Subscribe to Our Youtube Channel",
   },
   secondaryButton: {
     present: false,

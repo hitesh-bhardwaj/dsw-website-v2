@@ -299,14 +299,14 @@ export default function Journey() {
       id="journey"
       className="h-[200vw] max-md:h-[400vh] max-sm:h-[400vh] w-full relative py-[7%]"
     >
-      <div className="h-screen w-screen sticky top-[10%] pt-[5%] overflow-hidden ">
+      <div className="h-screen w-screen sticky top-[10%] pt-[5%] overflow-hidden max-sm:top-[5%] ">
         <div
           ref={wholeSliderRef}
           className="h-[30vw] max-md:w-[400vw] px-[5vw] max-sm:h-[80vh] max-md:h-[70vh] flex gap-[5vw] mr-[2vw] items-center max-md:items-start max-sm:w-[800vw] max-md:flex-col w-[240vw] max-sm:px-[7vw] max-md:gap-[2vw]"
         >
-          <div className="h-full max-sm:h-[50vw] max-sm:w-[70vw] max-md:h-[40vw] max-md:w-[12.2%] journey-img w-[27vw] overflow-hidden rounded-[2vw] fadeup max-sm:rounded-[5vw] max-md:rounded-[3vw]">
+          <div className="h-full max-sm:h-[65vw] max-sm:w-[85vw] max-md:h-[40vw] max-md:w-[15%] journey-img w-[27vw] overflow-hidden rounded-[2vw] fadeup max-sm:rounded-[5vw] max-md:rounded-[3vw]">
             <Image
-              src={"/assets/about/journey-img.png"}
+              src={"/assets/about/about-timeline.png"}
               alt="journey"
               width={500}
               height={500}

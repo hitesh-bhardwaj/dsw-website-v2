@@ -16,6 +16,7 @@ import { getPageMetadata } from "@/components/config/metadata"
 import { homepage } from "@/lib/util"
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards"
 import HeroNew from "@/components/Layout/HeroNew"
+import HomepageVideo from "@/components/Homepage/HomepageVideo"
 
 export const metadata = getPageMetadata({
   title: "Enterprise AI Operating System | DSW AIOS Technical",
@@ -51,6 +52,7 @@ const Page = () => {
         <AIProjects />
         <AIEcosystem ecosystemItems={ECOSYSTEM_ITEMS} />
         <Fragmented />
+        <HomepageVideo/>
         <ArchitecturalPrinciples />
         {/* <CTAPricing /> */}
         {/* <PricingTableWrapper /> */}

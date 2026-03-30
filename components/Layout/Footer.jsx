@@ -14,7 +14,6 @@ const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
   ssr: false,
 });
 
-
 export default function FooterNew() {
   const socialLinks = [
     {
@@ -102,16 +101,65 @@ export default function FooterNew() {
       <div className="relative z-10">
         {/* Top Section */}
         <div className="flex justify-between mb-[2vw] max-sm:flex-col max-md:flex-col max-md:gap-[10vw] max-sm:gap-0">
-          <div className="w-[30%] max-sm:w-full max-md:w-[60%] max-sm:text-center">
+          <div className="w-[30%] max-md:w-full max-sm:text-center">
             <div className="space-y-[1vw] max-sm:space-y-[2vw]">
-              <div className="w-[50vw] h-auto hidden max-sm:block mx-auto mb-[10vw]">
-                <Image
-                  src="/assets/icons/dsw-logo-bottom.png"
-                  alt="Data Science Wizards"
-                  width={300}
-                  height={170}
-                  className="w-full h-full"
-                />
+              <div className="max-md:flex flex-col max-sm:gap-[10vw] hidden mb-[10vw] items-center max-md:gap-[4vw]">
+                <div className="max-sm:w-[50vw] h-auto hidden max-md:block mx-auto max-md:w-[40vw] ">
+                  <Image
+                    src="/assets/icons/dsw-logo-bottom.png"
+                    alt="Data Science Wizards"
+                    width={300}
+                    height={170}
+                    className="w-full h-full"
+                  />
+                </div>
+                <div className="w-fit gap-[1vw]  max-sm:gap-[4vw] hidden max-md:flex">
+                  <div className="size-[4.5vw] max-sm:size-[13vw] max-md:size-[10vw] ">
+                    <Image
+                      src={"/assets/certifications/iso-42001-footer.png"}
+                      alt="iso-42001-footer"
+                      className="w-full h-full"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div className="size-[4.5vw] max-sm:size-[13vw] max-md:size-[10vw]">
+                    <Image
+                      src={"/assets/certifications/iso-27001-wbg.png"}
+                      alt="iso-27001-wbg"
+                      className="w-full h-full"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div className="size-[4.5vw] max-sm:size-[13vw] max-md:size-[10vw] ">
+                    <Image
+                      src={"/assets/certifications/hippa-compliant-footer.png"}
+                      alt="hippa-compliant-footer"
+                      className="w-full h-full"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div className="size-[4.5vw] max-sm:size-[13vw] max-md:size-[10vw]">
+                    <Image
+                      src={"/assets/certifications/gdpr-compliant-footer.png"}
+                      alt="gdpr-compliant-footer"
+                      className="w-full h-full"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                  <div className="size-[4.5vw] max-sm:size-[13vw] max-md:size-[10vw] ">
+                    <Image
+                      src={"/assets/certifications/soc-2-compliant-wbg.png"}
+                      alt=""
+                      className="w-full h-full"
+                      width={50}
+                      height={50}
+                    />
+                  </div>
+                </div>
               </div>
               <p className="text-24 max-md:text-[3.5vw] font-medium max-sm:text-[5.5vw]">
                 Contact Us
@@ -128,7 +176,18 @@ export default function FooterNew() {
                   </Link>
                 </div>
 
-                <div className="flex gap-[0.5vw] max-md:gap-[2.5vw] max-sm:flex-col max-sm:gap-[1vw]">
+                <div className="flex gap-[0.5vw] max-md:gap-[2.5vw] max-sm:flex-col max-sm:gap-[1vw] flex-wrap">
+                  <div className="under-multi-parent">
+                    <Link
+                      prefetch={false}
+                      className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
+                      href="tel:+1 (408) 821-2124"
+                    >
+                      +1 (408) 821-2124
+                    </Link>
+                  </div>
+                  <span className="inline-block max-md:hidden">|</span>
+                  <span className="hidden max-md:block max-sm:hidden h-[3.5vw] w-[0.03vw] bg-black"></span>
                   <div className="under-multi-parent">
                     <Link
                       prefetch={false}
@@ -138,7 +197,6 @@ export default function FooterNew() {
                       +91 96640 56847
                     </Link>
                   </div>
-                  <span className="inline-block max-md:hidden">|</span>
                   <span className="hidden max-md:block max-sm:hidden h-[3.5vw] w-[0.03vw] bg-black"></span>
                   <div className="under-multi-parent">
                     <Link
@@ -153,7 +211,7 @@ export default function FooterNew() {
               </div>
 
               {/* Social Icons */}
-              <div className="flex items-center gap-[1.5vw] max-md:justify-between mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
+              <div className="flex items-center gap-[1.5vw] mt-[3vw] max-sm:gap-[7vw] max-sm:w-full max-sm:justify-center max-sm:my-[10vw]">
                 {socialLinks.map((social) => (
                   <Link
                     prefetch={false}
@@ -223,26 +281,6 @@ export default function FooterNew() {
               </ul>
             </div>
             <div className="w-[40%] flex flex-col gap-[2vw] max-sm:w-full max-md:w-full max-sm:items-center max-sm:gap-[7vw]">
-              <div className="w-fit flex gap-[1.5vw]  max-sm:gap-[4vw]">
-                <div className="size-[6vw] max-sm:size-[20vw] max-md:size-[10vw] ">
-                  <Image
-                    src={"/assets/certifications/soc-2-compliant-wbg.png"}
-                    alt=""
-                    className="w-full h-full"
-                    width={50}
-                    height={50}
-                  />
-                </div>
-                <div className="size-[6vw] max-sm:size-[20vw] max-md:size-[10vw]">
-                  <Image
-                    src={"/assets/certifications/iso-27001-wbg.png"}
-                    alt=""
-                    className="w-full h-full"
-                    width={50}
-                    height={50}
-                  />
-                </div>
-              </div>
               <Newsletter />
             </div>
           </div>
@@ -250,14 +288,64 @@ export default function FooterNew() {
 
         {/* Bottom Section */}
         <div className="flex items-end justify-between pt-[4.5vw] max-sm:justify-center">
-          <div className="w-[18vw] max-md:w-[30vw] max-md:h-[10vw] h-auto relative max-sm:hidden">
-            <Image
-              src="/assets/icons/dsw-logo-bottom.png"
-              alt="Data Science Wizards"
-              width={200}
-              height={200}
-              className="object-contain object-left w-full h-full"
-            />
+          <div className="flex gap-[2vw] h-full max-md:flex-col max-md:items-center max-md:gap-[4vw]">
+            <div className="w-[18vw] max-md:w-[35vw] max-md:h-[10vw] h-auto relative max-md:hidden">
+              <Image
+                src="/assets/icons/dsw-logo-bottom.png"
+                alt="Data Science Wizards"
+                width={200}
+                height={200}
+                className="object-contain object-left w-full h-full"
+              />
+            </div>
+            <div className="w-[1px] bg-black/20 max-md:hidden" />
+            <div className="w-fit flex gap-[1vw] max-md:hidden">
+              <div className="size-[4.5vw] max-md:size-[8.5vw] ">
+                <Image
+                  src={"/assets/certifications/iso-42001-footer.png"}
+                  alt="iso-42001-footer"
+                  className="w-full h-full"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="size-[4.5vw] max-md:size-[8.5vw]">
+                <Image
+                  src={"/assets/certifications/iso-27001-wbg.png"}
+                  alt="iso-27001-wbg"
+                  className="w-full h-full"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="size-[4.5vw] max-md:size-[8.5vw] ">
+                <Image
+                  src={"/assets/certifications/hippa-compliant-footer.png"}
+                  alt="hippa-compliant-footer"
+                  className="w-full h-full"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="size-[4.5vw] max-md:size-[8.5vw]">
+                <Image
+                  src={"/assets/certifications/gdpr-compliant-footer.png"}
+                  alt="gdpr-compliant-footer"
+                  className="w-full h-full"
+                  width={50}
+                  height={50}
+                />
+              </div>
+              <div className="size-[4.5vw] max-md:size-[8.5vw] ">
+                <Image
+                  src={"/assets/certifications/soc-2-compliant-wbg.png"}
+                  alt=""
+                  className="w-full h-full"
+                  width={50}
+                  height={50}
+                />
+              </div>
+            </div>
           </div>
 
           <p className="text-20 font-sans">

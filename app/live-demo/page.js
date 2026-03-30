@@ -51,16 +51,15 @@ export default Page
 const ctaContent={
   heading:"Take a lightning tour of the Enterprise AI Platform ",
   para:"Discover how UnifyAI can accelerate your AI/ML and GenAI initiatives with seamless deployment, scalability, and security.",
-  primaryButton:{
-    present:true,
-    link:"#",
-    text:"Book a Demo",
-    book:true
+   primaryButton: {
+    present: true,
+    link: "#",
+    text: "Book a Demo",
+    book: true,
   },
-  secondaryButton:{
-    present:true,
-    link:"https://calendly.com/",
-    text:"Schedule a Call",
-    targetSecondary:true,
+  secondaryButton: {
+    present: true,
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
 }

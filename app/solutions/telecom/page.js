@@ -399,19 +399,16 @@ const benefitsContent = {
 const ctaContent = {
   heading: "Operate Telecom AI as infrastructure",
   para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across network operations, subscriber intelligence, revenue systems, and service environments.",
-  primaryButton: {
+   primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
     book: true,
-    book: true,
   },
   secondaryButton: {
     present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecondary: true,
-    targetSecondary: true,
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
 };
 

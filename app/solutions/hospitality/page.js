@@ -272,7 +272,7 @@ const ctaContent = {
   subParaText:
     "Explore how hospitality organizations can run AI continuously, securely, and at scale. ",
   para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across guest engagement, property operations, revenue management, and hospitality intelligence.",
-  primaryButton: {
+    primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
@@ -280,9 +280,8 @@ const ctaContent = {
   },
   secondaryButton: {
     present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecondary: true,
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
 };
 

@@ -308,7 +308,7 @@ const benefitsContent = {
 const ctaContent = {
   heading: "Operate Healthcare AI as Infrastructure",
   para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across clinical care, patient engagement, revenue cycle, and operational environments.",
-  primaryButton: {
+    primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",
@@ -316,16 +316,9 @@ const ctaContent = {
   },
   secondaryButton: {
     present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecondary: true,
-  secondaryButton: {
-    present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecondary: true,
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
-}
 };
 
 const operationsContent = {

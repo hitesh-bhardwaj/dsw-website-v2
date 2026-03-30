@@ -96,16 +96,16 @@ export default function Clients() {
 }
 
 const clients = [
-  { name: "Bonprix", logo: "/assets/clients/bon-prix-color.png" },
-  { name: "Canara HSBC", logo: "/assets/clients/canara-hsbc-color.png" },
-  { name: "Ciek", logo: "/assets/clients/ciek-color.png" },
-  { name: "Craft Silicon", logo: "/assets/clients/craft-silicon-color.png" },
-  { name: "Earc", logo: "/assets/clients/earc-color.png" },
+  { name: "Bonprix", logo: "/assets/clients/bon-prix.png" },
+  { name: "Canara HSBC", logo: "/assets/clients/canara-hsbc.png" },
+  { name: "Ciek", logo: "/assets/clients/ciek-new.png" },
+  { name: "Craft Silicon", logo: "/assets/clients/craft-silicon-new.png" },
+  { name: "Earc", logo: "/assets/clients/earc-new.png" },
   { name: "Tokio", logo: "/assets/clients/edelweiss-tokio-life.png" },
-  { name: "Edgeverve", logo: "/assets/clients/edge-verve-color.png" },
-  { name: "IIFL", logo: "/assets/clients/iifl-capital-color.png" },
-  { name: "Kelmac", logo: "/assets/clients/kelmac-group-color.png" },
-  { name: "Manipal", logo: "/assets/clients/manipal-cigna-color.png" },
-  { name: "oxsde", logo: "/assets/clients/oxsde-color.png" },
-  { name: "Sodexo", logo: "/assets/clients/sodexo-color.png" },
+  { name: "Edgeverve", logo: "/assets/clients/edge-verve-new.png" },
+  { name: "IIFL", logo: "/assets/clients/iifl-capital-new.png" },
+  { name: "Kelmac", logo: "/assets/clients/kelmac-grop.png" },
+  { name: "Manipal", logo: "/assets/clients/manipal-cigna.png" },
+  { name: "oxsde", logo: "/assets/clients/oxsde.png" },
+  { name: "Sodexo", logo: "/assets/clients/sodexo-newest.png" },
 ];

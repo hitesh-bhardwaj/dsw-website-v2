@@ -195,6 +195,15 @@ const VideoListing = () => {
 
 export default VideoListing;
 const videos = [
+ {
+    image: "/assets/product-videos/shift-3-5.png",
+    alt: "shift 3/5 image",
+    duration: "1:53 min",
+    title: "Shift 3/5 - AI as Infrastructure: Why Enterprises Must Move Beyond AI Projects",
+    description:
+      "In this video, Sandeep Khuperkar, Co-founder & CEO of Data Science Wizards, explains a critical shift in enterprise AI:....",
+    youtubeUrl: "https://www.youtube.com/watch?v=YoWH-zyW5PQ",
+  },
   {
     image: "/assets/product-videos/here-is-why.png",
     alt: "Here is why Image",

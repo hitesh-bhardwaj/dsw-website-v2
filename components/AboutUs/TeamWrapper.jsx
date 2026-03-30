@@ -84,10 +84,22 @@ const growthTeam = [
     link: "https://www.linkedin.com/in/rajeshwar-singh-481aa83/",
   },
   {
+    src: "/assets/about/aaron-img.png",
+    name: "Aaron Douchinsky ",
+    role: "Head of Sales - America",
+    link: "https://www.linkedin.com/in/aarondouchinsky/",
+  },
+  {
     src: "/assets/about/rohit.png",
     name: "Rohit Rajgor",
     role: "Vice-President Business",
     link: "https://www.linkedin.com/in/rohitrajgor/",
+  },
+  {
+    src: "/assets/about/saurabh-about.png",
+    name: "Saurabh Singh",
+    role: "Senior Data Scientist",
+    link: "https://www.linkedin.com/in/saurabhsingh1401/",
   },
 
   {
@@ -96,18 +108,8 @@ const growthTeam = [
     role: "Senior Data Scientist",
     link: "https://www.linkedin.com/in/hardik-raja-a3807824/",
   },
-  {
-    src: "/assets/about/saurabh-singh.png",
-    name: "Saurabh Singh",
-    role: "Senior Data Scientist",
-    link: "https://www.linkedin.com/in/saurabhsingh1401/",
-  },
-  {
-    src: "/assets/about/aaron-img.png",
-    name: "Aaron Douchinsky ",
-    role: "Head of Sales - America",
-    link: "https://www.linkedin.com/in/aarondouchinsky/",
-  },
+  
+  
 ];
 const advisors = [
   {
