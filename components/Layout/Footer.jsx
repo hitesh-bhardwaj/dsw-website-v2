@@ -14,6 +14,7 @@ const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
   ssr: false,
 });
 
+
 export default function FooterNew() {
   const socialLinks = [
     {
