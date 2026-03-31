@@ -106,10 +106,9 @@ const ctaContent = {
     text: "Book a Demo",
     book:true
   },
-  secondaryButton: {
+   secondaryButton: {
     present: true,
-    link: "https://calendly.com/",
-    text: "Schedule a Call",
-    targetSecondary:true
+    link: "/contact-us",
+    text: "Talk to our Team",
   },
 };

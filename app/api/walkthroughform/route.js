@@ -1,4 +1,5 @@
-// app/api/demoform/route.js
+// app/api/walkthroughform/route.js
+
 import { Resend } from "resend";
 import WalkthroughAutoResponse from "@/components/emailTemplate/WalkthroughAutoResponse";
 import WalkthroughDetails from "@/components/emailTemplate/WalkthorughDetails";
@@ -8,6 +9,7 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 export async function POST(req) {
   try {
     const body = await req.json();
+
     const {
       name,
       email,
@@ -21,18 +23,20 @@ export async function POST(req) {
     } = body;
 
     if (!name || !email || !company || !designation || !number) {
-      return new Response(JSON.stringify({ error: "Required fields missing" }), { status: 400 });
+      return new Response(
+        JSON.stringify({ error: "Required fields missing" }),
+        { status: 400 },
+      );
     }
-      const subject ="Demo Walkthrough"
 
+    const subject = "Demo Walkthrough";
 
+    const submittedPageUrl =
+      pageUrl || req.headers.get("referer") || "Not provided";
 
-    // Send notification email to your team
     const { error: teamEmailError } = await resend.emails.send({
-      from:"Web Forms <no-reply@datasciencewizards.ai>",
-      to: ["vidushi@weareenigma.com","contact@datasciencewizards.ai"],
-      // from:"DSW Team<contact@datasciencewizards.ai>",
-      // to:"contact@datasciencewizards.ai",
+      from: "Web Forms <no-reply@datasciencewizards.ai>",
+      to: ["vidushi@weareenigma.com", "contact@datasciencewizards.ai"],
       subject,
       react: WalkthroughDetails({
         userName: name,
@@ -41,21 +45,22 @@ export async function POST(req) {
         userCompany: company,
         userNumber: number,
         downloadedPdfName: downloaded ? downloadedPdfName : undefined,
-        pageUrl: pageUrl || "Not provided",
+        pageUrl: submittedPageUrl,
       }),
     });
 
     if (teamEmailError) {
       console.error("Team Email Error:", teamEmailError);
-      return new Response(JSON.stringify({ error: teamEmailError }), { status: 400 });
+      return new Response(JSON.stringify({ error: teamEmailError }), {
+        status: 400,
+      });
     }
 
-
-
-      const autoResponseSubject="Thank you for taking the UnifyAI Product Walkthrough!"
+    const autoResponseSubject =
+      "Thank you for taking the UnifyAI Product Walkthrough!";
 
     const { error: autoResponseError } = await resend.emails.send({
-      from:"DSW Team <no-reply@datasciencewizards.ai>",
+      from: "DSW Team <no-reply@datasciencewizards.ai>",
       to: [email],
       subject: autoResponseSubject,
       react: WalkthroughAutoResponse({
@@ -66,12 +71,13 @@ export async function POST(req) {
 
     if (autoResponseError) {
       console.error("Auto-response Email Error:", autoResponseError);
-      // Don't fail the request if auto-response fails, but log it
     }
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
   } catch (err) {
     console.error("API Error:", err?.message || err);
-    return new Response(JSON.stringify({ error: "Internal Server Error" }), { status: 500 });
+    return new Response(JSON.stringify({ error: "Internal Server Error" }), {
+      status: 500,
+    });
   }
 }

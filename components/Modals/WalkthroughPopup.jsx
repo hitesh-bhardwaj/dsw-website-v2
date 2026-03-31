@@ -72,7 +72,7 @@ const WalkthroughPopup = () => {
           {/* Left Side - Heading */}
           <div className="w-[30%] space-y-[1vw] max-md:w-full max-md:space-y-[2vw] max-sm:space-y-[2vw]">
             <h2 className="text-76 text-[#0a1b4b] font-heading leading-[1.2]  ">
-              Get a Full Demo
+             Start Walkthrough
             </h2>
             <p className="text-24 text-[#333] font-sans tracking-wide max-md:pl-[1vw] ">
               Fill out the form

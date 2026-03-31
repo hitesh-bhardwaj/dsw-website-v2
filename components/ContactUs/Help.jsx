@@ -2,15 +2,17 @@
 import React from "react";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import HeadingAnim from "../Animations/HeadingAnim";
+import { useModal } from "../ModalProvider";
 
 const helpCards = [
   {
     id: 1,
     title: "Book a Demo",
+    demo: true,
     description:
       "Become the backbone of enterprise AI. Just as Linux became the foundation of modern computing, DSW UnifyAI is emerging as the OS for AI - a platform that brings together open innovation.",
-    buttonText: "Select the Slot",
-    href: "https://calendly.com/",
+    buttonText: "Book a Demo",
+    href: "#",
     target: "_blank",
   },
   {
@@ -34,6 +36,7 @@ const helpCards = [
 ];
 
 const Help = () => {
+  const { openModal } = useModal();
   return (
     <section
       id="contact-help"
@@ -47,7 +50,6 @@ const Help = () => {
       <div className="flex flex-wrap fadeup justify-center max-md:justify-between max-sm:justify-center gap-[3vw] items-center w-full max-md:gap-[5vw] max-sm:gap-[8vw] pt-[5vw] max-md:flex-col max-md:pt-0">
         {helpCards.map((card) => (
           <div
-
             key={card.id}
             className=" w-[48%] max-md:w-[90vw] p-[3vw] py-[3.5vw] bg-white max-sm:h-full max-sm:w-full!  max-md:justify-between  max-md:px-[4vw] max-sm:px-[7vw] max-md:py-[4vw] max-sm:py-[8vw] relative border border-[#C2C2C2] group/corner hover:shadow-lg hover:drop-shadow-lg transition-all duration-300 hover:border-primary-blue ease-in-out"
           >
@@ -56,6 +58,12 @@ const Help = () => {
               <h3 className="text-44 text-foreground">{card.title}</h3>
               <p className="text-24 text-foreground">{card.description}</p>
               <PrimaryButton
+                onClick={(e) => {
+                  if (card.demo) {
+                    e.preventDefault();
+                    openModal();
+                  }
+                }}
                 href={card.href}
                 text={card.buttonText}
                 target={card.target}
@@ -80,7 +88,9 @@ function CornerDecorations() {
     <>
       {/* Top Left */}
       <div className="absolute -top-[0.25%] -left-[0.1%] w-fit h-fit group-hover/corner:-top-[3%] group-hover/corner:-left-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
+        <div
+          className={`${line} bg-black group-hover/corner:bg-primary-blue`}
+        />
         <div
           className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2.2px] -left-1/2`}
         />
@@ -88,7 +98,9 @@ function CornerDecorations() {
 
       {/* Top Right */}
       <div className="absolute top-[0.3%] -right-[0.5%] w-fit h-fit rotate-90 group-hover/corner:-top-[2.2%] group-hover/corner:-right-[4.5%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
+        <div
+          className={`${line} bg-black group-hover/corner:bg-primary-blue`}
+        />
         <div
           className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
         />
@@ -96,7 +108,9 @@ function CornerDecorations() {
 
       {/* Bottom Left */}
       <div className="absolute bottom-[0.3%] -left-[0.5%] w-fit h-fit -rotate-90 group-hover/corner:-bottom-[2.2%] group-hover/corner:-left-[4.5%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
+        <div
+          className={`${line} bg-black group-hover/corner:bg-primary-blue`}
+        />
         <div
           className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
         />
@@ -104,7 +118,9 @@ function CornerDecorations() {
 
       {/* Bottom Right */}
       <div className="absolute -bottom-[0.4%] -right-[0.1%] w-fit h-fit rotate-180 group-hover/corner:-bottom-[3%] group-hover/corner:-right-[3%] duration-300 ease-in-out">
-        <div className={`${line} bg-black group-hover/corner:bg-primary-blue`} />
+        <div
+          className={`${line} bg-black group-hover/corner:bg-primary-blue`}
+        />
         <div
           className={`${line} bg-black group-hover/corner:bg-primary-blue rotate-90 absolute top-[2px] -left-1/2`}
         />

@@ -16,11 +16,12 @@ export function ModalProvider({ children }) {
    * ------------------------- */
   const [open, setOpen] = useState(false);
   const [openWalkThrough, setOpenWalkThrough] = useState(false);
+  const [openPricing, setOpenPricing] = useState(false);
 
   /* -------------------------
-   * Walkthrough state (BOTH)
+   * Walkthrough state
    * ------------------------- */
-  const [walkthroughTarget, setWalkthroughTarget] = useState(null); // "unify" | "agentic"
+  const [walkthroughTarget, setWalkthroughTarget] = useState(null);
 
   const [walkthroughCompleted, setWalkthroughCompleted] = useState({
     unify: false,
@@ -30,30 +31,26 @@ export function ModalProvider({ children }) {
   /* Shared payload */
   const [payload, setPayload] = useState(null);
 
-  /* Track if form was submitted */
-  /* Track if form was submitted — persisted for the browser session */
-const [formSubmitted, setFormSubmittedState] = useState(() => {
-  if (typeof window !== "undefined") {
-    try {
-      return sessionStorage.getItem("formSubmitted") === "true";
-    } catch (e) {
-      // sessionStorage blocked (iframe/private browsing)
-      return false;
+  /* Persisted submit flag */
+  const [formSubmitted, setFormSubmittedState] = useState(() => {
+    if (typeof window !== "undefined") {
+      try {
+        return sessionStorage.getItem("formSubmitted") === "true";
+      } catch (e) {
+        return false;
+      }
     }
-  }
-  return false;
-});
+    return false;
+  });
 
-const setFormSubmitted = useCallback((value) => {
-  if (typeof window !== "undefined") {
-    try {
-      sessionStorage.setItem("formSubmitted", String(value));
-    } catch (e) {
-      // sessionStorage blocked - continue without persistence
+  const setFormSubmitted = useCallback((value) => {
+    if (typeof window !== "undefined") {
+      try {
+        sessionStorage.setItem("formSubmitted", String(value));
+      } catch (e) {}
     }
-  }
-  setFormSubmittedState(value);
-}, []);
+    setFormSubmittedState(value);
+  }, []);
 
   /* -------------------------
    * Existing helpers
@@ -74,18 +71,20 @@ const setFormSubmitted = useCallback((value) => {
     setOpenWalkThrough(true);
   }, []);
 
+  const openPricingModal = useCallback(() => {
+    setOpenPricing(true);
+  }, []);
+
+  const openWithPricing = useCallback((p) => {
+    setPayload(p || null);
+    setOpenPricing(true);
+  }, []);
 
   const openWalkthroughSmart = useCallback((target) => {
-  setWalkthroughTarget(target);
+    setWalkthroughTarget(target);
+    setOpenWalkThrough(true);
+  }, []);
 
-  // Always open normal walkthrough only
-
-  setOpenWalkThrough(true);
-}, []);
-
-  /* -------------------------
-   * Mark walkthrough completed
-   * ------------------------- */
   const markWalkthroughCompleted = useCallback((target) => {
     setWalkthroughCompleted((prev) => ({
       ...prev,
@@ -93,28 +92,26 @@ const setFormSubmitted = useCallback((value) => {
     }));
   }, []);
 
-  /* -------------------------
-   * openByKey (extended safely)
-   * ------------------------- */
-  const openByKey = useCallback(
-    (key, p) => {
-      if (p !== undefined) setPayload(p || null);
+  const openByKey = useCallback((key, p) => {
+    if (p !== undefined) setPayload(p || null);
 
-      switch (key) {
-        case "demo":
-          setOpen(true);
-          break;
+    switch (key) {
+      case "demo":
+        setOpen(true);
+        break;
 
-        case "walkthrough":
-          setOpenWalkThrough(true);
-          break;
+      case "walkthrough":
+        setOpenWalkThrough(true);
+        break;
 
-        default:
-          break;
-      }
-    },
-    []
-  );
+      case "pricing":
+        setOpenPricing(true);
+        break;
+
+      default:
+        break;
+    }
+  }, []);
 
   const value = useMemo(
     () => ({
@@ -127,6 +124,11 @@ const setFormSubmitted = useCallback((value) => {
       setOpenWalkThrough,
       openWalkThroughModal,
       openWithWalkthrough,
+
+      openPricing,
+      setOpenPricing,
+      openPricingModal,
+      openWithPricing,
 
       walkthroughTarget,
       setWalkthroughTarget,
@@ -147,7 +149,7 @@ const setFormSubmitted = useCallback((value) => {
     [
       open,
       openWalkThrough,
-      // openWalkthroughIframe,
+      openPricing,
       walkthroughTarget,
       walkthroughCompleted,
       payload,
@@ -156,10 +158,12 @@ const setFormSubmitted = useCallback((value) => {
       openWith,
       openWalkThroughModal,
       openWithWalkthrough,
-      // openWalkthroughIframeModal,
+      openPricingModal,
+      openWithPricing,
       openWalkthroughSmart,
       markWalkthroughCompleted,
       openByKey,
+      setFormSubmitted,
     ]
   );
 

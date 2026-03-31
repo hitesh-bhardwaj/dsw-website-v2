@@ -78,7 +78,8 @@ const ctaContent={
   },
   secondaryButton:{
     present:true,
+    walkthrough:true,
     link:"#",
-    text:"Talk to our Team"
+    text:"Start Walkthrough"
   },
 }

@@ -284,15 +284,15 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Financial AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Castler",
+  company: "Revolutionizing Document Intelligence for a Leading FinTech Company",
   description:
-    "The customer is a prominent fintech company specializing in digital escrow services, headquartered in Delhi, India. ",
+    "Transforming Complex Agreement Management with AI-Powered Interaction ",
   imageContent: <p>Case Study Image</p>,
   imgSrc: "/assets/case-studies/castler.png",
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/castler.pdf",
+    href: "/assets/case-studies/revolutionizing-doc.pdf",
     type: "pdf",
   },
 };

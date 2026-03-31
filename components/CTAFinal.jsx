@@ -6,7 +6,7 @@ import SecondaryButton from "./Buttons/SecondaryButton";
 import { useModal } from "./ModalProvider";
 
 export default function CTAFinal({ ctaContent }) {
-  const { openModal } = useModal();
+  const { openModal,openWalkthroughSmart } = useModal();
 
   const showButtons =
     ctaContent.primaryButton?.present || ctaContent.secondaryButton?.present;
@@ -53,6 +53,12 @@ export default function CTAFinal({ ctaContent }) {
             {/* Secondary Button */}
             {ctaContent.secondaryButton?.present && (
               <SecondaryButton
+               onClick={(e) => {
+                if (ctaContent.secondaryButton.walkthrough) {
+                  e.preventDefault();
+                  openWalkthroughSmart()
+                }
+              }}
                 target={`${ctaContent.secondaryButton.targetSecondary ? "_blank" : ""}`}
                 text={ctaContent.secondaryButton.text}
                 href={ctaContent.secondaryButton.link}

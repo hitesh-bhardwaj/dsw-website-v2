@@ -12,6 +12,7 @@ import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import { Compliance } from "@/components/Svg/Solutions/Compliance";
 import Nodes from "@/components/Svg/Solutions/Nodes";
 import UnderWriting from "@/components/Svg/Solutions/UnderWriting";
+import CaseStudySwiperHealthCare from "@/components/Solution/CaseStudySwiperHealthCare";
 
 const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
   ssr: true,
@@ -95,7 +96,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
-        <CaseStudy caseStudyContent={caseStudyContent} />
+        {/* <CaseStudy caseStudyContent={caseStudyContent} /> */}
+        <CaseStudySwiperHealthCare/>
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards
           certificationsContent={certificationsContent}
@@ -263,15 +265,15 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Healthcare AI in production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Borosil",
+  company: "Streamline Customer Communications & Operations ",
   description:
-    "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
+    "India’s leading Health Insurance Company is committed to clinical excellence, patient centricity, and ethical practices",
   imageContent: <p>Case Study Image</p>,
-  imgSrc: "/assets/case-studies/borosil.png",
+  imgSrc: "/assets/case-studies/insurance/email-automation.png",
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/borosil.pdf",
+    href: "/assets/case-studies/email-automation.pdf",
     type: "pdf",
   },
 };

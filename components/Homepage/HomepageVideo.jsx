@@ -58,7 +58,7 @@ const HomepageVideo = () => {
     >
       <HeadingAnim>
         <h2 className=" text-76 font-heading text-[#0A1B4B] text-center leading-[1.2]">
-          What is DSW UnifyAI OS <br /> The Enterprise AI Operating System
+          Inside DSW UnifyAI OS - <br/> Where AI Runs as a System
         </h2>
       </HeadingAnim>
       <div

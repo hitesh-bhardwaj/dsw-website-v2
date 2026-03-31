@@ -253,9 +253,9 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Hospitality AI in production ",
   subheading: "Real deployment. Measurable operational impact. ",
-  company: "Mahindra",
+  company: "Transform Guest Check-In with AI-Powered Facial Recognition",
   description:
-    "How a Leading Enterprise Transformed Guest Check - In with AI - Powered Facial Recognition on DSW UnifyAI",
+    "A large enterprise operating in the hospitality ecosystem, managing high guest volumes and delivering digital customer facing services at scale",
   imageContent: <p>Case Study Image</p>,
   imgSrc: "/assets/case-studies/case-study-hospitality.png",
   button: {

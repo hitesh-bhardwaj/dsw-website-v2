@@ -76,12 +76,12 @@ export default function Hero() {
   return (
     <section
       ref={heroRootRef}
-      className="relative max-sm:px-[7vw] w-full h-[110vh] bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10 max-sm:h-[70vh] max-md:h-[90vh] "
+      className="relative max-sm:px-[7vw] w-full h-fit py-[7%] bg-white max-sm:w-screen max-sm:overflow-x-hidden z-10 max-md:h-[70vh] "
     >
       <div className="relative z-[999] flex flex-col items-center h-full pt-[10vw] max-md:pt-[37vw] max-sm:pt-[40vw] pointer-events-none gap-[3vw]">
         <div className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[5vw] w-full mx-auto">
           <h1
-            className={`text-76 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head capitalize
+            className={`text-76 hero-heading text-[#0A1B4B] max-md:text-110 leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head capitalize
               }`}
           >
             Inside the AI OS Powering the Agentic Age
@@ -89,7 +89,7 @@ export default function Hero() {
         </div>
 
 
-        <div className="herofadeup">
+        {/* <div className="herofadeup">
           
             <div className="h-[38vw] w-[90vw] rounded-[1.5vw] overflow-hidden max-md:h-[60vw]">
               <Image
@@ -102,7 +102,7 @@ export default function Hero() {
                 priority
               />
             </div>
-        </div>
+        </div> */}
       </div>
 
       {/* ✅ Scroll hint extracted + dynamic */}

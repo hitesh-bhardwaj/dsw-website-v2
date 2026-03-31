@@ -97,7 +97,7 @@ const CaseStudySwiper = () => {
             loop={true}
             grabCursor
              autoplay={{
-          delay: 2500,
+          delay: 4500,
           disableOnInteraction: false,
         }}
             modules={[EffectCards, Navigation, Autoplay]}

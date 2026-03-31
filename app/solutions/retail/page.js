@@ -265,7 +265,7 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Retail AI in Production",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Borosil",
+  company: "Transform Logistics with AI-Powered Fleet Analytics",
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,

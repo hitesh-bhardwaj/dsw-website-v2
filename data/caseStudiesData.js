@@ -100,7 +100,7 @@ export const caseStudies = [
   button: {
     present: true,
     text: "Download Case Study",
-    href: "/assets/case-studies/castler.pdf",
+    href: "/assets/case-studies/revolutionizing-doc.pdf",
     type: "pdf",
   },
   },

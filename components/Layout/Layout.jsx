@@ -11,6 +11,7 @@ import {
 } from "@/lib/json-ld";
 import { fadeUp } from "../Animations/gsapAnimations";
 import HeaderNew from "./Header/HeaderNew";
+import PricingPopup from "../Modals/PricingFormModal";
 
 // Footer (already dynamic)
 const FooterNew = dynamic(() => import("./Footer"), { ssr: false });
@@ -42,6 +43,7 @@ const Layout = ({ children }) => {
       <GlobalPopup />
       <WalkthroughPopup />
       <WalkthroughIframePopup />
+      <PricingPopup/>
     </ModalProvider>
   );
 };

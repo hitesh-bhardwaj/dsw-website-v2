@@ -1,4 +1,4 @@
-// components/emailTemplate/WalkthroughDetails.jsx
+// components/emailTemplate/PricingDetails.jsx
 
 import React from "react";
 import {
@@ -16,16 +16,15 @@ import {
   Text,
 } from "@react-email/components";
 
-const WalkthroughDetails = ({
+const PricingDetails = ({
   userName,
   userEmail,
   userDesignation,
   userCompany,
   userNumber,
-  downloadedPdfName,
   pageUrl,
 }) => {
-  const previewText = "Demo Walkthrough";
+  const previewText = "Pricing Inquiry";
 
   return (
     <Html>
@@ -34,19 +33,19 @@ const WalkthroughDetails = ({
       <Body style={main}>
         <Container style={container}>
           <Img
-            src={"https://www.datasciencewizards.ai/assets/form-logo.png"}
+            src="https://www.datasciencewizards.ai/assets/form-logo.png"
             width="140"
             height="80"
             alt="Logo"
             style={logo}
           />
 
-          <Text style={paragraph}>Hello Team:</Text>
+          <Text style={paragraph}>Hello Team,</Text>
           <Text style={paragraph}>
-            Please check the following user details for product walkthrough:
+            Please check the following user details for the pricing inquiry:
           </Text>
 
-          <Section>
+          <Section style={tableWrapper}>
             <Row style={row}>
               <Column style={columnHead}>Name</Column>
               <Column style={columnText}>{userName}</Column>
@@ -54,14 +53,10 @@ const WalkthroughDetails = ({
 
             <Row style={row}>
               <Column style={columnHead}>Email</Column>
-              <Column
-                style={{
-                  ...columnText,
-                  textDecoration: "underline",
-                  color: "#067df7",
-                }}
-              >
-                {userEmail}
+              <Column style={columnText}>
+                <Link href={`mailto:${userEmail}`} style={link}>
+                  {userEmail}
+                </Link>
               </Column>
             </Row>
 
@@ -76,26 +71,22 @@ const WalkthroughDetails = ({
             </Row>
 
             <Row style={row}>
-              <Column style={columnHead}>Number</Column>
+              <Column style={columnHead}>Phone Number</Column>
               <Column style={columnText}>{userNumber}</Column>
             </Row>
 
-            {downloadedPdfName && (
-              <Row style={row}>
-                <Column style={columnHead}>Downloaded PDF</Column>
-                <Column style={columnText}>{downloadedPdfName}</Column>
-              </Row>
-            )}
+            
 
-            <Row style={row}>
+            <Row style={lastRow}>
               <Column style={columnHead}>Submitted From</Column>
               <Column style={columnText}>
-                <Link
-                  href={pageUrl}
-                  style={{ color: "#067df7", textDecoration: "underline" }}
-                >
-                  {pageUrl}
-                </Link>
+                {pageUrl && pageUrl !== "Not provided" ? (
+                  <Link href={pageUrl} style={link}>
+                    {pageUrl}
+                  </Link>
+                ) : (
+                  "Not provided"
+                )}
               </Column>
             </Row>
           </Section>
@@ -111,38 +102,82 @@ const WalkthroughDetails = ({
   );
 };
 
-export default WalkthroughDetails;
+export default PricingDetails;
 
 const main = {
   backgroundColor: "#ffffff",
+  margin: 0,
+  padding: 0,
   fontFamily:
-    '-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif',
+    '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
 };
 
-const container = { margin: "0 auto", padding: "20px 0 48px" };
-const logo = { margin: "0 auto" };
-const paragraph = { fontSize: "16px", lineHeight: "26px" };
-const row = {
-  borderLeft: "1px solid #f2f2f2",
-  borderRight: "1px solid #f2f2f2",
-  borderTop: "1px solid #f2f2f2",
+const container = {
+  margin: "0 auto",
+  padding: "24px 16px 48px",
+  maxWidth: "680px",
 };
-const columnHead = {
-  textAlign: "left",
+
+const logo = {
+  margin: "0 auto 24px",
+  display: "block",
+};
+
+const paragraph = {
   fontSize: "16px",
   lineHeight: "26px",
-  fontWeight: "500",
-  width: "140px",
-  padding: "10px 15px",
-  borderRight: "1px solid #f2f2f2",
+  color: "#111111",
+  margin: "0 0 14px",
 };
+
+const tableWrapper = {
+  marginTop: "24px",
+  border: "1px solid #f2f2f2",
+  borderRadius: "8px",
+  overflow: "hidden",
+};
+
+const row = {
+  borderBottom: "1px solid #f2f2f2",
+};
+
+const lastRow = {};
+
+const columnHead = {
+  textAlign: "left",
+  fontSize: "15px",
+  lineHeight: "24px",
+  fontWeight: "600",
+  width: "160px",
+  padding: "12px 16px",
+  borderRight: "1px solid #f2f2f2",
+  color: "#111111",
+  backgroundColor: "#fafafa",
+};
+
 const columnText = {
   textAlign: "left",
   fontSize: "15px",
-  lineHeight: "26px",
-  padding: "10px 15px",
+  lineHeight: "24px",
+  padding: "12px 16px",
   color: "#6a6a6a",
   wordBreak: "break-word",
 };
-const hr = { borderColor: "#cccccc", margin: "20px 0" };
-const footer = { color: "#8898aa", fontSize: "12px" };
+
+const link = {
+  color: "#067df7",
+  textDecoration: "underline",
+  wordBreak: "break-word",
+};
+
+const hr = {
+  borderColor: "#cccccc",
+  margin: "24px 0 16px",
+};
+
+const footer = {
+  color: "#8898aa",
+  fontSize: "12px",
+  lineHeight: "18px",
+  margin: 0,
+};
