@@ -4,6 +4,7 @@ import { ReactLenis } from 'lenis/react';
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import DeferredGoogleAnalytics from "@/components/Analytics/DeferredGoogleAnalytics";
+import AnalyticsInit from "@/components/Analytics/AnalyticsInit";
 
 export const metadata = {
   title: "DSW - Enterprise AI Operating System",
@@ -92,6 +93,7 @@ export default function RootLayout({ children }) {
         </ReactLenis>
         <SpeedInsights />
         <Analytics />
+        <AnalyticsInit />
         <DeferredGoogleAnalytics gaId="G-Z5CT0M9533" />
       </body>
     </html>
