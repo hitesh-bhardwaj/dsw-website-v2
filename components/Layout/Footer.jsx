@@ -348,8 +348,8 @@ export default function FooterNew() {
             </div>
           </div>
 
-          <p className="text-20 font-sans">
-            © Copyright Data Science Wizards 2026
+          <p className="text-20 font-sans" suppressHydrationWarning>
+            © Copyright Data Science Wizards {new Date().getFullYear()}
           </p>
         </div>
       </div>
