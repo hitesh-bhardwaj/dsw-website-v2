@@ -6,8 +6,10 @@ import BreadCrumbs from "../BreadCrumbs";
 import { usePathname } from "next/navigation";
 import { useModal } from "../ModalProvider";
 import dynamic from "next/dynamic";
-import PrimaryButton from "../Testing/PrimaryButton";
-import SecondaryButton from "../Testing/SecondaryButton";
+import PrimaryButton from "../Buttons/PrimaryButton";
+import SecondaryButton from "../Buttons/SecondaryButton";
+// import PrimaryButton from "../PrimaryButton";
+// import SecondaryButton from "./SecondaryButton";
 
 const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgWorker"), {
   ssr: false,
