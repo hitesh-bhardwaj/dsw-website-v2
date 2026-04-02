@@ -21,7 +21,7 @@ const formSchema = z.object({
   company: z.string().min(2, { message: "Company name is required." }),
 });
 
-export default function DemoForm() {
+export default function LiveDemoForm() {
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: { name: "", email: "", number: "", designation: "", company: "" },
@@ -153,93 +153,78 @@ export default function DemoForm() {
   };
 
   const onSubmit = async (data) => {
-    // If email hasn't been verified yet, verify it now
-    if (!emailVerified && !emailVerifying) {
-      const isValid = await verifyEmail(data.email);
-      if (!isValid) {
-        return; // Stop submission if email is invalid
-      }
-    }
+  if (!emailVerified && !emailVerifying) {
+    const isValid = await verifyEmail(data.email);
+    if (!isValid) return;
+  }
 
-    // Check if email verification is still pending
-    if (emailVerifying) {
-      setError("email", {
-        type: "manual",
-        message: "Please wait for email verification to complete.",
-      });
-      return;
-    }
+  if (emailVerifying) {
+    setError("email", {
+      type: "manual",
+      message: "Please wait for email verification to complete.",
+    });
+    return;
+  }
 
-    // Check if email is verified
-    if (!emailVerified) {
-      setError("email", {
-        type: "manual",
-        message: "Please enter a valid business email address.",
-      });
-      return;
-    }
+  if (!emailVerified) {
+    setError("email", {
+      type: "manual",
+      message: "Please enter a valid business email address.",
+    });
+    return;
+  }
 
-    setIsLoading(true);
+  setIsLoading(true);
 
-    // compute optional pdf info
-    const pdfUrl = payload?.pdfUrl || null;
-    const pdfName =
-      payload?.fileName ||
-      (pdfUrl ? pdfUrl.split("/").pop() : null);
+  const pdfUrl = payload?.pdfUrl || null;
+  const pdfName =
+    payload?.fileName || (pdfUrl ? pdfUrl.split("/").pop() : null);
 
-    // include extra fields ONLY if a pdf payload exists
-    const formattedData = {
-      ...data,
-      pageUrl: typeof window !== 'undefined' ? window.location.href : '',
-      ...(pdfUrl && {
-        downloaded: true,
-        downloadedPdfName: pdfName,
-        downloadedPdfUrl: pdfUrl,
-      }),
-    };
+  const formattedData = {
+    ...data,
+    pageUrl: typeof window !== "undefined" ? window.location.href : "",
+    ...(pdfUrl && {
+      downloaded: true,
+      downloadedPdfName: pdfName,
+      downloadedPdfUrl: pdfUrl,
+    }),
+  };
 
-    try {
-      const res = await fetch("/api/demoform", {
-        method: "POST",
-        body: JSON.stringify(formattedData),
-        headers: { "Content-Type": "application/json" },
-      });
+  try {
+    const res = await fetch("/api/livedemoform", {
+      method: "POST",
+      body: JSON.stringify(formattedData),
+      headers: { "Content-Type": "application/json" },
+    });
 
-      if (!res.ok) throw new Error("Failed to send message");
+    if (!res.ok) throw new Error("Failed to send message");
 
-      setIsSubmitted(true);
-      setFormSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
-      form.reset();
-      setEmailVerified(false);
-      setEmailVerifying(false);
+    setIsSubmitted(true);
+    setFormSubmitted(true);
+    setTimeout(() => setIsSubmitted(false), 5000);
+    form.reset();
+    setEmailVerified(false);
+    setEmailVerifying(false);
 
-      // Download the PDF after successful submit
-      if (pdfUrl) {
-        try {
-          await downloadPdf(pdfUrl, pdfName || undefined);
-          // Close modal after PDF download
-          setTimeout(() => setOpen(false), 800);
-        } catch (e) {
-          console.error("PDF download failed:", e);
-          // Still close modal even if download fails
-          setTimeout(() => setOpen(false), 800);
-        }
-      } else {
-        // Close modal if no PDF to download
+    if (pdfUrl) {
+      try {
+        await downloadPdf(pdfUrl, pdfName || undefined);
+        setTimeout(() => setOpen(false), 800);
+      } catch (e) {
+        console.error("PDF download failed:", e);
         setTimeout(() => setOpen(false), 800);
       }
-
-      // optionally close the modal
-      // closeModal();
-    } catch (error) {
-      setIsNotSubmitted(true);
-      setTimeout(() => setIsNotSubmitted(false), 5000);
-      console.error(error);
-    } finally {
-      setIsLoading(false);
+    } else {
+      setTimeout(() => setOpen(false), 800);
     }
-  };
+  } catch (error) {
+    setIsNotSubmitted(true);
+    setTimeout(() => setIsNotSubmitted(false), 5000);
+    console.error(error);
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <>

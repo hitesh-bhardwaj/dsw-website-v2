@@ -32,7 +32,7 @@ const styles = `
 
 const CaseStudySwiper = () => {
   const swiperRef = useRef(null);
-  const { openWith, formSubmitted } = useModal();
+  const { openPdf, formSubmitted } = useModal();
   const [activeSlide, setActiveSlide] = useState(0);
 
   const handlePrevClick = () => {
@@ -55,7 +55,7 @@ const CaseStudySwiper = () => {
       }
     } else {
       // Otherwise, open form modal with PDF payload
-      openWith({ pdfUrl, fileName: `${companyName}-case-study.pdf` });
+      openPdf({ pdfUrl, fileName: `${companyName}-case-study.pdf` });
     }
   };
 

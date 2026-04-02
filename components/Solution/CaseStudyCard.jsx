@@ -7,23 +7,24 @@ import { downloadPdf } from "@/lib/downloadPdf";
 
 
 const CaseStudyCard = ({caseStudy}) => {
-      const { openWith, formSubmitted } = useModal();
+      const { openPdf, formSubmitted } = useModal();
 
-    const handleCaseStudyDownload = async (e, pdfUrl, companyName) => {
-        e.preventDefault();
-        
-        // If form already submitted, download directly
-        if (formSubmitted) {
-          try {
-            await downloadPdf(pdfUrl, `${companyName}-case-study.pdf`);
-          } catch (err) {
-            console.error("Download failed:", err);
-          }
-        } else {
-          // Otherwise, open form modal with PDF payload
-          openWith({ pdfUrl, fileName: `${companyName}-case-study.pdf` });
-        }
-      };
+   const handleCaseStudyDownload = async (e, pdfUrl, companyName) => {
+  e.preventDefault();
+
+  if (formSubmitted) {
+    try {
+      await downloadPdf(pdfUrl, `${companyName}-case-study.pdf`);
+    } catch (err) {
+      console.error("Download failed:", err);
+    }
+  } else {
+    openPdf({
+      pdfUrl,
+      fileName: `${companyName}-case-study.pdf`,
+    });
+  }
+};
   return (
     <>
     <div className='w-[75%] max-sm:w-full h-[30vw] rounded-[1.2vw] max-md:rounded-[3vw] max-md:h-[45vw] overflow-hidden flex border border-black/20 mt-[4vw] fadeup max-sm:flex-col max-md:w-[95%] max-sm:rounded-[6vw] max-sm:h-full max-sm:mt-[10vw]'>

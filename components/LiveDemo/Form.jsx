@@ -3,8 +3,9 @@
 import React from "react";
 import Copy from "../Animations/Copy";
 import HeadingAnim from "../Animations/HeadingAnim";
-import DemoForm from "../DemoForm";
+import DemoForm from "../Modals/DemoForm";
 import Image from "next/image";
+import LiveDemoForm from "../LiveDemoForm";
 
 
 const Form = () => {
@@ -63,7 +64,7 @@ const Form = () => {
                Join a Live Demo
               </h2>
             </HeadingAnim>
-          <DemoForm/>
+          <LiveDemoForm/>
         </div>
       </div>
     </section>

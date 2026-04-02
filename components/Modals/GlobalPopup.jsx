@@ -2,7 +2,7 @@
 
 import React from "react";
 import { useModal } from "../ModalProvider";
-import PopupModal from "../PopopModal";
+import PopupModal from "./PopopModal";
 
 export default function GlobalPopup() {
   const { open, setOpen } = useModal();

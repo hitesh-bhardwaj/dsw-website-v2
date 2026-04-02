@@ -17,6 +17,7 @@ export function ModalProvider({ children }) {
   const [open, setOpen] = useState(false);
   const [openWalkThrough, setOpenWalkThrough] = useState(false);
   const [openPricing, setOpenPricing] = useState(false);
+  const [openPdfModal, setOpenPdfModal] = useState(false);
 
   /* -------------------------
    * Walkthrough state
@@ -60,6 +61,11 @@ export function ModalProvider({ children }) {
   const openWith = useCallback((p) => {
     setPayload(p || null);
     setOpen(true);
+  }, []);
+
+  const openPdf = useCallback((p) => {
+    setPayload(p || null);
+    setOpenPdfModal(true);
   }, []);
 
   const openWalkThroughModal = useCallback(() => {
@@ -114,63 +120,69 @@ export function ModalProvider({ children }) {
   }, []);
 
   const value = useMemo(
-    () => ({
-      open,
-      setOpen,
-      openModal,
-      openWith,
+  () => ({
+    open,
+    setOpen,
+    openModal,
+    openWith,
 
-      openWalkThrough,
-      setOpenWalkThrough,
-      openWalkThroughModal,
-      openWithWalkthrough,
+    openWalkThrough,
+    setOpenWalkThrough,
+    openWalkThroughModal,
+    openWithWalkthrough,
 
-      openPricing,
-      setOpenPricing,
-      openPricingModal,
-      openWithPricing,
+    openPricing,
+    setOpenPricing,
+    openPricingModal,
+    openWithPricing,
 
-      walkthroughTarget,
-      setWalkthroughTarget,
+    openPdfModal,
+    setOpenPdfModal,
+    openPdf,
 
-      walkthroughCompleted,
-      markWalkthroughCompleted,
+    walkthroughTarget,
+    setWalkthroughTarget,
 
-      openWalkthroughSmart,
+    walkthroughCompleted,
+    markWalkthroughCompleted,
 
-      payload,
-      setPayload,
+    openWalkthroughSmart,
 
-      formSubmitted,
-      setFormSubmitted,
+    payload,
+    setPayload,
 
-      openByKey,
-    }),
-    [
-      open,
-      openWalkThrough,
-      openPricing,
-      walkthroughTarget,
-      walkthroughCompleted,
-      payload,
-      formSubmitted,
-      openModal,
-      openWith,
-      openWalkThroughModal,
-      openWithWalkthrough,
-      openPricingModal,
-      openWithPricing,
-      openWalkthroughSmart,
-      markWalkthroughCompleted,
-      openByKey,
-      setFormSubmitted,
-    ]
-  );
+    formSubmitted,
+    setFormSubmitted,
+
+    openByKey,
+  }),
+  [
+    open,
+    openWalkThrough,
+    openPricing,
+    openPdfModal,            // ✅ ADD THIS
+    setOpenPdfModal,         // ✅ ADD THIS
+
+    walkthroughTarget,
+    walkthroughCompleted,
+    payload,
+    formSubmitted,
+
+    openModal,
+    openWith,
+    openWalkThroughModal,
+    openWithWalkthrough,
+    openPricingModal,
+    openWithPricing,
+    openWalkthroughSmart,
+    markWalkthroughCompleted,
+    openByKey,
+    setFormSubmitted,
+  ],
+);
 
   return (
-    <ModalContext.Provider value={value}>
-      {children}
-    </ModalContext.Provider>
+    <ModalContext.Provider value={value}>{children}</ModalContext.Provider>
   );
 }
 

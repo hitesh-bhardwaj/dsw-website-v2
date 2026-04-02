@@ -92,11 +92,11 @@ export const caseStudies = [
   },
   {
     id:8,
-  company: "Castler",
+  company: "Revolutionizing Document Intelligence for a Leading FinTech Company",
   description:
-    "Revolutionizing Document Intelligence for a Leading Indian Fintech Company",
+    "Transforming Complex Agreement Management with AI-Powered Interaction",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-banking.png",
+  imgSrc:"/assets/case-studies/castler.png",
   button: {
     present: true,
     text: "Download Case Study",
@@ -106,11 +106,11 @@ export const caseStudies = [
   },
   {
     id:9,
-  company: "Borosil",
+  company: "Transform Logistics with AI-Powered Fleet Analytics",
   description:
     "A leading Indian glassware and consumer product manufacturer managing a large and complex logistics network across the country.",
   imageContent: <p>Case Study Image</p>,
-  imgSrc:"/assets/case-studies/case-study-teleco.png",
+  imgSrc:"/assets/case-studies/borosil.png",
   button: {
     present: true,
     text: "Download Case Study",
