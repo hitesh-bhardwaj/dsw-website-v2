@@ -258,9 +258,9 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Running Real - Time Banking Decisions on a Unified AI Runtime",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Castler",
+  company: "Revolutionizing Document Intelligence for a Leading FinTech Company",
   description:
-    "The customer is a prominent fintech company specializing in digital escrow services, headquartered in Delhi, India.",
+    "Transforming Complex Agreement Management with AI-Powered Interaction",
   imageContent: <p>Case Study Image</p>,
   imgSrc: "/assets/case-studies/castler.png",
   button: {

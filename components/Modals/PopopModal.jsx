@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useLenis } from "lenis/react";
 
-import { useModal } from "./ModalProvider";
+import { useModal } from "../ModalProvider";
 
 // Lazy load form only when modal opens
 const DemoForm = dynamic(() => import("./DemoForm"), { ssr: false });
@@ -89,6 +89,12 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
         </div>
       </div>
       </div>
+
+      {/* Background click closes modal */}
+      <div
+        className="w-screen h-screen fixed inset-0 z-[-1]"
+        onClick={handleClose}
+      />
       <div className="formfade absolute top-[3%] right-[3%] max-md:top-[2.5%] max-sm:right-[4%] max-md:right-[2.5%] opacity-100">
         <div
           onClick={handleClose}
@@ -110,12 +116,6 @@ const PopupModal = ({ modalOpen, setModalOpen }) => {
           </div>
         </div>
       </div>
-
-      {/* Background click closes modal */}
-      <div
-        className="w-screen h-screen fixed inset-0 z-[-1]"
-        onClick={handleClose}
-      />
     </section>
   );
 };

@@ -3,6 +3,7 @@
 import DemoDetails from "@/components/emailTemplate/DemoDetails";
 import DemoAutoResponse from "@/components/emailTemplate/DemoAutoResponse";
 import { Resend } from "resend";
+import { logToGoogleSheet } from "@/lib/logToGoogleSheet";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -21,10 +22,27 @@ export async function POST(req) {
     const submittedPageUrl =
       pageUrl || req.headers.get("referer") || "Not provided";
 
+    const subject = "New Demo Request Received";
+    const category = "demo_request";
+    const tagsForSheet = ["demo", "website"];
+
     const { error: teamEmailError } = await resend.emails.send({
-      from: "Web Forms <no-reply@datasciencewizards.ai>",
-      to: ["vidushi@weareenigma.com", "contact@datasciencewizards.ai"],
-      subject: "New Demo Request Received",
+      // 🔵 PRODUCTION CONFIG
+      // from: "Web Forms <no-reply@datasciencewizards.ai>",
+      // to: ["vidushi@weareenigma.com", "contact@datasciencewizards.ai"],
+
+      // 🟡 TEST CONFIG
+      from: "onboarding@resend.dev",
+      to: ["harsh@weareenigma.com"],
+
+      subject,
+
+      tags: [
+        { name: "category", value: category },
+        { name: "form_type", value: "demo" },
+        { name: "source", value: "website" },
+      ],
+
       react: DemoDetails({
         userName: name,
         userEmail: email,
@@ -43,10 +61,36 @@ export async function POST(req) {
       );
     }
 
+    await logToGoogleSheet({
+      formType: "Demo",
+      subject,
+      category,
+      tags: tagsForSheet,
+      name,
+      email,
+      designation,
+      company,
+      number,
+      pageUrl: submittedPageUrl,
+    });
+
     const { error: autoResponseError } = await resend.emails.send({
-      from: "DSW Team <no-reply@datasciencewizards.ai>",
-      to: [email],
+      // 🔵 PRODUCTION CONFIG
+      // from: "DSW Team <no-reply@datasciencewizards.ai>",
+      // to: [email],
+
+      // 🟡 TEST CONFIG
+      from: "onboarding@resend.dev",
+      to: ["harsh@weareenigma.com"],
+
       subject: "We've Received Your Demo Request",
+
+      tags: [
+        { name: "category", value: "demo_autoresponse" },
+        { name: "form_type", value: "demo" },
+        { name: "source", value: "website" },
+      ],
+
       react: DemoAutoResponse({ userName: name }),
     });
 

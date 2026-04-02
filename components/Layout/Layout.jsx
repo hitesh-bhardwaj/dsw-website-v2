@@ -27,6 +27,11 @@ const WalkthroughIframePopup = dynamic(
   { ssr: false }
 );
 
+const DownloadPdfModal = dynamic(
+  () => import("../Modals/DownloadPdfModal"),
+  { ssr: false }
+);
+
 const Layout = ({ children }) => {
   fadeUp()
   return (
@@ -44,6 +49,7 @@ const Layout = ({ children }) => {
       <WalkthroughPopup />
       <WalkthroughIframePopup />
       <PricingPopup/>
+      <DownloadPdfModal/>
     </ModalProvider>
   );
 };

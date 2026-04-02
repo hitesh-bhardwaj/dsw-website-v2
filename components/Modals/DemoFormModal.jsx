@@ -7,7 +7,7 @@ import { useLenis } from "lenis/react";
 import { useModal } from "../ModalProvider";
 
 // Lazy load form
-const DemoForm = dynamic(() => import("../DemoForm"), { ssr: false });
+const DemoForm = dynamic(() => import("./DemoForm"), { ssr: false });
 
 const DemoFormModal = () => {
   const lenis = useLenis();
