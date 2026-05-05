@@ -10,6 +10,7 @@ import dynamic from "next/dynamic";
 // import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Clients from "@/components/Clients";
 import HomepageVideo from "@/components/Homepage/HomepageVideo";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 
 const UnifiedRuntime = dynamic(
   () => import("@/components/Homepage/UnifiedRuntime"),
@@ -74,7 +75,7 @@ export default function Home() {
           <Clients />
           <RealWorldOutcomes />
           <CTAPricing />
-          {/* <PricingTableWrapper/> */}
+          <PricingTableWrapper/>
           <CertificationsAndAwards
             certificationsContent={certificationsContent}
           />

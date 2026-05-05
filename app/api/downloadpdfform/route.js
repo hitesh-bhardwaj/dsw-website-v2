@@ -17,20 +17,24 @@ export async function POST(req) {
       company,
       number,
       downloadedPdfName,
-      downloadedPdfUrl,
       pageUrl,
     } = body;
 
     if (!name || !email || !company || !designation || !number) {
-      return new Response(JSON.stringify({ error: "Missing fields" }), { status: 400 });
+      return new Response(JSON.stringify({ error: "Missing fields" }), {
+        status: 400,
+      });
     }
 
     const subject = "New PDF Download Lead";
     const category = "pdf_download";
 
     const { error } = await resend.emails.send({
-      from: "onboarding@resend.dev",
-      to: ["harsh@weareenigma.com"],
+      from: "Web Forms <no-reply@datasciencewizards.ai>",
+      to: ["contact@datasciencewizards.ai"],
+
+      // from: "onboarding@resend.dev",
+      // to: ["harsh@weareenigma.com"],
 
       subject,
 
@@ -67,8 +71,9 @@ export async function POST(req) {
     });
 
     return new Response(JSON.stringify({ success: true }), { status: 200 });
-
   } catch (err) {
-    return new Response(JSON.stringify({ error: err.message }), { status: 500 });
+    return new Response(JSON.stringify({ error: err.message }), {
+      status: 500,
+    });
   }
 }

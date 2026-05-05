@@ -28,12 +28,12 @@ export async function POST(req) {
 
     const { error: teamEmailError } = await resend.emails.send({
       // 🔵 PRODUCTION CONFIG
-      // from: "Web Forms <no-reply@datasciencewizards.ai>",
-      // to: ["vidushi@weareenigma.com", "contact@datasciencewizards.ai"],
+      from: "Web Forms <no-reply@datasciencewizards.ai>",
+      to: [ "contact@datasciencewizards.ai"],
 
       // 🟡 TEST CONFIG
-      from: "onboarding@resend.dev",
-      to: ["harsh@weareenigma.com"],
+      // from: "onboarding@resend.dev",
+      // to: ["harsh@weareenigma.com"],
 
       subject,
 
@@ -76,12 +76,12 @@ export async function POST(req) {
 
     const { error: autoResponseError } = await resend.emails.send({
       // 🔵 PRODUCTION CONFIG
-      // from: "DSW Team <no-reply@datasciencewizards.ai>",
-      // to: [email],
+      from: "DSW Team <no-reply@datasciencewizards.ai>",
+      to: [email],
 
       // 🟡 TEST CONFIG
-      from: "onboarding@resend.dev",
-      to: ["harsh@weareenigma.com"],
+      // from: "onboarding@resend.dev",
+      // to: ["harsh@weareenigma.com"],
 
       subject: "We've Received Your Demo Request",
 
