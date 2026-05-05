@@ -71,7 +71,6 @@ export default function Home() {
           <CoreEnterpriseSystemSticky />
           <UseCases />
           <AlwaysOnAI content={tourContent} walkthrough={true} />
-          {/* <ClientsBlur /> */}
           <Clients />
           <RealWorldOutcomes />
           <CTAPricing />
