@@ -81,7 +81,7 @@ const PricingTable = ({ region = "IN" }) => {
     },
   };
 
-  const activePricing = pricingByRegion[region] || pricingByRegion.IN;
+  const activePricing = pricingByRegion[region] || pricingByRegion.US;
   const capabilities = activePricing.slabs;
 
   const line = `
