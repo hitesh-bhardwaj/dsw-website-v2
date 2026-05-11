@@ -13,7 +13,7 @@ const WaveGridCanvas = dynamic(() => import("./Homepage/HeroBg"), {
 });
 
 const Notfound = () => {
-  const ShaderRef = useRef(); 
+  const ShaderRef = useRef();
   const [mob, setMob] = useState(false);
   useGSAP(() => {
     gsap.to(".num", {

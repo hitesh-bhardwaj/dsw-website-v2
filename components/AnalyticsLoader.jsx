@@ -37,7 +37,7 @@ export default function AnalyticsLoader() {
     <>
       <VercelSpeedInsights />
       <VercelAnalytics />
-      <GoogleAnalytics gaId="G-Z5CT0M9533" />
+      {/* <GoogleAnalytics gaId="G-Z5CT0M9533" /> */}
     </>
   );
 }

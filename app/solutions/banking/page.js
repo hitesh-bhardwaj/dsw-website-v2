@@ -10,6 +10,7 @@ import Focus from "@/components/Svg/Solutions/Focus";
 
 import React from "react";
 import HeroNew from "@/components/Layout/HeroNew";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 
 const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
   ssr: true,
@@ -43,7 +44,7 @@ const CertificationsAndAwards = dynamic(
   () => import("@/components/Homepage/CertificationsAndAwards"),
   {
     ssr: true,
-  }
+  },
 );
 
 const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
@@ -78,23 +79,28 @@ export const metadata = getPageMetadata({
 const Page = () => {
   return (
     <>
-    <WebpageJsonLd metadata={metadata} />
-    <Layout>
-      <HeroNew
-        heroContent={heroContent}
-        variant={"bottomLeft"}
-        breadcrumbs={true}
-      />
-      <Runtime runtimeContent={runtimeContent} />
-      <Breaks breaksContent={breaksContent}/>
-      <Features featuresContent={featuresContent} />
-      <WorkFlows workflowsContent={workflowsContent}/>
-      <CaseStudy caseStudyContent={caseStudyContent}/>
-      <Operations operationsContent={operationsContent} />
-      <CertificationsAndAwards certificationsContent={certificationsContent}/>
-      <Benefits benefitsContent={benefitsContent}/>
-       <CTAFinal ctaContent={ctaContent}/>
-    </Layout>
+      <WebpageJsonLd metadata={metadata} />
+      <Layout>
+        <HeroNew
+          heroContent={heroContent}
+          variant={"bottomLeft"}
+          breadcrumbs={true}
+        />
+        <Runtime runtimeContent={runtimeContent} />
+        <Breaks breaksContent={breaksContent} />
+        <Features featuresContent={featuresContent} />
+        <WorkFlows workflowsContent={workflowsContent} />
+        <div className="mt-[10vw] max-sm:mt-[30vw] max-md:mt-[15vw]">
+        <PricingTableWrapper />
+        </div>
+        <CaseStudy caseStudyContent={caseStudyContent} />
+        <Operations operationsContent={operationsContent} />
+        <CertificationsAndAwards
+          certificationsContent={certificationsContent}
+        />
+        <Benefits benefitsContent={benefitsContent} />
+        <CTAFinal ctaContent={ctaContent} />
+      </Layout>
     </>
   );
 };
@@ -118,13 +124,11 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para:
-    "Build, integrate, deploy, govern, and operate AI as a long - running enterprise system - inside your own environment, with full control, auditability, and accountability.",
+  para: "Build, integrate, deploy, govern, and operate AI as a long - running enterprise system - inside your own environment, with full control, auditability, and accountability.",
 };
 
 const runtimeContent = {
-  heading:
-    "Banking has moved past AI pilots.<br/> Now it must operate AI.",
+  heading: "Banking has moved past AI pilots.<br/> Now it must operate AI.",
   description:
     "Most banks have models in production. Few have a system to operate them continuously across lines of business.",
   items: [
@@ -152,12 +156,12 @@ const runtimeContent = {
 const breaksContent = {
   tagline:
     "Banks are moving from isolated AI initiatives to always - on execution across onboarding, credit, fraud, collections, servicing, and regulatory workflows.",
-  heading:
-    "Where AI execution breaks inside banks today",
+  heading: "Where AI execution breaks inside banks today",
   challenges: [
     {
       icon: <Fraud />,
-      title: "Models sit in silos across risk, fraud, underwriting, and operations",
+      title:
+        "Models sit in silos across risk, fraud, underwriting, and operations",
     },
     {
       icon: <Governance />,
@@ -179,8 +183,7 @@ const breaksContent = {
 };
 
 const featuresContent = {
-  heading:
-    "High - Impact Banking Use Cases on DSW UnifyAI OS",
+  heading: "High - Impact Banking Use Cases on DSW UnifyAI OS",
 
   cards: [
     {
@@ -239,8 +242,8 @@ const featuresContent = {
 
 const workflowsContent = {
   heading: "Unlimited Use Cases with a Single Subscription.",
-  para:"",
-  para:"No more use - case - based cost barrier.",
+  para: "",
+  para: "No more use - case - based cost barrier.",
   items: [
     { number: "01", title: "Fraud detection and anomaly monitoring" },
     { number: "02", title: "Transaction monitoring triage" },
@@ -258,7 +261,8 @@ const workflowsContent = {
 const caseStudyContent = {
   heading: "Running Real - Time Banking Decisions on a Unified AI Runtime",
   subheading: "Real deployment. Measurable operational impact.",
-  company: "Revolutionizing Document Intelligence for a Leading FinTech Company",
+  company:
+    "Revolutionizing Document Intelligence for a Leading FinTech Company",
   description:
     "Transforming Complex Agreement Management with AI-Powered Interaction",
   imageContent: <p>Case Study Image</p>,
@@ -274,14 +278,12 @@ const caseStudyContent = {
 const benefitsContent = {
   sectionId: "finacle - outcomes",
 
-  heading:
-    "From fragmented AI to an enterprise operating model",
+  heading: "From fragmented AI to an enterprise operating model",
 
   points: [
     {
       id: "01",
-      text:
-        "Operate AI across risk, fraud, compliance, and customer workflows as one governed system",
+      text: "Operate AI across risk, fraud, compliance, and customer workflows as one governed system",
     },
     {
       id: "02",
@@ -289,8 +291,7 @@ const benefitsContent = {
     },
     {
       id: "03",
-      text:
-        "Scale AI use cases without multiplying vendors or infrastructure",
+      text: "Scale AI use cases without multiplying vendors or infrastructure",
     },
     {
       id: "04",
@@ -298,17 +299,15 @@ const benefitsContent = {
     },
     {
       id: "05",
-      text:
-        "Move from fragmented AI adoption to enterprise - wide AI operations",
+      text: "Move from fragmented AI adoption to enterprise - wide AI operations",
     },
   ],
 };
 
-
-const ctaContent={
-  heading:"Operate AI as Infrastructure Inside your Bank ",
-  para:"Experience DSW UnifyAI OS - The Enterprise AI Operating System ",
-    primaryButton: {
+const ctaContent = {
+  heading: "Operate AI as Infrastructure Inside your Bank ",
+  para: "Experience DSW UnifyAI OS - The Enterprise AI Operating System ",
+  primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import {
   Form,
   FormControl,
@@ -26,6 +27,7 @@ import {
 } from "../ui/select";
 import { Checkbox } from "../ui/motion-checkbox";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
+import { pushGTMEvent } from '@/lib/gtm';
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
@@ -43,6 +45,8 @@ const formSchema = z.object({
 });
 
 export default function ContactForm() {
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,6 +60,7 @@ export default function ContactForm() {
       terms: false,
     },
   });
+
   const { control, handleSubmit, setError, clearErrors } = form;
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setIsSubmitted] = useState(false);
@@ -63,7 +68,6 @@ export default function ContactForm() {
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  // Email verification function - only called on blur or submit
   const verifyEmail = useCallback(
     async (email) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -72,7 +76,6 @@ export default function ContactForm() {
         return false;
       }
 
-      // Check if email domain is blocked (free email providers)
       if (isEmailDomainBlocked(email)) {
         setEmailVerified(false);
         setError("email", {
@@ -138,7 +141,6 @@ export default function ContactForm() {
   );
 
   const onSubmit = async (data) => {
-    // If email hasn't been verified yet, verify it now
     if (!emailVerified && !emailVerifying) {
       const isValid = await verifyEmail(data.email);
       if (!isValid) {
@@ -169,8 +171,6 @@ export default function ContactForm() {
       pageUrl: typeof window !== "undefined" ? window.location.href : "",
     };
 
-    // console.log(data);
-
     try {
       const res = await fetch("/api/contactform", {
         method: "POST",
@@ -180,18 +180,17 @@ export default function ContactForm() {
         },
       });
 
-      // const responseData = await res.json();
-      // console.log("API Response:", responseData);
-      // console.log("Status:", res.status);
-
       if (!res.ok) throw new Error("Failed to send message");
+
+      pushGTMEvent('form_submit_success', 'Contact-Page - Main Form');
 
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 7000);
-      // console.log(data)
       form.reset();
       setEmailVerified(false);
       setEmailVerifying(false);
+
+      router.push("/thank-you");
     } catch (error) {
       setIsNotSubmitted(true);
       setTimeout(() => setIsNotSubmitted(false), 7000);
@@ -279,6 +278,7 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
+
               <FormField
                 control={control}
                 name="designation"
@@ -403,7 +403,6 @@ export default function ContactForm() {
                           className="origin-start text-muted-foreground/70 group-focus-within:text-foreground has-[+textarea:not(:placeholder-shown)]:text-foreground has-aria-invalid:ring-destructive/20 dark:has-aria-invalid:ring-destructive/40 has-aria-invalid:border-destructive absolute top-0 block translate-y-4 max-md:translate-y-2 cursor-text px-2 text-sm transition-all group-focus-within:pointer-events-none group-focus-within:-translate-y-1/2 group-focus-within:cursor-default group-focus-within:text-xs group-focus-within:font-medium has-[+textarea:not(:placeholder-shown)]:pointer-events-none has-[+textarea:not(:placeholder-shown)]:-translate-y-1/2 has-[+textarea:not(:placeholder-shown)]:cursor-default has-[+textarea:not(:placeholder-shown)]:text-xs has-[+textarea:not(:placeholder-shown)]:font-medium z-[5] ml-[1vw] max-md:ml-[3vw] max-md:mt-[1vw] border-black/10"
                         >
                           <span className="bg-white inline-flex px-1 text-[1.15vw] max-md:text-[2.7vw] max-sm:text-[3.5vw] text-foreground">
-                            
                             Message
                           </span>
                         </label>

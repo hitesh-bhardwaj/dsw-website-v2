@@ -7,7 +7,6 @@ import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
 import dynamic from "next/dynamic";
 import React from "react";
-
 import { Governance } from "@/components/Svg/Solutions/Banking/Governance";
 import { Compliance } from "@/components/Svg/Solutions/Compliance";
 import Config from "@/components/Svg/Solutions/Config";
@@ -88,8 +87,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
-        {/* <CTAPricing />
-        <PricingTableWrapper /> */}
+        <CTAPricing />
+        <PricingTableWrapper />
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards

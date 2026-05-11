@@ -6,15 +6,14 @@ export default async function PricingTableWrapper({ searchParams }) {
 
   const country = headersList.get("x-vercel-ip-country") || "IN";
 
-  let region = country === "IN" ? "IN" : "US";
+  let region = "IN";
 
-  // Override for testing: only allow IN or US
+  if (country === "US") region = "US";
+  else if (["DE", "FR", "IT"].includes(country)) region = "EU";
+
+  // 👇 OVERRIDE for testing
   if (searchParams?.region) {
-    const testRegion = searchParams.region.toUpperCase();
-
-    if (["IN", "US"].includes(testRegion)) {
-      region = testRegion;
-    }
+    region = searchParams.region.toUpperCase();
   }
 
   return <PricingTable region={region} />;

@@ -4,6 +4,7 @@ import { SplitText, gsap } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import dynamic from "next/dynamic";
 import { useLenis } from "lenis/react";
+import { usePathname, useRouter } from "next/navigation";
 import { useModal } from "../ModalProvider";
 
 const DownloadPdfForm = dynamic(() => import("./DownloadPdfForm"), {
@@ -12,8 +13,41 @@ const DownloadPdfForm = dynamic(() => import("./DownloadPdfForm"), {
 
 const DownloadPdfModal = () => {
   const lenis = useLenis();
-  const { openPdfModal, setOpenPdfModal, setPayload } = useModal();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const { openPdfModal, setOpenPdfModal, setPayload, payload } = useModal();
   const clearPayloadTimeoutRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const currentForm = params.get("form");
+    const targetForm = payload?.formSlug || "download-pdf";
+
+    if (openPdfModal) {
+      if (currentForm !== targetForm) {
+        params.set("form", targetForm);
+
+        const queryString = params.toString();
+        router.replace(
+          queryString ? `${pathname}?${queryString}` : pathname,
+          { scroll: false }
+        );
+      }
+    } else {
+      if (currentForm === targetForm) {
+        params.delete("form");
+
+        const queryString = params.toString();
+        router.replace(
+          queryString ? `${pathname}?${queryString}` : pathname,
+          { scroll: false }
+        );
+      }
+    }
+  }, [openPdfModal, pathname, router, payload]);
 
   useEffect(() => {
     if (!openPdfModal) {
@@ -38,7 +72,7 @@ const DownloadPdfModal = () => {
       .from(
         ".pdf-formfade",
         { yPercent: 30, opacity: 0, duration: 0.7, stagger: 0.1 },
-        "-=1",
+        "-=1"
       );
 
     return () => tl.kill();
@@ -67,14 +101,11 @@ const DownloadPdfModal = () => {
         openPdfModal ? "opacity-100" : "pointer-events-none opacity-0"
       }`}
     >
-      {/* Modal Card */}
       <div
         data-lenis-prevent
         className="relative w-[78%] h-[78vh] max-h-[90vh] overflow-y-auto rounded-[2vw] border border-[#d4d4d4] bg-white/30 p-[4vw] max-md:w-[92%] max-md:h-[78%] max-md:rounded-[4vw] max-md:p-[5vw] max-sm:h-[75%] max-sm:rounded-[6vw] max-sm:px-[5vw] max-sm:py-[10%]"
       >
-        {/* Close Button */}
-
-        <div className="h-full max-sm:h-fit w-full  flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
+        <div className="h-full max-sm:h-fit w-full flex justify-between max-md:flex-col max-sm:gap-[7vw] max-md:gap-[4vw]">
           <div className="w-[30%] h-full space-y-[1vw] max-md:w-full max-md:space-y-[2vw]">
             <h2 className="pdf-formhead text-76 leading-[1.2] text-[#0A1B4B]">
               Download PDF
@@ -106,7 +137,7 @@ const DownloadPdfModal = () => {
           </div>
         </div>
       </div>
-      {/* Backdrop */}
+
       <div className="fixed inset-0 z-[-1]" onClick={handleClose} />
     </section>
   );

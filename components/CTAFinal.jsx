@@ -5,8 +5,10 @@ import PrimaryButton from "./Buttons/PrimaryButton";
 import SecondaryButton from "./Buttons/SecondaryButton";
 import { useModal } from "./ModalProvider";
 
+import { pushGTMEvent } from "@/lib/gtm";
+
 export default function CTAFinal({ ctaContent }) {
-  const { openModal,openWalkthroughSmart } = useModal();
+  const { openModal, openWalkthroughSmart } = useModal();
 
   const showButtons =
     ctaContent.primaryButton?.present || ctaContent.secondaryButton?.present;
@@ -27,7 +29,7 @@ export default function CTAFinal({ ctaContent }) {
           </Copy>
         )}
         <Copy>
-          <p className={`text-30 text-center max-md:w-[90%] text-foreground max-sm:w-full mx-auto max-sm:font-light ${ctaContent.paraWidth?ctaContent.paraWidth:"w-[70%]"}`}>
+          <p className={`text-30 text-center max-md:w-[90%] text-foreground max-sm:w-full mx-auto max-sm:font-light ${ctaContent.paraWidth ? ctaContent.paraWidth : "w-[70%]"}`}>
             {ctaContent.para}
           </p>
         </Copy>
@@ -38,12 +40,16 @@ export default function CTAFinal({ ctaContent }) {
             {/* Primary Button */}
             {ctaContent.primaryButton?.present && (
               <PrimaryButton
-              onClick={(e) => {
-                if (ctaContent.primaryButton.book) {
-                  e.preventDefault();
-                  openModal()
-                }
-              }}
+                onClick={(e) => {
+                  if (ctaContent.primaryButton.book) {
+                    e.preventDefault();
+                    pushGTMEvent(
+                      'contact_navigation_clicked',
+                      'Bottom - Book A Demo',
+                    );
+                    openModal()
+                  }
+                }}
                 target={`${ctaContent.primaryButton.targetPrimary ? "_blank" : ""}`}
                 text={ctaContent.primaryButton.text}
                 href={ctaContent.primaryButton.link}
@@ -53,12 +59,16 @@ export default function CTAFinal({ ctaContent }) {
             {/* Secondary Button */}
             {ctaContent.secondaryButton?.present && (
               <SecondaryButton
-               onClick={(e) => {
-                if (ctaContent.secondaryButton.walkthrough) {
-                  e.preventDefault();
-                  openWalkthroughSmart()
-                }
-              }}
+                onClick={(e) => {
+                  if (ctaContent.secondaryButton.walkthrough) {
+                    e.preventDefault();
+                    pushGTMEvent(
+                      'contact_navigation_clicked',
+                      'Bottom - Talk to Us'
+                    );
+                    openWalkthroughSmart()
+                  }
+                }}
                 target={`${ctaContent.secondaryButton.targetSecondary ? "_blank" : ""}`}
                 text={ctaContent.secondaryButton.text}
                 href={ctaContent.secondaryButton.link}

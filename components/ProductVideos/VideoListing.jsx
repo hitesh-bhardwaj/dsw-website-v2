@@ -59,11 +59,11 @@ const VideoListing = () => {
   }, [isMounted]);
 
   const truncateWords = (text, wordLimit = 10) => {
-  if (!text) return "";
-  const words = text.split(" ");
-  if (words.length <= wordLimit) return text;
-  return words.slice(0, wordLimit).join(" ") + "...";
-};
+    if (!text) return "";
+    const words = text.split(" ");
+    if (words.length <= wordLimit) return text;
+    return words.slice(0, wordLimit).join(" ") + "...";
+  };
 
   return (
     <>
@@ -78,9 +78,8 @@ const VideoListing = () => {
               className="w-[47.5%] flex flex-col gap-[1vw] max-sm:w-full max-sm:gap-[7vw] max-md:w-[48.5%] max-md:gap-[2vw]"
             >
               <span
-                className={`w-full h-px hidden max-sm:block bg-black opacity-60 lineDraw ${
-                  index === 0 ? "max-sm:hidden" : ""
-                }`}
+                className={`w-full h-px hidden max-sm:block bg-black opacity-60 lineDraw ${index === 0 ? "max-sm:hidden" : ""
+                  }`}
               />
               <div
                 className="w-full h-[25vw] border border-black/10 rounded-[1.8vw] overflow-hidden relative cursor-pointer video-modal-thumbnail outline-none  fadeup  group max-sm:h-[27vh] max-md:h-[30vw] max-sm:rounded-[4.5vw] max-md:border max-md:border-white/20 max-md:rounded-[2vw]"
@@ -195,11 +194,56 @@ const VideoListing = () => {
 
 export default VideoListing;
 const videos = [
- {
+    {
+    image: "/assets/product-videos/shift-7-7.png",
+    alt: "Presenting The Enterprise AI Operating System - DSW UnifyAI OS | Shift 7 of 7 image",
+    duration: "2:56 min",
+    title: "Presenting The Enterprise AI Operating System - DSW UnifyAI OS",
+    description:
+      "The shift from Building AI ➡ Operating AI is officially here!....",
+    youtubeUrl: "https://www.youtube.com/watch?v=FXo3ruMffWY",
+  },
+  {
+    image: "/assets/product-videos/shift-6-7.png",
+    alt: "Breaking the AI Use Case Barrier image",
+    duration: "3:05 min",
+    title: "Breaking the AI Use Case Barrier",
+    description:
+      "AI started with use cases - a model here, a chatbot there....",
+    youtubeUrl: "https://www.youtube.com/watch?v=MyUPBhYOyuI",
+  },
+  {
+    image: "/assets/product-videos/shift-5-7.png",
+    alt: "From Silos to Systems image",
+    duration: "2:09 min",
+    title: "From Silos to Systems: Why Enterprise AI Fails to Scale",
+    description:
+      "Most enterprises don’t fail at building AI. They fail at making it work at scale....",
+    youtubeUrl: "https://www.youtube.com/watch?v=qO7DiBiFziY",
+  },
+  {
+    image: "/assets/product-videos/inside-dsw-unifyai-os.png",
+    alt: "Inside DSW UnifyAI OS image",
+    duration: "2:11 min",
+    title: "Inside DSW UnifyAI OS - Where AI Runs as a System",
+    description:
+      "Artificial Intelligence is at a turning point. For years, organizations have experimented with models....",
+    youtubeUrl: "https://www.youtube.com/watch?v=xeS2h37VO28",
+  },
+  {
+    image: "/assets/product-videos/shift-4-7.png",
+    alt: "shift 4/7 image",
+    duration: "2:32 min",
+    title: "Shift 4/7 - Scaling Sovereign Enterprise AI with Governance-as-Code",
+    description:
+      "How can enterprises move beyond small-scale AI experiments to full production deployment....",
+    youtubeUrl: "https://www.youtube.com/watch?v=CJ6Lrkko6Qw",
+  },
+  {
     image: "/assets/product-videos/shift-3-5.png",
-    alt: "shift 3/5 image",
+    alt: "shift 3/7 image",
     duration: "1:53 min",
-    title: "Shift 3/5 - AI as Infrastructure: Why Enterprises Must Move Beyond AI Projects",
+    title: "Shift 3/7 - AI as Infrastructure: Why Enterprises Must Move Beyond AI Projects",
     description:
       "In this video, Sandeep Khuperkar, Co-founder & CEO of Data Science Wizards, explains a critical shift in enterprise AI:....",
     youtubeUrl: "https://www.youtube.com/watch?v=YoWH-zyW5PQ",
@@ -215,9 +259,9 @@ const videos = [
   },
   {
     image: "/assets/product-videos/shift-2-5.png",
-    alt: "shift 2/5 image",
+    alt: "shift 2/7 image",
     duration: "2:17 min",
-    title: "Shift 2/5 - Governance in Motion",
+    title: "Shift 2/7 - Governance in Motion",
     description:
       "When AI runs continuously, governance can no longer be a 'layer' on top or a manual process around the system. It must execute inside the system itself....",
     youtubeUrl: "https://www.youtube.com/watch?v=j94FZqIUaZ8",
@@ -233,9 +277,9 @@ const videos = [
   },
   {
     image: "/assets/product-videos/shift-1-5.png",
-    alt: "shift 1/5 image",
+    alt: "shift 1/7 image",
     duration: "1:50 min",
-    title: "Shift 1/5 - AI is entering its systems era!",
+    title: "Shift 1/7 - AI is entering its systems era!",
     description:
       "The Shift  is a 5-part video series by DSW curated to understand the next era of AI for enterprises...",
     youtubeUrl: "https://youtu.be/eeLN-r49a2Y?si=xAuSdt32jJmHfNs0",

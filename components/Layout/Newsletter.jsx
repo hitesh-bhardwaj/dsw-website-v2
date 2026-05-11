@@ -4,6 +4,7 @@ import { Input } from "../ui/input";
 import { useState } from "react";
 
 const Newsletter = () => {
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState({ type: "", text: "" });
@@ -11,7 +12,14 @@ const Newsletter = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic email validation
+    if (!name.trim()) {
+      setMessage({
+        type: "error",
+        text: "Please enter your name.",
+      });
+      return;
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setMessage({
@@ -28,7 +36,7 @@ const Newsletter = () => {
       const response = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
+        body: JSON.stringify({ name, email }),
       });
 
       const data = await response.json();
@@ -38,6 +46,7 @@ const Newsletter = () => {
           type: "success",
           text: data.message || "Successfully subscribed!",
         });
+        setName("");
         setEmail("");
       } else {
         setMessage({
@@ -57,28 +66,59 @@ const Newsletter = () => {
   };
 
   return (
-    <div className=" w-full relative max-sm:w-full  max-sm:mt-0 max-md:w-[60%]">
-      <p className="text-24 max-sm:text-24 max-md:text-[2.5vw] font-sans  mb-[3vw]">
+    <div className="w-full relative max-sm:w-full max-sm:mt-0 max-md:w-[60%]">
+      <p className="text-24 max-sm:text-24 max-md:text-[2.5vw] font-sans mb-[3vw]">
         Subscribe to our newsletter for the latest tech insights and updates.
       </p>
+
       <form
         onSubmit={handleSubmit}
-        className="flex items-center max-w-full gap-4 justify-center max-sm:max-w-full max-md:max-w-[80%] max-sm:pl-4 relative bg-transparent"
+        className="flex flex-col gap-6 max-w-full max-sm:max-w-full max-md:max-w-[80%] relative bg-transparent"
       >
-        <div className="group relative w-[60%] max-sm:w-[80%] max-md:w-[80%]">
+        <div className="group relative w-full max-sm:w-[80%] max-md:w-[80%]">
+          <label
+            htmlFor="newsletter-name"
+            className={`
+              origin-start pointer-events-none font-medium absolute left-0 px-2 transition-all duration-200
+              ${
+                name
+                  ? "top-[-25%] -translate-y-0 text-xs"
+                  : "top-1/2 -translate-y-1/2 text-sm"
+              }
+              group-focus-within:top-[-25%]
+              group-focus-within:-translate-y-0
+              group-focus-within:text-xs
+            `}
+          >
+            <span className="inline-flex max-sm:text-[3vw] max-md:text-[2vw] text-20 capitalize text-foreground/40">
+              Enter your name
+            </span>
+          </label>
+          <Input
+            id="newsletter-name"
+            type="text"
+            placeholder=" "
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            disabled={isLoading}
+            className="bg-transparent! border text-lg border-white border-l-0 border-r-0 border-t-0 !rounded-xs"
+          />
+        </div>
+
+        <div className="group relative w-full max-sm:w-[80%] max-md:w-[80%]">
           <label
             htmlFor="newsletter-input"
             className={`
-    origin-start pointer-events-none font-medium absolute left-0 px-2 transition-all duration-200
-    ${
-      email
-        ? "top-[-25%] -translate-y-0 text-xs"
-        : "top-1/2 -translate-y-1/2 text-sm"
-    }
-    group-focus-within:top-[-25%]
-    group-focus-within:-translate-y-0 
-    group-focus-within:text-xs
-  `}
+              origin-start pointer-events-none font-medium absolute left-0 px-2 transition-all duration-200
+              ${
+                email
+                  ? "top-[-25%] -translate-y-0 text-xs"
+                  : "top-1/2 -translate-y-1/2 text-sm"
+              }
+              group-focus-within:top-[-25%]
+              group-focus-within:-translate-y-0 
+              group-focus-within:text-xs
+            `}
           >
             <span className="inline-flex max-sm:text-[3vw] max-md:text-[2vw] text-20 capitalize text-foreground/40">
               Enter your email
@@ -94,16 +134,18 @@ const Newsletter = () => {
             className="bg-transparent! border text-lg border-white border-l-0 border-r-0 border-t-0 !rounded-xs"
           />
         </div>
+
         <button
           type="submit"
           disabled={isLoading}
-          className="px-[1.5vw]  py-[0.5vw] max-sm:mt-2 max-md:mt-[2vw] max-md:px-[5vw] max-md:py-[1.5vw] cursor-pointer rounded-full text-white text-[1vw] max-md:text-[2.5vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-md:w-fit max-sm:mx-auto  bg-[#F16B0D] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-[1.5vw] py-[0.5vw] max-sm:mt-2 max-md:mt-[2vw] max-md:px-[5vw] max-md:py-[1.5vw] cursor-pointer rounded-full text-white text-[1vw] max-md:text-[2.5vw] font-sans transition-all hover:opacity-90 max-sm:text-[4vw] max-sm:px-[7vw] max-sm:py-[2vw] max-md:w-fit max-sm:mx-auto bg-[#F16B0D] disabled:opacity-50 disabled:cursor-not-allowed w-fit"
         >
           {isLoading ? "Subscribing..." : "Subscribe"}
         </button>
+
         {message.text && (
           <p
-            className={`text-sm mt-2 top-full max-sm:bottom-0 max-md:left-[0%] left-unset absolute max-sm:text-[3vw] max-md:text-[2vw] ${
+            className={`text-sm mt-2 max-sm:text-[3vw] max-md:text-[2vw] ${
               message.type === "success" ? "text-green-500" : "text-red-500"
             }`}
           >

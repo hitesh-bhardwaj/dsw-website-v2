@@ -17,6 +17,7 @@ import Search from "../../Svg/Search";
 import { NAV_LINKS } from "./nav-data";
 import SearchModal from "../Search/SearchModal";
 import dynamic from "next/dynamic";
+import { pushGTMEvent } from '@/lib/gtm'; 
 
 const MEGA_MENU_IDS = ["solutions", "technology", "resources"];
 
@@ -299,11 +300,13 @@ export default function HeaderNew() {
                   <Search />
                 </button>
 
-                <SecondaryButton text="Contact Us" href="/contact-us" />
+                <SecondaryButton text="Contact Us" href="/contact-us" onClick={() => pushGTMEvent('contact_navigation_clicked', 'Home - Header - Contact Us')} />
                 <PrimaryButton
                   text="Join a Live Demo"
                   href="/live-demo"
                   className="px-[1.7vw]!"
+                  onClick={() => pushGTMEvent('contact_navigation_clicked', 'Home - Header - Join Live Demo')}
+
                 />
               </div>
             )}

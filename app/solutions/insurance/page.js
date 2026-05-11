@@ -1,7 +1,7 @@
 import { getPageMetadata } from "@/components/config/metadata";
-// import CTAPricing from "@/components/CTAPricing";
+import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
-// import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
@@ -20,7 +20,7 @@ const CertificationsAndAwards = dynamic(
   () => import("@/components/Homepage/CertificationsAndAwards"),
   {
     ssr: true,
-  }
+  },
 );
 
 const Benefits = dynamic(() => import("@/components/Solution/Benefits"), {
@@ -35,7 +35,7 @@ const CaseStudySwiper = dynamic(
   () => import("@/components/Solution/CaseStudySwiper"),
   {
     ssr: true,
-  }
+  },
 );
 
 const Features = dynamic(() => import("@/components/Solution/Features"), {
@@ -96,6 +96,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
+        <CTAPricing />
+        <PricingTableWrapper />
         <CaseStudySwiper />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards
@@ -300,7 +302,7 @@ const benefitsContent = {
 const ctaContent = {
   heading: "Operate Insurance AI as Enterprise Infrastructure  ",
   para: "See how DSW UnifyAI OS - The Enterprise AI Operating System governs execution across underwriting, claims, fraud, operations, and customer engagement. ",
-   primaryButton: {
+  primaryButton: {
     present: true,
     link: "#",
     text: "Book a Demo",

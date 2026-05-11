@@ -1,4 +1,3 @@
-
 import { getPageMetadata } from "@/components/config/metadata";
 import CTAPricing from "@/components/CTAPricing";
 import HeroNew from "@/components/Layout/HeroNew";
@@ -21,7 +20,7 @@ const CertificationsAndAwards = dynamic(
   () => import("@/components/Homepage/CertificationsAndAwards"),
   {
     ssr: true,
-  }
+  },
 );
 
 const Benefits = dynamic(() => import("@/components/Solution/Benefits"), {
@@ -93,6 +92,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
+        <CTAPricing />
+        <PricingTableWrapper />
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards
@@ -316,7 +317,7 @@ const ctaContent = {
     link: "/contact-us",
     text: "Talk to our Team",
   },
-}
+};
 
 const operationsContent = {
   heading:
@@ -375,4 +376,3 @@ const certificationsContent = {
   footerText:
     "Supports auditability, traceability, and compliance across production, safety, and operational workflows.",
 };
-

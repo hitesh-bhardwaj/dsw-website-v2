@@ -10,6 +10,7 @@ import PrimaryButton from "../Buttons/PrimaryButton";
 import SecondaryButton from "../Buttons/SecondaryButton";
 // import PrimaryButton from "../PrimaryButton";
 // import SecondaryButton from "./SecondaryButton";
+import { pushGTMEvent } from '@/lib/gtm';
 
 const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgWorker"), {
   ssr: false,
@@ -106,12 +107,11 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
             <p className="text-30 text-center max-w-[60%] mx-auto text-[#333333] max-sm:max-w-[90%] hero-content">
               {heroContent?.tagline}
             </p>
-       )} 
+          )}
 
           <h1
-            className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${
-              heroContent?.headingWidth || "w-[70%]"
-            }`}
+            className={`text-110 hero-heading text-[#0A1B4B] leading-[1.2] text-center mx-auto max-sm:w-full max-md:w-[85%] hero-head ${heroContent?.headingWidth || "w-[70%]"
+              }`}
             dangerouslySetInnerHTML={{ __html: heroContent?.heading || "" }}
           />
         </div>
@@ -124,6 +124,10 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
                   onClick={(e) => {
                     if (heroContent?.primaryButton?.book) {
                       e.preventDefault();
+                      pushGTMEvent(
+                        'contact_navigation_clicked',
+                        'Home - Content - Book a Demo',
+                      );
                       openModal();
                     }
                   }}
@@ -136,6 +140,7 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
                 <SecondaryButton
                   text={heroContent?.secondaryButton?.text}
                   href={heroContent?.secondaryButton?.link}
+                  onClick={() => pushGTMEvent('contact_navigation_clicked', 'Home - Content - Talk to Us')}
                 />
               )}
             </div>
@@ -144,14 +149,13 @@ export default function HeroNew({ heroContent, variant, breadcrumbs }) {
 
         {heroContent?.para && (
           <div
-            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${
-              heroContent?.paraWidth
-                ? heroContent?.paraWidth
-                : "w-[60%] max-md:w-[80%]"
-            }`}
+            className={`py-[1.5vw] mt-[3vw] mx-auto text-center max-sm:w-full max-sm:mt-[7vw] ${heroContent?.paraWidth
+              ? heroContent?.paraWidth
+              : "w-[60%] max-md:w-[80%]"
+              }`}
           >
             <p className="text-24 hero-content text-[#333333]">
-              {heroContent?.para}​
+              {heroContent?.para}
             </p>
           </div>
         )}

@@ -11,17 +11,11 @@ import React, {
 const ModalContext = createContext(null);
 
 export function ModalProvider({ children }) {
-  /* -------------------------
-   * Existing modals
-   * ------------------------- */
   const [open, setOpen] = useState(false);
   const [openWalkThrough, setOpenWalkThrough] = useState(false);
   const [openPricing, setOpenPricing] = useState(false);
   const [openPdfModal, setOpenPdfModal] = useState(false);
 
-  /* -------------------------
-   * Walkthrough state
-   * ------------------------- */
   const [walkthroughTarget, setWalkthroughTarget] = useState(null);
 
   const [walkthroughCompleted, setWalkthroughCompleted] = useState({
@@ -29,33 +23,10 @@ export function ModalProvider({ children }) {
     agentic: false,
   });
 
-  /* Shared payload */
   const [payload, setPayload] = useState(null);
 
-  /* Persisted submit flag */
-  const [formSubmitted, setFormSubmittedState] = useState(() => {
-    if (typeof window !== "undefined") {
-      try {
-        return sessionStorage.getItem("formSubmitted") === "true";
-      } catch (e) {
-        return false;
-      }
-    }
-    return false;
-  });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
-  const setFormSubmitted = useCallback((value) => {
-    if (typeof window !== "undefined") {
-      try {
-        sessionStorage.setItem("formSubmitted", String(value));
-      } catch (e) {}
-    }
-    setFormSubmittedState(value);
-  }, []);
-
-  /* -------------------------
-   * Existing helpers
-   * ------------------------- */
   const openModal = useCallback(() => setOpen(true), []);
 
   const openWith = useCallback((p) => {
@@ -114,72 +85,73 @@ export function ModalProvider({ children }) {
         setOpenPricing(true);
         break;
 
+      case "pdf":
+        setOpenPdfModal(true);
+        break;
+
       default:
         break;
     }
   }, []);
 
   const value = useMemo(
-  () => ({
-    open,
-    setOpen,
-    openModal,
-    openWith,
+    () => ({
+      open,
+      setOpen,
+      openModal,
+      openWith,
 
-    openWalkThrough,
-    setOpenWalkThrough,
-    openWalkThroughModal,
-    openWithWalkthrough,
+      openWalkThrough,
+      setOpenWalkThrough,
+      openWalkThroughModal,
+      openWithWalkthrough,
 
-    openPricing,
-    setOpenPricing,
-    openPricingModal,
-    openWithPricing,
+      openPricing,
+      setOpenPricing,
+      openPricingModal,
+      openWithPricing,
 
-    openPdfModal,
-    setOpenPdfModal,
-    openPdf,
+      openPdfModal,
+      setOpenPdfModal,
+      openPdf,
 
-    walkthroughTarget,
-    setWalkthroughTarget,
+      walkthroughTarget,
+      setWalkthroughTarget,
 
-    walkthroughCompleted,
-    markWalkthroughCompleted,
+      walkthroughCompleted,
+      markWalkthroughCompleted,
 
-    openWalkthroughSmart,
+      openWalkthroughSmart,
 
-    payload,
-    setPayload,
+      payload,
+      setPayload,
 
-    formSubmitted,
-    setFormSubmitted,
+      formSubmitted,
+      setFormSubmitted,
 
-    openByKey,
-  }),
-  [
-    open,
-    openWalkThrough,
-    openPricing,
-    openPdfModal,            // ✅ ADD THIS
-    setOpenPdfModal,         // ✅ ADD THIS
-
-    walkthroughTarget,
-    walkthroughCompleted,
-    payload,
-    formSubmitted,
-
-    openModal,
-    openWith,
-    openWalkThroughModal,
-    openWithWalkthrough,
-    openPricingModal,
-    openWithPricing,
-    openWalkthroughSmart,
-    markWalkthroughCompleted,
-    openByKey,
-    setFormSubmitted,
-  ],
-);
+      openByKey,
+    }),
+    [
+      open,
+      openWalkThrough,
+      openPricing,
+      openPdfModal,
+      walkthroughTarget,
+      walkthroughCompleted,
+      payload,
+      formSubmitted,
+      openModal,
+      openWith,
+      openWalkThroughModal,
+      openWithWalkthrough,
+      openPricingModal,
+      openWithPricing,
+      openPdf,
+      openWalkthroughSmart,
+      markWalkthroughCompleted,
+      openByKey,
+    ]
+  );
 
   return (
     <ModalContext.Provider value={value}>{children}</ModalContext.Provider>

@@ -1,3 +1,4 @@
+import { label } from "motion/react-m";
 import {
   Facebook,
   Insta,
@@ -96,7 +97,8 @@ export const NAV_LINKS = [
     children: [
       {
         id: "tech-1",
-        label: "Technical Overview of the OS",
+        //label: "Technical Overview of the OS",
+        label: "The UnifyAI OS",
         href: "/aios-technical",
         description:
           "Built for enterprises that don’t just build AI - but operate it.",
@@ -182,7 +184,7 @@ export const NAV_LINKS = [
       {
         id: "res-8",
         label: "Whitepapers",
-        href: "#",
+        href: "/whitepapers",
         description: "Research on AI systems, fraud, and data platforms.",
         group: "Downloads",
       },

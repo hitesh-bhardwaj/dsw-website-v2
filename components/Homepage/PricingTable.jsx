@@ -2,159 +2,269 @@
 
 import React from "react";
 
+const CheckIcon = () => (
+  <svg
+    width="34"
+    height="34"
+    viewBox="0 0 34 34"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="mx-auto h-[2.3vw] w-[2.3vw] max-md:h-[4vw] max-md:w-[4vw] max-sm:h-[6vw] max-sm:w-[6vw]"
+  >
+    <path
+      d="M9 17.5L14.3 22.8L25.5 11.5"
+      stroke="#0205FA"
+      strokeWidth="4"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const RobotIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" className="h-[2.5vw] w-[2.5vw] max-md:h-[5vw] max-md:w-[5vw] max-sm:h-[7vw] max-sm:w-[7vw]">
+    <rect x="9" y="16" width="30" height="22" rx="3" stroke="#0205FA" strokeWidth="2.6" />
+    <path d="M24 16V9" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <circle cx="24" cy="7" r="2.5" stroke="#0205FA" strokeWidth="2.2" />
+    <circle cx="18" cy="27" r="2" fill="#0205FA" />
+    <circle cx="30" cy="27" r="2" fill="#0205FA" />
+    <path d="M4 24H9" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <path d="M39 24H44" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+  </svg>
+);
+
+const CurrencyIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" className="h-[2.5vw] w-[2.5vw] max-md:h-[5vw] max-md:w-[5vw] max-sm:h-[7vw] max-sm:w-[7vw]">
+    <circle cx="24" cy="24" r="18" stroke="#0205FA" strokeWidth="2.6" />
+    <path d="M17 15H31" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <path d="M17 21H31" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <path d="M20 15C27 15 29 21 23 25L18 25L29 34" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
+const RocketIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" className="h-[2.5vw] w-[2.5vw] max-md:h-[5vw] max-md:w-[5vw] max-sm:h-[7vw] max-sm:w-[7vw]">
+    <path d="M28 8C34 8 39 9 40 10C39 19 35 26 28 31L18 21C21 14 24 10 28 8Z" stroke="#0205FA" strokeWidth="2.6" strokeLinejoin="round" />
+    <circle cx="30" cy="18" r="3.5" stroke="#0205FA" strokeWidth="2.4" />
+    <path d="M18 21L10 23L16 29" stroke="#0205FA" strokeWidth="2.6" strokeLinejoin="round" />
+    <path d="M28 31L25 39L19 33" stroke="#0205FA" strokeWidth="2.6" strokeLinejoin="round" />
+    <path d="M15 33L9 39" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <path d="M20 36L17 42" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <path d="M12 28L6 31" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+  </svg>
+);
+
+const SupportIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" className="h-[2.5vw] w-[2.5vw] max-md:h-[5vw] max-md:w-[5vw] max-sm:h-[7vw] max-sm:w-[7vw]">
+    <path d="M12 27V22C12 15 17 10 24 10C31 10 36 15 36 22V27" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <rect x="8" y="25" width="7" height="10" rx="3" stroke="#0205FA" strokeWidth="2.6" />
+    <rect x="33" y="25" width="7" height="10" rx="3" stroke="#0205FA" strokeWidth="2.6" />
+    <path d="M36 35C36 39 32 41 27 41" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+    <circle cx="24" cy="41" r="2.2" stroke="#0205FA" strokeWidth="2.2" />
+  </svg>
+);
+
+const UserIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" className="h-[2.5vw] w-[2.5vw] max-md:h-[5vw] max-md:w-[5vw] max-sm:h-[7vw] max-sm:w-[7vw]">
+    <circle cx="24" cy="24" r="18" stroke="#0205FA" strokeWidth="2.6" />
+    <circle cx="24" cy="19" r="6" stroke="#0205FA" strokeWidth="2.6" />
+    <path d="M13 36C15.5 30.5 19 28 24 28C29 28 32.5 30.5 35 36" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" />
+  </svg>
+);
+
+const ShieldIcon = () => (
+  <svg viewBox="0 0 48 48" fill="none" className="h-[2.5vw] w-[2.5vw] max-md:h-[5vw] max-md:w-[5vw] max-sm:h-[7vw] max-sm:w-[7vw]">
+    <path d="M24 7L38 13V23C38 33 32 39 24 42C16 39 10 33 10 23V13L24 7Z" stroke="#0205FA" strokeWidth="2.6" strokeLinejoin="round" />
+    <path d="M18 24L22 28L31 19" stroke="#0205FA" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 const PricingTable = ({ region = "IN" }) => {
   const pricingByRegion = {
     IN: {
-      currencySymbol: "INR",
-      slabs: [
+      currencyLabel: "INR",
+      pricePrefix: "Rs.",
+      plans: [
         {
-          capability: "Starter",
-          delivers: "Up to 5 Use Cases",
+          name: "Starter",
+          useCases: "Upto 5 Use Cases",
           price: "45,00,000",
         },
         {
-          capability: "Growth",
-          delivers: "Up to 15 Use Cases",
+          name: "Growth",
+          useCases: "Upto 15 Use Cases",
           price: "85,00,000",
+          popular: true,
         },
         {
-          capability: "Scale",
-          delivers: "Up to 40 Use Cases",
+          name: "Scale",
+          useCases: "Upto 40 Use Cases",
           price: "1,50,00,000",
         },
         {
-          capability: "Enterprise Edition",
-          delivers: "Unlimited Use Cases",
-          price: "3,50,00,000",
+          name: "Enterprise Edition",
+          useCases: "Unlimited Use Cases",
+          price: "Contact Sales",
+          isContact: true,
         },
       ],
     },
     US: {
-      currencySymbol: "USD",
-      slabs: [
+      currencyLabel: "USD",
+      pricePrefix: "$",
+      plans: [
         {
-          capability: "Starter",
-          delivers: "Up to 5 Use Cases",
+          name: "Starter",
+          useCases: "Upto 5 Use Cases",
           price: "54,000",
         },
         {
-          capability: "Growth",
-          delivers: "Up to 15 Use Cases",
+          name: "Growth",
+          useCases: "Upto 15 Use Cases",
           price: "102,000",
+          popular: true,
         },
         {
-          capability: "Scale",
-          delivers: "Up to 40 Use Cases",
+          name: "Scale",
+          useCases: "Upto 40 Use Cases",
           price: "180,000",
         },
         {
-          capability: "Enterprise Edition",
-          delivers: "Unlimited Use Cases",
-          price: "420,000",
-        },
-      ],
-    },
-    EU: {
-      currencySymbol: "EUR",
-      slabs: [
-        {
-          capability: "Starter",
-          delivers: "Up to 5 Use Cases",
-          price: "50,000",
-        },
-        {
-          capability: "Growth",
-          delivers: "Up to 15 Use Cases",
-          price: "95,000",
-        },
-        {
-          capability: "Scale",
-          delivers: "Up to 40 Use Cases",
-          price: "168,000",
-        },
-        {
-          capability: "Enterprise Edition",
-          delivers: "Unlimited Use Cases",
-          price: "392,000",
+          name: "Enterprise Edition",
+          useCases: "Unlimited Use Cases",
+          price: "Contact Sales",
+          isContact: true,
         },
       ],
     },
   };
 
-  const activePricing = pricingByRegion[region] || pricingByRegion.US;
-  const capabilities = activePricing.slabs;
+  const activePricing = pricingByRegion[region] || pricingByRegion.IN;
 
-  const line = `
-    w-[5px] h-[1px]
-    duration-300 ease-in-out
-  `;
+  const inclusions = [
+    {
+      icon: <RobotIcon />,
+      label: "AI-ML / Agentic AI Use Cases",
+    },
+    {
+      icon: <CurrencyIcon />,
+      label: `Annual Subscription (${activePricing.currencyLabel})`,
+    },
+    {
+      icon: <RocketIcon />,
+      label: "Deployment & Activation",
+    },
+    {
+      icon: <SupportIcon />,
+      label: "24*7 Enterprise Support",
+    },
+    {
+      icon: <UserIcon />,
+      label: "Dedicated Technical Success Manager (TSM)",
+    },
+    {
+      icon: <ShieldIcon />,
+      label: "Enterprise Ownership (No Vendor Lock-in)",
+    },
+  ];
+
+  const getPrice = (plan) => {
+    if (plan.isContact) return plan.price;
+
+    if (activePricing.currencyLabel === "USD") {
+      return `${activePricing.pricePrefix}${plan.price}`;
+    }
+
+    return `${activePricing.pricePrefix} ${plan.price}`;
+  };
 
   return (
-    <div className="w-[65%] max-sm:overflow-y-hidden max-sm:w-screen max-sm:overflow-x-hidden mx-auto relative max-md:w-[85%] pb-[7%] max-md:pb-[10%] max-sm:pb-[15%] max-sm:mt-[-20vw] max-md:-mt-[10vw] fadeup">
-      <div className="w-full max-sm:overflow-x-scroll mobile-scrollbar max-sm:pb-[8vw] max-sm:overflow-y-hidden max-sm:px-[5vw] max-sm:mx-0 relative">
-        <div className="w-full max-sm:w-[150%] mx-auto relative">
-          <div>
-            <div className="absolute z-10 w-fit h-fit group-hover:-top-[3%] group-hover:-left-[3%] duration-300 ease-in-out ">
-              <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-              <div
-                className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2.2px] -left-1/2`}
-              />
+    <section className="w-full bg-white px-[4vw] pb-[5vw] mt-[-3vw] max-md:mt-[-25vw] max-md:px-0 fadeup">
+      <h2 className="text-center text-[#071B52] text-[3vw] leading-[1.1] font-normal mb-[5.2vw] max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
+        UnifyAI OS Pricing
+      </h2>
+
+      <div className="w-full max-md:overflow-x-auto max-sm:pb-[8vw] mobile-scrollbar max-md:px-[7vw] max-md:py-[10vw]">
+        <div className="grid grid-cols-[2.05fr_repeat(4,1fr)] gap-[1vw] min-w-[92vw] max-md:min-w-[200vw] max-sm:min-w-[345vw] max-md:gap-[2vw] max-sm:gap-[4vw]">
+          <div className="overflow-hidden rounded-[1vw] border border-[#D9D9D9] bg-[#EAF4FF] max-md:rounded-[2vw] max-sm:rounded-[4vw]">
+            <div className="h-[4.5vw] bg-[#0205FA] flex items-center px-[2vw] max-md:h-[8vw] max-sm:h-[14vw] max-sm:px-[5vw]">
+              <h3 className="text-white text-[1.35vw] font-medium max-md:text-[2.5vw] max-sm:text-[5vw]">
+                Inclusions
+              </h3>
             </div>
 
-            <div className="absolute z-10 top-[0.6%] right-[-0.2%] w-fit h-fit rotate-90 group-hover:-top-[2.2%] group-hover:-right-[4.5%] duration-300 ease-in-out max-sm:right-[-0.4%]">
-              <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-              <div
-                className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-              />
-            </div>
+            <div>
+              {inclusions.map((item, index) => (
+                <div
+                  key={index}
+                  className="h-[5.25vw] flex items-center gap-[1.6vw] px-[2vw] border-b border-[#D9D9D9] last:border-b-0 max-md:h-[9vw] max-md:gap-[3vw] max-sm:h-[17vw] max-sm:gap-[5vw] max-sm:px-[5vw]"
+                >
+                  <div className="shrink-0">{item.icon}</div>
 
-            <div className="absolute bottom-[0.55%] z-10 left-[-0.2%] w-fit h-fit -rotate-90 group-hover:-bottom-[2.2%] group-hover:-left-[4.5%] duration-300 ease-in-out max-sm:-left-[0.4%]">
-              <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-              <div
-                className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-              />
-            </div>
-
-            <div className="absolute -bottom-0 z-10 right-[0.05%] w-fit h-fit rotate-180 group-hover:-bottom-[3%] group-hover:-right-[3%] duration-300 ease-in-out max-sm:right-[0.1%]">
-              <div className={`${line} bg-black group-hover:bg-[#0205fa]`} />
-              <div
-                className={`${line} bg-black group-hover:bg-[#0205fa] rotate-90 absolute top-[2px] -left-1/2`}
-              />
+                  <p className="text-[#111111] text-[1.25vw] leading-[1.15] max-md:text-[2.6vw] max-sm:text-[5vw]">
+                    {item.label}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
-          <table className="border-collapse w-full h-full border border-[#D9D9D9]">
-            <thead>
-              <tr className="bg-white">
-                <th className="border border-[#D9D9D9] text-foreground max-sm:text-[5vw]! px-6 py-6 text-left text-44 font-medium font-heading">
-                  Slab
-                </th>
-                <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-44 font-medium font-heading text-primary-blue">
-                  AI Use Case Capacity (Self-built)
-                </th>
-                <th className="border border-[#D9D9D9] max-sm:text-[5vw]! px-6 py-6 text-left text-44 font-medium font-heading text-primary-blue">
-                  Annual Subscription
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {capabilities.map((item, index) => (
-                <tr key={index} className="bg-white">
-                  <td className="border border-[#D9D9D9] max-sm:pl-[8vw] px-6 py-5 text-30 text-foreground">
-                    {item.capability}
-                  </td>
-                  <td className="border border-[#D9D9D9] px-6 py-5 text-24 text-[#333333]">
-                    {item.delivers}
-                  </td>
-                  <td className="border border-[#D9D9D9] px-6 py-5 text-24 text-[#333333] font-medium">
-                    {activePricing.currencySymbol} {item.price}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+
+          {activePricing.plans.map((plan) => (
+            <div
+              key={plan.name}
+              className={`relative rounded-[1vw] bg-white border overflow-visible max-md:rounded-[2vw] max-sm:rounded-[4vw] border-[#D9D9D9]`}
+            >
+              {plan.popular && (
+                <div className="w-[105%] h-[110%] rounded-[1vw] border border-[#0205FA] absolute top-[-5%] left-[-2.5%] z-[2] max-sm:rounded-[4vw]">
+
+                <div className="absolute top-[-2%] left-1/2 -translate-x-1/2 z-10 h-[1.8vw] min-w-[9.6vw] rounded-full border border-[#0205FA] bg-white flex items-center justify-center px-[1.2vw] max-md:top-[-1.7vw] max-md:h-[3.4vw] max-md:min-w-[17vw] max-sm:top-[-3.5vw] max-sm:h-[7vw] max-sm:min-w-[35vw]">
+                  <span className="text-[#0205FA] text-[1vw] font-medium leading-none max-md:text-[2vw] max-sm:text-[4vw]">
+                    Most Popular
+                  </span>
+                </div>
+                </div>
+              )}
+
+              <div className="overflow-hidden rounded-[0.85vw] max-md:rounded-[1.8vw] max-sm:rounded-[3.6vw]">
+                <div className="h-[4.5vw] bg-[#0205FA] flex items-center justify-center px-[1vw] max-md:h-[8vw] max-sm:h-[14vw]">
+                  <h3 className="text-white text-center text-[1.35vw] font-medium leading-[1.1] max-md:text-[2.5vw] max-sm:text-[4.8vw]">
+                    {plan.name}
+                  </h3>
+                </div>
+
+                <div>
+                  <div className="h-[5.25vw] flex items-center justify-center px-[1vw] border-b border-[#D9D9D9] max-md:h-[9vw] max-sm:h-[17vw]">
+                    <p className="text-[#111111] text-center text-[1.25vw] leading-[1.15] font-semibold max-md:text-[2.5vw] max-sm:text-[4.6vw]">
+                      {plan.useCases}
+                    </p>
+                  </div>
+
+                  <div className="h-[5.25vw] flex items-center justify-center px-[1vw] border-b border-[#D9D9D9] max-md:h-[9vw] max-sm:h-[17vw]">
+                    <p className="text-[#111111] text-center text-[1.25vw] leading-[1.15] max-md:text-[2.5vw] max-sm:text-[4.6vw]">
+                      {getPrice(plan)}
+                    </p>
+                  </div>
+
+                  {[0, 1, 2, 3].map((item) => (
+                    <div
+                      key={item}
+                      className="h-[5.25vw] flex items-center justify-center px-[1vw] border-b border-[#D9D9D9] last:border-b-0 max-md:h-[9vw] max-sm:h-[17vw]"
+                    >
+                      <CheckIcon />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    </div>
+
+      <div className="mt-[3vw] text-[#111111] text-[1.35vw] leading-[1.6] max-md:text-[2.5vw] max-md:mt-[5vw] max-sm:text-[4.6vw] max-sm:px-[5vw] max-sm:mt-[6vw] max-md:px-[7vw]">
+        <p>* All prices are exclusive of applicable taxes</p>
+        <p>* No separate installation or activation charges</p>
+      </div>
+    </section>
   );
 };
 

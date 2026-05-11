@@ -22,7 +22,7 @@ const OfficeLocations = () => {
         </Copy>
         <Copy>
           <p className="text-24 max-md:text-30 max-sm:text-24 text-foreground">
-            850, New Burton Road, Suite 201,City Dover, County -  Kent - 19904, Delaware - United States of America.
+            Data Science Wizards Inc. <br/> 455, The Mill Wilmington, 04th Floor, 10th Street, Wilmington, DE 19801, Delaware
           </p>
         </Copy>
       </div>

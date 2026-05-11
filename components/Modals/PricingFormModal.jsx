@@ -3,15 +3,48 @@
 import { gsap, useGSAP } from "@/lib/gsapCore";
 import React, { useEffect, useRef } from "react";
 import { useLenis } from "lenis/react";
+import { usePathname, useRouter } from "next/navigation";
 import { useModal } from "../ModalProvider";
 import PricingForm from "./PricingForm";
 
 const PricingPopup = () => {
   const lenis = useLenis();
-  const { openPricing, setOpenPricing, payload, setPayload } = useModal();
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const { openPricing, setOpenPricing, setPayload } = useModal();
 
   const clearPayloadTimeoutRef = useRef(null);
   const popupRef = useRef(null);
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    const params = new URLSearchParams(window.location.search);
+    const currentForm = params.get("form");
+
+    if (openPricing) {
+      if (currentForm !== "pricing-details") {
+        params.set("form", "pricing-details");
+
+        const queryString = params.toString();
+        router.replace(
+          queryString ? `${pathname}?${queryString}` : pathname,
+          { scroll: false }
+        );
+      }
+    } else {
+      if (currentForm === "pricing-details") {
+        params.delete("form");
+
+        const queryString = params.toString();
+        router.replace(
+          queryString ? `${pathname}?${queryString}` : pathname,
+          { scroll: false }
+        );
+      }
+    }
+  }, [openPricing, pathname, router]);
 
   useEffect(() => {
     if (!openPricing) {

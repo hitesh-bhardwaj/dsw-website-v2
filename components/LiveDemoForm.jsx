@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -12,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "./ui/form";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { PhoneInput } from "./ui/phone-input";
+import { pushGTMEvent } from '@/lib/gtm';
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
@@ -22,30 +24,29 @@ const formSchema = z.object({
 });
 
 export default function LiveDemoForm() {
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: { name: "", email: "", number: "", designation: "", company: "" },
   });
 
-  const { control, handleSubmit, setError, clearErrors, getValues } = form;
+  const { control, handleSubmit, setError, clearErrors } = form;
   const [isLoading, setIsLoading] = useState(false);
   const [submitted, setIsSubmitted] = useState(false);
   const [notsubmitted, setIsNotSubmitted] = useState(false);
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  const { payload /* { pdfUrl, fileName } */, setFormSubmitted, setOpen } = useModal();
+  const { payload, setFormSubmitted, setOpen } = useModal();
 
-  // Email verification function - only called on blur or submit
   const verifyEmail = useCallback(async (email) => {
-    // Basic email format check first
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
       setEmailVerified(false);
       return false;
     }
 
-    // Check if email domain is blocked (free email providers)
     if (isEmailDomainBlocked(email)) {
       setEmailVerified(false);
       setError("email", {
@@ -93,7 +94,6 @@ export default function LiveDemoForm() {
       }
     } catch (error) {
       console.error("Email verification error:", error);
-      // On error, don't block the form but log the error
       setEmailVerified(true);
       clearErrors("email");
       return true;
@@ -102,33 +102,28 @@ export default function LiveDemoForm() {
     }
   }, [setError, clearErrors]);
 
-  // Handle email blur event
   const handleEmailBlur = useCallback(async (email) => {
     await verifyEmail(email);
   }, [verifyEmail]);
 
   const downloadPdf = async (url, fileName) => {
-    // Always normalize to an absolute same-origin URL.
     const absoluteUrl = new URL(url, window.location.origin).href;
     const name = fileName || absoluteUrl.split("/").pop() || "download.pdf";
 
-    // 1) Best path: rely on browser to download static asset.
     try {
       const a = document.createElement("a");
       a.style.display = "none";
       a.href = absoluteUrl;
-      a.setAttribute("download", name); // same-origin works well
+      a.setAttribute("download", name);
       a.rel = "noopener";
       document.body.appendChild(a);
       a.click();
       a.remove();
-      return; // success (or at least we asked nicely)
+      return;
     } catch (e) {
-      // continue to next fallback
       console.warn("Direct anchor download failed, trying blob:", e);
     }
 
-    // 2) Fallback: blob download (some Safari versions don’t fully support)
     try {
       const res = await fetch(absoluteUrl, { credentials: "same-origin" });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -148,83 +143,86 @@ export default function LiveDemoForm() {
       console.warn("Blob download failed, opening in new tab:", e);
     }
 
-    // 3) Last resort (iOS/Safari etc.): open the PDF; user can save/share.
     window.open(absoluteUrl, "_blank", "noopener");
   };
 
   const onSubmit = async (data) => {
-  if (!emailVerified && !emailVerifying) {
-    const isValid = await verifyEmail(data.email);
-    if (!isValid) return;
-  }
+    if (!emailVerified && !emailVerifying) {
+      const isValid = await verifyEmail(data.email);
+      if (!isValid) return;
+    }
 
-  if (emailVerifying) {
-    setError("email", {
-      type: "manual",
-      message: "Please wait for email verification to complete.",
-    });
-    return;
-  }
+    if (emailVerifying) {
+      setError("email", {
+        type: "manual",
+        message: "Please wait for email verification to complete.",
+      });
+      return;
+    }
 
-  if (!emailVerified) {
-    setError("email", {
-      type: "manual",
-      message: "Please enter a valid business email address.",
-    });
-    return;
-  }
+    if (!emailVerified) {
+      setError("email", {
+        type: "manual",
+        message: "Please enter a valid business email address.",
+      });
+      return;
+    }
 
-  setIsLoading(true);
+    setIsLoading(true);
 
-  const pdfUrl = payload?.pdfUrl || null;
-  const pdfName =
-    payload?.fileName || (pdfUrl ? pdfUrl.split("/").pop() : null);
+    const pdfUrl = payload?.pdfUrl || null;
+    const pdfName =
+      payload?.fileName || (pdfUrl ? pdfUrl.split("/").pop() : null);
 
-  const formattedData = {
-    ...data,
-    pageUrl: typeof window !== "undefined" ? window.location.href : "",
-    ...(pdfUrl && {
-      downloaded: true,
-      downloadedPdfName: pdfName,
-      downloadedPdfUrl: pdfUrl,
-    }),
-  };
+    const formattedData = {
+      ...data,
+      pageUrl: typeof window !== "undefined" ? window.location.href : "",
+      ...(pdfUrl && {
+        downloaded: true,
+        downloadedPdfName: pdfName,
+        downloadedPdfUrl: pdfUrl,
+      }),
+    };
 
-  try {
-    const res = await fetch("/api/livedemoform", {
-      method: "POST",
-      body: JSON.stringify(formattedData),
-      headers: { "Content-Type": "application/json" },
-    });
+    try {
+      const res = await fetch("/api/livedemoform", {
+        method: "POST",
+        body: JSON.stringify(formattedData),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    if (!res.ok) throw new Error("Failed to send message");
+      if (!res.ok) throw new Error("Failed to send message");
 
-    setIsSubmitted(true);
-    setFormSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 5000);
-    form.reset();
-    setEmailVerified(false);
-    setEmailVerifying(false);
+      pushGTMEvent('form_submit_success', 'Live Demo Registration Success');
 
-    if (pdfUrl) {
-      try {
-        await downloadPdf(pdfUrl, pdfName || undefined);
-        setTimeout(() => setOpen(false), 800);
-      } catch (e) {
-        console.error("PDF download failed:", e);
+      setIsSubmitted(true);
+      setFormSubmitted(true);
+      setTimeout(() => setIsSubmitted(false), 5000);
+      form.reset();
+      setEmailVerified(false);
+      setEmailVerifying(false);
+
+      if (pdfUrl) {
+        try {
+          await downloadPdf(pdfUrl, pdfName || undefined);
+          setTimeout(() => setOpen(false), 800);
+        } catch (e) {
+          console.error("PDF download failed:", e);
+          setTimeout(() => setOpen(false), 800);
+        }
+      } else {
         setTimeout(() => setOpen(false), 800);
       }
-    } else {
-      setTimeout(() => setOpen(false), 800);
+
+      router.push("/thank-you");
+    } catch (error) {
+      setIsNotSubmitted(true);
+      setTimeout(() => setIsNotSubmitted(false), 5000);
+      console.error(error);
+    } finally {
+      setIsLoading(false);
     }
-  } catch (error) {
-    setIsNotSubmitted(true);
-    setTimeout(() => setIsNotSubmitted(false), 5000);
-    console.error(error);
-  } finally {
-    setIsLoading(false);
-  }
-};
+  };
 
   return (
     <>
@@ -244,10 +242,9 @@ export default function LiveDemoForm() {
                         className="placeholder:text-[1.05vw] pl-[2.5vw] bg-white/50 max-md:py-6 border h-[4.5vw] border-transparent rounded-full placeholder:text-[#111111] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw]" />
                     </FormControl><FormMessage /></FormItem>
                   )} />
-
                 </div>
-                <div className="formfade">
 
+                <div className="formfade">
                   <FormField name="email" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <div className="relative">
@@ -272,7 +269,6 @@ export default function LiveDemoForm() {
                 </div>
 
                 <div className="formfade">
-
                   <FormField name="designation" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <Input placeholder="Designation*" autoComplete="off" {...field}
@@ -282,7 +278,6 @@ export default function LiveDemoForm() {
                 </div>
 
                 <div className="formfade">
-
                   <FormField name="company" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <Input placeholder="Company Name*" autoComplete="off" {...field}
@@ -292,7 +287,6 @@ export default function LiveDemoForm() {
                 </div>
 
                 <div className="formfade">
-
                   <FormField name="number" control={control} render={({ field }) => (
                     <FormItem><FormControl>
                       <PhoneInput placeholder="Phone Number*" autoComplete="off" defaultCountry="IN" international {...field}
@@ -300,21 +294,20 @@ export default function LiveDemoForm() {
                     </FormControl><FormMessage /></FormItem>
                   )} />
                 </div>
+
                 <div className="formfade">
                   <Button
                     type="submit"
                     aria-label="submit form"
                     className="cursor-pointer mt-[2vw] bg-primary pb-[2.8vw] pt-[0.8vw] px-0 rounded-full max-sm:mx-auto max-md:mt-0 max-sm:py-[7vw] max-sm:mt-[4vw] max-md:py-[4.5vw] max-md:px-[3.5vw]"
                   >
-                    <div className="relative flex items-center justify-center h-fit min-w-[10vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                    <div className="relative flex items-center justify-center h-fit min-w-[10vw] px-[2vw] rounded-full overflow-hidden group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
                       <span className="text-22 text-white block z-[1] mt-[2vw] max-md:mt-0 max-sm:text-[4vw]">
                         {isLoading ? "Sending..." : "Submit"}
                       </span>
                       <span className="absolute inset-0 group-hover:scale-95 transition-transform duration-500 rounded-full" />
                     </div>
-
                   </Button>
-
                 </div>
               </form>
             </Form>

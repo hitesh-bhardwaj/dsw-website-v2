@@ -9,6 +9,7 @@ import dynamic from "next/dynamic";
 import Newsletter from "./Newsletter";
 import AnimatedHoverLink from "./AnimatedHoverLink";
 // import AnimatedHoverLink from "@/components/shared/AnimatedHoverLink";
+import { pushGTMEvent } from '@/lib/gtm';
 
 const DynamicFooterWave = dynamic(() => import("./FooterWave"), {
   ssr: false,
@@ -170,6 +171,7 @@ export default function FooterNew() {
                   <Link
                     prefetch={false}
                     href="mailto:Contact@datasciencewizards.ai"
+                    onClick={() => pushGTMEvent('external_link_click', 'Footer - Contact - Email')}
                     className="block text-24 max-md:text-[2.7vw] max-sm:text-[5vw] under-multi"
                   >
                     contact@datasciencewizards.ai
@@ -182,6 +184,7 @@ export default function FooterNew() {
                       prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+1 (408) 821-2124"
+                      onClick={() => pushGTMEvent('external_link_click', 'Footer - Contact - Phone(US)')}
                     >
                       +1 (408) 821-2124
                     </Link>
@@ -193,6 +196,7 @@ export default function FooterNew() {
                       prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+91 96640 56847"
+                      onClick={() => pushGTMEvent('external_link_click', 'Footer - Contact - Phone(India)')}
                     >
                       +91 96640 56847
                     </Link>
@@ -203,6 +207,7 @@ export default function FooterNew() {
                       prefetch={false}
                       className="text-24 max-md:text-[2.7vw] max-sm:text-[5vw]! under-multi"
                       href="tel:+353 894015233"
+                      onClick={() => pushGTMEvent('external_link_click', 'Footer - Contact - Phone(Ireland)')}
                     >
                       +353 894015233{" "}
                     </Link>
@@ -217,6 +222,7 @@ export default function FooterNew() {
                     prefetch={false}
                     key={social.name}
                     href={social.url}
+                    onClick={() => pushGTMEvent('external_link_click', `Footer - Social - ${social.name}`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`Visit Data Science Wizards on ${social.name}`}
@@ -246,9 +252,15 @@ export default function FooterNew() {
                   <li key={item.id}>
                     <AnimatedHoverLink
                       href={item.link}
+                      onClick={() => {
+                        if (item.id === "join-community") {
+                          pushGTMEvent('external_link_click', 'Footer - Community - WhatsApp');
+                        }
+                      }}
                       className="text-24 max-md:text-[2.5vw] overflow-clip hover:text-primary-blue transition-colors duration-300 block max-sm:text-[5vw]"
                       // optional if you want strict height:
                       maskClassName="h-[1.75vw] max-sm:h-[7vw] max-md:h-[4vw]"
+
                     >
                       {item.title}
                     </AnimatedHoverLink>

@@ -3,6 +3,7 @@ import React from "react";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import HeadingAnim from "../Animations/HeadingAnim";
 import { useModal } from "../ModalProvider";
+import { pushGTMEvent } from '@/lib/gtm';
 
 const helpCards = [
   {
@@ -59,9 +60,19 @@ const Help = () => {
               <p className="text-24 text-foreground">{card.description}</p>
               <PrimaryButton
                 onClick={(e) => {
+                  // 1. Handle Demo Button Click
                   if (card.demo) {
                     e.preventDefault();
                     openModal();
+                    pushGTMEvent('contact_navigation_clicked', `Contact-Page - HelpCard - ${card.buttonText}`);
+                  }
+                  // 2. Handle "Join Community" (External WhatsApp)
+                  else if (card.href.startsWith('http')) {
+                    pushGTMEvent('external_link_click', `Contact-Page - HelpCard - WhatsApp`);
+                  }
+                  // 3. Handle "Talk to Team" (Anchor Scroll)
+                  else if (card.href.startsWith('#')) {
+                    pushGTMEvent('contact_navigation_clicked', `Contact-Page - HelpCard - Scroll to Form`);
                   }
                 }}
                 href={card.href}

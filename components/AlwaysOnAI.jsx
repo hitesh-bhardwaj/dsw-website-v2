@@ -9,7 +9,7 @@ import Copy from "./Animations/Copy";
 import SectionBreak from "./SectionBreak";
 import PrimaryButton from "./Buttons/PrimaryButton";
 import { useModal } from "./ModalProvider";
-
+import { pushGTMEvent } from '@/lib/gtm';
 
 
 export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthroughTarget = "unify" }) {
@@ -113,7 +113,7 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
             </h2>
           </HeadingAnim>
           <Copy>
-            <p className="text-30 font-sans w-[60%] max-md:w-full mx-auto max-sm:w-full"  dangerouslySetInnerHTML={{ __html: content?.para || "" }}/>
+            <p className="text-30 font-sans w-[60%] max-md:w-full mx-auto max-sm:w-full" dangerouslySetInnerHTML={{ __html: content?.para || "" }} />
           </Copy>
         </div>
 
@@ -129,6 +129,7 @@ export default function AlwaysOnAI({ content, imgWidth, walkthrough, walkthrough
             <PrimaryButton text={"Start Walkthrough"} href={"#"} onClick={(e) => {
               e.preventDefault();
               openWalkthroughSmart(walkthroughTarget);
+              pushGTMEvent('contact_navigation_clicked', 'Walkthrough - Intent - Start')
             }} />
           </div>
         </div>

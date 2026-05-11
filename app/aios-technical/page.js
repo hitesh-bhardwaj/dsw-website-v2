@@ -17,6 +17,8 @@ import { homepage } from "@/lib/util"
 import CertificationsAndAwards from "@/components/Homepage/CertificationsAndAwards"
 import HeroNew from "@/components/Layout/HeroNew"
 import HomepageVideo from "@/components/Homepage/HomepageVideo"
+import CTAPricing from "@/components/CTAPricing"
+import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper"
 
 export const metadata = getPageMetadata({
   title: "Enterprise AI Operating System | DSW AIOS Technical",
@@ -54,8 +56,8 @@ const Page = () => {
         <Fragmented />
         <HomepageVideo/>
         <ArchitecturalPrinciples />
-        {/* <CTAPricing /> */}
-        {/* <PricingTableWrapper /> */}
+        <CTAPricing />
+        <PricingTableWrapper />
         <FiveAnchors />
         <SystemStructure />
         <GovernanceBuiltIn />

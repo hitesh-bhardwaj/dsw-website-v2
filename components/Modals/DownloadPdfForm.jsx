@@ -8,7 +8,6 @@ import { z } from "zod";
 import { isValidPhoneNumber } from "react-phone-number-input";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
 import { useModal } from "../ModalProvider";
-
 import {
   Form,
   FormControl,
@@ -19,6 +18,8 @@ import {
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { PhoneInput } from "../ui/phone-input";
+
+const CASESTUDY_STORAGE_KEY = "downloaded_case_studies";
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
@@ -50,7 +51,7 @@ export default function DownloadPdfForm() {
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  const { payload, setFormSubmitted, setOpenPdfModal } = useModal();
+  const { payload, setOpenPdfModal } = useModal();
 
   const verifyEmail = useCallback(
     async (email) => {
@@ -87,7 +88,6 @@ export default function DownloadPdfForm() {
           clearErrors("email");
           return true;
         } else {
-          setEmailVerified(false);
           let errorMessage = "Please enter a valid business email address.";
 
           if (data.didYouMean) {
@@ -100,6 +100,7 @@ export default function DownloadPdfForm() {
             errorMessage = "Please use your business email address.";
           }
 
+          setEmailVerified(false);
           setError("email", {
             type: "manual",
             message: errorMessage,
@@ -124,6 +125,19 @@ export default function DownloadPdfForm() {
     },
     [verifyEmail],
   );
+
+  const saveDownloadedCaseStudy = (slug) => {
+    if (typeof window === "undefined" || !slug) return;
+
+    try {
+      const raw = localStorage.getItem(CASESTUDY_STORAGE_KEY);
+      const parsed = raw ? JSON.parse(raw) : {};
+      parsed[slug] = true;
+      localStorage.setItem(CASESTUDY_STORAGE_KEY, JSON.stringify(parsed));
+    } catch (error) {
+      console.error("Failed to save case study download state:", error);
+    }
+  };
 
   const downloadPdf = async (url, fileName) => {
     const absoluteUrl = new URL(url, window.location.origin).href;
@@ -192,6 +206,7 @@ export default function DownloadPdfForm() {
     const pdfUrl = payload?.pdfUrl || null;
     const pdfName =
       payload?.fileName || (pdfUrl ? pdfUrl.split("/").pop() : null);
+    const caseStudySlug = payload?.caseStudySlug || null;
 
     try {
       const res = await fetch("/api/downloadpdfform", {
@@ -204,6 +219,9 @@ export default function DownloadPdfForm() {
             downloadedPdfName: pdfName,
             downloadedPdfUrl: pdfUrl,
           }),
+          ...(caseStudySlug && {
+            caseStudySlug,
+          }),
         }),
         headers: { "Content-Type": "application/json" },
       });
@@ -211,8 +229,11 @@ export default function DownloadPdfForm() {
       if (!res.ok) throw new Error("Failed to send message");
 
       setIsSubmitted(true);
-      setFormSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 5000);
+
+      if (caseStudySlug) {
+        saveDownloadedCaseStudy(caseStudySlug);
+      }
 
       form.reset();
       setEmailVerified(false);
@@ -221,14 +242,12 @@ export default function DownloadPdfForm() {
       if (pdfUrl) {
         try {
           await downloadPdf(pdfUrl, pdfName || undefined);
-          setTimeout(() => setOpenPdfModal(false), 800);
         } catch (e) {
           console.error("PDF download failed:", e);
-          setTimeout(() => setOpenPdfModal(false), 800);
         }
-      } else {
-        setTimeout(() => setOpenPdfModal(false), 800);
       }
+
+      setOpenPdfModal(false);
     } catch (error) {
       setIsNotSubmitted(true);
       setTimeout(() => setIsNotSubmitted(false), 5000);
@@ -353,7 +372,7 @@ export default function DownloadPdfForm() {
                             defaultCountry="IN"
                             international
                             {...field}
-                            className="placeholder:text-[1.05vw]  placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone"
+                            className="placeholder:text-[1.05vw] placeholder:text-[#e8e8e8] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] demophone"
                           />
                         </FormControl>
                         <FormMessage />
@@ -368,7 +387,7 @@ export default function DownloadPdfForm() {
                     aria-label="submit form"
                     className="cursor-pointer mt-[2vw] bg-primary pb-[2.8vw] pt-[0.8vw] px-0 rounded-full max-sm:mx-auto max-md:mt-0 max-sm:py-[7vw] max-sm:mt-[4vw] max-md:py-[4.5vw] max-md:px-[3.5vw]"
                   >
-                    <div className="relative flex items-center justify-center h-fit min-w-[10vw] px-[2vw] rounded-full overflow-hidden  group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
+                    <div className="relative flex items-center justify-center h-fit min-w-[10vw] px-[2vw] rounded-full overflow-hidden group max-md:h-auto max-md:py-[3vw] max-md:px-[4.5vw] max-sm:min-w-[30vw] max-sm:px-[7vw] max-sm:py-[4vw]">
                       <span className="text-22 text-white block z-[1] mt-[2vw] max-md:mt-0 max-sm:text-[4vw]">
                         {isLoading ? "Downloading..." : "Download PDF"}
                       </span>

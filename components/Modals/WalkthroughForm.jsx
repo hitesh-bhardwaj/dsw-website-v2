@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -18,6 +19,9 @@ import { PhoneInput } from "../ui/phone-input";
 import { Button } from "../ui/button";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
 import { useModal } from "../ModalProvider";
+import { pushGTMEvent } from '@/lib/gtm';
+import { p } from "motion/react-m";
+
 
 /* ---------------- SCHEMA ---------------- */
 const formSchema = z.object({
@@ -32,9 +36,11 @@ const formSchema = z.object({
 
 /* ---------------- INPUT STYLES ---------------- */
 const inputClassName =
-  "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border  rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors border-transparent";
+  "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors border-transparent";
 
 export default function WalkthroughForm() {
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -54,15 +60,12 @@ export default function WalkthroughForm() {
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  /* MODAL CONTROLS */
   const {
     walkthroughTarget,
     markWalkthroughCompleted,
     setOpenWalkThrough,
-    // setOpenWalkthroughIframe,
   } = useModal();
 
-  /* ---------------- EMAIL VERIFICATION ---------------- */
   const verifyEmail = useCallback(
     async (email) => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -115,7 +118,6 @@ export default function WalkthroughForm() {
     [setError, clearErrors],
   );
 
-  /* ---------------- SUBMIT ---------------- */
   const onSubmit = async (data) => {
     if (!emailVerified && !emailVerifying) {
       const ok = await verifyEmail(data.email);
@@ -136,12 +138,9 @@ export default function WalkthroughForm() {
 
       if (!res.ok) throw new Error("Failed");
 
-      /* Close form and open iframe */
       markWalkthroughCompleted(walkthroughTarget);
       setOpenWalkThrough(false);
-      // setTimeout(() => {
-      //   setOpenWalkthroughIframe(true);
-      // }, 300);
+      pushGTMEvent('form_submit_success', 'Walkthrough - Success - Demo Launched');
 
       setIsSubmitted(true);
       setTimeout(() => setIsSubmitted(false), 5000);
@@ -155,7 +154,6 @@ export default function WalkthroughForm() {
     }
   };
 
-  /* ---------------- UI ---------------- */
   return (
     <>
       <section className=" h-fit" id="walkthrough-form">
@@ -166,7 +164,6 @@ export default function WalkthroughForm() {
               className="space-y-[1.2vw] max-sm:space-y-[3vw] max-md:space-y-[3vw]"
               onSubmit={handleSubmit(onSubmit)}
             >
-              {/* Name */}
               <FormField
                 name="name"
                 control={control}
@@ -185,7 +182,6 @@ export default function WalkthroughForm() {
                 )}
               />
 
-              {/* Email */}
               <FormField
                 name="email"
                 control={control}
@@ -214,7 +210,6 @@ export default function WalkthroughForm() {
                 )}
               />
 
-              {/* Designation */}
               <FormField
                 name="designation"
                 control={control}
@@ -233,7 +228,6 @@ export default function WalkthroughForm() {
                 )}
               />
 
-              {/* Company Name */}
               <FormField
                 name="company"
                 control={control}
@@ -252,7 +246,6 @@ export default function WalkthroughForm() {
                 )}
               />
 
-              {/* Phone Number */}
               <FormField
                 name="number"
                 control={control}
@@ -273,7 +266,6 @@ export default function WalkthroughForm() {
                 )}
               />
 
-              {/* Submit Button */}
               <Button
                 type="submit"
                 aria-label="submit form"
@@ -291,14 +283,12 @@ export default function WalkthroughForm() {
         </div>
       </section>
 
-      {/* Success Toast */}
       {submitted && (
         <p className="fixed top-[10%] left-1/2 -translate-x-1/2 bg-green-500 text-white px-6 py-3 rounded-lg z-[1000] shadow-lg">
           Form submitted successfully!
         </p>
       )}
 
-      {/* Error Toast */}
       {notsubmitted && (
         <p className="fixed top-[10%] left-1/2 -translate-x-1/2 bg-red-500 text-white px-6 py-3 rounded-lg z-[1000] shadow-lg">
           Error sending message. Please try again.

@@ -2,6 +2,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -18,6 +19,8 @@ import { PhoneInput } from "../ui/phone-input";
 import { Button } from "../ui/button";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
 import { useModal } from "../ModalProvider";
+import { pushGTMEvent } from '@/lib/gtm';
+
 
 const formSchema = z.object({
   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
@@ -33,6 +36,8 @@ const inputClassName =
   "placeholder:text-[1.05vw] pl-[2.5vw] bg-white/80 border rounded-full placeholder:text-[#111] text-[#111] h-[4.5vw] max-sm:placeholder:text-[3.5vw] max-md:placeholder:text-[2.7vw] max-md:pl-[4vw] max-sm:pl-[5vw] max-sm:h-[14vw] max-md:h-[9vw] focus:border-primary-blue focus:outline-none transition-colors border-transparent";
 
 export default function PricingForm() {
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -52,7 +57,7 @@ export default function PricingForm() {
   const [emailVerifying, setEmailVerifying] = useState(false);
   const [emailVerified, setEmailVerified] = useState(false);
 
-  const { setOpenPricing, setFormSubmitted } = useModal();
+  const { setFormSubmitted } = useModal();
 
   const verifyEmail = useCallback(
     async (email) => {
@@ -113,6 +118,22 @@ export default function PricingForm() {
       if (!ok) return;
     }
 
+    if (emailVerifying) {
+      setError("email", {
+        type: "manual",
+        message: "Please wait for email verification to complete.",
+      });
+      return;
+    }
+
+    if (!emailVerified) {
+      setError("email", {
+        type: "manual",
+        message: "Please enter a valid business email address.",
+      });
+      return;
+    }
+
     setIsLoading(true);
 
     try {
@@ -127,14 +148,15 @@ export default function PricingForm() {
 
       if (!res.ok) throw new Error("Failed");
 
+      pushGTMEvent('form_submit_success', 'Pricing - Success - Email Sent');
       setFormSubmitted(true);
-      setOpenPricing(false);
-
       setIsSubmitted(true);
-      setTimeout(() => setIsSubmitted(false), 5000);
-
       form.reset();
       setEmailVerified(false);
+      setEmailVerifying(false);
+
+      router.push("/thank-you");
+      return;
     } catch (error) {
       setIsNotSubmitted(true);
       setTimeout(() => setIsNotSubmitted(false), 5000);
@@ -182,7 +204,10 @@ export default function PricingForm() {
                           placeholder="Business Email*"
                           autoComplete="off"
                           {...field}
-                          onBlur={() => field.onBlur()}
+                          onBlur={(e) => {
+                            field.onBlur();
+                            verifyEmail(e.target.value);
+                          }}
                           className={inputClassName}
                         />
                         {emailVerifying && (
