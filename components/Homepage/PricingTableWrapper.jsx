@@ -1,20 +1,39 @@
+
 import { headers } from "next/headers";
 import PricingTable from "./PricingTable";
 
 export default async function PricingTableWrapper({ searchParams }) {
   const headersList = await headers();
 
-  const country = headersList.get("x-vercel-ip-country") || "IN";
+  // Detect visitor country from Vercel headers
+  const country =
+    headersList.get("x-vercel-ip-country") || "";
 
-  let region = "IN";
+  /*
+    Pricing Logic
 
-  if (country === "US") region = "US";
-  else if (["DE", "FR", "IT"].includes(country)) region = "EU";
+    - India => INR Pricing
+    - Every other country => USD Pricing
+  */
 
-  // 👇 OVERRIDE for testing
+  let region = country === "IN" ? "IN" : "US";
+
+  // Optional manual override for testing
+  // Example:
+  // ?region=IN
+  // ?region=US
   if (searchParams?.region) {
-    region = searchParams.region.toUpperCase();
+    const overrideRegion =
+      searchParams.region.toUpperCase();
+
+    if (["IN", "US"].includes(overrideRegion)) {
+      region = overrideRegion;
+    }
   }
+
+  // Debugging (remove in production)
+  console.log("Detected Country:", country);
+  console.log("Selected Region:", region);
 
   return <PricingTable region={region} />;
 }
