@@ -85,7 +85,7 @@ const PricingTable = ({ region = "IN" }) => {
   const pricingByRegion = {
     IN: {
       currencyLabel: "INR",
-      pricePrefix: "Rs.",
+      pricePrefix: "₹",
       plans: [
         {
           name: "Starter",
@@ -135,7 +135,6 @@ const PricingTable = ({ region = "IN" }) => {
           name: "Enterprise Edition",
           useCases: "Unlimited Use Cases",
           price: "3,95,000",
-          isContact: true,
         },
       ],
     },
