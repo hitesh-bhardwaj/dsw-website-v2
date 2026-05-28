@@ -97,7 +97,6 @@ const Page = () => {
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
         <CTAPricing />
-        <PricingTableWrapper />
         <CaseStudySwiper />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards

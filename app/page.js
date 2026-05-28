@@ -33,9 +33,7 @@ const CertificationsAndAwards = dynamic(
     ssr: true,
   },
 );
-// const ClientsBlur = dynamic(() => import("@/components/Homepage/ClientsBlur"), {
-//   ssr: true,
-// });
+
 const CTAPricing = dynamic(() => import("@/components/CTAPricing"), {
   ssr: true,
 });
@@ -75,7 +73,7 @@ export default function Home() {
           <Clients />
           <RealWorldOutcomes />
           <CTAPricing />
-          <PricingTableWrapper/> 
+          {/* <PricingTableWrapper/>  */}
           <CertificationsAndAwards
             certificationsContent={certificationsContent}
           />

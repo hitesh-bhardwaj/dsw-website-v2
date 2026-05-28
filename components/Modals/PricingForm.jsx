@@ -20,6 +20,8 @@ import { Button } from "../ui/button";
 import { isEmailDomainBlocked } from "@/lib/blockedEmailDomains";
 import { useModal } from "../ModalProvider";
 import { pushGTMEvent } from '@/lib/gtm';
+import HeadingAnim from "../Animations/HeadingAnim";
+import Copy from "../Animations/Copy";
 
 
 const formSchema = z.object({
@@ -60,57 +62,33 @@ export default function PricingForm() {
   const { setFormSubmitted } = useModal();
 
   const verifyEmail = useCallback(
-    async (email) => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  async (email) => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-      if (!email || !emailRegex.test(email)) {
-        setEmailVerified(false);
-        return false;
-      }
+    if (!email || !emailRegex.test(email)) {
+      setEmailVerified(false);
+      return false;
+    }
 
-      if (isEmailDomainBlocked(email)) {
-        setEmailVerified(false);
-        setError("email", {
-          type: "manual",
-          message: "Please use your business email address to continue.",
-        });
-        return false;
-      }
+    if (isEmailDomainBlocked(email)) {
+      setEmailVerified(false);
 
-      setEmailVerifying(true);
-      clearErrors("email");
+      setError("email", {
+        type: "manual",
+        message: "Please use your business email address.",
+      });
 
-      try {
-        const response = await fetch("/api/verify-email", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email }),
-        });
+      return false;
+    }
 
-        const data = await response.json();
+    // TEMPORARY: bypass API validation
+    setEmailVerified(true);
+    clearErrors("email");
 
-        if (response.ok && data.valid) {
-          setEmailVerified(true);
-          clearErrors("email");
-          return true;
-        }
-
-        setEmailVerified(false);
-        setError("email", {
-          type: "manual",
-          message: "Please enter a valid business email address.",
-        });
-        return false;
-      } catch (error) {
-        setEmailVerified(true);
-        clearErrors("email");
-        return true;
-      } finally {
-        setEmailVerifying(false);
-      }
-    },
-    [setError, clearErrors]
-  );
+    return true;
+  },
+  [setError, clearErrors]
+);
 
   const onSubmit = async (data) => {
     if (!emailVerified && !emailVerifying) {
@@ -167,8 +145,21 @@ export default function PricingForm() {
 
   return (
     <>
-      <section className="h-fit" id="pricing-form">
-        <div className="flex w-full flex-col">
+      <section className="h-fit px-[5vw] py-[7%] flex w-full max-md:flex-col " id="pricing-form">
+        <div className="w-[50%] max-md:w-full space-y-[1vw]  max-md:space-y-[2vw] max-sm:space-y-[2vw] mb-[4vw] sticky top-[20%] h-fit max-md:static max-md:mb-[15vw]">
+          <HeadingAnim>
+            <h2 className="text-76 font-heading leading-[1.2] text-[#0a1b4b]">
+              See Pricing Details
+            </h2>
+
+          </HeadingAnim>
+          <Copy>
+            <p className="text-24 font-sans tracking-wide text-[#333] max-md:pl-[1vw]">
+              Fill out the form
+            </p>
+          </Copy>
+          </div>
+        <div className="flex w-[50%] max-md:w-full flex-col h-full fadeup ">
           <Form {...form}>
             <form
               autoComplete="off"

@@ -11,80 +11,68 @@ const nextConfig = {
   // Optimize CSS loading
   experimental: {
     optimizeCss: true, // Enable CSS optimization
-    optimizePackageImports: ['lucide-react', '@apollo/client'], // Tree-shake packages
+    optimizePackageImports: ["lucide-react", "@apollo/client"], // Tree-shake packages
   },
 
-  images: {
-    formats: ["image/avif", "image/webp"],
-    minimumCacheTTL: 31536000, // 1 year
-    qualities: [50, 75, 85, 90, 100],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "darkseagreen-chicken-141904.hostingersite.com",
-        pathname: "/wp-content/uploads/**",
-      },
-    ],
-  },
+  images: { formats: ["image/avif", "image/webp"], minimumCacheTTL: 31536000, qualities: [50, 75, 85, 90, 100], remotePatterns: [ { protocol: "https", hostname: "darkseagreen-chicken-141904.hostingersite.com", pathname: "/wp-content/uploads/**", }, { protocol: "https", hostname: "wordpress.datasciencewizards.ai", pathname: "/wp-content/uploads/**", }, ], },
 
   async redirects() {
     return [
       {
-        source: '/enterpriseAIoperatingsystem/analyticsindiamagazine',
-        destination: '/enterpriseAIoperatingsystem/analyticsindiamagazine.pdf',
+        source: "/enterpriseAIoperatingsystem/analyticsindiamagazine",
+        destination: "/enterpriseAIoperatingsystem/analyticsindiamagazine.pdf",
         permanent: true,
       },
       {
-        source: '/dsw-enterprise-ai-operating-system',
-        destination: '/dsw-enterprise-ai-operating-system.pdf',
+        source: "/dsw-enterprise-ai-operating-system",
+        destination: "/dsw-enterprise-ai-operating-system.pdf",
         permanent: true,
       },
       {
-        source: '/dsw-enterprise-aios-technical-brochure',
-        destination: '/dsw-enterprise-aios-technical-brochure.pdf',
+        source: "/dsw-enterprise-aios-technical-brochure",
+        destination: "/dsw-enterprise-aios-technical-brochure.pdf",
         permanent: true,
       },
       {
-        source: '/dsw-pilot-program',
-        destination: '/dsw-pilot-program.pdf',
+        source: "/dsw-pilot-program",
+        destination: "/dsw-pilot-program.pdf",
         permanent: true,
       },
-    ]
+    ];
   },
 
   compress: true,
   // productionBrowserSourceMaps: true,
 
   async headers() {
-
     const csp = [
       "default-src 'self'",
 
-      // ✅ Scripts (Next + Vercel + Google)
+      // ✅ Scripts
       "script-src 'self' 'unsafe-inline' 'unsafe-eval' blob: https://va.vercel-scripts.com https://www.googletagmanager.com https://www.google-analytics.com",
 
       // ✅ Styles
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
 
-      // ✅ Images (GA uses pixels)
-      "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in https://stats.g.doubleclick.net",
+      // ✅ Images
+      "img-src 'self' data: blob: https://bisque-okapi-883422.hostingersite.com https://darkseagreen-chicken-141904.hostingersite.com https://wordpress.datasciencewizards.ai https://i.ytimg.com https://www.google-analytics.com https://www.googletagmanager.com https://www.google.com https://www.google.co.in https://stats.g.doubleclick.net",
 
       // ✅ Fonts
       "font-src 'self' data: https://fonts.gstatic.com",
 
-      // ✅ Analytics & fetch requests
+      // ✅ API / Analytics
       "connect-src 'self' https: https://va.vercel-scripts.com https://www.google-analytics.com https://analytics.google.com https://stats.g.doubleclick.net",
 
-      // ✅ Media
-      "media-src 'self' blob: https://www.youtube.com https://*.googlevideo.com",
+      // ✅ Videos / Audio
+      "media-src 'self' blob: https://www.youtube.com https://*.googlevideo.com https://wordpress.datasciencewizards.ai",
 
-      // ✅ Iframes (GTM preview + YouTube)
+      // ✅ Iframes
       "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com https://www.googletagmanager.com",
 
       // ✅ Workers
       "worker-src 'self' blob:",
 
-      // ✅ Security hardening
+      // ✅ Security
       "object-src 'none'",
       "frame-ancestors 'self'",
       "upgrade-insecure-requests",

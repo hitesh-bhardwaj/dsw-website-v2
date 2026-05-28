@@ -11,6 +11,7 @@ import Focus from "@/components/Svg/Solutions/Focus";
 import React from "react";
 import HeroNew from "@/components/Layout/HeroNew";
 import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
+import CTAPricing from "@/components/CTAPricing";
 
 const Runtime = dynamic(() => import("@/components/Solution/Runtime"), {
   ssr: true,
@@ -90,9 +91,8 @@ const Page = () => {
         <Breaks breaksContent={breaksContent} />
         <Features featuresContent={featuresContent} />
         <WorkFlows workflowsContent={workflowsContent} />
-        <div className="mt-[10vw] max-sm:mt-[30vw] max-md:mt-[15vw]">
-        <PricingTableWrapper />
-        </div>
+                  <CTAPricing />
+
         <CaseStudy caseStudyContent={caseStudyContent} />
         <Operations operationsContent={operationsContent} />
         <CertificationsAndAwards

@@ -57,7 +57,6 @@ const Page = () => {
         <HomepageVideo/>
         <ArchitecturalPrinciples />
         <CTAPricing />
-        <PricingTableWrapper />
         <FiveAnchors />
         <SystemStructure />
         <GovernanceBuiltIn />

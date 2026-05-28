@@ -1,6 +1,8 @@
 "use client";
 
 import React from "react";
+import HeadingAnim from "../Animations/HeadingAnim";
+import Copy from "../Animations/Copy";
 
 const CheckIcon = () => (
   <svg
@@ -116,23 +118,23 @@ const PricingTable = ({ region = "IN" }) => {
         {
           name: "Starter",
           useCases: "Upto 5 Use Cases",
-          price: "54,000",
+          price: "50,000",
         },
         {
           name: "Growth",
           useCases: "Upto 15 Use Cases",
-          price: "102,000",
+          price: "95,000",
           popular: true,
         },
         {
           name: "Scale",
           useCases: "Upto 40 Use Cases",
-          price: "180,000",
+          price: "1,50,000",
         },
         {
           name: "Enterprise Edition",
           useCases: "Unlimited Use Cases",
-          price: "Contact Sales",
+          price: "3,95,000",
           isContact: true,
         },
       ],
@@ -179,13 +181,15 @@ const PricingTable = ({ region = "IN" }) => {
   };
 
   return (
-    <section className="w-full bg-white px-[4vw] pb-[5vw] mt-[-3vw] max-md:mt-[-25vw] max-md:px-0 fadeup">
-      <h2 className="text-center text-[#071B52] text-[3vw] leading-[1.1] font-normal mb-[5.2vw] max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
-        UnifyAI OS Pricing
+    <section className="w-full  px-[5vw] pb-[5vw] py-[7%] relative z-[100] bg-white max-md:py-[15%] max-md:px-0">
+      <HeadingAnim>
+      <h2 className="text-center mx-auto text-[#071B52] w-[85%] text-76 leading-[1.2] font-normal mb-[7vw] max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
+        The New Economics of Enterprise AI : Scale Unlimitedly with a Single Subscription.
       </h2>
+      </HeadingAnim>
 
-      <div className="w-full max-md:overflow-x-auto max-sm:pb-[8vw] mobile-scrollbar max-md:px-[7vw] max-md:py-[10vw]">
-        <div className="grid grid-cols-[2.05fr_repeat(4,1fr)] gap-[1vw] min-w-[92vw] max-md:min-w-[200vw] max-sm:min-w-[345vw] max-md:gap-[2vw] max-sm:gap-[4vw]">
+      <div className="w-full max-md:overflow-x-auto max-sm:pb-[8vw] mobile-scrollbar max-md:px-[7vw] max-md:py-[10vw] fadeup">
+        <div className="grid grid-cols-[2.05fr_repeat(4,1fr)] gap-[1vw] max-md:min-w-[200vw] max-sm:min-w-[345vw] max-md:gap-[2vw] max-sm:gap-[4vw]">
           <div className="overflow-hidden rounded-[1vw] border border-[#D9D9D9] bg-[#EAF4FF] max-md:rounded-[2vw] max-sm:rounded-[4vw]">
             <div className="h-[4.5vw] bg-[#0205FA] flex items-center px-[2vw] max-md:h-[8vw] max-sm:h-[14vw] max-sm:px-[5vw]">
               <h3 className="text-white text-[1.35vw] font-medium max-md:text-[2.5vw] max-sm:text-[5vw]">
@@ -212,16 +216,16 @@ const PricingTable = ({ region = "IN" }) => {
           {activePricing.plans.map((plan) => (
             <div
               key={plan.name}
-              className={`relative rounded-[1vw] bg-white border overflow-visible max-md:rounded-[2vw] max-sm:rounded-[4vw] border-[#D9D9D9]`}
+              className={`relative rounded-[1vw] pointer-events-none bg-white border overflow-visible max-md:rounded-[2vw] max-sm:rounded-[4vw] border-[#D9D9D9]`}
             >
               {plan.popular && (
                 <div className="w-[105%] h-[110%] rounded-[1vw] border border-[#0205FA] absolute top-[-5%] left-[-2.5%] z-[2] max-sm:rounded-[4vw]">
 
-                <div className="absolute top-[-2%] left-1/2 -translate-x-1/2 z-10 h-[1.8vw] min-w-[9.6vw] rounded-full border border-[#0205FA] bg-white flex items-center justify-center px-[1.2vw] max-md:top-[-1.7vw] max-md:h-[3.4vw] max-md:min-w-[17vw] max-sm:top-[-3.5vw] max-sm:h-[7vw] max-sm:min-w-[35vw]">
-                  <span className="text-[#0205FA] text-[1vw] font-medium leading-none max-md:text-[2vw] max-sm:text-[4vw]">
-                    Most Popular
-                  </span>
-                </div>
+                  <div className="absolute top-[-2%] left-1/2 -translate-x-1/2 z-10 h-[1.8vw] min-w-[9.6vw] rounded-full border border-[#0205FA] bg-white flex items-center justify-center px-[1.2vw] max-md:top-[-1.7vw] max-md:h-[3.4vw] max-md:min-w-[17vw] max-sm:top-[-3.5vw] max-sm:h-[7vw] max-sm:min-w-[35vw]">
+                    <span className="text-[#0205FA] text-[1vw] font-medium leading-none max-md:text-[2vw] max-sm:text-[4vw]">
+                      Most Popular
+                    </span>
+                  </div>
                 </div>
               )}
 
@@ -260,10 +264,13 @@ const PricingTable = ({ region = "IN" }) => {
         </div>
       </div>
 
+<Copy>
       <div className="mt-[3vw] text-[#111111] text-[1.35vw] leading-[1.6] max-md:text-[2.5vw] max-md:mt-[5vw] max-sm:text-[4.6vw] max-sm:px-[5vw] max-sm:mt-[6vw] max-md:px-[7vw]">
         <p>* All prices are exclusive of applicable taxes</p>
         <p>* No separate installation or activation charges</p>
       </div>
+
+</Copy>
     </section>
   );
 };

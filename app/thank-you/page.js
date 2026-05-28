@@ -13,6 +13,9 @@ const page = () => {
         </HeadingAnim>
         <Copy delay={0.5}>
         <p>The form has been submitted</p>
+        </Copy>
+        <Copy delay={0.5}>
+
         <p>Our Team will contact you shortly.</p>
         </Copy>
       </section>
