@@ -194,6 +194,13 @@ export const NAV_LINKS = [
     },
   },
 
+
+  {
+    id: "pricing",
+    label: "Pricing",
+    href: "/pricing",
+    drop: false,
+  },
   {
     id: "about",
     label: "About Us",

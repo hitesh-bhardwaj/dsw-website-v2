@@ -134,7 +134,8 @@ const PricingTable = ({ region = "IN" }) => {
         {
           name: "Enterprise Edition",
           useCases: "Unlimited Use Cases",
-          price: "3,95,000",
+          price: "Contact Sales",
+          isContact: true,
         },
       ],
     },
@@ -183,14 +184,35 @@ const PricingTable = ({ region = "IN" }) => {
     <section className="w-full  px-[5vw] pb-[5vw] py-[7%] relative z-[100] bg-white max-md:py-[15%] max-md:px-0">
       <HeadingAnim>
         <h2 className="text-center mx-auto text-[#071B52] w-[85%] text-76 leading-[1.2] mb-8 font-normal max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
-          The New Economics of Enterprise AI : Scale Unlimitedly with a Single Subscription.
+          Scale your AI. Not Cost.
         </h2>
       </HeadingAnim>
-      <Copy>
-        <p className="w-[70%] mx-auto text-24 mb-[7vw] text-center max-md:w-[90%] ">
-          Most AI platforms charge you every time you scale-per model, per agent, and per workflow. DSW UnifyAI OS changes the economics of enterprise AI. With our single subscription and centralized, governed runtime, you can build, deploy, and operate unlimited AI and Agentic AI use cases at predictable enterprise scale.
-        </p>
-      </Copy>
+      <div className=" mb-[7vw] space-y-[1vw] max-sm:space-y-[4vw]">
+        <Copy>
+          <p className="w-[70%] mx-auto text-24 text-center max-md:w-[90%] ">
+            Most AI vendors charge more every time you add a model, deploy an agent, expand a workflow, or launch a new use case. What begins as a pilot often becomes a growing collection of licenses, subscriptions, and usage-based costs.
+
+          </p>
+        </Copy>
+        <Copy>
+          <p className="w-[70%] mx-auto text-24 text-center max-md:w-[90%] ">
+            DSW UnifyAI OS changes that model entirely.
+          </p>
+        </Copy>
+        <Copy>
+          <p className="w-[70%] mx-auto text-24 text-center max-md:w-[90%] ">
+            With a single subscription and one governed runtime, enterprises can build, deploy, govern, and operate unlimited AI and Agentic AI use cases across the organization. No per-model pricing. No per-agent pricing. No penalties for scaling innovation.
+
+          </p>
+        </Copy>
+        <Copy>
+          <p className="w-[70%] mx-auto text-24 text-center max-md:w-[90%] ">
+            Because enterprise AI should scale outcomes, not costs.
+
+          </p>
+        </Copy>
+
+      </div>
 
       <div className="w-full max-md:overflow-x-auto max-sm:pb-[8vw] mobile-scrollbar max-md:px-[7vw] max-md:py-[10vw] fadeup">
         <div className="grid grid-cols-[2.05fr_repeat(4,1fr)] gap-[1vw] max-md:min-w-[200vw] max-sm:min-w-[345vw] max-md:gap-[2vw] max-sm:gap-[4vw]">

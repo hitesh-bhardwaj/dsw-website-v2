@@ -33,6 +33,12 @@ export default function CTAFinal({ ctaContent }) {
             {ctaContent.para}
           </p>
         </Copy>
+        {ctaContent.para2 && (
+        <Copy>
+          <p className={`text-30 text-center max-md:w-[90%] text-foreground max-sm:w-full mx-auto max-sm:font-light ${ctaContent.paraWidth ? ctaContent.paraWidth : "w-[70%]"}`}>
+            {ctaContent.para2}
+          </p>
+        </Copy>)}
 
         {/* CTA Buttons */}
         {showButtons && (

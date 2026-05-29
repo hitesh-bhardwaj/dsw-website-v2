@@ -63,8 +63,8 @@ export default Page;
 
 const heroContent = {
   tagline:
-    "Eliminate unpredictable per-model and per-agent costs with a unified enterprise AI operating system.",
-  heading: "<span class='text-primary-blue shimmer-text'>One Subscription.</span><br/> Unlimited Scale.<br/> Zero Pricing Surprises.",
+    "Enterprise AI Pricing Reimagined",
+  heading: "<span class='text-primary-blue shimmer-text'>One Subscription.</span><br/> Unlimited AI.<br/> Predictable Enterprise Scale.",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -78,13 +78,15 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  // para: "Most AI platforms charge you every time your AI scales-per model, per agent, and per workflow. DSW UnifyAI OS changes the economics of enterprise AI. With a single subscription and a centralized, governed runtime, you can build, deploy, and operate unlimited AI and Agentic AI use cases. Stop managing a fragmented AI stack and unpredictable scaling bills. ",
+  para: "Break free from per-model, per-agent, and per-workflow pricing. DSW UnifyAI OS gives enterprises a single subscription to build, deploy, govern, and operate AI and Agentic AI at scale without unpredictable cost escalation.",
 };
 
 
 const ctaContent = {
-  heading: "Own How AI Runs in Your Enterprise",
-  para: "DSW UnifyAI OS is the enterprise AI operating system layer that sits on top of your existing OS and infrastructure – putting enterprises in control of how AI is built, governed, and operated at scale.",
+  heading: "Own How AI Runs Across Your Enterprise",
+  para: "DSW UnifyAI OS is the Enterprise AI Operating System runs like a horizontal layer on top of your current infrastructure or OS, without disturbing it. Deploy on-premises, in the cloud, or in hybrid environments while maintaining full ownership of enterprise-built AI assets.",
+  para2: "Retain complete control of your AI strategy with no vendor lock-in, while operating AI securely and consistently across the enterprise.",
+  paraWidth:"w-[85%]",
   primaryButton: {
     present: true,
     link: "#",

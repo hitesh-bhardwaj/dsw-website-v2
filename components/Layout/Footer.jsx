@@ -41,10 +41,12 @@ export default function FooterNew() {
   ];
 
   const navigationLinks = [
-    { title: "Technology", link: "/aios-technical", id: "technology" },
     { title: "Solutions", link: "/solutions/insurance", id: "solutions" },
+    { title: "Technology", link: "/aios-technical", id: "technology" },
+    { title: "Open Source", link: "/dsw-open-source", id: "open-source" },
     { title: "Case Studies", link: "/casestudies", id: "case-studies" },
-    { title: "Resources", link: "/blogs", id: "resources" },
+    { title: "Blogs", link: "/blogs", id: "resources" },
+    { title: "Pricing", link: "/pricing", id: "pricing" },
   ];
 
   const companyLinks = [
@@ -244,7 +246,7 @@ export default function FooterNew() {
             {/* Navigation */}
             <div className="space-y-[1.2vw] max-sm:space-y-[2vw] max-md:w-[55%] max-sm:w-full">
               <p className="text-24 font-medium max-md:text-[3vw] max-sm:text-[5.5vw]">
-                Navigation
+                Quick Links
               </p>
 
               <ul className="space-y-[0.85vw] max-md:space-y-[1vw] max-sm:space-y-[2vw]">

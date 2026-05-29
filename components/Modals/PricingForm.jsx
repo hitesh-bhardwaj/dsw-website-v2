@@ -145,17 +145,18 @@ export default function PricingForm() {
 
   return (
     <>
-      <section className="h-fit px-[5vw] py-[7%] flex w-full max-md:flex-col " id="pricing-form">
-        <div className="w-[50%] max-md:w-full space-y-[1vw]  max-md:space-y-[2vw] max-sm:space-y-[2vw] mb-[4vw] sticky top-[20%] h-fit max-md:static max-md:mb-[15vw]">
+      <section className="h-fit px-[5vw] py-[7%] flex w-full max-md:flex-col justify-between " id="pricing-form">
+        <div className="w-[40%] max-md:w-full space-y-[1vw]  max-md:space-y-[2vw] max-sm:space-y-[2vw] mb-[4vw] sticky top-[20%] h-fit max-md:static max-md:mb-[15vw]">
           <HeadingAnim>
             <h2 className="text-76 font-heading leading-[1.2] text-[#0a1b4b]">
-              See Pricing Details
+             Get Pricing 
+
             </h2>
 
           </HeadingAnim>
           <Copy>
             <p className="text-24 font-sans tracking-wide text-[#333] max-md:pl-[1vw]">
-              Fill out the form
+              Share your requirements and our team will guide you to the right subscription model.
             </p>
           </Copy>
           </div>
