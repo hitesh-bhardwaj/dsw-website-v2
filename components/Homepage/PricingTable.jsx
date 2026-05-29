@@ -182,10 +182,15 @@ const PricingTable = ({ region = "IN" }) => {
   return (
     <section className="w-full  px-[5vw] pb-[5vw] py-[7%] relative z-[100] bg-white max-md:py-[15%] max-md:px-0">
       <HeadingAnim>
-      <h2 className="text-center mx-auto text-[#071B52] w-[85%] text-76 leading-[1.2] font-normal mb-[7vw] max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
-        The New Economics of Enterprise AI : Scale Unlimitedly with a Single Subscription.
-      </h2>
+        <h2 className="text-center mx-auto text-[#071B52] w-[85%] text-76 leading-[1.2] mb-8 font-normal max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
+          The New Economics of Enterprise AI : Scale Unlimitedly with a Single Subscription.
+        </h2>
       </HeadingAnim>
+      <Copy>
+        <p className="w-[70%] mx-auto text-24 mb-[7vw] text-center max-md:w-[90%] ">
+          Most AI platforms charge you every time you scale-per model, per agent, and per workflow. DSW UnifyAI OS changes the economics of enterprise AI. With our single subscription and centralized, governed runtime, you can build, deploy, and operate unlimited AI and Agentic AI use cases at predictable enterprise scale.
+        </p>
+      </Copy>
 
       <div className="w-full max-md:overflow-x-auto max-sm:pb-[8vw] mobile-scrollbar max-md:px-[7vw] max-md:py-[10vw] fadeup">
         <div className="grid grid-cols-[2.05fr_repeat(4,1fr)] gap-[1vw] max-md:min-w-[200vw] max-sm:min-w-[345vw] max-md:gap-[2vw] max-sm:gap-[4vw]">
@@ -263,13 +268,13 @@ const PricingTable = ({ region = "IN" }) => {
         </div>
       </div>
 
-<Copy>
-      <div className="mt-[3vw] text-[#111111] text-[1.35vw] leading-[1.6] max-md:text-[2.5vw] max-md:mt-[5vw] max-sm:text-[4.6vw] max-sm:px-[5vw] max-sm:mt-[6vw] max-md:px-[7vw]">
-        <p>* All prices are exclusive of applicable taxes</p>
-        <p>* No separate installation or activation charges</p>
-      </div>
+      <Copy>
+        <div className="mt-[3vw] text-[#111111] text-[1.35vw] leading-[1.6] max-md:text-[2.5vw] max-md:mt-[5vw] max-sm:text-[4.6vw] max-sm:px-[5vw] max-sm:mt-[6vw] max-md:px-[7vw]">
+          <p>* All prices are exclusive of applicable taxes</p>
+          <p>* No separate installation or activation charges</p>
+        </div>
 
-</Copy>
+      </Copy>
     </section>
   );
 };

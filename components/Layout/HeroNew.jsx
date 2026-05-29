@@ -8,8 +8,7 @@ import { useModal } from "../ModalProvider";
 import dynamic from "next/dynamic";
 import PrimaryButton from "../Buttons/PrimaryButton";
 import SecondaryButton from "../Buttons/SecondaryButton";
-// import PrimaryButton from "../PrimaryButton";
-// import SecondaryButton from "./SecondaryButton";
+
 import { pushGTMEvent } from '@/lib/gtm';
 
 const DynamicWaveGrid = dynamic(() => import("../Homepage/HeroBgWorker"), {

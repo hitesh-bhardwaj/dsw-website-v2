@@ -64,7 +64,7 @@ export default Page;
 const heroContent = {
   tagline:
     "Eliminate unpredictable per-model and per-agent costs with a unified enterprise AI operating system.",
-  heading: "One Subscription. Unlimited Scale. Zero Pricing Surprises.",
+  heading: "<span class='text-primary-blue shimmer-text'>One Subscription.</span><br/> Unlimited Scale.<br/> Zero Pricing Surprises.",
   headingWidth: "w-[84%]",
   primaryButton: {
     present: false,
@@ -78,7 +78,7 @@ const heroContent = {
   },
   paraWidth: "w-[60%]",
   images: false,
-  para: "Most AI platforms charge you every time your AI scales-per model, per agent, and per workflow. DSW UnifyAI OS changes the economics of enterprise AI. With a single subscription and a centralized, governed runtime, you can build, deploy, and operate unlimited AI and Agentic AI use cases. Stop managing a fragmented AI stack and unpredictable scaling bills. ",
+  // para: "Most AI platforms charge you every time your AI scales-per model, per agent, and per workflow. DSW UnifyAI OS changes the economics of enterprise AI. With a single subscription and a centralized, governed runtime, you can build, deploy, and operate unlimited AI and Agentic AI use cases. Stop managing a fragmented AI stack and unpredictable scaling bills. ",
 };
 
 
