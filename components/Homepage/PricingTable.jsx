@@ -181,7 +181,7 @@ const PricingTable = ({ region = "IN" }) => {
   };
 
   return (
-    <section className="w-full  px-[5vw] pb-[5vw] py-[7%] relative z-[100] bg-white max-md:py-[15%] max-md:px-0">
+    <section className="w-full  px-[5vw] pb-[5vw] py-[7%] relative z-100 bg-white max-md:py-[15%] max-md:px-0">
       <HeadingAnim>
         <h2 className="text-center mx-auto text-[#071B52] w-[85%] text-76 leading-[1.2] mb-8 font-normal max-md:text-[5vw] max-md:mb-[8vw] max-sm:text-[9vw] max-sm:mb-[10vw]">
           Scale your AI. Not Cost.
@@ -245,7 +245,7 @@ const PricingTable = ({ region = "IN" }) => {
               className={`relative rounded-[1vw] pointer-events-none bg-white border overflow-visible max-md:rounded-[2vw] max-sm:rounded-[4vw] border-[#D9D9D9]`}
             >
               {plan.popular && (
-                <div className="w-[105%] h-[110%] rounded-[1vw] border border-[#0205FA] absolute top-[-5%] left-[-2.5%] z-[2] max-sm:rounded-[4vw]">
+                <div className="w-[105%] h-[110%] rounded-[1vw] border border-[#0205FA] absolute top-[-5%] left-[-2.5%] z-2 max-sm:rounded-[4vw]">
 
                   <div className="absolute top-[-2%] left-1/2 -translate-x-1/2 z-10 h-[1.8vw] min-w-[9.6vw] rounded-full border border-[#0205FA] bg-white flex items-center justify-center px-[1.2vw] max-md:top-[-1.7vw] max-md:h-[3.4vw] max-md:min-w-[17vw] max-sm:top-[-3.5vw] max-sm:h-[7vw] max-sm:min-w-[35vw]">
                     <span className="text-[#0205FA] text-[1vw] font-medium leading-none max-md:text-[2vw] max-sm:text-[4vw]">

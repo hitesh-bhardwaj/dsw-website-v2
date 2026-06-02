@@ -2,14 +2,14 @@ import { getPageMetadata } from "@/components/config/metadata";
 import Layout from "@/components/Layout/Layout";
 import { WebpageJsonLd } from "@/lib/json-ld";
 import { homepage } from "@/lib/util";
-import dynamic from "next/dynamic";
+import nextDynamic from "next/dynamic";
 
 import React from "react";
 import HeroNew from "@/components/Layout/HeroNew";
 import PricingTableWrapper from "@/components/Homepage/PricingTableWrapper";
 import PricingForm from "@/components/Modals/PricingForm";
 
-const CTAFinal = dynamic(() => import("@/components/CTAFinal"), {
+const CTAFinal = nextDynamic(() => import("@/components/CTAFinal"), {
   ssr: true,
 });
 
@@ -64,6 +64,8 @@ export const metadata = getPageMetadata({
     images: [`${homepage}seo/pricing-page.png`],
   },
 });
+
+export const dynamic = "force-dynamic";
 
 const Page = () => {
   return (
