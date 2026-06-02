@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HeadingAnim from "../Animations/HeadingAnim";
 import Copy from "../Animations/Copy";
 
@@ -181,18 +181,36 @@ const PricingTable = ({ region = "IN" }) => {
   ];
 
   const scrollRef = useRef(null);
+  const progressFrameRef = useRef(null);
   const [scrollProgress, setScrollProgress] = useState(0);
 
   const handleScroll = () => {
     if (!scrollRef.current) return;
 
-    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    if (progressFrameRef.current) {
+      cancelAnimationFrame(progressFrameRef.current);
+    }
 
-    const progress =
-      (scrollLeft / (scrollWidth - clientWidth)) * 100;
+    progressFrameRef.current = requestAnimationFrame(() => {
+      if (!scrollRef.current) return;
 
-    setScrollProgress(progress);
+      const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+      const maxScroll = scrollWidth - clientWidth;
+      const progress =
+        maxScroll > 0 ? Math.min(Math.max((scrollLeft / maxScroll) * 100, 0), 100) : 0;
+
+      setScrollProgress(Number(progress.toFixed(2)));
+      progressFrameRef.current = null;
+    });
   };
+
+  useEffect(() => {
+    return () => {
+      if (progressFrameRef.current) {
+        cancelAnimationFrame(progressFrameRef.current);
+      }
+    };
+  }, []);
 
   const getPrice = (plan) => {
     if (plan.isContact) return plan.price;
@@ -241,7 +259,7 @@ const PricingTable = ({ region = "IN" }) => {
       <div
         ref={scrollRef}
         onScroll={handleScroll}
-        className="w-full overflow-hidden max-md:overflow-x-auto max-md:overflow-y-hidden py-[4vw] max-md:px-[7vw] max-md:py-[10vw] max-sm:pb-[8vw] fadeup"
+        className="pricing-scroll-region w-full overflow-hidden max-md:overflow-x-auto max-md:overflow-y-hidden py-[4vw] max-md:px-[7vw] max-md:py-[10vw] max-sm:pb-[8vw] fadeup"
       >
         <div className="grid grid-cols-[2.05fr_repeat(4,1fr)] gap-[1vw] pb-[16px] max-md:min-w-[200vw] max-sm:min-w-[300vw] max-md:gap-[2vw] max-sm:gap-[4vw] max-sm:grid-cols-[2.3fr_repeat(4,1.5fr)]">
           <div className="overflow-hidden rounded-[1vw] border border-[#D9D9D9] bg-[#EAF4FF] max-md:rounded-[2vw] max-sm:rounded-[4vw]">
@@ -338,6 +356,23 @@ const PricingTable = ({ region = "IN" }) => {
         </div>
 
       </Copy>
+
+      <style jsx>{`
+        .pricing-scroll-region {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+          transform: translateZ(0);
+          backface-visibility: hidden;
+        }
+
+        .pricing-scroll-region::-webkit-scrollbar {
+          display: none;
+          width: 0;
+          height: 0;
+          background: transparent;
+        }
+      `}</style>
     </section>
   );
 };
