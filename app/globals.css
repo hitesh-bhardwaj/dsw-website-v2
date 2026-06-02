@@ -658,3 +658,40 @@ h6 {
     background-position: -0% center;
   }
 }
+
+
+/* pricing table scrollbar  */
+/* Mobile / Tablet horizontal scrollbar */
+.mobile-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #0206fa00 #EAF4FF;
+}
+
+.mobile-scrollbar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-track {
+  background: #EAF4FF;
+  border-radius: 999px;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-thumb {
+  background: #0205FA;
+  border-radius: 999px;
+}
+
+.mobile-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #071B52;
+}
+
+/* Hide scrollbar on desktop */
+@media (min-width: 768px) {
+  .mobile-scrollbar::-webkit-scrollbar {
+    height: 0;
+  }
+
+  .mobile-scrollbar {
+    scrollbar-width: none;
+  }
+}
